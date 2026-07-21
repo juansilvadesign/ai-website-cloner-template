@@ -9,6 +9,11 @@ user-invocable: true
 
 You are about to reverse-engineer and rebuild **$ARGUMENTS** as pixel-perfect clones.
 
+Every run also emits a portable **OpenDesign design system** to `design-systems/<slug>/`
+(see [Phase 6](#phase-6-emit-the-design-system-always-on)) — the design-system-first
+output of this fork. It hangs off the global extraction, so it is produced even when you
+skip the page build (`--build none`).
+
 When multiple URLs are provided, process them independently and in parallel where possible, while keeping each site's extraction artifacts isolated in dedicated folders (for example, `docs/research/<hostname>/`).
 
 This is not a two-phase process (inspect then build). You are a **foreman walking the job site** — as you inspect each section of the page, you write a detailed specification to a file, then hand that file to a specialist builder agent with everything they need. Extraction and construction happen in parallel, but extraction is meticulous and produces auditable artifacts.
@@ -427,6 +432,61 @@ After assembly, do NOT declare the clone complete. Take side-by-side comparison 
 6. Verify smooth scroll feels right, header transitions work, tab switching works, animations play
 
 Only after this visual QA pass is the clone complete.
+
+## Phase 6: Emit the Design System (always-on)
+
+Every run emits a portable **OpenDesign** design system to `design-systems/<slug>/`,
+independent of the page build (produced even with `--build none`). It hangs off the
+**Phase 1–2 global extraction** (colors, type, spacing, radius, shadow, fonts, layout) plus
+the component inventory — not the section builders. `<slug>` defaults to the normalized
+hostname; override with `--slug`.
+
+### Step 1 — Serialize the extracted tokens
+
+Write `design-systems/<slug>/source/tokens.source.json`, mapping the values you already
+extracted onto the emitter's `themes.light` (and `themes.dark` if the site has a dark
+theme). List **only** the slots you have a real or derived value for — the emitter fills
+the rest from OpenDesign's A2 fallbacks and B-slot aliases. For each entry record `value`,
+`confidence` (`high` | `derived` | `fallback`), and a `source` (`file:line` or selector).
+Every OpenDesign **A1** slot must have a value (no fallback exists). Do **not** hardcode a
+slot list — the emitter reads OpenDesign's `TOKEN_SCHEMA` at build time (resolved via
+`--od-root`, default the sibling `knowledge/skills/open-design`).
+
+### Step 2 — Author the prose
+
+Author these by hand (the emitter does not):
+- `DESIGN.md` — ≥7 `##` sections (personality, color roles, typography, spacing/layout,
+  components + states, motion, accessibility, anti-patterns).
+- `USAGE.md` — must include `## Read Order`, `## Design Highlights`, `## Do`, `## Avoid`.
+- `components.html` — a token-wired fixture: **≥10** CSS selectors, **≥8** `var(--…)`
+  references, **≥4** component groups present (buttons / cards / badges / links /
+  typography / inputs / layout / icons), referencing **only** tokens declared in
+  `tokens.css` (any undeclared `var()` fails the guard).
+- `preview/{colors,typography,spacing}.html` — reference pages.
+- `source/evidence.md` — provenance + per-token confidence notes.
+
+### Step 3 — Emit + validate
+
+```bash
+npx tsx scripts/emit-design-system.ts --brand <slug> --name "<Name>" --category "<Category>"
+npx tsx scripts/validate-design-system.ts --brand <slug>
+```
+
+The emitter writes `tokens.css` (every schema slot, grouped, + `[data-theme="dark"]`) and,
+via OpenDesign's **own** renderers, the derived caches (`design-tokens.json`,
+`tailwind-v4.css`, `components.manifest.json`) plus `manifest.json` and
+`source/token-contract.report.json`. **Never hand-edit the derived files** — re-run the
+emitter after editing `tokens.source.json` or `components.html`.
+
+**Acceptance (definition of done):** `validate-design-system.ts` passes. It runs
+OpenDesign's real guard checks (manifest shape + semantics, derived-file parity, and the
+package-quality minimums) against the package — equivalent to dropping
+`design-systems/<slug>/` into the OpenDesign repo and running `pnpm guard` + `pnpm typecheck`.
+
+> **Build targets.** `--build nextjs` (current default) also builds the page in the retained
+> Next.js scaffold. `--build astro` (the fork's target default) and `--build none` are tracked
+> in [`docs/FORK-PLAN.md`](../../../docs/FORK-PLAN.md) — Astro is Milestone D. The design system
+> above is emitted regardless of `--build`.
 
 ## Pre-Dispatch Checklist
 

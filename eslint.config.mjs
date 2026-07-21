@@ -12,6 +12,10 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Standalone tsx tooling (design-system emitter/validator) and the emitted
+    // OpenDesign packages — run outside the Next app, not app source.
+    "scripts/**",
+    "design-systems/**",
   ]),
 ]);
 

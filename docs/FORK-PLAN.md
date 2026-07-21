@@ -78,7 +78,7 @@ Keep the `/clone-website` name; make it design-system-first:
 Sequence: **A → C → D** on the critical path; **B** parallels A; **E** closes.
 **C is the keystone** — validate it on one site before touching Astro.
 
-### Milestone A — Prune to Claude Code + re-baseline
+### Milestone A — Prune to Claude Code + re-baseline  ✅ DONE 2026-07-21
 
 Strip the multi-platform baggage so there's one instruction file and one skill.
 
@@ -114,7 +114,19 @@ Pure SKILL.md edits, benefit every target. (Parallel with A.)
 - **Skip PR #25** (replaces MCP wholesale with Vercel `agent-browser`) — fights
   the MCP-native setup and conflicts with #60/#68.
 
-### Milestone C — Design-system emitter (the keystone, goal #2)
+### Milestone C — Design-system emitter (the keystone, goal #2)  ✅ DONE 2026-07-21
+
+> **Shipped:** `scripts/emit-design-system.ts` (reads OpenDesign's `TOKEN_SCHEMA` at
+> build time; reuses OpenDesign's own `renderDesignTokensJson` / `renderTailwindV4Css` /
+> `extractComponentsManifest` so the derived caches provably agree) + a new SKILL Phase 6
+> for the prose, + `scripts/validate-design-system.ts` (runs OpenDesign's exported guard
+> checks against one package without a full `pnpm install`). Validated end-to-end on the
+> **PsiAtiva landing page** → `design-systems/psiativa/` (source.type `local`, 56 slots,
+> `[data-theme="dark"]`, quality score 100). Proven both via the targeted validator **and**
+> by dropping the package into the OpenDesign repo and running its own
+> `check-design-system-manifests.ts` + `check-design-system-package-quality.ts` scripts →
+> "152 manifests valid", "average score 100". Both A2-fallback resolution and the
+> `tokens.css:<line>` source-citation contract are handled by the emitter.
 
 A new phase (or a dedicated sub-skill the SKILL.md calls) that serializes the
 extraction artifacts into an OpenDesign **v1 rich package** at
