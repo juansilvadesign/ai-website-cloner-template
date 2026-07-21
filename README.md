@@ -1,12 +1,12 @@
-# AI Website Cloner Template
+# AI Website Cloner — design-system-first (Claude Code fork)
 
-<a href="https://github.com/JCodesMore/ai-website-cloner-template/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT License" /></a> <a href="https://github.com/JCodesMore/ai-website-cloner-template/stargazers"><img src="https://img.shields.io/github/stars/JCodesMore/ai-website-cloner-template?style=flat" alt="Stars" /></a> <a href="https://discord.gg/hrTSX5yTpB"><img src="https://img.shields.io/discord/1400896964597383279?label=discord" alt="Discord" /></a>
+A tool for reverse-engineering any website into a **portable design system** and a clean, modern codebase — driven **only by [Claude Code](https://docs.anthropic.com/en/docs/claude-code)** (Opus 4.8 recommended).
 
-A reusable template for reverse-engineering any website into a clean, modern Next.js codebase using AI coding agents. 
+Point it at one or more URLs, run `/clone-website`, and Claude inspects the site, extracts design tokens, assets, and real content, writes component specs, and dispatches parallel builder agents in git worktrees to reconstruct every section.
 
-**Recommended: [Claude Code](https://docs.anthropic.com/en/docs/claude-code) with Opus 4.8 for best results** — but works with a variety of AI coding agents.
-
-Point it at a URL, run `/clone-website`, and your AI agent will inspect the site, extract design tokens and assets, write component specs, and dispatch parallel builders to reconstruct every section.
+> **This is a fork** of [`JCodesMore/ai-website-cloner-template`](https://github.com/JCodesMore/ai-website-cloner-template), being reshaped into a design-system-first, Astro-default, Claude-Code-only tool. Direction and milestones live in **[`docs/FORK-PLAN.md`](docs/FORK-PLAN.md)**.
+>
+> **Status:** the platform prune (Claude-Code-only) is complete. The OpenDesign design-system emitter and the Astro page-builder are in progress — today's `/clone-website` builds the pre-scaffolded **Next.js + shadcn/ui + Tailwind v4** base.
 
 ## Demo
 
@@ -16,95 +16,65 @@ Point it at a URL, run `/clone-website`, and your AI agent will inspect the site
 
 ## Quick Start
 
-> **Important:** Start by making your own copy with GitHub's **Use this template** button. Do not clone this template repository directly for your website project, and do not open pull requests here with your generated website.
-
-1. **Create your own repository from this template**
-
-   On the GitHub page for this project, click **Use this template**, then click **Create a new repository**.
-
-   Give your new repository a name, choose whether it should be public or private, then click **Create repository**. If GitHub shows an **Include all branches** option, you can leave it off.
-
-   This gives you your own separate project to work in, so your website changes stay in your account instead of coming back to the main template.
-
-2. **Open your new repository on your computer**
-
-   After GitHub creates your copy, open that new repository. Click **Code** and open or clone your new repository with your preferred coding tool.
-
-   If you use the terminal, the command will look like this:
-
+1. **Get the repo on your machine**
    ```bash
-   git clone https://github.com/YOUR-USERNAME/YOUR-NEW-REPOSITORY.git
-   cd YOUR-NEW-REPOSITORY
+   git clone https://github.com/juansilvadesign/ai-website-cloner-template.git
+   cd ai-website-cloner-template
    ```
-
-3. **Install dependencies**
+2. **Install dependencies**
    ```bash
    npm install
    ```
-4. **Start your AI agent** — Claude Code recommended:
+3. **Start Claude Code with a browser** (for live inspection):
    ```bash
    claude --chrome
    ```
-5. **Run the skill**:
+4. **Run the skill**:
    ```
    /clone-website <target-url1> [<target-url2> ...]
    ```
-6. **Customize** (optional) — after the base clone is built, modify as needed
+5. **Customize** (optional) — after the base clone is built, modify as needed.
 
-> Using a different agent? Open `AGENTS.md` for project instructions — most agents pick it up automatically.
-
-## Supported Platforms
-
-| Agent                                                         | Status                     |
-| ------------------------------------------------------------- | -------------------------- |
-| [Claude Code](https://docs.anthropic.com/en/docs/claude-code) | **Recommended** — Opus 4.8 |
-| [Codex CLI](https://github.com/openai/codex)                  | Supported                  |
-| [OpenCode](https://opencode.ai/)                              | Supported                  |
-| [GitHub Copilot](https://github.com/features/copilot)         | Supported                  |
-| [Cursor](https://cursor.com/)                                 | Supported                  |
-| [Windsurf](https://codeium.com/windsurf)                      | Supported                  |
-| [Gemini CLI](https://github.com/google-gemini/gemini-cli)     | Supported                  |
-| [Cline](https://github.com/cline/cline)                       | Supported                  |
-| [Roo Code](https://github.com/RooCodeInc/Roo-Code)            | Supported                  |
-| [Continue](https://continue.dev/)                             | Supported                  |
-| [Amazon Q](https://aws.amazon.com/q/developer/)               | Supported                  |
-| [Augment Code](https://www.augmentcode.com/)                  | Supported                  |
-| [Aider](https://aider.chat/)                                  | Supported                  |
+Project instructions for the agent live in [`AGENTS.md`](AGENTS.md); [`CLAUDE.md`](CLAUDE.md) imports it.
 
 ## Prerequisites
 
 - [Node.js](https://nodejs.org/) 24+
-- An AI coding agent (see [Supported Platforms](#supported-platforms))
+- [Claude Code](https://docs.anthropic.com/en/docs/claude-code) (Opus 4.8 recommended), with Chrome MCP or Playwright MCP available for live inspection
 
 ## Tech Stack
 
-- **Next.js 16** — App Router, React 19, TypeScript strict
+- **Next.js 16** — App Router, React 19, TypeScript strict (current build target)
 - **shadcn/ui** — Radix primitives + Tailwind CSS v4
 - **Tailwind CSS v4** — oklch design tokens
 - **Lucide React** — default icons (replaced by extracted SVGs during cloning)
+- **Astro** — the fork's target default builder (in progress; see [`docs/FORK-PLAN.md`](docs/FORK-PLAN.md))
 
 ## How It Works
 
 The `/clone-website` skill runs a multi-phase pipeline:
 
-1. **Reconnaissance** — screenshots, design token extraction, interaction sweep (scroll, click, hover, responsive)
+1. **Reconnaissance** — screenshots, design-token extraction, interaction sweep (scroll, click, hover, responsive)
 2. **Foundation** — updates fonts, colors, globals, downloads all assets
 3. **Component Specs** — writes detailed spec files (`docs/research/components/`) with exact computed CSS values, states, behaviors, and content
 4. **Parallel Build** — dispatches builder agents in git worktrees, one per section/component
-5. **Assembly & QA** — merges worktrees, wires up the page, runs visual diff against the original
+5. **Assembly & QA** — merges worktrees, wires up the page, runs a visual diff against the original
 
 Each builder agent receives the full component specification inline — exact `getComputedStyle()` values, interaction models, multi-state content, responsive breakpoints, and asset paths. No guessing.
 
+> **Where the fork is headed:** every run also emits a portable **OpenDesign** design system (`design-systems/<slug>/`), and the page can be built in **Astro** (default) or Next.js from that shared source of truth. See [`docs/FORK-PLAN.md`](docs/FORK-PLAN.md).
+
 ## Use Cases
 
-- **Platform migration** — rebuild a site you own from WordPress/Webflow/Squarespace into a modern Next.js codebase
+- **Platform migration** — rebuild a site you own from WordPress/Webflow/Squarespace into a modern codebase
 - **Lost source code** — your site is live but the repo is gone, the developer left, or the stack is legacy. Get the code back in a modern format
+- **Design-system extraction** — capture a brand's tokens, type, spacing, and components as a portable design system
 - **Learning** — deconstruct how production sites achieve specific layouts, animations, and responsive behavior by working with real code
 
 ## Not Intended For
 
 - **Phishing or impersonation** — this project must not be used for deceptive purposes, impersonation, or any activity that breaks the law.
-- **Passing off someone's design as your own** — logos, brand assets, and original copy belong to their owners.
+- **Passing off someone's design as your own** — logos, brand assets, and original copy belong to their owners. An extracted design system is aesthetic *inspiration*, not an official asset.
 - **Violating terms of service** — some sites explicitly prohibit scraping or reproduction. Check first.
 
 ## Project Structure
@@ -125,12 +95,10 @@ public/
 docs/
   research/         # Extraction output & component specs
   design-references/ # Screenshots
-scripts/
-  sync-agent-rules.sh  # Regenerate agent instruction files
-  sync-skills.mjs      # Regenerate /clone-website for all platforms
-AGENTS.md           # Agent instructions (single source of truth)
+  FORK-PLAN.md      # Fork direction & milestones
+.claude/skills/clone-website/SKILL.md  # The /clone-website skill (single source of truth)
+AGENTS.md           # Agent instructions
 CLAUDE.md           # Claude Code config (imports AGENTS.md)
-GEMINI.md           # Gemini CLI config (imports AGENTS.md)
 ```
 
 ## Commands
@@ -150,22 +118,6 @@ docker compose up app --build # build and run the app
 docker compose up dev --build # run the app in dev mode on port 3001
 ```
 
-## Updating for Other Platforms
-
-Two source-of-truth files power all platform support. Edit the source, then run the sync script:
-
-| What                   | Source of truth                         | Sync command                       |
-| ---------------------- | --------------------------------------- | ---------------------------------- |
-| Project instructions   | `AGENTS.md`                             | `bash scripts/sync-agent-rules.sh` |
-| `/clone-website` skill | `.claude/skills/clone-website/SKILL.md` | `node scripts/sync-skills.mjs`     |
-
-Each script regenerates the platform-specific copies automatically. Agents that read the source files natively need no regeneration.
-
-
-## Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=JCodesMore/ai-website-cloner-template&type=Date)](https://star-history.com/#JCodesMore/ai-website-cloner-template&Date)
-
 ## License
 
-MIT
+MIT — see [LICENSE](LICENSE). Forked from [`JCodesMore/ai-website-cloner-template`](https://github.com/JCodesMore/ai-website-cloner-template).
