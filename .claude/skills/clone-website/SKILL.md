@@ -29,10 +29,51 @@ The target is whatever page `$ARGUMENTS` resolves to. Clone exactly what's visib
 
 If the user provides additional instructions (specific fidelity level, customizations, extra context), honor those over the defaults.
 
+## Browser Backend (pick one)
+
+This skill needs a real browser for screenshots, computed-style extraction, clicks, scrolling, and hovers. Pick one backend during Pre-Flight and use it consistently. The extraction scripts in this document are the same for both backends; only the way you execute each snippet differs.
+
+### Option A — Browser MCP (default)
+
+Use any available browser automation MCP: Chrome MCP, Playwright MCP, Browserbase MCP, Puppeteer MCP, or equivalent. Prefer Chrome MCP when several are available. This is the default, and it is what the rest of the document means by "via browser MCP."
+
+### Option B — ego-browser (opt-in only)
+
+[ego-browser](https://lite.ego.app/) drives a real, logged-in Chromium through a Node runtime. It is an external dependency on `lite.ego.app`; **never select it automatically or make it the default**. Use it only when the user explicitly opts in and a `/ego-browser` skill or `ego-browser` executable is available. It can compose multi-step browser work into one JavaScript pass and return only the requested fields, reducing tool calls and context use.
+
+Run each pass through a Bash heredoc:
+
+```bash
+ego-browser nodejs <<'EOF'
+const task = await useOrCreateTaskSpace('clone <hostname>')   // reuse this SAME space every round
+await openOrReuseTab('<url>', { wait: true, timeout: 25 })    // timeout is in SECONDS
+const data = await js(String.raw`(() => { /* use the extraction JS from this skill */ return obj })()`)
+cliLog(JSON.stringify(data, null, 2))                          // cliLog is the only output channel
+EOF
+```
+
+Wherever this document says "via browser MCP," use this translation:
+
+| Browser MCP instruction | ego-browser equivalent |
+| --- | --- |
+| Evaluate a snippet | `await js(...)` with a `String.raw` template; it returns a real JavaScript value. Do not `JSON.stringify` inside the snippet—serialize in the Node body through `cliLog`. |
+| Take a screenshot | `await captureScreenshot()` returns a temporary PNG path (a string, not base64); copy it into `docs/design-references/`. |
+| Set viewport to 1440 / 768 / 390 | `await cdp('Emulation.setDeviceMetricsOverride', { width, height, deviceScaleFactor, mobile })`; clear it with `Emulation.clearDeviceMetricsOverride`. |
+| Click / hover / scroll | `await click('@N' or 'css')` / `await hover(...)` / `await scrollBy(px)`. |
+| Observe the page / get element refs | `await snapshotText()` / `await pageInfo()`. |
+
+Keep these constraints:
+
+- `wait` and `timeout` values are in **seconds**.
+- The Node runtime keeps no state between heredocs. Start every pass with `useOrCreateTaskSpace(<id>)`, using the same ID to reopen the task space and reuse its tab.
+- `cliLog` is the only output channel.
+- Builder agents in Phase 3 Step 3 never touch the browser. ego-browser is only for the foreman's extraction and QA.
+- When the clone is complete, close with `await completeTaskSpace(<id>, { keep: false })`.
+
 ## Pre-Flight
 
-1. **Browser automation is required.** Check for available browser MCP tools (Chrome MCP, Playwright MCP, Browserbase MCP, Puppeteer MCP, etc.). Use whichever is available — if multiple exist, prefer Chrome MCP. If none are detected, ask the user which browser tool they have and how to connect it. This skill cannot work without browser automation.
-2. Parse `$ARGUMENTS` as one or more URLs. Normalize and validate each URL; if any are invalid, ask the user to correct them before proceeding. For each valid URL, verify it is accessible via your browser MCP tool.
+1. **Browser automation is required.** Use Browser MCP by default (Chrome MCP, Playwright MCP, Browserbase MCP, Puppeteer MCP, or equivalent; prefer Chrome MCP). Use ego-browser only after explicit user opt-in. If neither backend is available, ask the user which browser tool they have and how to connect it. This skill cannot work without browser automation.
+2. Parse `$ARGUMENTS` as one or more URLs. Normalize and validate each URL; if any are invalid, ask the user to correct them before proceeding. For each valid URL, verify it is accessible through the selected browser backend.
 3. Verify the base project builds: `npm run build`. The Next.js + shadcn/ui + Tailwind v4 scaffold should already be in place. If not, tell the user to set it up first.
 4. Create the output directories if they don't exist: `docs/research/`, `docs/research/components/`, `docs/design-references/`, `scripts/`. For multiple clones, also prepare per-site folders like `docs/research/<hostname>/` and `docs/design-references/<hostname>/`.
 5. When working with multiple sites in one command, optionally confirm whether to run them in parallel (recommended, if resources allow) or sequentially to avoid overload.
@@ -122,6 +163,17 @@ The spec file is not optional. It is not a nice-to-have. If you dispatch a build
 
 Every builder agent must verify `npx tsc --noEmit` passes before finishing. After merging worktrees, you verify `npm run build` passes. A broken build is never acceptable, even temporarily.
 
+### 10. Graceful Degradation Beats Total Failure
+
+When a site is saturated with dynamic effects — heavy scroll-driven timelines, WebGL/canvas scenes, particle systems, dozens of staggered entrance animations — trying to reproduce every one of them perfectly in a single pass is how a clone goes from "almost done" to "completely broken." The motion chase introduces runtime errors, layout thrash, and an un-compilable build, and the user is left with nothing. Treat motion as a **layer on top of a correct static clone**, never as a prerequisite for it:
+
+1. **Build the static skeleton first.** Get the DOM structure, exact CSS (in the element's resting/final state), real content, and assets correct so the page is visually accurate and the build is green — with zero animation. A static-but-pixel-accurate clone is a shippable success. A half-animated clone that doesn't compile is a failure.
+2. **Layer motion back in priority order**, verifying the build after each addition: (a) effects essential to the layout being readable (sticky headers, reveal-on-scroll that controls visibility), (b) prominent hero/brand animations the user notices immediately, (c) decorative micro-interactions. Stop when the budget is spent.
+3. **Use fallbacks for effects that can't be faithfully rebuilt.** A WebGL shader scene, a chained GSAP timeline, or a Lottie sequence is usually not worth reimplementing pixel-for-pixel. Capture it as a looping muted `<video>` or a high-resolution screenshot and place that in the layout. A convincing fallback beats a broken reimplementation.
+4. **Record what was deferred or substituted** in `docs/research/BEHAVIORS.md` and the completion report. Never silently drop an effect — the user decides whether it's worth a second pass.
+
+**Motion budget rule:** Cap reimplemented-from-scratch animations at roughly one significant effect per section. If a section needs more than that to feel right, the extra effects are fallback candidates, not build-from-scratch candidates. This keeps the build green and the clone shippable instead of chasing an unbounded animation surface until it collapses.
+
 ## Phase 1: Reconnaissance
 
 Navigate to the target URL with browser MCP.
@@ -169,6 +221,30 @@ This is a dedicated pass AFTER screenshots and BEFORE anything else. Its purpose
 - At each width, note which sections change layout (column → stack, sidebar disappears, etc.) and at approximately which breakpoint the change occurs.
 
 Save all findings to `docs/research/BEHAVIORS.md`. This is your behavior bible — reference it when writing every component spec.
+
+### Motion Complexity Triage
+
+Right after the interaction sweep — before mapping topology — classify how much dynamic effect the page carries and pick a strategy. This is the step that keeps an effect-saturated site from collapsing the whole clone (see Principle 10).
+
+**Detect the animation stack.** Check the DOM and network/bundle for these signals and record each in `BEHAVIORS.md`:
+
+| Signal | Library / technique | Default strategy |
+| --- | --- | --- |
+| `data-framer-*`, `framer-motion` in bundles | Framer Motion | Reimplement (already React-friendly) |
+| `gsap`, `ScrollTrigger`, `data-scroll` pins | GSAP / ScrollTrigger | Reimplement simple tweens; **fallback** complex pinned timelines |
+| `.lenis`, `.locomotive-scroll` | Smooth scroll | Reimplement (Lenis is a small dependency) |
+| `<canvas>`, `three`, WebGL context | Three.js / WebGL / canvas | **Fallback to looping video or screenshot** — do not rebuild |
+| `.lottie`, `lottie-web`, `dotlottie` | Lottie | Reuse the original `.json`/`.lottie` asset via `lottie-react`, or fallback video |
+| Many particles / cursor trails / shader background | Custom canvas / particles | **Fallback** — decorative, not worth rebuilding |
+| `<video autoplay loop muted>` as background | Native video | Download and reuse directly |
+
+**Pick a tier** and record it at the top of `BEHAVIORS.md`:
+
+- **Light** (a few CSS transitions, hover states): reproduce everything inline as you build.
+- **Moderate** (scroll reveals, sticky header, a carousel, one hero animation): static skeleton first, then layer motion per section.
+- **Heavy** (WebGL/canvas scenes, chained GSAP timelines, dozens of staggered animations): **static-first is mandatory.** Build the whole page static and green, then add only budgeted effects (Principle 10) and substitute fallbacks for the rest.
+
+When unsure of a site's tier, treat it as one level heavier — it is cheaper to add an animation back than to debug why an over-animated build won't compile.
 
 ### Page Topology
 Map out every distinct section of the page from top to bottom. Give each a working name. Document:
@@ -510,7 +586,7 @@ These are lessons from previous failed clones — each one cost hours of rework:
 - **Don't build click-based tabs when the original is scroll-driven (or vice versa).** Determine the interaction model FIRST by scrolling before clicking. This is the #1 most expensive mistake — it requires a complete rewrite, not a CSS fix.
 - **Don't extract only the default state.** If there are tabs showing "Featured" on load, click Productivity, Creative, Lifestyle and extract each one's cards/content. If the header changes on scroll, capture styles at position 0 AND position 100+.
 - **Don't miss overlay/layered images.** A background watercolor + foreground UI mockup = 2 images. Check every container's DOM tree for multiple `<img>` elements and positioned overlays.
-- **Don't build mockup components for content that's actually videos/animations.** Check if a section uses `<video>`, Lottie, or canvas before building elaborate HTML mockups of what the video shows.
+- **Don't rebuild media or irreducible motion as elaborate HTML.** Reuse original `<video>` and Lottie assets directly. For WebGL/canvas/complex GSAP scenes that cannot be reused faithfully, capture a looping muted video or high-resolution screenshot and document the substitution in the spec and `BEHAVIORS.md`.
 - **Don't approximate CSS classes.** "It looks like `text-lg`" is wrong if the computed value is `18px` and `text-lg` is `18px/28px` but the actual line-height is `24px`. Extract exact values.
 - **Don't build everything in one monolithic commit.** The whole point of this pipeline is incremental progress with verified builds at each step.
 - **Don't reference docs from builder prompts.** Each builder gets the CSS spec inline in its prompt — never "see DESIGN_TOKENS.md for colors." The builder should have zero need to read external docs.
@@ -519,6 +595,7 @@ These are lessons from previous failed clones — each one cost hours of rework:
 - **Don't bundle unrelated sections into one agent.** A CTA section and a footer are different components with different designs — don't hand them both to one agent and hope for the best.
 - **Don't skip responsive extraction.** If you only inspect at desktop width, the clone will break at tablet and mobile. Test at 1440, 768, and 390 during extraction.
 - **Don't forget smooth scroll libraries.** Check for Lenis (`.lenis` class), Locomotive Scroll, or similar. Default browser scrolling feels noticeably different and the user will spot it immediately.
+- **Don't chase animations until the build breaks.** On effect-heavy sites, get a static, compiling, pixel-accurate clone first, then layer motion back in priority order (Principle 10). A static-but-correct clone ships; a half-animated one that won't compile does not.
 - **Don't dispatch builders without a spec file.** The spec file forces exhaustive extraction and creates an auditable artifact. Skipping it means the builder gets whatever you can fit in a prompt from memory.
 
 ## Completion
@@ -530,4 +607,5 @@ When done, report:
 - Total assets downloaded (images, videos, SVGs, fonts)
 - Build status (`npm run build` result)
 - Visual QA results (any remaining discrepancies)
+- Motion tier (light / moderate / heavy) and any animations deferred or substituted with fallbacks
 - Any known gaps or limitations

@@ -16,31 +16,31 @@ One file, low risk, benefits every emission target. Get the diff hunk with the
 
 ### Harvest PR #56 — graceful degradation for motion-heavy sites
 
-- [ ] Add **Principle 10 — Graceful Degradation Beats Total Failure** after Principle 9
+- [x] Add **Principle 10 — Graceful Degradation Beats Total Failure** after Principle 9
       (`SKILL.md` ~L121): static skeleton first → layer motion in priority order,
       verifying the build after each → fallback to looping muted video or screenshot
       for WebGL / chained GSAP / Lottie → record every substitution.
-- [ ] Add the **motion budget rule** (~1 rebuilt-from-scratch effect per section;
+- [x] Add the **motion budget rule** (~1 rebuilt-from-scratch effect per section;
       the rest are fallback candidates).
-- [ ] Add the **Motion Complexity Triage** subsection after the interaction sweep
+- [x] Add the **Motion Complexity Triage** subsection after the interaction sweep
       (`SKILL.md` ~L173): the library-detection signal table (Framer Motion / GSAP /
       Lenis / canvas-WebGL / Lottie / particles / native video) and the
       **Light / Moderate / Heavy** tiering, recorded at the top of `BEHAVIORS.md`.
-- [ ] Add the 2 matching **What NOT to Do** bullets (~L506).
-- [ ] Reconcile with our existing L513 bullet about video/Lottie mockups — don't
+- [x] Add the 2 matching **What NOT to Do** bullets (~L506).
+- [x] Reconcile with our existing L513 bullet about video/Lottie mockups — don't
       leave two near-duplicate rules.
 
 ### Harvest PR #68 — ego-browser (opt-in only)
 
-- [ ] Add a **Browser Backend (pick one)** section: Option A browser MCP (default,
+- [x] Add a **Browser Backend (pick one)** section: Option A browser MCP (default,
       unchanged) / Option B ego-browser.
-- [ ] Port the MCP→ego **translation table** (`js()`, `captureScreenshot()` returning
+- [x] Port the MCP→ego **translation table** (`js()`, `captureScreenshot()` returning
       a temp PNG path, CDP `Emulation.setDeviceMetricsOverride` for viewports,
       click/hover/scroll).
-- [ ] Keep the gotchas verbatim — they're the value: timeouts in **seconds**, no state
+- [x] Keep the gotchas verbatim — they're the value: timeouts in **seconds**, no state
       between heredocs (re-open the task space each round), `cliLog` is the only
       output channel, builder agents never touch the browser.
-- [ ] Frame as **opt-in, never default** — external dependency on `lite.ego.app`.
+- [x] Frame as **opt-in, never default** — external dependency on `lite.ego.app`.
 
 ### Harvest PR #60 — Playwright MCP (trimmed)
 
