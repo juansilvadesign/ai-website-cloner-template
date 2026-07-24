@@ -4,7 +4,11 @@ A tool for reverse-engineering any website into a **portable design system** and
 
 Point it at one or more URLs, run `/clone-website`, and Claude inspects the site, extracts design tokens, assets, and real content, writes component specs, and dispatches parallel builder agents in git worktrees to reconstruct every section.
 
-> **This is a fork** of [`JCodesMore/ai-website-cloner-template`](https://github.com/JCodesMore/ai-website-cloner-template), being reshaped into a design-system-first, Astro-default, Claude-Code-only tool. Direction and milestones live in **[`docs/FORK-PLAN.md`](docs/FORK-PLAN.md)**.
+> **This is a hard fork** of [`JCodesMore/ai-website-cloner-template`](https://github.com/JCodesMore/ai-website-cloner-template), being reshaped into a design-system-first, Astro-default, Claude-Code-only tool. We cherry-pick from upstream rather than sync.
+>
+> - **[`ROADMAP.md`](ROADMAP.md)** — milestone status, the hard-fork stance, upstream verdicts
+> - **[`TASKS.md`](TASKS.md)** — the living checklist of what's actually undone
+> - **[`docs/FORK-PLAN.md`](docs/FORK-PLAN.md)** — the deep rationale and file-by-file change map
 >
 > **Status:** the platform prune (Claude-Code-only) is complete. The OpenDesign design-system emitter and the Astro page-builder are in progress — today's `/clone-website` builds the pre-scaffolded **Next.js + shadcn/ui + Tailwind v4** base.
 

@@ -1,0 +1,188 @@
+# Roadmap
+
+Where this fork is going, and why it stopped tracking upstream.
+
+**Direction:** turn a Next.js-only, 13-agent-target website cloner into a
+**design-system-first** tool that emits a portable [OpenDesign](https://github.com/nexu-io/open-design)
+package on every run and builds the page in **Astro** (default) or Next.js —
+driven only by Claude Code.
+
+The full rationale, the locked interview decisions, and the file-by-file change
+map live in **[`docs/FORK-PLAN.md`](docs/FORK-PLAN.md)**. This file is the status
+board. The actionable checklist is **[`TASKS.md`](TASKS.md)**.
+
+---
+
+## Stance: this is a hard fork
+
+We do **not** sync upstream. We cherry-pick, and only when a change is worth it.
+
+The evidence, audited 2026-07-24:
+
+| Signal | State |
+| --- | --- |
+| Upstream `master` HEAD | `58e00d5`, **2026-07-04** — unchanged since we forked |
+| Last maintainer merge | PR **#44**, **2026-06-01** |
+| Open PRs | 20, none merged since #44 |
+| Typical PR content | Contributors PR-ing back their own generated clone output |
+
+Two independent reasons to stop tracking it:
+
+1. **Upstream is inactive.** Waiting for a useful PR to be merged so we can pull
+   it is waiting indefinitely. Anything we want, we take directly from the PR branch.
+2. **We deliberately diverged.** Milestone A deleted 12 of the 13 agent targets and
+   Milestone D moves the repo off "the repo *is* a Next.js app." A merge from
+   upstream would fight both.
+
+> **Never run `git merge upstream/master`.** Harvest with a targeted patch instead
+> — see [Harvesting from upstream](#harvesting-from-upstream) below.
+
+---
+
+## Milestones
+
+`✅ shipped` · `🔜 next` · `⬜ not started`
+
+| | Milestone | State | Evidence |
+| --- | --- | --- | --- |
+| **A** | Prune to Claude Code only + re-baseline | ✅ | `61ac379` — 11 dot-dirs + 2 sync scripts removed, −4,681 lines |
+| **B** | Harden extraction (harvest upstream PRs) | 🔜 | — |
+| **C** | Design-system emitter *(keystone)* | ✅ | `651f549` — +3,105 lines; re-validated 2026-07-24, quality score **100** |
+| **D** | Astro page builder | ⬜ | — |
+| **E** | QA, docs, release | ⬜ | — |
+
+Critical path is **A → C → D**; B parallels A; E closes.
+
+### A — Prune to Claude Code only ✅
+
+One instruction file, one skill, zero drift surface. `.claude/skills/clone-website/SKILL.md`
+is now the single source of truth; `AGENTS.md` stays as the human-readable brief.
+
+### B — Harden extraction 🔜
+
+Pure `SKILL.md` edits, harvested from upstream PRs that will never be merged there.
+Benefits every emission target, so it's worth doing before D. See
+[Harvesting from upstream](#harvesting-from-upstream).
+
+### C — Design-system emitter ✅ *(keystone)*
+
+`scripts/emit-design-system.ts` reads OpenDesign's `TOKEN_SCHEMA` at build time
+(never hardcodes slots), resolves all 56 slots through the source → A2-fallback →
+B-slot-alias chain, and reuses OpenDesign's own renderers so the derived caches
+provably agree. `SKILL.md` Phase 6 covers the prose. `scripts/validate-design-system.ts`
+runs OpenDesign's exported guard checks against a single package without a
+monorepo install.
+
+Proven end-to-end on the PsiAtiva landing page → `design-systems/psiativa/`.
+
+```bash
+npx tsx scripts/emit-design-system.ts   --brand <slug>
+npx tsx scripts/validate-design-system.ts --brand <slug>
+```
+
+> Derived files (`design-tokens.json`, `tailwind-v4.css`, `components.manifest.json`)
+> are **caches**. Always re-emit; never hand-edit. `components.html` may reference
+> only tokens that `tokens.css` actually declares.
+
+### D — Astro page builder ⬜
+
+The structural one: repo-as-Next-app → repo emits into `design-systems/` plus an
+Astro app, with the old Next scaffold moved to `templates/nextjs/` for `--build nextjs`.
+Astro components use vanilla CSS reading the DS's variables — no Tailwind, no shadcn.
+Islands stay static-first so crawlers see content.
+
+**Confirm the `templates/` layout before writing scaffolds** — this is risk #3 in
+the fork plan.
+
+### E — QA, docs, release ⬜
+
+Visual QA diff retained; DS guard check becomes part of "done"; docs rewritten;
+`CHANGELOG.md` entry and a fork version bump.
+
+---
+
+## Harvesting from upstream
+
+Every useful upstream PR edits **10 duplicate copies** of the skill, one per agent
+target. Milestone A deleted 9 of them — so harvesting is a single-hunk apply to
+`.claude/skills/clone-website/SKILL.md`, not a `git cherry-pick`.
+
+```bash
+# Read just the hunk that matters:
+gh pr diff <N> --repo JCodesMore/ai-website-cloner-template \
+  | awk '/^diff --git a\/.claude/,/^diff --git a\/.codex/'
+```
+
+Then apply it by hand, keep our surrounding edits, and record the verdict in
+[`.github/upstream-triage.json`](.github/upstream-triage.json).
+
+### Verdicts on the current open PRs
+
+| PR | Verdict | Reasoning |
+| --- | --- | --- |
+| **#56** motion graceful degradation | **harvest** | The prize. Principle 10 (static skeleton → layer motion by priority → video/screenshot fallback for WebGL/GSAP/Lottie), a Motion Complexity Triage table, and 2 What-NOT-to-Do bullets. Stops one animated section from breaking a whole clone. |
+| **#68** ego-browser backend | **harvest** | Real MCP→ego translation table and non-obvious gotchas (timeouts in *seconds*, no state between heredocs, `cliLog` is the only output channel). Far fewer tool calls per clone. Document as opt-in — external dep on `lite.ego.app`, never the default. |
+| **#60** Playwright MCP | **harvest (trimmed)** | Lower value than the plan assumed: the base Pre-Flight *already* lists Playwright MCP among acceptable backends. Worth ~2 lines (the `npx @playwright/mcp@latest` hint), not a section. |
+| **#48**, **#38** dependency hygiene | **later** | `next 16.2.1 → 16.2.7` + audit fixes. Only touches the retained Next target, which D moves to `templates/nextjs/`. Revisit during D or E. |
+| **#72** WebAssembly port | **skip — supply-chain smell** | Commits prebuilt `bin/*.exe` and `public/wasm/*.wasm` binaries and rewrites `src/lib/utils.ts` `cn()` to call WASM. Also resurrects the `scripts/sync-*` tooling A deleted. Do not pull in blind. |
+| **#63** Kiro support | **skip** | Adds a 14th agent target; directly fights the Claude-Code-only decision. |
+| **#25** agent-browser CLI | **skip** | Replaces browser MCP wholesale; fights the MCP-native setup and conflicts with #60/#68. |
+| **#17**, **#52**, **#54**, **#57**, **#58**, **#59**, **#61**, **#71**, **#75** | **skip** | READMEs, badges, devcontainer, CONTRIBUTING/SECURITY, and a CI check for the sync tooling we deleted. |
+| **#47**, **#67**, **#73** | **noise** | Contributors' generated clone output, not tooling. |
+
+---
+
+## Watching upstream
+
+A weekly job answers the only two questions that matter — *did `master` move?* and
+*is there an open PR we haven't judged?* — and maintains a single GitHub issue.
+
+| Piece | Role |
+| --- | --- |
+| [`scripts/check-upstream.mjs`](scripts/check-upstream.mjs) | The engine. Runs anywhere, any time, no dependencies. |
+| [`.github/workflows/upstream-watch.yml`](.github/workflows/upstream-watch.yml) | Mondays 09:00 UTC (plus manual dispatch). Opens/updates one `upstream-watch` issue, closes it when things go quiet. |
+| [`.github/upstream-triage.json`](.github/upstream-triage.json) | Machine-readable verdicts — the watcher's memory of what we already decided. |
+
+```bash
+node scripts/check-upstream.mjs
+```
+
+It stays quiet by design: already-triaged PRs and heuristically-detected clone
+output never raise an alert. **When you judge a new PR, record it in
+`upstream-triage.json` and add the reasoning to the table above** — otherwise it
+reports every week.
+
+---
+
+## Contributing back
+
+If the maintainer becomes active again, some of this work is worth offering
+upstream. Most of it isn't — and that's fine.
+
+**Portable** — stack-agnostic and useful to any consumer of the cloner:
+
+- Extraction-quality improvements to `SKILL.md` (the reconnaissance sweep, state
+  extraction, motion triage) that don't assume our emission targets.
+- Fixes to the retained Next.js scaffold.
+
+**Not portable** — these *are* the fork:
+
+- Milestone A's prune. Multi-platform support is upstream's whole value proposition.
+- Milestone D's Astro shift, and the repo restructure it implies.
+- The design-system emitter — it's the point of this fork, but it carries a hard
+  dependency on the OpenDesign repo that upstream has no reason to take on.
+
+**The one discipline that keeps this cheap:** when a change *is* portable, land it
+as its **own atomic commit** touching only stack-agnostic files. Then contributing
+back is a branch off `upstream/master`, a `git cherry-pick`, and a PR — with no
+untangling.
+
+```bash
+git remote add upstream https://github.com/JCodesMore/ai-website-cloner-template.git
+git fetch upstream
+git switch -c contrib/<topic> upstream/master
+git cherry-pick <sha>
+```
+
+No `upstream` remote and no contrib branch exist yet — deliberately. There's
+nobody to receive a PR today. This is the recipe for the day that changes.
