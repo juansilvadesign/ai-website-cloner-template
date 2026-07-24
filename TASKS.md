@@ -44,7 +44,7 @@ One file, low risk, benefits every emission target. Get the diff hunk with the
 
 ### Harvest PR #60 — Playwright MCP (trimmed)
 
-- [ ] Add only the `npx @playwright/mcp@latest` install hint to Pre-Flight item 1.
+- [x] Add only the `npx @playwright/mcp@latest` install hint to Pre-Flight item 1.
       **Do not** port the full section — the base already lists Playwright MCP as an
       acceptable backend, so the PR's section is ~90% redundant.
 

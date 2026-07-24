@@ -72,7 +72,7 @@ Keep these constraints:
 
 ## Pre-Flight
 
-1. **Browser automation is required.** Use Browser MCP by default (Chrome MCP, Playwright MCP, Browserbase MCP, Puppeteer MCP, or equivalent; prefer Chrome MCP). Use ego-browser only after explicit user opt-in. If neither backend is available, ask the user which browser tool they have and how to connect it. This skill cannot work without browser automation.
+1. **Browser automation is required.** Use Browser MCP by default (Chrome MCP, Playwright MCP, Browserbase MCP, Puppeteer MCP, or equivalent; prefer Chrome MCP). If Playwright MCP is selected, configure its server command as `npx @playwright/mcp@latest`. Use ego-browser only after explicit user opt-in. If neither backend is available, ask the user which browser tool they have and how to connect it. This skill cannot work without browser automation.
 2. Parse `$ARGUMENTS` as one or more URLs. Normalize and validate each URL; if any are invalid, ask the user to correct them before proceeding. For each valid URL, verify it is accessible through the selected browser backend.
 3. Verify the base project builds: `npm run build`. The Next.js + shadcn/ui + Tailwind v4 scaffold should already be in place. If not, tell the user to set it up first.
 4. Create the output directories if they don't exist: `docs/research/`, `docs/research/components/`, `docs/design-references/`, `scripts/`. For multiple clones, also prepare per-site folders like `docs/research/<hostname>/` and `docs/design-references/<hostname>/`.
