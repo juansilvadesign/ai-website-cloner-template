@@ -1,0 +1,98 @@
+name: Upstream watch
+
+# This fork is a hard fork of JCodesMore/ai-website-cloner-template — we cherry-pick,
+# we never sync. This job just keeps an eye on the original repo once a week and
+# maintains ONE issue describing anything we haven't judged yet. See ROADMAP.md.
+
+on:
+  schedule:
+    # Mondays, 09:00 UTC
+    - cron: '0 9 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: upstream-watch
+  cancel-in-progress: false
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          # Full history so `git rev-list HEAD..FETCH_HEAD` can see the merge base.
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Check upstream
+        id: check
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/check-upstream.mjs \
+            --report "$RUNNER_TEMP/upstream-report.md" \
+            --github-output
+
+      - name: Open or update the watch issue
+        if: steps.check.outputs.alert == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TITLE: ${{ steps.check.outputs.title }}
+        run: |
+          gh label create upstream-watch \
+            --color FBCA04 \
+            --description "Automated weekly upstream drift report" \
+            2>/dev/null || true
+
+          existing=$(gh issue list --label upstream-watch --state open \
+            --json number --jq '.[0].number // empty')
+
+          if [ -z "$existing" ]; then
+            gh issue create \
+              --title "$TITLE" \
+              --label upstream-watch \
+              --body-file "$RUNNER_TEMP/upstream-report.md"
+            echo "Opened a new upstream-watch issue."
+            exit 0
+          fi
+
+          previous=$(gh issue view "$existing" --json title --jq .title)
+
+          gh issue edit "$existing" \
+            --title "$TITLE" \
+            --body-file "$RUNNER_TEMP/upstream-report.md"
+
+          # Only comment when the situation actually changed — a silent body edit
+          # keeps a still-unresolved report from pinging every single Monday.
+          if [ "$previous" != "$TITLE" ]; then
+            gh issue comment "$existing" \
+              --body "Upstream state changed: **$previous** → **$TITLE**. Report above refreshed."
+          fi
+          echo "Updated issue #$existing."
+
+      - name: Close the watch issue when upstream goes quiet
+        if: steps.check.outputs.alert != 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          existing=$(gh issue list --label upstream-watch --state open \
+            --json number --jq '.[0].number // empty')
+
+          if [ -n "$existing" ]; then
+            gh issue close "$existing" \
+              --comment "Everything here is triaged and upstream \`master\` has not moved. Closing until the next drift."
+            echo "Closed issue #$existing."
+          else
+            echo "Upstream quiet, nothing open. No action."
+          fi

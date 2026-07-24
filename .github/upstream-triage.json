@@ -1,0 +1,34 @@
+{
+  "$comment": [
+    "Verdicts on upstream PRs, consumed by scripts/check-upstream.mjs.",
+    "Any open upstream PR missing from this file is reported as NEEDS TRIAGE and",
+    "raises the weekly alert. Add a verdict here to silence it.",
+    "The human-readable rationale lives in ROADMAP.md § Upstream harvest — keep both in sync.",
+    "verdict: harvest = port into our SKILL.md | later = revisit when relevant",
+    "         skip = decided against | noise = someone's generated clone output"
+  ],
+  "upstream": "JCodesMore/ai-website-cloner-template",
+  "lastFullTriage": "2026-07-24",
+  "verdicts": {
+    "17": { "verdict": "skip", "why": "Cosmetic README mermaid diagram." },
+    "25": { "verdict": "skip", "why": "Replaces browser MCP wholesale with Vercel agent-browser; fights our MCP-native setup and conflicts with #60/#68." },
+    "38": { "verdict": "later", "why": "npm audit fixes; only touches the retained Next target that Milestone D moves to templates/nextjs/." },
+    "47": { "verdict": "noise", "why": "Generated clone output (Dr. Kegel quiz funnel)." },
+    "48": { "verdict": "later", "why": "next 16.2.1 -> 16.2.7 + dependency vulns; same Next-target caveat as #38." },
+    "52": { "verdict": "skip", "why": "Simplified Chinese README; not maintained in a private-direction fork." },
+    "54": { "verdict": "skip", "why": "devcontainer.json; we run Claude Code locally." },
+    "56": { "verdict": "harvest", "why": "Graceful degradation for motion-heavy sites: Principle 10 + Motion Complexity Triage table + 2 What-NOT-to-Do bullets. Milestone B primary." },
+    "57": { "verdict": "skip", "why": "CI check that generated agent/skill copies stay in sync; the sync tooling was deleted in Milestone A." },
+    "58": { "verdict": "skip", "why": "CONTRIBUTING.md for upstream's contributor flow." },
+    "59": { "verdict": "skip", "why": "SECURITY.md for upstream's disclosure flow." },
+    "60": { "verdict": "harvest", "why": "Playwright MCP backend — LOW value: base Pre-Flight already lists Playwright MCP. Worth ~2 lines (the npx @playwright/mcp install hint), not the full section." },
+    "61": { "verdict": "skip", "why": "Duplicate CONTRIBUTING.md (see #58)." },
+    "63": { "verdict": "skip", "why": "Adds Kiro as a 14th agent target; directly fights the Claude-Code-only decision from Milestone A." },
+    "67": { "verdict": "noise", "why": "Generated clone output (3D corridor portfolio)." },
+    "68": { "verdict": "harvest", "why": "ego-browser as an OPT-IN browser backend + MCP->ego translation table. Document, never default — external dep on lite.ego.app." },
+    "71": { "verdict": "skip", "why": "README token-count badge." },
+    "72": { "verdict": "skip", "why": "SUPPLY-CHAIN SMELL: commits prebuilt bin/*.exe and public/wasm/*.wasm binaries and rewrites src/lib/utils.ts cn() to call WASM. Also resurrects the scripts/sync-* tooling Milestone A deleted. Do not pull in blind." },
+    "73": { "verdict": "noise", "why": "Generated clone output (Animesaga UI)." },
+    "75": { "verdict": "skip", "why": "Japanese README; same reason as #52." }
+  }
+}
