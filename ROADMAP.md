@@ -46,7 +46,7 @@ Two independent reasons to stop tracking it:
 | | Milestone | State | Evidence |
 | --- | --- | --- | --- |
 | **A** | Prune to Claude Code only + re-baseline | ✅ | `61ac379` — 11 dot-dirs + 2 sync scripts removed, −4,681 lines |
-| **B** | Harden extraction (harvest upstream PRs) | 🔜 | — |
+| **B** | Harden extraction (harvest upstream PRs) | ✅ | PRs **#56**, **#68**, and trimmed **#60** harvested into `SKILL.md` |
 | **C** | Design-system emitter *(keystone)* | ✅ | `651f549` — +3,105 lines; re-validated 2026-07-24, quality score **100** |
 | **D** | Astro page builder | ⬜ | — |
 | **E** | QA, docs, release | ⬜ | — |
@@ -58,11 +58,12 @@ Critical path is **A → C → D**; B parallels A; E closes.
 One instruction file, one skill, zero drift surface. `.claude/skills/clone-website/SKILL.md`
 is now the single source of truth; `AGENTS.md` stays as the human-readable brief.
 
-### B — Harden extraction 🔜
+### B — Harden extraction ✅
 
-Pure `SKILL.md` edits, harvested from upstream PRs that will never be merged there.
-Benefits every emission target, so it's worth doing before D. See
-[Harvesting from upstream](#harvesting-from-upstream).
+Harvested three stack-agnostic improvements into `SKILL.md`: PR **#56** added
+static-first motion degradation and complexity triage; PR **#68** added an
+explicitly opt-in ego-browser translation layer; and PR **#60** contributed only
+the useful Playwright MCP server-command hint. Browser MCP remains the default.
 
 ### C — Design-system emitter ✅ *(keystone)*
 
@@ -114,15 +115,16 @@ gh pr diff <N> --repo JCodesMore/ai-website-cloner-template \
 ```
 
 Then apply it by hand, keep our surrounding edits, and record the verdict in
-[`.github/upstream-triage.json`](.github/upstream-triage.json).
+[`.github/upstream-triage.json`](.github/upstream-triage.json). Use `harvest`
+while a port is queued, then change it to `harvested` when the port lands.
 
 ### Verdicts on the current open PRs
 
 | PR | Verdict | Reasoning |
 | --- | --- | --- |
-| **#56** motion graceful degradation | **harvest** | The prize. Principle 10 (static skeleton → layer motion by priority → video/screenshot fallback for WebGL/GSAP/Lottie), a Motion Complexity Triage table, and 2 What-NOT-to-Do bullets. Stops one animated section from breaking a whole clone. |
-| **#68** ego-browser backend | **harvest** | Real MCP→ego translation table and non-obvious gotchas (timeouts in *seconds*, no state between heredocs, `cliLog` is the only output channel). Far fewer tool calls per clone. Document as opt-in — external dep on `lite.ego.app`, never the default. |
-| **#60** Playwright MCP | **harvest (trimmed)** | Lower value than the plan assumed: the base Pre-Flight *already* lists Playwright MCP among acceptable backends. Worth ~2 lines (the `npx @playwright/mcp@latest` hint), not a section. |
+| **#56** motion graceful degradation | **harvested** | Landed Principle 10 (static skeleton → layer motion by priority → video/screenshot fallback for WebGL/GSAP/Lottie), a Motion Complexity Triage table, and 2 What-NOT-to-Do rules. |
+| **#68** ego-browser backend | **harvested** | Landed the MCP→ego translation table and non-obvious gotchas as opt-in guidance; the external `lite.ego.app` dependency is never the default. |
+| **#60** Playwright MCP | **harvested (trimmed)** | Landed only the useful `npx @playwright/mcp@latest` hint because Pre-Flight already listed Playwright MCP as an acceptable backend. |
 | **#48**, **#38** dependency hygiene | **later** | `next 16.2.1 → 16.2.7` + audit fixes. Only touches the retained Next target, which D moves to `templates/nextjs/`. Revisit during D or E. |
 | **#72** WebAssembly port | **skip — supply-chain smell** | Commits prebuilt `bin/*.exe` and `public/wasm/*.wasm` binaries and rewrites `src/lib/utils.ts` `cn()` to call WASM. Also resurrects the `scripts/sync-*` tooling A deleted. Do not pull in blind. |
 | **#63** Kiro support | **skip** | Adds a 14th agent target; directly fights the Claude-Code-only decision. |

@@ -7,7 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Hardened `/clone-website` for motion-heavy sites with static-first graceful degradation, a motion budget, complexity triage, and documented video/screenshot fallbacks (upstream PR #56)
+- Added an explicit opt-in ego-browser extraction backend with an MCP translation table while keeping Browser MCP as the default (upstream PR #68)
+
 ### Changed
+- Documented `npx @playwright/mcp@latest` as the Playwright MCP server command without duplicating the existing browser-backend workflow (upstream PR #60)
 - Raised the project Node.js baseline to 24 across local development, CI, Docker, and contributor-facing documentation
 
 ## [0.3.1] - 2026-03-29

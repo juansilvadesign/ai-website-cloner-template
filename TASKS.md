@@ -8,7 +8,7 @@ _Last reviewed: 2026-07-24_
 
 ---
 
-## Now — Milestone B: harden extraction
+## Completed — Milestone B: harden extraction ✅
 
 Pure `SKILL.md` edits harvested from upstream PRs that will never be merged there.
 One file, low risk, benefits every emission target. Get the diff hunk with the
@@ -50,13 +50,13 @@ One file, low risk, benefits every emission target. Get the diff hunk with the
 
 ### Close out B
 
-- [ ] Record the harvest in `CHANGELOG.md` under `[Unreleased]`.
-- [ ] Mark **B ✅** in `ROADMAP.md` and move the verdicts to "harvested" in
+- [x] Record the harvest in `CHANGELOG.md` under `[Unreleased]`.
+- [x] Mark **B ✅** in `ROADMAP.md` and move the verdicts to "harvested" in
       `.github/upstream-triage.json`.
 
 ---
 
-## Next — Milestone D: Astro page builder
+## Now — Milestone D: Astro page builder
 
 The structural milestone. **Interview before scaffolding** — risk #3 in the fork
 plan is that the `templates/` layout gets locked in wrong.

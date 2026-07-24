@@ -34,7 +34,7 @@ system we just emitted.
 
 ```
                  ┌─────────────────────────────┐
-   URL  ───────▶ │  EXTRACT  (browser MCP)      │   keep + harden (PRs #56, #60)
+   URL  ───────▶ │  EXTRACT  (browser MCP)      │   kept + hardened (#56/#68/#60)
                  │  screenshots · interaction   │
                  │  sweep · getComputedStyle ·  │
                  │  assets · real content       │
@@ -97,18 +97,22 @@ Strip the multi-platform baggage so there's one instruction file and one skill.
   Platforms table.
 - Net effect: ~11 dot-dirs + 2 scripts gone, zero drift surface.
 
-### Milestone B — Harden extraction (harvest upstream PRs)
+### Milestone B — Harden extraction (harvest upstream PRs)  ✅ DONE 2026-07-24
 
 Pure SKILL.md edits, benefit every target. (Parallel with A.)
+
+> **Shipped:** static-first motion degradation and triage from PR #56, the
+> opt-in ego-browser translation layer from PR #68, and only the useful
+> Playwright MCP command hint from PR #60. Browser MCP remains the default.
 
 - **Adopt PR #56** — graceful degradation for motion-heavy sites: build the
   static, compiling version first, then re-add animations in priority order
   checking the build after each; for un-rebuildable effects (WebGL, huge GSAP
   timelines, Lottie) fall back to a looping muted video or screenshot and
   record the substitution. Prevents "one hard section breaks the whole clone."
-- **Adopt PR #60** — document Playwright MCP as an alternative browser backend
-  alongside Chrome MCP (you already run MCP servers; keep MCP the default).
-- **Optional — PR #68** — note ego-browser as an opt-in backend that composes
+- **Adopt PR #60 (trimmed)** — document the Playwright MCP server command
+  alongside Chrome MCP without duplicating the existing backend workflow.
+- **Adopt PR #68 (opt-in)** — note ego-browser as a backend that composes
   extraction into a single JS pass (far fewer tool calls / less context per
   clone). External dep; document, don't default.
 - **Skip PR #25** (replaces MCP wholesale with Vercel `agent-browser`) — fights
@@ -195,7 +199,7 @@ Second page-emitter that reads the design system from Milestone C.
 | --- | --- |
 | `.cursor/ .windsurf/ .windsurfrules .gemini/ GEMINI.md .codex/ .amazonq/ .continue/ .clinerules .opencode/ .augment/ .aider.conf.yml` | **delete** (A) |
 | `scripts/sync-agent-rules.sh`, `scripts/sync-skills.mjs` | **delete** (A) |
-| `.claude/skills/clone-website/SKILL.md` | **edit** — new pipeline, flags, PR #56/#60 (A/B/C/D) |
+| `.claude/skills/clone-website/SKILL.md` | **edit** — new pipeline, flags, PR #56/#68/#60 (A/B/C/D) |
 | `AGENTS.md`, `CLAUDE.md`, `README.md` | **edit** — new identity, drop sync notes (A) |
 | `design-systems/<slug>/…` | **new** — emitted OpenDesign package (C) |
 | `astro.config.mjs`, `src/pages/`, `src/components/*.astro`, `src/styles/` | **new** — Astro scaffold (D) |
