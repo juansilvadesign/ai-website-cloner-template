@@ -1,7 +1,7 @@
 ---
 name: clone-website
-description: Reverse-engineer and clone one or more websites in one shot — extracts assets, CSS, and content section-by-section and proactively dispatches parallel builder agents in worktrees as it goes. Use this whenever the user wants to clone, replicate, rebuild, reverse-engineer, or copy any website. Also triggers on phrases like "make a copy of this site", "rebuild this page", "pixel-perfect clone". Provide one or more target URLs as arguments.
-argument-hint: "<url1> [<url2> ...]"
+description: Reverse-engineer one or more websites, always emit portable OpenDesign packages, and optionally rebuild the page in Astro (default) or retained Next.js. Extracts assets, CSS, behavior, and content section-by-section and dispatches focused builder agents in worktrees. Use whenever the user wants to clone, replicate, rebuild, reverse-engineer, copy, or extract the design system from a website.
+argument-hint: "<url1> [<url2> ...] [--build astro|nextjs|none] [--slug <name>]"
 user-invocable: true
 ---
 
@@ -9,14 +9,29 @@ user-invocable: true
 
 You are about to reverse-engineer and rebuild **$ARGUMENTS** as pixel-perfect clones.
 
-Every run also emits a portable **OpenDesign design system** to `design-systems/<slug>/`
-(see [Phase 6](#phase-6-emit-the-design-system-always-on)) — the design-system-first
-output of this fork. It hangs off the global extraction, so it is produced even when you
-skip the page build (`--build none`).
+Every run first emits and validates a portable **OpenDesign design system** at
+`design-systems/<slug>/` (see
+[Phase 2](#phase-2-emit-and-validate-the-design-system-always-on)). The optional page
+builder consumes that package; it never invents a parallel token source.
+
+Command surface:
+
+```text
+/clone-website <url1> [<url2> ...] [--build astro|nextjs|none] [--slug <name>]
+```
+
+- `--build astro` is the default and builds the root Astro app.
+- `--build nextjs` builds the retained target under `templates/nextjs/`.
+- `--build none` emits and validates the design system, then stops before page work.
+- `--slug` overrides the normalized hostname. It is valid only with one URL.
 
 When multiple URLs are provided, process them independently and in parallel where possible, while keeping each site's extraction artifacts isolated in dedicated folders (for example, `docs/research/<hostname>/`).
 
-This is not a two-phase process (inspect then build). You are a **foreman walking the job site** — as you inspect each section of the page, you write a detailed specification to a file, then hand that file to a specialist builder agent with everything they need. Extraction and construction happen in parallel, but extraction is meticulous and produces auditable artifacts.
+For page targets, this is not a two-phase process (inspect then build). You are a
+**foreman walking the job site** — once the global extraction has produced a valid
+design system, inspect each section, write a detailed specification, and hand it to a
+specialist builder with everything it needs. Section extraction and construction then
+happen in parallel, while the emitted package remains the styling source of truth.
 
 ## Scope Defaults
 
@@ -26,6 +41,7 @@ The target is whatever page `$ARGUMENTS` resolves to. Clone exactly what's visib
 - **In scope:** Visual layout and styling, component structure and interactions, responsive design, mock data for demo purposes
 - **Out of scope:** Real backend / database, authentication, real-time features, SEO optimization, accessibility audit
 - **Customization:** None — pure emulation
+- **Build target:** Astro
 
 If the user provides additional instructions (specific fidelity level, customizations, extra context), honor those over the defaults.
 
@@ -67,16 +83,32 @@ Keep these constraints:
 - `wait` and `timeout` values are in **seconds**.
 - The Node runtime keeps no state between heredocs. Start every pass with `useOrCreateTaskSpace(<id>)`, using the same ID to reopen the task space and reuse its tab.
 - `cliLog` is the only output channel.
-- Builder agents in Phase 3 Step 3 never touch the browser. ego-browser is only for the foreman's extraction and QA.
+- Builder agents in Phase 4 Step 3 never touch the browser. ego-browser is only for the foreman's extraction and QA.
 - When the clone is complete, close with `await completeTaskSpace(<id>, { keep: false })`.
 
 ## Pre-Flight
 
 1. **Browser automation is required.** Use Browser MCP by default (Chrome MCP, Playwright MCP, Browserbase MCP, Puppeteer MCP, or equivalent; prefer Chrome MCP). If Playwright MCP is selected, configure its server command as `npx @playwright/mcp@latest`. Use ego-browser only after explicit user opt-in. If neither backend is available, ask the user which browser tool they have and how to connect it. This skill cannot work without browser automation.
-2. Parse `$ARGUMENTS` as one or more URLs. Normalize and validate each URL; if any are invalid, ask the user to correct them before proceeding. For each valid URL, verify it is accessible through the selected browser backend.
-3. Verify the base project builds: `npm run build`. The Next.js + shadcn/ui + Tailwind v4 scaffold should already be in place. If not, tell the user to set it up first.
-4. Create the output directories if they don't exist: `docs/research/`, `docs/research/components/`, `docs/design-references/`, `scripts/`. For multiple clones, also prepare per-site folders like `docs/research/<hostname>/` and `docs/design-references/<hostname>/`.
-5. When working with multiple sites in one command, optionally confirm whether to run them in parallel (recommended, if resources allow) or sequentially to avoid overload.
+2. Parse flags before URLs. Accept exactly one `--build` value from
+   `astro | nextjs | none` (default `astro`) and an optional `--slug <name>`.
+   Normalize a slug to lowercase kebab-case; without `--slug`, normalize the hostname
+   after removing `www.`. Reject unknown flags, missing values, or `--slug` with
+   multiple URLs.
+3. Normalize and validate every remaining argument as a URL. If any are invalid, ask
+   the user to correct them. Verify each URL through the chosen browser backend.
+4. Verify the selected scaffold before extraction:
+   - Astro: `npm run check`
+   - Next.js: `npm run check:nextjs`
+   - None: no page scaffold is required; verify the emitter entrypoint with
+     `npx tsx scripts/emit-design-system.ts --help`.
+   The root must remain Astro; Next.js dependencies stay isolated in
+   `templates/nextjs/`.
+5. Create the output directories if they don't exist: `docs/research/`,
+   `docs/research/components/`, `docs/design-references/`, `scripts/`. For multiple
+   clones, prepare per-site folders such as `docs/research/<hostname>/` and
+   `docs/design-references/<hostname>/`.
+6. When working with multiple sites in one command, optionally confirm whether to run
+   them in parallel (recommended, if resources allow) or sequentially to avoid overload.
 
 ## Guiding Principles
 
@@ -100,9 +132,12 @@ Extract the actual text, images, videos, and SVGs from the live site. This is a 
 
 **Layered assets matter.** A section that looks like one image is often multiple layers — a background watercolor/gradient, a foreground UI mockup PNG, an overlay icon. Inspect each container's full DOM tree and enumerate ALL `<img>` elements and background images within it, including absolutely-positioned overlays. Missing an overlay image makes the clone look empty even if the background is correct.
 
-### 4. Foundation First
+### 4. Design System First
 
-Nothing can be built until the foundation exists: global CSS with the target site's design tokens (colors, fonts, spacing), TypeScript types for the content structures, and global assets (fonts, favicons). This is sequential and non-negotiable. Everything after this can be parallel.
+Nothing can be built until the OpenDesign package exists and validates. Emit the
+global tokens, component vocabulary, evidence, and derived caches first. Then wire the
+selected page target directly to that package, add its types and global assets, and only
+then dispatch section builders. This sequence is non-negotiable.
 
 ### 5. Extract How It Looks AND How It Behaves
 
@@ -161,7 +196,10 @@ The spec file is not optional. It is not a nice-to-have. If you dispatch a build
 
 ### 9. Build Must Always Compile
 
-Every builder agent must verify `npx tsc --noEmit` passes before finishing. After merging worktrees, you verify `npm run build` passes. A broken build is never acceptable, even temporarily.
+Every builder must verify the selected target: Astro builders run
+`npm run typecheck`; Next.js builders run
+`npm run typecheck --prefix templates/nextjs`. After merging worktrees, run the
+target's production build. A broken build is never acceptable, even temporarily.
 
 ### 10. Graceful Degradation Beats Total Failure
 
@@ -186,13 +224,26 @@ Navigate to the target URL with browser MCP.
 ### Global Extraction
 Extract these from the page before doing anything else:
 
-**Fonts** — Inspect `<link>` tags for Google Fonts or self-hosted fonts. Check computed `font-family` on key elements (headings, body, code, labels). Document every family, weight, and style actually used. Configure them in `src/app/layout.tsx` using `next/font/google` or `next/font/local`.
+**Fonts** — Inspect `<link>` tags for hosted or self-hosted fonts. Check computed
+`font-family` on headings, body, code, and labels. Document every family, weight,
+style, source URL, and license signal actually used. Map them to
+`--font-display`, `--font-body`, and `--font-mono` in the design-system source;
+the page target consumes those variables.
 
-**Colors** — Extract the site's color palette from computed styles across the page. Update `src/app/globals.css` with the target's actual colors in the `:root` and `.dark` CSS variable blocks. Map them to shadcn's token names (background, foreground, primary, muted, etc.) where they fit. Add custom properties for colors that don't map to shadcn tokens.
+**Colors** — Extract the palette from computed styles across the page. Map roles
+onto OpenDesign slots (`--bg`, `--surface`, `--fg`, `--muted`, `--accent`, and
+the rest of the schema) in `tokens.source.json`. Do not create framework-specific
+color values in a page stylesheet.
 
-**Favicons & Meta** — Download favicons, apple-touch-icons, OG images, webmanifest to `public/seo/`. Update `layout.tsx` metadata.
+**Favicons & Meta** — Record favicons, apple-touch icons, OG images, webmanifest,
+page title, description, locale, and social metadata. Download them into the selected
+target's `public/seo/` during Phase 3.
 
-**Global UI patterns** — Identify any site-wide CSS or JS: custom scrollbar hiding, scroll-snap on the page container, global keyframe animations, backdrop filters, gradients used as overlays, **smooth scroll libraries** (Lenis, Locomotive Scroll — check for `.lenis`, `.locomotive-scroll`, or custom scroll container classes). Add these to `globals.css` and note any libraries that need to be installed.
+**Global UI patterns** — Identify site-wide CSS or JS: custom scrollbar hiding,
+scroll-snap on the page container, global keyframes, backdrop filters, gradients used
+as overlays, and **smooth scroll libraries** (Lenis, Locomotive Scroll — check for
+`.lenis`, `.locomotive-scroll`, or custom containers). Record them in
+`BEHAVIORS.md`; implement only after the static target foundation is green.
 
 ### Mandatory Interaction Sweep
 
@@ -230,11 +281,11 @@ Right after the interaction sweep — before mapping topology — classify how m
 
 | Signal | Library / technique | Default strategy |
 | --- | --- | --- |
-| `data-framer-*`, `framer-motion` in bundles | Framer Motion | Reimplement (already React-friendly) |
+| `data-framer-*`, `framer-motion` in bundles | Framer Motion | Next.js: reimplement; Astro: prefer CSS/native script, use an isolated hydrated framework island only if essential |
 | `gsap`, `ScrollTrigger`, `data-scroll` pins | GSAP / ScrollTrigger | Reimplement simple tweens; **fallback** complex pinned timelines |
 | `.lenis`, `.locomotive-scroll` | Smooth scroll | Reimplement (Lenis is a small dependency) |
 | `<canvas>`, `three`, WebGL context | Three.js / WebGL / canvas | **Fallback to looping video or screenshot** — do not rebuild |
-| `.lottie`, `lottie-web`, `dotlottie` | Lottie | Reuse the original `.json`/`.lottie` asset via `lottie-react`, or fallback video |
+| `.lottie`, `lottie-web`, `dotlottie` | Lottie | Reuse the original asset with a lightweight player/island, or fallback video |
 | Many particles / cursor trails / shader background | Custom canvas / particles | **Fallback** — decorative, not worth rebuilding |
 | `<video autoplay loop muted>` as background | Native video | Download and reuse directly |
 
@@ -256,16 +307,82 @@ Map out every distinct section of the page from top to bottom. Give each a worki
 
 Save this as `docs/research/PAGE_TOPOLOGY.md` — it becomes your assembly blueprint.
 
-## Phase 2: Foundation Build
+## Phase 2: Emit and Validate the Design System (always-on)
 
-This is sequential. Do it yourself (not delegated to an agent) since it touches many files:
+Do this sequentially before touching page components. Every run emits
+`design-systems/<slug>/`, including `--build none`.
 
-1. **Update fonts** in `layout.tsx` to match the target site's actual fonts
-2. **Update globals.css** with the target's color tokens, spacing values, keyframe animations, utility classes, and any **global scroll behaviors** (Lenis, smooth scroll CSS, scroll-snap on body)
-3. **Create TypeScript interfaces** in `src/types/` for the content structures you've observed
-4. **Extract SVG icons** — find all inline `<svg>` elements on the page, deduplicate them, and save as named React components in `src/components/icons.tsx`. Name them by visual function (e.g., `SearchIcon`, `ArrowRightIcon`, `LogoIcon`).
-5. **Download global assets** — write and run a Node.js script (`scripts/download-assets.mjs`) that downloads all images, videos, and other binary assets from the page to `public/`. Preserve meaningful directory structure.
-6. Verify: `npm run build` passes
+### Step 1 — Serialize the extracted tokens
+
+Write `design-systems/<slug>/source/tokens.source.json`, mapping the values already
+extracted onto `themes.light` and, when present, `themes.dark`. List only slots with a
+real or derived value; the emitter fills the rest through OpenDesign's A2 fallbacks and
+B-slot aliases. Each entry records `value`, `confidence`
+(`high | derived | fallback`), and a source citation (`file:line` or selector).
+
+Every OpenDesign A1 slot needs a real value. Never hardcode the schema or copy shadcn
+slot names: the emitter reads OpenDesign's `TOKEN_SCHEMA` at build time.
+
+### Step 2 — Author the rich package
+
+Author these evidence-backed files:
+
+- `DESIGN.md` — at least seven substantive `##` sections covering personality,
+  color roles, typography, spacing/layout, components and states, motion,
+  accessibility, and anti-patterns.
+- `USAGE.md` — `## Read Order`, `## Design Highlights`, `## Do`, `## Avoid`.
+- `components.html` — at least ten selectors, eight declared `var(--…)` references,
+  and four component groups, with no undeclared token reference.
+- `preview/{colors,typography,spacing}.html`.
+- `source/evidence.md` — provenance and per-token confidence notes.
+
+### Step 3 — Emit, validate, then route
+
+```bash
+npx tsx scripts/emit-design-system.ts --brand <slug> --name "<Name>" --category "<Category>"
+npx tsx scripts/validate-design-system.ts --brand <slug>
+```
+
+The emitter writes `tokens.css` and, through OpenDesign's own renderers, the derived
+`design-tokens.json`, `tailwind-v4.css`, `components.manifest.json`, `manifest.json`,
+and `source/token-contract.report.json`. Never hand-edit derived files; edit source
+evidence and re-emit.
+
+Validation is the gate. If it fails, fix the package before page work. For
+`--build none`, report the validated package and stop here.
+
+## Phase 3: Target Foundation Build
+
+This is sequential and is done by the foreman, not a section builder.
+
+### Astro target (default)
+
+1. Make the first line of `src/styles/global.css`
+   `@import "../../design-systems/<slug>/tokens.css";`. Do not copy token values,
+   add Tailwind, or add shadcn.
+2. Update metadata and language in `src/pages/index.astro`.
+3. Create shared content interfaces under `src/types/`. Extract deduplicated SVGs
+   as semantic `.astro` components or files under `public/icons/`.
+4. Put only resets and truly global behaviors in `src/styles/global.css`; all
+   visual values reference design-system variables.
+5. Download assets into root `public/`.
+6. Verify `npm run check`.
+
+### Next.js target
+
+1. Work only under `templates/nextjs/`; do not move Next dependencies back to root.
+2. Set `DESIGN_SYSTEM_SLUG=<slug>` whenever running `dev`, `build`, or `check`.
+   `scripts/sync-design-system.mjs` copies the emitted `tokens.css` and derived
+   `tailwind-v4.css` byte-for-byte into the target's ignored build cache.
+3. Keep `src/app/globals.css` as a bridge and global reset. It may map utilities to
+   DS variables but must not declare independent color, type, spacing, or radius values.
+4. Update `src/app/layout.tsx`, metadata, shared types, and semantic React SVG
+   components; download assets into `templates/nextjs/public/`.
+5. Verify `DESIGN_SYSTEM_SLUG=<slug> npm run check:nextjs` from the repository root.
+
+For either page target, write `scripts/download-assets.mjs` to accept the target public
+directory and download images, videos, fonts, and other binary assets in batches of four
+with explicit failures. Preserve meaningful directory structure.
 
 ### Asset Discovery Script Pattern
 
@@ -305,9 +422,10 @@ JSON.stringify({
 });
 ```
 
-Then write a download script that fetches everything to `public/`. Use batched parallel downloads (4 at a time) with proper error handling.
+Then download everything to the selected target's public directory. Use batches of four
+with proper error handling.
 
-## Phase 3: Component Specification & Dispatch
+## Phase 4: Component Specification & Dispatch
 
 This is the core loop. For each section in your page topology (top to bottom), you do THREE things: **extract**, **write the spec file**, then **dispatch builders**.
 
@@ -376,7 +494,9 @@ Record the diff explicitly: "Property X changes from VALUE_A to VALUE_B, trigger
 
 4. **Extract real content** — all text, alt attributes, aria labels, placeholder text. Use `element.textContent` for each text node. For tabbed/stateful content, **click each tab and extract content per state**.
 
-5. **Identify assets** this section uses — which downloaded images/videos from `public/`, which icon components from `icons.tsx`. Check for **layered images** (multiple `<img>` or background-images stacked in the same container).
+5. **Identify assets** this section uses — which downloaded images/videos and semantic
+icon components. Check for **layered images** (multiple `<img>` or background images
+stacked in the same container).
 
 6. **Assess complexity** — how many distinct sub-components does this section contain? A distinct sub-component is an element with its own unique styling, structure, and behavior (e.g., a card, a nav item, a search panel).
 
@@ -392,7 +512,7 @@ For each section (or sub-component, if you're breaking it up), create a spec fil
 # <ComponentName> Specification
 
 ## Overview
-- **Target file:** `src/components/<ComponentName>.tsx`
+- **Target file:** `<selected-target>/src/components/<ComponentName>.<astro|tsx>`
 - **Screenshot:** `docs/design-references/<screenshot-name>.png`
 - **Interaction model:** <static | click-driven | scroll-driven | time-driven>
 
@@ -441,7 +561,7 @@ For each section (or sub-component, if you're breaking it up), create a spec fil
 ## Assets
 - Background image: `public/images/<file>.webp`
 - Overlay image: `public/images/<file>.png`
-- Icons used: <ArrowIcon>, <SearchIcon> from icons.tsx
+- Icons used: <ArrowIcon>, <SearchIcon> from the selected target's icon module
 
 ## Text Content (verbatim)
 <All text content, copy-pasted from the live site>
@@ -466,10 +586,36 @@ Based on complexity, dispatch builder agent(s) in worktree(s):
 **What every builder agent receives:**
 - The full contents of its component spec file (inline in the prompt — don't say "go read the spec file")
 - Path to the section screenshot in `docs/design-references/`
-- Which shared components to import (`icons.tsx`, `cn()`, shadcn primitives)
-- The target file path (e.g., `src/components/HeroSection.tsx`)
-- Instruction to verify with `npx tsc --noEmit` before finishing
+- The exact selected target and shared components it may import
+- The target file path (for example `src/components/HeroSection.astro` or
+  `templates/nextjs/src/components/HeroSection.tsx`)
+- The selected target's verification command
 - For responsive behavior: the specific breakpoint values and what changes
+
+**Astro builder variant (default):**
+
+- Emit one `.astro` component per section under `src/components/`.
+- Write semantic HTML and scoped vanilla CSS. Reusable color, typography, spacing,
+  radius, elevation, and motion values reference `var(--…)` slots from the emitted
+  `tokens.css`. No Tailwind classes, shadcn, CSS-in-JS, or React wrapper.
+- Static sections contain no client JavaScript. Their full content must exist in the
+  built HTML.
+- For small interactions, progressively enhance the server-rendered HTML with the
+  component's standard `<script>`. If a framework component is genuinely required,
+  keep its initial content server-renderable and hydrate with `client:visible` by
+  default or `client:load` only when it must work immediately. Never use `client:only`
+  for content-bearing sections, and never put a client directive on an `.astro`
+  component.
+- Verify `npm run typecheck` and `npm run build`.
+
+**Next.js builder variant:**
+
+- Emit `.tsx` components under `templates/nextjs/src/components/`.
+- Use utilities exposed by the synced OpenDesign `tailwind-v4.css`; never recreate
+  token values in component CSS or `globals.css`.
+- Prefer Server Components. Add `"use client"` only for actual interaction.
+- Verify `npm run typecheck --prefix templates/nextjs` and
+  `DESIGN_SYSTEM_SLUG=<slug> npm run build --prefix templates/nextjs`.
 
 **Don't wait.** As soon as you've dispatched the builder(s) for one section, move to extracting the next section. Builders work in parallel in their worktrees while you continue extraction.
 
@@ -478,22 +624,26 @@ Based on complexity, dispatch builder agent(s) in worktree(s):
 As builder agents complete their work:
 - Merge their worktree branches into main
 - You have full context on what each agent built, so resolve any conflicts intelligently
-- After each merge, verify the build still passes: `npm run build`
+- After each merge, verify the selected target's production build
 - If a merge introduces type errors, fix them immediately
 
 The extract → spec → dispatch → merge cycle continues until all sections are built.
 
-## Phase 4: Page Assembly
+## Phase 5: Page Assembly
 
-After all sections are built and merged, wire everything together in `src/app/page.tsx`:
+After all sections are built and merged, assemble the selected page:
 
-- Import all section components
+- Astro: compose `.astro` sections in `src/pages/index.astro`.
+- Next.js: compose `.tsx` sections in `templates/nextjs/src/app/page.tsx`.
 - Implement the page-level layout from your topology doc (scroll containers, column structures, sticky positioning, z-index layering)
 - Connect real content to component props
-- Implement page-level behaviors: scroll snap, scroll-driven animations, dark-to-light transitions, intersection observers, smooth scroll (Lenis etc.)
-- Verify: `npm run build` passes clean
+- Implement page-level behaviors only after the static assembly is green. Preserve
+  server-rendered content when adding scroll snap, transitions, observers, or smooth
+  scroll.
+- Verify `npm run check` for Astro or
+  `DESIGN_SYSTEM_SLUG=<slug> npm run check:nextjs` for Next.js.
 
-## Phase 5: Visual QA Diff
+## Phase 6: Visual QA Diff
 
 After assembly, do NOT declare the clone complete. Take side-by-side comparison screenshots:
 
@@ -509,65 +659,12 @@ After assembly, do NOT declare the clone complete. Take side-by-side comparison 
 
 Only after this visual QA pass is the clone complete.
 
-## Phase 6: Emit the Design System (always-on)
-
-Every run emits a portable **OpenDesign** design system to `design-systems/<slug>/`,
-independent of the page build (produced even with `--build none`). It hangs off the
-**Phase 1–2 global extraction** (colors, type, spacing, radius, shadow, fonts, layout) plus
-the component inventory — not the section builders. `<slug>` defaults to the normalized
-hostname; override with `--slug`.
-
-### Step 1 — Serialize the extracted tokens
-
-Write `design-systems/<slug>/source/tokens.source.json`, mapping the values you already
-extracted onto the emitter's `themes.light` (and `themes.dark` if the site has a dark
-theme). List **only** the slots you have a real or derived value for — the emitter fills
-the rest from OpenDesign's A2 fallbacks and B-slot aliases. For each entry record `value`,
-`confidence` (`high` | `derived` | `fallback`), and a `source` (`file:line` or selector).
-Every OpenDesign **A1** slot must have a value (no fallback exists). Do **not** hardcode a
-slot list — the emitter reads OpenDesign's `TOKEN_SCHEMA` at build time (resolved via
-`--od-root`, default the sibling `knowledge/skills/open-design`).
-
-### Step 2 — Author the prose
-
-Author these by hand (the emitter does not):
-- `DESIGN.md` — ≥7 `##` sections (personality, color roles, typography, spacing/layout,
-  components + states, motion, accessibility, anti-patterns).
-- `USAGE.md` — must include `## Read Order`, `## Design Highlights`, `## Do`, `## Avoid`.
-- `components.html` — a token-wired fixture: **≥10** CSS selectors, **≥8** `var(--…)`
-  references, **≥4** component groups present (buttons / cards / badges / links /
-  typography / inputs / layout / icons), referencing **only** tokens declared in
-  `tokens.css` (any undeclared `var()` fails the guard).
-- `preview/{colors,typography,spacing}.html` — reference pages.
-- `source/evidence.md` — provenance + per-token confidence notes.
-
-### Step 3 — Emit + validate
-
-```bash
-npx tsx scripts/emit-design-system.ts --brand <slug> --name "<Name>" --category "<Category>"
-npx tsx scripts/validate-design-system.ts --brand <slug>
-```
-
-The emitter writes `tokens.css` (every schema slot, grouped, + `[data-theme="dark"]`) and,
-via OpenDesign's **own** renderers, the derived caches (`design-tokens.json`,
-`tailwind-v4.css`, `components.manifest.json`) plus `manifest.json` and
-`source/token-contract.report.json`. **Never hand-edit the derived files** — re-run the
-emitter after editing `tokens.source.json` or `components.html`.
-
-**Acceptance (definition of done):** `validate-design-system.ts` passes. It runs
-OpenDesign's real guard checks (manifest shape + semantics, derived-file parity, and the
-package-quality minimums) against the package — equivalent to dropping
-`design-systems/<slug>/` into the OpenDesign repo and running `pnpm guard` + `pnpm typecheck`.
-
-> **Build targets.** `--build nextjs` (current default) also builds the page in the retained
-> Next.js scaffold. `--build astro` (the fork's target default) and `--build none` are tracked
-> in [`docs/FORK-PLAN.md`](../../../docs/FORK-PLAN.md) — Astro is Milestone D. The design system
-> above is emitted regardless of `--build`.
-
 ## Pre-Dispatch Checklist
 
 Before dispatching ANY builder agent, verify you can check every box. If you can't, go back and extract more.
 
+- [ ] `design-systems/<slug>/` has been emitted and validation passes
+- [ ] The selected target imports/syncs that package and its foundation build is green
 - [ ] Spec file written to `docs/research/components/<name>.spec.md` with ALL sections filled
 - [ ] Every CSS value in the spec is from `getComputedStyle()`, not estimated
 - [ ] Interaction model is identified and documented (static / click / scroll / time)
@@ -588,6 +685,13 @@ These are lessons from previous failed clones — each one cost hours of rework:
 - **Don't miss overlay/layered images.** A background watercolor + foreground UI mockup = 2 images. Check every container's DOM tree for multiple `<img>` elements and positioned overlays.
 - **Don't rebuild media or irreducible motion as elaborate HTML.** Reuse original `<video>` and Lottie assets directly. For WebGL/canvas/complex GSAP scenes that cannot be reused faithfully, capture a looping muted video or high-resolution screenshot and document the substitution in the spec and `BEHAVIORS.md`.
 - **Don't approximate CSS classes.** "It looks like `text-lg`" is wrong if the computed value is `18px` and `text-lg` is `18px/28px` but the actual line-height is `24px`. Extract exact values.
+- **Don't add Tailwind, shadcn, or framework wrappers to the Astro target.** Astro
+  sections use semantic HTML, scoped vanilla CSS, and the OpenDesign variables.
+- **Don't hydrate static content.** Astro emits HTML by default. Use a standard script
+  for small progressive enhancements or `client:visible` / `client:load` only for a
+  genuine framework island whose initial content is server-rendered.
+- **Don't hand-edit `tokens.css`, `tailwind-v4.css`, `design-tokens.json`, or the
+  Next target's synced design-system cache.** Change extraction evidence and re-emit.
 - **Don't build everything in one monolithic commit.** The whole point of this pipeline is incremental progress with verified builds at each step.
 - **Don't reference docs from builder prompts.** Each builder gets the CSS spec inline in its prompt — never "see DESIGN_TOKENS.md for colors." The builder should have zero need to read external docs.
 - **Don't skip asset extraction.** Without real images, videos, and fonts, the clone will always look fake regardless of how perfect the CSS is.
@@ -601,11 +705,13 @@ These are lessons from previous failed clones — each one cost hours of rework:
 ## Completion
 
 When done, report:
+- Resolved slug, validated design-system path, and validation result
+- Selected build target (`astro`, `nextjs`, or `none`)
 - Total sections built
 - Total components created
 - Total spec files written (should match components)
 - Total assets downloaded (images, videos, SVGs, fonts)
-- Build status (`npm run build` result)
+- Build status (the selected target's check result; N/A for `--build none`)
 - Visual QA results (any remaining discrepancies)
 - Motion tier (light / moderate / heavy) and any animations deferred or substituted with fallbacks
 - Any known gaps or limitations
