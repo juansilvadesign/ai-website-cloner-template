@@ -48,8 +48,8 @@ Two independent reasons to stop tracking it:
 | **A** | Prune to Claude Code only + re-baseline | ✅ | `61ac379` — 11 dot-dirs + 2 sync scripts removed, −4,681 lines |
 | **B** | Harden extraction (harvest upstream PRs) | ✅ | PRs **#56**, **#68**, and trimmed **#60** harvested into `SKILL.md` |
 | **C** | Design-system emitter *(keystone)* | ✅ | `651f549` — +3,105 lines; re-validated 2026-07-24, quality score **100** |
-| **D** | Astro page builder | ⬜ | — |
-| **E** | QA, docs, release | ⬜ | — |
+| **D** | Astro page builder | ✅ | Root Astro + isolated Next target; both production builds green |
+| **E** | QA, docs, release | 🔜 | — |
 
 Critical path is **A → C → D**; B parallels A; E closes.
 
@@ -70,7 +70,7 @@ the useful Playwright MCP server-command hint. Browser MCP remains the default.
 `scripts/emit-design-system.ts` reads OpenDesign's `TOKEN_SCHEMA` at build time
 (never hardcodes slots), resolves all 56 slots through the source → A2-fallback →
 B-slot-alias chain, and reuses OpenDesign's own renderers so the derived caches
-provably agree. `SKILL.md` Phase 6 covers the prose. `scripts/validate-design-system.ts`
+provably agree. `SKILL.md` Phase 2 covers the prose. `scripts/validate-design-system.ts`
 runs OpenDesign's exported guard checks against a single package without a
 monorepo install.
 
@@ -85,15 +85,18 @@ npx tsx scripts/validate-design-system.ts --brand <slug>
 > are **caches**. Always re-emit; never hand-edit. `components.html` may reference
 > only tokens that `tokens.css` actually declares.
 
-### D — Astro page builder ⬜
+### D — Astro page builder ✅
 
-The structural one: repo-as-Next-app → repo emits into `design-systems/` plus an
-Astro app, with the old Next scaffold moved to `templates/nextjs/` for `--build nextjs`.
-Astro components use vanilla CSS reading the DS's variables — no Tailwind, no shadcn.
-Islands stay static-first so crawlers see content.
+The root is now an Astro 7 static app using vanilla CSS and the emitted
+`tokens.css`. The complete old Next scaffold lives under `templates/nextjs/` with
+its own dependency graph; a prebuild bridge syncs the selected package's emitted
+`tailwind-v4.css` and `tokens.css` into an ignored cache so it never grows a second
+token source.
 
-**Confirm the `templates/` layout before writing scaffolds** — this is risk #3 in
-the fork plan.
+`SKILL.md` parses `--build astro|nextjs|none` and `--slug` up front, validates the
+OpenDesign package before page work, gives Astro builders a static-first `.astro`
+prompt variant, and keeps content server-rendered when an interactive island is
+required. Root `npm run check` and retained `npm run check:nextjs` both pass.
 
 ### E — QA, docs, release ⬜
 

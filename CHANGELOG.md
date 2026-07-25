@@ -10,10 +10,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Hardened `/clone-website` for motion-heavy sites with static-first graceful degradation, a motion budget, complexity triage, and documented video/screenshot fallbacks (upstream PR #56)
 - Added an explicit opt-in ego-browser extraction backend with an MCP translation table while keeping Browser MCP as the default (upstream PR #68)
+- Added the Astro 7 static page target at the repository root, with vanilla CSS consuming emitted OpenDesign variables
+- Added `--build astro|nextjs|none` and `--slug` routing to the design-system-first clone workflow
+- Added a separately buildable retained Next.js target under `templates/nextjs/` with a prebuild design-system sync bridge
 
 ### Changed
 - Documented `npx @playwright/mcp@latest` as the Playwright MCP server command without duplicating the existing browser-backend workflow (upstream PR #60)
 - Raised the project Node.js baseline to 24 across local development, CI, Docker, and contributor-facing documentation
+- Made OpenDesign emission and validation a gate before page construction, with static-first Astro builder prompts
+- Updated CI and Docker to build the Astro default while CI also validates the retained Next.js target
 
 ## [0.3.1] - 2026-03-29
 

@@ -20,11 +20,11 @@
 
 The cloner's pipeline already splits cleanly into two halves:
 
-- **Extraction** (SKILL.md Phase 1 + Phase 3 Step 1) — screenshots, the
+- **Extraction** (SKILL.md Phase 1 + Phase 4 Step 1) — screenshots, the
   interaction sweep, `getComputedStyle()` dumps, asset download, real content.
   **Stack-agnostic. This is the asset we keep and harden.**
-- **Emission** (Phases 2, 3 Step 2–3, 4) — writes Next.js + shadcn + Tailwind.
-  **Stack-specific. This is what we fork.**
+- **Emission** (SKILL.md Phases 2–5) — writes the portable package, then the
+  selected Astro or Next.js target. **This is what we fork.**
 
 Both goals are new **emission targets** hanging off the same extraction engine.
 Goal #2 (design system) is not extra work bolted on — it *is* the reconnaissance
@@ -122,7 +122,7 @@ Pure SKILL.md edits, benefit every target. (Parallel with A.)
 
 > **Shipped:** `scripts/emit-design-system.ts` (reads OpenDesign's `TOKEN_SCHEMA` at
 > build time; reuses OpenDesign's own `renderDesignTokensJson` / `renderTailwindV4Css` /
-> `extractComponentsManifest` so the derived caches provably agree) + a new SKILL Phase 6
+> `extractComponentsManifest` so the derived caches provably agree) + a new SKILL Phase 2
 > for the prose, + `scripts/validate-design-system.ts` (runs OpenDesign's exported guard
 > checks against one package without a full `pnpm install`). Validated end-to-end on the
 > **PsiAtiva landing page** → `design-systems/psiativa/` (source.type `local`, 56 slots,
@@ -161,9 +161,16 @@ at build time. Do **not** hardcode a slot list — read the schema.
 `design-systems/`, run `pnpm guard` + `pnpm typecheck` → green. That is the
 definition of done for this milestone.
 
-### Milestone D — Astro page builder (goal #1)
+### Milestone D — Astro page builder (goal #1)  ✅ DONE 2026-07-24
 
 Second page-emitter that reads the design system from Milestone C.
+
+> **Shipped:** Astro 7 is the root static app and imports the validated package's
+> `tokens.css`. The complete Next.js target moved under `templates/nextjs/`; its
+> prebuild bridge syncs the selected emitted `tailwind-v4.css` plus `tokens.css`
+> into an ignored cache. `/clone-website` now parses
+> `--build astro|nextjs|none` and `--slug`, gates page work on package validation,
+> and gives Astro builders a vanilla-CSS, static-first prompt.
 
 - **Scaffold:** make the repo root an **Astro** app (`astro.config.mjs`,
   `src/pages/index.astro`, `src/components/*.astro`, `src/styles/` importing the
@@ -185,7 +192,7 @@ Second page-emitter that reads the design system from Milestone C.
 
 ### Milestone E — QA, docs, release
 
-- Keep **Phase 5 visual QA diff** (side-by-side vs original at 1440/390).
+- Keep **Phase 6 visual QA diff** (side-by-side vs original at 1440/390).
 - Add a **DS-acceptance step**: the guard check from Milestone C is part of
   "done," not optional.
 - Rewrite `README.md`, `QUICKSTART` (if kept), `docs/research/INSPECTION_GUIDE.md`
@@ -215,9 +222,9 @@ Second page-emitter that reads the design system from Milestone C.
 2. **Derived-file parity.** `design-tokens.json`, `tailwind-v4.css`,
    `components.manifest.json` are *caches* that must agree with `tokens.css`.
    Generate them from `tokens.css`, never hand-author.
-3. **Structure shift.** Moving from "repo *is* the app" to "repo emits into
-   `design-systems/` + an Astro app" is the biggest structural change — confirm
-   the `templates/` layout before writing scaffolds.
+3. **Structure shift — resolved in D.** The root is the Astro app.
+   `templates/nextjs/` is a separately installable/buildable retained target
+   with its own package metadata and a prebuild design-system sync bridge.
 4. **Importer vs direct emit.** We emit the v1 package directly rather than via
    `od design-systems import-local`. Confirm a hand-authored `source.type`
    (`local`?) is accepted by the guard, or set `importMode` accordingly.
@@ -231,10 +238,9 @@ Second page-emitter that reads the design system from Milestone C.
    `docker`/`pos`) or keep it standalone. Until then the parent repo sees a
    nested `.git`.
 
-## Recommended first bite
+## Completed build sequence
 
-**Milestone A (prune) + a Milestone C skeleton against one simple test site**,
-then drop the emitted `design-systems/<slug>/` into OpenDesign and get
-`pnpm guard` green. That proves the keystone (design-system emission) end-to-end
-before any Astro scaffolding — the riskiest, highest-value piece first. Astro
-(D) becomes almost mechanical once a validated `tokens.css` exists to build on.
+Milestones A → C → D followed the planned critical path: prune the platform
+surface, prove a validated OpenDesign package on PsiAtiva, then make Astro the
+default page consumer. Milestone E now owns final QA, remaining documentation,
+identity/version cleanup, and release.

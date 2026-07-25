@@ -56,28 +56,28 @@ One file, low risk, benefits every emission target. Get the diff hunk with the
 
 ---
 
-## Now — Milestone D: Astro page builder
+## Completed — Milestone D: Astro page builder ✅
 
-The structural milestone. **Interview before scaffolding** — risk #3 in the fork
-plan is that the `templates/` layout gets locked in wrong.
+The structural milestone. The root is the Astro default; `templates/nextjs/` is
+a complete retained target with an independent manifest and lockfile.
 
-- [ ] **Decide the layout first**: what exactly moves to `templates/nextjs/`
+- [x] **Decide the layout first**: what exactly moves to `templates/nextjs/`
       (`src/app/`, `components.json`, `next.config.ts`, `postcss.config.mjs`, the
       shadcn deps?) and what stays at root for Astro.
-- [ ] Scaffold Astro at root: `astro.config.mjs`, `src/pages/index.astro`,
+- [x] Scaffold Astro at root: `astro.config.mjs`, `src/pages/index.astro`,
       `src/components/*.astro`, `src/styles/` importing the DS's `tokens.css` globally.
-- [ ] Move the Next scaffold to `templates/nextjs/` for `--build nextjs`.
-- [ ] Write the Astro builder-agent prompt variant: one `.astro` component per
+- [x] Move the Next scaffold to `templates/nextjs/` for `--build nextjs`.
+- [x] Write the Astro builder-agent prompt variant: one `.astro` component per
       section, vanilla CSS referencing DS variables (`var(--surface)`, `var(--fg)`),
       no Tailwind, no shadcn. Same worktree + parallel-dispatch pattern.
-- [ ] Islands **static-first** — hydrate only interactive sections
+- [x] Islands **static-first** — hydrate only interactive sections
       (`client:visible` / `client:load`); everything else ships as static HTML so
       AI crawlers see the content.
-- [ ] Refactor the retained Next target to consume the DS's derived
+- [x] Refactor the retained Next target to consume the DS's derived
       `tailwind-v4.css` instead of a hand-written `globals.css`, so both targets
       share one source of truth.
-- [ ] Wire the `--build astro|nextjs|none` and `--slug` flags through `SKILL.md`.
-- [ ] Update `package.json`, `Dockerfile*`, `docker-compose.yml`, eslint/tsconfig
+- [x] Wire the `--build astro|nextjs|none` and `--slug` flags through `SKILL.md`.
+- [x] Update `package.json`, `Dockerfile*`, `docker-compose.yml`, eslint/tsconfig
       for the Astro toolchain — and keep `npm run check` green in CI.
 
 ---
@@ -87,20 +87,17 @@ plan is that the `templates/` layout gets locked in wrong.
 ### Milestone E — QA, docs, release
 
 - [ ] Make the DS guard check part of "done", not optional.
-- [ ] Keep Phase 5 visual QA diff (1440 / 390 side-by-side vs original).
+- [ ] Keep Phase 6 visual QA diff (1440 / 390 side-by-side vs original).
 - [ ] Rewrite `README.md` and `docs/research/INSPECTION_GUIDE.md` for the new flow.
 - [ ] `CHANGELOG.md` entry + version bump (`0.4.0` — "Astro + design-system-first,
       Claude-Code-only").
 
 ### Known drift (accumulated, safe to fix any time)
 
-- [ ] **`AGENTS.md` is stale** — still says "the design-system emitter and Astro
-      builder are still in progress." C shipped; only the Astro builder is pending.
-- [ ] **`README.md` status paragraph** has the same stale claim.
 - [ ] **`package.json` still carries upstream identity** — name
-      `ai-website-clone-template`, `author`/`repository`/`homepage`/`bugs` all
-      pointing at JCodesMore, `v0.3.1`, and a Next-only description. Fold into E's
-      version bump.
+      `ai-website-clone-template`, `author`/`repository`/`homepage`/`bugs` still
+      point at JCodesMore, and the version remains `v0.3.1`. Fold into E's version
+      bump.
 - [ ] **`CHANGELOG.md`** has no entries for Milestones A or C.
 
 ### Dependency hygiene (upstream #48 / #38)

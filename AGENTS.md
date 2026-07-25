@@ -1,7 +1,9 @@
 <!-- BEGIN:nextjs-agent-rules -->
-# This is NOT the Next.js you know
+# The retained Next.js target is version-specific
 
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
+Before editing `templates/nextjs/`, read the relevant guide in
+`templates/nextjs/node_modules/next/dist/docs/`. APIs and conventions may differ
+from training data. This rule does not apply to the Astro root.
 <!-- END:nextjs-agent-rules -->
 
 # Website Reverse-Engineer Template
@@ -9,26 +11,28 @@ This version has breaking changes — APIs, conventions, and file structure may 
 ## What This Is
 A **design-system-first** website reverse-engineer, driven **only by Claude Code**. Point it at one or more URLs; it extracts the target's design system — screenshots, computed styles, assets, real content — and serializes that into a portable **OpenDesign** package, then (optionally) rebuilds the page from it in **Astro** (the target default) or **Next.js** (retained).
 
-This is a fork of [`JCodesMore/ai-website-cloner-template`](https://github.com/JCodesMore/ai-website-cloner-template), being reshaped per [`docs/FORK-PLAN.md`](docs/FORK-PLAN.md). **Status:** the platform prune (Claude-Code-only) is complete; the design-system emitter and Astro builder are still in progress — today's `/clone-website` builds the pre-scaffolded Next.js + shadcn/ui + Tailwind v4 base. Run `/clone-website <url1> [<url2> ...]`.
+This is a hard fork of [`JCodesMore/ai-website-cloner-template`](https://github.com/JCodesMore/ai-website-cloner-template), reshaped per [`docs/FORK-PLAN.md`](docs/FORK-PLAN.md). The Claude-Code-only prune, OpenDesign emitter, and Astro page builder are shipped. Run `/clone-website <url1> [<url2> ...] [--build astro|nextjs|none] [--slug <name>]`.
 
 ## Tech Stack
-- **Framework:** Next.js 16 (App Router, React 19, TypeScript strict)
-- **UI:** shadcn/ui (Radix primitives, Tailwind CSS v4, `cn()` utility)
-- **Icons:** Lucide React (default — will be replaced/supplemented by extracted SVGs)
-- **Styling:** Tailwind CSS v4 with oklch design tokens
-- **Deployment:** Vercel
+- **Default framework:** Astro 7, static output, TypeScript strict
+- **Default styling:** vanilla scoped CSS consuming `design-systems/<slug>/tokens.css`
+- **Retained target:** Next.js 16 + React 19 + shadcn + the emitted `tailwind-v4.css`
+- **Design system:** OpenDesign v1 rich package, always emitted and validated
+- **Deployment:** static Astro output in `dist/` (Docker serves it with nginx)
 
 ## Commands
-- `npm run dev` — Start dev server
-- `npm run build` — Production build
-- `npm run lint` — ESLint check
-- `npm run typecheck` — TypeScript check
-- `npm run check` — Run lint + typecheck + build
+- `npm run dev` — Start the Astro dev server
+- `npm run check` — Lint + Astro typecheck + static production build
+- `npm run check:nextjs` — Validate the retained Next.js target
+- `npm run build` — Build Astro into `dist/`
+- `npm run preview` — Preview the Astro production build
 
 ## Code Style
 - TypeScript strict mode, no `any`
-- Named exports, PascalCase components, camelCase utils
-- Tailwind utility classes, no inline styles
+- PascalCase components, camelCase utilities
+- Astro: semantic HTML, scoped vanilla CSS, OpenDesign variables, no Tailwind
+- Next.js: utilities from the synced OpenDesign Tailwind cache; no duplicate tokens
+- Static-first: hydrate only genuinely interactive islands
 - 2-space indentation
 - Responsive: mobile-first
 
@@ -41,14 +45,9 @@ This is a fork of [`JCodesMore/ai-website-cloner-template`](https://github.com/J
 ## Project Structure
 ```
 src/
-  app/              # Next.js routes
-  components/       # React components
-    ui/             # shadcn/ui primitives
-    icons.tsx       # Extracted SVG icons as React components
-  lib/
-    utils.ts        # cn() utility (shadcn)
-  types/            # TypeScript interfaces
-  hooks/            # Custom React hooks
+  pages/            # Astro routes
+  components/       # Static-first Astro sections
+  styles/           # Global reset + selected tokens.css import
 public/
   images/           # Downloaded images from target site
   videos/           # Downloaded videos from target site
@@ -57,6 +56,8 @@ docs/
   research/         # Inspection output (design tokens, components, layout)
   design-references/ # Screenshots and visual references
 scripts/            # Asset download scripts
+design-systems/     # Validated OpenDesign packages
+templates/nextjs/   # Complete retained Next.js target + independent lockfile
 ```
 
 ## MOST IMPORTANT NOTES

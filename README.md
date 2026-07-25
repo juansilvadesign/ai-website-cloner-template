@@ -10,7 +10,10 @@ Point it at one or more URLs, run `/clone-website`, and Claude inspects the site
 > - **[`TASKS.md`](TASKS.md)** — the living checklist of what's actually undone
 > - **[`docs/FORK-PLAN.md`](docs/FORK-PLAN.md)** — the deep rationale and file-by-file change map
 >
-> **Status:** the platform prune (Claude-Code-only) is complete. The OpenDesign design-system emitter and the Astro page-builder are in progress — today's `/clone-website` builds the pre-scaffolded **Next.js + shadcn/ui + Tailwind v4** base.
+> **Status:** the Claude-Code-only prune, OpenDesign emitter, and Astro page
+> builder are shipped. `/clone-website` always validates
+> `design-systems/<slug>/`, then builds Astro by default, retained Next.js on
+> request, or no page with `--build none`.
 
 ## Demo
 
@@ -35,7 +38,7 @@ Point it at one or more URLs, run `/clone-website`, and Claude inspects the site
    ```
 4. **Run the skill**:
    ```
-   /clone-website <target-url1> [<target-url2> ...]
+   /clone-website <url1> [<url2> ...] [--build astro|nextjs|none] [--slug <name>]
    ```
 5. **Customize** (optional) — after the base clone is built, modify as needed.
 
@@ -48,25 +51,28 @@ Project instructions for the agent live in [`AGENTS.md`](AGENTS.md); [`CLAUDE.md
 
 ## Tech Stack
 
-- **Next.js 16** — App Router, React 19, TypeScript strict (current build target)
-- **shadcn/ui** — Radix primitives + Tailwind CSS v4
-- **Tailwind CSS v4** — oklch design tokens
-- **Lucide React** — default icons (replaced by extracted SVGs during cloning)
-- **Astro** — the fork's target default builder (in progress; see [`docs/FORK-PLAN.md`](docs/FORK-PLAN.md))
+- **Astro 7** — default static page target, TypeScript strict
+- **Vanilla CSS** — Astro consumes the emitted `tokens.css`; no Tailwind or shadcn
+- **OpenDesign v1** — portable rich design-system package emitted on every run
+- **Next.js 16 + React 19** — retained target under `templates/nextjs/`
+- **Tailwind CSS v4 + shadcn** — Next-only, consuming emitted `tailwind-v4.css`
 
 ## How It Works
 
 The `/clone-website` skill runs a multi-phase pipeline:
 
 1. **Reconnaissance** — screenshots, design-token extraction, interaction sweep (scroll, click, hover, responsive)
-2. **Foundation** — updates fonts, colors, globals, downloads all assets
-3. **Component Specs** — writes detailed spec files (`docs/research/components/`) with exact computed CSS values, states, behaviors, and content
-4. **Parallel Build** — dispatches builder agents in git worktrees, one per section/component
-5. **Assembly & QA** — merges worktrees, wires up the page, runs a visual diff against the original
+2. **Design-system emission** — writes and validates `design-systems/<slug>/`
+3. **Target foundation** — wires Astro to `tokens.css` or Next to the derived Tailwind cache
+4. **Component specs + parallel build** — writes exact specs and dispatches one focused worktree builder per section/component
+5. **Assembly** — composes Astro sections or retained Next components
+6. **Visual QA** — runs desktop/mobile comparisons and interaction checks
 
 Each builder agent receives the full component specification inline — exact `getComputedStyle()` values, interaction models, multi-state content, responsive breakpoints, and asset paths. No guessing.
 
-> **Where the fork is headed:** every run also emits a portable **OpenDesign** design system (`design-systems/<slug>/`), and the page can be built in **Astro** (default) or Next.js from that shared source of truth. See [`docs/FORK-PLAN.md`](docs/FORK-PLAN.md).
+Astro sections are static HTML by default. Only genuinely interactive sections
+ship browser JavaScript, using progressive enhancement or a server-rendered island
+with `client:visible` / `client:load`.
 
 ## Use Cases
 
@@ -85,13 +91,9 @@ Each builder agent receives the full component specification inline — exact `g
 
 ```
 src/
-  app/              # Next.js routes
-  components/       # React components
-    ui/             # shadcn/ui primitives
-    icons.tsx       # Extracted SVG icons
-  lib/utils.ts      # cn() utility
-  types/            # TypeScript interfaces
-  hooks/            # Custom React hooks
+  pages/            # Astro routes
+  components/       # Static-first Astro sections
+  styles/           # Global reset + selected tokens.css import
 public/
   images/           # Downloaded images from target
   videos/           # Downloaded videos from target
@@ -100,6 +102,8 @@ docs/
   research/         # Extraction output & component specs
   design-references/ # Screenshots
   FORK-PLAN.md      # Fork direction & milestones
+design-systems/     # Validated OpenDesign packages
+templates/nextjs/   # Retained Next.js target and independent dependencies
 .claude/skills/clone-website/SKILL.md  # The /clone-website skill (single source of truth)
 AGENTS.md           # Agent instructions
 CLAUDE.md           # Claude Code config (imports AGENTS.md)
@@ -108,11 +112,12 @@ CLAUDE.md           # Claude Code config (imports AGENTS.md)
 ## Commands
 
 ```bash
-npm run dev    # Start dev server
-npm run build  # Production build
-npm run lint   # ESLint check
-npm run typecheck # TypeScript check
-npm run check  # Run lint + typecheck + build
+npm run dev           # Start Astro on port 4321
+npm run build         # Build static Astro output
+npm run lint          # Lint Astro source
+npm run typecheck     # Check .astro and TypeScript files
+npm run check         # Lint + typecheck + Astro build
+npm run check:nextjs  # Check the retained Next.js target
 ```
 
 ### If using docker
