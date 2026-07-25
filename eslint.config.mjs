@@ -1,22 +1,15 @@
-import { defineConfig, globalIgnores } from "eslint/config";
-import nextVitals from "eslint-config-next/core-web-vitals";
-import nextTs from "eslint-config-next/typescript";
+import { globalIgnores } from "eslint/config";
+import astro from "eslint-plugin-astro";
 
-const eslintConfig = defineConfig([
-  ...nextVitals,
-  ...nextTs,
-  // Override default ignores of eslint-config-next.
+const eslintConfig = [
+  ...astro.configs.recommended,
   globalIgnores([
-    // Default ignores of eslint-config-next:
-    ".next/**",
-    "out/**",
-    "build/**",
-    "next-env.d.ts",
-    // Standalone tsx tooling (design-system emitter/validator) and the emitted
-    // OpenDesign packages — run outside the Next app, not app source.
+    ".astro/**",
+    "dist/**",
     "scripts/**",
     "design-systems/**",
+    "templates/**",
   ]),
-]);
+];
 
 export default eslintConfig;
