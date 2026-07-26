@@ -32,6 +32,10 @@ Point it at one or more URLs, run `/clone-website`, and Claude inspects the site
    ```bash
    npm install
    ```
+   If you plan to use `--build nextjs`, also install its isolated dependencies:
+   ```bash
+   npm install --prefix templates/nextjs
+   ```
 3. **Start Claude Code with a browser** (for live inspection):
    ```bash
    claude --chrome

@@ -98,7 +98,7 @@ OpenDesign package before page work, gives Astro builders a static-first `.astro
 prompt variant, and keeps content server-rendered when an interactive island is
 required. Root `npm run check` and retained `npm run check:nextjs` both pass.
 
-### E — QA, docs, release ⬜
+### E — QA, docs, release 🔜
 
 Visual QA diff retained; DS guard check becomes part of "done"; docs rewritten;
 `CHANGELOG.md` entry and a fork version bump.

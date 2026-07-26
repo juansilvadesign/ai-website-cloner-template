@@ -7,7 +7,8 @@ user-invocable: true
 
 # Clone Website
 
-You are about to reverse-engineer and rebuild **$ARGUMENTS** as pixel-perfect clones.
+You are about to reverse-engineer **$ARGUMENTS** and, unless page output is disabled,
+rebuild it as a pixel-perfect clone.
 
 Every run first emits and validates a portable **OpenDesign design system** at
 `design-systems/<slug>/` (see
@@ -99,8 +100,8 @@ Keep these constraints:
 4. Verify the selected scaffold before extraction:
    - Astro: `npm run check`
    - Next.js: `npm run check:nextjs`
-   - None: no page scaffold is required; verify the emitter entrypoint with
-     `npx tsx scripts/emit-design-system.ts --help`.
+   - None: no page scaffold is required; verify both emitter scripts exist and
+     `npx tsx --version` succeeds.
    The root must remain Astro; Next.js dependencies stay isolated in
    `templates/nextjs/`.
 5. Create the output directories if they don't exist: `docs/research/`,
@@ -374,10 +375,11 @@ This is sequential and is done by the foreman, not a section builder.
 2. Set `DESIGN_SYSTEM_SLUG=<slug>` whenever running `dev`, `build`, or `check`.
    `scripts/sync-design-system.mjs` copies the emitted `tokens.css` and derived
    `tailwind-v4.css` byte-for-byte into the target's ignored build cache.
-3. Keep `src/app/globals.css` as a bridge and global reset. It may map utilities to
-   DS variables but must not declare independent color, type, spacing, or radius values.
-4. Update `src/app/layout.tsx`, metadata, shared types, and semantic React SVG
-   components; download assets into `templates/nextjs/public/`.
+3. Keep `templates/nextjs/src/app/globals.css` as a bridge and global reset. It may
+   map utilities to DS variables but must not declare independent color, type,
+   spacing, or radius values.
+4. Update `templates/nextjs/src/app/layout.tsx`, metadata, shared types, and
+   semantic React SVG components; download assets into `templates/nextjs/public/`.
 5. Verify `DESIGN_SYSTEM_SLUG=<slug> npm run check:nextjs` from the repository root.
 
 For either page target, write `scripts/download-assets.mjs` to accept the target public

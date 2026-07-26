@@ -82,7 +82,7 @@ a complete retained target with an independent manifest and lockfile.
 
 ---
 
-## Backlog
+## Now
 
 ### Milestone E — QA, docs, release
 

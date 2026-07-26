@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Raised the project Node.js baseline to 24 across local development, CI, Docker, and contributor-facing documentation
 - Made OpenDesign emission and validation a gate before page construction, with static-first Astro builder prompts
 - Updated CI and Docker to build the Astro default while CI also validates the retained Next.js target
+- Locked Astro's `js-yaml` and `sharp` transitives to patched releases, leaving the root production audit clean
 
 ## [0.3.1] - 2026-03-29
 
