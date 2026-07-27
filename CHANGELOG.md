@@ -7,6 +7,32 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Added `scripts/check-nextjs-audit.mjs` and `npm run check:nextjs-audit`, which
+  re-run the retained target's dev-only advisory experiment and return a
+  `RESOLVED` / `UNBLOCKED` / `BLOCKED` verdict instead of leaving it to be
+  re-derived by hand
+- Added a `dependency-watch` job to the weekly workflow that publishes that
+  verdict to the run summary and opens an issue the day the advisory becomes
+  actionable
+
+### Fixed
+- Fixed CI failing on `typecheck:scripts` with `TS2688: Cannot find type
+  definition file for 'node'`. The script passes `--types node`, but `@types/node`
+  was only present as an optional peer transitive that a clean `npm ci` does not
+  guarantee; it is now a direct root devDependency
+- Fixed the weekly upstream watch going red while upstream was quiet. Issues were
+  disabled on the fork, so `gh issue list` exited non-zero and failed the
+  close-the-issue step; Issues are re-enabled and the requirement is documented
+
+### Changed
+- Corrected the Milestone E follow-up: the `brace-expansion` advisory does **not**
+  clear once Next's plugin set accepts ESLint 10. Forcing `eslint@^10` resolves but
+  only takes the finding from 9 to 6, since `eslint-config-next` bundles its own
+  `eslint-plugin-import` / `-jsx-a11y` / `-react`, each pulling `minimatch@3.x`.
+  Recorded the measured evidence, including that an `overrides` pin to the sole
+  patched release breaks lint at runtime
+
 ## [0.4.0] - 2026-07-27
 
 ### Added

@@ -105,17 +105,50 @@ a complete retained target with an independent manifest and lockfile.
 
 ### Follow-up
 
-- [ ] Remove the retained target's dev-only `brace-expansion` audit finding once
-      Next's ESLint plugin set accepts ESLint 10. `npm audit fix --force` currently
-      creates an invalid peer tree, so it is not a safe release fix.
+- [ ] Remove the retained target's dev-only `brace-expansion` audit finding
+      (GHSA-mh99-v99m-4gvg, high, `<= 5.0.7`). **Still blocked upstream — do not
+      hand-fix it.** Re-checked 2026-07-27; run `npm run check:nextjs-audit` for the
+      current verdict instead of re-deriving any of this.
+
+  The earlier note framed this as "waiting for Next's ESLint plugin set to accept
+  ESLint 10". That was measured and is **not** the real precondition:
+
+  - `eslint-config-next@16.2.12` already declares `eslint: ">=9.0.0"`, and forcing
+    `eslint@^10` does resolve. It takes the finding from **9 → 6**, not to zero.
+  - The surviving 6 come from the plugins `eslint-config-next` **bundles** —
+    `eslint-plugin-import`, `-jsx-a11y`, `-react` — each pulling `minimatch@3.x` →
+    `brace-expansion@1.1.16`, independent of the top-level `eslint`. It also leaves
+    3 unmet peers, since those same plugins still cap at `^9`.
+  - So the real precondition is upstream: those plugins moving off `minimatch@3.x`,
+    or `eslint-config-next` no longer bundling pinned copies of them.
+
+  Both shortcuts are traps, verified rather than assumed:
+
+  - `npm audit fix --force` leaves an invalid peer tree.
+  - An `overrides` pin to `5.0.8` — the only patched release, there is no patched
+    1.x line — **breaks lint at runtime**: 5.x's CommonJS build exports `{ expand }`
+    rather than a callable, and `minimatch@3.x` calls `expand(pattern)`, so lint
+    dies with `TypeError: expand is not a function`.
+
+  It is dev-only and the production audit is clean, so it gates nothing. The
+  `dependency-watch` job in [`upstream-watch.yml`](.github/workflows/upstream-watch.yml)
+  re-runs the whole experiment weekly and opens an issue the day it turns actionable.
 
 ---
 
 ## Upstream watch
 
 Automated: [`.github/workflows/upstream-watch.yml`](.github/workflows/upstream-watch.yml)
-runs Mondays 09:00 UTC and maintains one `upstream-watch` issue. Run it by hand
-any time with `node scripts/check-upstream.mjs`.
+runs Mondays 09:00 UTC. It holds two independent jobs:
+
+| Job | Watches | Run it by hand |
+| --- | --- | --- |
+| `watch` | upstream drift + untriaged PRs, via one `upstream-watch` issue | `node scripts/check-upstream.mjs` |
+| `dependency-watch` | the retained target's dev-only advisory (see the Milestone E follow-up) | `npm run check:nextjs-audit` |
+
+> **Both jobs need Issues enabled on the repo.** `gh issue list` exits non-zero
+> against a repo with Issues turned off, which reds the whole run even when the
+> check itself passed. That is exactly what happened on 2026-07-27.
 
 **When it flags a PR:** judge it, add the verdict to
 [`.github/upstream-triage.json`](.github/upstream-triage.json), and add the
@@ -127,3 +160,4 @@ Until you do, it will report the same PR every week.
 | Date | Upstream `master` | Result |
 | --- | --- | --- |
 | 2026-07-24 | `58e00d5` (2026-07-04) | Baseline audit. No drift since the fork. 20 open PRs, all triaged. 3 flagged to harvest (#56, #68, #60). |
+| 2026-07-27 | `58e00d5` (2026-07-04) | No drift; 20 open PRs, all still triaged. The scheduled run went red anyway — Issues were disabled on the fork, so the close-the-issue step failed. Issues re-enabled; detection was never affected. |
