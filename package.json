@@ -37,6 +37,7 @@
     "check": "npm run lint && npm run typecheck && npm run typecheck:scripts && npm run build",
     "check:design-system": "tsx scripts/validate-design-system.ts",
     "check:nextjs": "npm --prefix templates/nextjs run check",
+    "check:nextjs-audit": "node scripts/check-nextjs-audit.mjs",
     "check:release": "npm run check && npm run check:design-system -- --brand psiativa && npm run check:nextjs"
   },
   "dependencies": {
@@ -44,6 +45,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.9",
+    "@types/node": "^24.13.3",
     "@typescript-eslint/parser": "^8.65.0",
     "eslint": "^10.8.0",
     "eslint-plugin-astro": "^3.0.1",

@@ -1,8 +1,18 @@
 name: Upstream watch
 
-# This fork is a hard fork of JCodesMore/ai-website-cloner-template — we cherry-pick,
-# we never sync. This job just keeps an eye on the original repo once a week and
-# maintains ONE issue describing anything we haven't judged yet. See ROADMAP.md.
+# The weekly maintenance watch. Two independent jobs, one schedule:
+#
+#   watch            — this fork is a hard fork of JCodesMore/ai-website-cloner-template;
+#                      we cherry-pick, we never sync. Keeps an eye on the original repo
+#                      and maintains ONE issue describing anything we haven't judged yet.
+#                      See ROADMAP.md.
+#   dependency-watch — the retained Next.js target carries a dev-only advisory that is
+#                      not fixable today (TASKS.md, Milestone E follow-up). Re-runs the
+#                      experiment weekly so we hear about it the day it becomes fixable,
+#                      instead of re-deriving it by hand.
+#
+# Both need Issues enabled on the repo — `gh issue list` exits non-zero on a repo with
+# Issues turned off, which silently reds the whole run.
 
 on:
   schedule:
@@ -95,4 +105,73 @@ jobs:
             echo "Closed issue #$existing."
           else
             echo "Upstream quiet, nothing open. No action."
+          fi
+
+  # The retained Next.js target's dev-only brace-expansion advisory. Steady state here
+  # is BLOCKED (nothing to do); the job only speaks up when it becomes actionable.
+  dependency-watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Check the retained Next.js dev audit
+        id: audit
+        run: |
+          node scripts/check-nextjs-audit.mjs \
+            --report "$RUNNER_TEMP/nextjs-audit.md" \
+            --github-output
+
+      - name: Publish the verdict to the run summary
+        if: always()
+        run: cat "$RUNNER_TEMP/nextjs-audit.md" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Raise the issue once it becomes actionable
+        if: steps.audit.outputs.state != 'BLOCKED'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TITLE: ${{ steps.audit.outputs.title }}
+        run: |
+          gh label create dependency-watch \
+            --color 0E8A16 \
+            --description "The retained Next.js dev audit became actionable" \
+            2>/dev/null || true
+
+          existing=$(gh issue list --label dependency-watch --state open \
+            --json number --jq '.[0].number // empty')
+
+          if [ -z "$existing" ]; then
+            gh issue create \
+              --title "$TITLE" \
+              --label dependency-watch \
+              --body-file "$RUNNER_TEMP/nextjs-audit.md"
+            echo "Opened a new dependency-watch issue."
+          else
+            gh issue edit "$existing" \
+              --title "$TITLE" \
+              --body-file "$RUNNER_TEMP/nextjs-audit.md"
+            echo "Updated issue #$existing."
+          fi
+
+      - name: Close the issue if it goes back to blocked
+        if: steps.audit.outputs.state == 'BLOCKED'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          existing=$(gh issue list --label dependency-watch --state open \
+            --json number --jq '.[0].number // empty')
+
+          if [ -n "$existing" ]; then
+            gh issue close "$existing" \
+              --comment "Back to blocked upstream — nothing actionable. Reopening automatically when that changes."
+            echo "Closed issue #$existing."
+          else
+            echo "Still blocked, nothing open. No action."
           fi
