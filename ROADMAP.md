@@ -41,7 +41,7 @@ Two independent reasons to stop tracking it:
 
 ## Milestones
 
-`✅ shipped` · `🔜 next` · `⬜ not started`
+`✅ shipped` · `⬜ follow-up`
 
 | | Milestone | State | Evidence |
 | --- | --- | --- | --- |
@@ -49,7 +49,7 @@ Two independent reasons to stop tracking it:
 | **B** | Harden extraction (harvest upstream PRs) | ✅ | PRs **#56**, **#68**, and trimmed **#60** harvested into `SKILL.md` |
 | **C** | Design-system emitter *(keystone)* | ✅ | `651f549` — +3,105 lines; re-validated 2026-07-24, quality score **100** |
 | **D** | Astro page builder | ✅ | Root Astro + isolated Next target; both production builds green |
-| **E** | QA, docs, release | 🔜 | — |
+| **E** | QA, docs, release | ✅ | `0.4.0` manifests; guard + Astro + retained Next release checks |
 
 Critical path is **A → C → D**; B parallels A; E closes.
 
@@ -98,10 +98,14 @@ OpenDesign package before page work, gives Astro builders a static-first `.astro
 prompt variant, and keeps content server-rendered when an interactive island is
 required. Root `npm run check` and retained `npm run check:nextjs` both pass.
 
-### E — QA, docs, release 🔜
+### E — QA, docs, release ✅
 
-Visual QA diff retained; DS guard check becomes part of "done"; docs rewritten;
-`CHANGELOG.md` entry and a fork version bump.
+Version 0.4.0 makes a fresh OpenDesign guard, the selected production build, and
+final 1440px/390px side-by-side artifacts the explicit definition of done. The
+README and inspection guide now document the emitted package and acceptance
+evidence, CI guards the checked-in reference package, and both manifests carry
+the fork's identity. The retained target moved to Next.js 16.2.12 with a clean
+production dependency audit.
 
 ---
 
@@ -128,7 +132,7 @@ while a port is queued, then change it to `harvested` when the port lands.
 | **#56** motion graceful degradation | **harvested** | Landed Principle 10 (static skeleton → layer motion by priority → video/screenshot fallback for WebGL/GSAP/Lottie), a Motion Complexity Triage table, and 2 What-NOT-to-Do rules. |
 | **#68** ego-browser backend | **harvested** | Landed the MCP→ego translation table and non-obvious gotchas as opt-in guidance; the external `lite.ego.app` dependency is never the default. |
 | **#60** Playwright MCP | **harvested (trimmed)** | Landed only the useful `npx @playwright/mcp@latest` hint because Pre-Flight already listed Playwright MCP as an acceptable backend. |
-| **#48**, **#38** dependency hygiene | **later** | `next 16.2.1 → 16.2.7` + audit fixes. Only touches the retained Next target, which D moves to `templates/nextjs/`. Revisit during D or E. |
+| **#48**, **#38** dependency hygiene | **harvested (superseded)** | Their queued `16.2.7` target became stale before E shipped. The isolated target now uses the July security line at Next.js **16.2.12**, matching ESLint config, and scoped audited transitive overrides. |
 | **#72** WebAssembly port | **skip — supply-chain smell** | Commits prebuilt `bin/*.exe` and `public/wasm/*.wasm` binaries and rewrites `src/lib/utils.ts` `cn()` to call WASM. Also resurrects the `scripts/sync-*` tooling A deleted. Do not pull in blind. |
 | **#63** Kiro support | **skip** | Adds a 14th agent target; directly fights the Claude-Code-only decision. |
 | **#25** agent-browser CLI | **skip** | Replaces browser MCP wholesale; fights the MCP-native setup and conflicts with #60/#68. |

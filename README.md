@@ -1,136 +1,242 @@
-# AI Website Cloner — design-system-first (Claude Code fork)
+# AI Website Cloner
 
-A tool for reverse-engineering any website into a **portable design system** and a clean, modern codebase — driven **only by [Claude Code](https://docs.anthropic.com/en/docs/claude-code)** (Opus 4.8 recommended).
+A design-system-first website reverse-engineer for Claude Code. Give it one or
+more URLs and `/clone-website` extracts the target's visual language, real
+content, assets, responsive behavior, and interaction states into a validated
+[OpenDesign](https://github.com/nexu-io/open-design) package. It can then rebuild
+the page as static-first Astro or in the retained Next.js target.
 
-Point it at one or more URLs, run `/clone-website`, and Claude inspects the site, extracts design tokens, assets, and real content, writes component specs, and dispatches parallel builder agents in git worktrees to reconstruct every section.
+This is version **0.4.0** of
+[`juansilvadesign/ai-website-cloner-template`](https://github.com/juansilvadesign/ai-website-cloner-template),
+a hard fork of
+[`JCodesMore/ai-website-cloner-template`](https://github.com/JCodesMore/ai-website-cloner-template).
+The fork is Claude-Code-only, uses Astro by default, and selectively harvests
+upstream improvements instead of merging upstream.
 
-> **This is a hard fork** of [`JCodesMore/ai-website-cloner-template`](https://github.com/JCodesMore/ai-website-cloner-template), being reshaped into a design-system-first, Astro-default, Claude-Code-only tool. We cherry-pick from upstream rather than sync.
->
-> - **[`ROADMAP.md`](ROADMAP.md)** — milestone status, the hard-fork stance, upstream verdicts
-> - **[`TASKS.md`](TASKS.md)** — the living checklist of what's actually undone
-> - **[`docs/FORK-PLAN.md`](docs/FORK-PLAN.md)** — the deep rationale and file-by-file change map
->
-> **Status:** the Claude-Code-only prune, OpenDesign emitter, and Astro page
-> builder are shipped. `/clone-website` always validates
-> `design-systems/<slug>/`, then builds Astro by default, retained Next.js on
-> request, or no page with `--build none`.
+## What every run produces
 
-## Demo
+The design system is the primary artifact, not a side effect:
 
-[![Watch the demo](docs/design-references/comparison.png)](https://youtu.be/O669pVZ_qr0)
-
-> Click the image above to watch the full demo on YouTube.
-
-## Quick Start
-
-1. **Get the repo on your machine**
-   ```bash
-   git clone https://github.com/juansilvadesign/ai-website-cloner-template.git
-   cd ai-website-cloner-template
-   ```
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-   If you plan to use `--build nextjs`, also install its isolated dependencies:
-   ```bash
-   npm install --prefix templates/nextjs
-   ```
-3. **Start Claude Code with a browser** (for live inspection):
-   ```bash
-   claude --chrome
-   ```
-4. **Run the skill**:
-   ```
-   /clone-website <url1> [<url2> ...] [--build astro|nextjs|none] [--slug <name>]
-   ```
-5. **Customize** (optional) — after the base clone is built, modify as needed.
-
-Project instructions for the agent live in [`AGENTS.md`](AGENTS.md); [`CLAUDE.md`](CLAUDE.md) imports it.
-
-## Prerequisites
-
-- [Node.js](https://nodejs.org/) 24+
-- [Claude Code](https://docs.anthropic.com/en/docs/claude-code) (Opus 4.8 recommended), with Chrome MCP or Playwright MCP available for live inspection
-
-## Tech Stack
-
-- **Astro 7** — default static page target, TypeScript strict
-- **Vanilla CSS** — Astro consumes the emitted `tokens.css`; no Tailwind or shadcn
-- **OpenDesign v1** — portable rich design-system package emitted on every run
-- **Next.js 16 + React 19** — retained target under `templates/nextjs/`
-- **Tailwind CSS v4 + shadcn** — Next-only, consuming emitted `tailwind-v4.css`
-
-## How It Works
-
-The `/clone-website` skill runs a multi-phase pipeline:
-
-1. **Reconnaissance** — screenshots, design-token extraction, interaction sweep (scroll, click, hover, responsive)
-2. **Design-system emission** — writes and validates `design-systems/<slug>/`
-3. **Target foundation** — wires Astro to `tokens.css` or Next to the derived Tailwind cache
-4. **Component specs + parallel build** — writes exact specs and dispatches one focused worktree builder per section/component
-5. **Assembly** — composes Astro sections or retained Next components
-6. **Visual QA** — runs desktop/mobile comparisons and interaction checks
-
-Each builder agent receives the full component specification inline — exact `getComputedStyle()` values, interaction models, multi-state content, responsive breakpoints, and asset paths. No guessing.
-
-Astro sections are static HTML by default. Only genuinely interactive sections
-ship browser JavaScript, using progressive enhancement or a server-rendered island
-with `client:visible` / `client:load`.
-
-## Use Cases
-
-- **Platform migration** — rebuild a site you own from WordPress/Webflow/Squarespace into a modern codebase
-- **Lost source code** — your site is live but the repo is gone, the developer left, or the stack is legacy. Get the code back in a modern format
-- **Design-system extraction** — capture a brand's tokens, type, spacing, and components as a portable design system
-- **Learning** — deconstruct how production sites achieve specific layouts, animations, and responsive behavior by working with real code
-
-## Not Intended For
-
-- **Phishing or impersonation** — this project must not be used for deceptive purposes, impersonation, or any activity that breaks the law.
-- **Passing off someone's design as your own** — logos, brand assets, and original copy belong to their owners. An extracted design system is aesthetic *inspiration*, not an official asset.
-- **Violating terms of service** — some sites explicitly prohibit scraping or reproduction. Check first.
-
-## Project Structure
-
+```text
+design-systems/<slug>/
+  DESIGN.md
+  USAGE.md
+  tokens.css
+  design-tokens.json
+  tailwind-v4.css
+  components.html
+  components.manifest.json
+  manifest.json
+  preview/
+  source/
 ```
+
+The package must pass OpenDesign's manifest, token-parity, component-cache, and
+quality guards before page construction begins. If a page is requested, the
+same package becomes its single styling source:
+
+- **Astro (default):** static HTML, scoped vanilla CSS, and variables from
+  `tokens.css`.
+- **Next.js (retained):** an isolated app under `templates/nextjs/` that syncs
+  `tokens.css` and the derived `tailwind-v4.css` into an ignored build cache.
+- **No page:** `--build none` emits and validates only the portable package.
+
+## Requirements
+
+- Node.js 24
+- Claude Code with a browser automation backend
+  - Chrome/browser MCP is the default.
+  - Playwright MCP is also supported with `npx @playwright/mcp@latest`.
+  - ego-browser is opt-in only.
+- A compatible local OpenDesign checkout
+
+The emitter and guard load OpenDesign's own TypeScript contracts at runtime.
+Point `OPEN_DESIGN_ROOT` at an absolute checkout path:
+
+```bash
+git clone https://github.com/nexu-io/open-design.git ../open-design
+export OPEN_DESIGN_ROOT=/absolute/path/to/open-design
+```
+
+Lookup order is `--od-root`, `OPEN_DESIGN_ROOT`, then the Notes-workspace
+fallback at `knowledge/skills/open-design`. CI pins the contract checkout used
+to validate the included `psiativa` reference package.
+
+## Quick start
+
+```bash
+git clone https://github.com/juansilvadesign/ai-website-cloner-template.git
+cd ai-website-cloner-template
+nvm use
+npm ci
+claude --chrome
+```
+
+Then run the Claude Code skill:
+
+```text
+/clone-website <url1> [<url2> ...] [--build astro|nextjs|none] [--slug <name>]
+```
+
+Common forms:
+
+```text
+# Emit the design system and build the root Astro page
+/clone-website https://example.com
+
+# Emit and validate only
+/clone-website https://example.com --build none
+
+# Build the isolated retained Next.js target
+/clone-website https://example.com --build nextjs
+
+# Choose the package folder explicitly
+/clone-website https://example.com --slug example-brand
+```
+
+Install the second dependency graph before selecting Next.js:
+
+```bash
+npm ci --prefix templates/nextjs
+```
+
+`--slug` is valid only for a single URL. Multiple URLs are processed as
+independent extractions with isolated research and screenshot folders.
+
+## The workflow
+
+1. **Reconnaissance** — capture full-page 1440px and 390px references; inspect
+   computed styles, content, assets, responsive changes, and every scroll,
+   click, hover, and timed state.
+2. **Design-system emission** — map evidence to OpenDesign slots, author the
+   rich package, emit derived caches through OpenDesign's renderers, and run the
+   guard.
+3. **Target foundation** — connect Astro or retained Next.js to the validated
+   package before section work.
+4. **Specification and construction** — write one evidence-backed component
+   spec before dispatching each focused builder in its own git worktree.
+5. **Assembly** — compose sections, preserve server-rendered content, then add
+   only the interactions the page needs.
+6. **Visual QA** — compare the final clone with the original side-by-side at
+   1440px and 390px, correct discrepancies, and recapture the final evidence.
+7. **Acceptance** — rerun the design-system guard after the last edit, run the
+   selected target's production check, and verify the visual and behavior
+   evidence.
+
+See the operational
+[`Inspection Guide`](docs/research/INSPECTION_GUIDE.md) and the full
+[`/clone-website` skill`](.claude/skills/clone-website/SKILL.md).
+
+## Definition of done
+
+A clone is complete only when every applicable gate passes:
+
+- A fresh final guard run succeeds:
+
+  ```bash
+  npm run check:design-system -- --brand <slug>
+  ```
+
+- The selected page target is green:
+
+  ```bash
+  npm run check
+  # or
+  DESIGN_SYSTEM_SLUG=<slug> npm run check:nextjs
+  ```
+
+- Final `comparison-1440.png` and `comparison-390.png` artifacts place the
+  original and clone side-by-side at matching viewport settings.
+- Interactive behavior has been replayed against the clone; any deliberate
+  motion fallback is recorded in `BEHAVIORS.md`.
+
+For `--build none`, only the final design-system guard applies.
+
+## Artifact layout
+
+```text
 src/
-  pages/            # Astro routes
-  components/       # Static-first Astro sections
-  styles/           # Global reset + selected tokens.css import
+  pages/                         # Astro routes
+  components/                    # Static-first Astro sections
+  styles/                        # Reset + selected tokens.css import
 public/
-  images/           # Downloaded images from target
-  videos/           # Downloaded videos from target
-  seo/              # Favicons, OG images
+  images/
+  videos/
+  seo/
+design-systems/<slug>/           # Validated portable OpenDesign package
 docs/
-  research/         # Extraction output & component specs
-  design-references/ # Screenshots
-  FORK-PLAN.md      # Fork direction & milestones
-design-systems/     # Validated OpenDesign packages
-templates/nextjs/   # Retained Next.js target and independent dependencies
-.claude/skills/clone-website/SKILL.md  # The /clone-website skill (single source of truth)
-AGENTS.md           # Agent instructions
-CLAUDE.md           # Claude Code config (imports AGENTS.md)
+  research/                      # Topology, behaviors, component specs, evidence
+  design-references/<slug>/
+    qa/
+      original-1440.png
+      clone-1440.png
+      comparison-1440.png
+      original-390.png
+      clone-390.png
+      comparison-390.png
+templates/nextjs/                # Isolated retained Next.js target
+scripts/                         # Emission, validation, and asset tooling
 ```
 
-## Commands
+Generated caches such as `design-tokens.json`, `tailwind-v4.css`, and
+`components.manifest.json` are never hand-edited. Change extraction evidence
+and re-emit instead.
+
+## Development commands
 
 ```bash
-npm run dev           # Start Astro on port 4321
-npm run build         # Build static Astro output
-npm run lint          # Lint Astro source
-npm run typecheck     # Check .astro and TypeScript files
-npm run check         # Lint + typecheck + Astro build
-npm run check:nextjs  # Check the retained Next.js target
+npm run dev                       # Astro dev server on 4321
+npm run build                     # Static Astro build
+npm run lint                      # Astro/TypeScript lint
+npm run typecheck                 # Astro typecheck
+npm run typecheck:scripts         # Emitter/guard TypeScript check
+npm run check                     # Lint + all typechecks + Astro build
+npm run check:design-system -- --brand psiativa
+npm run check:nextjs              # Retained Next lint + typecheck + build
+npm run check:release             # Astro + reference DS guard + retained Next
 ```
 
-### If using docker
+`npm run check:release` requires `OPEN_DESIGN_ROOT` outside the Notes workspace
+and installed dependencies in both the root and `templates/nextjs/`.
+
+## Static-first output
+
+Astro sections ship as semantic HTML by default. Small interactions use
+progressive enhancement; framework islands are reserved for genuine
+interactivity and must keep their initial content server-rendered. Content
+sections never use `client:only`.
+
+Motion-heavy targets start from a pixel-accurate static skeleton. Irreducible
+WebGL, chained GSAP, or similar effects may use a documented video or screenshot
+fallback so visual ambition never leaves the build broken.
+
+## Docker
 
 ```bash
-docker compose up app --build # build and run the app
-docker compose up dev --build # run the app in dev mode on port 3001
+docker compose up app --build
+docker compose up dev --build
 ```
+
+The production image serves Astro's static `dist/` output with nginx. The dev
+service exposes Astro on port 3001 by default.
+
+## Appropriate use
+
+Use this project for sites you own, authorized migrations, recovery work,
+design-system research, and learning. Do not use it for phishing,
+impersonation, rights infringement, or scraping/reproduction prohibited by a
+site's terms. Extracted brand assets and design-system output are not official
+assets and remain subject to their owners' rights.
+
+## Project documentation
+
+- [`ROADMAP.md`](ROADMAP.md) — shipped milestones and hard-fork policy
+- [`TASKS.md`](TASKS.md) — living checklist
+- [`docs/FORK-PLAN.md`](docs/FORK-PLAN.md) — architecture decisions and rationale
+- [`AGENTS.md`](AGENTS.md) — repository rules
+- [`CHANGELOG.md`](CHANGELOG.md) — release history
 
 ## License
 
-MIT — see [LICENSE](LICENSE). Forked from [`JCodesMore/ai-website-cloner-template`](https://github.com/JCodesMore/ai-website-cloner-template).
+MIT — see [`LICENSE`](LICENSE). The original project and attribution are
+preserved in the repository history and license.

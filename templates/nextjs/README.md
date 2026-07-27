@@ -4,6 +4,11 @@ This directory is the complete `--build nextjs` target. It has its own package
 manifest, lockfile, TypeScript, ESLint, PostCSS, and shadcn configuration so its
 dependency graph cannot leak into the Astro root.
 
+The release pins Next.js and `eslint-config-next` together. Scoped npm overrides
+keep Next's PostCSS and optional sharp dependencies on patched releases until
+upstream widens its own ranges; the shadcn CLI is build-time tooling and remains
+in `devDependencies`.
+
 Before `dev` or `build`, `scripts/sync-design-system.mjs` copies the selected
 OpenDesign package's derived `tailwind-v4.css` and source `tokens.css` into an
 ignored local cache. The slug defaults to `psiativa`; a clone run sets
@@ -15,6 +20,7 @@ Run it from the repository root:
 npm ci --prefix templates/nextjs
 npm run check --prefix templates/nextjs
 npm run dev --prefix templates/nextjs
+npm audit --omit=dev --prefix templates/nextjs
 ```
 
 To select another emitted package:

@@ -6,6 +6,8 @@
 > portable [OpenDesign](../../../skills/open-design/) design system on every run
 > and can build the page in **Astro** (default) or Next.js — driven only by
 > Claude Code.
+>
+> **Implementation status:** completed in version 0.4.0 on 2026-07-27.
 
 ## Locked decisions (interview, 2026-07-20)
 
@@ -190,15 +192,16 @@ Second page-emitter that reads the design system from Milestone C.
   derived `tailwind-v4.css` instead of hand-writing `globals.css`, so both
   targets share one source of truth (the design system) and never diverge.
 
-### Milestone E — QA, docs, release
+### Milestone E — QA, docs, release ✅
 
-- Keep **Phase 6 visual QA diff** (side-by-side vs original at 1440/390).
-- Add a **DS-acceptance step**: the guard check from Milestone C is part of
-  "done," not optional.
-- Rewrite `README.md`, `QUICKSTART` (if kept), `docs/research/INSPECTION_GUIDE.md`
-  for the new flow; refresh `docs/FORK-PLAN.md` status.
-- `CHANGELOG.md` entry + fork version bump (e.g. `0.4.0` — "Astro +
-  design-system-first, Claude-Code-only").
+- Retained **Phase 6 visual QA diff** as durable side-by-side evidence against
+  the original at 1440px and 390px.
+- Made the **DS-acceptance step** a final, fresh guard run rather than optional
+  follow-up, and added reference-package enforcement to CI.
+- Rewrote `README.md` and `docs/research/INSPECTION_GUIDE.md` for the emitted
+  package, isolated targets, and acceptance flow.
+- Released the `0.4.0` package identity and changelog, including the deferred
+  retained-Next security update.
 
 ## File-by-file change map
 
@@ -242,5 +245,6 @@ Second page-emitter that reads the design system from Milestone C.
 
 Milestones A → C → D followed the planned critical path: prune the platform
 surface, prove a validated OpenDesign package on PsiAtiva, then make Astro the
-default page consumer. Milestone E now owns final QA, remaining documentation,
-identity/version cleanup, and release.
+default page consumer. B hardened extraction in parallel. E closed the fork with
+enforced acceptance evidence, standalone documentation, identity cleanup,
+dependency hygiene, and the 0.4.0 release baseline.

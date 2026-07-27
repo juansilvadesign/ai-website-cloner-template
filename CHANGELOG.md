@@ -7,19 +7,47 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-07-27
+
 ### Added
+- Added an always-on OpenDesign v1 rich-package emitter, targeted guard runner,
+  evidence contract, derived cache generation, and a validated PsiAtiva reference
+  package
 - Hardened `/clone-website` for motion-heavy sites with static-first graceful degradation, a motion budget, complexity triage, and documented video/screenshot fallbacks (upstream PR #56)
 - Added an explicit opt-in ego-browser extraction backend with an MCP translation table while keeping Browser MCP as the default (upstream PR #68)
 - Added the Astro 7 static page target at the repository root, with vanilla CSS consuming emitted OpenDesign variables
 - Added `--build astro|nextjs|none` and `--slug` routing to the design-system-first clone workflow
 - Added a separately buildable retained Next.js target under `templates/nextjs/` with a prebuild design-system sync bridge
+- Added final acceptance gates requiring a fresh design-system guard, the selected
+  target's production check, behavior replay, and final 1440px/390px side-by-side
+  comparison artifacts
+- Added `OPEN_DESIGN_ROOT`, `check:design-system`, and `check:release` support so
+  the package contract can be validated both in the Notes workspace and in a
+  standalone checkout
 
 ### Changed
+- Recast the project as the Claude-Code-only, design-system-first
+  `juansilvadesign/ai-website-cloner-template` hard fork and bumped both package
+  manifests to `0.4.0`
 - Documented `npx @playwright/mcp@latest` as the Playwright MCP server command without duplicating the existing browser-backend workflow (upstream PR #60)
 - Raised the project Node.js baseline to 24 across local development, CI, Docker, and contributor-facing documentation
 - Made OpenDesign emission and validation a gate before page construction, with static-first Astro builder prompts
-- Updated CI and Docker to build the Astro default while CI also validates the retained Next.js target
+- Rewrote the README and inspection guide around the emitted package, isolated
+  build targets, durable evidence, and release acceptance flow
+- Updated CI and Docker to build the Astro default; CI also validates the
+  reference design system and retained Next.js target
 - Locked Astro's `js-yaml` and `sharp` transitives to patched releases, leaving the root production audit clean
+
+### Removed
+- Removed the 12 non-Claude agent targets and both instruction-sync scripts,
+  leaving `.claude/skills/clone-website/SKILL.md` as the only executable workflow
+
+### Security
+- Updated the retained target from Next.js 16.2.1 to 16.2.12 and
+  `eslint-config-next` to match, superseding the originally queued 16.2.7 bump
+- Patched Next's pinned PostCSS and optional sharp transitives and the shadcn MCP
+  server transitive through scoped overrides; the retained production dependency
+  audit now reports zero vulnerabilities
 
 ## [0.3.1] - 2026-03-29
 
@@ -83,9 +111,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - MIT license
 - README with badges, demo section, quick start, and star history
 
-[Unreleased]: https://github.com/JCodesMore/ai-website-cloner-template/compare/v0.3.1...HEAD
-[0.3.1]: https://github.com/JCodesMore/ai-website-cloner-template/compare/v0.3.0...v0.3.1
-[0.3.0]: https://github.com/JCodesMore/ai-website-cloner-template/compare/v0.2.0...v0.3.0
-[0.2.0]: https://github.com/JCodesMore/ai-website-cloner-template/compare/v0.1.1...v0.2.0
-[0.1.1]: https://github.com/JCodesMore/ai-website-cloner-template/compare/v0.1.0...v0.1.1
-[0.1.0]: https://github.com/JCodesMore/ai-website-cloner-template/releases/tag/v0.1.0
+[Unreleased]: https://github.com/juansilvadesign/ai-website-cloner-template/compare/v0.4.0...HEAD
+[0.4.0]: https://github.com/juansilvadesign/ai-website-cloner-template/compare/v0.3.1...v0.4.0
+[0.3.1]: https://github.com/juansilvadesign/ai-website-cloner-template/compare/v0.3.0...v0.3.1
+[0.3.0]: https://github.com/juansilvadesign/ai-website-cloner-template/compare/v0.2.0...v0.3.0
+[0.2.0]: https://github.com/juansilvadesign/ai-website-cloner-template/compare/v0.1.1...v0.2.0
+[0.1.1]: https://github.com/juansilvadesign/ai-website-cloner-template/compare/v0.1.0...v0.1.1
+[0.1.0]: https://github.com/juansilvadesign/ai-website-cloner-template/releases/tag/v0.1.0

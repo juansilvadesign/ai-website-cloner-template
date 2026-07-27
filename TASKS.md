@@ -4,7 +4,7 @@ The living checklist. Strategy and milestone definitions live in
 **[`ROADMAP.md`](ROADMAP.md)**; the deep rationale lives in
 **[`docs/FORK-PLAN.md`](docs/FORK-PLAN.md)**.
 
-_Last reviewed: 2026-07-24_
+_Last reviewed: 2026-07-27_
 
 ---
 
@@ -82,28 +82,32 @@ a complete retained target with an independent manifest and lockfile.
 
 ---
 
-## Now
+## Completed — Milestone E: QA, docs, release ✅
 
-### Milestone E — QA, docs, release
-
-- [ ] Make the DS guard check part of "done", not optional.
-- [ ] Keep Phase 6 visual QA diff (1440 / 390 side-by-side vs original).
-- [ ] Rewrite `README.md` and `docs/research/INSPECTION_GUIDE.md` for the new flow.
-- [ ] `CHANGELOG.md` entry + version bump (`0.4.0` — "Astro + design-system-first,
+- [x] Make the DS guard check part of "done", not optional.
+- [x] Keep Phase 6 visual QA diff (1440 / 390 side-by-side vs original).
+- [x] Rewrite `README.md` and `docs/research/INSPECTION_GUIDE.md` for the new flow.
+- [x] `CHANGELOG.md` entry + version bump (`0.4.0` — "Astro + design-system-first,
       Claude-Code-only").
 
 ### Known drift (accumulated, safe to fix any time)
 
-- [ ] **`package.json` still carries upstream identity** — name
-      `ai-website-clone-template`, `author`/`repository`/`homepage`/`bugs` still
-      point at JCodesMore, and the version remains `v0.3.1`. Fold into E's version
-      bump.
-- [ ] **`CHANGELOG.md`** has no entries for Milestones A or C.
+- [x] Replace `package.json`'s upstream name, author, repository, homepage, bugs,
+      and `v0.3.1` metadata as part of E's version bump.
+- [x] Add the missing Milestone A and C entries to `CHANGELOG.md`.
 
 ### Dependency hygiene (upstream #48 / #38)
 
-- [ ] Evaluate `next 16.2.1 → 16.2.7` + audit fixes — **after** D decides where the
-      Next scaffold lives, so the bump lands in `templates/nextjs/` rather than root.
+- [x] Evaluate `next 16.2.1 → 16.2.7` + audit fixes after D. The queued patch was
+      superseded by the July security line: the retained target now uses Next.js
+      16.2.12 with matching ESLint config and scoped PostCSS, sharp, and Hono
+      overrides. Its production audit is clean.
+
+### Follow-up
+
+- [ ] Remove the retained target's dev-only `brace-expansion` audit finding once
+      Next's ESLint plugin set accepts ESLint 10. `npm audit fix --force` currently
+      creates an invalid peer tree, so it is not a safe release fix.
 
 ---
 

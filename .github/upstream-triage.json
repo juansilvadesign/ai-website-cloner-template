@@ -12,9 +12,9 @@
   "verdicts": {
     "17": { "verdict": "skip", "why": "Cosmetic README mermaid diagram." },
     "25": { "verdict": "skip", "why": "Replaces browser MCP wholesale with Vercel agent-browser; fights our MCP-native setup and conflicts with #60/#68." },
-    "38": { "verdict": "later", "why": "npm audit fixes; only touches the retained Next target that Milestone D moves to templates/nextjs/." },
+    "38": { "verdict": "harvested", "why": "Completed in Milestone E inside templates/nextjs/: safe audit updates plus scoped PostCSS, sharp, and Hono overrides leave the production graph clean." },
     "47": { "verdict": "noise", "why": "Generated clone output (Dr. Kegel quiz funnel)." },
-    "48": { "verdict": "later", "why": "next 16.2.1 -> 16.2.7 + dependency vulns; same Next-target caveat as #38." },
+    "48": { "verdict": "harvested", "why": "Completed in Milestone E; the queued 16.2.7 patch was superseded by Next.js 16.2.12 with matching eslint-config-next." },
     "52": { "verdict": "skip", "why": "Simplified Chinese README; not maintained in a private-direction fork." },
     "54": { "verdict": "skip", "why": "devcontainer.json; we run Claude Code locally." },
     "56": { "verdict": "harvested", "why": "Ported in Milestone B: Principle 10 + Motion Complexity Triage table + 2 What-NOT-to-Do rules." },

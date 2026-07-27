@@ -11,7 +11,7 @@ from training data. This rule does not apply to the Astro root.
 ## What This Is
 A **design-system-first** website reverse-engineer, driven **only by Claude Code**. Point it at one or more URLs; it extracts the target's design system — screenshots, computed styles, assets, real content — and serializes that into a portable **OpenDesign** package, then (optionally) rebuilds the page from it in **Astro** (the target default) or **Next.js** (retained).
 
-This is a hard fork of [`JCodesMore/ai-website-cloner-template`](https://github.com/JCodesMore/ai-website-cloner-template), reshaped per [`docs/FORK-PLAN.md`](docs/FORK-PLAN.md). The Claude-Code-only prune, OpenDesign emitter, and Astro page builder are shipped. Run `/clone-website <url1> [<url2> ...] [--build astro|nextjs|none] [--slug <name>]`.
+This is version 0.4.0 of a hard fork of [`JCodesMore/ai-website-cloner-template`](https://github.com/JCodesMore/ai-website-cloner-template), reshaped per [`docs/FORK-PLAN.md`](docs/FORK-PLAN.md). The Claude-Code-only workflow, OpenDesign emitter and final guard, Astro default, retained Next.js target, and 1440px/390px visual-QA contract are shipped. Run `/clone-website <url1> [<url2> ...] [--build astro|nextjs|none] [--slug <name>]`.
 
 ## Tech Stack
 - **Default framework:** Astro 7, static output, TypeScript strict
@@ -22,8 +22,12 @@ This is a hard fork of [`JCodesMore/ai-website-cloner-template`](https://github.
 
 ## Commands
 - `npm run dev` — Start the Astro dev server
-- `npm run check` — Lint + Astro typecheck + static production build
+- `npm run check` — Lint + Astro/script typechecks + static production build
+- `npm run check:design-system -- --brand <slug>` — Run OpenDesign's guard
+  checks against one emitted package
 - `npm run check:nextjs` — Validate the retained Next.js target
+- `npm run check:release` — Check Astro, the PsiAtiva reference package, and
+  retained Next.js
 - `npm run build` — Build Astro into `dist/`
 - `npm run preview` — Preview the Astro production build
 

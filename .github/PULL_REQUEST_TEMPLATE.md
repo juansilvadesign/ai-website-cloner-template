@@ -16,4 +16,7 @@
 
 ## Checklist
 
-- [ ] `npm run check` passes (lint + typecheck + build)
+- [ ] `npm run check` passes (lint + Astro/script typechecks + build)
+- [ ] `npm run check:design-system -- --brand <slug>` passes for every changed emitted package
+- [ ] `npm run check:nextjs` passes when `templates/nextjs/` changes
+- [ ] Page-output changes include final 1440px and 390px side-by-side visual QA artifacts
