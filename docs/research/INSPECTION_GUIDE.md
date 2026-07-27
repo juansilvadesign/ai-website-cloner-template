@@ -1,80 +1,235 @@
 # Website Inspection Guide
 
-## How to Reverse-Engineer Any Website
+Use this checklist with `.claude/skills/clone-website/SKILL.md`. The skill owns
+the full execution protocol; this guide defines the evidence an inspection must
+leave behind before an OpenDesign package or page clone can be accepted.
 
-This guide outlines what to capture when inspecting a target website via Chrome MCP or browser DevTools.
+## 0. Establish the run
 
-## Phase 1: Visual Audit
+- [ ] Parse `--build astro|nextjs|none` and the optional single-site `--slug`.
+- [ ] Resolve one slug and one isolated artifact folder per URL.
+- [ ] Select a browser backend: browser MCP by default; ego-browser only after
+      explicit opt-in.
+- [ ] Resolve a compatible OpenDesign checkout through `OPEN_DESIGN_ROOT` or
+      `--od-root`.
+- [ ] Record the source URL, inspection date, browser, device scale, and any
+      authentication or consent state that changes what is visible.
 
-### Screenshots to Capture
-- [ ] Every distinct page — desktop, tablet, mobile
-- [ ] Dark mode variants (if applicable)
-- [ ] Light mode variants (if applicable)
-- [ ] Key interaction states (hover, active, open menus, modals)
-- [ ] Loading/skeleton states
-- [ ] Empty states
-- [ ] Error states
+For a single site, use these durable outputs:
 
-### Design Tokens to Extract
-- [ ] **Colors** — background, text (primary/secondary/muted), accent, border, hover, error, success, warning
-- [ ] **Typography** — font family, sizes (h1-h6, body, caption, label), weights, line heights, letter spacing
-- [ ] **Spacing** — padding/margin patterns (look for a scale: 4px, 8px, 12px, 16px, 24px, 32px, etc.)
-- [ ] **Border radius** — buttons, cards, avatars, inputs
-- [ ] **Shadows/elevation** — card shadows, dropdown shadows, modal overlay
-- [ ] **Breakpoints** — when does the layout shift? (inspect with DevTools responsive mode)
-- [ ] **Icons** — which icon library? custom SVGs? sizes?
-- [ ] **Avatars** — sizes, shapes, fallback behavior
-- [ ] **Buttons** — all variants (primary, secondary, ghost, icon-only, danger)
-- [ ] **Inputs** — text fields, textareas, selects, checkboxes, toggles
+```text
+docs/research/
+  PAGE_TOPOLOGY.md
+  BEHAVIORS.md
+  components/<name>.spec.md
+docs/design-references/<slug>/
+design-systems/<slug>/
+```
 
-## Phase 2: Component Inventory
+For multiple sites, nest research and references by slug so no evidence or
+component name can collide.
 
-For each distinct UI component, document:
-1. **Name** — what would you call this component?
-2. **Structure** — what HTML elements / child components does it contain?
-3. **Variants** — does it have different sizes, colors, or states?
-4. **States** — default, hover, active, disabled, loading, error, empty
-5. **Responsive behavior** — how does it change at different breakpoints?
-6. **Interactions** — click, hover, focus, keyboard navigation
-7. **Animations** — transitions, entrance/exit animations, micro-interactions
+## 1. Capture master references
 
-### Common Components to Look For
-- Navigation (top bar, sidebar, bottom bar)
-- Cards / list items
-- Buttons and links
-- Forms and inputs
-- Modals and dialogs
-- Dropdowns and menus
-- Tabs and segmented controls
-- Avatars and user badges
-- Loading skeletons
-- Toast notifications
-- Tooltips and popovers
+Before interacting with the page, capture full-page screenshots at exact
+viewport widths:
 
-## Phase 3: Layout Architecture
+- [ ] Desktop: 1440px
+- [ ] Mobile: 390px
+- [ ] Tablet inspection: 768px (a final comparison composite is not required)
+- [ ] Dark/light theme variants when the target exposes them
+- [ ] Any consent, loading, empty, error, modal, menu, or authenticated state in
+      scope
 
-- [ ] **Grid system** — CSS Grid? Flexbox? Fixed widths?
-- [ ] **Column layout** — how many columns at each breakpoint?
-- [ ] **Max-width** — main content area max-width
-- [ ] **Sticky elements** — header, sidebar, floating buttons
-- [ ] **Z-index layers** — navigation, modals, tooltips, overlays
-- [ ] **Scroll behavior** — infinite scroll, pagination, virtual scrolling
+Save the untouched original captures under
+`docs/design-references/<slug>/`. Record the viewport height and device scale so
+the clone can be captured identically during final QA.
 
-## Phase 4: Technical Stack Analysis
+## 2. Reconnaissance and behavior
 
-- [ ] **Framework** — React? Vue? Angular? Check `__NEXT_DATA__`, `__NUXT__`, `ng-version`
-- [ ] **CSS approach** — Tailwind (utility classes), CSS Modules, Styled Components, Emotion, vanilla CSS
-- [ ] **State management** — Redux (check DevTools), React Query, Zustand, Pinia
-- [ ] **API patterns** — REST, GraphQL (check network tab for `/graphql` requests)
-- [ ] **Font loading** — Google Fonts, self-hosted, system fonts
-- [ ] **Image strategy** — CDN, lazy loading, srcset, WebP/AVIF
-- [ ] **Animation library** — Framer Motion, GSAP, CSS transitions only
+### Global appearance
 
-## Phase 5: Documentation Output
+- [ ] Fonts: family, file/source, weight, style, computed usage, and license
+      signal
+- [ ] Colors: background, surface, foreground, muted, accent, semantic, border,
+      focus, and state roles
+- [ ] Type scale: size, line height, letter spacing, weight, and casing
+- [ ] Spacing and section rhythm
+- [ ] Radius, border, elevation, and focus treatment
+- [ ] Containers, grids, breakpoints, sticky/fixed layers, overflow, and z-index
+- [ ] Favicons, metadata, locale, social images, and webmanifest
 
-After inspection, create these files in `docs/research/`:
-1. `DESIGN_TOKENS.md` — All extracted colors, typography, spacing
-2. `COMPONENT_INVENTORY.md` — Every component with structure notes
-3. `LAYOUT_ARCHITECTURE.md` — Page layouts, grid system, responsive behavior
-4. `INTERACTION_PATTERNS.md` — Animations, transitions, hover states
-5. `TECH_STACK_ANALYSIS.md` — What the site uses and our chosen equivalents
+Values come from `getComputedStyle()` or a source artifact, never visual
+estimation.
+
+### Mandatory interaction sweep
+
+- [ ] Scroll slowly from top to bottom before clicking anything.
+- [ ] Record sticky changes, reveal triggers, parallax, scroll snap, active-item
+      changes, and smooth-scroll libraries.
+- [ ] Click every button, tab, pill, card, menu, and control; extract every state
+      and its real content.
+- [ ] Hover and focus every likely interactive element; record before/after
+      properties, duration, and easing.
+- [ ] Observe timed behavior such as autoplay, carousels, cycling copy, and
+      delayed entrance motion.
+- [ ] Repeat responsive inspection at 1440px, 768px, and 390px.
+
+Write the result to `BEHAVIORS.md`, including the exact trigger and transition
+for each state.
+
+### Motion triage
+
+Classify the page at the top of `BEHAVIORS.md`:
+
+- **Light:** CSS transitions and small hover states.
+- **Moderate:** scroll reveals, sticky transitions, a carousel, or one prominent
+  hero animation.
+- **Heavy:** WebGL/canvas, chained GSAP timelines, particles, or many staggered
+  effects.
+
+Inventory Framer Motion, GSAP/ScrollTrigger, Lenis/Locomotive, canvas/WebGL,
+Lottie, particles, and native video signals. For heavy pages, define the static
+skeleton first and identify which irreducible effects will use a documented
+video or screenshot fallback.
+
+## 3. Map page topology
+
+Write `PAGE_TOPOLOGY.md` from top to bottom:
+
+- [ ] Every distinct section and sub-component
+- [ ] Flow, fixed, sticky, overlay, and portal relationships
+- [ ] Grid/column structure and container widths
+- [ ] Section dependencies and shared UI
+- [ ] Interaction model: static, click-driven, scroll-driven, hover-driven,
+      time-driven, or combined
+- [ ] Responsive reorder, hide/show, stack, and breakpoint behavior
+
+This topology is the assembly blueprint. Do not begin page components yet.
+
+## 4. Build the OpenDesign evidence
+
+Map extracted values into
+`design-systems/<slug>/source/tokens.source.json`. Each source entry needs:
+
+- [ ] OpenDesign slot name
+- [ ] Exact value
+- [ ] Confidence: `high`, `derived`, or `fallback`
+- [ ] Reason
+- [ ] Source citation such as selector, stylesheet, or evidence line
+- [ ] Light/dark theme ownership
+
+Author the rich package evidence:
+
+- [ ] `DESIGN.md` covers personality, color, typography, spacing/layout,
+      components/states, motion, accessibility, and anti-patterns.
+- [ ] `USAGE.md` contains Read Order, Design Highlights, Do, and Avoid.
+- [ ] `components.html` demonstrates at least four component groups and uses
+      only declared variables.
+- [ ] `preview/colors.html`, `preview/typography.html`, and
+      `preview/spacing.html` exist.
+- [ ] `source/evidence.md` records provenance and uncertainty.
+
+Emit and validate before page construction:
+
+```bash
+npx tsx scripts/emit-design-system.ts \
+  --brand <slug> \
+  --name "<Display name>" \
+  --category "<Category>" \
+  --od-root <open-design-root>
+
+npm run check:design-system -- \
+  --brand <slug> \
+  --od-root <open-design-root>
+```
+
+Do not hand-edit `tokens.css`, `design-tokens.json`, `tailwind-v4.css`,
+`components.manifest.json`, or other derived caches.
+
+## 5. Inventory components, content, and assets
+
+Write one `docs/research/components/<name>.spec.md` before dispatching each
+builder. Every spec includes:
+
+- [ ] Target file and screenshot path
+- [ ] Semantic DOM hierarchy
+- [ ] Exact computed styles by element
+- [ ] Interaction model and all before/after states
+- [ ] Trigger mechanism, threshold, transition, duration, and easing
+- [ ] Verbatim text, labels, placeholders, alt text, and ARIA text
+- [ ] Per-state content for tabs, accordions, menus, and carousels
+- [ ] Desktop, tablet, and mobile layout behavior
+- [ ] Exact asset paths, including layered backgrounds and overlays
+- [ ] Fallbacks or deferred motion, if any
+
+Asset inventory must cover images, `srcset`, CSS backgrounds, inline SVGs,
+fonts, video sources/posters, favicons, OG images, and manifests. Download into
+the selected target's `public/` tree with meaningful names.
+
+Split a spec when its inline builder prompt would exceed roughly 150 lines.
+Builders receive the complete spec inline and do not browse the target.
+
+## 6. Inspect target fidelity
+
+### Astro
+
+- [ ] `src/styles/global.css` imports the selected package's `tokens.css`.
+- [ ] Sections are semantic `.astro` components with scoped vanilla CSS.
+- [ ] Static content ships without client JavaScript.
+- [ ] Interactive content remains server-rendered and is progressively enhanced;
+      no content-bearing `client:only` islands.
+- [ ] All reusable visual values resolve through OpenDesign variables.
+
+### Retained Next.js
+
+- [ ] Work stays under `templates/nextjs/`.
+- [ ] `DESIGN_SYSTEM_SLUG=<slug>` selects and syncs the emitted package.
+- [ ] Components consume the synced OpenDesign Tailwind cache.
+- [ ] Server Components remain the default; `"use client"` is interaction-only.
+- [ ] No second token source appears in `globals.css` or component styles.
+
+## 7. Final visual QA
+
+After assembly, capture the original and clone at matching page state, device
+scale, viewport height, and exact widths. Create these final artifacts:
+
+```text
+docs/design-references/<slug>/qa/
+  original-1440.png
+  clone-1440.png
+  comparison-1440.png
+  original-390.png
+  clone-390.png
+  comparison-390.png
+```
+
+Each `comparison-*.png` places the original and clone side-by-side. Review every
+section top to bottom, fix the spec or implementation at the source, then
+recapture both composites after the last correction.
+
+Replay the interaction sweep against the clone: scroll, click, hover, focus,
+timed motion, and responsive transitions. Record every deliberate difference
+or fallback in `BEHAVIORS.md`.
+
+## 8. Acceptance gates
+
+Run these after the final visual correction:
+
+```bash
+# Always required, including --build none
+npm run check:design-system -- \
+  --brand <slug> \
+  --od-root <open-design-root>
+
+# Astro page
+npm run check
+
+# Retained Next.js page
+DESIGN_SYSTEM_SLUG=<slug> npm run check:nextjs
+```
+
+The work is not done unless the fresh design-system guard passes. Page builds
+also require a green selected-target check, final 1440px and 390px comparison
+artifacts, a completed behavior replay, and explicit reporting of remaining
+gaps.

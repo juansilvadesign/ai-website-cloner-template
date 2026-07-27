@@ -104,11 +104,17 @@ Keep these constraints:
      `npx tsx --version` succeeds.
    The root must remain Astro; Next.js dependencies stay isolated in
    `templates/nextjs/`.
-5. Create the output directories if they don't exist: `docs/research/`,
+5. Resolve a compatible OpenDesign checkout before extraction. Prefer the absolute
+   path in `OPEN_DESIGN_ROOT`; otherwise pass `--od-root <absolute-path>` to both
+   design-system commands. Verify that the checkout contains
+   `packages/contracts/src/design-systems/token-schema.ts` and
+   `scripts/check-design-system-manifests.ts`. The default fallback only exists in
+   the notes workspace at `knowledge/skills/open-design`.
+6. Create the output directories if they don't exist: `docs/research/`,
    `docs/research/components/`, `docs/design-references/`, `scripts/`. For multiple
    clones, prepare per-site folders such as `docs/research/<hostname>/` and
    `docs/design-references/<hostname>/`.
-6. When working with multiple sites in one command, optionally confirm whether to run
+7. When working with multiple sites in one command, optionally confirm whether to run
    them in parallel (recommended, if resources allow) or sequentially to avoid overload.
 
 ## Guiding Principles
@@ -340,8 +346,10 @@ Author these evidence-backed files:
 ### Step 3 — Emit, validate, then route
 
 ```bash
-npx tsx scripts/emit-design-system.ts --brand <slug> --name "<Name>" --category "<Category>"
-npx tsx scripts/validate-design-system.ts --brand <slug>
+npx tsx scripts/emit-design-system.ts --brand <slug> --name "<Name>" \
+  --category "<Category>" --od-root <open-design-root>
+npx tsx scripts/validate-design-system.ts --brand <slug> \
+  --od-root <open-design-root>
 ```
 
 The emitter writes `tokens.css` and, through OpenDesign's own renderers, the derived
@@ -647,19 +655,42 @@ After all sections are built and merged, assemble the selected page:
 
 ## Phase 6: Visual QA Diff
 
-After assembly, do NOT declare the clone complete. Take side-by-side comparison screenshots:
+After assembly, do NOT declare the clone complete. Create durable side-by-side
+comparison artifacts against the original:
 
-1. Open the original site and your clone side-by-side (or take screenshots at the same viewport widths)
-2. Compare section by section, top to bottom, at desktop (1440px)
-3. Compare again at mobile (390px)
+1. Capture the original and clone at the same device scale, page state, and exact
+   viewport width. Use 1440px desktop and 390px mobile; capture the full page.
+2. Save the source captures and two composites under
+   `docs/design-references/<slug>/qa/`, including `comparison-1440.png` and
+   `comparison-390.png`. Each composite places the original and clone side-by-side.
+3. Compare section by section, top to bottom, at 1440px, then repeat at 390px.
 4. For each discrepancy found:
    - Check the component spec file — was the value extracted correctly?
    - If the spec was wrong: re-extract from browser MCP, update the spec, fix the component
    - If the spec was right but the builder got it wrong: fix the component to match the spec
 5. Test all interactive behaviors: scroll through the page, click every button/tab, hover over interactive elements
 6. Verify smooth scroll feels right, header transitions work, tab switching works, animations play
+7. Re-capture both comparison artifacts after the final correction; stale
+   before-fix screenshots are not acceptance evidence.
 
-Only after this visual QA pass is the clone complete.
+## Final Acceptance Gates
+
+Run these gates after all visual fixes. They are the definition of done, not
+optional follow-up:
+
+1. **Design system — every build mode:** rerun
+   `npx tsx scripts/validate-design-system.ts --brand <slug> --od-root
+   <open-design-root>`. This must be a fresh passing run after the last edit.
+   `--build none` performs this gate at the end of Phase 2 and stops there.
+2. **Selected target — page builds only:** run `npm run check` for Astro or
+   `DESIGN_SYSTEM_SLUG=<slug> npm run check:nextjs` for Next.js.
+3. **Visual evidence — page builds only:** confirm both
+   `comparison-1440.png` and `comparison-390.png` exist and reflect the final
+   build.
+4. **Behavior evidence — page builds only:** repeat the interaction sweep against
+   the clone and record any deliberate motion fallback in `BEHAVIORS.md`.
+
+Do not report the clone complete while any applicable gate is missing or failing.
 
 ## Pre-Dispatch Checklist
 
@@ -708,12 +739,14 @@ These are lessons from previous failed clones — each one cost hours of rework:
 
 When done, report:
 - Resolved slug, validated design-system path, and validation result
+- Exact final design-system guard command and its fresh pass result
 - Selected build target (`astro`, `nextjs`, or `none`)
 - Total sections built
 - Total components created
 - Total spec files written (should match components)
 - Total assets downloaded (images, videos, SVGs, fonts)
 - Build status (the selected target's check result; N/A for `--build none`)
-- Visual QA results (any remaining discrepancies)
+- Paths to the final 1440px and 390px side-by-side QA artifacts, plus any
+  remaining discrepancies (N/A for `--build none`)
 - Motion tier (light / moderate / heavy) and any animations deferred or substituted with fallbacks
 - Any known gaps or limitations
