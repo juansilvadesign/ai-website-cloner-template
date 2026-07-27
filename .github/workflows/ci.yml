@@ -32,6 +32,18 @@ jobs:
       - name: Check Astro target
         run: npm run check
 
+      - name: Checkout compatible OpenDesign contracts
+        uses: actions/checkout@v4
+        with:
+          repository: nexu-io/open-design
+          ref: 3447f60a3484c59c3bece4a437f53dd6e8df08a8
+          path: .open-design
+
+      - name: Check reference design-system package
+        env:
+          OPEN_DESIGN_ROOT: ${{ github.workspace }}/.open-design
+        run: npm run check:design-system -- --brand psiativa
+
       - name: Install retained Next.js dependencies
         run: npm ci --prefix templates/nextjs
 

@@ -1,18 +1,18 @@
 {
-  "name": "ai-website-clone-template",
-  "version": "0.3.1",
+  "name": "ai-website-cloner-template",
+  "version": "0.4.0",
   "private": true,
   "description": "Extract portable OpenDesign systems and rebuild pages with Astro by default",
   "type": "module",
-  "author": "JCodesMore",
+  "author": "Juan Silva",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/JCodesMore/ai-website-cloner-template.git"
+    "url": "https://github.com/juansilvadesign/ai-website-cloner-template.git"
   },
-  "homepage": "https://github.com/JCodesMore/ai-website-cloner-template",
+  "homepage": "https://github.com/juansilvadesign/ai-website-cloner-template#readme",
   "bugs": {
-    "url": "https://github.com/JCodesMore/ai-website-cloner-template/issues"
+    "url": "https://github.com/juansilvadesign/ai-website-cloner-template/issues"
   },
   "keywords": [
     "claude-code",
@@ -33,8 +33,11 @@
     "preview": "astro preview",
     "lint": "eslint \"src/**/*.{astro,js,mjs,ts}\" astro.config.mjs eslint.config.mjs",
     "typecheck": "astro check",
-    "check": "npm run lint && npm run typecheck && npm run build",
-    "check:nextjs": "npm --prefix templates/nextjs run check"
+    "typecheck:scripts": "tsc --ignoreConfig --noEmit --strict --skipLibCheck --module NodeNext --moduleResolution NodeNext --target ES2022 --types node scripts/emit-design-system.ts scripts/validate-design-system.ts",
+    "check": "npm run lint && npm run typecheck && npm run typecheck:scripts && npm run build",
+    "check:design-system": "tsx scripts/validate-design-system.ts",
+    "check:nextjs": "npm --prefix templates/nextjs run check",
+    "check:release": "npm run check && npm run check:design-system -- --brand psiativa && npm run check:nextjs"
   },
   "dependencies": {
     "astro": "^7.1.3"
