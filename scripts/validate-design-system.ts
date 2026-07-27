@@ -10,7 +10,11 @@
  * / components.manifest.json parity, and the package-quality minimums).
  *
  * Usage:
- *   npx tsx scripts/validate-design-system.ts --brand psiativa [--od-root ...]
+ *   npx tsx scripts/validate-design-system.ts --brand psiativa \
+ *     [--od-root /absolute/path/to/open-design]
+ *
+ * OpenDesign lookup order: `--od-root`, `OPEN_DESIGN_ROOT`, then the sibling
+ * checkout used by the notes workspace (`knowledge/skills/open-design`).
  */
 
 import { access, readFile, readdir } from "node:fs/promises";
@@ -37,7 +41,10 @@ async function exists(p: string): Promise<boolean> {
 
 async function main(): Promise<void> {
   const brand = arg("brand", "psiativa")!;
-  const odRoot = path.resolve(SCRIPT_DIR, arg("od-root", "../../../skills/open-design")!);
+  const odRoot = path.resolve(
+    SCRIPT_DIR,
+    arg("od-root") ?? process.env.OPEN_DESIGN_ROOT ?? "../../../skills/open-design",
+  );
   const brandRoot = path.resolve(FORK_ROOT, arg("out", `design-systems/${brand}`)!);
   const label = `design-systems/${brand}/manifest.json`;
 

@@ -21,13 +21,11 @@
  *   npx tsx scripts/emit-design-system.ts --brand psiativa \
  *     [--source design-systems/psiativa/source/tokens.source.json] \
  *     [--out design-systems/psiativa] \
- *     [--od-root ../../../skills/open-design] \
+ *     [--od-root /absolute/path/to/open-design] \
  *     [--name "PsiAtiva"] [--category "Health & Wellness"] [--description "..."]
  *
- * NOTE: `--od-root` defaults to the sibling OpenDesign skill in the notes repo
- * (knowledge/skills/open-design). That cross-package path resolves only inside
- * the notes workspace, not on the standalone GitHub fork — pass --od-root
- * explicitly elsewhere.
+ * OpenDesign lookup order: `--od-root`, `OPEN_DESIGN_ROOT`, then the sibling
+ * checkout used by the notes workspace (`knowledge/skills/open-design`).
  */
 
 import { readFile, writeFile, mkdir } from "node:fs/promises";
@@ -81,7 +79,10 @@ async function main(): Promise<void> {
   }
   const outDir = path.resolve(FORK_ROOT, arg("out", `design-systems/${brand}`)!);
   const sourcePath = path.resolve(FORK_ROOT, arg("source", `design-systems/${brand}/source/tokens.source.json`)!);
-  const odRoot = path.resolve(SCRIPT_DIR, arg("od-root", "../../../skills/open-design")!);
+  const odRoot = path.resolve(
+    SCRIPT_DIR,
+    arg("od-root") ?? process.env.OPEN_DESIGN_ROOT ?? "../../../skills/open-design",
+  );
   const displayName = arg("name", brand[0].toUpperCase() + brand.slice(1))!;
   const category = arg("category", "Uncategorized")!;
   const description = arg("description", `Design system extracted from ${displayName} by the clone-website tool.`)!;
