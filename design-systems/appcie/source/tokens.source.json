@@ -1,0 +1,87 @@
+{
+  "$schema": "clone-website extraction artifact — consumed by scripts/emit-design-system.ts",
+  "brand": "appcie",
+  "name": "CIE Validação DNE",
+  "extraction": {
+    "target": "https://fesn.appcie.org/<codigo> — DNE credential verification page (FESN-operated, separate domain)",
+    "sourcePath": "Angular 16+ SPA; compiled styles.e2bebc4ec5781c7c.css (Angular Material + Bootstrap-derived alert/list-group utilities)",
+    "method": "computed-style extraction only",
+    "evidence": "This target declares ZERO CSS custom properties on :root — Angular Material compiles its theme into static SCSS output, so there is no authored token layer to read. Every value here was measured with getComputedStyle() in headless Chromium at 1440/768/390 and converted to sRGB through a 1x1 canvas readback. That makes this package a materially weaker evidence base than a token-declaring target: role names are inferred from usage, not from the author's own naming.",
+    "note": "Light-only. Only slots with a real or derived value are listed; the emitter fills the rest from OpenDesign fallbacks and B-slot aliases.",
+    "extractedAt": "2026-07-28"
+  },
+  "themes": {
+    "light": {
+      "--bg":            { "value": "#ffffff", "confidence": "high", "reason": "body / sticky header canvas", "source": "computed: .cabecalho backgroundColor" },
+      "--surface":       { "value": "#f9f9f9", "confidence": "high", "reason": "the single content shell that holds the whole document", "source": "computed: .toolbar backgroundColor" },
+      "--surface-warm":  { "value": "#c3e6cb", "confidence": "high", "reason": "the success-alert surface behind the validation chain output", "source": "computed: .validacoes-success backgroundColor" },
+
+      "--fg":            { "value": "#000000", "confidence": "high", "reason": "body ink, labels and values alike — this target uses pure black, not a slate", "source": "computed: body color" },
+      "--fg-2":          { "value": "rgb(0 0 0 / 0.87)", "confidence": "high", "reason": "Angular Material's primary-text alpha, used by the toolbar", "source": "computed: mat-toolbar color" },
+      "--muted":         { "value": "rgb(0 0 0 / 0.87)", "confidence": "derived", "reason": "the target has no distinct muted text tier — every text node is #000 or the .87 toolbar alpha. Mapped to the same .87 rather than inventing a grey.", "source": "derived: no muted tier observed" },
+      "--meta":          { "value": "rgb(0 0 0 / 0.54)", "confidence": "derived", "reason": "no tertiary text tier exists on the target; Material's standard secondary-text alpha used as the schema value", "source": "derived: Angular Material secondary-text" },
+
+      "--border":        { "value": "#e0e0e0", "confidence": "high", "reason": "the PEM container hairline — the only solid border colour on the page", "source": "computed: p.pem-container borderColor" },
+      "--border-soft":   { "value": "rgb(0 0 0 / 0.12)", "confidence": "high", "reason": "mat-divider under the header, and the list-group rows use the near-identical .125 alpha", "source": "computed: mat-divider borderTopColor" },
+
+      "--accent":        { "value": "#24858d", "confidence": "high", "reason": "CIE teal — the ONLY chromatic colour in the interface, used for every section heading (DADOS PESSOAIS, DADOS ESTUDANTIS, DADOS CERTIFICADO DE ATRIBUTO, CERTIFICADO … PEM)", "source": "computed: .grupo color" },
+      "--accent-on":     { "value": "#ffffff", "confidence": "derived", "reason": "the target never fills a surface with the accent — it is text-only. White is the readable pairing (4.6:1 against #24858d).", "source": "derived from --accent" },
+      "--accent-hover":  { "value": "#1c6b71", "confidence": "derived", "reason": "no accent hover state exists on the target; one step darker", "source": "derived from --accent" },
+      "--accent-active": { "value": "#155258", "confidence": "derived", "reason": "no pressed accent state exists on the target", "source": "derived from --accent-hover" },
+
+      "--success":       { "value": "#155724", "confidence": "high", "reason": "the validation-chain result text inside the success alert", "source": "computed: .validacoes-success color" },
+      "--warn":          { "value": "#856404", "confidence": "derived", "reason": "the page carries an .alert-warning class on the 'Importante' paragraph, but it renders with plain #000 text and no fill — the warning palette is never actually painted. Bootstrap's warning ink recorded as the schema value.", "source": "derived: .alert-warning class present, not styled" },
+      "--danger":        { "value": "#721c24", "confidence": "derived", "reason": "no error state is reachable on this route — it renders only the success path", "source": "derived: Bootstrap danger ink" },
+
+      "--font-display":  { "value": "Roboto, \"Helvetica Neue\", sans-serif", "confidence": "high", "reason": "Angular Material typography applied to every heading. NOTE: like the FESN target, Roboto is declared but never delivered — all @font-face entries report status 'unloaded' and no font file is requested, so it renders as Helvetica Neue / system sans.", "source": "computed: h1 fontFamily" },
+      "--font-body":     { "value": "Roboto, \"Helvetica Neue\", sans-serif", "confidence": "high", "reason": "one family for the whole document, headings and body alike", "source": "computed: body fontFamily" },
+      "--font-mono":     { "value": "\"Roboto Mono\", \"SFMono-Regular\", Menlo, Consolas, monospace", "confidence": "derived", "reason": "the PEM certificate block is rendered in proportional Roboto at 12.6px, NOT a monospace face — this slot is unused by the target", "source": "derived: no monospace on target" },
+
+      "--text-xs":   { "value": "12.6px", "confidence": "high", "reason": "the PEM certificate block (0.9 × 14px)", "source": "computed: p.pem-container fontSize" },
+      "--text-sm":   { "value": "14px",   "confidence": "high", "reason": "the document's base size — body, field labels, field values, alerts, links", "source": "computed: body fontSize" },
+      "--text-base": { "value": "16px",   "confidence": "derived", "reason": "Angular Material's base; the target renders body copy at 14px and never uses 16px in visible content", "source": "derived: mat-typography base" },
+      "--text-lg":   { "value": "18px",   "confidence": "high", "reason": "the teal section headings (.grupo)", "source": "computed: .grupo fontSize" },
+      "--text-xl":   { "value": "20px",   "confidence": "high", "reason": "mat-toolbar type size in the sticky header", "source": "computed: mat-toolbar fontSize" },
+      "--text-2xl":  { "value": "24px",   "confidence": "high", "reason": "all three document titles (h1, h2, h3) share one size", "source": "computed: h1/h2/h3 fontSize" },
+      "--text-3xl":  { "value": "30px",   "confidence": "derived", "reason": "unused by the target — its type ramp stops at 24px. Continues the scale for schema completeness.", "source": "derived: scale continuation" },
+      "--text-4xl":  { "value": "36px",   "confidence": "derived", "reason": "unused by the target — no display tier exists on this page", "source": "derived: scale continuation" },
+
+      "--leading-body":     { "value": "1.43",  "confidence": "high", "reason": "14px → 20px on every body element", "source": "computed: body lineHeight/fontSize" },
+      "--leading-tight":    { "value": "1.33",  "confidence": "high", "reason": "24px → 32px on h1 and h2", "source": "computed: h1 lineHeight/fontSize" },
+      "--tracking-display": { "value": "0em",   "confidence": "high", "reason": "every heading computes letter-spacing: normal", "source": "computed: h1 letterSpacing" },
+
+      "--section-y-desktop": { "value": "30px", "confidence": "high", "reason": ".texto blocks separate the lower sections with a 30px top pad — the page's only vertical rhythm unit", "source": "computed: .texto paddingTop at 1440" },
+      "--section-y-tablet":  { "value": "30px", "confidence": "high", "reason": "unchanged at 768 — the layout is byte-identical to 1440 (both 2116px tall)", "source": "computed: .texto paddingTop at 768" },
+      "--section-y-phone":   { "value": "30px", "confidence": "high", "reason": "unchanged at 390; the page grows by reflow, not by rhythm changes", "source": "computed: .texto paddingTop at 390" },
+
+      "--container-max":            { "value": "772px", "confidence": "high", "reason": "both the header logo row and the content column cap at 772px", "source": "computed: .container-logos maxWidth" },
+      "--container-gutter-desktop": { "value": "16px",  "confidence": "high", "reason": "mat-toolbar horizontal padding", "source": "computed: mat-toolbar padding at 1440" },
+      "--container-gutter-tablet":  { "value": "16px",  "confidence": "high", "reason": "unchanged at 768", "source": "computed: mat-toolbar padding at 768" },
+      "--container-gutter-phone":   { "value": "16px",  "confidence": "high", "reason": "unchanged at 390 — Material keeps a constant 16px gutter", "source": "computed: mat-toolbar padding at 390" },
+
+      "--space-1":  { "value": "4px",  "confidence": "high",    "reason": "photo frame inset", "source": "computed: img.foto padding" },
+      "--space-2":  { "value": "8px",  "confidence": "derived", "reason": "not used directly; fills the gap between the observed 4px and 12px steps", "source": "derived: scale continuation" },
+      "--space-3":  { "value": "12px", "confidence": "high",    "reason": "alert vertical padding and block margin-bottom", "source": "computed: .validacoes-success paddingTop" },
+      "--space-4":  { "value": "16px", "confidence": "high",    "reason": "heading margin-bottom and toolbar gutter", "source": "computed: h1 marginBottom" },
+      "--space-5":  { "value": "20px", "confidence": "high",    "reason": "alert horizontal padding and photo container padding", "source": "computed: .fotocontainer padding" },
+      "--space-6":  { "value": "24px", "confidence": "derived", "reason": "not used by the target; scale continuation", "source": "derived: scale continuation" },
+      "--space-8":  { "value": "30px", "confidence": "high",    "reason": ".texto section separation", "source": "computed: .texto paddingTop" },
+      "--space-12": { "value": "48px", "confidence": "derived", "reason": "not used by the target; scale continuation", "source": "derived: scale continuation" },
+
+      "--radius-sm":   { "value": "4px",    "confidence": "high",    "reason": "list-group row corners on the certificate download rows", "source": "computed: li.list-group-item borderRadius" },
+      "--radius-md":   { "value": "6px",    "confidence": "high",    "reason": "the teal section-heading chips", "source": "computed: .grupo borderRadius" },
+      "--radius-lg":   { "value": "8px",    "confidence": "high",    "reason": "the content shell", "source": "computed: .toolbar borderRadius" },
+      "--radius-pill": { "value": "9999px", "confidence": "derived", "reason": "no pill geometry exists on the target", "source": "derived: unused" },
+
+      "--elev-flat":   { "value": "none", "confidence": "high", "reason": "alerts, the PEM box and the list rows are all flat, separated by border or fill", "source": "computed: .validacoes-success boxShadow" },
+      "--elev-ring":   { "value": "0 0 0 1px var(--border)", "confidence": "derived", "reason": "the target draws hairlines as real borders; expressed as a ring for schema parity", "source": "derived from --border" },
+      "--elev-raised": { "value": "0 2px 4px 0 rgb(0 0 0 / 0.1)", "confidence": "high", "reason": "the content shell's lift — the only shadow on the page", "source": "computed: .toolbar boxShadow" },
+
+      "--focus-ring":  { "value": "0 0 0 3px rgb(36 133 141 / 0.4)", "confidence": "derived", "reason": "no custom focus treatment is authored; links fall back to the UA outline. Derived from --accent so the schema slot resolves to something on-brand.", "source": "derived from --accent" },
+
+      "--motion-fast":   { "value": "200ms", "confidence": "derived", "reason": "the page is entirely static — no transition or animation is declared on any element. Angular Material's standard duration recorded.", "source": "derived: Material standard" },
+      "--motion-base":   { "value": "280ms", "confidence": "derived", "reason": "as above; Material's complex-transition duration", "source": "derived: Material standard" },
+      "--ease-standard": { "value": "cubic-bezier(0.4, 0, 0.2, 1)", "confidence": "derived", "reason": "as above; Material's standard curve", "source": "derived: Material standard" }
+    }
+  }
+}

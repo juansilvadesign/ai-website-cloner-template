@@ -1,0 +1,295 @@
+---
+/** Hero on `/vendas`. Spec: docs/research/components/vendas-hero.spec.md */
+import Icon from "./Icon.astro";
+import type { HeroFeature, PillLink } from "../types/fesn";
+
+const pills: PillLink[] = [
+  { label: "Como tirar sua carteirinha", href: "#como-funciona" },
+  { label: "Dúvidas frequentes", href: "#faq" },
+  { label: "Validar carteirinha", href: "/" },
+];
+
+const features: HeroFeature[] = [
+  { label: "Carteirinha digital no seu celular" },
+  { label: "Validação por QR Code" },
+  { label: "Processo de compra 100% online" },
+  { label: "Entidade confiável" },
+];
+---
+
+<section class="hero">
+  <div class="left">
+    <span class="badge">Emissão oficial FESN</span>
+
+    <h1>Carteirinha de Estudante Digital válida para pagar meia-entrada em todo o Brasil</h1>
+
+    <p class="lead">
+      Solicitação <b>simples</b>, emissão <b>rápida</b> e carteirinha digital no seu celular{" "}
+      <b>em poucos minutos.</b>{" "}
+      <span class="highlight"
+        >Economize em cinemas, shows e eventos durante todo o ano com documento estudantil
+        oficial.</span
+      >
+    </p>
+
+    <div class="actions">
+      <a class="btn btn--primary" href="/checkout">Quero minha carteirinha digital</a>
+      <a class="btn btn--outline" href="/">Consultar carteirinha existente</a>
+    </div>
+
+    <div class="pills">
+      {pills.map((p) => <a class="pill" href={p.href}>{p.label}</a>)}
+    </div>
+
+    <ul class="features">
+      {
+        features.map((f) => (
+          <li>
+            <Icon name="circle-check" size={16} class="tick" />
+            <span>{f.label}</span>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+
+  <div class="side">
+    <div class="side-inner">
+      <div class="figure">
+        <img
+          src="/images/fesn-mkt-hero.png"
+          alt="Solicitar carteira de estudante digital FESN"
+          width="256"
+          height="259"
+        />
+      </div>
+
+      <p class="side-body">
+        Solicitação simples, validação oficial e autenticação digital em um fluxo seguro. A FESN
+        garante um documento consistente e pronto para uso.
+      </p>
+
+      <div class="info">
+        <p class="info-title">Benefício financeiro recorrente</p>
+        <p class="info-body">
+          Em cinemas, shows e eventos, a meia-entrada pode gerar economia constante ao longo do ano
+          letivo.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    width: 100%;
+    max-width: var(--container-max);
+    margin-inline: auto;
+    padding: var(--space-12) var(--container-gutter-phone) 0;
+  }
+
+  .left > * + * {
+    margin-top: 28px;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 26.5px;
+    padding: var(--space-1) var(--space-3);
+    border: 1px solid transparent;
+    border-radius: var(--radius-pill);
+    background: #dbeafe;
+    color: var(--accent-hover);
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 16.5px;
+    letter-spacing: 1.54px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  h1 {
+    max-width: 672px;
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-display);
+    color: var(--fg);
+  }
+
+  .lead {
+    max-width: 576px;
+    font-size: var(--text-base);
+    line-height: var(--leading-body);
+    color: var(--fg-2);
+  }
+
+  .lead b {
+    font-weight: 700;
+  }
+
+  .highlight {
+    font-weight: 600;
+    color: var(--warn);
+  }
+
+  .actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    font-size: var(--text-xs);
+    line-height: 16px;
+  }
+
+  .pill {
+    display: block;
+    height: 30px;
+    padding: var(--space-1) var(--space-3);
+    border: 1px solid #cad5e2;
+    border-radius: var(--radius-pill);
+    color: var(--fg-2);
+    font-size: var(--text-xs);
+    line-height: 20px;
+    text-decoration: none;
+    transition:
+      color var(--motion-fast) var(--ease-standard),
+      border-color var(--motion-fast) var(--ease-standard);
+  }
+
+  .pill:hover {
+    color: var(--fg);
+    border-color: #90a1b9;
+  }
+
+  .features {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: var(--text-sm);
+    line-height: 20px;
+    color: var(--fg-2);
+  }
+
+  .features li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-2);
+  }
+
+  .tick {
+    margin-top: 2px;
+    color: var(--accent);
+  }
+
+  .side {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    padding-block: var(--space-6);
+    background: rgb(255 255 255 / 0.95);
+    border: 1px solid rgb(226 232 240 / 0.8);
+    border-radius: 22px;
+    /* The only card in the system with a shadow — a tinted slate lift, never black. */
+    box-shadow:
+      0 10px 15px -3px rgb(226 232 240 / 0.6),
+      0 4px 6px -4px rgb(226 232 240 / 0.6);
+  }
+
+  .side-inner {
+    padding: 28px;
+  }
+
+  .side-inner > * + * {
+    margin-top: var(--space-6);
+  }
+
+  .figure {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-3);
+  }
+
+  .figure img {
+    width: 256px;
+    height: auto;
+  }
+
+  .side-body {
+    font-size: var(--text-sm);
+    line-height: 22.75px;
+    color: var(--fg-2);
+  }
+
+  .info {
+    padding: var(--space-4);
+    background: var(--surface-warm);
+    border: 1px solid #bedbff;
+    border-radius: var(--radius-md);
+  }
+
+  .info-title {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    line-height: 20px;
+    color: var(--fg);
+  }
+
+  .info-body {
+    margin-top: var(--space-1);
+    font-size: var(--text-sm);
+    line-height: 20px;
+    color: var(--fg-2);
+  }
+
+  @media (min-width: 640px) {
+    .hero {
+      padding-inline: var(--container-gutter-tablet);
+    }
+    h1 {
+      font-size: var(--text-3xl);
+    }
+    .lead {
+      font-size: var(--text-lg);
+    }
+    .actions {
+      flex-direction: row;
+      align-items: center;
+    }
+    .pills {
+      font-size: var(--text-sm);
+      line-height: 20px;
+    }
+    .features {
+      grid-template-columns: 1fr 1fr;
+    }
+    .side-inner {
+      padding: var(--space-8);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .hero {
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: var(--space-12);
+      padding-top: 64px;
+    }
+    h1 {
+      font-size: var(--text-4xl);
+    }
+  }
+</style>

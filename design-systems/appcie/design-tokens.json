@@ -1,0 +1,697 @@
+{
+  "schemaVersion": 1,
+  "format": "od-design-tokens/v1",
+  "contract": "TOKEN_SCHEMA",
+  "generatedAt": "2026-07-28T03:36:26.590Z",
+  "source": {
+    "tokensCss": "tokens.css",
+    "tokenContractReport": "source/token-contract.report.json"
+  },
+  "summary": {
+    "total": 56,
+    "byConfidence": {
+      "high": 36,
+      "derived": 20
+    },
+    "byLayer": {
+      "A1-identity": 8,
+      "B-slot": 4,
+      "A2": 26,
+      "A1-structure": 18
+    }
+  },
+  "tokens": [
+    {
+      "name": "--bg",
+      "value": "#ffffff",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "body / sticky header canvas",
+      "sources": [
+        "computed: .cabecalho backgroundColor",
+        "tokens.css:8"
+      ]
+    },
+    {
+      "name": "--surface",
+      "value": "#f9f9f9",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "the single content shell that holds the whole document",
+      "sources": [
+        "computed: .toolbar backgroundColor",
+        "tokens.css:9"
+      ]
+    },
+    {
+      "name": "--surface-warm",
+      "value": "#c3e6cb",
+      "type": "color",
+      "layer": "B-slot",
+      "confidence": "high",
+      "reason": "the success-alert surface behind the validation chain output",
+      "sources": [
+        "computed: .validacoes-success backgroundColor",
+        "tokens.css:10"
+      ]
+    },
+    {
+      "name": "--fg",
+      "value": "#000000",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "body ink, labels and values alike — this target uses pure black, not a slate",
+      "sources": [
+        "computed: body color",
+        "tokens.css:13"
+      ]
+    },
+    {
+      "name": "--fg-2",
+      "value": "rgb(0 0 0 / 0.87)",
+      "type": "color",
+      "layer": "B-slot",
+      "confidence": "high",
+      "reason": "Angular Material's primary-text alpha, used by the toolbar",
+      "sources": [
+        "computed: mat-toolbar color",
+        "tokens.css:14"
+      ]
+    },
+    {
+      "name": "--muted",
+      "value": "rgb(0 0 0 / 0.87)",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "derived",
+      "reason": "the target has no distinct muted text tier — every text node is #000 or the .87 toolbar alpha. Mapped to the same .87 rather than inventing a grey.",
+      "sources": [
+        "derived: no muted tier observed",
+        "tokens.css:15"
+      ]
+    },
+    {
+      "name": "--meta",
+      "value": "rgb(0 0 0 / 0.54)",
+      "type": "color",
+      "layer": "B-slot",
+      "confidence": "derived",
+      "reason": "no tertiary text tier exists on the target; Material's standard secondary-text alpha used as the schema value",
+      "sources": [
+        "derived: Angular Material secondary-text",
+        "tokens.css:16"
+      ]
+    },
+    {
+      "name": "--border",
+      "value": "#e0e0e0",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "the PEM container hairline — the only solid border colour on the page",
+      "sources": [
+        "computed: p.pem-container borderColor",
+        "tokens.css:19"
+      ]
+    },
+    {
+      "name": "--border-soft",
+      "value": "rgb(0 0 0 / 0.12)",
+      "type": "color",
+      "layer": "B-slot",
+      "confidence": "high",
+      "reason": "mat-divider under the header, and the list-group rows use the near-identical .125 alpha",
+      "sources": [
+        "computed: mat-divider borderTopColor",
+        "tokens.css:20"
+      ]
+    },
+    {
+      "name": "--accent",
+      "value": "#24858d",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "CIE teal — the ONLY chromatic colour in the interface, used for every section heading (DADOS PESSOAIS, DADOS ESTUDANTIS, DADOS CERTIFICADO DE ATRIBUTO, CERTIFICADO … PEM)",
+      "sources": [
+        "computed: .grupo color",
+        "tokens.css:23"
+      ]
+    },
+    {
+      "name": "--accent-on",
+      "value": "#ffffff",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "the target never fills a surface with the accent — it is text-only. White is the readable pairing (4.6:1 against #24858d).",
+      "sources": [
+        "derived from --accent",
+        "tokens.css:24"
+      ]
+    },
+    {
+      "name": "--accent-hover",
+      "value": "#1c6b71",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "no accent hover state exists on the target; one step darker",
+      "sources": [
+        "derived from --accent",
+        "tokens.css:25"
+      ]
+    },
+    {
+      "name": "--accent-active",
+      "value": "#155258",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "no pressed accent state exists on the target",
+      "sources": [
+        "derived from --accent-hover",
+        "tokens.css:26"
+      ]
+    },
+    {
+      "name": "--success",
+      "value": "#155724",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "the validation-chain result text inside the success alert",
+      "sources": [
+        "computed: .validacoes-success color",
+        "tokens.css:29"
+      ]
+    },
+    {
+      "name": "--warn",
+      "value": "#856404",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "the page carries an .alert-warning class on the 'Importante' paragraph, but it renders with plain #000 text and no fill — the warning palette is never actually painted. Bootstrap's warning ink recorded as the schema value.",
+      "sources": [
+        "derived: .alert-warning class present, not styled",
+        "tokens.css:30"
+      ]
+    },
+    {
+      "name": "--danger",
+      "value": "#721c24",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "no error state is reachable on this route — it renders only the success path",
+      "sources": [
+        "derived: Bootstrap danger ink",
+        "tokens.css:31"
+      ]
+    },
+    {
+      "name": "--font-display",
+      "value": "Roboto, \"Helvetica Neue\", sans-serif",
+      "type": "fontFamily",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Angular Material typography applied to every heading. NOTE: like the FESN target, Roboto is declared but never delivered — all @font-face entries report status 'unloaded' and no font file is requested, so it renders as Helvetica Neue / system sans.",
+      "sources": [
+        "computed: h1 fontFamily",
+        "tokens.css:34"
+      ]
+    },
+    {
+      "name": "--font-body",
+      "value": "Roboto, \"Helvetica Neue\", sans-serif",
+      "type": "fontFamily",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "one family for the whole document, headings and body alike",
+      "sources": [
+        "computed: body fontFamily",
+        "tokens.css:35"
+      ]
+    },
+    {
+      "name": "--font-mono",
+      "value": "\"Roboto Mono\", \"SFMono-Regular\", Menlo, Consolas, monospace",
+      "type": "fontFamily",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "the PEM certificate block is rendered in proportional Roboto at 12.6px, NOT a monospace face — this slot is unused by the target",
+      "sources": [
+        "derived: no monospace on target",
+        "tokens.css:36"
+      ]
+    },
+    {
+      "name": "--text-xs",
+      "value": "12.6px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "the PEM certificate block (0.9 × 14px)",
+      "sources": [
+        "computed: p.pem-container fontSize",
+        "tokens.css:39"
+      ]
+    },
+    {
+      "name": "--text-sm",
+      "value": "14px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "the document's base size — body, field labels, field values, alerts, links",
+      "sources": [
+        "computed: body fontSize",
+        "tokens.css:40"
+      ]
+    },
+    {
+      "name": "--text-base",
+      "value": "16px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "derived",
+      "reason": "Angular Material's base; the target renders body copy at 14px and never uses 16px in visible content",
+      "sources": [
+        "derived: mat-typography base",
+        "tokens.css:41"
+      ]
+    },
+    {
+      "name": "--text-lg",
+      "value": "18px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "the teal section headings (.grupo)",
+      "sources": [
+        "computed: .grupo fontSize",
+        "tokens.css:42"
+      ]
+    },
+    {
+      "name": "--text-xl",
+      "value": "20px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "mat-toolbar type size in the sticky header",
+      "sources": [
+        "computed: mat-toolbar fontSize",
+        "tokens.css:43"
+      ]
+    },
+    {
+      "name": "--text-2xl",
+      "value": "24px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "all three document titles (h1, h2, h3) share one size",
+      "sources": [
+        "computed: h1/h2/h3 fontSize",
+        "tokens.css:44"
+      ]
+    },
+    {
+      "name": "--text-3xl",
+      "value": "30px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "derived",
+      "reason": "unused by the target — its type ramp stops at 24px. Continues the scale for schema completeness.",
+      "sources": [
+        "derived: scale continuation",
+        "tokens.css:45"
+      ]
+    },
+    {
+      "name": "--text-4xl",
+      "value": "36px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "derived",
+      "reason": "unused by the target — no display tier exists on this page",
+      "sources": [
+        "derived: scale continuation",
+        "tokens.css:46"
+      ]
+    },
+    {
+      "name": "--leading-body",
+      "value": "1.43",
+      "type": "number",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "14px → 20px on every body element",
+      "sources": [
+        "computed: body lineHeight/fontSize",
+        "tokens.css:49"
+      ]
+    },
+    {
+      "name": "--leading-tight",
+      "value": "1.33",
+      "type": "number",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "24px → 32px on h1 and h2",
+      "sources": [
+        "computed: h1 lineHeight/fontSize",
+        "tokens.css:50"
+      ]
+    },
+    {
+      "name": "--tracking-display",
+      "value": "0em",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "every heading computes letter-spacing: normal",
+      "sources": [
+        "computed: h1 letterSpacing",
+        "tokens.css:51"
+      ]
+    },
+    {
+      "name": "--space-1",
+      "value": "4px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "photo frame inset",
+      "sources": [
+        "computed: img.foto padding",
+        "tokens.css:54"
+      ]
+    },
+    {
+      "name": "--space-2",
+      "value": "8px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "not used directly; fills the gap between the observed 4px and 12px steps",
+      "sources": [
+        "derived: scale continuation",
+        "tokens.css:55"
+      ]
+    },
+    {
+      "name": "--space-3",
+      "value": "12px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "alert vertical padding and block margin-bottom",
+      "sources": [
+        "computed: .validacoes-success paddingTop",
+        "tokens.css:56"
+      ]
+    },
+    {
+      "name": "--space-4",
+      "value": "16px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "heading margin-bottom and toolbar gutter",
+      "sources": [
+        "computed: h1 marginBottom",
+        "tokens.css:57"
+      ]
+    },
+    {
+      "name": "--space-5",
+      "value": "20px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "alert horizontal padding and photo container padding",
+      "sources": [
+        "computed: .fotocontainer padding",
+        "tokens.css:58"
+      ]
+    },
+    {
+      "name": "--space-6",
+      "value": "24px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "not used by the target; scale continuation",
+      "sources": [
+        "derived: scale continuation",
+        "tokens.css:59"
+      ]
+    },
+    {
+      "name": "--space-8",
+      "value": "30px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": ".texto section separation",
+      "sources": [
+        "computed: .texto paddingTop",
+        "tokens.css:60"
+      ]
+    },
+    {
+      "name": "--space-12",
+      "value": "48px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "not used by the target; scale continuation",
+      "sources": [
+        "derived: scale continuation",
+        "tokens.css:61"
+      ]
+    },
+    {
+      "name": "--section-y-desktop",
+      "value": "30px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": ".texto blocks separate the lower sections with a 30px top pad — the page's only vertical rhythm unit",
+      "sources": [
+        "computed: .texto paddingTop at 1440",
+        "tokens.css:64"
+      ]
+    },
+    {
+      "name": "--section-y-tablet",
+      "value": "30px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "unchanged at 768 — the layout is byte-identical to 1440 (both 2116px tall)",
+      "sources": [
+        "computed: .texto paddingTop at 768",
+        "tokens.css:65"
+      ]
+    },
+    {
+      "name": "--section-y-phone",
+      "value": "30px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "unchanged at 390; the page grows by reflow, not by rhythm changes",
+      "sources": [
+        "computed: .texto paddingTop at 390",
+        "tokens.css:66"
+      ]
+    },
+    {
+      "name": "--radius-sm",
+      "value": "4px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "list-group row corners on the certificate download rows",
+      "sources": [
+        "computed: li.list-group-item borderRadius",
+        "tokens.css:69"
+      ]
+    },
+    {
+      "name": "--radius-md",
+      "value": "6px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "the teal section-heading chips",
+      "sources": [
+        "computed: .grupo borderRadius",
+        "tokens.css:70"
+      ]
+    },
+    {
+      "name": "--radius-lg",
+      "value": "8px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "the content shell",
+      "sources": [
+        "computed: .toolbar borderRadius",
+        "tokens.css:71"
+      ]
+    },
+    {
+      "name": "--radius-pill",
+      "value": "9999px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "no pill geometry exists on the target",
+      "sources": [
+        "derived: unused",
+        "tokens.css:72"
+      ]
+    },
+    {
+      "name": "--elev-flat",
+      "value": "none",
+      "type": "shadow",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "alerts, the PEM box and the list rows are all flat, separated by border or fill",
+      "sources": [
+        "computed: .validacoes-success boxShadow",
+        "tokens.css:75"
+      ]
+    },
+    {
+      "name": "--elev-ring",
+      "value": "0 0 0 1px var(--border)",
+      "type": "shadow",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "the target draws hairlines as real borders; expressed as a ring for schema parity",
+      "sources": [
+        "derived from --border",
+        "tokens.css:76"
+      ]
+    },
+    {
+      "name": "--elev-raised",
+      "value": "0 2px 4px 0 rgb(0 0 0 / 0.1)",
+      "type": "shadow",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "the content shell's lift — the only shadow on the page",
+      "sources": [
+        "computed: .toolbar boxShadow",
+        "tokens.css:77"
+      ]
+    },
+    {
+      "name": "--focus-ring",
+      "value": "0 0 0 3px rgb(36 133 141 / 0.4)",
+      "type": "shadow",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "no custom focus treatment is authored; links fall back to the UA outline. Derived from --accent so the schema slot resolves to something on-brand.",
+      "sources": [
+        "derived from --accent",
+        "tokens.css:80"
+      ]
+    },
+    {
+      "name": "--motion-fast",
+      "value": "200ms",
+      "type": "duration",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "the page is entirely static — no transition or animation is declared on any element. Angular Material's standard duration recorded.",
+      "sources": [
+        "derived: Material standard",
+        "tokens.css:83"
+      ]
+    },
+    {
+      "name": "--motion-base",
+      "value": "280ms",
+      "type": "duration",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "as above; Material's complex-transition duration",
+      "sources": [
+        "derived: Material standard",
+        "tokens.css:84"
+      ]
+    },
+    {
+      "name": "--ease-standard",
+      "value": "cubic-bezier(0.4, 0, 0.2, 1)",
+      "type": "cubicBezier",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "as above; Material's standard curve",
+      "sources": [
+        "derived: Material standard",
+        "tokens.css:85"
+      ]
+    },
+    {
+      "name": "--container-max",
+      "value": "772px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "both the header logo row and the content column cap at 772px",
+      "sources": [
+        "computed: .container-logos maxWidth",
+        "tokens.css:88"
+      ]
+    },
+    {
+      "name": "--container-gutter-desktop",
+      "value": "16px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "mat-toolbar horizontal padding",
+      "sources": [
+        "computed: mat-toolbar padding at 1440",
+        "tokens.css:89"
+      ]
+    },
+    {
+      "name": "--container-gutter-tablet",
+      "value": "16px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "unchanged at 768",
+      "sources": [
+        "computed: mat-toolbar padding at 768",
+        "tokens.css:90"
+      ]
+    },
+    {
+      "name": "--container-gutter-phone",
+      "value": "16px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "unchanged at 390 — Material keeps a constant 16px gutter",
+      "sources": [
+        "computed: mat-toolbar padding at 390",
+        "tokens.css:91"
+      ]
+    }
+  ]
+}

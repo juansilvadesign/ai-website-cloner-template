@@ -1,0 +1,697 @@
+{
+  "schemaVersion": 1,
+  "format": "od-design-tokens/v1",
+  "contract": "TOKEN_SCHEMA",
+  "generatedAt": "2026-07-28T00:43:07.068Z",
+  "source": {
+    "tokensCss": "tokens.css",
+    "tokenContractReport": "source/token-contract.report.json"
+  },
+  "summary": {
+    "total": 56,
+    "byConfidence": {
+      "high": 53,
+      "derived": 3
+    },
+    "byLayer": {
+      "A1-identity": 8,
+      "B-slot": 4,
+      "A2": 26,
+      "A1-structure": 18
+    }
+  },
+  "tokens": [
+    {
+      "name": "--bg",
+      "value": "#ffffff",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "--background: the app canvas. Both page shells paint a subtle gradient on top of it (from-slate-50 via-white to-slate-100/70); white is the declared base.",
+      "sources": [
+        "chunks/5b7d3ecb351a2e21.css :root --background",
+        "tokens.css:8"
+      ]
+    },
+    {
+      "name": "--surface",
+      "value": "#ffffff",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "--card: every lifted container (consulta card, benefit cards, FAQ shell, hero side card)",
+      "sources": [
+        "chunks/5b7d3ecb351a2e21.css :root --card",
+        "tokens.css:9"
+      ]
+    },
+    {
+      "name": "--surface-warm",
+      "value": "#eff6ff",
+      "type": "color",
+      "layer": "B-slot",
+      "confidence": "high",
+      "reason": "blue-50: the tertiary informational surface — hero 'Benefício financeiro recorrente' box and the CTA band gradient tail",
+      "sources": [
+        "computed: div.rounded-xl.border-blue-200.bg-blue-50 backgroundColor",
+        "tokens.css:10"
+      ]
+    },
+    {
+      "name": "--fg",
+      "value": "#0f172b",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "slate-900: <main class='… text-slate-900'> page ink and every h1/h2 on /vendas",
+      "sources": [
+        "computed: h1 color on /vendas",
+        "tokens.css:13"
+      ]
+    },
+    {
+      "name": "--fg-2",
+      "value": "#314158",
+      "type": "color",
+      "layer": "B-slot",
+      "confidence": "high",
+      "reason": "slate-700: lead paragraphs and long-form body copy",
+      "sources": [
+        "computed: p.max-w-xl color on /vendas",
+        "tokens.css:14"
+      ]
+    },
+    {
+      "name": "--muted",
+      "value": "#45556c",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "slate-600: card descriptions in the benefit and step grids",
+      "sources": [
+        "computed: benefit card p color on /vendas",
+        "tokens.css:15"
+      ]
+    },
+    {
+      "name": "--meta",
+      "value": "#62748e",
+      "type": "color",
+      "layer": "B-slot",
+      "confidence": "high",
+      "reason": "slate-500: helper text under the CPF input and the footnote on /",
+      "sources": [
+        "computed: p color on / (helper + footnote)",
+        "tokens.css:16"
+      ]
+    },
+    {
+      "name": "--border",
+      "value": "#e2e8f0",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "slate-200: the visible card edge used by every surface on / and /vendas",
+      "sources": [
+        "computed: .rounded-xl.border-slate-200 borderColor",
+        "tokens.css:19"
+      ]
+    },
+    {
+      "name": "--border-soft",
+      "value": "#e5e5e5",
+      "type": "color",
+      "layer": "B-slot",
+      "confidence": "high",
+      "reason": "--border/--input: the quieter shadcn hairline on the input, buttons and FAQ row separators",
+      "sources": [
+        "chunks/5b7d3ecb351a2e21.css :root --border",
+        "tokens.css:20"
+      ]
+    },
+    {
+      "name": "--accent",
+      "value": "#1447e6",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "blue-700: the only chromatic emphasis color — 'PASSO 1/2/3' eyebrows, inline links, section icons",
+      "sources": [
+        "computed: p.text-blue-700 ('PASSO 1') color on /vendas",
+        "tokens.css:23"
+      ]
+    },
+    {
+      "name": "--accent-on",
+      "value": "#ffffff",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "no filled-accent surface exists on the target; white is the only readable pairing against #1447e6 (contrast 6.9:1)",
+      "sources": [
+        "derived from --accent",
+        "tokens.css:24"
+      ]
+    },
+    {
+      "name": "--accent-hover",
+      "value": "#193cb8",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "blue-800: the deeper accent tier, used as the hero badge label on blue-100",
+      "sources": [
+        "computed: span.text-blue-800 ('Emissão oficial FESN') color on /vendas",
+        "tokens.css:25"
+      ]
+    },
+    {
+      "name": "--accent-active",
+      "value": "#1e3a8a",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "one step below --accent-hover; the target never renders a pressed accent state",
+      "sources": [
+        "derived from --accent-hover",
+        "tokens.css:26"
+      ]
+    },
+    {
+      "name": "--success",
+      "value": "#00a544",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "green-600: the '✓' glyph on the Certificado pill",
+      "sources": [
+        "computed: span.text-green-600 on /student-card",
+        "tokens.css:29"
+      ]
+    },
+    {
+      "name": "--warn",
+      "value": "#dd7400",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "amber-600: the highlighted savings clause in the hero lead paragraph",
+      "sources": [
+        "computed: span.text-amber-600 ('Economize em cinemas…') on /vendas",
+        "tokens.css:30"
+      ]
+    },
+    {
+      "name": "--danger",
+      "value": "#e40014",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "--destructive (red-600). Declared in :root but never rendered — the target surfaces failure as a full not-found page, not as inline error styling.",
+      "sources": [
+        "chunks/5b7d3ecb351a2e21.css :root --destructive",
+        "tokens.css:31"
+      ]
+    },
+    {
+      "name": "--font-display",
+      "value": "Geist, \"Segoe UI\", \"Helvetica Neue\", Arial, sans-serif",
+      "type": "fontFamily",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "--font-geist-sans, applied to every heading. NOTE: the target declares Geist but never loads it — 0 font requests, 0 @font-face rules, document.fonts.size === 0 — so it renders as Segoe UI / Helvetica Neue in practice. Stack reproduced verbatim.",
+      "sources": [
+        "chunks/5b7d3ecb351a2e21.css :root --font-geist-sans",
+        "tokens.css:34"
+      ]
+    },
+    {
+      "name": "--font-body",
+      "value": "Geist, \"Segoe UI\", \"Helvetica Neue\", Arial, sans-serif",
+      "type": "fontFamily",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "same stack for body copy — the target has one family for display and text",
+      "sources": [
+        "chunks/5b7d3ecb351a2e21.css :root --font-geist-sans",
+        "tokens.css:35"
+      ]
+    },
+    {
+      "name": "--font-mono",
+      "value": "\"Geist Mono\", \"SFMono-Regular\", Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace",
+      "type": "fontFamily",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "--font-geist-mono: declared, not exercised by any rendered element",
+      "sources": [
+        "chunks/5b7d3ecb351a2e21.css :root --font-geist-mono",
+        "tokens.css:36"
+      ]
+    },
+    {
+      "name": "--text-xs",
+      "value": "12px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "text-xs: 'PASSO N' eyebrow, input helper text, footer legal lines",
+      "sources": [
+        "computed: p.text-blue-700 fontSize on /vendas",
+        "tokens.css:39"
+      ]
+    },
+    {
+      "name": "--text-sm",
+      "value": "14px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "text-sm: buttons, labels, card body copy, footer links",
+      "sources": [
+        "computed: button + label fontSize on /",
+        "tokens.css:40"
+      ]
+    },
+    {
+      "name": "--text-base",
+      "value": "16px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "text-base: long-form body copy and FAQ triggers",
+      "sources": [
+        "computed: p fontSize in 'Sobre a FESN' on /vendas",
+        "tokens.css:41"
+      ]
+    },
+    {
+      "name": "--text-lg",
+      "value": "18px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "sm:text-lg: hero lead paragraph and benefit-card h2",
+      "sources": [
+        "computed: p.max-w-xl fontSize on /vendas",
+        "tokens.css:42"
+      ]
+    },
+    {
+      "name": "--text-xl",
+      "value": "24px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "text-2xl: section h2 at the mobile/tablet step",
+      "sources": [
+        "computed: h2.text-2xl at 390 on /vendas",
+        "tokens.css:43"
+      ]
+    },
+    {
+      "name": "--text-2xl",
+      "value": "30px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "sm:text-3xl: section h2 at desktop, and the h1 on /",
+      "sources": [
+        "computed: h2 'Sobre a FESN' fontSize on /vendas",
+        "tokens.css:44"
+      ]
+    },
+    {
+      "name": "--text-3xl",
+      "value": "36px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "sm:text-4xl: hero h1 at the tablet step",
+      "sources": [
+        "computed: h1 fontSize at 768 on /vendas",
+        "tokens.css:45"
+      ]
+    },
+    {
+      "name": "--text-4xl",
+      "value": "48px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "lg:text-5xl: hero h1 display size at desktop",
+      "sources": [
+        "computed: h1 fontSize at 1440 on /vendas",
+        "tokens.css:46"
+      ]
+    },
+    {
+      "name": "--leading-body",
+      "value": "1.625",
+      "type": "number",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "leading-relaxed: --leading-relaxed on body copy (18px → 29.25px measured)",
+      "sources": [
+        "chunks/5b7d3ecb351a2e21.css :root --leading-relaxed",
+        "tokens.css:49"
+      ]
+    },
+    {
+      "name": "--leading-tight",
+      "value": "1.25",
+      "type": "number",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "leading-tight on the hero h1 (48px → 60px measured)",
+      "sources": [
+        "computed: h1 lineHeight/fontSize on /vendas",
+        "tokens.css:50"
+      ]
+    },
+    {
+      "name": "--tracking-display",
+      "value": "0em",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "the hero h1 computes letter-spacing: normal — this brand does not tighten display type. Wide tracking (.1em) is reserved for uppercase eyebrows and badges.",
+      "sources": [
+        "computed: h1 letterSpacing on /vendas",
+        "tokens.css:51"
+      ]
+    },
+    {
+      "name": "--space-1",
+      "value": "4px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "--spacing: .25rem base unit; the whole scale is n × 4px",
+      "sources": [
+        "chunks/5b7d3ecb351a2e21.css :root --spacing",
+        "tokens.css:54"
+      ]
+    },
+    {
+      "name": "--space-2",
+      "value": "8px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "gap-2 button icon gap, card inner gaps",
+      "sources": [
+        "computed: .gap-2 gap on /vendas",
+        "tokens.css:55"
+      ]
+    },
+    {
+      "name": "--space-3",
+      "value": "12px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "px-3 pill padding, data-card padding on /student-card",
+      "sources": [
+        "computed: a.rounded-full padding on /vendas",
+        "tokens.css:56"
+      ]
+    },
+    {
+      "name": "--space-4",
+      "value": "16px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "p-4 info box, px-4 phone gutter",
+      "sources": [
+        "computed: .bg-blue-50 padding on /vendas",
+        "tokens.css:57"
+      ]
+    },
+    {
+      "name": "--space-5",
+      "value": "20px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "gap-5 between benefit and step cards",
+      "sources": [
+        "computed: .grid.gap-5 gap on /vendas",
+        "tokens.css:58"
+      ]
+    },
+    {
+      "name": "--space-6",
+      "value": "24px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "py-6 card padding, sm:px-6 gutter, gap-6 card stack",
+      "sources": [
+        "computed: .rounded-xl paddingTop on /vendas",
+        "tokens.css:59"
+      ]
+    },
+    {
+      "name": "--space-8",
+      "value": "32px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "mt-8 grid offset under the steps heading",
+      "sources": [
+        "computed: .mt-8 marginTop on /vendas",
+        "tokens.css:60"
+      ]
+    },
+    {
+      "name": "--space-12",
+      "value": "48px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "lg:gap-12 hero column gap, py-12 footer padding",
+      "sources": [
+        "computed: hero section gap at 1440 on /vendas",
+        "tokens.css:61"
+      ]
+    },
+    {
+      "name": "--section-y-desktop",
+      "value": "80px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "lg:pb-20 on every /vendas section",
+      "sources": [
+        "computed: section paddingBottom at 1440 on /vendas",
+        "tokens.css:64"
+      ]
+    },
+    {
+      "name": "--section-y-tablet",
+      "value": "64px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "pb-16 base section rhythm",
+      "sources": [
+        "computed: section paddingBottom at 768 on /vendas",
+        "tokens.css:65"
+      ]
+    },
+    {
+      "name": "--section-y-phone",
+      "value": "64px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "pb-16 is unchanged at the phone step — the brand does not compress section rhythm",
+      "sources": [
+        "computed: section paddingBottom at 390 on /vendas",
+        "tokens.css:66"
+      ]
+    },
+    {
+      "name": "--radius-sm",
+      "value": "8px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "buttons, the CPF input, and the FAQ trigger focus target",
+      "sources": [
+        "computed: button borderRadius on /",
+        "tokens.css:69"
+      ]
+    },
+    {
+      "name": "--radius-md",
+      "value": "14px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "rounded-xl: benefit cards, FAQ shell, info box, footer boxes",
+      "sources": [
+        "computed: .rounded-xl borderRadius on /vendas",
+        "tokens.css:70"
+      ]
+    },
+    {
+      "name": "--radius-lg",
+      "value": "18px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "rounded-2xl: the consulta card on /",
+      "sources": [
+        "computed: .rounded-2xl borderRadius on /",
+        "tokens.css:71"
+      ]
+    },
+    {
+      "name": "--radius-pill",
+      "value": "9999px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "rounded-full: badges, pill links, the Certificado pill",
+      "sources": [
+        "computed: a.rounded-full borderRadius on /vendas",
+        "tokens.css:72"
+      ]
+    },
+    {
+      "name": "--elev-flat",
+      "value": "none",
+      "type": "shadow",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "cards on this target are separated by border, not shadow",
+      "sources": [
+        "computed: .rounded-xl boxShadow on /vendas",
+        "tokens.css:75"
+      ]
+    },
+    {
+      "name": "--elev-ring",
+      "value": "0 0 0 1px var(--border)",
+      "type": "shadow",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "the 1px slate-200 card edge expressed as a ring; the target draws it as a real border",
+      "sources": [
+        "derived from --border",
+        "tokens.css:76"
+      ]
+    },
+    {
+      "name": "--elev-raised",
+      "value": "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+      "type": "shadow",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "shadow-xs — the ONLY shadow rendered anywhere on the target (input + outline button)",
+      "sources": [
+        "computed: input boxShadow on /",
+        "tokens.css:77"
+      ]
+    },
+    {
+      "name": "--focus-ring",
+      "value": "0 0 0 3px rgb(161 161 161 / 0.5)",
+      "type": "shadow",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "measured focus-visible state on the CPF input: ring/50 at 3px, with border-color moving to --ring #a1a1a1",
+      "sources": [
+        "computed: input:focus-visible boxShadow on /",
+        "tokens.css:80"
+      ]
+    },
+    {
+      "name": "--motion-fast",
+      "value": "150ms",
+      "type": "duration",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "--default-transition-duration: .15s — every hover transition on the target",
+      "sources": [
+        "chunks/5b7d3ecb351a2e21.css :root --default-transition-duration",
+        "tokens.css:83"
+      ]
+    },
+    {
+      "name": "--motion-base",
+      "value": "200ms",
+      "type": "duration",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "the FAQ chevron rotation transition (.2s)",
+      "sources": [
+        "computed: accordion trigger svg transition on /vendas",
+        "tokens.css:84"
+      ]
+    },
+    {
+      "name": "--ease-standard",
+      "value": "cubic-bezier(0.4, 0, 0.2, 1)",
+      "type": "cubicBezier",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "--default-transition-timing-function, shared by every transition",
+      "sources": [
+        "chunks/5b7d3ecb351a2e21.css :root --default-transition-timing-function",
+        "tokens.css:85"
+      ]
+    },
+    {
+      "name": "--container-max",
+      "value": "1152px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "max-w-6xl on every section wrapper and the footer grid",
+      "sources": [
+        "computed: section maxWidth on /vendas",
+        "tokens.css:88"
+      ]
+    },
+    {
+      "name": "--container-gutter-desktop",
+      "value": "24px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "sm:px-6",
+      "sources": [
+        "computed: section paddingLeft at 1440 on /vendas",
+        "tokens.css:89"
+      ]
+    },
+    {
+      "name": "--container-gutter-tablet",
+      "value": "24px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "sm:px-6 holds from 640px up",
+      "sources": [
+        "computed: section paddingLeft at 768 on /vendas",
+        "tokens.css:90"
+      ]
+    },
+    {
+      "name": "--container-gutter-phone",
+      "value": "16px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "px-4 below the sm breakpoint",
+      "sources": [
+        "computed: section paddingLeft at 390 on /vendas",
+        "tokens.css:91"
+      ]
+    }
+  ]
+}

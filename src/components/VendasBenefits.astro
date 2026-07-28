@@ -1,0 +1,101 @@
+---
+/** Benefit grid on `/vendas`. Spec: docs/research/components/vendas-benefits.spec.md */
+import Icon from "./Icon.astro";
+import type { BenefitCard } from "../types/fesn";
+
+const cards: BenefitCard[] = [
+  {
+    icon: "wallet",
+    title: "Economia concreta com meia-entrada",
+    body: "A meia-entrada deixa de ser pontual e passa a gerar economia em cinemas, shows, teatros e eventos durante todo o ano.",
+  },
+  {
+    icon: "shield-check",
+    title: "Segurança institucional",
+    body: "Emissão oficial com autenticação verificável e validação segura, gerando credibilidade para estudantes e estabelecimentos.",
+  },
+  {
+    icon: "lock",
+    title: "Processo online rápido",
+    body: "Solicitação 100% digital, com menos burocracia e mais agilidade para emitir sua carteira de estudante.",
+  },
+];
+---
+
+<section class="section">
+  <div class="grid">
+    {
+      cards.map((c) => (
+        <article class="card">
+          <div class="inner">
+            <Icon name={c.icon} size={20} class="ico" />
+            <h2>{c.title}</h2>
+            <p>{c.body}</p>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .section {
+    width: 100%;
+    max-width: var(--container-max);
+    margin-inline: auto;
+    padding: 0 var(--container-gutter-phone) var(--section-y-tablet);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+    margin-top: 40px;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    padding-block: var(--space-6);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--elev-flat);
+  }
+
+  .inner {
+    padding: var(--space-6);
+  }
+
+  .ico {
+    margin-bottom: var(--space-3);
+    color: var(--accent);
+  }
+
+  h2 {
+    margin-bottom: var(--space-3);
+    font-size: var(--text-lg);
+    font-weight: 600;
+    line-height: 28px;
+    color: #0a0a0a;
+  }
+
+  p {
+    font-size: var(--text-sm);
+    line-height: 22.75px;
+    color: var(--muted);
+  }
+
+  @media (min-width: 640px) {
+    .section {
+      padding-inline: var(--container-gutter-tablet);
+    }
+  }
+
+  @media (min-width: 768px) {
+    .grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

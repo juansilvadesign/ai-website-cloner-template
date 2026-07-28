@@ -1,0 +1,93 @@
+/* FESN Carteirinha — tokens.css
+ * Emitted by scripts/emit-design-system.ts from source/tokens.source.json.
+ * Declares every OpenDesign TOKEN_SCHEMA slot (56). Edit the
+ * source artifact and re-emit; do not hand-edit derived files. */
+
+:root {
+  /* ─── Surface ─────────────────────────────────────────────────── */
+  --bg:                       #ffffff;
+  --surface:                  #ffffff;
+  --surface-warm:             #eff6ff;
+
+  /* ─── Foreground ──────────────────────────────────────────────── */
+  --fg:                       #0f172b;
+  --fg-2:                     #314158;
+  --muted:                    #45556c;
+  --meta:                     #62748e;
+
+  /* ─── Border ──────────────────────────────────────────────────── */
+  --border:                   #e2e8f0;
+  --border-soft:              #e5e5e5;
+
+  /* ─── Accent ──────────────────────────────────────────────────── */
+  --accent:                   #1447e6;
+  --accent-on:                #ffffff;
+  --accent-hover:             #193cb8;
+  --accent-active:            #1e3a8a;
+
+  /* ─── Semantic ────────────────────────────────────────────────── */
+  --success:                  #00a544;
+  --warn:                     #dd7400;
+  --danger:                   #e40014;
+
+  /* ─── Typography — fonts ──────────────────────────────────────── */
+  --font-display:             Geist, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-body:                Geist, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-mono:                "Geist Mono", "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  /* ─── Typography — scale ──────────────────────────────────────── */
+  --text-xs:                  12px;
+  --text-sm:                  14px;
+  --text-base:                16px;
+  --text-lg:                  18px;
+  --text-xl:                  24px;
+  --text-2xl:                 30px;
+  --text-3xl:                 36px;
+  --text-4xl:                 48px;
+
+  /* ─── Typography — leading & tracking ─────────────────────────── */
+  --leading-body:             1.625;
+  --leading-tight:            1.25;
+  --tracking-display:         0em;
+
+  /* ─── Spacing ─────────────────────────────────────────────────── */
+  --space-1:                  4px;
+  --space-2:                  8px;
+  --space-3:                  12px;
+  --space-4:                  16px;
+  --space-5:                  20px;
+  --space-6:                  24px;
+  --space-8:                  32px;
+  --space-12:                 48px;
+
+  /* ─── Section rhythm ──────────────────────────────────────────── */
+  --section-y-desktop:        80px;
+  --section-y-tablet:         64px;
+  --section-y-phone:          64px;
+
+  /* ─── Radius ──────────────────────────────────────────────────── */
+  --radius-sm:                8px;
+  --radius-md:                14px;
+  --radius-lg:                18px;
+  --radius-pill:              9999px;
+
+  /* ─── Elevation ───────────────────────────────────────────────── */
+  --elev-flat:                none;
+  --elev-ring:                0 0 0 1px var(--border);
+  --elev-raised:              0 1px 2px 0 rgb(0 0 0 / 0.05);
+
+  /* ─── Focus ───────────────────────────────────────────────────── */
+  --focus-ring:               0 0 0 3px rgb(161 161 161 / 0.5);
+
+  /* ─── Motion ──────────────────────────────────────────────────── */
+  --motion-fast:              150ms;
+  --motion-base:              200ms;
+  --ease-standard:            cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ─── Layout ──────────────────────────────────────────────────── */
+  --container-max:            1152px;
+  --container-gutter-desktop: 24px;
+  --container-gutter-tablet:  24px;
+  --container-gutter-phone:   16px;
+}
+

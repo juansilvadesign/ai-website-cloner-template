@@ -1,0 +1,59 @@
+<!-- FESN Carteirinha — color reference -->
+<link rel="stylesheet" href="../tokens.css" />
+<style>
+  body { background: var(--bg); color: var(--fg); font-family: var(--font-body);
+         font-size: var(--text-base); line-height: var(--leading-body);
+         max-width: var(--container-max); margin-inline: auto;
+         padding: var(--section-y-phone) var(--container-gutter-phone); }
+  h1 { font-family: var(--font-display); font-size: var(--text-3xl); font-weight: 700;
+       line-height: var(--leading-tight); letter-spacing: var(--tracking-display); margin: 0 0 var(--space-2); }
+  h2 { font-size: var(--text-xl); font-weight: 600; margin: var(--space-12) 0 var(--space-4); }
+  p.note { color: var(--meta); font-size: var(--text-sm); margin: 0 0 var(--space-6); }
+  .grid { display: grid; gap: var(--space-4); grid-template-columns: repeat(2, 1fr); }
+  .sw { border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden; background: var(--surface); }
+  .chip { height: 72px; }
+  .cap { padding: var(--space-3) var(--space-4); }
+  .name { font-family: var(--font-mono); font-size: var(--text-sm); color: var(--fg); }
+  .role { font-size: var(--text-xs); color: var(--muted); margin-top: var(--space-1); }
+  .ratio { font-size: var(--text-xs); color: var(--meta); margin-top: var(--space-1); }
+  @media (min-width: 768px) { .grid { grid-template-columns: repeat(4, 1fr); } }
+  @media (min-width: 1024px) { body { padding: var(--section-y-desktop) var(--container-gutter-desktop); } }
+</style>
+<h1>Color</h1>
+<p class="note">Light theme only — the FESN target has no dark mode.</p>
+
+<h2>Surface</h2>
+<div class="grid">
+  <div class="sw"><div class="chip" style="background: var(--bg)"></div><div class="cap"><div class="name">--bg</div><div class="role">Page canvas</div></div></div>
+  <div class="sw"><div class="chip" style="background: var(--surface)"></div><div class="cap"><div class="name">--surface</div><div class="role">Cards</div></div></div>
+  <div class="sw"><div class="chip" style="background: var(--surface-warm)"></div><div class="cap"><div class="name">--surface-warm</div><div class="role">Info panels</div></div></div>
+</div>
+
+<h2>Foreground ramp</h2>
+<div class="grid">
+  <div class="sw"><div class="chip" style="background: var(--fg)"></div><div class="cap"><div class="name">--fg</div><div class="role">Headings, page ink</div><div class="ratio">17.4:1</div></div></div>
+  <div class="sw"><div class="chip" style="background: var(--fg-2)"></div><div class="cap"><div class="name">--fg-2</div><div class="role">Lead + long-form</div><div class="ratio">9.4:1</div></div></div>
+  <div class="sw"><div class="chip" style="background: var(--muted)"></div><div class="cap"><div class="name">--muted</div><div class="role">Card body</div><div class="ratio">7.0:1</div></div></div>
+  <div class="sw"><div class="chip" style="background: var(--meta)"></div><div class="cap"><div class="name">--meta</div><div class="role">Helper, footnotes</div><div class="ratio">4.8:1 — min 14px</div></div></div>
+</div>
+
+<h2>Border</h2>
+<div class="grid">
+  <div class="sw"><div class="chip" style="background: var(--border)"></div><div class="cap"><div class="name">--border</div><div class="role">Card edge</div></div></div>
+  <div class="sw"><div class="chip" style="background: var(--border-soft)"></div><div class="cap"><div class="name">--border-soft</div><div class="role">Controls, separators</div></div></div>
+</div>
+
+<h2>Accent</h2>
+<div class="grid">
+  <div class="sw"><div class="chip" style="background: var(--accent)"></div><div class="cap"><div class="name">--accent</div><div class="role">Eyebrows, links, icons</div><div class="ratio">6.9:1</div></div></div>
+  <div class="sw"><div class="chip" style="background: var(--accent-on)"></div><div class="cap"><div class="name">--accent-on</div><div class="role">Text on accent</div></div></div>
+  <div class="sw"><div class="chip" style="background: var(--accent-hover)"></div><div class="cap"><div class="name">--accent-hover</div><div class="role">Badge label, hover</div></div></div>
+  <div class="sw"><div class="chip" style="background: var(--accent-active)"></div><div class="cap"><div class="name">--accent-active</div><div class="role">Pressed (derived)</div></div></div>
+</div>
+
+<h2>Semantic</h2>
+<div class="grid">
+  <div class="sw"><div class="chip" style="background: var(--success)"></div><div class="cap"><div class="name">--success</div><div class="role">Certificado check</div></div></div>
+  <div class="sw"><div class="chip" style="background: var(--warn)"></div><div class="cap"><div class="name">--warn</div><div class="role">Hero highlight</div></div></div>
+  <div class="sw"><div class="chip" style="background: var(--danger)"></div><div class="cap"><div class="name">--danger</div><div class="role">Declared, never rendered</div></div></div>
+</div>

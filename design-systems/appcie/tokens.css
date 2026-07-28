@@ -1,0 +1,93 @@
+/* CIE Validação DNE — tokens.css
+ * Emitted by scripts/emit-design-system.ts from source/tokens.source.json.
+ * Declares every OpenDesign TOKEN_SCHEMA slot (56). Edit the
+ * source artifact and re-emit; do not hand-edit derived files. */
+
+:root {
+  /* ─── Surface ─────────────────────────────────────────────────── */
+  --bg:                       #ffffff;
+  --surface:                  #f9f9f9;
+  --surface-warm:             #c3e6cb;
+
+  /* ─── Foreground ──────────────────────────────────────────────── */
+  --fg:                       #000000;
+  --fg-2:                     rgb(0 0 0 / 0.87);
+  --muted:                    rgb(0 0 0 / 0.87);
+  --meta:                     rgb(0 0 0 / 0.54);
+
+  /* ─── Border ──────────────────────────────────────────────────── */
+  --border:                   #e0e0e0;
+  --border-soft:              rgb(0 0 0 / 0.12);
+
+  /* ─── Accent ──────────────────────────────────────────────────── */
+  --accent:                   #24858d;
+  --accent-on:                #ffffff;
+  --accent-hover:             #1c6b71;
+  --accent-active:            #155258;
+
+  /* ─── Semantic ────────────────────────────────────────────────── */
+  --success:                  #155724;
+  --warn:                     #856404;
+  --danger:                   #721c24;
+
+  /* ─── Typography — fonts ──────────────────────────────────────── */
+  --font-display:             Roboto, "Helvetica Neue", sans-serif;
+  --font-body:                Roboto, "Helvetica Neue", sans-serif;
+  --font-mono:                "Roboto Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+
+  /* ─── Typography — scale ──────────────────────────────────────── */
+  --text-xs:                  12.6px;
+  --text-sm:                  14px;
+  --text-base:                16px;
+  --text-lg:                  18px;
+  --text-xl:                  20px;
+  --text-2xl:                 24px;
+  --text-3xl:                 30px;
+  --text-4xl:                 36px;
+
+  /* ─── Typography — leading & tracking ─────────────────────────── */
+  --leading-body:             1.43;
+  --leading-tight:            1.33;
+  --tracking-display:         0em;
+
+  /* ─── Spacing ─────────────────────────────────────────────────── */
+  --space-1:                  4px;
+  --space-2:                  8px;
+  --space-3:                  12px;
+  --space-4:                  16px;
+  --space-5:                  20px;
+  --space-6:                  24px;
+  --space-8:                  30px;
+  --space-12:                 48px;
+
+  /* ─── Section rhythm ──────────────────────────────────────────── */
+  --section-y-desktop:        30px;
+  --section-y-tablet:         30px;
+  --section-y-phone:          30px;
+
+  /* ─── Radius ──────────────────────────────────────────────────── */
+  --radius-sm:                4px;
+  --radius-md:                6px;
+  --radius-lg:                8px;
+  --radius-pill:              9999px;
+
+  /* ─── Elevation ───────────────────────────────────────────────── */
+  --elev-flat:                none;
+  --elev-ring:                0 0 0 1px var(--border);
+  --elev-raised:              0 2px 4px 0 rgb(0 0 0 / 0.1);
+
+  /* ─── Focus ───────────────────────────────────────────────────── */
+  --focus-ring:               0 0 0 3px rgb(36 133 141 / 0.4);
+
+  /* ─── Motion ──────────────────────────────────────────────────── */
+  --motion-fast:              200ms;
+  --motion-base:              280ms;
+  --ease-standard:            cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ─── Layout ──────────────────────────────────────────────────── */
+  --container-max:            772px;
+  --container-gutter-desktop: 16px;
+  --container-gutter-tablet:  16px;
+  --container-gutter-phone:   16px;
+}
+

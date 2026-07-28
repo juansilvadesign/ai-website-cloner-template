@@ -1,0 +1,376 @@
+<!-- FESN Carteirinha — token-wired component fixture.
+     Every rule below references only tokens declared in tokens.css. -->
+<link rel="stylesheet" href="./tokens.css" />
+
+<style>
+  .fesn-root {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading-body);
+    max-width: var(--container-max);
+    margin-inline: auto;
+    padding: var(--section-y-phone) var(--container-gutter-phone);
+  }
+
+  /* ─── Typography ──────────────────────────────────────────────── */
+  .fesn-display {
+    font-family: var(--font-display);
+    font-size: var(--text-4xl);
+    font-weight: 700;
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-display);
+    color: var(--fg);
+    margin: 0 0 var(--space-4);
+  }
+
+  .fesn-h2 {
+    font-size: var(--text-2xl);
+    font-weight: 600;
+    line-height: var(--leading-tight);
+    color: var(--fg);
+    margin: 0 0 var(--space-3);
+  }
+
+  .fesn-lead {
+    font-size: var(--text-lg);
+    line-height: var(--leading-body);
+    color: var(--fg-2);
+    margin: 0 0 var(--space-6);
+  }
+
+  .fesn-body {
+    font-size: var(--text-sm);
+    color: var(--muted);
+    margin: 0;
+  }
+
+  .fesn-meta {
+    font-size: var(--text-xs);
+    color: var(--meta);
+    margin: var(--space-2) 0 0;
+  }
+
+  .fesn-eyebrow {
+    font-size: var(--text-xs);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 var(--space-2);
+  }
+
+  .fesn-code {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--fg-2);
+  }
+
+  /* ─── Layout ──────────────────────────────────────────────────── */
+  .fesn-grid {
+    display: grid;
+    gap: var(--space-5);
+    grid-template-columns: 1fr;
+  }
+
+  .fesn-stack > * + * {
+    margin-top: var(--space-4);
+  }
+
+  /* ─── Cards ───────────────────────────────────────────────────── */
+  .fesn-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--elev-flat);
+    padding: var(--space-6);
+  }
+
+  .fesn-card--lg {
+    border-radius: var(--radius-lg);
+    max-width: 512px;
+  }
+
+  .fesn-card--info {
+    background: var(--surface-warm);
+    border-radius: var(--radius-md);
+    padding: var(--space-4);
+  }
+
+  .fesn-card__title {
+    font-size: var(--text-lg);
+    font-weight: 600;
+    color: var(--fg);
+    margin: 0 0 var(--space-2);
+  }
+
+  /* ─── Buttons ─────────────────────────────────────────────────── */
+  .fesn-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    height: 40px;
+    padding-inline: var(--space-6);
+    border-radius: var(--radius-sm);
+    border: 1px solid transparent;
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color var(--motion-fast) var(--ease-standard),
+                color var(--motion-fast) var(--ease-standard),
+                border-color var(--motion-fast) var(--ease-standard);
+  }
+
+  .fesn-btn--primary {
+    background: var(--fg);
+    color: var(--bg);
+  }
+
+  .fesn-btn--primary:hover {
+    background: var(--accent-hover);
+  }
+
+  .fesn-btn--outline {
+    background: var(--surface);
+    color: var(--fg);
+    border-color: var(--border-soft);
+    box-shadow: var(--elev-raised);
+  }
+
+  .fesn-btn--outline:hover {
+    border-color: var(--meta);
+  }
+
+  .fesn-btn:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
+  }
+
+  .fesn-pill {
+    display: inline-flex;
+    align-items: center;
+    height: 30px;
+    padding-inline: var(--space-3);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-pill);
+    color: var(--fg-2);
+    font-size: var(--text-sm);
+    text-decoration: none;
+    transition: color var(--motion-fast) var(--ease-standard),
+                border-color var(--motion-fast) var(--ease-standard);
+  }
+
+  .fesn-pill:hover {
+    color: var(--fg);
+    border-color: var(--meta);
+  }
+
+  /* ─── Badges ──────────────────────────────────────────────────── */
+  .fesn-badge {
+    display: inline-block;
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--radius-pill);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: var(--surface-warm);
+    color: var(--accent-hover);
+  }
+
+  .fesn-badge--neutral {
+    background: var(--border);
+    color: var(--fg-2);
+  }
+
+  .fesn-badge--success {
+    background: var(--surface);
+    color: var(--success);
+    box-shadow: var(--elev-ring);
+  }
+
+  .fesn-badge--warn {
+    background: var(--surface);
+    color: var(--warn);
+  }
+
+  .fesn-badge--danger {
+    background: var(--surface);
+    color: var(--danger);
+  }
+
+  /* ─── Links ───────────────────────────────────────────────────── */
+  .fesn-link {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color var(--motion-fast) var(--ease-standard);
+  }
+
+  .fesn-link:hover {
+    color: var(--accent-hover);
+  }
+
+  .fesn-link:active {
+    color: var(--accent-active);
+  }
+
+  /* ─── Inputs ──────────────────────────────────────────────────── */
+  .fesn-label {
+    display: block;
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--fg);
+    margin-bottom: var(--space-2);
+  }
+
+  .fesn-input {
+    display: block;
+    width: 100%;
+    height: 44px;
+    padding: var(--space-1) var(--space-3);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-sm);
+    background: var(--surface);
+    color: var(--fg);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    box-shadow: var(--elev-raised);
+    transition: border-color var(--motion-fast) var(--ease-standard);
+  }
+
+  .fesn-input:focus-visible {
+    outline: none;
+    border-color: var(--meta);
+    box-shadow: var(--focus-ring);
+  }
+
+  .fesn-input::placeholder {
+    color: var(--meta);
+  }
+
+  /* ─── Disclosure (accordion) ──────────────────────────────────── */
+  .fesn-disclosure {
+    border-top: 1px solid var(--border-soft);
+  }
+
+  .fesn-disclosure summary {
+    cursor: pointer;
+    padding: var(--space-4) 0;
+    font-size: var(--text-base);
+    font-weight: 500;
+    color: var(--fg);
+    transition: color var(--motion-base) var(--ease-standard);
+  }
+
+  .fesn-disclosure summary:hover {
+    color: var(--accent);
+  }
+
+  .fesn-divider {
+    height: 1px;
+    background: var(--border);
+    border: 0;
+    margin: var(--space-6) 0;
+  }
+
+  /* ─── Icon ────────────────────────────────────────────────────── */
+  .fesn-icon {
+    width: var(--space-6);
+    height: var(--space-6);
+    color: var(--accent);
+    flex: none;
+  }
+
+  @media (min-width: 640px) {
+    .fesn-root { padding-inline: var(--container-gutter-tablet); }
+  }
+
+  @media (min-width: 768px) {
+    .fesn-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  @media (min-width: 1024px) {
+    .fesn-root {
+      padding-block: var(--section-y-desktop);
+      padding-inline: var(--container-gutter-desktop);
+    }
+  }
+</style>
+
+<div class="fesn-root">
+  <p class="fesn-eyebrow">Emissão oficial FESN</p>
+  <h1 class="fesn-display">Carteirinha de Estudante Digital</h1>
+  <p class="fesn-lead">
+    Solicitação simples, emissão rápida e carteirinha digital no seu celular
+    <a class="fesn-link" href="#">em poucos minutos</a>.
+  </p>
+
+  <p>
+    <button class="fesn-btn fesn-btn--primary" type="button">Quero minha carteirinha</button>
+    <button class="fesn-btn fesn-btn--outline" type="button">Consultar existente</button>
+    <a class="fesn-pill" href="#">Dúvidas frequentes</a>
+  </p>
+
+  <p>
+    <span class="fesn-badge">Consulta rápida</span>
+    <span class="fesn-badge fesn-badge--neutral">Resultado</span>
+    <span class="fesn-badge fesn-badge--success">✓ Certificado</span>
+    <span class="fesn-badge fesn-badge--warn">Pendente</span>
+    <span class="fesn-badge fesn-badge--danger">Expirada</span>
+  </p>
+
+  <hr class="fesn-divider" />
+
+  <div class="fesn-grid">
+    <article class="fesn-card">
+      <svg class="fesn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <rect x="3" y="5" width="18" height="14" rx="2" />
+        <path d="M3 10h18" />
+      </svg>
+      <h2 class="fesn-card__title">Economia concreta</h2>
+      <p class="fesn-body">A meia-entrada passa a gerar economia durante todo o ano.</p>
+      <p class="fesn-meta">Válido em cinemas, shows e teatros.</p>
+    </article>
+
+    <article class="fesn-card">
+      <h2 class="fesn-card__title">Segurança institucional</h2>
+      <p class="fesn-body">Emissão oficial com autenticação verificável.</p>
+      <p class="fesn-code">Nº DA CIE — HBPHC2WD</p>
+    </article>
+
+    <article class="fesn-card">
+      <h2 class="fesn-card__title">Processo online</h2>
+      <p class="fesn-body">Solicitação 100% digital, com menos burocracia.</p>
+      <div class="fesn-card--info">
+        <p class="fesn-body">Benefício financeiro recorrente ao longo do ano letivo.</p>
+      </div>
+    </article>
+  </div>
+
+  <hr class="fesn-divider" />
+
+  <section class="fesn-card fesn-card--lg fesn-stack">
+    <h2 class="fesn-h2">Encontrar carteirinha</h2>
+    <div>
+      <label class="fesn-label" for="doc">CPF ou código de uso (Nº da CIE)</label>
+      <input class="fesn-input" id="doc" type="text" placeholder="000.000.000-00" />
+      <p class="fesn-meta">Informe o CPF com ou sem pontuação.</p>
+    </div>
+    <button class="fesn-btn fesn-btn--primary" type="submit">Buscar carteirinha</button>
+  </section>
+
+  <hr class="fesn-divider" />
+
+  <details class="fesn-disclosure" name="fesn-faq">
+    <summary>A carteirinha digital é válida para meia-entrada?</summary>
+    <p class="fesn-body">Sim. A FESN é uma entidade autorizada para emissão de carteirinha estudantil.</p>
+  </details>
+  <details class="fesn-disclosure" name="fesn-faq">
+    <summary>Como a autenticidade é verificada?</summary>
+    <p class="fesn-body">A carteirinha possui QR Code e código de uso exclusivo.</p>
+  </details>
+</div>

@@ -1,0 +1,62 @@
+<!-- FESN Carteirinha — spacing, radius, elevation, motion reference -->
+<link rel="stylesheet" href="../tokens.css" />
+<style>
+  body { background: var(--bg); color: var(--fg); font-family: var(--font-body);
+         font-size: var(--text-base); line-height: var(--leading-body);
+         max-width: var(--container-max); margin-inline: auto;
+         padding: var(--section-y-phone) var(--container-gutter-phone); }
+  h1 { font-family: var(--font-display); font-size: var(--text-3xl); font-weight: 700;
+       line-height: var(--leading-tight); letter-spacing: var(--tracking-display); margin: 0 0 var(--space-2); }
+  h2 { font-size: var(--text-xl); font-weight: 600; margin: var(--space-12) 0 var(--space-4); }
+  p.note { color: var(--meta); font-size: var(--text-sm); margin: 0 0 var(--space-6); }
+  .row { display: flex; align-items: center; gap: var(--space-4); padding: var(--space-2) 0; }
+  .tok { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--meta); width: 200px; flex: none; }
+  .bar { height: var(--space-5); background: var(--accent); border-radius: var(--radius-sm); }
+  .box { background: var(--surface); border: 1px solid var(--border); padding: var(--space-4);
+         font-size: var(--text-sm); color: var(--muted); }
+  .grid { display: grid; gap: var(--space-4); grid-template-columns: repeat(2, 1fr); }
+  @media (min-width: 768px) { .grid { grid-template-columns: repeat(4, 1fr); } }
+  @media (min-width: 1024px) { body { padding: var(--section-y-desktop) var(--container-gutter-desktop); } }
+</style>
+<h1>Spacing &amp; form</h1>
+<p class="note">Strict 4px grid. One shadow in the entire system.</p>
+
+<h2>Spacing scale</h2>
+<div class="row"><div class="tok">--space-1 · 4px</div><div class="bar" style="width: var(--space-1)"></div></div>
+<div class="row"><div class="tok">--space-2 · 8px</div><div class="bar" style="width: var(--space-2)"></div></div>
+<div class="row"><div class="tok">--space-3 · 12px</div><div class="bar" style="width: var(--space-3)"></div></div>
+<div class="row"><div class="tok">--space-4 · 16px</div><div class="bar" style="width: var(--space-4)"></div></div>
+<div class="row"><div class="tok">--space-5 · 20px</div><div class="bar" style="width: var(--space-5)"></div></div>
+<div class="row"><div class="tok">--space-6 · 24px</div><div class="bar" style="width: var(--space-6)"></div></div>
+<div class="row"><div class="tok">--space-8 · 32px</div><div class="bar" style="width: var(--space-8)"></div></div>
+<div class="row"><div class="tok">--space-12 · 48px</div><div class="bar" style="width: var(--space-12)"></div></div>
+
+<h2>Radius</h2>
+<div class="grid">
+  <div class="box" style="border-radius: var(--radius-sm)">--radius-sm · 8px<br />controls</div>
+  <div class="box" style="border-radius: var(--radius-md)">--radius-md · 14px<br />cards</div>
+  <div class="box" style="border-radius: var(--radius-lg)">--radius-lg · 18px<br />hero card</div>
+  <div class="box" style="border-radius: var(--radius-pill)">--radius-pill<br />badges</div>
+</div>
+
+<h2>Elevation</h2>
+<div class="grid">
+  <div class="box" style="border-radius: var(--radius-md); box-shadow: var(--elev-flat)">--elev-flat<br />cards</div>
+  <div class="box" style="border-radius: var(--radius-md); border-color: transparent; box-shadow: var(--elev-ring)">--elev-ring<br />1px ring</div>
+  <div class="box" style="border-radius: var(--radius-md); border-color: var(--border-soft); box-shadow: var(--elev-raised)">--elev-raised<br />form controls</div>
+  <div class="box" style="border-radius: var(--radius-sm); border-color: var(--meta); box-shadow: var(--focus-ring)">--focus-ring<br />3px halo</div>
+</div>
+
+<h2>Section rhythm &amp; container</h2>
+<div class="row"><div class="tok">--section-y-phone · 64px</div><div class="bar" style="width: var(--section-y-phone)"></div></div>
+<div class="row"><div class="tok">--section-y-tablet · 64px</div><div class="bar" style="width: var(--section-y-tablet)"></div></div>
+<div class="row"><div class="tok">--section-y-desktop · 80px</div><div class="bar" style="width: var(--section-y-desktop)"></div></div>
+<div class="row"><div class="tok">--container-gutter-phone · 16px</div><div class="bar" style="width: var(--container-gutter-phone)"></div></div>
+<div class="row"><div class="tok">--container-gutter-tablet · 24px</div><div class="bar" style="width: var(--container-gutter-tablet)"></div></div>
+<div class="row"><div class="tok">--container-gutter-desktop · 24px</div><div class="bar" style="width: var(--container-gutter-desktop)"></div></div>
+<div class="row"><div class="tok">--container-max · 1152px</div><div class="box" style="flex: 1; border-radius: var(--radius-sm)">content cap</div></div>
+
+<h2>Motion</h2>
+<div class="row"><div class="tok">--motion-fast · 150ms</div><div class="box" style="border-radius: var(--radius-sm); transition: background-color var(--motion-fast) var(--ease-standard);">hover &amp; focus</div></div>
+<div class="row"><div class="tok">--motion-base · 200ms</div><div class="box" style="border-radius: var(--radius-sm); transition: background-color var(--motion-base) var(--ease-standard);">accordion</div></div>
+<div class="row"><div class="tok">--ease-standard</div><div class="box" style="border-radius: var(--radius-sm)">cubic-bezier(0.4, 0, 0.2, 1)</div></div>

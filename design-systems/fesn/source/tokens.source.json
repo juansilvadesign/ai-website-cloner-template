@@ -1,0 +1,87 @@
+{
+  "$schema": "clone-website extraction artifact — consumed by scripts/emit-design-system.ts",
+  "brand": "fesn",
+  "name": "FESN Carteirinha",
+  "extraction": {
+    "target": "https://carteirinha.fesn.org.br (routes /, /vendas, /student-card)",
+    "sourcePath": "https://carteirinha.fesn.org.br/_next/static/chunks/5b7d3ecb351a2e21.css",
+    "method": "authored-css-tokens + computed-style verification",
+    "evidence": "The app ships a Tailwind v4 + shadcn stylesheet whose :root block is emitted TWICE: first an sRGB hex block, then a lab() progressive-enhancement block. The hex block is the authored ground truth and is cited directly. Every non-:root value (brand palette, type ramp, layout rhythm) was read from getComputedStyle() in headless Chromium at 1440/768/390 and converted to sRGB through a 1x1 canvas readback, because Chromium re-serializes lab()/oklab() rather than returning rgb().",
+    "note": "Only slots with a real or derived value are listed. The emitter fills unspecified A2 slots from the OpenDesign schema fallback and B-slots from their aliasTo sibling. Light-only: the target has NO dark theme — adding .dark to <html> changes nothing on any route, and the stylesheet contains no `.dark { --background: ... }` override block.",
+    "extractedAt": "2026-07-27"
+  },
+  "themes": {
+    "light": {
+      "--bg":            { "value": "#ffffff", "confidence": "high", "reason": "--background: the app canvas. Both page shells paint a subtle gradient on top of it (from-slate-50 via-white to-slate-100/70); white is the declared base.", "source": "chunks/5b7d3ecb351a2e21.css :root --background" },
+      "--surface":       { "value": "#ffffff", "confidence": "high", "reason": "--card: every lifted container (consulta card, benefit cards, FAQ shell, hero side card)", "source": "chunks/5b7d3ecb351a2e21.css :root --card" },
+      "--surface-warm":  { "value": "#eff6ff", "confidence": "high", "reason": "blue-50: the tertiary informational surface — hero 'Benefício financeiro recorrente' box and the CTA band gradient tail", "source": "computed: div.rounded-xl.border-blue-200.bg-blue-50 backgroundColor" },
+
+      "--fg":            { "value": "#0f172b", "confidence": "high", "reason": "slate-900: <main class='… text-slate-900'> page ink and every h1/h2 on /vendas", "source": "computed: h1 color on /vendas" },
+      "--fg-2":          { "value": "#314158", "confidence": "high", "reason": "slate-700: lead paragraphs and long-form body copy", "source": "computed: p.max-w-xl color on /vendas" },
+      "--muted":         { "value": "#45556c", "confidence": "high", "reason": "slate-600: card descriptions in the benefit and step grids", "source": "computed: benefit card p color on /vendas" },
+      "--meta":          { "value": "#62748e", "confidence": "high", "reason": "slate-500: helper text under the CPF input and the footnote on /", "source": "computed: p color on / (helper + footnote)" },
+
+      "--border":        { "value": "#e2e8f0", "confidence": "high", "reason": "slate-200: the visible card edge used by every surface on / and /vendas", "source": "computed: .rounded-xl.border-slate-200 borderColor" },
+      "--border-soft":   { "value": "#e5e5e5", "confidence": "high", "reason": "--border/--input: the quieter shadcn hairline on the input, buttons and FAQ row separators", "source": "chunks/5b7d3ecb351a2e21.css :root --border" },
+
+      "--accent":        { "value": "#1447e6", "confidence": "high", "reason": "blue-700: the only chromatic emphasis color — 'PASSO 1/2/3' eyebrows, inline links, section icons", "source": "computed: p.text-blue-700 ('PASSO 1') color on /vendas" },
+      "--accent-on":     { "value": "#ffffff", "confidence": "derived", "reason": "no filled-accent surface exists on the target; white is the only readable pairing against #1447e6 (contrast 6.9:1)", "source": "derived from --accent" },
+      "--accent-hover":  { "value": "#193cb8", "confidence": "high", "reason": "blue-800: the deeper accent tier, used as the hero badge label on blue-100", "source": "computed: span.text-blue-800 ('Emissão oficial FESN') color on /vendas" },
+      "--accent-active": { "value": "#1e3a8a", "confidence": "derived", "reason": "one step below --accent-hover; the target never renders a pressed accent state", "source": "derived from --accent-hover" },
+
+      "--success":       { "value": "#00a544", "confidence": "high", "reason": "green-600: the '✓' glyph on the Certificado pill", "source": "computed: span.text-green-600 on /student-card" },
+      "--warn":          { "value": "#dd7400", "confidence": "high", "reason": "amber-600: the highlighted savings clause in the hero lead paragraph", "source": "computed: span.text-amber-600 ('Economize em cinemas…') on /vendas" },
+      "--danger":        { "value": "#e40014", "confidence": "high", "reason": "--destructive (red-600). Declared in :root but never rendered — the target surfaces failure as a full not-found page, not as inline error styling.", "source": "chunks/5b7d3ecb351a2e21.css :root --destructive" },
+
+      "--font-display":  { "value": "Geist, \"Segoe UI\", \"Helvetica Neue\", Arial, sans-serif", "confidence": "high", "reason": "--font-geist-sans, applied to every heading. NOTE: the target declares Geist but never loads it — 0 font requests, 0 @font-face rules, document.fonts.size === 0 — so it renders as Segoe UI / Helvetica Neue in practice. Stack reproduced verbatim.", "source": "chunks/5b7d3ecb351a2e21.css :root --font-geist-sans" },
+      "--font-body":     { "value": "Geist, \"Segoe UI\", \"Helvetica Neue\", Arial, sans-serif", "confidence": "high", "reason": "same stack for body copy — the target has one family for display and text", "source": "chunks/5b7d3ecb351a2e21.css :root --font-geist-sans" },
+      "--font-mono":     { "value": "\"Geist Mono\", \"SFMono-Regular\", Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace", "confidence": "high", "reason": "--font-geist-mono: declared, not exercised by any rendered element", "source": "chunks/5b7d3ecb351a2e21.css :root --font-geist-mono" },
+
+      "--text-xs":   { "value": "12px",   "confidence": "high", "reason": "text-xs: 'PASSO N' eyebrow, input helper text, footer legal lines", "source": "computed: p.text-blue-700 fontSize on /vendas" },
+      "--text-sm":   { "value": "14px",   "confidence": "high", "reason": "text-sm: buttons, labels, card body copy, footer links", "source": "computed: button + label fontSize on /" },
+      "--text-base": { "value": "16px",   "confidence": "high", "reason": "text-base: long-form body copy and FAQ triggers", "source": "computed: p fontSize in 'Sobre a FESN' on /vendas" },
+      "--text-lg":   { "value": "18px",   "confidence": "high", "reason": "sm:text-lg: hero lead paragraph and benefit-card h2", "source": "computed: p.max-w-xl fontSize on /vendas" },
+      "--text-xl":   { "value": "24px",   "confidence": "high", "reason": "text-2xl: section h2 at the mobile/tablet step", "source": "computed: h2.text-2xl at 390 on /vendas" },
+      "--text-2xl":  { "value": "30px",   "confidence": "high", "reason": "sm:text-3xl: section h2 at desktop, and the h1 on /", "source": "computed: h2 'Sobre a FESN' fontSize on /vendas" },
+      "--text-3xl":  { "value": "36px",   "confidence": "high", "reason": "sm:text-4xl: hero h1 at the tablet step", "source": "computed: h1 fontSize at 768 on /vendas" },
+      "--text-4xl":  { "value": "48px",   "confidence": "high", "reason": "lg:text-5xl: hero h1 display size at desktop", "source": "computed: h1 fontSize at 1440 on /vendas" },
+
+      "--leading-body":     { "value": "1.625", "confidence": "high", "reason": "leading-relaxed: --leading-relaxed on body copy (18px → 29.25px measured)", "source": "chunks/5b7d3ecb351a2e21.css :root --leading-relaxed" },
+      "--leading-tight":    { "value": "1.25",  "confidence": "high", "reason": "leading-tight on the hero h1 (48px → 60px measured)", "source": "computed: h1 lineHeight/fontSize on /vendas" },
+      "--tracking-display": { "value": "0em",   "confidence": "high", "reason": "the hero h1 computes letter-spacing: normal — this brand does not tighten display type. Wide tracking (.1em) is reserved for uppercase eyebrows and badges.", "source": "computed: h1 letterSpacing on /vendas" },
+
+      "--section-y-desktop": { "value": "80px", "confidence": "high", "reason": "lg:pb-20 on every /vendas section", "source": "computed: section paddingBottom at 1440 on /vendas" },
+      "--section-y-tablet":  { "value": "64px", "confidence": "high", "reason": "pb-16 base section rhythm", "source": "computed: section paddingBottom at 768 on /vendas" },
+      "--section-y-phone":   { "value": "64px", "confidence": "high", "reason": "pb-16 is unchanged at the phone step — the brand does not compress section rhythm", "source": "computed: section paddingBottom at 390 on /vendas" },
+
+      "--container-max":             { "value": "1152px", "confidence": "high", "reason": "max-w-6xl on every section wrapper and the footer grid", "source": "computed: section maxWidth on /vendas" },
+      "--container-gutter-desktop":  { "value": "24px",   "confidence": "high", "reason": "sm:px-6", "source": "computed: section paddingLeft at 1440 on /vendas" },
+      "--container-gutter-tablet":   { "value": "24px",   "confidence": "high", "reason": "sm:px-6 holds from 640px up", "source": "computed: section paddingLeft at 768 on /vendas" },
+      "--container-gutter-phone":    { "value": "16px",   "confidence": "high", "reason": "px-4 below the sm breakpoint", "source": "computed: section paddingLeft at 390 on /vendas" },
+
+      "--space-1":  { "value": "4px",  "confidence": "high", "reason": "--spacing: .25rem base unit; the whole scale is n × 4px", "source": "chunks/5b7d3ecb351a2e21.css :root --spacing" },
+      "--space-2":  { "value": "8px",  "confidence": "high", "reason": "gap-2 button icon gap, card inner gaps", "source": "computed: .gap-2 gap on /vendas" },
+      "--space-3":  { "value": "12px", "confidence": "high", "reason": "px-3 pill padding, data-card padding on /student-card", "source": "computed: a.rounded-full padding on /vendas" },
+      "--space-4":  { "value": "16px", "confidence": "high", "reason": "p-4 info box, px-4 phone gutter", "source": "computed: .bg-blue-50 padding on /vendas" },
+      "--space-5":  { "value": "20px", "confidence": "high", "reason": "gap-5 between benefit and step cards", "source": "computed: .grid.gap-5 gap on /vendas" },
+      "--space-6":  { "value": "24px", "confidence": "high", "reason": "py-6 card padding, sm:px-6 gutter, gap-6 card stack", "source": "computed: .rounded-xl paddingTop on /vendas" },
+      "--space-8":  { "value": "32px", "confidence": "high", "reason": "mt-8 grid offset under the steps heading", "source": "computed: .mt-8 marginTop on /vendas" },
+      "--space-12": { "value": "48px", "confidence": "high", "reason": "lg:gap-12 hero column gap, py-12 footer padding", "source": "computed: hero section gap at 1440 on /vendas" },
+
+      "--radius-sm":   { "value": "8px",    "confidence": "high", "reason": "buttons, the CPF input, and the FAQ trigger focus target", "source": "computed: button borderRadius on /" },
+      "--radius-md":   { "value": "14px",   "confidence": "high", "reason": "rounded-xl: benefit cards, FAQ shell, info box, footer boxes", "source": "computed: .rounded-xl borderRadius on /vendas" },
+      "--radius-lg":   { "value": "18px",   "confidence": "high", "reason": "rounded-2xl: the consulta card on /", "source": "computed: .rounded-2xl borderRadius on /" },
+      "--radius-pill": { "value": "9999px", "confidence": "high", "reason": "rounded-full: badges, pill links, the Certificado pill", "source": "computed: a.rounded-full borderRadius on /vendas" },
+
+      "--elev-flat":   { "value": "none", "confidence": "high", "reason": "cards on this target are separated by border, not shadow", "source": "computed: .rounded-xl boxShadow on /vendas" },
+      "--elev-ring":   { "value": "0 0 0 1px var(--border)", "confidence": "derived", "reason": "the 1px slate-200 card edge expressed as a ring; the target draws it as a real border", "source": "derived from --border" },
+      "--elev-raised": { "value": "0 1px 2px 0 rgb(0 0 0 / 0.05)", "confidence": "high", "reason": "shadow-xs — the ONLY shadow rendered anywhere on the target (input + outline button)", "source": "computed: input boxShadow on /" },
+
+      "--focus-ring": { "value": "0 0 0 3px rgb(161 161 161 / 0.5)", "confidence": "high", "reason": "measured focus-visible state on the CPF input: ring/50 at 3px, with border-color moving to --ring #a1a1a1", "source": "computed: input:focus-visible boxShadow on /" },
+
+      "--motion-fast":    { "value": "150ms", "confidence": "high", "reason": "--default-transition-duration: .15s — every hover transition on the target", "source": "chunks/5b7d3ecb351a2e21.css :root --default-transition-duration" },
+      "--motion-base":    { "value": "200ms", "confidence": "high", "reason": "the FAQ chevron rotation transition (.2s)", "source": "computed: accordion trigger svg transition on /vendas" },
+      "--ease-standard":  { "value": "cubic-bezier(0.4, 0, 0.2, 1)", "confidence": "high", "reason": "--default-transition-timing-function, shared by every transition", "source": "chunks/5b7d3ecb351a2e21.css :root --default-transition-timing-function" }
+    }
+  }
+}

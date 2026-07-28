@@ -1,0 +1,64 @@
+---
+/** "Sobre a FESN" on `/vendas`. Spec: docs/research/components/vendas-about.spec.md */
+---
+
+<section class="section">
+  <h2>Sobre a FESN</h2>
+  <p>
+    A FESN é uma entidade estudantil independente, comprometida com representação responsável e
+    ética dos estudantes brasileiros. Com atuação nacional, trabalha para fortalecer os direitos da
+    classe estudantil, sem vinculação partidária e com foco em transparência.<br /><br />
+    Com anos de experiência, a instituição desenvolve iniciativas voltadas ao acesso à educação e ao
+    uso correto de benefícios estudantis como a meia-entrada.<br /><br />
+    <b>Wander Freitas</b> - <i>Presidente da FESN</i>
+  </p>
+</section>
+
+<style>
+  .section {
+    width: 100%;
+    max-width: var(--container-max);
+    margin-inline: auto;
+    padding: 0 var(--container-gutter-phone) var(--section-y-tablet);
+  }
+
+  h2 {
+    max-width: 896px;
+    font-size: var(--text-xl);
+    font-weight: 600;
+    line-height: 32px;
+    color: var(--fg);
+  }
+
+  p {
+    max-width: 1024px;
+    margin-top: var(--space-4);
+    font-size: var(--text-base);
+    line-height: 26px;
+    color: var(--fg-2);
+  }
+
+  b {
+    font-weight: 700;
+  }
+
+  i {
+    font-style: italic;
+  }
+
+  @media (min-width: 640px) {
+    .section {
+      padding-inline: var(--container-gutter-tablet);
+    }
+    h2 {
+      font-size: var(--text-2xl);
+      line-height: 36px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .section {
+      padding-bottom: var(--section-y-desktop);
+    }
+  }
+</style>
