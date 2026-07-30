@@ -21,10 +21,16 @@ This is version 0.4.0 of a hard fork of [`JCodesMore/ai-website-cloner-template`
 - **Deployment:** static Astro output in `dist/` (Docker serves it with nginx)
 
 ## Commands
-- `npm run dev` — Start the Astro dev server
+- `npm run dev` — Start the Astro dev server (hub at `/`, clones at `/<slug>/`)
+- `npm run dev -- --clone <slug>` — Serve one clone's real ejection at the root,
+  from a wiped-and-re-ejected `temp/preview-<slug>/`. A snapshot: restart to pick
+  up source edits
 - `npm run check` — Lint + Astro/script typechecks + static production build
 - `npm run check:design-system -- --brand <slug>` — Run OpenDesign's guard
   checks against one emitted package
+- `npm run eject -- <slug> [target-dir]` — Copy one clone out as a standalone
+  Astro project (`--force`, `--git`, `--dry-run`). Also the hub's dev-only
+  **Use as template** button
 - `npm run check:nextjs` — Validate the retained Next.js target
 - `npm run check:release` — Check Astro, the PsiAtiva reference package, and
   retained Next.js

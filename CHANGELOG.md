@@ -8,6 +8,37 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- Added **clone ejection** — `npm run eject -- <slug> [target-dir]`
+  (`scripts/eject-clone.mjs`), which copies one clone out as a standalone Astro
+  project with its own `package.json`, `astro.config.mjs`, `tsconfig.json`,
+  `.gitignore`, `.nvmrc`, and a README generated from its `clone.config.ts`. Runs
+  on `npm i && npm run dev` with no dependency on this repo. Supports `--force`,
+  `--git`, `--dry-run`, and `--json`; defaults to `../<slug>-clone`; refuses a
+  non-empty target without `--force`, any path inside this repo, and a
+  `build: "none"` clone
+- Added a reference-type-aware rewriter to that script. Root-relative URLs drop
+  the namespace (`/clones/<slug>/…` → `/…`, `/<slug>/…` → `/…`), while relative
+  module specifiers are resolved to a real file, mapped through the same plan the
+  copy uses, and recomputed from the destination — a specifier is only rewritten
+  when it resolves to a file that actually travels. The naive string replace would
+  have corrupted every import, since `../../clones/<slug>/components/X.astro`
+  contains `/clones/<slug>/`
+- Added the **Use as template** control to each hub card: a dev-only form posting
+  to `/api/eject`, a copy-the-CLI-command fallback in the static build, and
+  nothing at all for a clone with no routes
+- Added `npm run dev -- --clone <slug>`, which previews an ejection by serving one
+  clone at the root instead of the hub. It runs the real ejector into a gitignored
+  `temp/preview-<slug>/` — wiped and re-ejected on every start — and launches Astro
+  with its working directory set there, so the preview is the ejected artifact
+  itself rather than a route remap that would still serve `/clones/<slug>/…` URLs.
+  A snapshot by nature: source edits need a restart
+- Added `scripts/dev.mjs` behind the `dev` script to host that flag. Every other
+  argument is passed through and signals are forwarded, so plain `npm run dev` is
+  unchanged
+- Added the dev-only eject endpoint at `src/dev/eject-endpoint.ts`, injected as
+  `POST /api/eject` by `astro.config.mjs` only when the command is `dev`. It
+  shells out to the same script the CLI runs, so the button and the terminal
+  cannot diverge, and it never accepts `--force`
 - Added a **clone hub** at the root URL listing every registered clone with its
   routes, source URL, emitted design system, and extraction date. Pure Astro with
   scoped vanilla CSS (`src/layouts/HubLayout.astro`,

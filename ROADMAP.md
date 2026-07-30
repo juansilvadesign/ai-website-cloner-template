@@ -51,10 +51,10 @@ Two independent reasons to stop tracking it:
 | **D** | Astro page builder | ✅ | Root Astro + isolated Next target; both production builds green |
 | **E** | QA, docs, release | ✅ | `0.4.0` manifests; guard + Astro + retained Next release checks |
 | **F** | Multi-clone hub + slug namespacing | ✅ | Hub at `/`, clones at `/<slug>/`; FESN migrated, `npm run check` green |
-| **G** | "Use as template" ejection | ⬜ | Deferred — design locked, see below |
+| **G** | "Use as template" ejection | ✅ | `scripts/eject-clone.mjs` + dev-only injected `/api/eject`; ejected FESN builds green standalone |
 
 Critical path is **A → C → D**; B parallels A; E closes. **F** removes the
-one-clone-per-repo ceiling; **G** builds on it.
+one-clone-per-repo ceiling; **G** builds on it, and lets a clone leave.
 
 ### A — Prune to Claude Code only ✅
 
@@ -134,23 +134,64 @@ declared inside data arrays that an `href="` search does not catch. `npm run che
 is green and both the consulta and credential routes were verified rendering at
 their new paths.
 
-### G — "Use as template" ejection ⬜
+### G — "Use as template" ejection ✅
 
-Deferred, design locked. A **Use as template** action on each hub card copies one
-clone out to a target folder as a **standalone Astro project** — its five paths
-flattened back to root URLs, own `package.json`/`tsconfig`/`astro.config`, optional
-`git init` — so it runs with `npm i && npm run dev` and no dependency on this repo.
+A clone can leave. `npm run eject -- <slug> [dir]` copies one out as a standalone
+Astro project with its own `package.json`, `astro.config.mjs`, and `tsconfig.json`,
+running on `npm i && npm run dev` with no dependency on this repo. Each hub card
+carries the same action as a **Use as template** button in `npm run dev`; the
+static build falls back to copying the CLI command. Target defaults to
+`../<slug>-clone`; a non-empty directory needs `--force`, and a path inside this
+repo is always refused.
 
-Mechanism: a dev-only `POST /api/eject` (Astro's dev server executes endpoints;
-guarded by `import.meta.env.DEV` so it never ships in `dist/`) wrapping
-`scripts/eject-clone.mjs`, with the static build falling back to copying the
-equivalent CLI command. The card seam is marked in
-`src/components/hub/CloneCard.astro`.
+The five namespaced paths flatten to an ordinary Astro layout —
+`src/clones/<slug>/{components,layouts,styles,types}` → `src/{…}`,
+`src/pages/<slug>/` → `src/pages/`, `public/clones/<slug>/` → `public/`,
+`design-systems/<slug>/` → `design-system/`, `docs/research/<slug>/` → `docs/`.
 
-Two things the ejector must handle, both already visible in FESN: rewriting
-`/clones/<slug>/…` → `/…` and `/<slug>/…` → `/…` across `.astro`, `.ts`, and CSS
-`url()` values; and copying `design-systems/<slug>/` in whole, since `clone.css`
-imports `tokens.css` through four levels of relative path.
+**The rewrite is reference-type-aware, and has to be.** Root-relative URLs lose
+the namespace, but relative module specifiers keep pointing at the same file at a
+new depth — and `../../clones/fesn/components/X.astro` *contains* the substring
+`/clones/fesn/`, so the string replace the original design implied would corrupt
+every import in the project. Instead each specifier is resolved to a real file,
+mapped through the same plan the copy uses, and recomputed from the destination;
+it is only rewritten when it resolves to a file that actually travels. That also
+handles `clone.css`'s four-level `@import` of `tokens.css` for free, as one case
+of a general rule rather than a special case.
+
+Two findings worth keeping, both discovered by measurement:
+
+- **A dev-only endpoint cannot live in `src/pages/api/`.** Anything there is a
+  route in every command; the static build prerenders it, warns that no GET
+  handler exists, and writes `dist/api/eject` anyway. `export const prerender =
+  false` is not an escape either — without an adapter it fails the build with
+  `NoAdapterInstalled`. The handler therefore lives at `src/dev/eject-endpoint.ts`
+  and `astro.config.mjs` injects it only when `command === "dev"`, which makes
+  "never reaches `dist/`" structural rather than aspirational.
+- **That injected route needs `prerender: false`.** Under `output: "static"` a
+  prerendered endpoint receives a *synthesized* Request — empty headers, empty
+  body, query string stripped — which silently breaks any POST payload. It needs
+  no adapter because the build never sees the route.
+
+Verified: an ejected FESN builds green standalone (0 errors, 4 routes at root),
+and all four pages are byte-identical to this repo's own build once namespace
+prefixes, Astro's path-derived scope hashes, and the Astro patch version are
+normalized. `npm run check` here stays green with zero `dist/api` artifacts and
+no `/api/eject` string in the shipped hub.
+
+`npm run dev -- --clone <slug>` previews an ejection. It does not fake root
+routing — it runs the real ejector into a gitignored `temp/preview-<slug>/`,
+wiped on every start, and launches Astro with its working directory set there. So
+the preview is the ejected artifact itself: rewritten imports, flattened URLs, its
+own config, no hub, no eject endpoint. A route remap would still have served
+`/clones/<slug>/…` and proven nothing about the rewrite. The trade is that it is a
+snapshot — source edits need a restart.
+
+`package.json`'s `dev` script is now the `scripts/dev.mjs` wrapper, which passes
+every other flag through untouched; plain `npm run dev` behaves exactly as before.
+Astro runs via its working directory rather than `--root`, because under `--root`
+the auto-backgrounded dev server never reports ready and times out after 30s
+while the identical command works in the foreground.
 
 ---
 

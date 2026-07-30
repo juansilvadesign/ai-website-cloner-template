@@ -6,6 +6,9 @@ The living checklist. Strategy and milestone definitions live in
 
 _Last reviewed: 2026-07-30_
 
+> Milestones **A–G** are shipped, including G's optional single-clone dev preview.
+> No milestone work is outstanding.
+
 ---
 
 ## Completed — Milestone F: multi-clone hub + slug namespacing ✅
@@ -45,27 +48,50 @@ Removed the one-clone-per-repo ceiling. The root URL is a hub; clones serve from
 
 ---
 
-## Next — Milestone G: "use as template" ejection ⬜
+## Completed — Milestone G: "use as template" ejection ✅
 
-Design locked, not built. Full rationale in
+A clone can leave the repo as a standalone Astro project. Rationale, the two
+Astro findings, and the evidence in
 [ROADMAP](ROADMAP.md#g--use-as-template-ejection-).
 
-- [ ] Write `scripts/eject-clone.mjs <slug> <target-dir>`: copy the clone's five
-      paths, flatten `/clones/<slug>/…` → `/…` and `/<slug>/…` → `/…` across
-      `.astro`, `.ts`, and CSS `url()` values, and copy `design-systems/<slug>/`
-      whole (`clone.css` imports `tokens.css` four levels up).
-- [ ] Emit a standalone project: own `package.json`, `tsconfig.json`,
-      `astro.config.mjs`, `.gitignore`, `src/pages/index.astro` at root, plus an
-      optional `git init`. Must run with `npm i && npm run dev`.
-- [ ] Add `npm run eject` wired to the script.
-- [ ] Add the dev-only `src/pages/api/eject.ts` (`POST { slug, targetDir }`), guarded
-      by `import.meta.env.DEV` so it never reaches `dist/`.
-- [ ] Add the **Use as template** control at the marked seam in `CloneCard.astro`:
+- [x] Write `scripts/eject-clone.mjs <slug> [target-dir]`: copy the clone's five
+      paths, flatten them to an ordinary Astro layout, and copy
+      `design-systems/<slug>/` whole as `design-system/`.
+- [x] Make the rewrite reference-type-aware. Root-relative URLs drop the namespace;
+      relative module specifiers are resolved to a real file, mapped through the
+      same plan the copy uses, and recomputed from the destination — because
+      `../../clones/<slug>/…` contains the substring a string replace would eat.
+      This subsumes `clone.css`'s four-level `tokens.css` import as a general case.
+- [x] Emit a standalone project: own `package.json`, `tsconfig.json`,
+      `astro.config.mjs`, `.gitignore`, `.nvmrc`, and a README generated from
+      `clone.config.ts` (source URL, extraction date, route table). Registry entry
+      dropped; `docs/research/<slug>/` evidence travels. Optional `--git`.
+- [x] Guard rails: default target `../<slug>-clone`, refuse a non-empty directory
+      without `--force`, always refuse a path inside this repo, reject a
+      non-kebab-case slug, refuse a `build: "none"` clone, and detect destination
+      collisions. Plus `--dry-run` and `--json`.
+- [x] Add `npm run eject` wired to the script.
+- [x] Add the dev-only endpoint. **Not** `src/pages/api/eject.ts` — the static
+      build prerenders anything under `src/pages/` and writes `dist/api/eject`
+      regardless of `import.meta.env.DEV`, and `prerender = false` fails without an
+      adapter. It lives at `src/dev/eject-endpoint.ts` and `astro.config.mjs`
+      injects it only when `command === "dev"`, with `prerender: false` so the dev
+      server passes the real request instead of a synthesized one.
+- [x] Add the **Use as template** control at the marked seam in `CloneCard.astro`:
       `fetch('/api/eject')` in dev, copy-the-CLI-command fallback in the static
-      build.
-- [ ] Verify an ejected FESN project builds green standalone and renders at root.
-- [ ] Optional: `npm run dev -- --clone <slug>` serving one clone at root, to preview
-      an ejection without running it.
+      build, and nothing at all on a clone with no routes. The dev half is wrapped
+      in `import.meta.env.DEV` so the static hub inlines no `/api/eject` fetch.
+- [x] Verify: ejected FESN installs, typechecks, and builds green standalone with
+      4 routes at root; all four pages byte-identical to this repo's build once
+      namespace prefixes, Astro scope hashes, and the patch version are normalized;
+      `npm run check` green here with 0 `dist/api` artifacts.
+- [x] `npm run dev -- --clone <slug>` serves one clone at root to preview an
+      ejection. Implemented as a real ejection into a wiped, gitignored
+      `temp/preview-<slug>/` with Astro's working directory set there — not a route
+      remap, which would still serve `/clones/<slug>/…` and prove nothing about the
+      rewrite. `scripts/dev.mjs` wraps the `dev` script and passes every other flag
+      through, so plain `npm run dev` is unchanged. Uses the working directory
+      rather than `--root`, under which the auto-backgrounded dev server times out.
 
 ---
 

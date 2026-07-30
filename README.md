@@ -126,6 +126,74 @@ design-systems/<slug>/    docs/research/<slug>/
 Registering it in `src/data/clones/index.ts` is what puts it on the hub; an
 unregistered clone still serves its routes, it is just not listed.
 
+## Use as template
+
+A clone can leave. Ejection copies one out as a **standalone Astro project** with
+its own `package.json`, `astro.config.mjs`, and `tsconfig.json`, runnable with
+`npm i && npm run dev` and depending on nothing here.
+
+```bash
+npm run eject -- <slug> [target-dir] [--force] [--git] [--dry-run]
+```
+
+The target defaults to `../<slug>-clone`. A directory that already has files is
+refused unless you pass `--force`, and a path inside this repo is always refused.
+`--dry-run` prints the plan without writing. In `npm run dev`, each hub card also
+carries a **Use as template** button that does the same thing; the static build
+shows a copy-the-command fallback instead.
+
+The five namespaced paths flatten back to an ordinary Astro layout:
+
+```text
+src/clones/<slug>/{components,layouts,styles,types}  →  src/{…}
+src/pages/<slug>/…                                   →  src/pages/…
+public/clones/<slug>/…                               →  public/…
+design-systems/<slug>/…                              →  design-system/…
+docs/research/<slug>/…                               →  docs/…
+```
+
+Moving every file invalidates two different kinds of reference, and the ejector
+treats them differently on purpose. Root-relative **URLs** lose the namespace
+(`/clones/fesn/images/x.png` → `/images/x.png`, `href="/fesn/vendas/"` → `/`).
+Relative **module specifiers** keep pointing at the same file, but the depth
+between the two files changed — so each one is resolved to a real file, mapped
+through the same plan the copy uses, and recomputed from the destination. A
+specifier is only rewritten when it resolves to a file that actually travels;
+anything else is left alone and reported.
+
+That distinction is not academic: `../../clones/fesn/components/X.astro` contains
+the substring `/clones/fesn/`, so the naive string replace corrupts every import
+in the project.
+
+The emitted design system travels whole, along with the extraction evidence from
+`docs/research/<slug>/` and a generated README carrying the clone's source URL,
+extraction date, and route table. The registry entry is dropped — it means
+nothing outside the hub. QA screenshots stay behind; they are evidence about the
+extraction, not project files.
+
+`--build none` clones cannot be ejected: a design system with no pages is not a
+project. Copy `design-systems/<slug>/` by hand if the package is all you need.
+
+### Previewing an ejection
+
+```bash
+npm run dev -- --clone <slug>
+```
+
+Serves one clone at the root instead of the hub. This is not a route remap — it
+runs the real ejector into a gitignored `temp/preview-<slug>/` and starts Astro
+inside it, so what you browse is the actual ejected project: rewritten imports,
+flattened asset URLs, its own `astro.config.mjs`, no hub, no eject endpoint. A
+preview that only remapped routes would still serve `/clones/<slug>/…` URLs and
+would prove nothing about the rewrite.
+
+The cost of that fidelity is that it is a snapshot: editing the clone's source
+does not reach the copy being served, so restart the server. The folder is wiped
+and re-ejected on every start so it cannot go stale, and is left on disk
+afterwards so the output can be inspected.
+
+Plain `npm run dev` is unchanged — hub at `/`, clones at `/<slug>/`.
+
 ## The workflow
 
 1. **Reconnaissance** — capture full-page 1440px and 390px references; inspect
@@ -223,11 +291,13 @@ and re-emit instead.
 
 ```bash
 npm run dev                       # Astro dev server on 4321 (hub at /)
+npm run dev -- --clone <slug>     # Serve one clone's real ejection at the root
 npm run build                     # Static Astro build
 npm run lint                      # Astro/TypeScript lint
 npm run typecheck                 # Astro typecheck
 npm run typecheck:scripts         # Emitter/guard TypeScript check
 npm run check                     # Lint + all typechecks + Astro build
+npm run eject -- <slug> [dir]     # Copy one clone out as a standalone project
 npm run check:design-system -- --brand psiativa
 npm run check:nextjs              # Retained Next lint + typecheck + build
 npm run check:release             # Astro + reference DS guard + retained Next
