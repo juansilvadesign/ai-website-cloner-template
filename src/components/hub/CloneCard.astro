@@ -11,6 +11,11 @@ const { meta, routes } = clone;
 const isBuilt = routes.length > 0;
 const primaryRoute = routes[0]?.path;
 const sourceLabel = meta.sourceUrl.replace(/^https?:\/\//, "");
+
+// "Use as template" needs something to eject. A `build: "none"` clone has a
+// design system and no pages, which is exactly what `eject-clone.mjs` refuses.
+const defaultTarget = `../${meta.slug}-clone`;
+const ejectCommand = `npm run eject -- ${meta.slug} ${defaultTarget}`;
 ---
 
 <article class="card" id={`clone-${meta.slug}`}>
@@ -101,11 +106,166 @@ const sourceLabel = meta.sourceUrl.replace(/^https?:\/\//, "");
       )
     }
 
-    {/* Seam for "Use as template" (deferred): a dev-only POST to /api/eject with
-        { slug, targetDir }, falling back to copying the CLI command in the static
-        build. See ROADMAP.md → Milestone G. */}
+    {/* "Use as template" — copies this clone out as a standalone Astro project.
+        `import.meta.env.DEV` picks the variant at build time, so the static hub
+        ships the copy-the-command fallback and no fetch code at all. */}
+    {
+      isBuilt && (
+        <div class="eject" data-slug={meta.slug}>
+          {import.meta.env.DEV ? (
+            <>
+              <button type="button" class="eject-btn" data-eject-toggle aria-expanded="false">
+                Use as template
+              </button>
+
+              <form class="eject-form" hidden>
+                <label>
+                  Target folder
+                  <input
+                    type="text"
+                    name="targetDir"
+                    value={defaultTarget}
+                    spellcheck="false"
+                    autocomplete="off"
+                    required
+                  />
+                </label>
+                <div class="eject-actions">
+                  <button type="submit" class="eject-btn eject-btn--go">
+                    Eject
+                  </button>
+                  <button type="button" class="eject-link" data-eject-cancel>
+                    Cancel
+                  </button>
+                </div>
+                <p class="eject-hint">
+                  Relative to the repo root. Refuses a folder that already has files —
+                  use the CLI with <code>--force</code> to override.
+                </p>
+              </form>
+            </>
+          ) : (
+            <button type="button" class="eject-btn" data-eject-copy={ejectCommand}>
+              Copy eject command
+            </button>
+          )}
+
+          <p class="eject-status" role="status" aria-live="polite" />
+        </div>
+      )
+    }
   </div>
 </article>
+
+<script>
+  // Delegated listeners covering every card on the hub.
+  //
+  // The dev-only half is wrapped in `import.meta.env.DEV`, which Vite replaces
+  // with a literal `false` at build time so the whole block is dropped. Without
+  // that wrapper the static hub still inlines the `/api/eject` fetch — dead code
+  // that can never reach an endpoint, describing a capability the page does not
+  // have.
+  const status = (root: Element, message: string, tone: "" | "ok" | "err" = "") => {
+    const el = root.querySelector<HTMLParagraphElement>(".eject-status");
+    if (!el) return;
+    el.textContent = message;
+    el.dataset.tone = tone;
+  };
+
+  // Static build: copy the CLI command instead.
+  document.addEventListener("click", async (event) => {
+    const target = event.target;
+    if (!(target instanceof Element)) return;
+
+    const copyBtn = target.closest<HTMLButtonElement>("[data-eject-copy]");
+    if (!copyBtn) return;
+
+    const command = copyBtn.dataset.ejectCopy ?? "";
+    const root = copyBtn.closest(".eject");
+    if (!root) return;
+    try {
+      await navigator.clipboard.writeText(command);
+      status(root, "Copied — run it from the repo root.", "ok");
+    } catch {
+      status(root, command, "");
+    }
+  });
+
+  if (import.meta.env.DEV) {
+    document.addEventListener("click", (event) => {
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+
+      const toggle = target.closest<HTMLButtonElement>("[data-eject-toggle]");
+      if (toggle) {
+        const root = toggle.closest(".eject");
+        const form = root?.querySelector<HTMLFormElement>(".eject-form");
+        if (!root || !form) return;
+        const opening = form.hidden;
+        form.hidden = !opening;
+        toggle.setAttribute("aria-expanded", String(opening));
+        if (opening) form.querySelector("input")?.focus();
+        else status(root, "");
+        return;
+      }
+
+      const cancel = target.closest<HTMLButtonElement>("[data-eject-cancel]");
+      if (cancel) {
+        const root = cancel.closest(".eject");
+        const form = root?.querySelector<HTMLFormElement>(".eject-form");
+        if (!root || !form) return;
+        form.hidden = true;
+        root.querySelector("[data-eject-toggle]")?.setAttribute("aria-expanded", "false");
+        status(root, "");
+      }
+    });
+
+    document.addEventListener("submit", async (event) => {
+      const form = event.target;
+      if (!(form instanceof HTMLFormElement) || !form.classList.contains("eject-form")) return;
+      event.preventDefault();
+
+      const root = form.closest<HTMLElement>(".eject");
+      const slug = root?.dataset.slug;
+      if (!root || !slug) return;
+
+      const input = form.querySelector<HTMLInputElement>('input[name="targetDir"]');
+      const submit = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+      const targetDir = input?.value.trim() ?? "";
+      if (!targetDir) return;
+
+      if (submit) submit.disabled = true;
+      status(root, `Ejecting ${slug}…`);
+
+      try {
+        const response = await fetch("/api/eject", {
+          method: "POST",
+          headers: { "content-type": "application/json", "x-eject-request": "1" },
+          body: JSON.stringify({ slug, targetDir }),
+        });
+        const result = await response.json();
+
+        if (!response.ok || !result.ok) {
+          status(root, result.error ?? `Failed with ${response.status}.`, "err");
+        } else {
+          const { counts, targetDir: written } = result;
+          status(
+            root,
+            `Ejected to ${written} — ${counts.rewritten + counts.copied + counts.generated} files, ` +
+              `${counts.references} references rewritten. Run npm i && npm run dev there.`,
+            "ok",
+          );
+          form.hidden = true;
+          root.querySelector("[data-eject-toggle]")?.setAttribute("aria-expanded", "false");
+        }
+      } catch (error) {
+        status(root, error instanceof Error ? error.message : "Request failed.", "err");
+      } finally {
+        if (submit) submit.disabled = false;
+      }
+    });
+  }
+</script>
 
 <style>
   .card {
@@ -342,5 +502,137 @@ const sourceLabel = meta.sourceUrl.replace(/^https?:\/\//, "");
     border-radius: 999px;
     font-size: 11px;
     color: var(--hub-muted);
+  }
+
+  /* ─── Use as template ─── */
+  .eject {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--hub-border);
+  }
+
+  .eject-btn {
+    align-self: flex-start;
+    padding: 5px 11px;
+    background: var(--hub-surface-2);
+    border: 1px solid var(--hub-border);
+    border-radius: var(--hub-radius-sm);
+    font: inherit;
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--hub-fg);
+    cursor: pointer;
+    transition:
+      background-color 140ms ease,
+      border-color 140ms ease,
+      color 140ms ease;
+  }
+
+  .eject-btn:hover {
+    background: var(--hub-accent-soft);
+    border-color: color-mix(in oklab, var(--hub-accent) 32%, var(--hub-border));
+    color: var(--hub-accent);
+  }
+
+  .eject-btn:disabled {
+    opacity: 0.6;
+    cursor: progress;
+  }
+
+  .eject-btn--go {
+    background: var(--hub-accent);
+    border-color: var(--hub-accent);
+    color: var(--hub-bg);
+  }
+
+  .eject-btn--go:hover {
+    background: var(--hub-accent);
+    border-color: var(--hub-accent);
+    color: var(--hub-bg);
+    filter: brightness(1.08);
+  }
+
+  .eject-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .eject-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 11.5px;
+    color: var(--hub-meta);
+  }
+
+  .eject-form input {
+    padding: 6px 9px;
+    background: var(--hub-bg);
+    border: 1px solid var(--hub-border);
+    border-radius: var(--hub-radius-sm);
+    font-family: var(--hub-mono);
+    font-size: 12px;
+    color: var(--hub-fg);
+  }
+
+  .eject-form input:focus-visible {
+    outline: 2px solid var(--hub-accent);
+    outline-offset: 1px;
+  }
+
+  .eject-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .eject-link {
+    padding: 0;
+    background: none;
+    border: 0;
+    font: inherit;
+    font-size: 12px;
+    color: var(--hub-meta);
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  .eject-link:hover {
+    color: var(--hub-fg);
+  }
+
+  .eject-hint {
+    font-size: 11px;
+    line-height: 1.5;
+    color: var(--hub-meta);
+    text-wrap: pretty;
+  }
+
+  .eject-hint code {
+    font-family: var(--hub-mono);
+  }
+
+  .eject-status:empty {
+    display: none;
+  }
+
+  .eject-status {
+    font-size: 11.5px;
+    line-height: 1.5;
+    color: var(--hub-muted);
+    overflow-wrap: anywhere;
+    text-wrap: pretty;
+  }
+
+  .eject-status[data-tone="ok"] {
+    color: var(--hub-accent);
+  }
+
+  .eject-status[data-tone="err"] {
+    color: #d4183d;
   }
 </style>
