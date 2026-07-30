@@ -222,7 +222,8 @@ while a port is queued, then change it to `harvested` when the port lands.
 | **#72** WebAssembly port | **skip — supply-chain smell** | Commits prebuilt `bin/*.exe` and `public/wasm/*.wasm` binaries and rewrites `src/lib/utils.ts` `cn()` to call WASM. Also resurrects the `scripts/sync-*` tooling A deleted. Do not pull in blind. |
 | **#63** Kiro support | **skip** | Adds a 14th agent target; directly fights the Claude-Code-only decision. |
 | **#25** agent-browser CLI | **skip** | Replaces browser MCP wholesale; fights the MCP-native setup and conflicts with #60/#68. |
-| **#17**, **#52**, **#54**, **#57**, **#58**, **#59**, **#61**, **#71**, **#75** | **skip** | READMEs, badges, devcontainer, CONTRIBUTING/SECURITY, and a CI check for the sync tooling we deleted. |
+| **#17**, **#52**, **#54**, **#57**, **#58**, **#59**, **#61**, **#75** | **skip** | READMEs, devcontainer, CONTRIBUTING/SECURITY, and a CI check for the sync tooling we deleted. |
+| **#71** README token-count badge | **skip — merged upstream** | The one commit we are permanently behind (`a9b3575`). Its badge URL hardcodes `JCodesMore/ai-website-cloner-template`, so it would render *their* token count on our README; it also puts a third-party service (`gittokens.rsamf.com`) in the render path. Moot regardless — our README has carried no badge row since Milestone A, so the hunk has no target. |
 | **#47**, **#67**, **#73** | **noise** | Contributors' generated clone output, not tooling. |
 
 ---

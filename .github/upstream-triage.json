@@ -26,7 +26,7 @@
     "63": { "verdict": "skip", "why": "Adds Kiro as a 14th agent target; directly fights the Claude-Code-only decision from Milestone A." },
     "67": { "verdict": "noise", "why": "Generated clone output (3D corridor portfolio)." },
     "68": { "verdict": "harvested", "why": "Ported in Milestone B as an opt-in MCP-to-ego translation layer; never default because it depends on lite.ego.app." },
-    "71": { "verdict": "skip", "why": "README token-count badge." },
+    "71": { "verdict": "skip", "why": "README token-count badge; MERGED upstream at a9b3575 — this is the permanent '1 commit behind'. Do not re-litigate: the badge URL hardcodes JCodesMore's repo path so it would report their token count, it adds a third-party runtime dependency (gittokens.rsamf.com) to the README, and our README has carried no badge row since Milestone A." },
     "72": { "verdict": "skip", "why": "SUPPLY-CHAIN SMELL: commits prebuilt bin/*.exe and public/wasm/*.wasm binaries and rewrites src/lib/utils.ts cn() to call WASM. Also resurrects the scripts/sync-* tooling Milestone A deleted. Do not pull in blind." },
     "73": { "verdict": "noise", "why": "Generated clone output (Animesaga UI)." },
     "75": { "verdict": "skip", "why": "Japanese README; same reason as #52." }
