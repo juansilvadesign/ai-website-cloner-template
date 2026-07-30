@@ -1,0 +1,183 @@
+---
+import type { Clone } from "../../data/clones/types";
+import CloneCard from "./CloneCard.astro";
+
+interface Props {
+  clones: Clone[];
+}
+
+const { clones } = Astro.props;
+
+const builtCount = clones.filter((c) => c.routes.length > 0).length;
+const routeCount = clones.reduce((sum, c) => sum + c.routes.length, 0);
+---
+
+<div class="wrap">
+  <header class="head">
+    <p class="eyebrow">AI Website Cloner</p>
+    <h1>Clones</h1>
+    <p class="lede">
+      Every reverse-engineered target in this workspace. Each clone owns its own
+      routes, components, assets, and OpenDesign package, so a new run never
+      overwrites an existing one.
+    </p>
+    <dl class="stats">
+      <div>
+        <dt>Clones</dt>
+        <dd>{clones.length}</dd>
+      </div>
+      <div>
+        <dt>With pages</dt>
+        <dd>{builtCount}</dd>
+      </div>
+      <div>
+        <dt>Routes</dt>
+        <dd>{routeCount}</dd>
+      </div>
+    </dl>
+  </header>
+
+  {
+    clones.length > 0 ? (
+      <div class="grid">
+        {clones.map((clone) => (
+          <CloneCard clone={clone} />
+        ))}
+      </div>
+    ) : (
+      <p class="empty">
+        No clones registered yet. Run <code>/clone-website &lt;url&gt;</code>, then
+        add the emitted clone to <code>src/data/clones/index.ts</code>.
+      </p>
+    )
+  }
+
+  <footer class="foot">
+    <p>
+      Add a clone by running <code>/clone-website &lt;url&gt;</code>. It writes to
+      <code>src/clones/&lt;slug&gt;/</code>, <code>src/pages/&lt;slug&gt;/</code>,
+      <code>public/clones/&lt;slug&gt;/</code>, and
+      <code>design-systems/&lt;slug&gt;/</code>, then registers it here.
+    </p>
+    <p class="notice">
+      Extracted brand assets and design-system output are not official assets and
+      remain subject to their owners' rights.
+    </p>
+  </footer>
+</div>
+
+<style>
+  .wrap {
+    width: 100%;
+    max-width: 1120px;
+    margin-inline: auto;
+    padding: 56px 24px 72px;
+  }
+
+  @media (max-width: 640px) {
+    .wrap {
+      padding: 36px 18px 56px;
+    }
+  }
+
+  /* ─── Header ─── */
+  .head {
+    max-width: 62ch;
+    margin-bottom: 34px;
+  }
+
+  .eyebrow {
+    margin-bottom: 10px;
+    font-family: var(--hub-mono);
+    font-size: 11.5px;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--hub-meta);
+  }
+
+  h1 {
+    font-size: clamp(30px, 5vw, 40px);
+    font-weight: 650;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+  }
+
+  .lede {
+    margin-top: 12px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--hub-muted);
+    text-wrap: pretty;
+  }
+
+  .stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+    margin: 22px 0 0;
+    padding-top: 20px;
+    border-top: 1px solid var(--hub-border);
+  }
+
+  .stats dt {
+    font-size: 11.5px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--hub-meta);
+  }
+
+  .stats dd {
+    margin: 3px 0 0;
+    font-size: 24px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+  }
+
+  /* ─── Grid ─── */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+    align-items: start;
+  }
+
+  .empty {
+    padding: 40px 24px;
+    background: var(--hub-surface);
+    border: 1px dashed var(--hub-border);
+    border-radius: var(--hub-radius);
+    font-size: 14px;
+    color: var(--hub-muted);
+    text-align: center;
+  }
+
+  /* ─── Footer ─── */
+  .foot {
+    max-width: 72ch;
+    margin-top: 44px;
+    padding-top: 20px;
+    border-top: 1px solid var(--hub-border);
+    font-size: 12.5px;
+    line-height: 1.6;
+    color: var(--hub-meta);
+  }
+
+  .foot p + p {
+    margin-top: 8px;
+  }
+
+  .notice {
+    color: color-mix(in oklab, var(--hub-meta) 82%, transparent);
+  }
+
+  code {
+    padding: 1px 5px;
+    background: var(--hub-surface-2);
+    border-radius: 4px;
+    font-family: var(--hub-mono);
+    font-size: 0.92em;
+  }
+</style>

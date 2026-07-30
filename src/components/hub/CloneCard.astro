@@ -1,0 +1,346 @@
+---
+import type { Clone } from "../../data/clones/types";
+
+interface Props {
+  clone: Clone;
+}
+
+const { clone } = Astro.props;
+const { meta, routes } = clone;
+
+const isBuilt = routes.length > 0;
+const primaryRoute = routes[0]?.path;
+const sourceLabel = meta.sourceUrl.replace(/^https?:\/\//, "");
+---
+
+<article class="card" id={`clone-${meta.slug}`}>
+  <div class="cover" data-empty={!meta.cover}>
+    {
+      meta.cover ? (
+        <img src={meta.cover} alt="" width="640" height="360" loading="lazy" />
+      ) : (
+        <svg
+          class="cover-glyph"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.25"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <circle cx="13.5" cy="6.5" r="2.5" />
+          <circle cx="17.5" cy="14" r="2.5" />
+          <circle cx="8.5" cy="7.5" r="2.5" />
+          <circle cx="6.5" cy="12.5" r="2.5" />
+          <path
+            d="M12 2a10 10 0 0 0 0 20c.94 0 1.7-.76 1.7-1.7v-.4c0-.94.76-1.7 1.7-1.7H17a5 5 0 0 0 5-5c0-5.52-4.48-10-10-10Z"
+          />
+        </svg>
+      )
+    }
+    <span class="badge" data-build={meta.build}>
+      {isBuilt ? `${routes.length} ${routes.length === 1 ? "route" : "routes"}` : "design system only"}
+    </span>
+  </div>
+
+  <div class="body">
+    <h2 class="title">
+      {
+        primaryRoute ? (
+          <a href={primaryRoute}>{meta.name}</a>
+        ) : (
+          meta.name
+        )
+      }
+    </h2>
+
+    <p class="desc">{meta.description}</p>
+
+    <a class="source" href={meta.sourceUrl} rel="noreferrer noopener nofollow" target="_blank">
+      {sourceLabel}
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M7 17 17 7M17 7H9M17 7v8" />
+      </svg>
+    </a>
+
+    {
+      isBuilt ? (
+        <ul class="routes">
+          {routes.map((route) => (
+            <li>
+              <a href={route.path}>
+                <span class="route-label">{route.label}</span>
+                <code>{route.path}</code>
+              </a>
+              {route.note && <p class="route-note">{route.note}</p>}
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p class="no-page">
+          No page was built for this target. Its design system is emitted and
+          namespaced; add routes under <code>src/pages/{meta.slug}/</code> to
+          build one.
+        </p>
+      )
+    }
+
+    <footer class="meta">
+      <code class="ds">design-systems/{meta.slug}</code>
+      <span class="date">cloned {meta.clonedAt}</span>
+    </footer>
+
+    {
+      meta.tags.length > 0 && (
+        <ul class="tags">
+          {meta.tags.map((tag) => (
+            <li>{tag}</li>
+          ))}
+        </ul>
+      )
+    }
+
+    {/* Seam for "Use as template" (deferred): a dev-only POST to /api/eject with
+        { slug, targetDir }, falling back to copying the CLI command in the static
+        build. See ROADMAP.md → Milestone G. */}
+  </div>
+</article>
+
+<style>
+  .card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: var(--hub-surface);
+    border: 1px solid var(--hub-border);
+    border-radius: var(--hub-radius);
+    box-shadow: var(--hub-shadow);
+    transition:
+      box-shadow 160ms ease,
+      border-color 160ms ease,
+      transform 160ms ease;
+  }
+
+  .card:hover {
+    border-color: color-mix(in oklab, var(--hub-accent) 32%, var(--hub-border));
+    box-shadow: var(--hub-shadow-lift);
+    transform: translateY(-2px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .card,
+    .card:hover {
+      transform: none;
+      transition: none;
+    }
+  }
+
+  /* ─── Cover ─── */
+  .cover {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: var(--hub-surface-2);
+    border-bottom: 1px solid var(--hub-border);
+  }
+
+  /* Absolutely positioned so the 16/9 box holds whatever the cover's intrinsic
+     ratio is. A percentage height cannot resolve against an aspect-ratio-derived
+     height, so a `height: 100%` image would fall back to its natural ratio and
+     stretch the box — the FESN hero is roughly square. */
+  .cover img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+  }
+
+  .cover[data-empty="true"] {
+    display: grid;
+    place-items: center;
+  }
+
+  .cover-glyph {
+    width: 44px;
+    height: 44px;
+    color: var(--hub-meta);
+  }
+
+  .badge {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    padding: 3px 9px;
+    background: color-mix(in oklab, var(--hub-surface) 88%, transparent);
+    border: 1px solid var(--hub-border);
+    border-radius: 999px;
+    font-size: 11.5px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    color: var(--hub-muted);
+    backdrop-filter: blur(6px);
+  }
+
+  .badge[data-build="none"] {
+    color: var(--hub-accent);
+    background: var(--hub-accent-soft);
+    border-color: color-mix(in oklab, var(--hub-accent) 26%, transparent);
+  }
+
+  /* ─── Body ─── */
+  .body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 10px;
+    padding: 16px 18px 18px;
+  }
+
+  .title {
+    font-size: 16.5px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+  }
+
+  .title a {
+    text-decoration: none;
+  }
+
+  .title a:hover {
+    color: var(--hub-accent);
+  }
+
+  .desc {
+    font-size: 13.5px;
+    color: var(--hub-muted);
+    text-wrap: pretty;
+  }
+
+  .source {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-family: var(--hub-mono);
+    font-size: 12px;
+    color: var(--hub-meta);
+    text-decoration: none;
+  }
+
+  .source:hover {
+    color: var(--hub-accent);
+    text-decoration: underline;
+  }
+
+  .source svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  /* ─── Routes ─── */
+  .routes {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin: 4px 0 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--hub-border);
+    padding-top: 10px;
+  }
+
+  /* Label above path rather than side-by-side: route slugs are arbitrarily long
+     (`/fesn/student-card-nao-encontrada/`) and a single row forces the label to
+     wrap into a ragged column. */
+  .routes > li > a {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    padding: 5px 7px;
+    margin-inline: -7px;
+    border-radius: var(--hub-radius-sm);
+    font-size: 13px;
+    text-decoration: none;
+  }
+
+  .routes > li > a:hover {
+    background: var(--hub-surface-2);
+  }
+
+  .routes > li > a:hover .route-label {
+    color: var(--hub-accent);
+  }
+
+  .route-label {
+    font-weight: 500;
+  }
+
+  .routes code {
+    font-family: var(--hub-mono);
+    font-size: 11.5px;
+    color: var(--hub-meta);
+    overflow-wrap: anywhere;
+  }
+
+  .route-note {
+    padding: 0 7px 4px;
+    margin-inline: -7px;
+    font-size: 11.5px;
+    line-height: 1.45;
+    color: var(--hub-meta);
+    text-wrap: pretty;
+  }
+
+  .no-page {
+    margin-top: 4px;
+    padding-top: 10px;
+    border-top: 1px solid var(--hub-border);
+    font-size: 12.5px;
+    line-height: 1.5;
+    color: var(--hub-muted);
+    text-wrap: pretty;
+  }
+
+  .no-page code {
+    font-family: var(--hub-mono);
+    font-size: 11.5px;
+  }
+
+  /* ─── Meta ─── */
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 12px;
+    font-size: 11.5px;
+    color: var(--hub-meta);
+  }
+
+  .ds {
+    font-family: var(--hub-mono);
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .tags li {
+    padding: 2px 7px;
+    background: var(--hub-surface-2);
+    border-radius: 999px;
+    font-size: 11px;
+    color: var(--hub-muted);
+  }
+</style>

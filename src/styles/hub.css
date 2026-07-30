@@ -1,0 +1,63 @@
+/* Hub-only stylesheet.
+   The hub is not a clone: it has no extracted design system, so it carries its
+   own small neutral palette instead of importing any `design-systems/<slug>/`
+   package. Importing one would couple the hub to a single clone — the exact
+   coupling this layout removes. */
+
+@import "./reset.css";
+
+:root {
+  --hub-bg: #fbfbfa;
+  --hub-surface: #ffffff;
+  --hub-surface-2: #f4f4f2;
+  --hub-fg: #18181b;
+  --hub-muted: #52525b;
+  --hub-meta: #8b8b94;
+  --hub-border: #e4e4e2;
+  --hub-accent: #1d4ed8;
+  --hub-accent-soft: #eef2ff;
+  --hub-shadow: 0 1px 2px rgb(24 24 27 / 0.05);
+  --hub-shadow-lift: 0 8px 24px -6px rgb(24 24 27 / 0.14);
+  --hub-radius: 12px;
+  --hub-radius-sm: 7px;
+  --hub-font:
+    ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
+  --hub-mono:
+    ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono",
+    monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --hub-bg: #111113;
+    --hub-surface: #18181b;
+    --hub-surface-2: #212124;
+    --hub-fg: #f4f4f5;
+    --hub-muted: #a1a1aa;
+    --hub-meta: #71717a;
+    --hub-border: #2b2b30;
+    --hub-accent: #8ab0ff;
+    --hub-accent-soft: #1b2438;
+    --hub-shadow: 0 1px 2px rgb(0 0 0 / 0.4);
+    --hub-shadow-lift: 0 8px 24px -6px rgb(0 0 0 / 0.6);
+  }
+}
+
+html {
+  background: var(--hub-bg);
+  color: var(--hub-fg);
+  font-family: var(--hub-font);
+  line-height: 1.5;
+}
+
+body {
+  background: var(--hub-bg);
+  font-size: 15px;
+}
+
+:focus-visible {
+  border-radius: var(--hub-radius-sm);
+  outline: 2px solid var(--hub-accent);
+  outline-offset: 2px;
+}

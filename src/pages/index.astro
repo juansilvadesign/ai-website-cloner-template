@@ -1,0 +1,18 @@
+---
+/**
+ * The hub. This route belongs to the project, not to any clone — it is the one
+ * page a new `/clone-website` run must never overwrite.
+ *
+ * Clones live at `/<slug>/`. To add one, append it to `src/data/clones/index.ts`.
+ */
+import HubLayout from "../layouts/HubLayout.astro";
+import CloneHub from "../components/hub/CloneHub.astro";
+import { allClones } from "../data/clones";
+---
+
+<HubLayout
+  title="Clones — AI Website Cloner"
+  description="Index of every reverse-engineered target in this workspace, with its routes and emitted OpenDesign package."
+>
+  <CloneHub clones={allClones} />
+</HubLayout>
