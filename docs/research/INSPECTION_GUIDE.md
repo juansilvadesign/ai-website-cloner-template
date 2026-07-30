@@ -18,7 +18,7 @@ leave behind before an OpenDesign package or page clone can be accepted.
 For a single site, use these durable outputs:
 
 ```text
-docs/research/
+docs/research/<slug>/
   PAGE_TOPOLOGY.md
   BEHAVIORS.md
   components/<name>.spec.md
@@ -26,8 +26,8 @@ docs/design-references/<slug>/
 design-systems/<slug>/
 ```
 
-For multiple sites, nest research and references by slug so no evidence or
-component name can collide.
+Evidence is nested by slug on every run, single-site included, so no evidence or
+component name can collide. Only `docs/research/INSPECTION_GUIDE.md` is shared.
 
 ## 1. Capture master references
 
@@ -149,7 +149,7 @@ Do not hand-edit `tokens.css`, `design-tokens.json`, `tailwind-v4.css`,
 
 ## 5. Inventory components, content, and assets
 
-Write one `docs/research/components/<name>.spec.md` before dispatching each
+Write one `docs/research/<slug>/components/<name>.spec.md` before dispatching each
 builder. Every spec includes:
 
 - [ ] Target file and screenshot path
@@ -174,7 +174,16 @@ Builders receive the complete spec inline and do not browse the target.
 
 ### Astro
 
-- [ ] `src/styles/global.css` imports the selected package's `tokens.css`.
+- [ ] `src/clones/<slug>/styles/clone.css` imports the selected package's
+      `tokens.css` and the shared `src/styles/reset.css`. The reset itself declares
+      no tokens.
+- [ ] Everything the clone owns is namespaced: `src/clones/<slug>/`,
+      `src/pages/<slug>/`, `public/clones/<slug>/`, `docs/research/<slug>/`. The
+      hub at `src/pages/index.astro` is untouched.
+- [ ] Every root-relative reference is prefixed — `/clones/<slug>/…` for assets,
+      `/<slug>/…` for internal links — including CSS `url()` values and hrefs
+      inside data arrays.
+- [ ] The clone is registered in `src/data/clones/index.ts`.
 - [ ] Sections are semantic `.astro` components with scoped vanilla CSS.
 - [ ] Static content ships without client JavaScript.
 - [ ] Interactive content remains server-rendered and is progressively enhanced;

@@ -111,7 +111,7 @@ Keep these constraints:
    `scripts/check-design-system-manifests.ts`. The default fallback only exists in
    the notes workspace at `knowledge/skills/open-design`.
 6. Create the output directories if they don't exist: `docs/research/`,
-   `docs/research/components/`, `docs/design-references/`, `scripts/`. For multiple
+   `docs/research/<slug>/components/`, `docs/design-references/<slug>/`, `scripts/`. For multiple
    clones, prepare per-site folders such as `docs/research/<hostname>/` and
    `docs/design-references/<hostname>/`.
 7. When working with multiple sites in one command, optionally confirm whether to run
@@ -197,7 +197,7 @@ For scroll-dependent elements:
 
 ### 8. Spec Files Are the Source of Truth
 
-Every component gets a specification file in `docs/research/components/` BEFORE any builder is dispatched. This file is the contract between your extraction work and the builder agent. The builder receives the spec file contents inline in its prompt — the file also persists as an auditable artifact that the user (or you) can review if something looks wrong.
+Every component gets a specification file in `docs/research/<slug>/components/` BEFORE any builder is dispatched. This file is the contract between your extraction work and the builder agent. The builder receives the spec file contents inline in its prompt — the file also persists as an auditable artifact that the user (or you) can review if something looks wrong.
 
 The spec file is not optional. It is not a nice-to-have. If you dispatch a builder without first writing a spec file, you are shipping incomplete instructions based on whatever you can remember from a browser MCP session, and the builder will guess to fill gaps.
 
@@ -244,7 +244,8 @@ color values in a page stylesheet.
 
 **Favicons & Meta** — Record favicons, apple-touch icons, OG images, webmanifest,
 page title, description, locale, and social metadata. Download them into the selected
-target's `public/seo/` during Phase 3.
+target's `public/clones/<slug>/seo/` (Astro) or `templates/nextjs/public/seo/`
+(Next.js) during Phase 3.
 
 **Global UI patterns** — Identify site-wide CSS or JS: custom scrollbar hiding,
 scroll-snap on the page container, global keyframes, backdrop filters, gradients used
@@ -312,7 +313,9 @@ Map out every distinct section of the page from top to bottom. Give each a worki
 - Dependencies between sections (e.g., a floating nav that overlays everything)
 - **The interaction model** of each section (static, click-driven, scroll-driven, time-driven)
 
-Save this as `docs/research/PAGE_TOPOLOGY.md` — it becomes your assembly blueprint.
+Save this as `docs/research/<slug>/PAGE_TOPOLOGY.md` — it becomes your assembly
+blueprint. Research evidence is namespaced by slug like everything else a clone
+owns; only `docs/research/INSPECTION_GUIDE.md` is shared.
 
 ## Phase 2: Emit and Validate the Design System (always-on)
 
@@ -366,16 +369,49 @@ This is sequential and is done by the foreman, not a section builder.
 
 ### Astro target (default)
 
-1. Make the first line of `src/styles/global.css`
-   `@import "../../design-systems/<slug>/tokens.css";`. Do not copy token values,
-   add Tailwind, or add shadcn.
-2. Update metadata and language in `src/pages/index.astro`.
-3. Create shared content interfaces under `src/types/`. Extract deduplicated SVGs
-   as semantic `.astro` components or files under `public/icons/`.
-4. Put only resets and truly global behaviors in `src/styles/global.css`; all
-   visual values reference design-system variables.
-5. Download assets into root `public/`.
-6. Verify `npm run check`.
+**Every clone is namespaced by slug. Nothing a clone owns may be written to a
+shared path.** `src/pages/index.astro` is the hub and `src/styles/reset.css` is
+shared by every clone — a run that writes either one destroys the previous clone.
+This is not hypothetical: before namespacing, each run overwrote
+`src/pages/index.astro`, `src/components/`, `public/images/`, and the single
+design-system import in the old `src/styles/global.css`, so only the most recent
+clone ever had a page.
+
+| Path | Owner |
+| --- | --- |
+| `src/clones/<slug>/` | the clone — components, layout, styles, types, config |
+| `src/pages/<slug>/` | the clone — its routes |
+| `public/clones/<slug>/` | the clone — its assets |
+| `design-systems/<slug>/` | the clone — its emitted package |
+| `docs/research/<slug>/` | the clone — its extraction evidence |
+| `src/pages/index.astro` | **the hub — never touch** |
+| `src/styles/reset.css` | **shared — never add tokens** |
+| `src/styles/hub.css`, `src/layouts/HubLayout.astro`, `src/components/hub/` | **the hub — never touch** |
+
+1. Create `src/clones/<slug>/styles/clone.css`. Its first line is
+   `@import "../../../../design-systems/<slug>/tokens.css";`, its second
+   `@import "../../../styles/reset.css";`. Do not copy token values, add Tailwind,
+   or add shadcn. Every token-dependent global rule for this clone goes here, not
+   in the shared reset.
+2. Create `src/clones/<slug>/layouts/BaseLayout.astro`, importing that
+   `clone.css`. Set the clone's own metadata, `lang`, canonical, and favicon.
+3. Create routes under `src/pages/<slug>/`. `src/pages/<slug>/index.astro` serves
+   the target's `/`. Components are imported from `../../clones/<slug>/components/`.
+4. Create shared content interfaces under `src/clones/<slug>/types/`. Extract
+   deduplicated SVGs as semantic `.astro` components in
+   `src/clones/<slug>/components/`.
+5. Download assets into `public/clones/<slug>/` (`images/`, `videos/`, `seo/`).
+6. **Every root-relative reference must carry the clone's prefix** — assets as
+   `/clones/<slug>/…`, internal links as `/<slug>/…`. This includes CSS `url()`
+   values, favicon and OG defaults, and links defined inside data arrays
+   (`const nav = [{ href: "/vendas" }]`), which a naive `href="` search misses.
+   Grep for `"/` across the clone before declaring the foundation green. Keep
+   canonicals pointing at the real origin.
+7. Register the clone: add `src/clones/<slug>/clone.config.ts` exporting a
+   `Clone`, then import it into `allClones` in `src/data/clones/index.ts`. An
+   unregistered clone still serves its routes but is invisible on the hub. For
+   `--build none`, register it with `build: "none"` and `routes: []`.
+8. Verify `npm run check`.
 
 ### Next.js target
 
@@ -512,9 +548,9 @@ stacked in the same container).
 
 ### Step 2: Write the Component Spec File
 
-For each section (or sub-component, if you're breaking it up), create a spec file in `docs/research/components/`. This is NOT optional — every builder must have a corresponding spec file.
+For each section (or sub-component, if you're breaking it up), create a spec file in `docs/research/<slug>/components/`. This is NOT optional — every builder must have a corresponding spec file.
 
-**File path:** `docs/research/components/<component-name>.spec.md`
+**File path:** `docs/research/<slug>/components/<component-name>.spec.md`
 
 **Template:**
 
@@ -522,7 +558,8 @@ For each section (or sub-component, if you're breaking it up), create a spec fil
 # <ComponentName> Specification
 
 ## Overview
-- **Target file:** `<selected-target>/src/components/<ComponentName>.<astro|tsx>`
+- **Target file:** `src/clones/<slug>/components/<ComponentName>.astro` (Astro) or
+  `templates/nextjs/src/components/<ComponentName>.tsx` (Next.js)
 - **Screenshot:** `docs/design-references/<screenshot-name>.png`
 - **Interaction model:** <static | click-driven | scroll-driven | time-driven>
 
@@ -569,8 +606,8 @@ For each section (or sub-component, if you're breaking it up), create a spec fil
 - Cards: [...]
 
 ## Assets
-- Background image: `public/images/<file>.webp`
-- Overlay image: `public/images/<file>.png`
+- Background image: `public/clones/<slug>/images/<file>.webp`
+- Overlay image: `public/clones/<slug>/images/<file>.png`
 - Icons used: <ArrowIcon>, <SearchIcon> from the selected target's icon module
 
 ## Text Content (verbatim)
@@ -597,14 +634,14 @@ Based on complexity, dispatch builder agent(s) in worktree(s):
 - The full contents of its component spec file (inline in the prompt — don't say "go read the spec file")
 - Path to the section screenshot in `docs/design-references/`
 - The exact selected target and shared components it may import
-- The target file path (for example `src/components/HeroSection.astro` or
-  `templates/nextjs/src/components/HeroSection.tsx`)
+- The target file path (for example `src/clones/<slug>/components/HeroSection.astro`
+  or `templates/nextjs/src/components/HeroSection.tsx`)
 - The selected target's verification command
 - For responsive behavior: the specific breakpoint values and what changes
 
 **Astro builder variant (default):**
 
-- Emit one `.astro` component per section under `src/components/`.
+- Emit one `.astro` component per section under `src/clones/<slug>/components/`.
 - Write semantic HTML and scoped vanilla CSS. Reusable color, typography, spacing,
   radius, elevation, and motion values reference `var(--…)` slots from the emitted
   `tokens.css`. No Tailwind classes, shadcn, CSS-in-JS, or React wrapper.
@@ -643,7 +680,8 @@ The extract → spec → dispatch → merge cycle continues until all sections a
 
 After all sections are built and merged, assemble the selected page:
 
-- Astro: compose `.astro` sections in `src/pages/index.astro`.
+- Astro: compose `.astro` sections in `src/pages/<slug>/index.astro` and the
+  clone's other routes. Never in `src/pages/index.astro` — that is the hub.
 - Next.js: compose `.tsx` sections in `templates/nextjs/src/app/page.tsx`.
 - Implement the page-level layout from your topology doc (scroll containers, column structures, sticky positioning, z-index layering)
 - Connect real content to component props
@@ -698,7 +736,9 @@ Before dispatching ANY builder agent, verify you can check every box. If you can
 
 - [ ] `design-systems/<slug>/` has been emitted and validation passes
 - [ ] The selected target imports/syncs that package and its foundation build is green
-- [ ] Spec file written to `docs/research/components/<name>.spec.md` with ALL sections filled
+- [ ] Nothing outside the clone's five namespaced paths has been written; the hub
+      (`src/pages/index.astro`) and the shared reset are untouched
+- [ ] Spec file written to `docs/research/<slug>/components/<name>.spec.md` with ALL sections filled
 - [ ] Every CSS value in the spec is from `getComputedStyle()`, not estimated
 - [ ] Interaction model is identified and documented (static / click / scroll / time)
 - [ ] For stateful components: every state's content and styles are captured
@@ -720,6 +760,14 @@ These are lessons from previous failed clones — each one cost hours of rework:
 - **Don't approximate CSS classes.** "It looks like `text-lg`" is wrong if the computed value is `18px` and `text-lg` is `18px/28px` but the actual line-height is `24px`. Extract exact values.
 - **Don't add Tailwind, shadcn, or framework wrappers to the Astro target.** Astro
   sections use semantic HTML, scoped vanilla CSS, and the OpenDesign variables.
+- **Don't write a clone to a shared path.** `src/pages/index.astro` is the hub,
+  `src/styles/reset.css` is shared by every clone, and `public/images/` is not
+  yours. A clone lives only in `src/clones/<slug>/`, `src/pages/<slug>/`,
+  `public/clones/<slug>/`, `design-systems/<slug>/`, and `docs/research/<slug>/`.
+  Writing outside them silently deletes the previous clone's page.
+- **Don't leave a root-relative reference unprefixed.** An asset at `/images/x.png`
+  or a link to `/vendas` resolves against the hub, not the clone. Check CSS
+  `url()` values and hrefs inside data arrays, not just `href="` attributes.
 - **Don't hydrate static content.** Astro emits HTML by default. Use a standard script
   for small progressive enhancements or `client:visible` / `client:load` only for a
   genuine framework island whose initial content is server-rendered.
