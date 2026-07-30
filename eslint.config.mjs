@@ -9,6 +9,8 @@ const eslintConfig = [
     "scripts/**",
     "design-systems/**",
     "templates/**",
+    // Ejection previews: a full copy of a clone, already linted at its source.
+    "temp/**",
   ]),
 ];
 

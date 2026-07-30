@@ -32,6 +32,22 @@ jobs:
       - name: Check Astro target
         run: npm run check
 
+      # Ejection reaches into every namespaced path a clone owns, so it breaks
+      # quietly the moment one of them moves. Ejecting for real and asserting no
+      # namespaced reference survives catches that without an npm install in the
+      # ejected project.
+      - name: Smoke-test clone ejection
+        run: |
+          set -euo pipefail
+          npm run eject -- fesn "$RUNNER_TEMP/ejected"
+          for f in package.json astro.config.mjs tsconfig.json README.md \
+                   src/pages/index.astro src/styles/clone.css design-system/tokens.css; do
+            test -f "$RUNNER_TEMP/ejected/$f" || { echo "missing $f"; exit 1; }
+          done
+          if grep -rn '"/clones/fesn\|"/fesn/\|(/clones/fesn' "$RUNNER_TEMP/ejected/src"; then
+            echo "namespaced reference survived ejection"; exit 1
+          fi
+
       - name: Checkout compatible OpenDesign contracts
         uses: actions/checkout@v4
         with:

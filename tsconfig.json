@@ -6,6 +6,7 @@
     "node_modules",
     "scripts",
     "design-systems",
-    "templates"
+    "templates",
+    "temp"
   ]
 }

@@ -28,13 +28,14 @@
     "node": ">=24"
   },
   "scripts": {
-    "dev": "astro dev",
+    "dev": "node scripts/dev.mjs",
     "build": "astro build",
     "preview": "astro preview",
     "lint": "eslint \"src/**/*.{astro,js,mjs,ts}\" astro.config.mjs eslint.config.mjs",
     "typecheck": "astro check",
     "typecheck:scripts": "tsc --ignoreConfig --noEmit --strict --skipLibCheck --module NodeNext --moduleResolution NodeNext --target ES2022 --types node scripts/emit-design-system.ts scripts/validate-design-system.ts",
     "check": "npm run lint && npm run typecheck && npm run typecheck:scripts && npm run build",
+    "eject": "node scripts/eject-clone.mjs",
     "check:design-system": "tsx scripts/validate-design-system.ts",
     "check:nextjs": "npm --prefix templates/nextjs run check",
     "check:nextjs-audit": "node scripts/check-nextjs-audit.mjs",
