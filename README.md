@@ -36,7 +36,8 @@ quality guards before page construction begins. If a page is requested, the
 same package becomes its single styling source:
 
 - **Astro (default):** static HTML, scoped vanilla CSS, and variables from
-  `tokens.css`.
+  `tokens.css`, served at `/<slug>/` and listed on the [clone
+  hub](#the-clone-hub).
 - **Next.js (retained):** an isolated app under `templates/nextjs/` that syncs
   `tokens.css` and the derived `tailwind-v4.css` into an ignored build cache.
 - **No page:** `--build none` emits and validates only the portable package.
@@ -81,7 +82,7 @@ Then run the Claude Code skill:
 Common forms:
 
 ```text
-# Emit the design system and build the root Astro page
+# Emit the design system and build the Astro page at /example-com/
 /clone-website https://example.com
 
 # Emit and validate only
@@ -102,6 +103,28 @@ npm ci --prefix templates/nextjs
 
 `--slug` is valid only for a single URL. Multiple URLs are processed as
 independent extractions with isolated research and screenshot folders.
+
+## The clone hub
+
+Clones coexist. `npm run dev` serves a hub at `http://localhost:4321/` listing
+every registered clone — its routes, source URL, emitted design system, and
+extraction date. Each clone serves from its own `/<slug>/` prefix, so a new run
+never contends for the root URL.
+
+That namespacing is load-bearing. Before it, every run wrote the same
+`src/pages/index.astro`, `src/components/`, `public/images/`, and single
+design-system import, so only the most recent clone had a page — the repo still
+carries a `design-systems/appcie/` package whose page never survived.
+
+A clone owns exactly five paths and nothing else:
+
+```text
+src/clones/<slug>/        src/pages/<slug>/        public/clones/<slug>/
+design-systems/<slug>/    docs/research/<slug>/
+```
+
+Registering it in `src/data/clones/index.ts` is what puts it on the hub; an
+unregistered clone still serves its routes, it is just not listed.
 
 ## The workflow
 
@@ -154,18 +177,28 @@ For `--build none`, only the final design-system guard applies.
 
 ## Artifact layout
 
+Clones are namespaced by slug and coexist. The root URL is a hub listing every
+clone; each clone serves from `/<slug>/`.
+
 ```text
 src/
-  pages/                         # Astro routes
-  components/                    # Static-first Astro sections
-  styles/                        # Reset + selected tokens.css import
+  pages/
+    index.astro                  # The hub — never written by a clone run
+    <slug>/                      # One clone's routes
+  clones/<slug>/                 # One clone: config, components, layout, styles, types
+  components/hub/                # Hub UI
+  data/clones/                   # Clone registry
+  layouts/HubLayout.astro
+  styles/
+    reset.css                    # Shared, token-free
+    hub.css                      # Hub-only palette
 public/
-  images/
-  videos/
-  seo/
+  clones/<slug>/                 # One clone's images, videos, seo
 design-systems/<slug>/           # Validated portable OpenDesign package
 docs/
-  research/                      # Topology, behaviors, component specs, evidence
+  research/
+    INSPECTION_GUIDE.md          # Shared guide
+    <slug>/                      # Topology, behaviors, component specs, evidence
   design-references/<slug>/
     qa/
       original-1440.png
@@ -178,6 +211,10 @@ templates/nextjs/                # Isolated retained Next.js target
 scripts/                         # Emission, validation, and asset tooling
 ```
 
+A clone owns exactly five paths: `src/clones/<slug>/`, `src/pages/<slug>/`,
+`public/clones/<slug>/`, `design-systems/<slug>/`, and `docs/research/<slug>/`.
+Adding one to `src/data/clones/index.ts` is what makes it appear on the hub.
+
 Generated caches such as `design-tokens.json`, `tailwind-v4.css`, and
 `components.manifest.json` are never hand-edited. Change extraction evidence
 and re-emit instead.
@@ -185,7 +222,7 @@ and re-emit instead.
 ## Development commands
 
 ```bash
-npm run dev                       # Astro dev server on 4321
+npm run dev                       # Astro dev server on 4321 (hub at /)
 npm run build                     # Static Astro build
 npm run lint                      # Astro/TypeScript lint
 npm run typecheck                 # Astro typecheck

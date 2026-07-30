@@ -50,8 +50,11 @@ Two independent reasons to stop tracking it:
 | **C** | Design-system emitter *(keystone)* | ✅ | `651f549` — +3,105 lines; re-validated 2026-07-24, quality score **100** |
 | **D** | Astro page builder | ✅ | Root Astro + isolated Next target; both production builds green |
 | **E** | QA, docs, release | ✅ | `0.4.0` manifests; guard + Astro + retained Next release checks |
+| **F** | Multi-clone hub + slug namespacing | ✅ | Hub at `/`, clones at `/<slug>/`; FESN migrated, `npm run check` green |
+| **G** | "Use as template" ejection | ⬜ | Deferred — design locked, see below |
 
-Critical path is **A → C → D**; B parallels A; E closes.
+Critical path is **A → C → D**; B parallels A; E closes. **F** removes the
+one-clone-per-repo ceiling; **G** builds on it.
 
 ### A — Prune to Claude Code only ✅
 
@@ -106,6 +109,48 @@ README and inspection guide now document the emitted package and acceptance
 evidence, CI guards the checked-in reference package, and both manifests carry
 the fork's identity. The retained target moved to Next.js 16.2.12 with a clean
 production dependency audit.
+
+### F — Multi-clone hub + slug namespacing ✅
+
+Through `0.4.0` the repo held **one clone at a time**. The design-system layer was
+already slug-namespaced, but the page layer was not: every run rewrote
+`src/pages/index.astro`, `src/components/`, `public/images/`, and the single
+`@import` on line 1 of `src/styles/global.css`. The evidence is still in the tree
+— commit `1933e48` committed `design-systems/appcie/` and `design-systems/fesn/`
+together, and only FESN ever had a page.
+
+The root URL is now a hub listing every registered clone; clones serve from
+`/<slug>/`. A clone owns exactly five paths — `src/clones/<slug>/`,
+`src/pages/<slug>/`, `public/clones/<slug>/`, `design-systems/<slug>/`,
+`docs/research/<slug>/` — and `src/data/clones/index.ts` registers it.
+`src/styles/global.css` is gone, split into a shared token-free
+`src/styles/reset.css`, a hub-only `src/styles/hub.css`, and a per-clone
+`src/clones/<slug>/styles/clone.css` that owns the tokens import. The hub is pure
+Astro with scoped vanilla CSS — no React, no Tailwind.
+
+FESN was migrated in full: 4 routes under `/fesn/`, 11 components, 9 assets, and
+18 root-relative references rewritten, including a CSS `url()` and four hrefs
+declared inside data arrays that an `href="` search does not catch. `npm run check`
+is green and both the consulta and credential routes were verified rendering at
+their new paths.
+
+### G — "Use as template" ejection ⬜
+
+Deferred, design locked. A **Use as template** action on each hub card copies one
+clone out to a target folder as a **standalone Astro project** — its five paths
+flattened back to root URLs, own `package.json`/`tsconfig`/`astro.config`, optional
+`git init` — so it runs with `npm i && npm run dev` and no dependency on this repo.
+
+Mechanism: a dev-only `POST /api/eject` (Astro's dev server executes endpoints;
+guarded by `import.meta.env.DEV` so it never ships in `dist/`) wrapping
+`scripts/eject-clone.mjs`, with the static build falling back to copying the
+equivalent CLI command. The card seam is marked in
+`src/components/hub/CloneCard.astro`.
+
+Two things the ejector must handle, both already visible in FESN: rewriting
+`/clones/<slug>/…` → `/…` and `/<slug>/…` → `/…` across `.astro`, `.ts`, and CSS
+`url()` values; and copying `design-systems/<slug>/` in whole, since `clone.css`
+imports `tokens.css` through four levels of relative path.
 
 ---
 

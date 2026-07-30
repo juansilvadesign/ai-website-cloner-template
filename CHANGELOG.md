@@ -8,6 +8,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- Added a **clone hub** at the root URL listing every registered clone with its
+  routes, source URL, emitted design system, and extraction date. Pure Astro with
+  scoped vanilla CSS (`src/layouts/HubLayout.astro`,
+  `src/components/hub/CloneHub.astro`, `src/components/hub/CloneCard.astro`), with
+  its own neutral light/dark palette in `src/styles/hub.css` so it never depends on
+  a clone's tokens
+- Added a **clone registry** — `src/data/clones/types.ts` and
+  `src/data/clones/index.ts` (`allClones`, `getCloneBySlug`, `builtClones`) — fed by
+  one `src/clones/<slug>/clone.config.ts` per clone
+- Added `src/clones/appcie/clone.config.ts`, registering the CIE Validação DNE
+  design system as a `build: "none"` entry. Its package was emitted in `1933e48` but
+  its page never existed, which the hub now shows explicitly
 - Added `scripts/check-nextjs-audit.mjs` and `npm run check:nextjs-audit`, which
   re-run the retained target's dev-only advisory experiment and return a
   `RESOLVED` / `UNBLOCKED` / `BLOCKED` verdict instead of leaving it to be
@@ -26,6 +38,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   close-the-issue step; Issues are re-enabled and the requirement is documented
 
 ### Changed
+- **Clones are now namespaced by slug and coexist.** Previously every
+  `/clone-website` run overwrote `src/pages/index.astro`, `src/components/`,
+  `public/images/`, and the single design-system `@import` in
+  `src/styles/global.css`, so the repository could only ever hold one clone's page.
+  A clone now owns exactly five paths — `src/clones/<slug>/`, `src/pages/<slug>/`,
+  `public/clones/<slug>/`, `design-systems/<slug>/`, `docs/research/<slug>/` — and
+  the root URL belongs to the hub
+- Replaced the single-tenant `src/styles/global.css` with a three-way split: a
+  shared token-free `src/styles/reset.css`, a hub-only `src/styles/hub.css`, and a
+  per-clone `src/clones/<slug>/styles/clone.css` that owns the `tokens.css` import
+  and every token-dependent global rule
+- Migrated the FESN clone into the namespaced layout: 4 routes now under `/fesn/`,
+  11 components and its layout/types under `src/clones/fesn/`, 9 assets under
+  `public/clones/fesn/`, and evidence under `docs/research/fesn/`. 18
+  root-relative references were rewritten, including a CSS `url()` background and
+  four hrefs declared inside data arrays
+- Rewrote the `/clone-website` write-target contract in `SKILL.md` and
+  `docs/research/INSPECTION_GUIDE.md` around the namespaced layout, with an
+  ownership table, the registry-append step, and two new "What NOT to Do" rules
+  covering shared-path writes and unprefixed root-relative references
 - Corrected the Milestone E follow-up: the `brace-expansion` advisory does **not**
   clear once Next's plugin set accepts ESLint 10. Forcing `eslint@^10` resolves but
   only takes the finding from 9 to 6, since `eslint-config-next` bundles its own

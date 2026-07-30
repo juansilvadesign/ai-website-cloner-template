@@ -4,7 +4,68 @@ The living checklist. Strategy and milestone definitions live in
 **[`ROADMAP.md`](ROADMAP.md)**; the deep rationale lives in
 **[`docs/FORK-PLAN.md`](docs/FORK-PLAN.md)**.
 
-_Last reviewed: 2026-07-27_
+_Last reviewed: 2026-07-30_
+
+---
+
+## Completed — Milestone F: multi-clone hub + slug namespacing ✅
+
+Removed the one-clone-per-repo ceiling. The root URL is a hub; clones serve from
+`/<slug>/`. Rationale and evidence in [ROADMAP](ROADMAP.md#f--multi-clone-hub--slug-namespacing-).
+
+- [x] Add the clone registry: `src/data/clones/types.ts` (`Clone`, `CloneMeta`,
+      `CloneRoute`, `CloneBuild`) and `src/data/clones/index.ts` (`allClones`,
+      `getCloneBySlug`, `builtClones`).
+- [x] Add `src/clones/fesn/clone.config.ts` and `src/clones/appcie/clone.config.ts`.
+      Leave `design-systems/psiativa/` unregistered — it is the CI reference
+      package, not a clone.
+- [x] Move FESN's 11 components, layout, and types into `src/clones/fesn/`; move its
+      4 routes into `src/pages/fesn/`.
+- [x] Move FESN's 9 assets into `public/clones/fesn/{images,seo}/`; keep the
+      `.gitkeep` scaffolding at `public/{images,videos,seo}/`.
+- [x] Move `PAGE_TOPOLOGY.md`, `BEHAVIORS.md`, and the 10 component specs into
+      `docs/research/fesn/`; leave `INSPECTION_GUIDE.md` shared.
+- [x] Split `src/styles/global.css` into shared `reset.css` (token-free), hub-only
+      `hub.css`, and per-clone `src/clones/fesn/styles/clone.css`.
+- [x] Rewrite all 18 root-relative references — assets to `/clones/fesn/…`, links to
+      `/fesn/…` — including `StudentCardFound.astro`'s CSS `url()`, the favicon and
+      OG defaults in `BaseLayout.astro`, and the 4 hrefs inside `SiteFooter` /
+      `VendasHero` data arrays that an `href="` search misses.
+- [x] Build the hub: `HubLayout.astro`, `CloneHub.astro`, `CloneCard.astro`,
+      `hub.css`, and a registry-driven `src/pages/index.astro`. Pure Astro + scoped
+      vanilla CSS, no React or Tailwind. Cards render a design-system-only state for
+      clones with no routes.
+- [x] Rewrite the write-target contract in `SKILL.md` (ownership table, registry
+      step, 2 new anti-patterns) and `INSPECTION_GUIDE.md` (§0 outputs, §5 spec path,
+      §6 Astro fidelity checklist).
+- [x] Verify: `npm run check` green (0 errors, 5 pages); every emitted local
+      reference namespaced; the hub's stylesheet carries no clone tokens and each
+      FESN page carries no hub tokens; `/fesn/` and `/fesn/student-card/` confirmed
+      rendering with all assets.
+
+---
+
+## Next — Milestone G: "use as template" ejection ⬜
+
+Design locked, not built. Full rationale in
+[ROADMAP](ROADMAP.md#g--use-as-template-ejection-).
+
+- [ ] Write `scripts/eject-clone.mjs <slug> <target-dir>`: copy the clone's five
+      paths, flatten `/clones/<slug>/…` → `/…` and `/<slug>/…` → `/…` across
+      `.astro`, `.ts`, and CSS `url()` values, and copy `design-systems/<slug>/`
+      whole (`clone.css` imports `tokens.css` four levels up).
+- [ ] Emit a standalone project: own `package.json`, `tsconfig.json`,
+      `astro.config.mjs`, `.gitignore`, `src/pages/index.astro` at root, plus an
+      optional `git init`. Must run with `npm i && npm run dev`.
+- [ ] Add `npm run eject` wired to the script.
+- [ ] Add the dev-only `src/pages/api/eject.ts` (`POST { slug, targetDir }`), guarded
+      by `import.meta.env.DEV` so it never reaches `dist/`.
+- [ ] Add the **Use as template** control at the marked seam in `CloneCard.astro`:
+      `fetch('/api/eject')` in dev, copy-the-CLI-command fallback in the static
+      build.
+- [ ] Verify an ejected FESN project builds green standalone and renders at root.
+- [ ] Optional: `npm run dev -- --clone <slug>` serving one clone at root, to preview
+      an ejection without running it.
 
 ---
 

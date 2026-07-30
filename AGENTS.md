@@ -47,22 +47,46 @@ This is version 0.4.0 of a hard fork of [`JCodesMore/ai-website-cloner-template`
 - **Beauty-first** — every pixel matters
 
 ## Project Structure
+
+**Clones are namespaced by slug and coexist.** The root URL is a hub listing every
+clone; each clone serves from `/<slug>/`. Nothing a clone owns is written to a
+shared path — that is what stops a new run from overwriting the last one.
+
 ```
 src/
-  pages/            # Astro routes
-  components/       # Static-first Astro sections
-  styles/           # Global reset + selected tokens.css import
+  pages/
+    index.astro                # THE HUB — never written by a clone run
+    <slug>/                    # one clone's routes
+  clones/<slug>/               # one clone: everything else it owns
+    clone.config.ts            #   its registry entry
+    components/                #   static-first Astro sections
+    layouts/BaseLayout.astro   #   its own metadata, lang, canonical, favicon
+    styles/clone.css           #   its tokens.css import + token-dependent globals
+    types/
+  components/hub/              # hub UI (CloneHub, CloneCard)
+  data/clones/                 # registry: types.ts + index.ts (allClones)
+  layouts/HubLayout.astro      # hub shell
+  styles/
+    reset.css                  # SHARED, token-free — never add tokens here
+    hub.css                    # hub-only palette
 public/
-  images/           # Downloaded images from target site
-  videos/           # Downloaded videos from target site
-  seo/              # Favicons, OG images, webmanifest
+  clones/<slug>/               # one clone's assets: images/, videos/, seo/
 docs/
-  research/         # Inspection output (design tokens, components, layout)
-  design-references/ # Screenshots and visual references
-scripts/            # Asset download scripts
-design-systems/     # Validated OpenDesign packages
-templates/nextjs/   # Complete retained Next.js target + independent lockfile
+  research/
+    INSPECTION_GUIDE.md        # shared guide
+    <slug>/                    # one clone's evidence: topology, behaviors, specs
+  design-references/<slug>/    # screenshots and QA composites
+scripts/                       # emission, validation, asset tooling
+design-systems/<slug>/         # validated OpenDesign packages
+templates/nextjs/              # retained Next.js target + independent lockfile
 ```
+
+A clone owns exactly five paths: `src/clones/<slug>/`, `src/pages/<slug>/`,
+`public/clones/<slug>/`, `design-systems/<slug>/`, and `docs/research/<slug>/`.
+Every root-relative reference inside a clone must be prefixed — `/clones/<slug>/…`
+for assets, `/<slug>/…` for internal links — including CSS `url()` values and
+hrefs defined inside data arrays. Register the clone in
+`src/data/clones/index.ts` or it will not appear on the hub.
 
 ## MOST IMPORTANT NOTES
 - When launching Claude Code agent teams, ALWAYS have each teammate work in their own worktree branch and merge everyone's work at the end, resolving any merge conflicts smartly since you are basically serving the orchestrator role and have full context to our goals, work given, work achieved, and desired outcomes.
