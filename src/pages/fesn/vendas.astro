@@ -1,0 +1,37 @@
+---
+import BaseLayout from "../../clones/fesn/layouts/BaseLayout.astro";
+import VendasHero from "../../clones/fesn/components/VendasHero.astro";
+import VendasBenefits from "../../clones/fesn/components/VendasBenefits.astro";
+import VendasAbout from "../../clones/fesn/components/VendasAbout.astro";
+import VendasSteps from "../../clones/fesn/components/VendasSteps.astro";
+import VendasFaq from "../../clones/fesn/components/VendasFaq.astro";
+import VendasCta from "../../clones/fesn/components/VendasCta.astro";
+import SiteFooter from "../../clones/fesn/components/SiteFooter.astro";
+---
+
+<BaseLayout
+  title="Carteirinha de Estudante Digital para Meia-Entrada | FESN Oficial | FESN"
+  description="Plataforma oficial da FESN para consulta e solicitação de carteirinha estudantil digital."
+  canonical="https://carteirinha.fesn.org.br/vendas"
+>
+  <main class="shell">
+    <VendasHero />
+    <VendasBenefits />
+    <VendasAbout />
+    <VendasSteps />
+    <VendasFaq />
+    <VendasCta />
+  </main>
+  <SiteFooter />
+</BaseLayout>
+
+<style>
+  .shell {
+    color: var(--fg);
+    background-image: linear-gradient(
+      var(--shell-grad-top) 0%,
+      var(--shell-grad-mid) 50%,
+      var(--shell-grad-bottom) 100%
+    );
+  }
+</style>

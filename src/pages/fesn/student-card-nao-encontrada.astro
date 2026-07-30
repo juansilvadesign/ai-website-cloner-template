@@ -1,0 +1,18 @@
+---
+import BaseLayout from "../../clones/fesn/layouts/BaseLayout.astro";
+import StudentCardNotFound from "../../clones/fesn/components/StudentCardNotFound.astro";
+
+/**
+ * Not-found state of `/student-card`. See the note in `student-card.astro`: a static build
+ * cannot branch on `?documento=`, so the target's second server state is emitted as its own
+ * route.
+ */
+---
+
+<BaseLayout
+  title="FESN | Carteirinha Estudantil"
+  description="Consulte e solicite sua carteirinha estudantil digital com validação por QR Code em ambiente oficial da FESN."
+  canonical="https://carteirinha.fesn.org.br/student-card"
+>
+  <StudentCardNotFound />
+</BaseLayout>

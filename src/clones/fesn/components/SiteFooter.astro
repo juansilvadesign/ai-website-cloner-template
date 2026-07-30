@@ -1,0 +1,349 @@
+---
+/** Site footer on `/vendas`. Spec: docs/research/fesn/components/site-footer.spec.md */
+import Icon from "./Icon.astro";
+import type { FooterLink } from "../types/fesn";
+
+const institucional: FooterLink[] = [
+  { label: "Site oficial FESN", href: "https://carteirinha.fesn.org.br" },
+  { label: "Solicitar carteirinha digital", href: "/fesn/vendas/" },
+  { label: "Consultar carteirinha existente", href: "/fesn/" },
+  { label: "Política de privacidade", href: "/fesn/politica-de-privacidade" },
+  { label: "Termos de uso", href: "/fesn/termos-de-uso" },
+];
+
+const contato: FooterLink[] = [
+  { label: "contato@fesn.org.br", href: "mailto:contato@fesn.org.br", icon: "mail" },
+  { label: "suporte@fesn.org.br", href: "mailto:suporte@fesn.org.br", icon: "mail" },
+  {
+    label: "Atendimento comercial",
+    href: "https://wa.me/5587996313344?text=Quero%20carteirinha%20de%20estudante%2C%20pode%20me%20ajudar%3F",
+    icon: "message-circle",
+  },
+];
+
+const socials: FooterLink[] = [
+  { label: "Instagram", href: "https://www.instagram.com/fesnoficial", icon: "instagram" },
+  { label: "Facebook", href: "https://www.facebook.com/profile.php?id=61564335405545", icon: "facebook" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/fesnoficial/", icon: "linkedin" },
+  { label: "YouTube", href: "https://www.youtube.com/@FESN-FederacaodosEstudan-jd2wy", icon: "youtube" },
+];
+---
+
+<footer>
+  <div class="grid">
+    <div class="brand">
+      <div class="logo">
+        <img src="/clones/fesn/images/logo-fesn-white.svg" alt="Logo FESN" width="180" height="93" />
+      </div>
+      <p class="blurb">
+        Emissão de carteirinha digital com autenticação por QR Code, foco em segurança de dados e
+        suporte ao estudante.
+      </p>
+      <div class="box">
+        <p class="box-title">Credibilidade e segurança</p>
+        <ul class="box-list">
+          <li>
+            <Icon name="shield-check" size={16} class="bico" />
+            <span>Processo com validação de autenticidade e orientações institucionais.</span>
+          </li>
+          <li>
+            <Icon name="shield-check" size={16} class="bico" />
+            <span>Canais oficiais para atendimento, suporte e acompanhamento.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col">
+      <p class="head">Institucional</p>
+      <ul class="links">
+        {institucional.map((l) => <li><a href={l.href}>{l.label}</a></li>)}
+      </ul>
+    </div>
+
+    <div class="col">
+      <p class="head">Contato</p>
+      <ul class="links contact">
+        {
+          contato.map((l) => (
+            <li>
+              <a href={l.href}>
+                {l.icon && <Icon name={l.icon} size={16} class="lico" />}
+                <span>{l.label}</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <div class="redes">
+        <p class="sub">Redes oficiais</p>
+        <div class="socials">
+          {
+            socials.map((l) => (
+              <a class="chip" href={l.href}>
+                {l.icon && <Icon name={l.icon} size={14} class="lico" />}
+                <span>{l.label}</span>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <p class="head">Transparência</p>
+      <a class="reclame" href="https://www.reclameaqui.com.br">
+        <img
+          src="/clones/fesn/images/reclame-aqui-otimo.png"
+          alt="Selo de avaliação Reclame Aqui da FESN"
+          width="236"
+          height="173"
+        />
+        <span>Acompanhe a reputação da FESN no Reclame Aqui.</span>
+      </a>
+      <div class="box">
+        <p class="box-title box-title--medium">Confirmação oficial</p>
+        <p class="box-body">
+          Utilize sempre canais com domínio oficial e valide sua carteirinha por QR Code para
+          garantir autenticidade.
+        </p>
+        <a class="site" href="https://www.fesn.org.br">
+          <Icon name="globe" size={16} class="lico" />
+          <span>www.fesn.org.br</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom">
+    <div class="bottom-inner">
+      <p>© 2026 FESN. Todos os direitos reservados.</p>
+      <p>
+        Carteirinha digital com fluxo de emissão e validação orientado por segurança institucional.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  footer {
+    border-top: 1px solid #1d293d;
+    background: #020618;
+    color: var(--border);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    width: 100%;
+    max-width: var(--container-max);
+    margin-inline: auto;
+    padding: var(--space-12) var(--container-gutter-phone);
+  }
+
+  .brand > * + * {
+    margin-top: var(--space-5);
+  }
+
+  .logo img {
+    width: 180px;
+    height: auto;
+  }
+
+  .blurb {
+    max-width: 384px;
+    font-size: var(--text-sm);
+    line-height: 22.75px;
+    color: #cad5e2;
+  }
+
+  .box {
+    padding: var(--space-4);
+    background: rgb(16 23 43 / 0.7);
+    border: 1px solid #1d293d;
+    border-radius: var(--radius-md);
+  }
+
+  .box-title {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    line-height: 20px;
+    color: #f1f5f9;
+  }
+
+  .box-list {
+    margin: var(--space-3) 0 0;
+    padding: 0;
+    list-style: none;
+    font-size: var(--text-sm);
+    line-height: 20px;
+    color: #cad5e2;
+  }
+
+  .box-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-2);
+  }
+
+  .box-list li + li {
+    margin-top: var(--space-2);
+  }
+
+  .box-body {
+    margin-top: var(--space-2);
+    font-size: var(--text-sm);
+    line-height: 22.75px;
+    color: #cad5e2;
+  }
+
+  .box-title--medium {
+    font-weight: 500;
+  }
+
+  .bico,
+  .lico {
+    flex: none;
+    margin-top: 2px;
+  }
+
+  .col > * + * {
+    margin-top: var(--space-4);
+  }
+
+  .head {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #f1f5f9;
+  }
+
+  .redes {
+    padding-top: var(--space-2);
+  }
+
+  .sub {
+    font-size: var(--text-xs);
+    line-height: 16px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #90a1b9;
+  }
+
+  .links {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: var(--text-sm);
+    line-height: 20px;
+  }
+
+  .links li + li {
+    margin-top: var(--space-2);
+  }
+
+  .contact li + li {
+    margin-top: var(--space-3);
+  }
+
+  .links a,
+  .site,
+  .chip {
+    display: inline-flex;
+    align-items: flex-start;
+    gap: var(--space-2);
+    color: #cad5e2;
+    text-decoration: none;
+    transition: color var(--motion-fast) var(--ease-standard);
+  }
+
+  .links a:hover,
+  .site:hover,
+  .chip:hover {
+    color: #ffffff;
+  }
+
+  .socials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-top: var(--space-2);
+    font-size: var(--text-xs);
+  }
+
+  .chip {
+    align-items: center;
+    padding: var(--space-2) var(--space-3);
+    line-height: 16px;
+    border: 1px solid #1d293d;
+    border-radius: var(--radius-sm);
+    background: rgb(16 23 43 / 0.7);
+    transition:
+      color var(--motion-fast) var(--ease-standard),
+      border-color var(--motion-fast) var(--ease-standard);
+  }
+
+  .chip:hover {
+    border-color: #62748e;
+  }
+
+  .reclame {
+    display: block;
+    padding: var(--space-4);
+    background: rgb(16 23 43 / 0.8);
+    border: 1px solid #314158;
+    border-radius: var(--radius-md);
+    color: #cad5e2;
+    font-size: var(--text-sm);
+    line-height: 20px;
+    text-decoration: none;
+    transition: border-color var(--motion-fast) var(--ease-standard);
+  }
+
+  .reclame:hover {
+    border-color: #62748e;
+  }
+
+  .reclame img {
+    width: 190px;
+    height: auto;
+    margin: 0 auto var(--space-3);
+  }
+
+  .site {
+    margin-top: var(--space-3);
+    font-size: var(--text-sm);
+    line-height: 20px;
+    color: #90c5ff;
+  }
+
+  .bottom {
+    border-top: 1px solid #1d293d;
+  }
+
+  .bottom-inner {
+    width: 100%;
+    max-width: var(--container-max);
+    margin-inline: auto;
+    padding: var(--space-6) var(--container-gutter-phone);
+    font-size: var(--text-xs);
+    line-height: 20px;
+    color: var(--meta);
+  }
+
+  @media (min-width: 640px) {
+    .grid,
+    .bottom-inner {
+      padding-inline: var(--container-gutter-tablet);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .grid {
+      grid-template-columns: 1.2fr 1fr 1fr 1fr;
+    }
+  }
+</style>

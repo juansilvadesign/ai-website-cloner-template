@@ -1,0 +1,47 @@
+/* Shared, token-free reset.
+   Every clone and the hub import this. It must never reference a design-system
+   variable — those belong to exactly one clone, and this file is shared by all
+   of them. Token-dependent global rules live in
+   `src/clones/<slug>/styles/clone.css`. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+figure {
+  margin: 0;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
