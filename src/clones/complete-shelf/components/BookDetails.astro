@@ -1,0 +1,88 @@
+---
+import type { ShelfBook } from "../data/books";
+
+interface Props {
+  books: readonly ShelfBook[];
+  selectedIndex?: number;
+}
+
+const { books, selectedIndex = 0 } = Astro.props;
+const currentIndex = Math.min(Math.max(0, selectedIndex), books.length - 1);
+const selectedBook = books.at(currentIndex);
+
+if (!selectedBook) {
+  throw new Error("BookDetails requires at least one book.");
+}
+
+const position = String(currentIndex + 1).padStart(2, "0");
+const total = String(books.length).padStart(2, "0");
+---
+
+<aside
+  id="shelf-book-details"
+  class="book-details"
+  data-shelf-details
+  aria-label="Selected volume details"
+  aria-hidden="true"
+>
+  <div class="book-details__inner">
+    <div class="book-details__topbar">
+      <button class="book-details__back" type="button" data-shelf-back>
+        <span aria-hidden="true">←</span>
+        <span>Back to shelf</span>
+      </button>
+
+      <p
+        class="book-details__position"
+        data-details-position
+        aria-label={`Volume ${currentIndex + 1} of ${books.length}`}
+      >
+        {position} / {total}
+      </p>
+    </div>
+
+    <div class="book-details__scroll">
+      <div class="book-details__copy">
+        <p class="book-details__eyebrow">Selected volume</p>
+        <h2 class="book-details__title" data-details-title>{selectedBook.title}</h2>
+        <p class="book-details__author" data-details-author>{selectedBook.author}</p>
+
+        <p class="book-details__description" data-details-description>
+          {selectedBook.description}
+        </p>
+
+        <blockquote class="book-details__quote">
+          <p>“<span data-details-quote>{selectedBook.quote}</span>”</p>
+          <footer>
+            <span aria-hidden="true">—</span>
+            <cite data-details-quote-by>{selectedBook.quoteBy}</cite>
+          </footer>
+        </blockquote>
+
+        <dl class="book-details__metadata">
+          <div>
+            <dt>Format</dt>
+            <dd data-details-format>{selectedBook.format}</dd>
+          </div>
+          <div>
+            <dt>Published</dt>
+            <dd data-details-year>{selectedBook.year}</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+
+    <footer class="book-details__controls">
+      <p class="book-details__input-hint" aria-hidden="true">
+        <span>Drag to rotate</span>
+        <span>Scroll to zoom</span>
+        <span>Shift + drag to pan</span>
+      </p>
+
+      <button class="book-details__reset" type="button" data-shelf-reset>
+        <span>Reset view</span>
+        <span aria-hidden="true">↺</span>
+      </button>
+    </footer>
+  </div>
+</aside>

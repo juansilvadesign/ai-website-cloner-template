@@ -1,0 +1,108 @@
+---
+import type { ShelfBook } from "../data/books";
+
+interface Props {
+  books: readonly ShelfBook[];
+  selectedIndex?: number;
+}
+
+const { books, selectedIndex = 0 } = Astro.props;
+const currentIndex = Math.min(Math.max(0, selectedIndex), books.length - 1);
+const selectedBook = books.at(currentIndex);
+
+if (!selectedBook) {
+  throw new Error("BrowseOverlay requires at least one book.");
+}
+
+const formatPosition = (index: number) => String(index + 1).padStart(2, "0");
+const total = String(books.length).padStart(2, "0");
+---
+
+<header class="shelf-header" aria-label="The Complete Shelf">
+  <div class="shelf-wordmark">
+    <h1 class="shelf-wordmark__title">The Complete Shelf</h1>
+    <span class="shelf-wordmark__rule" aria-hidden="true"></span>
+    <p class="shelf-wordmark__subtitle">An interactive 3D library</p>
+  </div>
+
+  <p class="shelf-edition" aria-label={`${books.length} volumes on one continuous shelf`}>
+    <span>{books.length} volumes</span>
+    <span>01 continuous shelf</span>
+  </p>
+</header>
+
+<div class="experience-status shelf-status" role="status" aria-live="polite" aria-atomic="true">
+  <span class="shelf-status__dot" aria-hidden="true"></span>
+  <span data-status-text>{books.length} volumes ready</span>
+</div>
+
+<section class="browse-caption" aria-labelledby="browse-book-title">
+  <p class="browse-caption__position" aria-label={`Volume ${currentIndex + 1} of ${books.length}`}>
+    <span data-position-current>{formatPosition(currentIndex)}</span>
+    <span class="browse-caption__rule" aria-hidden="true"></span>
+    <span>{total}</span>
+  </p>
+
+  <h2 id="browse-book-title" class="browse-caption__title" data-book-title>
+    {selectedBook.shortTitle}
+  </h2>
+  <p class="browse-caption__author" data-book-author>{selectedBook.author}</p>
+
+  <button
+    class="browse-caption__inspect"
+    type="button"
+    data-shelf-inspect
+    aria-controls="shelf-book-details"
+  >
+    <span>Inspect volume</span>
+    <span class="browse-caption__inspect-arrow" aria-hidden="true">↗</span>
+  </button>
+</section>
+
+<nav class="shelf-arrows" aria-label="Browse volumes">
+  <button
+    class="shelf-arrow shelf-arrow--previous"
+    type="button"
+    data-shelf-prev
+    aria-label="Previous volume"
+    disabled={currentIndex === 0}
+  >
+    <span aria-hidden="true">←</span>
+  </button>
+
+  <button
+    class="shelf-arrow shelf-arrow--next"
+    type="button"
+    data-shelf-next
+    aria-label="Next volume"
+    disabled={currentIndex === books.length - 1}
+  >
+    <span aria-hidden="true">→</span>
+  </button>
+</nav>
+
+<nav class="shelf-index" aria-label="Choose a volume">
+  <ol class="shelf-index__list">
+    {
+      books.map((book, index) => (
+        <li class="shelf-index__item">
+          <button
+            class="shelf-marker"
+            type="button"
+            data-marker-index={index}
+            aria-label={`Volume ${formatPosition(index)}: ${book.title}, by ${book.author}`}
+            aria-current={index === currentIndex ? "true" : undefined}
+          >
+            <span class="shelf-marker__tick" aria-hidden="true" />
+          </button>
+        </li>
+      ))
+    }
+  </ol>
+
+  <p class="shelf-index__hint" aria-hidden="true">
+    <span>Drag</span>
+    <span>Scroll</span>
+    <span>Arrow keys</span>
+  </p>
+</nav>
