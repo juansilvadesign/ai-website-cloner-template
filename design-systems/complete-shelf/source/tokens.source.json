@@ -1,0 +1,354 @@
+{
+  "$schema": "clone-website extraction artifact — consumed by scripts/emit-design-system.ts",
+  "brand": "complete-shelf",
+  "name": "The Complete Shelf",
+  "extraction": {
+    "target": "https://play.mint.gg/_experiences/complete-shelf/index.html",
+    "sourcePath": "https://play.mint.gg/_experiences/complete-shelf/_next/static/chunks/1jwqp2nxu7487.css",
+    "method": "authored-css-tokens + computed-style verification + screenshot composition",
+    "evidence": "The embedded experience exposes six authored color roles in :root and uses Newsreader Variable plus Inter Variable. Layout, type, state, and responsive values were read from its served CSS and cross-checked against the 1440x900 rendered reference.",
+    "note": "Light-only full-viewport experience. The emitted package contains only OpenDesign schema slots; per-book colors and imported PBR materials belong to the asset data rather than the application token layer.",
+    "extractedAt": "2026-07-31"
+  },
+  "themes": {
+    "light": {
+      "--bg": {
+        "value": "#eee8db",
+        "confidence": "high",
+        "reason": "Primary cream paper canvas.",
+        "source": "reference CSS :root --paper"
+      },
+      "--surface": {
+        "value": "#f6f1e7",
+        "confidence": "high",
+        "reason": "Lifted translucent controls and light inspection surfaces.",
+        "source": "reference CSS :root --paper-light"
+      },
+      "--surface-warm": {
+        "value": "#e4dccd",
+        "confidence": "high",
+        "reason": "Deeper paper band and panel transition surface.",
+        "source": "reference CSS :root --paper-deep"
+      },
+      "--fg": {
+        "value": "#25231f",
+        "confidence": "high",
+        "reason": "Primary editorial ink.",
+        "source": "reference CSS :root --ink"
+      },
+      "--fg-2": {
+        "value": "#4f4a42",
+        "confidence": "derived",
+        "reason": "Opaque secondary ink derived from the authored primary ink.",
+        "source": "derived from --ink for solid text rendering"
+      },
+      "--muted": {
+        "value": "#6d675e",
+        "confidence": "derived",
+        "reason": "Opaque equivalent of the authored 62% ink used for authors and metadata.",
+        "source": "derived from reference CSS :root --ink-soft over --paper"
+      },
+      "--meta": {
+        "value": "#847e74",
+        "confidence": "derived",
+        "reason": "Tertiary edition and input-hint text.",
+        "source": "derived from 46% ink over --paper"
+      },
+      "--border": {
+        "value": "#aaa49a",
+        "confidence": "derived",
+        "reason": "Opaque equivalent of the authored 19% ink hairline.",
+        "source": "derived from reference CSS :root --hairline over --paper"
+      },
+      "--border-soft": {
+        "value": "#cec7ba",
+        "confidence": "derived",
+        "reason": "Quiet internal divider tier.",
+        "source": "derived from reference details-panel separators"
+      },
+      "--accent": {
+        "value": "#a74735",
+        "confidence": "high",
+        "reason": "Authored terracotta accent and warm foil-adjacent UI signal.",
+        "source": "reference CSS :root --accent"
+      },
+      "--accent-on": {
+        "value": "#f6f1e7",
+        "confidence": "derived",
+        "reason": "Light paper ink for filled accent states.",
+        "source": "contrast pairing with --accent"
+      },
+      "--accent-hover": {
+        "value": "#8f392b",
+        "confidence": "derived",
+        "reason": "Deeper terracotta hover state.",
+        "source": "derived from --accent"
+      },
+      "--accent-active": {
+        "value": "#783025",
+        "confidence": "derived",
+        "reason": "Pressed terracotta state.",
+        "source": "derived from --accent-hover"
+      },
+      "--success": {
+        "value": "#6c8b64",
+        "confidence": "high",
+        "reason": "Ready-status green dot.",
+        "source": "reference CSS .experience-status__dot"
+      },
+      "--warn": {
+        "value": "#a56e2f",
+        "confidence": "derived",
+        "reason": "Warm amber for recoverable loading warnings.",
+        "source": "derived from the hardcover ochre palette"
+      },
+      "--danger": {
+        "value": "#9c3d32",
+        "confidence": "derived",
+        "reason": "Muted editorial error color.",
+        "source": "derived from --accent for error use"
+      },
+      "--font-display": {
+        "value": "\"Newsreader Variable\", \"Iowan Old Style\", Georgia, serif",
+        "confidence": "high",
+        "reason": "Editorial serif used for book titles, authors, and long-form copy.",
+        "source": "reference CSS :root --serif"
+      },
+      "--font-body": {
+        "value": "\"Inter Variable\", Inter, Helvetica, Arial, sans-serif",
+        "confidence": "high",
+        "reason": "Neutral sans used for controls, metadata, and status.",
+        "source": "reference CSS :root --sans"
+      },
+      "--font-mono": {
+        "value": "ui-monospace, \"SFMono-Regular\", Menlo, Monaco, Consolas, monospace",
+        "confidence": "derived",
+        "reason": "Technical diagnostics only; not visible in the production UI.",
+        "source": "OpenDesign fallback aligned to the application"
+      },
+      "--text-xs": {
+        "value": "8px",
+        "confidence": "high",
+        "reason": "Input hints, citations, metadata terms.",
+        "source": "computed reference CSS"
+      },
+      "--text-sm": {
+        "value": "9px",
+        "confidence": "high",
+        "reason": "Eyebrows, edition mark, position counters.",
+        "source": "computed reference CSS"
+      },
+      "--text-base": {
+        "value": "10px",
+        "confidence": "high",
+        "reason": "Inspect and official-link controls.",
+        "source": "computed reference CSS"
+      },
+      "--text-lg": {
+        "value": "14px",
+        "confidence": "high",
+        "reason": "Mobile author and metadata value tier.",
+        "source": "computed reference CSS"
+      },
+      "--text-xl": {
+        "value": "16px",
+        "confidence": "high",
+        "reason": "Desktop author and mobile body tier.",
+        "source": "computed reference CSS"
+      },
+      "--text-2xl": {
+        "value": "18px",
+        "confidence": "high",
+        "reason": "Desktop author and featured body tier.",
+        "source": "computed reference CSS"
+      },
+      "--text-3xl": {
+        "value": "42px",
+        "confidence": "high",
+        "reason": "Lower bound of inspection title scale.",
+        "source": "reference CSS .book-details h2"
+      },
+      "--text-4xl": {
+        "value": "72px",
+        "confidence": "high",
+        "reason": "Upper bound of browse display title.",
+        "source": "reference CSS .browse-caption h1"
+      },
+      "--leading-body": {
+        "value": "1.38",
+        "confidence": "high",
+        "reason": "Editorial description reading rhythm.",
+        "source": "reference CSS .book-details__description"
+      },
+      "--leading-tight": {
+        "value": "0.91",
+        "confidence": "high",
+        "reason": "Compressed display-title leading.",
+        "source": "reference CSS .book-details h2"
+      },
+      "--tracking-display": {
+        "value": "-0.055em",
+        "confidence": "high",
+        "reason": "Tight editorial display tracking.",
+        "source": "reference CSS .book-details h2"
+      },
+      "--space-1": {
+        "value": "4px",
+        "confidence": "high",
+        "reason": "Small marker and divider unit.",
+        "source": "reference component rhythm"
+      },
+      "--space-2": {
+        "value": "8px",
+        "confidence": "high",
+        "reason": "Compact metadata gap.",
+        "source": "reference component rhythm"
+      },
+      "--space-3": {
+        "value": "12px",
+        "confidence": "high",
+        "reason": "Control padding and compact gaps.",
+        "source": "reference component rhythm"
+      },
+      "--space-4": {
+        "value": "16px",
+        "confidence": "high",
+        "reason": "Panel rule and control rhythm.",
+        "source": "reference component rhythm"
+      },
+      "--space-5": {
+        "value": "20px",
+        "confidence": "high",
+        "reason": "Phone gutter and details spacing.",
+        "source": "reference mobile CSS"
+      },
+      "--space-6": {
+        "value": "24px",
+        "confidence": "high",
+        "reason": "Caption and viewport minimum gutter.",
+        "source": "reference desktop CSS"
+      },
+      "--space-8": {
+        "value": "32px",
+        "confidence": "high",
+        "reason": "Details and catalog vertical rhythm.",
+        "source": "reference component rhythm"
+      },
+      "--space-12": {
+        "value": "48px",
+        "confidence": "high",
+        "reason": "Major details-panel reading gap.",
+        "source": "reference component rhythm"
+      },
+      "--section-y-desktop": {
+        "value": "34px",
+        "confidence": "high",
+        "reason": "Catalog index lower inset.",
+        "source": "reference CSS .shelf-index"
+      },
+      "--section-y-tablet": {
+        "value": "28px",
+        "confidence": "derived",
+        "reason": "Tablet viewport inset between desktop and mobile.",
+        "source": "derived from responsive reference"
+      },
+      "--section-y-phone": {
+        "value": "20px",
+        "confidence": "high",
+        "reason": "Mobile panel and header gutter.",
+        "source": "reference mobile CSS"
+      },
+      "--radius-sm": {
+        "value": "2px",
+        "confidence": "high",
+        "reason": "Minimal focus and compact control corners.",
+        "source": "reference square editorial controls"
+      },
+      "--radius-md": {
+        "value": "12px",
+        "confidence": "derived",
+        "reason": "Loading and error surface grouping.",
+        "source": "derived application surface"
+      },
+      "--radius-lg": {
+        "value": "24px",
+        "confidence": "high",
+        "reason": "Circular arrow control geometry.",
+        "source": "reference 50px controls"
+      },
+      "--radius-pill": {
+        "value": "9999px",
+        "confidence": "high",
+        "reason": "Status dots and circular controls.",
+        "source": "reference component CSS"
+      },
+      "--elev-flat": {
+        "value": "none",
+        "confidence": "high",
+        "reason": "Editorial UI is separated by value and hairlines, not card shadows.",
+        "source": "computed reference controls"
+      },
+      "--elev-ring": {
+        "value": "0 0 0 1px var(--border)",
+        "confidence": "derived",
+        "reason": "Reusable hairline control edge.",
+        "source": "derived from --border"
+      },
+      "--elev-raised": {
+        "value": "0 16px 48px rgb(37 35 31 / 0.10)",
+        "confidence": "derived",
+        "reason": "Inspection and loading surfaces over the canvas.",
+        "source": "derived from scene shadow language"
+      },
+      "--focus-ring": {
+        "value": "0 0 0 3px rgb(167 71 53 / 0.28)",
+        "confidence": "derived",
+        "reason": "Visible warm keyboard focus without obscuring hairlines.",
+        "source": "derived from --accent"
+      },
+      "--motion-fast": {
+        "value": "220ms",
+        "confidence": "high",
+        "reason": "Marker, arrow, and link micro-interactions.",
+        "source": "reference hover transition CSS"
+      },
+      "--motion-base": {
+        "value": "520ms",
+        "confidence": "high",
+        "reason": "Browse/focus presentation handoff.",
+        "source": "reference browse-caption transform transition"
+      },
+      "--ease-standard": {
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "confidence": "high",
+        "reason": "Authored editorial easing for major transitions.",
+        "source": "reference CSS focus transitions"
+      },
+      "--container-max": {
+        "value": "1440px",
+        "confidence": "derived",
+        "reason": "Design reference width for the full-viewport experience.",
+        "source": "captured reference viewport"
+      },
+      "--container-gutter-desktop": {
+        "value": "56px",
+        "confidence": "high",
+        "reason": "Upper bound of the desktop header gutter.",
+        "source": "reference CSS .site-header"
+      },
+      "--container-gutter-tablet": {
+        "value": "28px",
+        "confidence": "derived",
+        "reason": "Intermediate viewport gutter.",
+        "source": "derived from responsive reference"
+      },
+      "--container-gutter-phone": {
+        "value": "18px",
+        "confidence": "high",
+        "reason": "Mobile header and arrow gutter.",
+        "source": "reference mobile CSS"
+      }
+    }
+  }
+}
+

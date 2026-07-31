@@ -1,0 +1,93 @@
+/* The Complete Shelf — tokens.css
+ * Emitted by scripts/emit-design-system.ts from source/tokens.source.json.
+ * Declares every OpenDesign TOKEN_SCHEMA slot (56). Edit the
+ * source artifact and re-emit; do not hand-edit derived files. */
+
+:root {
+  /* ─── Surface ─────────────────────────────────────────────────── */
+  --bg:                       #eee8db;
+  --surface:                  #f6f1e7;
+  --surface-warm:             #e4dccd;
+
+  /* ─── Foreground ──────────────────────────────────────────────── */
+  --fg:                       #25231f;
+  --fg-2:                     #4f4a42;
+  --muted:                    #6d675e;
+  --meta:                     #847e74;
+
+  /* ─── Border ──────────────────────────────────────────────────── */
+  --border:                   #aaa49a;
+  --border-soft:              #cec7ba;
+
+  /* ─── Accent ──────────────────────────────────────────────────── */
+  --accent:                   #a74735;
+  --accent-on:                #f6f1e7;
+  --accent-hover:             #8f392b;
+  --accent-active:            #783025;
+
+  /* ─── Semantic ────────────────────────────────────────────────── */
+  --success:                  #6c8b64;
+  --warn:                     #a56e2f;
+  --danger:                   #9c3d32;
+
+  /* ─── Typography — fonts ──────────────────────────────────────── */
+  --font-display:             "Newsreader Variable", "Iowan Old Style", Georgia, serif;
+  --font-body:                "Inter Variable", Inter, Helvetica, Arial, sans-serif;
+  --font-mono:                ui-monospace, "SFMono-Regular", Menlo, Monaco, Consolas, monospace;
+
+  /* ─── Typography — scale ──────────────────────────────────────── */
+  --text-xs:                  8px;
+  --text-sm:                  9px;
+  --text-base:                10px;
+  --text-lg:                  14px;
+  --text-xl:                  16px;
+  --text-2xl:                 18px;
+  --text-3xl:                 42px;
+  --text-4xl:                 72px;
+
+  /* ─── Typography — leading & tracking ─────────────────────────── */
+  --leading-body:             1.38;
+  --leading-tight:            0.91;
+  --tracking-display:         -0.055em;
+
+  /* ─── Spacing ─────────────────────────────────────────────────── */
+  --space-1:                  4px;
+  --space-2:                  8px;
+  --space-3:                  12px;
+  --space-4:                  16px;
+  --space-5:                  20px;
+  --space-6:                  24px;
+  --space-8:                  32px;
+  --space-12:                 48px;
+
+  /* ─── Section rhythm ──────────────────────────────────────────── */
+  --section-y-desktop:        34px;
+  --section-y-tablet:         28px;
+  --section-y-phone:          20px;
+
+  /* ─── Radius ──────────────────────────────────────────────────── */
+  --radius-sm:                2px;
+  --radius-md:                12px;
+  --radius-lg:                24px;
+  --radius-pill:              9999px;
+
+  /* ─── Elevation ───────────────────────────────────────────────── */
+  --elev-flat:                none;
+  --elev-ring:                0 0 0 1px var(--border);
+  --elev-raised:              0 16px 48px rgb(37 35 31 / 0.10);
+
+  /* ─── Focus ───────────────────────────────────────────────────── */
+  --focus-ring:               0 0 0 3px rgb(167 71 53 / 0.28);
+
+  /* ─── Motion ──────────────────────────────────────────────────── */
+  --motion-fast:              220ms;
+  --motion-base:              520ms;
+  --ease-standard:            cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* ─── Layout ──────────────────────────────────────────────────── */
+  --container-max:            1440px;
+  --container-gutter-desktop: 56px;
+  --container-gutter-tablet:  28px;
+  --container-gutter-phone:   18px;
+}
+

@@ -1,0 +1,697 @@
+{
+  "schemaVersion": 1,
+  "format": "od-design-tokens/v1",
+  "contract": "TOKEN_SCHEMA",
+  "generatedAt": "2026-07-31T04:48:21.214Z",
+  "source": {
+    "tokensCss": "tokens.css",
+    "tokenContractReport": "source/token-contract.report.json"
+  },
+  "summary": {
+    "total": 56,
+    "byConfidence": {
+      "high": 38,
+      "derived": 18
+    },
+    "byLayer": {
+      "A1-identity": 8,
+      "B-slot": 4,
+      "A2": 26,
+      "A1-structure": 18
+    }
+  },
+  "tokens": [
+    {
+      "name": "--bg",
+      "value": "#eee8db",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Primary cream paper canvas.",
+      "sources": [
+        "reference CSS :root --paper",
+        "tokens.css:8"
+      ]
+    },
+    {
+      "name": "--surface",
+      "value": "#f6f1e7",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Lifted translucent controls and light inspection surfaces.",
+      "sources": [
+        "reference CSS :root --paper-light",
+        "tokens.css:9"
+      ]
+    },
+    {
+      "name": "--surface-warm",
+      "value": "#e4dccd",
+      "type": "color",
+      "layer": "B-slot",
+      "confidence": "high",
+      "reason": "Deeper paper band and panel transition surface.",
+      "sources": [
+        "reference CSS :root --paper-deep",
+        "tokens.css:10"
+      ]
+    },
+    {
+      "name": "--fg",
+      "value": "#25231f",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Primary editorial ink.",
+      "sources": [
+        "reference CSS :root --ink",
+        "tokens.css:13"
+      ]
+    },
+    {
+      "name": "--fg-2",
+      "value": "#4f4a42",
+      "type": "color",
+      "layer": "B-slot",
+      "confidence": "derived",
+      "reason": "Opaque secondary ink derived from the authored primary ink.",
+      "sources": [
+        "derived from --ink for solid text rendering",
+        "tokens.css:14"
+      ]
+    },
+    {
+      "name": "--muted",
+      "value": "#6d675e",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "derived",
+      "reason": "Opaque equivalent of the authored 62% ink used for authors and metadata.",
+      "sources": [
+        "derived from reference CSS :root --ink-soft over --paper",
+        "tokens.css:15"
+      ]
+    },
+    {
+      "name": "--meta",
+      "value": "#847e74",
+      "type": "color",
+      "layer": "B-slot",
+      "confidence": "derived",
+      "reason": "Tertiary edition and input-hint text.",
+      "sources": [
+        "derived from 46% ink over --paper",
+        "tokens.css:16"
+      ]
+    },
+    {
+      "name": "--border",
+      "value": "#aaa49a",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "derived",
+      "reason": "Opaque equivalent of the authored 19% ink hairline.",
+      "sources": [
+        "derived from reference CSS :root --hairline over --paper",
+        "tokens.css:19"
+      ]
+    },
+    {
+      "name": "--border-soft",
+      "value": "#cec7ba",
+      "type": "color",
+      "layer": "B-slot",
+      "confidence": "derived",
+      "reason": "Quiet internal divider tier.",
+      "sources": [
+        "derived from reference details-panel separators",
+        "tokens.css:20"
+      ]
+    },
+    {
+      "name": "--accent",
+      "value": "#a74735",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Authored terracotta accent and warm foil-adjacent UI signal.",
+      "sources": [
+        "reference CSS :root --accent",
+        "tokens.css:23"
+      ]
+    },
+    {
+      "name": "--accent-on",
+      "value": "#f6f1e7",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Light paper ink for filled accent states.",
+      "sources": [
+        "contrast pairing with --accent",
+        "tokens.css:24"
+      ]
+    },
+    {
+      "name": "--accent-hover",
+      "value": "#8f392b",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Deeper terracotta hover state.",
+      "sources": [
+        "derived from --accent",
+        "tokens.css:25"
+      ]
+    },
+    {
+      "name": "--accent-active",
+      "value": "#783025",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Pressed terracotta state.",
+      "sources": [
+        "derived from --accent-hover",
+        "tokens.css:26"
+      ]
+    },
+    {
+      "name": "--success",
+      "value": "#6c8b64",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Ready-status green dot.",
+      "sources": [
+        "reference CSS .experience-status__dot",
+        "tokens.css:29"
+      ]
+    },
+    {
+      "name": "--warn",
+      "value": "#a56e2f",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Warm amber for recoverable loading warnings.",
+      "sources": [
+        "derived from the hardcover ochre palette",
+        "tokens.css:30"
+      ]
+    },
+    {
+      "name": "--danger",
+      "value": "#9c3d32",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Muted editorial error color.",
+      "sources": [
+        "derived from --accent for error use",
+        "tokens.css:31"
+      ]
+    },
+    {
+      "name": "--font-display",
+      "value": "\"Newsreader Variable\", \"Iowan Old Style\", Georgia, serif",
+      "type": "fontFamily",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Editorial serif used for book titles, authors, and long-form copy.",
+      "sources": [
+        "reference CSS :root --serif",
+        "tokens.css:34"
+      ]
+    },
+    {
+      "name": "--font-body",
+      "value": "\"Inter Variable\", Inter, Helvetica, Arial, sans-serif",
+      "type": "fontFamily",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Neutral sans used for controls, metadata, and status.",
+      "sources": [
+        "reference CSS :root --sans",
+        "tokens.css:35"
+      ]
+    },
+    {
+      "name": "--font-mono",
+      "value": "ui-monospace, \"SFMono-Regular\", Menlo, Monaco, Consolas, monospace",
+      "type": "fontFamily",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Technical diagnostics only; not visible in the production UI.",
+      "sources": [
+        "OpenDesign fallback aligned to the application",
+        "tokens.css:36"
+      ]
+    },
+    {
+      "name": "--text-xs",
+      "value": "8px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Input hints, citations, metadata terms.",
+      "sources": [
+        "computed reference CSS",
+        "tokens.css:39"
+      ]
+    },
+    {
+      "name": "--text-sm",
+      "value": "9px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Eyebrows, edition mark, position counters.",
+      "sources": [
+        "computed reference CSS",
+        "tokens.css:40"
+      ]
+    },
+    {
+      "name": "--text-base",
+      "value": "10px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Inspect and official-link controls.",
+      "sources": [
+        "computed reference CSS",
+        "tokens.css:41"
+      ]
+    },
+    {
+      "name": "--text-lg",
+      "value": "14px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Mobile author and metadata value tier.",
+      "sources": [
+        "computed reference CSS",
+        "tokens.css:42"
+      ]
+    },
+    {
+      "name": "--text-xl",
+      "value": "16px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Desktop author and mobile body tier.",
+      "sources": [
+        "computed reference CSS",
+        "tokens.css:43"
+      ]
+    },
+    {
+      "name": "--text-2xl",
+      "value": "18px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Desktop author and featured body tier.",
+      "sources": [
+        "computed reference CSS",
+        "tokens.css:44"
+      ]
+    },
+    {
+      "name": "--text-3xl",
+      "value": "42px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Lower bound of inspection title scale.",
+      "sources": [
+        "reference CSS .book-details h2",
+        "tokens.css:45"
+      ]
+    },
+    {
+      "name": "--text-4xl",
+      "value": "72px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Upper bound of browse display title.",
+      "sources": [
+        "reference CSS .browse-caption h1",
+        "tokens.css:46"
+      ]
+    },
+    {
+      "name": "--leading-body",
+      "value": "1.38",
+      "type": "number",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Editorial description reading rhythm.",
+      "sources": [
+        "reference CSS .book-details__description",
+        "tokens.css:49"
+      ]
+    },
+    {
+      "name": "--leading-tight",
+      "value": "0.91",
+      "type": "number",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Compressed display-title leading.",
+      "sources": [
+        "reference CSS .book-details h2",
+        "tokens.css:50"
+      ]
+    },
+    {
+      "name": "--tracking-display",
+      "value": "-0.055em",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Tight editorial display tracking.",
+      "sources": [
+        "reference CSS .book-details h2",
+        "tokens.css:51"
+      ]
+    },
+    {
+      "name": "--space-1",
+      "value": "4px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Small marker and divider unit.",
+      "sources": [
+        "reference component rhythm",
+        "tokens.css:54"
+      ]
+    },
+    {
+      "name": "--space-2",
+      "value": "8px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Compact metadata gap.",
+      "sources": [
+        "reference component rhythm",
+        "tokens.css:55"
+      ]
+    },
+    {
+      "name": "--space-3",
+      "value": "12px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Control padding and compact gaps.",
+      "sources": [
+        "reference component rhythm",
+        "tokens.css:56"
+      ]
+    },
+    {
+      "name": "--space-4",
+      "value": "16px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Panel rule and control rhythm.",
+      "sources": [
+        "reference component rhythm",
+        "tokens.css:57"
+      ]
+    },
+    {
+      "name": "--space-5",
+      "value": "20px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Phone gutter and details spacing.",
+      "sources": [
+        "reference mobile CSS",
+        "tokens.css:58"
+      ]
+    },
+    {
+      "name": "--space-6",
+      "value": "24px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Caption and viewport minimum gutter.",
+      "sources": [
+        "reference desktop CSS",
+        "tokens.css:59"
+      ]
+    },
+    {
+      "name": "--space-8",
+      "value": "32px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Details and catalog vertical rhythm.",
+      "sources": [
+        "reference component rhythm",
+        "tokens.css:60"
+      ]
+    },
+    {
+      "name": "--space-12",
+      "value": "48px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Major details-panel reading gap.",
+      "sources": [
+        "reference component rhythm",
+        "tokens.css:61"
+      ]
+    },
+    {
+      "name": "--section-y-desktop",
+      "value": "34px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Catalog index lower inset.",
+      "sources": [
+        "reference CSS .shelf-index",
+        "tokens.css:64"
+      ]
+    },
+    {
+      "name": "--section-y-tablet",
+      "value": "28px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "derived",
+      "reason": "Tablet viewport inset between desktop and mobile.",
+      "sources": [
+        "derived from responsive reference",
+        "tokens.css:65"
+      ]
+    },
+    {
+      "name": "--section-y-phone",
+      "value": "20px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Mobile panel and header gutter.",
+      "sources": [
+        "reference mobile CSS",
+        "tokens.css:66"
+      ]
+    },
+    {
+      "name": "--radius-sm",
+      "value": "2px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Minimal focus and compact control corners.",
+      "sources": [
+        "reference square editorial controls",
+        "tokens.css:69"
+      ]
+    },
+    {
+      "name": "--radius-md",
+      "value": "12px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Loading and error surface grouping.",
+      "sources": [
+        "derived application surface",
+        "tokens.css:70"
+      ]
+    },
+    {
+      "name": "--radius-lg",
+      "value": "24px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Circular arrow control geometry.",
+      "sources": [
+        "reference 50px controls",
+        "tokens.css:71"
+      ]
+    },
+    {
+      "name": "--radius-pill",
+      "value": "9999px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Status dots and circular controls.",
+      "sources": [
+        "reference component CSS",
+        "tokens.css:72"
+      ]
+    },
+    {
+      "name": "--elev-flat",
+      "value": "none",
+      "type": "shadow",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Editorial UI is separated by value and hairlines, not card shadows.",
+      "sources": [
+        "computed reference controls",
+        "tokens.css:75"
+      ]
+    },
+    {
+      "name": "--elev-ring",
+      "value": "0 0 0 1px var(--border)",
+      "type": "shadow",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Reusable hairline control edge.",
+      "sources": [
+        "derived from --border",
+        "tokens.css:76"
+      ]
+    },
+    {
+      "name": "--elev-raised",
+      "value": "0 16px 48px rgb(37 35 31 / 0.10)",
+      "type": "shadow",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Inspection and loading surfaces over the canvas.",
+      "sources": [
+        "derived from scene shadow language",
+        "tokens.css:77"
+      ]
+    },
+    {
+      "name": "--focus-ring",
+      "value": "0 0 0 3px rgb(167 71 53 / 0.28)",
+      "type": "shadow",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Visible warm keyboard focus without obscuring hairlines.",
+      "sources": [
+        "derived from --accent",
+        "tokens.css:80"
+      ]
+    },
+    {
+      "name": "--motion-fast",
+      "value": "220ms",
+      "type": "duration",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Marker, arrow, and link micro-interactions.",
+      "sources": [
+        "reference hover transition CSS",
+        "tokens.css:83"
+      ]
+    },
+    {
+      "name": "--motion-base",
+      "value": "520ms",
+      "type": "duration",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Browse/focus presentation handoff.",
+      "sources": [
+        "reference browse-caption transform transition",
+        "tokens.css:84"
+      ]
+    },
+    {
+      "name": "--ease-standard",
+      "value": "cubic-bezier(0.22, 1, 0.36, 1)",
+      "type": "cubicBezier",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Authored editorial easing for major transitions.",
+      "sources": [
+        "reference CSS focus transitions",
+        "tokens.css:85"
+      ]
+    },
+    {
+      "name": "--container-max",
+      "value": "1440px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "derived",
+      "reason": "Design reference width for the full-viewport experience.",
+      "sources": [
+        "captured reference viewport",
+        "tokens.css:88"
+      ]
+    },
+    {
+      "name": "--container-gutter-desktop",
+      "value": "56px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Upper bound of the desktop header gutter.",
+      "sources": [
+        "reference CSS .site-header",
+        "tokens.css:89"
+      ]
+    },
+    {
+      "name": "--container-gutter-tablet",
+      "value": "28px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "derived",
+      "reason": "Intermediate viewport gutter.",
+      "sources": [
+        "derived from responsive reference",
+        "tokens.css:90"
+      ]
+    },
+    {
+      "name": "--container-gutter-phone",
+      "value": "18px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Mobile header and arrow gutter.",
+      "sources": [
+        "reference mobile CSS",
+        "tokens.css:91"
+      ]
+    }
+  ]
+}

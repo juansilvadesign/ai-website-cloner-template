@@ -1,0 +1,55 @@
+{
+  "schemaVersion": "od-design-system-project/v1",
+  "id": "complete-shelf",
+  "name": "The Complete Shelf",
+  "category": "Interactive 3D Experience",
+  "description": "Design system extracted from The Complete Shelf by the clone-website tool.",
+  "source": {
+    "type": "local",
+    "path": "https://play.mint.gg/_experiences/complete-shelf/_next/static/chunks/1jwqp2nxu7487.css",
+    "importedAt": "2026-07-31T04:48:21.214Z"
+  },
+  "files": {
+    "design": "DESIGN.md",
+    "tokens": "tokens.css",
+    "designTokens": "design-tokens.json",
+    "tailwind": "tailwind-v4.css",
+    "components": "components.html"
+  },
+  "usage": "USAGE.md",
+  "componentsManifest": "components.manifest.json",
+  "importMode": "normalized",
+  "craft": {
+    "applies": [],
+    "suggested": [
+      "color",
+      "accessibility-baseline"
+    ],
+    "exemptions": []
+  },
+  "preview": {
+    "dir": "preview",
+    "pages": [
+      {
+        "path": "preview/colors.html",
+        "role": "colors",
+        "title": "Colors"
+      },
+      {
+        "path": "preview/typography.html",
+        "role": "typography",
+        "title": "Typography"
+      },
+      {
+        "path": "preview/spacing.html",
+        "role": "spacing",
+        "title": "Spacing"
+      }
+    ]
+  },
+  "sourceFiles": {
+    "evidence": "source/evidence.md",
+    "tokens": "source/tokens.source.json",
+    "report": "source/token-contract.report.json"
+  }
+}

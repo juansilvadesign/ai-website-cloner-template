@@ -1,0 +1,186 @@
+<!-- The Complete Shelf — component reference -->
+<link rel="stylesheet" href="./tokens.css" />
+<style>
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-body);
+    margin: 0;
+    padding: var(--space-8);
+  }
+  .shelf-demo {
+    display: grid;
+    gap: var(--space-12);
+    max-width: 1120px;
+    margin: 0 auto;
+  }
+  .shelf-demo__heading {
+    font-family: var(--font-display);
+    font-size: var(--text-3xl);
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-display);
+    margin: 0;
+  }
+  .shelf-eyebrow {
+    color: var(--muted);
+    font-size: var(--text-sm);
+    font-weight: 650;
+    letter-spacing: .19em;
+    text-transform: uppercase;
+  }
+  .shelf-wordmark {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-size: var(--text-base);
+    font-weight: 650;
+    letter-spacing: .185em;
+    text-transform: uppercase;
+  }
+  .shelf-wordmark__line {
+    width: 28px;
+    height: 1px;
+    background: var(--border);
+  }
+  .shelf-caption {
+    max-width: 430px;
+  }
+  .shelf-caption__title {
+    font-family: var(--font-display);
+    font-size: var(--text-4xl);
+    font-weight: 430;
+    line-height: .9;
+    letter-spacing: -.045em;
+    margin: var(--space-4) 0 var(--space-3);
+  }
+  .shelf-caption__author {
+    color: var(--muted);
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-style: italic;
+  }
+  .shelf-action {
+    display: inline-flex;
+    gap: var(--space-5);
+    padding: 0 0 var(--space-2);
+    margin-top: var(--space-6);
+    border: 0;
+    border-bottom: 1px solid var(--fg);
+    background: transparent;
+    color: var(--fg);
+    font: 650 var(--text-base) var(--font-body);
+    letter-spacing: .15em;
+    text-transform: uppercase;
+  }
+  .shelf-action:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
+  }
+  .shelf-arrow {
+    display: grid;
+    place-items: center;
+    width: 50px;
+    height: 50px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-pill);
+    background: color-mix(in srgb, var(--bg) 72%, transparent);
+    transition: transform var(--motion-fast) var(--ease-standard);
+  }
+  .shelf-arrow:hover {
+    transform: scale(1.06);
+  }
+  .shelf-index {
+    display: grid;
+    grid-template-columns: repeat(19, 1fr);
+    align-items: end;
+    height: 21px;
+  }
+  .shelf-index__tick {
+    border-bottom: 1px solid var(--border);
+    height: 7px;
+    position: relative;
+  }
+  .shelf-index__tick--active::after {
+    content: "";
+    position: absolute;
+    right: 50%;
+    bottom: -2px;
+    width: 2px;
+    height: 18px;
+    background: var(--fg);
+  }
+  .shelf-details {
+    background: linear-gradient(90deg, transparent, var(--bg) 24%);
+    border-left: 1px solid var(--border-soft);
+    padding: var(--space-8) var(--space-12);
+  }
+  .shelf-details__title {
+    font-family: var(--font-display);
+    font-size: var(--text-3xl);
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-display);
+    margin: var(--space-6) 0 var(--space-3);
+  }
+  .shelf-status {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--meta);
+    font-size: var(--text-xs);
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+  .shelf-status__dot {
+    width: 5px;
+    height: 5px;
+    border-radius: var(--radius-pill);
+    background: var(--success);
+  }
+</style>
+
+<main class="shelf-demo">
+  <section>
+    <p class="shelf-eyebrow">Identity</p>
+    <div class="shelf-wordmark">
+      <span>The Complete Shelf</span>
+      <i class="shelf-wordmark__line"></i>
+      <span>An interactive 3D library</span>
+    </div>
+  </section>
+
+  <section class="shelf-caption">
+    <p class="shelf-eyebrow">01 — 19</p>
+    <h1 class="shelf-caption__title">The Atlas of Quiet Rooms</h1>
+    <p class="shelf-caption__author">Mara Vale</p>
+    <button class="shelf-action">Inspect volume <span>↗</span></button>
+  </section>
+
+  <section>
+    <p class="shelf-eyebrow">Browse controls</p>
+    <button class="shelf-arrow" aria-label="Next volume">→</button>
+    <div class="shelf-index" aria-hidden="true">
+      <i class="shelf-index__tick shelf-index__tick--active"></i>
+      <i class="shelf-index__tick"></i><i class="shelf-index__tick"></i>
+      <i class="shelf-index__tick"></i><i class="shelf-index__tick"></i>
+      <i class="shelf-index__tick"></i><i class="shelf-index__tick"></i>
+      <i class="shelf-index__tick"></i><i class="shelf-index__tick"></i>
+      <i class="shelf-index__tick"></i><i class="shelf-index__tick"></i>
+      <i class="shelf-index__tick"></i><i class="shelf-index__tick"></i>
+      <i class="shelf-index__tick"></i><i class="shelf-index__tick"></i>
+      <i class="shelf-index__tick"></i><i class="shelf-index__tick"></i>
+      <i class="shelf-index__tick"></i><i class="shelf-index__tick"></i>
+    </div>
+  </section>
+
+  <aside class="shelf-details">
+    <p class="shelf-eyebrow">Selected volume</p>
+    <h2 class="shelf-details__title">The Atlas of Quiet Rooms</h2>
+    <p class="shelf-caption__author">Mara Vale</p>
+  </aside>
+
+  <div class="shelf-status">
+    <span class="shelf-status__dot"></span>
+    <span>19 volumes ready</span>
+  </div>
+</main>
+
