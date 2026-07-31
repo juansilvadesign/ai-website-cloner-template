@@ -1,0 +1,71 @@
+---
+import "@fontsource-variable/newsreader";
+import "@fontsource-variable/newsreader/wght-italic.css";
+import "@fontsource-variable/inter";
+import "../styles/clone.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  ogImage?: string;
+  ogImageAlt?: string;
+}
+
+const {
+  title = "The Complete Shelf — An Interactive 3D Library",
+  description =
+    "Browse a continuous shelf of nineteen original clothbound hardcovers, then pull any volume forward for close inspection.",
+  canonical = "https://play.mint.gg/complete-shelf",
+  ogImage = "/clones/complete-shelf/seo/favicon.svg",
+  ogImageAlt = "The Complete Shelf monogram with three clothbound books",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#eee7da" />
+    <meta name="color-scheme" content="light" />
+
+    <title>{title}</title>
+    <link rel="canonical" href={canonical} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="The Complete Shelf" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:alt" content={ogImageAlt} />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content={ogImageAlt} />
+
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/clones/complete-shelf/seo/favicon.svg"
+    />
+    <link
+      rel="shortcut icon"
+      href="/clones/complete-shelf/seo/favicon.svg"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="/clones/complete-shelf/seo/favicon.svg"
+    />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

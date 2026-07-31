@@ -12,11 +12,16 @@
 // validates in `npm run check:release`, not a cloned target.
 
 import type { Clone } from "./types";
+import { completeShelfClone } from "../../clones/complete-shelf/clone.config";
 import { fesnClone } from "../../clones/fesn/clone.config";
 import { appcieClone } from "../../clones/appcie/clone.config";
 
 /** Every registered clone, newest extraction first. */
-export const allClones: Clone[] = [appcieClone, fesnClone];
+export const allClones: Clone[] = [
+  completeShelfClone,
+  appcieClone,
+  fesnClone,
+];
 
 /** Look up a clone by its slug. */
 export function getCloneBySlug(slug: string): Clone | undefined {

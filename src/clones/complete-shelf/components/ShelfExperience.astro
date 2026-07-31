@@ -1,0 +1,158 @@
+---
+import BookDetails from "./BookDetails.astro";
+import BrowseOverlay from "./BrowseOverlay.astro";
+import { shelfBooks } from "../data/books";
+
+const initialBook = shelfBooks[0];
+---
+
+<main
+  class="press-experience is-loading is-browsing"
+  data-shelf-experience
+  data-book-count={shelfBooks.length}
+>
+  <canvas
+    class="shelf-canvas"
+    data-shelf-canvas
+    role="application"
+    tabindex="0"
+    aria-label="The Complete Shelf interactive library"
+    aria-describedby="complete-shelf-controls-help"
+  >
+    The interactive shelf requires a browser with canvas and WebGL support.
+  </canvas>
+
+  <p id="complete-shelf-controls-help" class="sr-only">
+    Browse with the left and right arrow keys, or press Enter to inspect the
+    selected book. In inspection mode, drag to orbit, use the wheel to zoom,
+    and press Escape to return to the shelf.
+  </p>
+
+  <BrowseOverlay books={shelfBooks} selectedIndex={0} />
+  <BookDetails books={shelfBooks} selectedIndex={0} />
+
+  <section
+    class="loading-screen"
+    data-loading-screen
+    aria-label="Loading The Complete Shelf"
+  >
+    <div class="loading-screen__content">
+      <div class="loading-screen__books" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <p class="loading-screen__eyebrow">The Complete Shelf</p>
+      <p class="loading-screen__progress" data-loading-progress role="status" aria-live="polite">
+        Preparing the collection — 0 of {shelfBooks.length} volumes
+      </p>
+    </div>
+  </section>
+
+  <section
+    class="error-screen"
+    data-error-screen
+    role="alert"
+    aria-labelledby="complete-shelf-error-title"
+  >
+    <p class="error-screen__eyebrow">The shelf is unavailable</p>
+    <h2 id="complete-shelf-error-title">We could not prepare the collection.</h2>
+    <p data-error-message>
+      A book or its viewer failed to load. You can try preparing the shelf
+      again.
+    </p>
+    <button type="button" data-error-retry>Retry</button>
+  </section>
+
+  <section
+    class="no-webgl-catalog"
+    data-no-webgl-catalog
+    aria-labelledby="complete-shelf-catalog-title"
+  >
+    <header class="no-webgl-catalog__header">
+      <p>Semantic edition</p>
+      <h2 id="complete-shelf-catalog-title">The Complete Shelf</h2>
+      <p>
+        The interactive library needs WebGL. Every volume remains available in
+        this accessible catalog.
+      </p>
+    </header>
+
+    <ol class="no-webgl-catalog__list">
+      {
+        shelfBooks.map((book, index) => (
+          <li class="no-webgl-catalog__book" data-catalog-book={book.id}>
+            <article>
+              <p class="no-webgl-catalog__position">
+                Volume {String(index + 1).padStart(2, "0")} of{" "}
+                {String(shelfBooks.length).padStart(2, "0")}
+              </p>
+              <h3>{book.title}</h3>
+              <p class="no-webgl-catalog__author">by {book.author}</p>
+              <p>{book.description}</p>
+              <blockquote>
+                <p>“{book.quote}”</p>
+                <cite>— {book.quoteBy}</cite>
+              </blockquote>
+              <dl>
+                <div>
+                  <dt>Edition</dt>
+                  <dd>{book.format}</dd>
+                </div>
+                <div>
+                  <dt>Published</dt>
+                  <dd>{book.year}</dd>
+                </div>
+              </dl>
+            </article>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+
+  <p
+    class="sr-only"
+    data-live-region
+    role="status"
+    aria-live="polite"
+    aria-atomic="true"
+  >
+    Selected {initialBook.title} by {initialBook.author}, volume 1 of{" "}
+    {shelfBooks.length}. Browse mode.
+  </p>
+</main>
+
+<script>
+  import { mountShelfExperience } from "../lib/ShelfApp";
+
+  const teardownShelfExperiences: Array<() => void> = [];
+  let shouldTeardown = false;
+
+  const mountShelfExperiences = Array.from(
+    document.querySelectorAll<HTMLElement>("[data-shelf-experience]"),
+    async (root) => {
+      const teardown = await mountShelfExperience(root);
+
+      if (shouldTeardown) {
+        teardown();
+        return;
+      }
+
+      teardownShelfExperiences.push(teardown);
+    },
+  );
+
+  document.addEventListener(
+    "astro:before-swap",
+    () => {
+      shouldTeardown = true;
+      teardownShelfExperiences.forEach((teardown) => teardown());
+    },
+    { once: true },
+  );
+
+  void Promise.all(mountShelfExperiences).catch((error: unknown) => {
+    console.error("The Complete Shelf could not be mounted.", error);
+  });
+</script>
