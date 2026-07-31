@@ -40,7 +40,9 @@
 - Give every book a distinct abstract motif and stable logical key.
 - Wait for final generation, optimize the models, retrieve the artifact
   manifest, and download Draco-compatible GLBs locally.
-- Persist the Mint manifest and registry inside the clone namespace.
+- Persist Mint's required registry as the project-root `mint-assets.json`, with
+  every downloaded artifact namespaced under
+  `public/clones/complete-shelf/models/mint/`.
 
 ## 4. Emit the OpenDesign Package
 
@@ -111,4 +113,3 @@ Register the clone in the existing hub without replacing the root page.
 - Mint MCP: <https://mcp.mint.gg/mcp>
 - Mint Three.js Skills:
   <https://github.com/mintdotgg/mint-threejs-skills>
-

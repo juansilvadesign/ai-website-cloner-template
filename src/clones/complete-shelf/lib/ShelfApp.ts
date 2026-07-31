@@ -533,38 +533,36 @@ class ShelfExperienceOwner {
     environment.add(paper);
 
     const walnutMaterial = new MeshStandardMaterial({
-      color: 0x714832,
+      color: 0x593b2e,
       metalness: 0.01,
       roughness: 0.66,
     });
-    const walnutEdgeMaterial = new MeshStandardMaterial({
-      color: 0x3b2116,
-      metalness: 0.015,
-      roughness: 0.61,
+    const walnutEdgeMaterial = new MeshBasicMaterial({
+      color: 0x46281e,
     });
 
     const shelf = new Mesh(
-      new BoxGeometry(36, 0.24, 2.5),
+      new BoxGeometry(36, 0.2, 0.88),
       walnutMaterial,
     );
     shelf.name = "Continuous walnut shelf";
-    shelf.position.set(0, -0.14, 0);
+    shelf.position.set(0, -0.12, 0);
     shelf.castShadow = true;
     shelf.receiveShadow = true;
     environment.add(shelf);
 
     const shelfEdge = new Mesh(
-      new BoxGeometry(36, 0.34, 0.19),
+      new BoxGeometry(36, 0.3, 0.16),
       walnutEdgeMaterial,
     );
     shelfEdge.name = "Walnut shelf front edge";
-    shelfEdge.position.set(0, -0.25, 1.17);
+    shelfEdge.position.set(0, -0.21, 0.42);
     shelfEdge.castShadow = true;
     shelfEdge.receiveShadow = true;
     environment.add(shelfEdge);
 
     const shadowReceiver = new Mesh(
-      new PlaneGeometry(36, 2.45),
+      new PlaneGeometry(36, 0.84),
       new ShadowMaterial({
         color: 0x321c13,
         opacity: 0.18,
@@ -1107,15 +1105,16 @@ class ShelfExperienceOwner {
   private computeInspectFrame(): void {
     const book = shelfBooks[this.state.selectedIndex];
     const isMobile = this.viewportWidth <= 760;
-    this.focusOffsetX = isMobile ? 0 : -1.18;
+    this.focusOffsetX = isMobile ? 0 : -1.25;
     this.focusOffsetY = isMobile ? 0.67 : 0.11;
+    const viewCenterX = isMobile ? 0 : -0.62;
 
     const centerY = this.focusOffsetY + book.height * 0.51;
-    this.inspectLookTarget.set(this.focusOffsetX, centerY, 0.78);
+    this.inspectLookTarget.set(viewCenterX, centerY, 0.78);
     this.inspectCameraPosition.set(
-      this.focusOffsetX,
+      viewCenterX,
       centerY + (isMobile ? 0.12 : 0.2),
-      isMobile ? 5.2 : 4.72,
+      isMobile ? 5.7 : 5.85,
     );
     this.panMinimum.set(
       this.inspectLookTarget.x - (isMobile ? 0.5 : 0.72),
@@ -1147,6 +1146,12 @@ class ShelfExperienceOwner {
     this.camera.aspect = this.viewportWidth / this.viewportHeight;
     this.camera.fov = isMobile ? 42 : 35;
     this.camera.updateProjectionMatrix();
+    this.browseCameraPosition.set(
+      0,
+      isMobile ? 1.4 : 1.35,
+      isMobile ? 7.25 : 5.55,
+    );
+    this.browseLookTarget.set(0, isMobile ? 1.14 : 1.13, 0);
 
     const nextShadowSize = isMobile ? 1024 : 2048;
     if (this.keyLight && nextShadowSize !== this.shadowMapSize) {
@@ -1242,9 +1247,9 @@ class ShelfExperienceOwner {
         selectedFocus * this.focusOffsetY -
         (1 - selected) * focus * 0.045;
       visual.presentation.position.z =
-        selected * 0.5 +
-        selectedFocus * 0.88 -
-        (1 - selected) * focus * 0.52;
+        selected * 1.02 +
+        selectedFocus * 0.08 -
+        (1 - selected) * focus * 1.25;
       const scale =
         1 +
         selected * 0.018 +

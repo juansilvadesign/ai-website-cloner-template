@@ -1086,11 +1086,6 @@ a:focus-visible {
 }
 
 @media (max-width: 420px) {
-  .shelf-wordmark__subtitle,
-  .shelf-wordmark__rule {
-    display: none;
-  }
-
   .browse-caption__title {
     max-width: 90vw;
   }

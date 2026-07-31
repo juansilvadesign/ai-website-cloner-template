@@ -36,13 +36,13 @@ const initialBook = shelfBooks[0];
     data-loading-screen
     aria-label="Loading The Complete Shelf"
   >
-    <div class="loading-screen__content">
-      <div class="loading-screen__books" aria-hidden="true">
+    <div class="loading-content loading-screen__content">
+      <div class="loading-bars loading-screen__books" aria-hidden="true">
         <span></span>
         <span></span>
         <span></span>
       </div>
-      <p class="loading-screen__eyebrow">The Complete Shelf</p>
+      <p class="loading-label loading-screen__eyebrow">The Complete Shelf</p>
       <p class="loading-screen__progress" data-loading-progress role="status" aria-live="polite">
         Preparing the collection — 0 of {shelfBooks.length} volumes
       </p>
@@ -55,13 +55,17 @@ const initialBook = shelfBooks[0];
     role="alert"
     aria-labelledby="complete-shelf-error-title"
   >
-    <p class="error-screen__eyebrow">The shelf is unavailable</p>
-    <h2 id="complete-shelf-error-title">We could not prepare the collection.</h2>
-    <p data-error-message>
-      A book or its viewer failed to load. You can try preparing the shelf
-      again.
-    </p>
-    <button type="button" data-error-retry>Retry</button>
+    <div class="error-content">
+      <p class="error-label error-screen__eyebrow">The shelf is unavailable</p>
+      <h2 class="error-title" id="complete-shelf-error-title">
+        We could not prepare the collection.
+      </h2>
+      <p data-error-message>
+        A book or its viewer failed to load. You can try preparing the shelf
+        again.
+      </p>
+      <button type="button" data-error-retry data-shelf-retry>Retry</button>
+    </div>
   </section>
 
   <section
