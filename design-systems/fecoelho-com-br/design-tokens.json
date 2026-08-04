@@ -1,0 +1,698 @@
+{
+  "schemaVersion": 1,
+  "format": "od-design-tokens/v1",
+  "contract": "TOKEN_SCHEMA",
+  "generatedAt": "2026-08-04T05:25:17.747Z",
+  "source": {
+    "tokensCss": "tokens.css",
+    "tokenContractReport": "source/token-contract.report.json"
+  },
+  "summary": {
+    "total": 56,
+    "byConfidence": {
+      "high": 47,
+      "derived": 5,
+      "fallback": 4
+    },
+    "byLayer": {
+      "A1-identity": 8,
+      "B-slot": 4,
+      "A2": 26,
+      "A1-structure": 18
+    }
+  },
+  "tokens": [
+    {
+      "name": "--bg",
+      "value": "#faf8f5",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Warm page canvas under the radial accent glow.",
+      "sources": [
+        "docs/research/fecoelho-com-br/source.html:25; computed body backgroundColor",
+        "tokens.css:8"
+      ]
+    },
+    {
+      "name": "--surface",
+      "value": "#ffffff",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Elevated link and portrait-border surface.",
+      "sources": [
+        "docs/research/fecoelho-com-br/source.html:26; computed .link backgroundColor",
+        "tokens.css:9"
+      ]
+    },
+    {
+      "name": "--surface-warm",
+      "value": "#f2eee8",
+      "type": "color",
+      "layer": "B-slot",
+      "confidence": "high",
+      "reason": "Soft icon-tile and portrait fallback surface.",
+      "sources": [
+        "docs/research/fecoelho-com-br/source.html:27; computed .ico backgroundColor",
+        "tokens.css:10"
+      ]
+    },
+    {
+      "name": "--fg",
+      "value": "#191410",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Primary name and link-label ink.",
+      "sources": [
+        "docs/research/fecoelho-com-br/source.html:28; computed .name color",
+        "tokens.css:13"
+      ]
+    },
+    {
+      "name": "--fg-2",
+      "value": "#4a423b",
+      "type": "color",
+      "layer": "B-slot",
+      "confidence": "high",
+      "reason": "Secondary role text.",
+      "sources": [
+        "docs/research/fecoelho-com-br/source.html:29; computed .role color",
+        "tokens.css:14"
+      ]
+    },
+    {
+      "name": "--muted",
+      "value": "#8a7f74",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Tagline, link metadata, arrows, and footer copy.",
+      "sources": [
+        "docs/research/fecoelho-com-br/source.html:30; computed .tagline color",
+        "tokens.css:15"
+      ]
+    },
+    {
+      "name": "--meta",
+      "value": "#8a7f74",
+      "type": "color",
+      "layer": "B-slot",
+      "confidence": "high",
+      "reason": "The target uses the same authored muted tier for all metadata.",
+      "sources": [
+        "docs/research/fecoelho-com-br/source.html:30; computed .sub color",
+        "tokens.css:16"
+      ]
+    },
+    {
+      "name": "--border",
+      "value": "#e6ddd2",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Default contact-link edge.",
+      "sources": [
+        "docs/research/fecoelho-com-br/source.html:31; computed .link borderColor",
+        "tokens.css:19"
+      ]
+    },
+    {
+      "name": "--border-soft",
+      "value": "#e6ddd2",
+      "type": "color",
+      "layer": "B-slot",
+      "confidence": "high",
+      "reason": "No second border tier exists; inner and outer edges use the same line token.",
+      "sources": [
+        "docs/research/fecoelho-com-br/source.html:31",
+        "tokens.css:20"
+      ]
+    },
+    {
+      "name": "--accent",
+      "value": "#d1553b",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Terracotta brand accent for icons, links, glow, and gradient starts.",
+      "sources": [
+        "docs/research/fecoelho-com-br/source.html:32; computed .ico color",
+        "tokens.css:23"
+      ]
+    },
+    {
+      "name": "--accent-on",
+      "value": "#ffffff",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Text and icon color on the filled primary gradient.",
+      "sources": [
+        "docs/research/fecoelho-com-br/source.html:34; computed .link.primary color",
+        "tokens.css:24"
+      ]
+    },
+    {
+      "name": "--accent-hover",
+      "value": "#6b4bd6",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "The target's second accent, used as the avatar-gradient endpoint and mixed into the primary link; no filled-accent hover color exists.",
+      "sources": [
+        "docs/research/fecoelho-com-br/source.html:33,89,168",
+        "tokens.css:25"
+      ]
+    },
+    {
+      "name": "--accent-active",
+      "value": "color-mix(in srgb, var(--accent) 86%, black)",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "The observed pressed state changes scale only; this reserved schema state is a conservative darker accent.",
+      "sources": [
+        "derived from --accent; target active rule source.html:143",
+        "tokens.css:26"
+      ]
+    },
+    {
+      "name": "--success",
+      "value": "#16a34a",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "fallback",
+      "reason": "OpenDesign A2 default (Success state.)",
+      "sources": [
+        "_schema/defaults.css",
+        "tokens.css:29"
+      ]
+    },
+    {
+      "name": "--warn",
+      "value": "#eab308",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "fallback",
+      "reason": "OpenDesign A2 default (Warning state.)",
+      "sources": [
+        "_schema/defaults.css",
+        "tokens.css:30"
+      ]
+    },
+    {
+      "name": "--danger",
+      "value": "#dc2626",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "fallback",
+      "reason": "OpenDesign A2 default (Danger state.)",
+      "sources": [
+        "_schema/defaults.css",
+        "tokens.css:31"
+      ]
+    },
+    {
+      "name": "--font-display",
+      "value": "\"Space Grotesk\", \"Inter\", system-ui, sans-serif",
+      "type": "fontFamily",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Exact name-heading stack; Space Grotesk 700 is locally mirrored from the target's Google Fonts request.",
+      "sources": [
+        "docs/research/fecoelho-com-br/source.html:39,103-109",
+        "tokens.css:34"
+      ]
+    },
+    {
+      "name": "--font-body",
+      "value": "\"Inter\", system-ui, -apple-system, sans-serif",
+      "type": "fontFamily",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Exact body stack; local 400/500/600 files mirror the target request.",
+      "sources": [
+        "docs/research/fecoelho-com-br/source.html:38,60-66",
+        "tokens.css:35"
+      ]
+    },
+    {
+      "name": "--font-mono",
+      "value": "ui-monospace, \"SF Mono\", \"JetBrains Mono\", Menlo, Monaco, Consolas, monospace",
+      "type": "fontFamily",
+      "layer": "A2",
+      "confidence": "fallback",
+      "reason": "OpenDesign A2 default (Monospace font stack — used by kbd, code, tabular metrics.)",
+      "sources": [
+        "_schema/defaults.css",
+        "tokens.css:36"
+      ]
+    },
+    {
+      "name": "--text-xs",
+      "value": "12.8px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Link subtitle: .8rem at a 16px root.",
+      "sources": [
+        "computed .sub fontSize; source.html:160",
+        "tokens.css:39"
+      ]
+    },
+    {
+      "name": "--text-sm",
+      "value": "13.12px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Footer: .82rem at a 16px root.",
+      "sources": [
+        "computed .foot fontSize; source.html:178",
+        "tokens.css:40"
+      ]
+    },
+    {
+      "name": "--text-base",
+      "value": "14.4px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Tagline: .9rem at a 16px root.",
+      "sources": [
+        "computed .tagline fontSize; source.html:120",
+        "tokens.css:41"
+      ]
+    },
+    {
+      "name": "--text-lg",
+      "value": "16px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Role and document baseline.",
+      "sources": [
+        "computed body and .role fontSize; source.html:113",
+        "tokens.css:42"
+      ]
+    },
+    {
+      "name": "--text-xl",
+      "value": "16.32px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Contact label: 1.02rem at a 16px root.",
+      "sources": [
+        "computed .link fontSize; source.html:140",
+        "tokens.css:43"
+      ]
+    },
+    {
+      "name": "--text-2xl",
+      "value": "20px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "derived",
+      "reason": "Unused structural bridge between the observed 16.32px label and 29.6px display.",
+      "sources": [
+        "derived monotonic type-scale bridge",
+        "tokens.css:44"
+      ]
+    },
+    {
+      "name": "--text-3xl",
+      "value": "24px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "derived",
+      "reason": "Unused structural bridge between the observed 16.32px label and 29.6px display.",
+      "sources": [
+        "derived monotonic type-scale bridge",
+        "tokens.css:45"
+      ]
+    },
+    {
+      "name": "--text-4xl",
+      "value": "29.6px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Name heading: 1.85rem at a 16px root.",
+      "sources": [
+        "computed .name fontSize; source.html:106",
+        "tokens.css:46"
+      ]
+    },
+    {
+      "name": "--leading-body",
+      "value": "1.5",
+      "type": "number",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Global line-height and inherited contact-card rhythm.",
+      "sources": [
+        "computed body 24px/16px; source.html:66",
+        "tokens.css:49"
+      ]
+    },
+    {
+      "name": "--leading-tight",
+      "value": "1.1",
+      "type": "number",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Name heading leading.",
+      "sources": [
+        "computed .name 32.56px/29.6px; source.html:108",
+        "tokens.css:50"
+      ]
+    },
+    {
+      "name": "--tracking-display",
+      "value": "-0.02em",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Name heading tracking.",
+      "sources": [
+        "computed .name -0.592px at 29.6px; source.html:107",
+        "tokens.css:51"
+      ]
+    },
+    {
+      "name": "--space-1",
+      "value": "1px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Smallest observed vertical offset under link labels.",
+      "sources": [
+        "computed .sub marginTop; source.html:162",
+        "tokens.css:54"
+      ]
+    },
+    {
+      "name": "--space-2",
+      "value": "4px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Tagline offset and portrait-ring padding.",
+      "sources": [
+        "computed .tagline marginTop and .avatar-wrap padding; source.html:88,118",
+        "tokens.css:55"
+      ]
+    },
+    {
+      "name": "--space-3",
+      "value": "8px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Role offset.",
+      "sources": [
+        "computed .role marginTop; source.html:111",
+        "tokens.css:56"
+      ]
+    },
+    {
+      "name": "--space-4",
+      "value": "12px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Gap between contact links.",
+      "sources": [
+        "computed .links gap; source.html:128",
+        "tokens.css:57"
+      ]
+    },
+    {
+      "name": "--space-5",
+      "value": "14px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Gap between icon, label, and arrow.",
+      "sources": [
+        "computed .link gap; source.html:133",
+        "tokens.css:58"
+      ]
+    },
+    {
+      "name": "--space-6",
+      "value": "20px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Portrait-to-name spacing and page side gutter.",
+      "sources": [
+        "computed .avatar-wrap marginBottom and body paddingInline; source.html:72,86",
+        "tokens.css:59"
+      ]
+    },
+    {
+      "name": "--space-8",
+      "value": "28px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Page top/bottom inset and identity-to-links separation.",
+      "sources": [
+        "computed body paddingTop and .links marginTop; source.html:72,125",
+        "tokens.css:60"
+      ]
+    },
+    {
+      "name": "--space-12",
+      "value": "40px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Square icon tile and fixed flex basis.",
+      "sources": [
+        "computed .ico width/height; source.html:148-150",
+        "tokens.css:61"
+      ]
+    },
+    {
+      "name": "--section-y-desktop",
+      "value": "28px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "The single-section page uses body padding as its vertical section rhythm.",
+      "sources": [
+        "computed body paddingTop at 1440; source.html:72",
+        "tokens.css:64"
+      ]
+    },
+    {
+      "name": "--section-y-tablet",
+      "value": "28px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Vertical rhythm is unchanged at 768px.",
+      "sources": [
+        "computed body paddingTop at 768",
+        "tokens.css:65"
+      ]
+    },
+    {
+      "name": "--section-y-phone",
+      "value": "28px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Vertical rhythm is unchanged at 390px.",
+      "sources": [
+        "computed body paddingTop at 390",
+        "tokens.css:66"
+      ]
+    },
+    {
+      "name": "--radius-sm",
+      "value": "12px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Icon-tile radius.",
+      "sources": [
+        "computed .ico borderRadius; source.html:151",
+        "tokens.css:69"
+      ]
+    },
+    {
+      "name": "--radius-md",
+      "value": "18px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Contact-link card radius.",
+      "sources": [
+        "computed .link borderRadius; source.html:137",
+        "tokens.css:70"
+      ]
+    },
+    {
+      "name": "--radius-lg",
+      "value": "24px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Reserved featured-container tier; no non-circular radius larger than 18px is rendered.",
+      "sources": [
+        "derived from --radius-md",
+        "tokens.css:71"
+      ]
+    },
+    {
+      "name": "--radius-pill",
+      "value": "9999px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Practical expression of the portrait's 50% circular radius.",
+      "sources": [
+        "computed .avatar-wrap and .avatar borderRadius; source.html:87,95",
+        "tokens.css:72"
+      ]
+    },
+    {
+      "name": "--elev-flat",
+      "value": "none",
+      "type": "shadow",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "The page canvas and card wrapper are flat.",
+      "sources": [
+        "computed .card boxShadow",
+        "tokens.css:75"
+      ]
+    },
+    {
+      "name": "--elev-ring",
+      "value": "0 1px 2px rgba(25, 20, 16, .05), 0 6px 16px rgba(25, 20, 16, .06)",
+      "type": "shadow",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Default contact-link shadow; named ring slot carries the quieter of the target's two elevations.",
+      "sources": [
+        "docs/research/fecoelho-com-br/source.html:36,138; computed .link boxShadow",
+        "tokens.css:76"
+      ]
+    },
+    {
+      "name": "--elev-raised",
+      "value": "0 1px 2px rgba(25, 20, 16, .04), 0 12px 32px rgba(25, 20, 16, .08)",
+      "type": "shadow",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Portrait and hovered-link elevation.",
+      "sources": [
+        "docs/research/fecoelho-com-br/source.html:35,90,145; hover computed style",
+        "tokens.css:77"
+      ]
+    },
+    {
+      "name": "--focus-ring",
+      "value": "0 0 0 3px color-mix(in srgb, var(--accent), transparent 70%)",
+      "type": "shadow",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Reserved accessible custom ring; the target itself leaves native browser outlines intact.",
+      "sources": [
+        "derived from --accent; focus evidence in browser-evidence.json",
+        "tokens.css:80"
+      ]
+    },
+    {
+      "name": "--motion-fast",
+      "value": "150ms",
+      "type": "duration",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "All link hover and active transitions.",
+      "sources": [
+        "computed .link transition; source.html:141",
+        "tokens.css:83"
+      ]
+    },
+    {
+      "name": "--motion-base",
+      "value": "150ms",
+      "type": "duration",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "No slower motion tier exists on this static page.",
+      "sources": [
+        "computed .link transition; source.html:141",
+        "tokens.css:84"
+      ]
+    },
+    {
+      "name": "--ease-standard",
+      "value": "ease",
+      "type": "cubicBezier",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Authored timing function on every transitioned property.",
+      "sources": [
+        "computed .link transition; source.html:141",
+        "tokens.css:85"
+      ]
+    },
+    {
+      "name": "--container-max",
+      "value": "420px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Contact-card maximum width.",
+      "sources": [
+        "computed .card maxWidth at 1440/768; source.html:78",
+        "tokens.css:88"
+      ]
+    },
+    {
+      "name": "--container-gutter-desktop",
+      "value": "20px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Page inline gutter.",
+      "sources": [
+        "computed body paddingInline at 1440; source.html:72",
+        "tokens.css:89"
+      ]
+    },
+    {
+      "name": "--container-gutter-tablet",
+      "value": "20px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Page inline gutter is unchanged at 768px.",
+      "sources": [
+        "computed body paddingInline at 768",
+        "tokens.css:90"
+      ]
+    },
+    {
+      "name": "--container-gutter-phone",
+      "value": "20px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Page inline gutter leaves a 350px card at 390px.",
+      "sources": [
+        "computed body paddingInline and .card width at 390; source.html:72",
+        "tokens.css:91"
+      ]
+    }
+  ]
+}

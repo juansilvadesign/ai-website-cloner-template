@@ -1,0 +1,97 @@
+{
+  "$schema": "clone-website extraction artifact — consumed by scripts/emit-design-system.ts",
+  "brand": "fecoelho-com-br",
+  "name": "Fernanda Coelho Contact Card",
+  "extraction": {
+    "target": "https://fecoelho.com.br/card/",
+    "sourcePath": "https://fecoelho.com.br/card/",
+    "method": "authored custom properties + getComputedStyle verification in Chromium at 1440/768/390",
+    "evidence": "docs/research/fecoelho-com-br/source.html and browser-evidence.json",
+    "note": "The page exposes light and dark palettes through prefers-color-scheme. Values below preserve every authored color and every observed type, spacing, radius, elevation, and motion role. Structural slots not rendered as named heading tiers are derived monotonically between observed endpoints and called out explicitly.",
+    "extractedAt": "2026-08-04"
+  },
+  "themes": {
+    "light": {
+      "--bg": { "value": "#faf8f5", "confidence": "high", "reason": "Warm page canvas under the radial accent glow.", "source": "docs/research/fecoelho-com-br/source.html:25; computed body backgroundColor" },
+      "--surface": { "value": "#ffffff", "confidence": "high", "reason": "Elevated link and portrait-border surface.", "source": "docs/research/fecoelho-com-br/source.html:26; computed .link backgroundColor" },
+      "--surface-warm": { "value": "#f2eee8", "confidence": "high", "reason": "Soft icon-tile and portrait fallback surface.", "source": "docs/research/fecoelho-com-br/source.html:27; computed .ico backgroundColor" },
+
+      "--fg": { "value": "#191410", "confidence": "high", "reason": "Primary name and link-label ink.", "source": "docs/research/fecoelho-com-br/source.html:28; computed .name color" },
+      "--fg-2": { "value": "#4a423b", "confidence": "high", "reason": "Secondary role text.", "source": "docs/research/fecoelho-com-br/source.html:29; computed .role color" },
+      "--muted": { "value": "#8a7f74", "confidence": "high", "reason": "Tagline, link metadata, arrows, and footer copy.", "source": "docs/research/fecoelho-com-br/source.html:30; computed .tagline color" },
+      "--meta": { "value": "#8a7f74", "confidence": "high", "reason": "The target uses the same authored muted tier for all metadata.", "source": "docs/research/fecoelho-com-br/source.html:30; computed .sub color" },
+
+      "--border": { "value": "#e6ddd2", "confidence": "high", "reason": "Default contact-link edge.", "source": "docs/research/fecoelho-com-br/source.html:31; computed .link borderColor" },
+      "--border-soft": { "value": "#e6ddd2", "confidence": "high", "reason": "No second border tier exists; inner and outer edges use the same line token.", "source": "docs/research/fecoelho-com-br/source.html:31" },
+
+      "--accent": { "value": "#d1553b", "confidence": "high", "reason": "Terracotta brand accent for icons, links, glow, and gradient starts.", "source": "docs/research/fecoelho-com-br/source.html:32; computed .ico color" },
+      "--accent-on": { "value": "#ffffff", "confidence": "high", "reason": "Text and icon color on the filled primary gradient.", "source": "docs/research/fecoelho-com-br/source.html:34; computed .link.primary color" },
+      "--accent-hover": { "value": "#6b4bd6", "confidence": "high", "reason": "The target's second accent, used as the avatar-gradient endpoint and mixed into the primary link; no filled-accent hover color exists.", "source": "docs/research/fecoelho-com-br/source.html:33,89,168" },
+      "--accent-active": { "value": "color-mix(in srgb, var(--accent) 86%, black)", "confidence": "derived", "reason": "The observed pressed state changes scale only; this reserved schema state is a conservative darker accent.", "source": "derived from --accent; target active rule source.html:143" },
+
+      "--font-display": { "value": "\"Space Grotesk\", \"Inter\", system-ui, sans-serif", "confidence": "high", "reason": "Exact name-heading stack; Space Grotesk 700 is locally mirrored from the target's Google Fonts request.", "source": "docs/research/fecoelho-com-br/source.html:39,103-109" },
+      "--font-body": { "value": "\"Inter\", system-ui, -apple-system, sans-serif", "confidence": "high", "reason": "Exact body stack; local 400/500/600 files mirror the target request.", "source": "docs/research/fecoelho-com-br/source.html:38,60-66" },
+
+      "--text-xs": { "value": "12.8px", "confidence": "high", "reason": "Link subtitle: .8rem at a 16px root.", "source": "computed .sub fontSize; source.html:160" },
+      "--text-sm": { "value": "13.12px", "confidence": "high", "reason": "Footer: .82rem at a 16px root.", "source": "computed .foot fontSize; source.html:178" },
+      "--text-base": { "value": "14.4px", "confidence": "high", "reason": "Tagline: .9rem at a 16px root.", "source": "computed .tagline fontSize; source.html:120" },
+      "--text-lg": { "value": "16px", "confidence": "high", "reason": "Role and document baseline.", "source": "computed body and .role fontSize; source.html:113" },
+      "--text-xl": { "value": "16.32px", "confidence": "high", "reason": "Contact label: 1.02rem at a 16px root.", "source": "computed .link fontSize; source.html:140" },
+      "--text-2xl": { "value": "20px", "confidence": "derived", "reason": "Unused structural bridge between the observed 16.32px label and 29.6px display.", "source": "derived monotonic type-scale bridge" },
+      "--text-3xl": { "value": "24px", "confidence": "derived", "reason": "Unused structural bridge between the observed 16.32px label and 29.6px display.", "source": "derived monotonic type-scale bridge" },
+      "--text-4xl": { "value": "29.6px", "confidence": "high", "reason": "Name heading: 1.85rem at a 16px root.", "source": "computed .name fontSize; source.html:106" },
+
+      "--leading-body": { "value": "1.5", "confidence": "high", "reason": "Global line-height and inherited contact-card rhythm.", "source": "computed body 24px/16px; source.html:66" },
+      "--leading-tight": { "value": "1.1", "confidence": "high", "reason": "Name heading leading.", "source": "computed .name 32.56px/29.6px; source.html:108" },
+      "--tracking-display": { "value": "-0.02em", "confidence": "high", "reason": "Name heading tracking.", "source": "computed .name -0.592px at 29.6px; source.html:107" },
+
+      "--space-1": { "value": "1px", "confidence": "high", "reason": "Smallest observed vertical offset under link labels.", "source": "computed .sub marginTop; source.html:162" },
+      "--space-2": { "value": "4px", "confidence": "high", "reason": "Tagline offset and portrait-ring padding.", "source": "computed .tagline marginTop and .avatar-wrap padding; source.html:88,118" },
+      "--space-3": { "value": "8px", "confidence": "high", "reason": "Role offset.", "source": "computed .role marginTop; source.html:111" },
+      "--space-4": { "value": "12px", "confidence": "high", "reason": "Gap between contact links.", "source": "computed .links gap; source.html:128" },
+      "--space-5": { "value": "14px", "confidence": "high", "reason": "Gap between icon, label, and arrow.", "source": "computed .link gap; source.html:133" },
+      "--space-6": { "value": "20px", "confidence": "high", "reason": "Portrait-to-name spacing and page side gutter.", "source": "computed .avatar-wrap marginBottom and body paddingInline; source.html:72,86" },
+      "--space-8": { "value": "28px", "confidence": "high", "reason": "Page top/bottom inset and identity-to-links separation.", "source": "computed body paddingTop and .links marginTop; source.html:72,125" },
+      "--space-12": { "value": "40px", "confidence": "high", "reason": "Square icon tile and fixed flex basis.", "source": "computed .ico width/height; source.html:148-150" },
+
+      "--section-y-desktop": { "value": "28px", "confidence": "high", "reason": "The single-section page uses body padding as its vertical section rhythm.", "source": "computed body paddingTop at 1440; source.html:72" },
+      "--section-y-tablet": { "value": "28px", "confidence": "high", "reason": "Vertical rhythm is unchanged at 768px.", "source": "computed body paddingTop at 768" },
+      "--section-y-phone": { "value": "28px", "confidence": "high", "reason": "Vertical rhythm is unchanged at 390px.", "source": "computed body paddingTop at 390" },
+
+      "--radius-sm": { "value": "12px", "confidence": "high", "reason": "Icon-tile radius.", "source": "computed .ico borderRadius; source.html:151" },
+      "--radius-md": { "value": "18px", "confidence": "high", "reason": "Contact-link card radius.", "source": "computed .link borderRadius; source.html:137" },
+      "--radius-lg": { "value": "24px", "confidence": "derived", "reason": "Reserved featured-container tier; no non-circular radius larger than 18px is rendered.", "source": "derived from --radius-md" },
+      "--radius-pill": { "value": "9999px", "confidence": "high", "reason": "Practical expression of the portrait's 50% circular radius.", "source": "computed .avatar-wrap and .avatar borderRadius; source.html:87,95" },
+
+      "--elev-flat": { "value": "none", "confidence": "high", "reason": "The page canvas and card wrapper are flat.", "source": "computed .card boxShadow" },
+      "--elev-ring": { "value": "0 1px 2px rgba(25, 20, 16, .05), 0 6px 16px rgba(25, 20, 16, .06)", "confidence": "high", "reason": "Default contact-link shadow; named ring slot carries the quieter of the target's two elevations.", "source": "docs/research/fecoelho-com-br/source.html:36,138; computed .link boxShadow" },
+      "--elev-raised": { "value": "0 1px 2px rgba(25, 20, 16, .04), 0 12px 32px rgba(25, 20, 16, .08)", "confidence": "high", "reason": "Portrait and hovered-link elevation.", "source": "docs/research/fecoelho-com-br/source.html:35,90,145; hover computed style" },
+      "--focus-ring": { "value": "0 0 0 3px color-mix(in srgb, var(--accent), transparent 70%)", "confidence": "derived", "reason": "Reserved accessible custom ring; the target itself leaves native browser outlines intact.", "source": "derived from --accent; focus evidence in browser-evidence.json" },
+
+      "--motion-fast": { "value": "150ms", "confidence": "high", "reason": "All link hover and active transitions.", "source": "computed .link transition; source.html:141" },
+      "--motion-base": { "value": "150ms", "confidence": "high", "reason": "No slower motion tier exists on this static page.", "source": "computed .link transition; source.html:141" },
+      "--ease-standard": { "value": "ease", "confidence": "high", "reason": "Authored timing function on every transitioned property.", "source": "computed .link transition; source.html:141" },
+
+      "--container-max": { "value": "420px", "confidence": "high", "reason": "Contact-card maximum width.", "source": "computed .card maxWidth at 1440/768; source.html:78" },
+      "--container-gutter-desktop": { "value": "20px", "confidence": "high", "reason": "Page inline gutter.", "source": "computed body paddingInline at 1440; source.html:72" },
+      "--container-gutter-tablet": { "value": "20px", "confidence": "high", "reason": "Page inline gutter is unchanged at 768px.", "source": "computed body paddingInline at 768" },
+      "--container-gutter-phone": { "value": "20px", "confidence": "high", "reason": "Page inline gutter leaves a 350px card at 390px.", "source": "computed body paddingInline and .card width at 390; source.html:72" }
+    },
+    "dark": {
+      "--bg": { "value": "#0e0c0b", "confidence": "high", "reason": "Dark system canvas.", "source": "docs/research/fecoelho-com-br/source.html:43" },
+      "--surface": { "value": "#1a1614", "confidence": "high", "reason": "Dark contact-link and portrait-border surface.", "source": "docs/research/fecoelho-com-br/source.html:44" },
+      "--surface-warm": { "value": "#201b18", "confidence": "high", "reason": "Dark icon-tile surface.", "source": "docs/research/fecoelho-com-br/source.html:45" },
+      "--fg": { "value": "#f4efe9", "confidence": "high", "reason": "Dark primary ink.", "source": "docs/research/fecoelho-com-br/source.html:46" },
+      "--fg-2": { "value": "#c9bfb4", "confidence": "high", "reason": "Dark secondary ink.", "source": "docs/research/fecoelho-com-br/source.html:47" },
+      "--muted": { "value": "#8f8478", "confidence": "high", "reason": "Dark muted and metadata ink.", "source": "docs/research/fecoelho-com-br/source.html:48" },
+      "--meta": { "value": "#8f8478", "confidence": "high", "reason": "Dark metadata aliases the target muted tier.", "source": "docs/research/fecoelho-com-br/source.html:48" },
+      "--border": { "value": "#2c2622", "confidence": "high", "reason": "Dark contact-link edge.", "source": "docs/research/fecoelho-com-br/source.html:49" },
+      "--border-soft": { "value": "#2c2622", "confidence": "high", "reason": "No separate dark soft-border tier exists.", "source": "docs/research/fecoelho-com-br/source.html:49" },
+      "--accent": { "value": "#f0714f", "confidence": "high", "reason": "Dark terracotta accent.", "source": "docs/research/fecoelho-com-br/source.html:50" },
+      "--accent-hover": { "value": "#9c85f0", "confidence": "high", "reason": "Dark purple gradient endpoint.", "source": "docs/research/fecoelho-com-br/source.html:51" },
+      "--accent-on": { "value": "#17110d", "confidence": "high", "reason": "Dark primary-gradient ink.", "source": "docs/research/fecoelho-com-br/source.html:52" },
+      "--elev-ring": { "value": "0 1px 2px rgba(0,0,0,.3), 0 8px 20px rgba(0,0,0,.35)", "confidence": "high", "reason": "Dark default contact-link shadow.", "source": "docs/research/fecoelho-com-br/source.html:54" },
+      "--elev-raised": { "value": "0 1px 2px rgba(0,0,0,.3), 0 16px 40px rgba(0,0,0,.45)", "confidence": "high", "reason": "Dark portrait and hover elevation.", "source": "docs/research/fecoelho-com-br/source.html:53" }
+    }
+  }
+}

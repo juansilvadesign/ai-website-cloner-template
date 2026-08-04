@@ -1,0 +1,62 @@
+---
+import "../styles/clone.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  ogImage?: string;
+}
+
+const {
+  title = "Fernanda Coelho — Contato",
+  description =
+    "Cartão de contato da Fernanda Coelho — IA aplicada ao negócio. WhatsApp, LinkedIn, site e e-mail em um só lugar.",
+  canonical = "https://fecoelho.com.br/card/",
+  ogImage = "/clones/fecoelho-com-br/seo/og-image.jpg",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <link rel="canonical" href={canonical} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta
+      property="og:description"
+      content="Meus contatos em um só lugar: WhatsApp, LinkedIn, site e e-mail."
+    />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/clones/fecoelho-com-br/seo/favicon.svg"
+    />
+    <script is:inline>
+      (() => {
+        const preference = window.matchMedia("(prefers-color-scheme: dark)");
+        const applyTheme = () => {
+          document.documentElement.dataset.theme = preference.matches
+            ? "dark"
+            : "light";
+        };
+        applyTheme();
+        preference.addEventListener?.("change", applyTheme);
+      })();
+    </script>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

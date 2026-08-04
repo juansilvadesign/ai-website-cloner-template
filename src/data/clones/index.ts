@@ -15,9 +15,11 @@ import type { Clone } from "./types";
 import { completeShelfClone } from "../../clones/complete-shelf/clone.config";
 import { fesnClone } from "../../clones/fesn/clone.config";
 import { appcieClone } from "../../clones/appcie/clone.config";
+import { fecoelhoClone } from "../../clones/fecoelho-com-br/clone.config";
 
 /** Every registered clone, newest extraction first. */
 export const allClones: Clone[] = [
+  fecoelhoClone,
   completeShelfClone,
   appcieClone,
   fesnClone,

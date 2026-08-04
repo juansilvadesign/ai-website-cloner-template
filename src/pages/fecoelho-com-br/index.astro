@@ -1,0 +1,22 @@
+---
+import BaseLayout from "../../clones/fecoelho-com-br/layouts/BaseLayout.astro";
+import ContactFooter from "../../clones/fecoelho-com-br/components/ContactFooter.astro";
+import ContactLinks from "../../clones/fecoelho-com-br/components/ContactLinks.astro";
+import ProfileHeader from "../../clones/fecoelho-com-br/components/ProfileHeader.astro";
+---
+
+<BaseLayout>
+  <main class="contact-card" aria-label="Cartão de contato de Fernanda Coelho">
+    <ProfileHeader />
+    <ContactLinks />
+    <ContactFooter />
+  </main>
+</BaseLayout>
+
+<style>
+  .contact-card {
+    width: 100%;
+    max-width: var(--container-max);
+    text-align: center;
+  }
+</style>

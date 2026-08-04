@@ -1,0 +1,380 @@
+{
+  "schemaVersion": 1,
+  "brandId": "fecoelho-com-br",
+  "source": {
+    "componentsHtml": "components.html",
+    "tokensCss": "tokens.css"
+  },
+  "fixture": {
+    "title": "Fernanda Coelho — Components",
+    "description": "Component fixture for the Fernanda Coelho contact-card design system.",
+    "styleBlockCount": 1,
+    "selectorCount": 21,
+    "classCount": 16,
+    "elementCount": 19
+  },
+  "tokens": {
+    "declared": [
+      "--accent",
+      "--accent-active",
+      "--accent-hover",
+      "--accent-on",
+      "--bg",
+      "--border",
+      "--border-soft",
+      "--container-gutter-desktop",
+      "--container-gutter-phone",
+      "--container-gutter-tablet",
+      "--container-max",
+      "--danger",
+      "--ease-standard",
+      "--elev-flat",
+      "--elev-raised",
+      "--elev-ring",
+      "--fg",
+      "--fg-2",
+      "--focus-ring",
+      "--font-body",
+      "--font-display",
+      "--font-mono",
+      "--leading-body",
+      "--leading-tight",
+      "--meta",
+      "--motion-base",
+      "--motion-fast",
+      "--muted",
+      "--radius-lg",
+      "--radius-md",
+      "--radius-pill",
+      "--radius-sm",
+      "--section-y-desktop",
+      "--section-y-phone",
+      "--section-y-tablet",
+      "--space-1",
+      "--space-12",
+      "--space-2",
+      "--space-3",
+      "--space-4",
+      "--space-5",
+      "--space-6",
+      "--space-8",
+      "--success",
+      "--surface",
+      "--surface-warm",
+      "--text-2xl",
+      "--text-3xl",
+      "--text-4xl",
+      "--text-base",
+      "--text-lg",
+      "--text-sm",
+      "--text-xl",
+      "--text-xs",
+      "--tracking-display",
+      "--warn"
+    ],
+    "referenced": [
+      "--accent",
+      "--accent-hover",
+      "--accent-on",
+      "--bg",
+      "--border",
+      "--container-gutter-phone",
+      "--container-max",
+      "--ease-standard",
+      "--elev-raised",
+      "--elev-ring",
+      "--fg",
+      "--fg-2",
+      "--font-body",
+      "--font-display",
+      "--leading-body",
+      "--leading-tight",
+      "--meta",
+      "--motion-fast",
+      "--muted",
+      "--radius-md",
+      "--radius-pill",
+      "--radius-sm",
+      "--section-y-desktop",
+      "--space-1",
+      "--space-12",
+      "--space-2",
+      "--space-3",
+      "--space-4",
+      "--space-5",
+      "--space-6",
+      "--space-8",
+      "--surface",
+      "--surface-warm",
+      "--text-3xl",
+      "--text-4xl",
+      "--text-base",
+      "--text-lg",
+      "--text-sm",
+      "--text-xl",
+      "--text-xs",
+      "--tracking-display"
+    ],
+    "unusedDeclared": [
+      "--accent-active",
+      "--border-soft",
+      "--container-gutter-desktop",
+      "--container-gutter-tablet",
+      "--danger",
+      "--elev-flat",
+      "--focus-ring",
+      "--font-mono",
+      "--motion-base",
+      "--radius-lg",
+      "--section-y-phone",
+      "--section-y-tablet",
+      "--success",
+      "--text-2xl",
+      "--warn"
+    ],
+    "undeclaredReferenced": []
+  },
+  "selectors": [
+    ".body-muted",
+    ".card-profile",
+    ".card-profile__initials",
+    ".card-profile__portrait",
+    ".icon-slot",
+    ".icon-slot svg",
+    ".layout-signature a",
+    ".link-contact__arrow",
+    ".link-contact__copy",
+    ".link-contact__meta",
+    ".link-contact--primary",
+    ".link-contact:active",
+    ".link-contact:hover",
+    ".profile-role",
+    "*",
+    "a.link-contact",
+    "body",
+    "footer.layout-signature",
+    "h1.profile-name",
+    "main.fixture-layout",
+    "nav.stack-4"
+  ],
+  "classes": [
+    "body-muted",
+    "btn-contact",
+    "card-profile",
+    "card-profile__initials",
+    "card-profile__portrait",
+    "fixture-layout",
+    "icon-slot",
+    "layout-signature",
+    "link-contact",
+    "link-contact__arrow",
+    "link-contact__copy",
+    "link-contact__meta",
+    "link-contact--primary",
+    "profile-name",
+    "profile-role",
+    "stack-4"
+  ],
+  "elements": [
+    "a",
+    "body",
+    "circle",
+    "div",
+    "footer",
+    "h1",
+    "head",
+    "html",
+    "link",
+    "main",
+    "meta",
+    "nav",
+    "p",
+    "path",
+    "section",
+    "span",
+    "style",
+    "svg",
+    "title"
+  ],
+  "groups": [
+    {
+      "id": "buttons",
+      "label": "Buttons and calls to action",
+      "present": true,
+      "selectors": [],
+      "classes": [
+        "btn-contact"
+      ],
+      "elements": [],
+      "tokenReferences": []
+    },
+    {
+      "id": "inputs",
+      "label": "Form fields and controls",
+      "present": false,
+      "selectors": [],
+      "classes": [],
+      "elements": [],
+      "tokenReferences": []
+    },
+    {
+      "id": "cards",
+      "label": "Cards and panels",
+      "present": true,
+      "selectors": [
+        ".card-profile",
+        ".card-profile__initials",
+        ".card-profile__portrait"
+      ],
+      "classes": [
+        "card-profile",
+        "card-profile__initials",
+        "card-profile__portrait"
+      ],
+      "elements": [],
+      "tokenReferences": [
+        "--accent",
+        "--accent-hover",
+        "--elev-raised",
+        "--radius-pill",
+        "--space-2",
+        "--space-6"
+      ]
+    },
+    {
+      "id": "badges",
+      "label": "Badges, chips, and status labels",
+      "present": false,
+      "selectors": [],
+      "classes": [],
+      "elements": [],
+      "tokenReferences": []
+    },
+    {
+      "id": "links",
+      "label": "Links and inline actions",
+      "present": true,
+      "selectors": [
+        ".layout-signature a",
+        ".link-contact__arrow",
+        ".link-contact__copy",
+        ".link-contact__meta",
+        ".link-contact--primary",
+        ".link-contact:active",
+        ".link-contact:hover",
+        "a.link-contact"
+      ],
+      "classes": [
+        "link-contact",
+        "link-contact__arrow",
+        "link-contact__copy",
+        "link-contact__meta",
+        "link-contact--primary"
+      ],
+      "elements": [
+        "a"
+      ],
+      "tokenReferences": [
+        "--accent",
+        "--border",
+        "--ease-standard",
+        "--elev-ring",
+        "--fg",
+        "--motion-fast",
+        "--muted",
+        "--radius-md",
+        "--space-1",
+        "--space-2",
+        "--space-5",
+        "--surface",
+        "--text-xl"
+      ]
+    },
+    {
+      "id": "keyboard",
+      "label": "Keyboard hints",
+      "present": false,
+      "selectors": [],
+      "classes": [],
+      "elements": [],
+      "tokenReferences": []
+    },
+    {
+      "id": "icons",
+      "label": "Icon slots",
+      "present": true,
+      "selectors": [
+        ".icon-slot",
+        ".icon-slot svg"
+      ],
+      "classes": [
+        "icon-slot"
+      ],
+      "elements": [
+        "svg"
+      ],
+      "tokenReferences": [
+        "--accent",
+        "--radius-sm",
+        "--space-12",
+        "--surface-warm"
+      ]
+    },
+    {
+      "id": "typography",
+      "label": "Typography scale and text utilities",
+      "present": true,
+      "selectors": [
+        ".body-muted",
+        "h1.profile-name"
+      ],
+      "classes": [
+        "body-muted"
+      ],
+      "elements": [
+        "h1",
+        "p"
+      ],
+      "tokenReferences": [
+        "--fg",
+        "--font-display",
+        "--leading-tight",
+        "--muted",
+        "--space-2",
+        "--text-4xl",
+        "--text-base",
+        "--tracking-display"
+      ]
+    },
+    {
+      "id": "layout",
+      "label": "Layout primitives",
+      "present": true,
+      "selectors": [
+        "main.fixture-layout",
+        "nav.stack-4"
+      ],
+      "classes": [
+        "fixture-layout",
+        "layout-signature",
+        "stack-4"
+      ],
+      "elements": [
+        "footer",
+        "main",
+        "nav",
+        "section"
+      ],
+      "tokenReferences": [
+        "--container-gutter-phone",
+        "--container-max",
+        "--section-y-desktop"
+      ]
+    }
+  ],
+  "literals": {
+    "colorExpressions": 2,
+    "pixelValues": 6,
+    "hardcodedFontFamilies": 3
+  }
+}

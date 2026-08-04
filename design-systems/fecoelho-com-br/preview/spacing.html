@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fernanda Coelho — Spacing</title>
+    <link rel="stylesheet" href="../tokens.css" />
+    <style>
+      body { margin: 0; padding: var(--section-y-desktop); background: var(--bg); color: var(--fg); font-family: var(--font-body); }
+      h1 { font-family: var(--font-display); font-size: var(--text-3xl); }
+      .scale { display: grid; gap: var(--space-4); max-width: var(--container-max); }
+      .row { display: grid; grid-template-columns: 90px 1fr; align-items: center; gap: var(--space-4); color: var(--fg-2); font-size: var(--text-sm); }
+      .bar { height: var(--space-3); border-radius: var(--radius-pill); background: linear-gradient(90deg, var(--accent), var(--accent-hover)); }
+      .s1 { width: var(--space-1); } .s2 { width: var(--space-2); } .s3 { width: var(--space-3); } .s4 { width: var(--space-4); }
+      .s5 { width: var(--space-5); } .s6 { width: var(--space-6); } .s8 { width: var(--space-8); } .s12 { width: var(--space-12); }
+    </style>
+  </head>
+  <body>
+    <h1>Evidence-shaped spacing</h1>
+    <div class="scale">
+      <div class="row"><span>space-1 · 1</span><span class="bar s1"></span></div>
+      <div class="row"><span>space-2 · 4</span><span class="bar s2"></span></div>
+      <div class="row"><span>space-3 · 8</span><span class="bar s3"></span></div>
+      <div class="row"><span>space-4 · 12</span><span class="bar s4"></span></div>
+      <div class="row"><span>space-5 · 14</span><span class="bar s5"></span></div>
+      <div class="row"><span>space-6 · 20</span><span class="bar s6"></span></div>
+      <div class="row"><span>space-8 · 28</span><span class="bar s8"></span></div>
+      <div class="row"><span>space-12 · 40</span><span class="bar s12"></span></div>
+    </div>
+  </body>
+</html>

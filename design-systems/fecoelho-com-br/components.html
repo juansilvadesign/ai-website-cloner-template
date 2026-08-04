@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Component fixture for the Fernanda Coelho contact-card design system." />
+    <title>Fernanda Coelho — Components</title>
+    <link rel="stylesheet" href="./tokens.css" />
+    <style>
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--fg);
+        font-family: var(--font-body);
+        font-size: var(--text-lg);
+        line-height: var(--leading-body);
+      }
+
+      main.fixture-layout {
+        width: min(100% - calc(var(--container-gutter-phone) * 2), var(--container-max));
+        margin-inline: auto;
+        padding-block: var(--section-y-desktop);
+      }
+
+      .card-profile {
+        text-align: center;
+      }
+
+      .card-profile__portrait {
+        display: grid;
+        place-items: center;
+        width: 132px;
+        height: 132px;
+        margin: 0 auto var(--space-6);
+        padding: var(--space-2);
+        border-radius: var(--radius-pill);
+        background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+        box-shadow: var(--elev-raised);
+      }
+
+      .card-profile__initials {
+        display: grid;
+        place-items: center;
+        width: 100%;
+        height: 100%;
+        border: 3px solid var(--surface);
+        border-radius: var(--radius-pill);
+        background: var(--surface-warm);
+        color: var(--accent);
+        font-family: var(--font-display);
+        font-size: var(--text-3xl);
+        font-weight: 700;
+      }
+
+      h1.profile-name {
+        margin: 0;
+        color: var(--fg);
+        font-family: var(--font-display);
+        font-size: var(--text-4xl);
+        line-height: var(--leading-tight);
+        letter-spacing: var(--tracking-display);
+      }
+
+      .profile-role {
+        margin: var(--space-3) 0 0;
+        color: var(--fg-2);
+        font-size: var(--text-lg);
+        font-weight: 500;
+      }
+
+      .body-muted {
+        margin: var(--space-2) 0 0;
+        color: var(--muted);
+        font-size: var(--text-base);
+      }
+
+      nav.stack-4 {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-4);
+        margin-top: var(--space-8);
+      }
+
+      a.link-contact {
+        display: flex;
+        align-items: center;
+        gap: var(--space-5);
+        padding: calc(var(--space-5) + var(--space-1)) calc(var(--space-5) + var(--space-2));
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+        background: var(--surface);
+        box-shadow: var(--elev-ring);
+        color: var(--fg);
+        font-size: var(--text-xl);
+        font-weight: 600;
+        text-decoration: none;
+        transition: transform var(--motion-fast) var(--ease-standard),
+          box-shadow var(--motion-fast) var(--ease-standard),
+          border-color var(--motion-fast) var(--ease-standard);
+      }
+
+      .link-contact:hover {
+        border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+        box-shadow: var(--elev-raised);
+      }
+
+      .link-contact:active {
+        transform: scale(.985);
+      }
+
+      .link-contact--primary {
+        border-color: transparent;
+        background: linear-gradient(135deg, var(--accent), color-mix(in srgb, var(--accent) 70%, var(--accent-hover)));
+        color: var(--accent-on);
+      }
+
+      .icon-slot {
+        display: grid;
+        flex: 0 0 var(--space-12);
+        width: var(--space-12);
+        height: var(--space-12);
+        place-items: center;
+        border-radius: var(--radius-sm);
+        background: var(--surface-warm);
+        color: var(--accent);
+      }
+
+      .icon-slot svg {
+        width: 21px;
+        height: 21px;
+      }
+
+      .link-contact__copy {
+        flex: 1;
+        text-align: left;
+      }
+
+      .link-contact__meta {
+        display: block;
+        margin-top: var(--space-1);
+        color: var(--meta);
+        font-size: var(--text-xs);
+        font-weight: 400;
+      }
+
+      .link-contact__arrow {
+        color: var(--muted);
+      }
+
+      footer.layout-signature {
+        margin-top: calc(var(--space-8) - var(--space-1) - var(--space-1));
+        color: var(--meta);
+        font-size: var(--text-sm);
+        text-align: center;
+      }
+
+      .layout-signature a {
+        color: var(--accent);
+        font-weight: 600;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="fixture-layout">
+      <section class="card-profile" aria-labelledby="fixture-name">
+        <div class="card-profile__portrait" aria-hidden="true">
+          <span class="card-profile__initials">FC</span>
+        </div>
+        <h1 class="profile-name" id="fixture-name">Fernanda Coelho</h1>
+        <p class="profile-role">IA aplicada ao negócio</p>
+        <p class="body-muted">Dados · Produtos · Inovação</p>
+      </section>
+
+      <nav class="stack-4" aria-label="Exemplos de contato">
+        <a class="link-contact link-contact--primary btn-contact" href="#contact">
+          <span class="icon-slot" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="7" r="4" /><path d="M19 8v6M22 11h-6" /></svg>
+          </span>
+          <span class="link-contact__copy">Salvar contato<span class="link-contact__meta">Adicionar à agenda</span></span>
+          <span class="link-contact__arrow" aria-hidden="true">↓</span>
+        </a>
+        <a class="link-contact" href="#message">
+          <span class="icon-slot" aria-hidden="true">✦</span>
+          <span class="link-contact__copy">WhatsApp<span class="link-contact__meta">Mandar mensagem</span></span>
+          <span class="link-contact__arrow" aria-hidden="true">↗</span>
+        </a>
+      </nav>
+
+      <footer class="layout-signature">✦ <a href="#brand">fecoelho.com.br</a></footer>
+    </main>
+  </body>
+</html>

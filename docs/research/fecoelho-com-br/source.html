@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fernanda Coelho — Contato</title>
+  <meta name="description" content="Cartão de contato da Fernanda Coelho — IA aplicada ao negócio. WhatsApp, LinkedIn, site e e-mail em um só lugar." />
+  <link rel="canonical" href="https://fecoelho.com.br/card/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Fernanda Coelho — Contato" />
+  <meta property="og:description" content="Meus contatos em um só lugar: WhatsApp, LinkedIn, site e e-mail." />
+  <meta property="og:url" content="https://fecoelho.com.br/card/" />
+  <meta property="og:image" content="https://fecoelho.com.br/assets/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #faf8f5;
+      --bg-elev: #ffffff;
+      --bg-soft: #f2eee8;
+      --ink: #191410;
+      --ink-soft: #4a423b;
+      --ink-mute: #8a7f74;
+      --line: #e6ddd2;
+      --accent: #d1553b;
+      --accent-2: #6b4bd6;
+      --accent-ink: #ffffff;
+      --shadow: 0 1px 2px rgba(25, 20, 16, .04), 0 12px 32px rgba(25, 20, 16, .08);
+      --shadow-sm: 0 1px 2px rgba(25, 20, 16, .05), 0 6px 16px rgba(25, 20, 16, .06);
+      --radius: 18px;
+      --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+      --font-display: "Space Grotesk", "Inter", system-ui, sans-serif;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0e0c0b;
+        --bg-elev: #1a1614;
+        --bg-soft: #201b18;
+        --ink: #f4efe9;
+        --ink-soft: #c9bfb4;
+        --ink-mute: #8f8478;
+        --line: #2c2622;
+        --accent: #f0714f;
+        --accent-2: #9c85f0;
+        --accent-ink: #17110d;
+        --shadow: 0 1px 2px rgba(0,0,0,.3), 0 16px 40px rgba(0,0,0,.45);
+        --shadow-sm: 0 1px 2px rgba(0,0,0,.3), 0 8px 20px rgba(0,0,0,.35);
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      font-family: var(--font-sans);
+      background:
+        radial-gradient(1200px 600px at 50% -10%, color-mix(in srgb, var(--accent) 14%, transparent), transparent 60%),
+        var(--bg);
+      color: var(--ink);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 28px 20px calc(28px + env(safe-area-inset-bottom));
+    }
+    a { color: inherit; text-decoration: none; }
+
+    .card {
+      width: 100%;
+      max-width: 420px;
+      text-align: center;
+    }
+
+    /* Avatar */
+    .avatar-wrap {
+      width: 132px;
+      height: 132px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      padding: 4px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: var(--shadow);
+    }
+    .avatar {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: 50% 50%;
+      background: var(--bg-soft);
+      display: block;
+      border: 3px solid var(--bg-elev);
+    }
+
+    .name {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.85rem;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+    .role {
+      margin-top: 8px;
+      color: var(--ink-soft);
+      font-size: 1rem;
+      font-weight: 500;
+    }
+    .role .dot { color: var(--accent); font-weight: 700; }
+    .tagline {
+      margin-top: 4px;
+      color: var(--ink-mute);
+      font-size: .9rem;
+    }
+
+    /* Links */
+    .links {
+      margin-top: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .link {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 15px 18px;
+      background: var(--bg-elev);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      font-weight: 600;
+      font-size: 1.02rem;
+      transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+    }
+    .link:active { transform: scale(.985); }
+    @media (hover: hover) {
+      .link:hover { box-shadow: var(--shadow); border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); }
+    }
+    .link .ico {
+      flex: 0 0 40px;
+      width: 40px; height: 40px;
+      display: grid; place-items: center;
+      border-radius: 12px;
+      background: var(--bg-soft);
+      color: var(--accent);
+    }
+    .link .ico svg { width: 21px; height: 21px; display: block; }
+    .link .txt { flex: 1; text-align: left; }
+    .link .sub {
+      display: block;
+      font-weight: 400;
+      font-size: .8rem;
+      color: var(--ink-mute);
+      margin-top: 1px;
+    }
+    .link .arr { color: var(--ink-mute); flex: 0 0 auto; }
+
+    /* Primary save-contact button */
+    .link.primary {
+      background: linear-gradient(135deg, var(--accent), color-mix(in srgb, var(--accent) 70%, var(--accent-2)));
+      color: var(--accent-ink);
+      border-color: transparent;
+    }
+    .link.primary .ico { background: rgba(255,255,255,.18); color: var(--accent-ink); }
+    .link.primary .sub { color: color-mix(in srgb, var(--accent-ink) 82%, transparent); }
+    .link.primary .arr { color: color-mix(in srgb, var(--accent-ink) 75%, transparent); }
+
+    .foot {
+      margin-top: 26px;
+      font-size: .82rem;
+      color: var(--ink-mute);
+    }
+    .foot a { color: var(--accent); font-weight: 600; }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="avatar-wrap">
+      <img class="avatar" src="fernanda-avatar.jpg" alt="Fernanda Coelho" width="132" height="132" />
+    </div>
+
+    <h1 class="name">Fernanda Coelho</h1>
+    <p class="role">IA aplicada ao negócio</p>
+    <p class="tagline">Dados · Produtos · Inovação</p>
+
+    <nav class="links" aria-label="Meus contatos">
+      <a class="link primary" href="fernanda-coelho.vcf" download>
+        <span class="ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg>
+        </span>
+        <span class="txt">Salvar contato<span class="sub">Adicionar à agenda do celular</span></span>
+        <span class="arr" aria-hidden="true">↓</span>
+      </a>
+
+      <a class="link" href="https://wa.me/5521998669695" target="_blank" rel="noopener">
+        <span class="ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm5.8 14.13c-.24.68-1.42 1.32-1.95 1.36-.5.05-.5.4-3.15-.66-2.65-1.06-4.3-3.75-4.43-3.92-.13-.17-1.06-1.4-1.06-2.67 0-1.27.67-1.9.9-2.16.24-.26.52-.32.7-.32.17 0 .35 0 .5.01.16.01.38-.06.6.46.23.53.77 1.83.84 1.96.07.13.11.29.02.46-.09.17-.13.29-.26.44-.13.15-.28.34-.4.46-.13.13-.27.28-.11.55.16.26.7 1.16 1.51 1.88 1.04.93 1.92 1.21 2.19 1.34.26.13.42.11.57-.07.16-.17.66-.77.83-1.03.17-.26.35-.22.59-.13.24.09 1.53.72 1.79.85.26.13.43.19.5.3.06.11.06.64-.18 1.32Z"/></svg>
+        </span>
+        <span class="txt">WhatsApp<span class="sub">Mandar mensagem</span></span>
+        <span class="arr" aria-hidden="true">↗</span>
+      </a>
+
+      <a class="link" href="https://www.linkedin.com/in/fernanda-c-dreilich" target="_blank" rel="noopener">
+        <span class="ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14ZM7.12 20.45H3.55V9h3.57v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+        </span>
+        <span class="txt">LinkedIn<span class="sub">fernanda-c-dreilich</span></span>
+        <span class="arr" aria-hidden="true">↗</span>
+      </a>
+
+      <a class="link" href="https://fecoelho.com.br" target="_blank" rel="noopener">
+        <span class="ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z"/></svg>
+        </span>
+        <span class="txt">Site<span class="sub">fecoelho.com.br</span></span>
+        <span class="arr" aria-hidden="true">↗</span>
+      </a>
+
+      <a class="link" href="mailto:fernandadreilich@gmail.com">
+        <span class="ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+        </span>
+        <span class="txt">E-mail<span class="sub">fernandadreilich@gmail.com</span></span>
+        <span class="arr" aria-hidden="true">↗</span>
+      </a>
+    </nav>
+
+    <p class="foot">✦ <a href="https://fecoelho.com.br">fecoelho.com.br</a></p>
+  </main>
+</body>
+</html>

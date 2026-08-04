@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fernanda Coelho — Colors</title>
+    <link rel="stylesheet" href="../tokens.css" />
+    <style>
+      body { margin: 0; padding: var(--section-y-desktop); background: var(--bg); color: var(--fg); font-family: var(--font-body); }
+      h1 { font-family: var(--font-display); font-size: var(--text-3xl); }
+      .swatches { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--space-4); max-width: 900px; }
+      .swatch { overflow: hidden; border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--surface); box-shadow: var(--elev-ring); }
+      .tone { height: 96px; }
+      .label { padding: var(--space-4); color: var(--fg-2); font-size: var(--text-sm); }
+      .bg { background: var(--bg); } .surface { background: var(--surface); } .warm { background: var(--surface-warm); }
+      .fg { background: var(--fg); } .accent { background: var(--accent); } .violet { background: var(--accent-hover); }
+    </style>
+  </head>
+  <body>
+    <h1>Color roles</h1>
+    <div class="swatches">
+      <div class="swatch"><div class="tone bg"></div><div class="label">Canvas · --bg</div></div>
+      <div class="swatch"><div class="tone surface"></div><div class="label">Surface · --surface</div></div>
+      <div class="swatch"><div class="tone warm"></div><div class="label">Warm surface · --surface-warm</div></div>
+      <div class="swatch"><div class="tone fg"></div><div class="label">Primary ink · --fg</div></div>
+      <div class="swatch"><div class="tone accent"></div><div class="label">Terracotta · --accent</div></div>
+      <div class="swatch"><div class="tone violet"></div><div class="label">Violet · --accent-hover</div></div>
+    </div>
+  </body>
+</html>

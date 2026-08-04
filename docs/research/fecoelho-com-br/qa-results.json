@@ -1,0 +1,568 @@
+{
+  "capturedAt": "2026-08-04T05:41:06.277Z",
+  "cloneUrl": "http://127.0.0.1:4322/fecoelho-com-br/",
+  "browser": "Chromium headless via Chrome DevTools Protocol",
+  "viewports": [
+    {
+      "label": "1440",
+      "width": 1440,
+      "height": 1000,
+      "mobile": false
+    },
+    {
+      "label": "390",
+      "width": 390,
+      "height": 844,
+      "mobile": true
+    }
+  ],
+  "captures": {
+    "light-1440": {
+      "destination": "/home/jaypy/GitHub-Projects/Notes/ai-synthesizer/knowledge/projects/ai-website-cloner-template/docs/design-references/fecoelho-com-br/qa/clone-1440.png",
+      "width": 1440,
+      "height": 1000
+    },
+    "light-390": {
+      "destination": "/home/jaypy/GitHub-Projects/Notes/ai-synthesizer/knowledge/projects/ai-website-cloner-template/docs/design-references/fecoelho-com-br/qa/clone-390.png",
+      "width": 390,
+      "height": 844
+    },
+    "dark-1440": {
+      "destination": "/home/jaypy/GitHub-Projects/Notes/ai-synthesizer/knowledge/projects/ai-website-cloner-template/docs/design-references/fecoelho-com-br/qa/clone-dark-1440.png",
+      "width": 1440,
+      "height": 1000
+    },
+    "dark-390": {
+      "destination": "/home/jaypy/GitHub-Projects/Notes/ai-synthesizer/knowledge/projects/ai-website-cloner-template/docs/design-references/fecoelho-com-br/qa/clone-dark-390.png",
+      "width": 390,
+      "height": 844
+    }
+  },
+  "resting": {
+    "title": "Fernanda Coelho — Contato",
+    "lang": "pt-BR",
+    "theme": "light",
+    "text": "Fernanda Coelho\n\nIA aplicada ao negócio\n\nDados · Produtos · Inovação\n\nSalvar contato\nAdicionar à agenda do celular\n↓\nWhatsApp\nMandar mensagem\n↗\nLinkedIn\nfernanda-c-dreilich\n↗\nSite\nfecoelho.com.br\n↗\nE-mail\nfernandadreilich@gmail.com\n↗\n✦ fecoelho.com.br",
+    "anchors": [
+      {
+        "href": "http://127.0.0.1:4322/clones/fecoelho-com-br/fernanda-coelho.vcf",
+        "target": "",
+        "rel": "",
+        "download": "",
+        "text": "Salvar contato\nAdicionar à agenda do celular\n↓"
+      },
+      {
+        "href": "https://wa.me/5521998669695",
+        "target": "_blank",
+        "rel": "noopener",
+        "download": "",
+        "text": "WhatsApp\nMandar mensagem\n↗"
+      },
+      {
+        "href": "https://www.linkedin.com/in/fernanda-c-dreilich",
+        "target": "_blank",
+        "rel": "noopener",
+        "download": "",
+        "text": "LinkedIn\nfernanda-c-dreilich\n↗"
+      },
+      {
+        "href": "https://fecoelho.com.br/",
+        "target": "_blank",
+        "rel": "noopener",
+        "download": "",
+        "text": "Site\nfecoelho.com.br\n↗"
+      },
+      {
+        "href": "mailto:fernandadreilich@gmail.com",
+        "target": "",
+        "rel": "",
+        "download": "",
+        "text": "E-mail\nfernandadreilich@gmail.com\n↗"
+      },
+      {
+        "href": "https://fecoelho.com.br/",
+        "target": "",
+        "rel": "",
+        "download": "",
+        "text": "fecoelho.com.br"
+      }
+    ],
+    "image": {
+      "src": "http://127.0.0.1:4322/clones/fecoelho-com-br/images/fernanda-avatar.jpg",
+      "alt": "Fernanda Coelho",
+      "naturalWidth": 512,
+      "naturalHeight": 512
+    },
+    "styles": {
+      "body": {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 1000,
+          "top": 0,
+          "right": 1440,
+          "bottom": 1000,
+          "left": 0
+        },
+        "color": "rgb(25, 20, 16)",
+        "background": "radial-gradient(1200px 600px at 50% -10%, color(srgb 0.819608 0.333333 0.231373 / 0.14), rgba(0, 0, 0, 0) 60%) repeat scroll 0% 0% / auto padding-box border-box, rgb(250, 248, 245) none repeat scroll 0% 0% / auto padding-box border-box",
+        "border": "0px none rgb(25, 20, 16)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "fontFamily": "Inter, system-ui, -apple-system, sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "24px",
+        "letterSpacing": "normal",
+        "padding": "28px 20px",
+        "margin": "0px",
+        "gap": "normal",
+        "transition": "all",
+        "transform": "none"
+      },
+      ".contact-card": {
+        "rect": {
+          "x": 510,
+          "y": 126.4375,
+          "width": 420,
+          "height": 747.125,
+          "top": 126.4375,
+          "right": 930,
+          "bottom": 873.5625,
+          "left": 510
+        },
+        "color": "rgb(25, 20, 16)",
+        "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+        "border": "0px none rgb(25, 20, 16)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "fontFamily": "Inter, system-ui, -apple-system, sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "24px",
+        "letterSpacing": "normal",
+        "padding": "0px",
+        "margin": "0px",
+        "gap": "normal",
+        "transition": "all",
+        "transform": "none"
+      },
+      ".avatar-wrap": {
+        "rect": {
+          "x": 654,
+          "y": 126.4375,
+          "width": 132,
+          "height": 132,
+          "top": 126.4375,
+          "right": 786,
+          "bottom": 258.4375,
+          "left": 654
+        },
+        "color": "rgb(25, 20, 16)",
+        "background": "rgba(0, 0, 0, 0) linear-gradient(135deg, rgb(209, 85, 59), rgb(107, 75, 214)) repeat scroll 0% 0% / auto padding-box border-box",
+        "border": "0px none rgb(25, 20, 16)",
+        "borderRadius": "9999px",
+        "boxShadow": "rgba(25, 20, 16, 0.04) 0px 1px 2px 0px, rgba(25, 20, 16, 0.08) 0px 12px 32px 0px",
+        "fontFamily": "Inter, system-ui, -apple-system, sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "24px",
+        "letterSpacing": "normal",
+        "padding": "4px",
+        "margin": "0px 144px 20px",
+        "gap": "normal",
+        "transition": "all",
+        "transform": "none"
+      },
+      ".avatar": {
+        "rect": {
+          "x": 658,
+          "y": 130.4375,
+          "width": 124,
+          "height": 124,
+          "top": 130.4375,
+          "right": 782,
+          "bottom": 254.4375,
+          "left": 658
+        },
+        "color": "rgb(25, 20, 16)",
+        "background": "rgb(242, 238, 232) none repeat scroll 0% 0% / auto padding-box border-box",
+        "border": "3px solid rgb(255, 255, 255)",
+        "borderRadius": "9999px",
+        "boxShadow": "none",
+        "fontFamily": "Inter, system-ui, -apple-system, sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "24px",
+        "letterSpacing": "normal",
+        "padding": "0px",
+        "margin": "0px",
+        "gap": "normal",
+        "transition": "all",
+        "transform": "none"
+      },
+      ".name": {
+        "rect": {
+          "x": 510,
+          "y": 278.4375,
+          "width": 420,
+          "height": 32.546875,
+          "top": 278.4375,
+          "right": 930,
+          "bottom": 310.984375,
+          "left": 510
+        },
+        "color": "rgb(25, 20, 16)",
+        "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+        "border": "0px none rgb(25, 20, 16)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "fontFamily": "\"Space Grotesk\", Inter, system-ui, sans-serif",
+        "fontSize": "29.6px",
+        "fontWeight": "700",
+        "lineHeight": "32.56px",
+        "letterSpacing": "-0.592px",
+        "padding": "0px",
+        "margin": "0px",
+        "gap": "normal",
+        "transition": "all",
+        "transform": "none"
+      },
+      ".role": {
+        "rect": {
+          "x": 510,
+          "y": 318.984375,
+          "width": 420,
+          "height": 24,
+          "top": 318.984375,
+          "right": 930,
+          "bottom": 342.984375,
+          "left": 510
+        },
+        "color": "rgb(74, 66, 59)",
+        "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+        "border": "0px none rgb(74, 66, 59)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "fontFamily": "Inter, system-ui, -apple-system, sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "500",
+        "lineHeight": "24px",
+        "letterSpacing": "normal",
+        "padding": "0px",
+        "margin": "8px 0px 0px",
+        "gap": "normal",
+        "transition": "all",
+        "transform": "none"
+      },
+      ".tagline": {
+        "rect": {
+          "x": 510,
+          "y": 346.984375,
+          "width": 420,
+          "height": 21.609375,
+          "top": 346.984375,
+          "right": 930,
+          "bottom": 368.59375,
+          "left": 510
+        },
+        "color": "rgb(138, 127, 116)",
+        "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+        "border": "0px none rgb(138, 127, 116)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "fontFamily": "Inter, system-ui, -apple-system, sans-serif",
+        "fontSize": "14.4px",
+        "fontWeight": "400",
+        "lineHeight": "21.6px",
+        "letterSpacing": "normal",
+        "padding": "0px",
+        "margin": "4px 0px 0px",
+        "gap": "normal",
+        "transition": "all",
+        "transform": "none"
+      },
+      ".links": {
+        "rect": {
+          "x": 510,
+          "y": 396.59375,
+          "width": 420,
+          "height": 431.28125,
+          "top": 396.59375,
+          "right": 930,
+          "bottom": 827.875,
+          "left": 510
+        },
+        "color": "rgb(25, 20, 16)",
+        "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+        "border": "0px none rgb(25, 20, 16)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "fontFamily": "Inter, system-ui, -apple-system, sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "24px",
+        "letterSpacing": "normal",
+        "padding": "0px",
+        "margin": "28px 0px 0px",
+        "gap": "12px",
+        "transition": "all",
+        "transform": "none"
+      },
+      ".link": {
+        "rect": {
+          "x": 510,
+          "y": 396.59375,
+          "width": 420,
+          "height": 76.65625,
+          "top": 396.59375,
+          "right": 930,
+          "bottom": 473.25,
+          "left": 510
+        },
+        "color": "rgb(255, 255, 255)",
+        "background": "rgba(0, 0, 0, 0) linear-gradient(135deg, rgb(209, 85, 59), color(srgb 0.699608 0.321569 0.413725)) repeat scroll 0% 0% / auto padding-box border-box",
+        "border": "1px solid rgba(0, 0, 0, 0)",
+        "borderRadius": "18px",
+        "boxShadow": "rgba(17, 13, 11, 0.07) 0px 1px 2px 0px, rgba(17, 13, 11, 0.082) 0px 6.15104px 16.3021px 0px",
+        "fontFamily": "Inter, system-ui, -apple-system, sans-serif",
+        "fontSize": "16.32px",
+        "fontWeight": "600",
+        "lineHeight": "24.48px",
+        "letterSpacing": "normal",
+        "padding": "15px 18px",
+        "margin": "0px",
+        "gap": "14px",
+        "transition": "transform 0.15s, box-shadow 0.15s, border-color 0.15s",
+        "transform": "none"
+      },
+      ".link:not(.primary)": {
+        "rect": {
+          "x": 510,
+          "y": 485.25,
+          "width": 420,
+          "height": 76.65625,
+          "top": 485.25,
+          "right": 930,
+          "bottom": 561.90625,
+          "left": 510
+        },
+        "color": "rgb(25, 20, 16)",
+        "background": "rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box",
+        "border": "1px solid rgb(216, 207, 197)",
+        "borderRadius": "18px",
+        "boxShadow": "rgba(17, 13, 11, 0.07) 0px 1px 2px 0px, rgba(17, 13, 11, 0.082) 0px 6.15104px 16.3021px 0px",
+        "fontFamily": "Inter, system-ui, -apple-system, sans-serif",
+        "fontSize": "16.32px",
+        "fontWeight": "600",
+        "lineHeight": "24.48px",
+        "letterSpacing": "normal",
+        "padding": "15px 18px",
+        "margin": "0px",
+        "gap": "14px",
+        "transition": "transform 0.15s, box-shadow 0.15s, border-color 0.15s",
+        "transform": "none"
+      },
+      ".ico": {
+        "rect": {
+          "x": 529,
+          "y": 414.921875,
+          "width": 40,
+          "height": 40,
+          "top": 414.921875,
+          "right": 569,
+          "bottom": 454.921875,
+          "left": 529
+        },
+        "color": "rgb(255, 255, 255)",
+        "background": "rgba(255, 255, 255, 0.18) none repeat scroll 0% 0% / auto padding-box border-box",
+        "border": "0px none rgb(255, 255, 255)",
+        "borderRadius": "12px",
+        "boxShadow": "none",
+        "fontFamily": "Inter, system-ui, -apple-system, sans-serif",
+        "fontSize": "16.32px",
+        "fontWeight": "600",
+        "lineHeight": "24.48px",
+        "letterSpacing": "normal",
+        "padding": "0px",
+        "margin": "0px",
+        "gap": "normal",
+        "transition": "all",
+        "transform": "none"
+      },
+      ".txt": {
+        "rect": {
+          "x": 583,
+          "y": 412.59375,
+          "width": 299.609375,
+          "height": 44.65625,
+          "top": 412.59375,
+          "right": 882.609375,
+          "bottom": 457.25,
+          "left": 583
+        },
+        "color": "rgb(255, 255, 255)",
+        "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+        "border": "0px none rgb(255, 255, 255)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "fontFamily": "Inter, system-ui, -apple-system, sans-serif",
+        "fontSize": "16.32px",
+        "fontWeight": "600",
+        "lineHeight": "24.48px",
+        "letterSpacing": "normal",
+        "padding": "0px",
+        "margin": "0px",
+        "gap": "normal",
+        "transition": "all",
+        "transform": "none"
+      },
+      ".sub": {
+        "rect": {
+          "x": 583,
+          "y": 438.0625,
+          "width": 299.609375,
+          "height": 19.1875,
+          "top": 438.0625,
+          "right": 882.609375,
+          "bottom": 457.25,
+          "left": 583
+        },
+        "color": "color(srgb 1 1 1 / 0.82)",
+        "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+        "border": "0px none color(srgb 1 1 1 / 0.82)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "fontFamily": "Inter, system-ui, -apple-system, sans-serif",
+        "fontSize": "12.8px",
+        "fontWeight": "400",
+        "lineHeight": "19.2px",
+        "letterSpacing": "normal",
+        "padding": "0px",
+        "margin": "1px 0px 0px",
+        "gap": "normal",
+        "transition": "all",
+        "transform": "none"
+      },
+      ".arr": {
+        "rect": {
+          "x": 896.609375,
+          "y": 422.6875,
+          "width": 14.390625,
+          "height": 24.46875,
+          "top": 422.6875,
+          "right": 911,
+          "bottom": 447.15625,
+          "left": 896.609375
+        },
+        "color": "color(srgb 1 1 1 / 0.75)",
+        "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+        "border": "0px none color(srgb 1 1 1 / 0.75)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "fontFamily": "Inter, system-ui, -apple-system, sans-serif",
+        "fontSize": "16.32px",
+        "fontWeight": "600",
+        "lineHeight": "24.48px",
+        "letterSpacing": "normal",
+        "padding": "0px",
+        "margin": "0px",
+        "gap": "normal",
+        "transition": "all",
+        "transform": "none"
+      },
+      ".contact-footer": {
+        "rect": {
+          "x": 510,
+          "y": 853.875,
+          "width": 420,
+          "height": 19.6875,
+          "top": 853.875,
+          "right": 930,
+          "bottom": 873.5625,
+          "left": 510
+        },
+        "color": "rgb(138, 127, 116)",
+        "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+        "border": "0px none rgb(138, 127, 116)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "fontFamily": "Inter, system-ui, -apple-system, sans-serif",
+        "fontSize": "13.12px",
+        "fontWeight": "400",
+        "lineHeight": "19.68px",
+        "letterSpacing": "normal",
+        "padding": "0px",
+        "margin": "26px 0px 0px",
+        "gap": "normal",
+        "transition": "all",
+        "transform": "none"
+      }
+    },
+    "motion": {
+      "animations": 21,
+      "canvas": 0,
+      "videos": 0
+    },
+    "dimensions": {
+      "scrollY": 0,
+      "documentHeight": 1000,
+      "viewportHeight": 1000
+    }
+  },
+  "interaction": {
+    "default": {
+      "boxShadow": "rgba(25, 20, 16, 0.05) 0px 1px 2px 0px, rgba(25, 20, 16, 0.06) 0px 6px 16px 0px",
+      "borderColor": "rgb(230, 221, 210)",
+      "transform": "none",
+      "outline": "rgb(25, 20, 16) none 3px"
+    },
+    "hover": {
+      "boxShadow": "rgba(25, 20, 16, 0.04) 0px 1px 2px 0px, rgba(25, 20, 16, 0.08) 0px 12px 32px 0px",
+      "borderColor": "color(srgb 0.864902 0.626667 0.557059)",
+      "transform": "none",
+      "outline": "rgb(25, 20, 16) none 3px"
+    },
+    "active": {
+      "boxShadow": "rgba(25, 20, 16, 0.05) 0px 1px 2px 0px, rgba(25, 20, 16, 0.06) 0px 6px 16px 0px",
+      "borderColor": "rgb(230, 221, 210)",
+      "transform": "matrix(0.985, 0, 0, 0.985, 0, 0)",
+      "outline": "rgb(25, 20, 16) none 3px"
+    }
+  },
+  "vcard": {
+    "status": 200,
+    "bytes": 325
+  },
+  "comparison": {
+    "390": {
+      "width": 390,
+      "height": 844,
+      "meanAbsoluteChannelError": 0,
+      "pixelsOverEight": 0,
+      "fractionOverEight": 0
+    },
+    "1440": {
+      "width": 1440,
+      "height": 1000,
+      "meanAbsoluteChannelError": 0,
+      "pixelsOverEight": 0,
+      "fractionOverEight": 0
+    },
+    "dark-1440": {
+      "width": 1440,
+      "height": 1000,
+      "meanAbsoluteChannelError": 0,
+      "pixelsOverEight": 0,
+      "fractionOverEight": 0
+    },
+    "dark-390": {
+      "width": 390,
+      "height": 844,
+      "meanAbsoluteChannelError": 0,
+      "pixelsOverEight": 0,
+      "fractionOverEight": 0
+    }
+  }
+}
