@@ -1,0 +1,72 @@
+<header class="profile-header">
+  <div class="avatar-wrap">
+    <img
+      class="avatar"
+      src="/clones/fecoelho-com-br/images/fernanda-avatar.jpg"
+      alt="Fernanda Coelho"
+      width="132"
+      height="132"
+    />
+  </div>
+  <h1 class="name">Fernanda Coelho</h1>
+  <p class="role">IA aplicada ao negócio</p>
+  <p class="tagline">Dados · Produtos · Inovação</p>
+</header>
+
+<style>
+  .profile-header {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  .avatar-wrap {
+    width: 132px;
+    height: 132px;
+    margin: 0 auto var(--space-6);
+    padding: var(--space-2);
+    border-radius: var(--radius-pill);
+    background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+    box-shadow: var(--elev-raised);
+  }
+
+  .avatar {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 3px solid var(--surface);
+    border-radius: var(--radius-pill);
+    object-fit: cover;
+    object-position: 50% 50%;
+    background: var(--surface-warm);
+  }
+
+  .name {
+    margin: 0;
+    padding: 0;
+    color: var(--fg);
+    font-family: var(--font-display);
+    font-size: var(--text-4xl);
+    font-weight: 700;
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-display);
+  }
+
+  .role {
+    margin: var(--space-3) 0 0;
+    color: var(--fg-2);
+    font-family: var(--font-body);
+    font-size: var(--text-lg);
+    font-weight: 500;
+    line-height: var(--leading-body);
+  }
+
+  .tagline {
+    margin: var(--space-2) 0 0;
+    color: var(--muted);
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    font-size: var(--text-base);
+    font-weight: 400;
+    line-height: 1.5;
+  }
+</style>
