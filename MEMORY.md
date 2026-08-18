@@ -15,3 +15,9 @@ type: project
 - **Next:**
   1. **Mint OAuth**
   2. The **19-book GLB pack**
+
+## 📚 Detailed history
+
+⚠️ **This repository is PUBLIC, so the full internal history is deliberately NOT kept here.** This file carries the sanitized technical state only.
+
+The complete record lives in the private `ai-synthesizer` workspace at `knowledge/projects/_memory/project_ai_website_cloner_fork.md` — session-by-session, including the parts that must not be published (hosting account details, client agreements, internal IDs). Folded there 2026-08-17.
