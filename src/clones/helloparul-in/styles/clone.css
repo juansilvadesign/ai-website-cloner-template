@@ -1,0 +1,56 @@
+@import "../../../../design-systems/helloparul-in/tokens.css";
+@import "../../../styles/reset.css";
+
+/* Hello Parul clone globals. This stylesheet is loaded only by the clone's
+   BaseLayout, so the hub and sibling clones never inherit this visual system. */
+
+html {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  background: var(--bg);
+  color: var(--fg);
+  font-size: var(--text-base);
+  line-height: normal;
+  overflow-x: clip;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font: inherit;
+}
+
+:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-on);
+}
+
+.parul-shell {
+  width: min(100%, var(--container-max));
+  margin-inline: auto;
+  padding-inline: var(--container-gutter-desktop);
+}
+
+.parul-mono {
+  font-family: "Space Mono", monospace;
+}
+
+@media (max-width: 760px) {
+  .parul-shell {
+    padding-inline: var(--container-gutter-phone);
+  }
+}

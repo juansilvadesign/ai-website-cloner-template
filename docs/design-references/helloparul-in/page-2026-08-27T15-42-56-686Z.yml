@@ -1,0 +1,26 @@
+- generic [ref=f1e3]:
+  - navigation [ref=f1e147]:
+    - button "Parul Aggarwal" [ref=f1e148] [cursor=pointer]
+    - generic [ref=f1e149]:
+      - button "work" [ref=f1e150] [cursor=pointer]
+      - button "about" [ref=f1e151] [cursor=pointer]
+      - button "play with parul" [ref=f1e152] [cursor=pointer]
+      - generic [ref=f1e153]: Open to work
+  - generic [ref=f1e155]:
+    - banner [ref=f1e156]:
+      - generic [ref=f1e157]: Let's Play With Me
+      - heading "Tic-tac-toe, on the house." [level=1] [ref=f1e158]
+      - paragraph [ref=f1e159]: A short break from case studies. You're X, Parul is playing O — take turns and see who removes the last bit of friction.
+    - generic [ref=f1e160]:
+      - generic [ref=f1e161]: Your turn (X)
+      - generic [ref=f1e162]:
+        - button [ref=f1e163] [cursor=pointer]
+        - button [ref=f1e164] [cursor=pointer]
+        - button [ref=f1e165] [cursor=pointer]
+        - button [ref=f1e166] [cursor=pointer]
+        - button [ref=f1e167] [cursor=pointer]
+        - button [ref=f1e168] [cursor=pointer]
+        - button [ref=f1e169] [cursor=pointer]
+        - button [ref=f1e170] [cursor=pointer]
+        - button [ref=f1e171] [cursor=pointer]
+      - button "Reset board ↺" [ref=f1e172] [cursor=pointer]

@@ -1,0 +1,16 @@
+---
+import BaseLayout from "../../../clones/helloparul-in/layouts/BaseLayout.astro";
+import MobileNavigation from "../../../clones/helloparul-in/components/MobileNavigation.astro";
+import SiteHeader from "../../../clones/helloparul-in/components/SiteHeader.astro";
+import TicTacToe from "../../../clones/helloparul-in/components/TicTacToe.astro";
+---
+
+<BaseLayout
+  title="Play with Parul — Tic-tac-toe"
+  description="A short tic-tac-toe break from Parul Aggarwal’s product-design case studies."
+  canonical="https://helloparul.in/#/play"
+>
+  <SiteHeader active="play" />
+  <TicTacToe />
+  <MobileNavigation active="play" />
+</BaseLayout>

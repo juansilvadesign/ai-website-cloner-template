@@ -1,0 +1,27 @@
+---
+import CaseStudy from "../../../clones/helloparul-in/components/CaseStudy.astro";
+import MobileNavigation from "../../../clones/helloparul-in/components/MobileNavigation.astro";
+import SiteHeader from "../../../clones/helloparul-in/components/SiteHeader.astro";
+import BaseLayout from "../../../clones/helloparul-in/layouts/BaseLayout.astro";
+import { caseStudies, type CaseStudy as CaseStudyData } from "../../../clones/helloparul-in/data/case-studies";
+
+export function getStaticPaths() {
+  return caseStudies.map((study) => ({
+    params: { slug: study.slug },
+    props: { study },
+  }));
+}
+
+interface Props {
+  study: CaseStudyData;
+}
+
+const { study } = Astro.props;
+const sourceCanonical = `https://helloparul.in/#/case/${study.slug}`;
+---
+
+<BaseLayout title={`${study.title} — Parul Aggarwal`} description={study.subtitle} canonical={sourceCanonical} type="article">
+  <SiteHeader />
+  <CaseStudy study={study} />
+  <MobileNavigation />
+</BaseLayout>

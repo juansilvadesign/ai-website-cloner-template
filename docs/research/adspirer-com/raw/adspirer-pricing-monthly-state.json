@@ -1,0 +1,88 @@
+{
+  "toggle": {
+    "rect": {
+      "x": 601.484375,
+      "y": 9225.3125,
+      "width": 237.015625,
+      "height": 50.5
+    },
+    "styles": {
+      "background": "rgb(238, 241, 245) none repeat scroll 0% 0% / auto padding-box border-box",
+      "padding": "5px",
+      "borderRadius": "999px",
+      "border": "1px solid rgba(20, 20, 43, 0.06)"
+    }
+  },
+  "buttons": [
+    {
+      "text": "Monthly",
+      "pressed": "true",
+      "className": "pt is-active",
+      "styles": {
+        "background": "rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box",
+        "color": "rgb(16, 24, 40)",
+        "borderRadius": "999px",
+        "padding": "8px 18px",
+        "boxShadow": "rgba(16, 24, 40, 0.14) 0px 1px 3px 0px",
+        "transition": "background 0.15s, color 0.15s, box-shadow 0.15s"
+      }
+    },
+    {
+      "text": "Annual −17%",
+      "pressed": "false",
+      "className": "pt",
+      "styles": {
+        "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+        "color": "rgb(102, 112, 133)",
+        "borderRadius": "999px",
+        "padding": "8px 18px",
+        "boxShadow": "none",
+        "transition": "background 0.15s, color 0.15s, box-shadow 0.15s"
+      }
+    }
+  ],
+  "prices": [
+    {
+      "value": "0",
+      "monthly": "0",
+      "annual": "0"
+    },
+    {
+      "value": "49",
+      "monthly": "49",
+      "annual": "40"
+    },
+    {
+      "value": "99",
+      "monthly": "99",
+      "annual": "83"
+    },
+    {
+      "value": "199",
+      "monthly": "199",
+      "annual": "167"
+    }
+  ],
+  "badges": [
+    {
+      "text": "Save 18%",
+      "hidden": true,
+      "display": "none"
+    },
+    {
+      "text": "Save 16%",
+      "hidden": true,
+      "display": "none"
+    },
+    {
+      "text": "Save 16%",
+      "hidden": true,
+      "display": "none"
+    }
+  ],
+  "billed": [
+    "billed monthly",
+    "billed monthly",
+    "billed monthly"
+  ]
+}

@@ -1,0 +1,63 @@
+---
+const adPlatforms = [
+  "platform-google-ads.svg",
+  "platform-meta-ads.svg",
+  "platform-tiktok-ads.svg",
+  "platform-amazon-ads.svg",
+  "platform-google-shopping.svg",
+  "platform-meta-catalog.svg",
+  "platform-linkedin-ads.svg",
+  "platform-chatgpt-ads.svg",
+];
+
+const benefitSteps = [
+  { number: "01", kicker: "Onboard", title: "Tell Adspirer how your account works.", copy: "Bring in the brand, goals, budget guardrails, and the details your team usually repeats before every campaign.", image: "adspirer-step-onboard.svg" },
+  { number: "02", kicker: "Connect", title: "Link the accounts that need attention.", copy: "Connect your ad platforms securely, so agents can understand structure, spend, history, and the work already in motion.", image: "adspirer-step-delegate.svg" },
+  { number: "03", kicker: "Delegate", title: "Give the work to the agent you use.", copy: "Ask for a campaign build, an account check, or a recommendation. Adspirer takes care of the operational steps behind it.", image: "adspirer-step-supervise.svg" },
+];
+
+const setupCards = [
+  { title: "Pick your AI", copy: "Connect through the agent or workspace your team already uses.", image: "setup-chatgpt.svg", label: "ChatGPT" },
+  { title: "Connect Adspirer", copy: "Add one secure MCP connection and authorize the account.", image: "setup-codex.svg", label: "Codex" },
+  { title: "Start delegating", copy: "Turn a campaign brief into a clearly reviewed piece of account work.", image: "setup-claude.svg", label: "Claude" },
+];
+---
+
+<section class="ad-platforms" id="platforms">
+  <div class="ad-shell ad-platforms__intro" data-reveal><p class="ad-eyebrow">Made for paid media</p><h2>Every important platform.<br />One operational layer.</h2></div>
+  <div class="ad-marquee" aria-label="Supported ad platforms"><div class="ad-marquee__track">
+    {[...adPlatforms, ...adPlatforms].map((platform) => <img src={`/clones/adspirer-com/images/${platform}`} alt="" loading="lazy" />)}
+  </div></div>
+</section>
+
+<section class="ad-benefits" id="benefit">
+  <div class="ad-shell">
+    <div class="ad-section-intro ad-section-intro--center" data-reveal><p class="ad-eyebrow">From first prompt to finished work</p><h2>More done.<br />Less back-and-forth.</h2></div>
+    <div class="ad-benefit-stack">
+      {benefitSteps.map((step, index) => (
+        <article class:list={["ad-benefit-card", index % 2 ? "ad-benefit-card--reverse" : ""]} data-reveal>
+          <div class="ad-benefit-card__copy"><span class="ad-card-number">Step {step.number}</span><p class="ad-eyebrow">{step.kicker}</p><h3>{step.title}</h3><p>{step.copy}</p><a href="https://adspirer.ai/sign-up">Get started <span aria-hidden="true">→</span></a></div>
+          <div class="ad-benefit-card__visual"><img src={`/clones/adspirer-com/images/${step.image}`} alt="" loading="lazy" /></div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="ad-setup" id="resources">
+  <div class="ad-shell" data-reveal>
+    <div class="ad-section-intro ad-section-intro--split"><p class="ad-eyebrow">Ready in minutes</p><div><h2>Bring your own agent.</h2><p>Adspirer becomes the paid-media layer wherever your team prefers to work.</p></div></div>
+    <div class="ad-setup-grid">
+      {setupCards.map((card, index) => <article class="ad-setup-card"><span>0{index + 1}</span><div class="ad-setup-card__icon"><img src={`/clones/adspirer-com/images/${card.image}`} alt="" loading="lazy" /><small>{card.label}</small></div><h3>{card.title}</h3><p>{card.copy}</p><a href="/adspirer-com/#agents">See setup guide <span aria-hidden="true">→</span></a></article>)}
+    </div>
+  </div>
+</section>
+
+<section class="ad-ask-ai" id="ask-ai">
+  <div class="ad-shell" data-reveal>
+    <div class="ad-ask-ai__card">
+      <div><p class="ad-eyebrow">Already using an agent?</p><h2>Ask AI about<br />Adspirer.</h2><p>It can explain the setup, inspect the account, and take the first task from brief to review.</p></div>
+      <div class="ad-ask-ai__prompt"><span class="ad-ask-ai__prompt-icon">✦</span><p>How do I connect Adspirer to my workspace?</p><a href="/adspirer-com/#agents" aria-label="Open setup guides">→</a></div>
+    </div>
+  </div>
+</section>

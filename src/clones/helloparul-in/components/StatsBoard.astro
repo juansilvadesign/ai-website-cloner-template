@@ -1,0 +1,69 @@
+---
+const stats = [
+  { value: "5+", label: "years shipping", tone: "red" },
+  { value: "25+", label: "features shipped", tone: "blue" },
+  { value: "15Cr+", label: "consumer served", tone: "green" },
+  { value: "0", label: "px left unaligned", tone: "ink" },
+] as const;
+---
+
+<section class="stats-wrap parul-shell" aria-label="Portfolio metrics">
+  <div class="stats-board">
+    {stats.map((stat) => (
+      <div class="stats-board__cell">
+        <strong class={stat.tone}>{stat.value}</strong>
+        <span>{stat.label}</span>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .stats-board {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--space-1);
+    overflow: hidden;
+    margin: var(--space-12) 0;
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-md);
+    background: var(--border-soft);
+  }
+
+  .stats-board__cell {
+    padding: 30px 26px;
+    background: var(--bg);
+  }
+
+  .stats-board strong {
+    display: block;
+    color: var(--fg);
+    font-family: var(--font-display);
+    font-size: 46px;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+  }
+
+  .stats-board span {
+    display: block;
+    margin-top: var(--space-2);
+    color: var(--fg-2);
+    font-family: "Space Mono", monospace;
+    font-size: var(--text-sm);
+  }
+
+  .stats-board strong.red { color: var(--accent); }
+  .stats-board strong.blue { color: #1e37d8; }
+  .stats-board strong.green { color: #35b86b; }
+
+  @media (max-width: 760px) {
+    .stats-board {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin: 36px 0;
+    }
+
+    .stats-board__cell { padding: var(--space-5) 10px; }
+    .stats-board strong { font-size: clamp(20px, 7vw, 30px); }
+    .stats-board span { font-size: 9.5px; line-height: 1.3; }
+  }
+</style>

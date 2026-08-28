@@ -1,0 +1,130 @@
+{
+  "activeTabs": [
+    {
+      "name": "ChatGPT",
+      "selected": "false",
+      "tabIndex": "-1",
+      "styles": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(16, 24, 40)",
+        "borderRadius": "999px",
+        "transition": "opacity 0.16s, background 0.16s"
+      }
+    },
+    {
+      "name": "Claude",
+      "selected": "false",
+      "tabIndex": "-1",
+      "styles": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(16, 24, 40)",
+        "borderRadius": "999px",
+        "transition": "opacity 0.16s, background 0.16s"
+      }
+    },
+    {
+      "name": "Codex",
+      "selected": "true",
+      "tabIndex": "0",
+      "styles": {
+        "backgroundColor": "rgb(16, 103, 254)",
+        "color": "rgb(255, 255, 255)",
+        "borderRadius": "999px",
+        "transition": "opacity 0.16s, background 0.16s"
+      }
+    },
+    {
+      "name": "Claude Code",
+      "selected": "false",
+      "tabIndex": "-1",
+      "styles": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(16, 24, 40)",
+        "borderRadius": "999px",
+        "transition": "opacity 0.16s, background 0.16s"
+      }
+    },
+    {
+      "name": "Open Claw",
+      "selected": "false",
+      "tabIndex": "-1",
+      "styles": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(16, 24, 40)",
+        "borderRadius": "999px",
+        "transition": "opacity 0.16s, background 0.16s"
+      }
+    },
+    {
+      "name": "Perplexity",
+      "selected": "false",
+      "tabIndex": "-1",
+      "styles": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(16, 24, 40)",
+        "borderRadius": "999px",
+        "transition": "opacity 0.16s, background 0.16s"
+      }
+    },
+    {
+      "name": "Cursor",
+      "selected": "false",
+      "tabIndex": "-1",
+      "styles": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(16, 24, 40)",
+        "borderRadius": "999px",
+        "transition": "opacity 0.16s, background 0.16s"
+      }
+    },
+    {
+      "name": "Windsurf",
+      "selected": "false",
+      "tabIndex": "-1",
+      "styles": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(16, 24, 40)",
+        "borderRadius": "999px",
+        "transition": "opacity 0.16s, background 0.16s"
+      }
+    },
+    {
+      "name": "Manus",
+      "selected": "false",
+      "tabIndex": "-1",
+      "styles": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(16, 24, 40)",
+        "borderRadius": "999px",
+        "transition": "opacity 0.16s, background 0.16s"
+      }
+    }
+  ],
+  "panel": {
+    "labelledBy": "wwtab-codex",
+    "text": "Quickstart Connect Adspirer to Codex 1Add the marketplaceIn a Codex session, run codex plugin marketplace add amekala/ads-mcp to add the Adspirer source.2Install the agentOpen /plugins, select the Adspirer tab, and install Adspirer Ads Agent.3Authorize and verifyComplete OAuth, ask Codex to set up your brand workspace, then confirm it can list your connected ad platforms. Run in Codex codex plugin marketplace add amekala/ads-mcp Open the full guide→",
+    "rect": {
+      "x": 256,
+      "y": 3365.625,
+      "width": 928,
+      "height": 448.359375
+    },
+    "styles": {
+      "backgroundColor": "rgba(255, 255, 255, 0.72)",
+      "border": "1px solid rgba(20, 20, 43, 0.12)",
+      "borderRadius": "16px",
+      "padding": "0px",
+      "boxShadow": "rgba(16, 24, 40, 0.5) 0px 24px 70px -52px",
+      "transition": "all"
+    }
+  },
+  "activeTabStyles": {
+    "background": "rgb(16, 103, 254) none repeat scroll 0% 0% / auto padding-box border-box",
+    "color": "rgb(255, 255, 255)",
+    "boxShadow": "rgba(16, 103, 254, 0.5) 0px 2px 8px -2px",
+    "border": "0px none rgb(255, 255, 255)",
+    "padding": "0px",
+    "width": "54.3906px",
+    "height": "38.3906px"
+  }
+}

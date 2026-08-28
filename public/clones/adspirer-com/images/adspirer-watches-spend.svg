@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 240" fill="none" role="img" aria-label="A round-the-clock spend chart where Adspirer catches an overspend anomaly and surfaces a ready fix.">
+  <defs>
+    <linearGradient id="spendArea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1067fe" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#1067fe" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <style>
+    .lbl{fill:#667085;font:600 12px system-ui,-apple-system,'Segoe UI',Roboto,sans-serif}
+    .grid{stroke:#eef1f5;stroke-width:1.5}
+    @keyframes ping{0%{transform:scale(1);opacity:.5}70%,100%{transform:scale(2.6);opacity:0}}
+    @keyframes live{0%,100%{opacity:1}50%{opacity:.3}}
+    @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+    .ring{transform-origin:250px 96px;animation:ping 2.4s ease-out infinite}
+    .dot{animation:live 1.6s ease-in-out infinite}
+    .bob{transform-box:fill-box;transform-origin:center;animation:bob 3s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.ring,.dot,.bob{animation:none}}
+  </style>
+
+  <rect x="8" y="8" width="344" height="224" rx="18" fill="#fff" stroke="#e4e7ec" stroke-width="1.6"/>
+
+  <!-- header -->
+  <circle class="dot" cx="30" cy="34" r="5" fill="#12a150"/>
+  <text class="lbl" x="44" y="38" fill="#0f1728" font-weight="700">Monitoring spend</text>
+  <g transform="translate(268 20)">
+    <rect width="72" height="28" rx="14" fill="#f8fafc" stroke="#e4e7ec" stroke-width="1.4"/>
+    <g transform="translate(12 7)" stroke="#0f1728" stroke-width="1.7" stroke-linecap="round"><circle cx="7" cy="7" r="6.5" fill="none"/><path d="M7 3.5V7l2.3 2"/></g>
+    <text class="lbl" x="30" y="18" fill="#0f1728" font-weight="700">24/7</text>
+  </g>
+
+  <!-- chart grid -->
+  <g class="grid"><line x1="28" y1="96" x2="332" y2="96"/><line x1="28" y1="132" x2="332" y2="132"/></g>
+
+  <!-- vertical marker at the anomaly -->
+  <line x1="250" y1="78" x2="250" y2="168" stroke="#ffd8a8" stroke-width="1.5" stroke-dasharray="3 4"/>
+
+  <!-- area fill + spend line (always visible; steady then an overspend spike) -->
+  <path d="M28 148 L64 144 L100 148 L136 143 L172 147 L208 142 L250 96 L272 146 L308 143 L340 146 L340 168 L28 168 Z" fill="url(#spendArea)"/>
+  <path d="M28 148 L64 144 L100 148 L136 143 L172 147 L208 142 L250 96 L272 146 L308 143 L340 146"
+        stroke="#1067fe" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+  <!-- emphasized endpoint (current spend) -->
+  <circle cx="340" cy="146" r="4" fill="#1067fe" stroke="#fff" stroke-width="2"/>
+
+  <!-- anomaly flag on the spike -->
+  <circle class="ring" cx="250" cy="96" r="8" fill="#ff8400"/>
+  <circle cx="250" cy="96" r="5.5" fill="#ff8400" stroke="#fff" stroke-width="2"/>
+
+  <!-- ready-fix chip (bottom band; bob animation nested so it never clobbers the position) -->
+  <g transform="translate(96 184)">
+    <g class="bob">
+      <rect width="168" height="32" rx="10" fill="#fff" stroke="#e4e7ec" stroke-width="1.5"/>
+      <circle cx="18" cy="16" r="8.5" fill="#ecfdf3"/>
+      <path d="M14 16l3 3 5-6" stroke="#12a150" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <text class="lbl" x="33" y="20" fill="#0f1728" font-weight="600">Fix ready — approve</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,93 @@
+/* Hello Parul Portfolio — tokens.css
+ * Emitted by scripts/emit-design-system.ts from source/tokens.source.json.
+ * Declares every OpenDesign TOKEN_SCHEMA slot (56). Edit the
+ * source artifact and re-emit; do not hand-edit derived files. */
+
+:root {
+  /* ─── Surface ─────────────────────────────────────────────────── */
+  --bg:                       #F2EEE3;
+  --surface:                  #FBF9F3;
+  --surface-warm:             #F3EEE3;
+
+  /* ─── Foreground ──────────────────────────────────────────────── */
+  --fg:                       #181510;
+  --fg-2:                     #3A352C;
+  --muted:                    #7A7468;
+  --meta:                     #8F8A7C;
+
+  /* ─── Border ──────────────────────────────────────────────────── */
+  --border:                   rgba(24, 21, 16, .30);
+  --border-soft:              rgba(24, 21, 16, .14);
+
+  /* ─── Accent ──────────────────────────────────────────────────── */
+  --accent:                   #FF3B1F;
+  --accent-on:                #F2EEE3;
+  --accent-hover:             #181510;
+  --accent-active:            color-mix(in srgb, var(--accent) 86%, var(--fg));
+
+  /* ─── Semantic ────────────────────────────────────────────────── */
+  --success:                  #16a34a;
+  --warn:                     #eab308;
+  --danger:                   #dc2626;
+
+  /* ─── Typography — fonts ──────────────────────────────────────── */
+  --font-display:             'Bricolage Grotesque', sans-serif;
+  --font-body:                'Instrument Sans', sans-serif;
+  --font-mono:                ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Monaco, Consolas, monospace;
+
+  /* ─── Typography — scale ──────────────────────────────────────── */
+  --text-xs:                  11px;
+  --text-sm:                  12px;
+  --text-base:                14px;
+  --text-lg:                  17px;
+  --text-xl:                  19px;
+  --text-2xl:                 42px;
+  --text-3xl:                 64px;
+  --text-4xl:                 118px;
+
+  /* ─── Typography — leading & tracking ─────────────────────────── */
+  --leading-body:             1.55;
+  --leading-tight:            .94;
+  --tracking-display:         -.035em;
+
+  /* ─── Spacing ─────────────────────────────────────────────────── */
+  --space-1:                  1px;
+  --space-2:                  4px;
+  --space-3:                  8px;
+  --space-4:                  12px;
+  --space-5:                  16px;
+  --space-6:                  22px;
+  --space-8:                  32px;
+  --space-12:                 64px;
+
+  /* ─── Section rhythm ──────────────────────────────────────────── */
+  --section-y-desktop:        88px;
+  --section-y-tablet:         88px;
+  --section-y-phone:          48px;
+
+  /* ─── Radius ──────────────────────────────────────────────────── */
+  --radius-sm:                8px;
+  --radius-md:                18px;
+  --radius-lg:                26px;
+  --radius-pill:              999px;
+
+  /* ─── Elevation ───────────────────────────────────────────────── */
+  --elev-flat:                none;
+  --elev-ring:                none;
+  --elev-raised:              0 10px 0 -4px var(--accent);
+
+  /* ─── Focus ───────────────────────────────────────────────────── */
+  --focus-ring:               0 0 0 3px color-mix(in srgb, var(--accent) 48%, transparent);
+
+  /* ─── Motion ──────────────────────────────────────────────────── */
+  --motion-fast:              150ms;
+  --motion-base:              26000ms;
+  --ease-standard:            ease;
+
+  /* ─── Layout ──────────────────────────────────────────────────── */
+  --container-max:            1280px;
+  --container-gutter-desktop: 32px;
+  --container-gutter-tablet:  32px;
+  --container-gutter-phone:   22px;
+}
+

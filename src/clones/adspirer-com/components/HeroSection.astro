@@ -1,0 +1,51 @@
+---
+const providers = [
+  { id: "claude", label: "Claude", copy: "Reviewing your Q3 Search campaign and the account brief.", status: "Campaign built and verified." },
+  { id: "chatgpt", label: "ChatGPT", copy: "Building a draft campaign from your launch goal and account context.", status: "Draft campaign ready for review." },
+  { id: "slack", label: "Slack", copy: "Turning the team’s approval thread into a ready-to-launch campaign.", status: "Approval captured. Campaign is queued." },
+];
+---
+
+<section class="ad-hero" id="hero">
+  <div class="ad-shell ad-hero__inner" data-reveal>
+    <span class="ad-new-pill"><span></span> New: Adspirer MCP</span>
+    <h1>AI agents that run<br class="ad-desktop-only" /> <em>your paid media.</em></h1>
+    <p class="ad-hero__lede">Connect Adspirer to the AI tools you already use. It builds campaigns, monitors account performance, and keeps the work moving.</p>
+    <a class="ad-button ad-button--primary ad-hero__cta" href="https://adspirer.ai/sign-up">Get started <span aria-hidden="true">→</span></a>
+
+    <div class="ad-demo-wrap">
+      <div class="ad-demo-picker" role="tablist" aria-label="Choose an AI workspace">
+        {providers.map((provider, index) => <button type="button" role="tab" aria-selected={index === 0 ? "true" : "false"} data-hero-choice={provider.id}>{provider.label}</button>)}
+      </div>
+      <div class="ad-hero-demo" data-hero-demo data-provider="claude">
+        <div class="ad-demo-topbar"><span class="ad-demo-window-dot"></span><span class="ad-demo-topbar__title" data-demo-provider>Claude</span><span class="ad-demo-online"><i></i> Connected to Adspirer</span></div>
+        <div class="ad-demo-conversation">
+          <div class="ad-demo-prompt"><span class="ad-demo-avatar">J</span><div><strong>Q3 search campaign — ready for review</strong><p>Build a Google Search campaign for our new product launch. Keep the account’s current conversion goal and brand guardrails.</p></div></div>
+          <div class="ad-demo-agent"><div class="ad-demo-agent__head"><img src="/clones/adspirer-com/icons/adspirer-app-icon.svg" alt="" width="28" height="28" /><span>Adspirer</span><small>Working in your account</small></div><p data-demo-copy>{providers[0].copy}</p><div class="ad-demo-task"><span class="ad-demo-task__check">✓</span><span>Build Google Search Campaign</span><b>Complete</b></div><div class="ad-demo-report"><div><span class="ad-demo-report__eyebrow">Campaign status</span><strong data-demo-status>{providers[0].status}</strong></div><span class="ad-demo-ready">READY</span></div><ul><li>Campaign structure and ad groups created</li><li>Keywords reviewed against the account brief</li><li>Budget and conversion settings verified</li></ul><div class="ad-demo-actions"><button type="button">View campaign</button><button type="button" class="ad-demo-actions__approve">Approve &amp; launch</button></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const heroChoices = Array.from(document.querySelectorAll<HTMLButtonElement>("[data-hero-choice]"));
+  const heroDemo = document.querySelector<HTMLElement>("[data-hero-demo]");
+  const demoProvider = document.querySelector<HTMLElement>("[data-demo-provider]");
+  const demoCopy = document.querySelector<HTMLElement>("[data-demo-copy]");
+  const demoStatus = document.querySelector<HTMLElement>("[data-demo-status]");
+  const heroStates: Record<string, { label: string; copy: string; status: string }> = {
+    claude: { label: "Claude", copy: "Reviewing your Q3 Search campaign and the account brief.", status: "Campaign built and verified." },
+    chatgpt: { label: "ChatGPT", copy: "Building a draft campaign from your launch goal and account context.", status: "Draft campaign ready for review." },
+    slack: { label: "Slack", copy: "Turning the team’s approval thread into a ready-to-launch campaign.", status: "Approval captured. Campaign is queued." },
+  };
+  heroChoices.forEach((choice) => choice.addEventListener("click", () => {
+    const id = choice.dataset.heroChoice ?? "claude";
+    const state = heroStates[id];
+    heroChoices.forEach((button) => button.setAttribute("aria-selected", String(button === choice)));
+    heroDemo?.setAttribute("data-provider", id);
+    if (demoProvider) demoProvider.textContent = state.label;
+    if (demoCopy) demoCopy.textContent = state.copy;
+    if (demoStatus) demoStatus.textContent = state.status;
+  }));
+</script>

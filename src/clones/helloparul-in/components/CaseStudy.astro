@@ -1,0 +1,317 @@
+---
+import type { CaseStudy as CaseStudyData } from "../data/case-studies";
+
+interface Props {
+  study: CaseStudyData;
+}
+
+const { study } = Astro.props;
+---
+
+<article class="case-study parul-shell">
+  <header class="case-study__header">
+    <div class="case-study__chips">
+      <span class="case-study__chip case-study__chip--client">{study.client}</span>
+      {study.chips.map((chip) => <span class="case-study__chip">{chip}</span>)}
+    </div>
+    <p class="case-study__kicker">{study.kicker}</p>
+    <h1>{study.title}</h1>
+    <p class="case-study__subtitle">{study.subtitle}</p>
+  </header>
+
+  <dl class="case-study__meta">
+    {study.meta.map((item) => (
+      <div>
+        <dt>{item.label}</dt>
+        <dd>{item.value}</dd>
+      </div>
+    ))}
+  </dl>
+
+  <div class="case-study__metrics" aria-label="Project metrics">
+    {study.metrics.map((metric) => (
+      <div>
+        <strong class={metric.tone}>{metric.value}</strong>
+        <span>{metric.label}</span>
+      </div>
+    ))}
+  </div>
+
+  {study.cover && (
+    <figure class="case-study__cover">
+      <img src={study.cover.src} alt={study.cover.alt} />
+    </figure>
+  )}
+
+  <div class="case-study__sections">
+    {study.sections.map((section) => (
+      <section class="case-study__section">
+        {section.heading && <h2>{section.heading}</h2>}
+        {section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+        {section.image && (
+          <figure class="case-study__figure">
+            <img src={section.image.src} alt={section.image.alt} loading="lazy" />
+            {section.image.caption && <figcaption>{section.image.caption}</figcaption>}
+          </figure>
+        )}
+        {section.screens && (
+          <div class="case-study__screens">
+            {section.screens.map((screen) => (
+              <figure>
+                <img src={screen.src} alt={screen.label} loading="lazy" />
+                <figcaption>
+                  <strong>{screen.label}</strong>
+                  <span>{screen.caption}</span>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        )}
+      </section>
+    ))}
+  </div>
+
+  <a class="case-study__next" href={`/helloparul-in/case/${study.next}/`}>
+    <span>Next case study</span>
+    <strong>Keep removing friction →</strong>
+  </a>
+</article>
+
+<style>
+  .case-study {
+    width: min(100%, 1080px);
+    min-height: 100vh;
+    padding-top: 48px;
+    padding-bottom: 90px;
+  }
+
+  .case-study__header { max-width: 999px; }
+
+  .case-study__chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 12px;
+    margin-bottom: 14px;
+    font-family: "Space Mono", monospace;
+    font-size: var(--text-sm);
+    letter-spacing: .02em;
+  }
+
+  .case-study__chip {
+    padding: 6px 12px;
+    border: 1px solid var(--fg);
+    border-radius: var(--radius-pill);
+    color: color-mix(in srgb, var(--fg) 92%, transparent);
+  }
+
+  .case-study__chip--client {
+    border-color: var(--fg);
+    background: var(--fg);
+    color: var(--accent-on);
+  }
+
+  .case-study__kicker {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-family: "Space Mono", monospace;
+    font-size: var(--text-sm);
+  }
+
+  .case-study h1 {
+    max-width: 999px;
+    margin: 0 0 24px;
+    color: var(--fg);
+    font-family: var(--font-display);
+    font-size: clamp(34px, 5.6vw, 72px);
+    font-weight: 800;
+    letter-spacing: var(--tracking-display);
+    line-height: 1;
+    text-wrap: balance;
+  }
+
+  .case-study__subtitle {
+    max-width: 60ch;
+    margin: 0;
+    color: var(--fg-2);
+    font-size: 20px;
+    line-height: 1.55;
+  }
+
+  .case-study__meta {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
+    margin: 34px 0 6px;
+    padding: 24px 0;
+    border-top: 1px solid color-mix(in srgb, var(--fg) 18%, transparent);
+    border-bottom: 1px solid color-mix(in srgb, var(--fg) 18%, transparent);
+  }
+
+  .case-study__meta dt {
+    margin-bottom: 5px;
+    color: var(--muted);
+    font-family: "Space Mono", monospace;
+    font-size: var(--text-xs);
+    letter-spacing: .04em;
+  }
+
+  .case-study__meta dd {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .case-study__metrics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 46px;
+    margin: 46px 0 8px;
+  }
+
+  .case-study__metrics strong {
+    display: block;
+    color: var(--fg);
+    font-family: var(--font-display);
+    font-size: 46px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+
+  .case-study__metrics strong.red { color: var(--accent); }
+  .case-study__metrics strong.blue { color: #1e37d8; }
+
+  .case-study__metrics span {
+    display: block;
+    margin-top: 2px;
+    color: var(--fg-2);
+    font-family: "Space Mono", monospace;
+    font-size: var(--text-sm);
+  }
+
+  .case-study__cover,
+  .case-study__figure { margin: 30px 0 0; }
+
+  .case-study__cover img,
+  .case-study__figure img {
+    display: block;
+    width: 100%;
+    border-radius: var(--radius-md);
+  }
+
+  .case-study__cover img {
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  .case-study__figure figcaption {
+    margin-top: 10px;
+    color: var(--muted);
+    font-family: "Space Mono", monospace;
+    font-size: var(--text-sm);
+  }
+
+  .case-study__section {
+    max-width: 999px;
+    margin-top: 46px;
+  }
+
+  .case-study__section h2 {
+    margin: 0 0 14px;
+    color: var(--fg);
+    font-family: var(--font-display);
+    font-size: clamp(24px, 3vw, 34px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+
+  .case-study__section p {
+    margin: 0 0 14px;
+    color: var(--fg-2);
+    font-size: 18px;
+    line-height: 1.62;
+  }
+
+  .case-study__screens {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    margin-top: 28px;
+  }
+
+  .case-study__screens figure {
+    margin: 0;
+    padding-top: 28px;
+    border-top: 1px solid color-mix(in srgb, var(--fg) 18%, transparent);
+  }
+
+  .case-study__screens img {
+    display: block;
+    width: 100%;
+    max-height: 584px;
+    border-radius: var(--radius-md);
+    object-fit: contain;
+  }
+
+  .case-study__screens figcaption { margin-top: 16px; }
+
+  .case-study__screens strong {
+    display: block;
+    color: var(--fg);
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: 700;
+  }
+
+  .case-study__screens span {
+    display: block;
+    margin-top: 8px;
+    color: var(--muted);
+    font-family: "Space Mono", monospace;
+    font-size: 12.5px;
+    line-height: 1.6;
+  }
+
+  .case-study__next {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 72px;
+    padding: 28px;
+    border: 2px solid var(--fg);
+    border-radius: var(--radius-md);
+    background: var(--surface);
+    color: var(--fg);
+    text-decoration: none;
+    transition: box-shadow var(--motion-fast) var(--ease-standard);
+  }
+
+  .case-study__next span {
+    color: var(--muted);
+    font-family: "Space Mono", monospace;
+    font-size: var(--text-sm);
+  }
+
+  .case-study__next strong {
+    font-family: var(--font-display);
+    font-size: clamp(24px, 3vw, 34px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+
+  @media (hover: hover) {
+    .case-study__next:hover { box-shadow: var(--elev-raised); }
+  }
+
+  @media (max-width: 760px) {
+    .case-study { padding-top: 34px; padding-bottom: 60px; }
+    .case-study__subtitle { font-size: 18px; }
+    .case-study__meta { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 16px; }
+    .case-study__metrics { gap: 24px 30px; margin-top: 34px; }
+    .case-study__metrics > div { min-width: 42%; }
+    .case-study__metrics strong { font-size: 38px; }
+    .case-study__section { margin-top: 36px; }
+    .case-study__section p { font-size: 16px; }
+    .case-study__screens { gap: 28px; }
+    .case-study__next { margin-top: 48px; padding: 22px; }
+  }
+</style>

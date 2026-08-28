@@ -1,0 +1,48 @@
+{
+  "selected": [
+    {
+      "label": "Claude",
+      "selected": "false",
+      "className": "opd-pick",
+      "styles": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(71, 84, 103)",
+        "boxShadow": "none",
+        "transition": "background 0.18s, color 0.18s, box-shadow 0.18s, transform 0.18s"
+      }
+    },
+    {
+      "label": "ChatGPT",
+      "selected": "true",
+      "className": "opd-pick",
+      "styles": {
+        "backgroundColor": "rgb(16, 103, 254)",
+        "color": "rgb(255, 255, 255)",
+        "boxShadow": "rgba(16, 103, 254, 0.5) 0px 8px 22px -12px, rgba(255, 255, 255, 0.18) 0px 0px 0px 1px inset",
+        "transition": "background 0.18s, color 0.18s, box-shadow 0.18s, transform 0.18s"
+      }
+    },
+    {
+      "label": "Slack",
+      "selected": "false",
+      "className": "opd-pick",
+      "styles": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "color": "rgb(71, 84, 103)",
+        "boxShadow": "none",
+        "transition": "background 0.18s, color 0.18s, box-shadow 0.18s, transform 0.18s"
+      }
+    }
+  ],
+  "window": {
+    "className": "opd opd--chatgpt opd-enter opd--chat",
+    "text": "What can I help with?Build the approved Q3 search campaign. Keep CPC under $8 and create it paused.GPT-5ChatGPT can make mistakes. Check important info.Q3 search campaign — ready for reviewBuild the approved Q3 search campaign. Keep CPC under $8 and create it paused.Build Google Search CampaignCampaign built and verified.Status: PAUSED · 7 ad groups · 126 keywords · ready for review.Checks completed:126 keywords grouped into 7 intent-led ad groupsBudget, bidding, copy, and extensions match the briefCampaign is paused — nothing spends until you approveNothing is live. Approve the build when you are ready.Approved. Launch it.Update Campaign StatusCampaign live.Status: ENABLED — serving on Google Search.I’ll watch pacing and CPA, then bring you the next decision.2/2Approved.GPT-5ChatGPT can m",
+    "styles": {
+      "backgroundColor": "rgb(255, 255, 255)",
+      "color": "rgb(13, 13, 13)",
+      "height": "680px",
+      "transition": "opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1)"
+    }
+  },
+  "rootHeight": 680
+}

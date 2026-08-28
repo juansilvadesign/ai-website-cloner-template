@@ -1,0 +1,24 @@
+---
+import BaseLayout from "../../clones/helloparul-in/layouts/BaseLayout.astro";
+import SplashOverlay from "../../clones/helloparul-in/components/SplashOverlay.astro";
+import SiteHeader from "../../clones/helloparul-in/components/SiteHeader.astro";
+import HeroSection from "../../clones/helloparul-in/components/HeroSection.astro";
+import SkillsMarquee from "../../clones/helloparul-in/components/SkillsMarquee.astro";
+import StatsBoard from "../../clones/helloparul-in/components/StatsBoard.astro";
+import SelectedWork from "../../clones/helloparul-in/components/SelectedWork.astro";
+import ContactFooter from "../../clones/helloparul-in/components/ContactFooter.astro";
+import MobileNavigation from "../../clones/helloparul-in/components/MobileNavigation.astro";
+---
+
+<BaseLayout title="Parul Aggarwal — Product Designer">
+  <SplashOverlay />
+  <SiteHeader />
+  <main aria-label="Parul Aggarwal portfolio">
+    <HeroSection />
+    <SkillsMarquee />
+    <StatsBoard />
+    <SelectedWork />
+  </main>
+  <ContactFooter />
+  <MobileNavigation />
+</BaseLayout>

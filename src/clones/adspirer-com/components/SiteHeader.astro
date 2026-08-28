@@ -1,0 +1,117 @@
+---
+const productLinks = [
+  ["Build campaigns", "Create and verify campaigns from a single prompt."],
+  ["Watch spend", "Find the account changes worth acting on."],
+  ["Know the brief", "Keep brand context and account history close."],
+];
+
+const platformLinks = ["ChatGPT", "Claude", "Codex", "Claude Code", "Cursor", "Manus"];
+const adLinks = ["Google Ads", "Meta Ads", "TikTok Ads", "Amazon Ads"];
+---
+
+<header class="ad-header" data-header>
+  <div class="ad-shell ad-header__inner">
+    <a class="ad-wordmark" href="/adspirer-com/" aria-label="Adspirer home">
+      <img src="/clones/adspirer-com/images/adspirer-logo-full.svg" alt="Adspirer" width="213" height="40" />
+    </a>
+
+    <nav class="ad-desktop-nav" aria-label="Primary navigation">
+      <div class="ad-nav-item">
+        <button class="ad-nav-trigger" type="button" aria-expanded="false" aria-controls="ad-product-menu" data-nav-trigger="product">Product <span aria-hidden="true">⌄</span></button>
+        <div class="ad-mega-menu" id="ad-product-menu" data-nav-menu="product" hidden>
+          <p class="ad-menu-kicker">What Adspirer does</p>
+          <div class="ad-menu-grid ad-menu-grid--product">
+            {productLinks.map(([title, copy]) => <a href="/adspirer-com/#features"><strong>{title}</strong><span>{copy}</span></a>)}
+          </div>
+        </div>
+      </div>
+      <div class="ad-nav-item">
+        <button class="ad-nav-trigger" type="button" aria-expanded="false" aria-controls="ad-ai-menu" data-nav-trigger="ai">AI platforms <span aria-hidden="true">⌄</span></button>
+        <div class="ad-mega-menu ad-mega-menu--compact" id="ad-ai-menu" data-nav-menu="ai" hidden>
+          <p class="ad-menu-kicker">Works in your workspace</p>
+          <div class="ad-menu-grid">{platformLinks.map((link) => <a href="/adspirer-com/#agents">{link}<span aria-hidden="true">↗</span></a>)}</div>
+        </div>
+      </div>
+      <div class="ad-nav-item">
+        <button class="ad-nav-trigger" type="button" aria-expanded="false" aria-controls="ad-ad-menu" data-nav-trigger="ads">Ad platforms <span aria-hidden="true">⌄</span></button>
+        <div class="ad-mega-menu ad-mega-menu--compact" id="ad-ad-menu" data-nav-menu="ads" hidden>
+          <p class="ad-menu-kicker">Connect the accounts</p>
+          <div class="ad-menu-grid">{adLinks.map((link) => <a href="/adspirer-com/#platforms">{link}<span aria-hidden="true">↗</span></a>)}</div>
+        </div>
+      </div>
+      <a href="/adspirer-com/#pricing">Pricing</a>
+      <a href="/adspirer-com/#resources">Resources</a>
+    </nav>
+
+    <div class="ad-header-actions">
+      <a class="ad-button ad-button--outline ad-button--small" href="mailto:hello@adspirer.com">Contact Sales</a>
+      <a class="ad-button ad-button--dark ad-button--small" href="https://adspirer.ai/sign-up">Get started</a>
+    </div>
+
+    <button class="ad-mobile-toggle" type="button" aria-expanded="false" aria-controls="ad-mobile-menu" data-mobile-toggle>
+      <span class="sr-only">Open navigation</span>
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="ad-mobile-menu" id="ad-mobile-menu" data-mobile-menu hidden>
+  <div class="ad-mobile-menu__top">
+    <img src="/clones/adspirer-com/images/adspirer-logo-full.svg" alt="Adspirer" width="152" height="29" />
+    <button type="button" class="ad-mobile-close" data-mobile-close aria-label="Close navigation">×</button>
+  </div>
+  <nav aria-label="Mobile navigation">
+    <a href="/adspirer-com/#features">Product</a>
+    <a href="/adspirer-com/#agents">AI platforms</a>
+    <a href="/adspirer-com/#platforms">Ad platforms</a>
+    <a href="/adspirer-com/#pricing">Pricing</a>
+    <a href="/adspirer-com/#resources">Resources</a>
+  </nav>
+  <div class="ad-mobile-menu__actions">
+    <a class="ad-button ad-button--outline" href="mailto:hello@adspirer.com">Contact Sales</a>
+    <a class="ad-button ad-button--dark" href="https://adspirer.ai/sign-up">Get started</a>
+  </div>
+</div>
+
+<script>
+  const header = document.querySelector<HTMLElement>("[data-header]");
+  const desktopTriggers = Array.from(document.querySelectorAll<HTMLButtonElement>("[data-nav-trigger]"));
+  const desktopMenus = Array.from(document.querySelectorAll<HTMLElement>("[data-nav-menu]"));
+  const mobileToggle = document.querySelector<HTMLButtonElement>("[data-mobile-toggle]");
+  const mobileMenu = document.querySelector<HTMLElement>("[data-mobile-menu]");
+  const mobileClose = document.querySelector<HTMLButtonElement>("[data-mobile-close]");
+
+  const closeDesktopMenus = () => {
+    desktopTriggers.forEach((trigger) => { trigger.setAttribute("aria-expanded", "false"); });
+    desktopMenus.forEach((menu) => { menu.hidden = true; });
+  };
+
+  desktopTriggers.forEach((trigger) => {
+    trigger.addEventListener("click", () => {
+      const target = trigger.dataset.navTrigger;
+      const menu = target ? document.querySelector<HTMLElement>(`[data-nav-menu="${target}"]`) : null;
+      const willOpen = trigger.getAttribute("aria-expanded") !== "true";
+      closeDesktopMenus();
+      if (menu && willOpen) {
+        trigger.setAttribute("aria-expanded", "true");
+        menu.hidden = false;
+      }
+    });
+  });
+
+  const setMobileOpen = (open: boolean) => {
+    if (!mobileMenu || !mobileToggle) return;
+    mobileMenu.hidden = !open;
+    mobileToggle.setAttribute("aria-expanded", String(open));
+    document.body.classList.toggle("ad-menu-open", open);
+  };
+
+  mobileToggle?.addEventListener("click", () => setMobileOpen(mobileMenu?.hasAttribute("hidden") ?? true));
+  mobileClose?.addEventListener("click", () => setMobileOpen(false));
+  document.addEventListener("click", (event) => {
+    if (header && !header.contains(event.target as Node)) closeDesktopMenus();
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") { closeDesktopMenus(); setMobileOpen(false); }
+  });
+</script>

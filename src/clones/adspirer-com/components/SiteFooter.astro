@@ -1,0 +1,32 @@
+---
+const linkGroups = [
+  { title: "Product", links: ["Campaign building", "Account checks", "Brand context", "Pricing"] },
+  { title: "AI platforms", links: ["ChatGPT", "Claude", "Codex", "Cursor"] },
+  { title: "Ad platforms", links: ["Google Ads", "Meta Ads", "TikTok Ads", "Amazon Ads"] },
+  { title: "Resources", links: ["Setup guides", "MCP server", "Help center", "Changelog"] },
+  { title: "Company", links: ["About", "Contact", "Privacy", "Terms"] },
+];
+---
+
+<section class="ad-final-cta" id="get-started">
+  <div class="ad-shell" data-reveal>
+    <p class="ad-eyebrow">Paid media, handled</p>
+    <h2>Put Adspirer on<br /><em>your first account.</em></h2>
+    <a class="ad-button ad-button--primary" href="https://adspirer.ai/sign-up">Get started <span aria-hidden="true">→</span></a>
+  </div>
+</section>
+
+<footer class="ad-footer">
+  <div class="ad-shell">
+    <div class="ad-footer__opening">
+      <div><img src="/clones/adspirer-com/images/adspirer-logo-full.svg" alt="Adspirer" width="213" height="40" /><h2>Paid media.<br />Handled.</h2><p>AI agents that do the account work your team is ready to delegate.</p></div>
+      <a class="ad-button ad-button--dark" href="https://adspirer.ai/sign-up">Get started <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="ad-footer__grid">
+      <div class="ad-footer__contact"><p class="ad-eyebrow">Say hello</p><a href="mailto:hello@adspirer.com">hello@adspirer.com</a><a href="https://www.adspirer.com/">www.adspirer.com</a></div>
+      {linkGroups.map((group) => <div><p class="ad-eyebrow">{group.title}</p><ul>{group.links.map((link) => <li><a href="/adspirer-com/#resources">{link}</a></li>)}</ul></div>)}
+    </div>
+    <div class="ad-footer__bottom"><span>© 2026 Adspirer. All rights reserved.</span><span>Built for account work.</span></div>
+    <div class="ad-footer__wordmark" aria-hidden="true">ADSPIRER</div>
+  </div>
+</footer>

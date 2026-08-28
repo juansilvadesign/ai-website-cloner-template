@@ -1,0 +1,160 @@
+{
+  "trigger": {
+    "className": "navbar_link w-nav-link nav-mm-trigger is-open",
+    "ariaHidden": null,
+    "ariaExpanded": "true",
+    "rect": {
+      "x": 488.921875,
+      "y": 29.921875,
+      "width": 102.09375,
+      "height": 37.609375
+    },
+    "styles": {
+      "display": "flex",
+      "opacity": "1",
+      "visibility": "visible",
+      "transform": "none",
+      "transition": "0.5s ease-in-out",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "boxShadow": "none",
+      "borderRadius": "0px",
+      "pointerEvents": "auto"
+    }
+  },
+  "mega": {
+    "className": "nav-mega is-open",
+    "ariaHidden": "false",
+    "ariaExpanded": null,
+    "rect": {
+      "x": 315.96875,
+      "y": 75.53125,
+      "width": 448,
+      "height": 260
+    },
+    "styles": {
+      "display": "block",
+      "opacity": "1",
+      "visibility": "visible",
+      "transform": "matrix(1, 0, 0, 1, -172.953, 0)",
+      "transition": "none",
+      "backgroundColor": "rgba(255, 255, 255, 0.96)",
+      "boxShadow": "rgba(16, 24, 40, 0.3) 0px 24px 60px -24px, rgba(16, 24, 40, 0.16) 0px 8px 20px -14px",
+      "borderRadius": "16px",
+      "pointerEvents": "auto"
+    }
+  },
+  "panel": {
+    "className": "nav-mega-panel is-active",
+    "ariaHidden": null,
+    "ariaExpanded": null,
+    "rect": {
+      "x": 316.96875,
+      "y": 76.53125,
+      "width": 448,
+      "height": 259.90625
+    },
+    "styles": {
+      "display": "block",
+      "opacity": "1",
+      "visibility": "visible",
+      "transform": "none",
+      "transition": "opacity 0.16s 0.04s",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "boxShadow": "none",
+      "borderRadius": "0px",
+      "pointerEvents": "auto"
+    }
+  },
+  "links": [
+    {
+      "text": "",
+      "href": "https://www.adspirer.com/integrations/platforms/google-ads",
+      "rect": {
+        "x": 332.96875,
+        "y": 117.46875,
+        "width": 207,
+        "height": 39
+      }
+    },
+    {
+      "text": "",
+      "href": "https://www.adspirer.com/integrations/platforms/google-ads",
+      "rect": {
+        "x": 541.96875,
+        "y": 117.46875,
+        "width": 207,
+        "height": 39
+      }
+    },
+    {
+      "text": "",
+      "href": "https://www.adspirer.com/integrations/platforms/meta-ads",
+      "rect": {
+        "x": 332.96875,
+        "y": 158.46875,
+        "width": 207,
+        "height": 39
+      }
+    },
+    {
+      "text": "",
+      "href": "https://www.adspirer.com/integrations/platforms/meta-ads",
+      "rect": {
+        "x": 541.96875,
+        "y": 158.46875,
+        "width": 207,
+        "height": 39
+      }
+    },
+    {
+      "text": "",
+      "href": "https://www.adspirer.com/integrations/platforms/linkedin-ads",
+      "rect": {
+        "x": 332.96875,
+        "y": 199.46875,
+        "width": 207,
+        "height": 39
+      }
+    },
+    {
+      "text": "",
+      "href": "https://www.adspirer.com/integrations/platforms/tiktok-ads",
+      "rect": {
+        "x": 541.96875,
+        "y": 199.46875,
+        "width": 207,
+        "height": 39
+      }
+    },
+    {
+      "text": "",
+      "href": "https://www.adspirer.com/integrations",
+      "rect": {
+        "x": 332.96875,
+        "y": 240.46875,
+        "width": 207,
+        "height": 39
+      }
+    },
+    {
+      "text": "",
+      "href": "https://www.adspirer.com/integrations/advertise-on-chatgpt",
+      "rect": {
+        "x": 541.96875,
+        "y": 240.46875,
+        "width": 207,
+        "height": 39
+      }
+    },
+    {
+      "text": "View all integrations",
+      "href": "https://www.adspirer.com/integrations",
+      "rect": {
+        "x": 605.328125,
+        "y": 301.25,
+        "width": 143.640625,
+        "height": 19.1875
+      }
+    }
+  ]
+}

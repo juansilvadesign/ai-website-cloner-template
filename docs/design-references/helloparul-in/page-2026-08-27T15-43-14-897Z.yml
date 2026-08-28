@@ -1,0 +1,180 @@
+- generic [ref=f2e3]:
+  - navigation [ref=f2e146]:
+    - button "Parul Aggarwal" [ref=f2e147] [cursor=pointer]
+    - generic [ref=f2e148]:
+      - button "work" [ref=f2e149] [cursor=pointer]
+      - button "about" [ref=f2e150] [cursor=pointer]
+      - button "play with parul" [ref=f2e151] [cursor=pointer]
+      - generic [ref=f2e152]: Open to work
+  - generic [ref=f2e154]:
+    - banner [ref=f2e155]:
+      - generic [ref=f2e156]:
+        - generic [ref=f2e157]: Smytten
+        - generic [ref=f2e158]: UX
+        - generic [ref=f2e159]: Conversion Optimization
+        - generic [ref=f2e160]: AI
+        - generic [ref=f2e161]: Review
+        - generic [ref=f2e162]: Customer Feedback
+      - heading "Building Trust in Product Discovery Through AI-Powered Review Summaries" [level=1] [ref=f2e163]
+      - paragraph [ref=f2e164]: How we reduced PDP drop-offs by improving trust, simplifying decision-making, and transforming how users consume reviews.
+    - generic [ref=f2e165]:
+      - generic [ref=f2e166]:
+        - generic [ref=f2e167]: Role
+        - generic [ref=f2e168]: UX Designer
+      - generic [ref=f2e169]:
+        - generic [ref=f2e170]: Company
+        - generic [ref=f2e171]: Smytten
+      - generic [ref=f2e172]:
+        - generic [ref=f2e173]: Tools
+        - generic [ref=f2e174]: MoEngage · Clarity
+      - generic [ref=f2e175]:
+        - generic [ref=f2e176]: Platform
+        - generic [ref=f2e177]: iOS · Android
+    - generic [ref=f2e178]:
+      - generic [ref=f2e179]:
+        - generic [ref=f2e180]: 58→63%
+        - generic [ref=f2e181]: PDP → Cart progression
+      - generic [ref=f2e182]:
+        - generic [ref=f2e183]: +reviews
+        - generic [ref=f2e184]: higher participation
+      - generic [ref=f2e185]:
+        - generic [ref=f2e186]: −fatigue
+        - generic [ref=f2e187]: faster decisions
+    - img "Hero / cover image" [ref=f2e189]
+    - generic [ref=f2e190]:
+      - heading "Brief" [level=2] [ref=f2e191]
+      - paragraph [ref=f2e192]: At Smytten, the Product Detail Page (PDP) plays a critical role in the conversion journey. Users discover products, evaluate trust signals, compare opinions, and decide whether to move forward with a purchase.
+      - paragraph [ref=f2e193]: "But while tracking user behavior across the funnel, we noticed a recurring problem:"
+      - paragraph [ref=f2e194]: Users were spending time on the PDP, especially around reviews, but many were exiting before making a purchase.
+      - paragraph [ref=f2e195]: This drop-off was directly impacting conversion performance.
+      - paragraph [ref=f2e196]: For categories like skincare and beauty, users rarely purchase based on product descriptions alone. They look for reassurance from real users before making a decision. Reviews had become one of the strongest trust indicators within the journey.
+      - paragraph [ref=f2e197]: The problem was
+      - paragraph [ref=f2e198]: many products simply didn't have enough meaningful reviews to build confidence.
+    - generic [ref=f2e199]:
+      - heading "Understanding the Problem" [level=2] [ref=f2e200]
+      - paragraph [ref=f2e201]: "To understand what was happening, I collaborated closely with the Product Manager to analyze user behavior through:"
+      - list [ref=f2e202]:
+        - listitem [ref=f2e203]: Funnel analysis
+        - listitem [ref=f2e204]: Session recordings
+        - listitem [ref=f2e205]: Review page interaction tracking
+      - paragraph [ref=f2e206]: Tools Used
+      - list [ref=f2e207]:
+        - listitem [ref=f2e208]: MoEngage
+        - listitem [ref=f2e209]: Clarity
+      - paragraph [ref=f2e210]: What we discovered was interesting.
+      - paragraph [ref=f2e211]: Users were actively opening the review section before purchasing, but products with fewer reviews created hesitation and uncertainty. In many cases, users simply abandoned the journey without progressing further.
+      - paragraph [ref=f2e212]: "At the same time, we noticed another behavioral pattern: users who had bad product experiences were naturally more likely to leave reviews, while users who had positive experiences often moved on without contributing anything."
+      - paragraph [ref=f2e213]: "This created an imbalance:"
+      - list [ref=f2e214]:
+        - listitem [ref=f2e215]: fewer reviews overall
+        - listitem [ref=f2e216]: inconsistent trust signals
+        - listitem [ref=f2e217]: weaker social proof across PDPs
+      - paragraph [ref=f2e218]: "The business impact was clear:"
+      - paragraph [ref=f2e219]: low trust was increasing friction inside the conversion funnel.
+    - heading "Funnel Performance Before vs After Feature Rollout" [level=2] [ref=f2e221]
+    - generic [ref=f2e222]:
+      - heading "Business Impact" [level=2] [ref=f2e223]
+      - paragraph [ref=f2e224]: After introducing reward-based reviews and AI-powered review summaries, we observed stronger progression within the purchase funnel.
+      - paragraph [ref=f2e225]: The most noticeable improvement was seen between the PDP and Cart stage, where conversion progression increased from 58% to 63%, indicating improved purchase confidence and reduced friction during product evaluation.
+      - paragraph [ref=f2e226]: "The feature also contributed to:"
+      - list [ref=f2e227]:
+        - listitem [ref=f2e228]: higher review participation
+        - listitem [ref=f2e229]: stronger PDP engagement
+        - listitem [ref=f2e230]: faster user decision-making
+    - generic [ref=f2e231]:
+      - heading "Phase 1 — Solving the Trust Gap" [level=2] [ref=f2e232]
+      - paragraph [ref=f2e233]: "Our first objective was simple:"
+      - paragraph [ref=f2e234]: increase authentic review participation across products.
+      - paragraph [ref=f2e235]: But instead of forcing users into feedback flows, we wanted to create motivation at the right moment in the journey.
+      - paragraph [ref=f2e236]: We introduced a reward-based review system where users received 5–10 Smytten Bucks for submitting product reviews after delivery.
+      - paragraph [ref=f2e237]: Once a product was delivered, users received a push notification encouraging them to share feedback and earn rewards redeemable within the platform ecosystem.
+      - paragraph [ref=f2e238]: "The experience was intentionally designed to feel:"
+      - list [ref=f2e239]:
+        - listitem [ref=f2e240]: lightweight
+        - listitem [ref=f2e241]: rewarding
+        - listitem [ref=f2e242]: frictionless
+      - paragraph [ref=f2e243]: The goal wasn't just collecting more reviews.
+      - paragraph [ref=f2e244]: It was strengthening trust signals across the PDP experience.
+      - paragraph [ref=f2e245]: And it worked.
+      - paragraph [ref=f2e246]: Review participation started increasing across products, helping users discover more authentic product experiences before purchasing.
+      - img "Hero / cover image" [ref=f2e248]
+      - paragraph [ref=f2e249]: But shortly after improving one problem, another one surfaced.
+    - generic [ref=f2e250]:
+      - heading "A New UX Problem Emerged" [level=2] [ref=f2e251]
+      - paragraph [ref=f2e252]: As review volume increased, user behavior started shifting again.
+      - paragraph [ref=f2e253]: Users were now spending excessive time scrolling through reviews, comparing opinions, filtering sentiments manually, and trying to understand whether a product was actually suitable for them.
+      - paragraph [ref=f2e254]: "Session recordings revealed users repeatedly:"
+      - list [ref=f2e255]:
+        - listitem [ref=f2e256]: scrolling through long review sections
+        - listitem [ref=f2e257]: opening multiple reviews
+        - listitem [ref=f2e258]: comparing positive and negative experiences
+        - listitem [ref=f2e259]: exiting the PDP without progressing further
+      - img "Session recording insights / long review section" [ref=f2e261]
+      - paragraph [ref=f2e262]: "The issue was no longer:"
+      - paragraph [ref=f2e263]: "\"Users don't have enough information.\""
+      - paragraph [ref=f2e264]: "The issue became:"
+      - paragraph [ref=f2e265]: "\"Users have too much information to process.\""
+      - paragraph [ref=f2e266]: This created decision fatigue inside the purchase journey.
+    - generic [ref=f2e267]:
+      - heading "Rethinking the Review Experience" [level=2] [ref=f2e268]
+      - paragraph [ref=f2e269]: At this stage, we explored how users consume reviews rather than how many reviews existed.
+      - paragraph [ref=f2e270]: "Traditional filtering and sorting patterns could help users navigate reviews, but they still required effort:"
+      - paragraph [ref=f2e271]: users had to manually filter ratings, compare sentiments, and interpret feedback themselves.
+      - paragraph [ref=f2e272]: We wanted to reduce the effort required to reach a decision.
+      - paragraph [ref=f2e273]: "Instead of making users search for answers, we asked:"
+      - paragraph [ref=f2e274]: "\"What if the interface could summarize collective user sentiment instantly?\""
+      - paragraph [ref=f2e275]: This led to the AI Summary concept.
+      - img "Early AI Summary exploration / wireframe" [ref=f2e277]
+    - generic [ref=f2e278]:
+      - heading "The Solution — AI-Powered Review Summaries" [level=2] [ref=f2e279]
+      - paragraph [ref=f2e280]: We introduced concise AI-generated summaries directly inside the PDP review section.
+      - paragraph [ref=f2e281]: "As users reached the review area, they were shown:"
+      - list [ref=f2e282]:
+        - listitem [ref=f2e283]: a short summary generated from real user reviews
+        - listitem [ref=f2e284]: quick sentiment chips
+        - listitem [ref=f2e285]: contextual "good fit / not ideal for" indicators
+      - paragraph [ref=f2e286]: The goal was not to replace reviews.
+      - paragraph [ref=f2e287]: The goal was to help users understand reviews faster.
+    - generic [ref=f2e288]:
+      - heading "Designing for Personal Relevance" [level=2] [ref=f2e289]
+      - paragraph [ref=f2e290]: One important UX decision was avoiding generic "good" or "bad" labeling.
+      - paragraph [ref=f2e291]: Beauty and skincare products are highly subjective. A product that works well for one user may not work for another.
+      - paragraph [ref=f2e292]: "Instead of saying:"
+      - paragraph [ref=f2e293]: "\"This product is bad\""
+      - paragraph [ref=f2e294]: "the experience focused on:"
+      - paragraph [ref=f2e295]: "\"This product may not be suitable for your specific need.\""
+      - paragraph [ref=f2e296]: "For example:"
+      - list [ref=f2e297]:
+        - listitem [ref=f2e298]: Not for frizzy hair
+        - listitem [ref=f2e299]: Good for dry hair
+        - listitem [ref=f2e300]: Better for lightweight hydration
+      - img "Early AI Summary exploration / wireframe" [ref=f2e302]
+      - paragraph [ref=f2e303]: This shifted the experience from broad product judgment to contextual product understanding.
+      - paragraph [ref=f2e304]: And from a business perspective, it helped users make faster and more confident decisions without leaving the PDP journey.
+    - generic [ref=f2e305]:
+      - heading "My Contribution" [level=2] [ref=f2e306]
+      - paragraph [ref=f2e307]: "As the UX Designer on the project, I worked on:"
+      - list [ref=f2e308]:
+        - listitem [ref=f2e309]: User behavior analysis through funnel tracking and session recordings
+        - listitem [ref=f2e310]: Identifying trust and decision-fatigue friction points
+        - listitem [ref=f2e311]: Designing the review feedback journey
+        - listitem [ref=f2e312]: Collaborating closely with the Product Manager on product direction
+        - listitem [ref=f2e313]: Defining the AI summary experience from a UX perspective
+        - listitem [ref=f2e314]: Simplifying review consumption within the PDP flow
+    - generic [ref=f2e315]:
+      - heading "Outcomes" [level=2] [ref=f2e316]
+      - paragraph [ref=f2e317]: The project helped improve how users interacted with reviews during the purchase journey.
+      - paragraph [ref=f2e318]: Impact
+      - list [ref=f2e319]:
+        - listitem [ref=f2e320]: Increased review submissions across products
+        - listitem [ref=f2e321]: Faster user decision-making
+        - listitem [ref=f2e322]: Better interaction with PDP review sections
+        - listitem [ref=f2e323]: Reduced friction within the conversion funnel
+        - listitem [ref=f2e324]: PDP to Cart progression improved from 58% → 63%
+    - generic [ref=f2e325]:
+      - heading "Key Learning" [level=2] [ref=f2e326]
+      - paragraph [ref=f2e327]: One of the biggest learnings from this project was understanding how solving one business problem can unintentionally create another.
+      - paragraph [ref=f2e328]: Increasing review participation successfully improved trust across the platform, but it also introduced information overload.
+      - paragraph [ref=f2e329]: The real UX challenge wasn't simply adding more content.
+      - paragraph [ref=f2e330]: It was helping users consume the right information faster and with less effort.
+      - paragraph [ref=f2e331]: This project reinforced the importance of designing not just for engagement, but for clarity, confidence, and decision-making speed within high-intent user journeys.

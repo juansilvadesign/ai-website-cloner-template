@@ -1,0 +1,191 @@
+<main class="play-page parul-shell">
+  <header>
+    <p class="play-page__eyebrow">Let’s Play With Me</p>
+    <h1>Tic-tac-toe, on the house.</h1>
+    <p class="play-page__intro">A short break from case studies. You’re X, Parul is playing O — take turns and see who removes the last bit of friction.</p>
+  </header>
+
+  <section class="play-page__game" data-ttt aria-label="Tic-tac-toe game">
+    <p class="play-page__status" aria-live="polite" data-ttt-status>Your turn (X)</p>
+    <div class="play-page__board" role="group" aria-label="Tic-tac-toe board">
+      {Array.from({ length: 9 }, (_, index) => <button type="button" aria-label={`Empty square ${index + 1}`} data-ttt-cell={index}></button>)}
+    </div>
+    <button class="play-page__reset" type="button" data-ttt-reset>Reset board ↺</button>
+  </section>
+</main>
+
+<script>
+  const game = document.querySelector<HTMLElement>("[data-ttt]");
+  const status = game?.querySelector<HTMLElement>("[data-ttt-status]");
+  const reset = game?.querySelector<HTMLButtonElement>("[data-ttt-reset]");
+  const cells = [...(game?.querySelectorAll<HTMLButtonElement>("[data-ttt-cell]") ?? [])];
+  const lines = [
+    [0, 1, 2], [3, 4, 5], [6, 7, 8],
+    [0, 3, 6], [1, 4, 7], [2, 5, 8],
+    [0, 4, 8], [2, 4, 6],
+  ];
+  let board: Array<"X" | "O" | null> = Array(9).fill(null);
+  let player: "X" | "O" = "X";
+  let isComplete = false;
+
+  const winner = () => lines.find(([a, b, c]) => board[a] && board[a] === board[b] && board[a] === board[c])?.map((index) => board[index])[0] ?? null;
+
+  const setStatus = () => {
+    const victor = winner();
+    if (victor) {
+      isComplete = true;
+      if (status) {
+        status.textContent = victor === "X" ? "You win! 🎉" : "Parul wins!";
+        status.dataset.winner = victor;
+      }
+      return;
+    }
+
+    if (board.every(Boolean)) {
+      isComplete = true;
+      if (status) status.textContent = "It's a draw.";
+      return;
+    }
+
+    if (status) {
+      status.textContent = player === "X" ? "Your turn (X)" : "Parul is thinking…";
+      status.removeAttribute("data-winner");
+    }
+  };
+
+  const render = () => {
+    cells.forEach((cell, index) => {
+      const mark = board[index];
+      cell.textContent = mark ?? "";
+      cell.dataset.mark = mark ?? "";
+      cell.setAttribute("aria-label", mark ? `Square ${index + 1}: ${mark}` : `Empty square ${index + 1}`);
+      cell.disabled = Boolean(mark) || isComplete;
+    });
+  };
+
+  const move = (index: number) => {
+    if (board[index] || isComplete) return;
+    board[index] = player;
+    player = player === "X" ? "O" : "X";
+    setStatus();
+    render();
+  };
+
+  cells.forEach((cell, index) => cell.addEventListener("click", () => move(index)));
+  reset?.addEventListener("click", () => {
+    board = Array(9).fill(null);
+    player = "X";
+    isComplete = false;
+    setStatus();
+    render();
+  });
+</script>
+
+<style>
+  .play-page {
+    width: min(100%, 1080px);
+    min-height: 100vh;
+    padding-top: 48px;
+    padding-bottom: 90px;
+  }
+
+  .play-page__eyebrow {
+    margin: 0 0 18px;
+    color: var(--muted);
+    font-family: "Space Mono", monospace;
+    font-size: var(--text-sm);
+  }
+
+  .play-page h1 {
+    max-width: 18ch;
+    margin: 0 0 16px;
+    color: var(--fg);
+    font-family: var(--font-display);
+    font-size: clamp(34px, 5.6vw, 58px);
+    font-weight: 800;
+    letter-spacing: var(--tracking-display);
+    line-height: 1.02;
+  }
+
+  .play-page__intro {
+    max-width: 56ch;
+    margin: 0;
+    color: var(--fg-2);
+    font-size: 18px;
+    line-height: 1.55;
+  }
+
+  .play-page__game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+    margin-top: 40px;
+  }
+
+  .play-page__status {
+    min-height: 1.4em;
+    margin: 0;
+    color: var(--fg);
+    font-family: "Space Mono", monospace;
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  .play-page__status[data-winner="X"] { color: #7cffb2; }
+  .play-page__status[data-winner="O"] { color: var(--accent); }
+
+  .play-page__board {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(84px, 110px));
+    grid-template-rows: repeat(3, minmax(84px, 110px));
+    gap: 0;
+    overflow: hidden;
+    border: 3px solid var(--fg);
+    border-radius: var(--radius-md);
+    background: var(--fg);
+  }
+
+  .play-page__board button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid color-mix(in srgb, var(--fg) 50%, transparent);
+    background: var(--surface);
+    color: var(--accent);
+    cursor: pointer;
+    font-family: var(--font-display);
+    font-size: 44px;
+    font-weight: 800;
+    transition: background-color var(--motion-fast) var(--ease-standard);
+  }
+
+  .play-page__board button[data-mark="O"] { color: #1e37d8; }
+  .play-page__board button:disabled { cursor: default; }
+
+  .play-page__reset {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 24px;
+    border: 1.5px solid var(--fg);
+    border-radius: var(--radius-pill);
+    background: transparent;
+    color: var(--fg);
+    cursor: pointer;
+    font-family: "Space Mono", monospace;
+    font-size: 13px;
+    font-weight: 700;
+    transition: background-color var(--motion-fast) var(--ease-standard), color var(--motion-fast) var(--ease-standard);
+  }
+
+  @media (hover: hover) {
+    .play-page__board button:not(:disabled):hover { background: var(--bg); }
+    .play-page__reset:hover { background: var(--fg); color: var(--accent-on); }
+  }
+
+  @media (max-width: 760px) {
+    .play-page { padding-top: 34px; padding-bottom: 60px; }
+    .play-page__intro { font-size: 16px; }
+  }
+</style>

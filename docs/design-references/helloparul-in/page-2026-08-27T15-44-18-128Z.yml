@@ -1,0 +1,144 @@
+- generic [ref=e3]:
+  - generic [ref=e4]:
+    - generic [ref=e5]: Parul Aggarwal
+    - generic [ref=e6]: Politely arguing with a PM about spacing…
+  - generic [ref=e9]:
+    - navigation [ref=e10]:
+      - button "Parul Aggarwal" [ref=e11] [cursor=pointer]
+      - generic [ref=e12]:
+        - button "work" [ref=e13] [cursor=pointer]
+        - button "about" [ref=e14] [cursor=pointer]
+        - button "play with parul" [ref=e15] [cursor=pointer]
+        - generic [ref=e16]: Open to work
+    - banner [ref=e18]:
+      - heading [level=1] [ref=e19]:
+        - text: Designer. Thinker. who removes
+        - generic [ref=e20]: friction
+        - text: .
+      - generic [ref=e22]: Product Designer · 5+ years · Consumer Products · Growth & Conversion
+      - link "See the work ↓" [ref=e24] [cursor=pointer]:
+        - /url: "#work"
+  - generic [ref=e26]:
+    - generic [ref=e27]:
+      - generic [ref=e28]: Product design
+      - generic [ref=e29]: ✦
+      - generic [ref=e30]: Micro-interactions
+      - generic [ref=e31]: ✦
+      - generic [ref=e32]: Design systems
+      - generic [ref=e33]: ✦
+      - generic [ref=e34]: AI-assisted UX
+      - generic [ref=e35]: ✦
+      - generic [ref=e36]: Prototyping
+      - generic [ref=e37]: ✦
+      - generic [ref=e38]: User research
+      - generic [ref=e39]: ✦
+    - generic [ref=e40]:
+      - generic [ref=e41]: Product design
+      - generic [ref=e42]: ✦
+      - generic [ref=e43]: Micro-interactions
+      - generic [ref=e44]: ✦
+      - generic [ref=e45]: Design systems
+      - generic [ref=e46]: ✦
+      - generic [ref=e47]: AI-assisted UX
+      - generic [ref=e48]: ✦
+      - generic [ref=e49]: Prototyping
+      - generic [ref=e50]: ✦
+      - generic [ref=e51]: User research
+      - generic [ref=e52]: ✦
+  - generic [ref=e53]:
+    - generic [ref=e54]:
+      - generic [ref=e55]:
+        - generic [ref=e56]: 5+
+        - generic [ref=e57]: years shipping
+      - generic [ref=e58]:
+        - generic [ref=e59]: 25+
+        - generic [ref=e60]: features shipped
+      - generic [ref=e61]:
+        - generic [ref=e62]: 15Cr+
+        - generic [ref=e63]: consumer served
+      - generic [ref=e64]:
+        - generic [ref=e65]: "0"
+        - generic [ref=e66]: px left unaligned
+    - generic [ref=e67]:
+      - heading "Selected work" [level=2] [ref=e69]
+      - article [ref=e70] [cursor=pointer]:
+        - generic [ref=e71]:
+          - generic [ref=e72]:
+            - generic [ref=e73]:
+              - generic [ref=e74]: Smytten
+              - generic [ref=e75]: Conversion
+            - heading "Building trust through AI-powered review summaries" [level=3] [ref=e76]
+            - paragraph [ref=e77]:
+              - text: Users lingered on reviews but bailed before buying. I dug into funnels and session recordings, fixed the trust gap with reward-based reviews — then killed the
+              - emphasis [ref=e78]: information overload
+              - text: it created with concise, contextual AI summaries.
+            - generic [ref=e79]:
+              - generic [ref=e80]:
+                - generic [ref=e81]: +5 pts
+                - generic [ref=e82]: PDP→cart conversion
+              - generic [ref=e83]:
+                - generic [ref=e84]: ↑↑
+                - generic [ref=e85]: review participation
+              - generic [ref=e86]:
+                - generic [ref=e87]: −fatigue
+                - generic [ref=e88]: faster decisions
+            - generic [ref=e89]: Read the full case study →
+          - img "Smytten product page showing the AI-generated review summary and sentiment tags" [ref=e91]
+      - article [ref=e92] [cursor=pointer]:
+        - generic [ref=e93]:
+          - img "Smytten cart screen showing the Bill Buster reward unlocked popup — ₹75 OFF applied" [ref=e95]
+          - generic [ref=e96]:
+            - generic [ref=e97]:
+              - generic [ref=e98]: Smytten
+              - generic [ref=e99]: Gamification
+              - generic [ref=e100]: Reward Systems
+              - generic [ref=e101]: Cart value
+            - 'heading "Bill Buster: more in the cart, by making progress visible" [level=3] [ref=e102]'
+            - paragraph [ref=e103]:
+              - text: Shoppers checked out before unlocking offers because static discount banners were easy to ignore. I designed a
+              - emphasis [ref=e104]: sticky, real-time reward tracker
+              - text: that updates with every add-to-cart — and defended keeping it always-visible over a PM's toast idea. It shipped sticky.
+            - generic [ref=e105]:
+              - generic [ref=e106]:
+                - generic [ref=e107]: 19%→26%
+                - generic [ref=e108]: offer completion
+              - generic [ref=e109]:
+                - generic [ref=e110]: ₹150
+                - generic [ref=e111]: gap made visible
+              - generic [ref=e112]:
+                - generic [ref=e113]: +motivate
+                - generic [ref=e114]: user to buy more
+            - generic [ref=e115]: Read the full case study →
+      - article [ref=e116] [cursor=pointer]:
+        - generic [ref=e117]:
+          - generic [ref=e118]:
+            - generic [ref=e119]:
+              - generic [ref=e120]: Smytten
+              - generic [ref=e121]: Discovery
+            - 'heading "Combo Generator: guided trial selection for a 300+ product catalog" [level=3] [ref=e122]'
+            - paragraph [ref=e123]: Users came to explore, not search — with no query, no filter habit and no anchor, that's a discovery problem, not a browsing one. I reframed the flow around removing decisions instead of adding filters, with two low-cost ways to correct a wrong guess.
+            - generic [ref=e124]:
+              - generic [ref=e125]:
+                - generic [ref=e126]: 22–28%
+                - generic [ref=e127]: proceeded to checkout
+              - generic [ref=e128]:
+                - generic [ref=e129]: 14–18%
+                - generic [ref=e130]: lift in selection completion
+            - generic [ref=e131]: Read the full case study →
+          - img "Combo Generator — the curated combo view showing 8 recommended products" [ref=e133]
+  - contentinfo [ref=e134]:
+    - generic [ref=e135]:
+      - generic [ref=e136]: Probably tweaking this footer again.
+      - heading "That's the work. Here's the awkward reaching out part." [level=2] [ref=e137]
+      - generic [ref=e138]:
+        - link "Drop an Email" [ref=e139] [cursor=pointer]:
+          - /url: https://mail.google.com/mail/?view=cm&fs=1&to=a.parulatwork@gmail.com&su=Let%27s%20work%20together
+        - link "Download resume ↓" [ref=e140] [cursor=pointer]:
+          - /url: assets/Parul-Aggarwal-Resume.pdf
+        - link "Medium ↗" [ref=e141] [cursor=pointer]:
+          - /url: https://medium.com/@theparul
+        - link "LinkedIn ↗" [ref=e142] [cursor=pointer]:
+          - /url: https://linkedin.com/in/parulatwork
+      - generic [ref=e143]:
+        - generic [ref=e144]: 🧿
+        - generic [ref=e145]: No templates were harmed

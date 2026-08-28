@@ -1,0 +1,107 @@
+- generic [ref=f3e3]:
+  - generic [ref=f3e8]:
+    - navigation [ref=f3e9]:
+      - button "Parul Aggarwal" [ref=f3e10] [cursor=pointer]
+      - generic [ref=f3e11]: Open to work
+    - banner [ref=f3e13]:
+      - heading [level=1] [ref=f3e14]:
+        - text: Designer. Thinker. who removes
+        - generic [ref=f3e15]: friction
+        - text: .
+      - generic [ref=f3e17]: Product Designer · 5+ years · Consumer Products · Growth & Conversion
+      - link "See the work ↓" [ref=f3e19] [cursor=pointer]:
+        - /url: "#work"
+  - generic [ref=f3e21]:
+    - generic [ref=f3e22]:
+      - generic [ref=f3e23]: Product design
+      - generic [ref=f3e24]: ✦
+      - generic [ref=f3e25]: Micro-interactions
+      - generic [ref=f3e26]: ✦
+      - generic [ref=f3e27]: Design systems
+      - generic [ref=f3e28]: ✦
+      - generic [ref=f3e29]: AI-assisted UX
+      - generic [ref=f3e30]: ✦
+      - generic [ref=f3e31]: Prototyping
+      - generic [ref=f3e32]: ✦
+      - generic [ref=f3e33]: User research
+      - generic [ref=f3e34]: ✦
+    - generic [ref=f3e35]:
+      - generic [ref=f3e36]: Product design
+      - generic [ref=f3e37]: ✦
+      - generic [ref=f3e38]: Micro-interactions
+      - generic [ref=f3e39]: ✦
+      - generic [ref=f3e40]: Design systems
+      - generic [ref=f3e41]: ✦
+      - generic [ref=f3e42]: AI-assisted UX
+      - generic [ref=f3e43]: ✦
+      - generic [ref=f3e44]: Prototyping
+      - generic [ref=f3e45]: ✦
+      - generic [ref=f3e46]: User research
+      - generic [ref=f3e47]: ✦
+  - generic [ref=f3e48]:
+    - generic [ref=f3e49]:
+      - generic [ref=f3e50]:
+        - generic [ref=f3e51]: 5+
+        - generic [ref=f3e52]: years shipping
+      - generic [ref=f3e53]:
+        - generic [ref=f3e54]: 25+
+        - generic [ref=f3e55]: features shipped
+      - generic [ref=f3e56]:
+        - generic [ref=f3e57]: 15Cr+
+        - generic [ref=f3e58]: consumer served
+      - generic [ref=f3e59]:
+        - generic [ref=f3e60]: "0"
+        - generic [ref=f3e61]: px left unaligned
+    - generic [ref=f3e62]:
+      - heading "Selected work" [level=2] [ref=f3e64]
+      - article [ref=f3e65] [cursor=pointer]:
+        - generic [ref=f3e66]:
+          - generic [ref=f3e67]:
+            - generic [ref=f3e68]:
+              - generic [ref=f3e69]: Smytten
+              - generic [ref=f3e70]: Conversion
+            - heading "Building trust through AI-powered review summaries" [level=3] [ref=f3e71]
+            - generic [ref=f3e72]: Read the full case study →
+          - img "Smytten product page showing the AI-generated review summary and sentiment tags" [ref=f3e74]
+      - article [ref=f3e75] [cursor=pointer]:
+        - generic [ref=f3e76]:
+          - img "Smytten cart screen showing the Bill Buster reward unlocked popup — ₹75 OFF applied" [ref=f3e78]
+          - generic [ref=f3e79]:
+            - generic [ref=f3e80]:
+              - generic [ref=f3e81]: Smytten
+              - generic [ref=f3e82]: Gamification
+              - generic [ref=f3e83]: Reward Systems
+              - generic [ref=f3e84]: Cart value
+            - 'heading "Bill Buster: more in the cart, by making progress visible" [level=3] [ref=f3e85]'
+            - generic [ref=f3e86]: Read the full case study →
+      - article [ref=f3e87] [cursor=pointer]:
+        - generic [ref=f3e88]:
+          - generic [ref=f3e89]:
+            - generic [ref=f3e90]:
+              - generic [ref=f3e91]: Smytten
+              - generic [ref=f3e92]: Discovery
+            - 'heading "Combo Generator: guided trial selection for a 300+ product catalog" [level=3] [ref=f3e93]'
+            - generic [ref=f3e94]: Read the full case study →
+          - img "Combo Generator — the curated combo view showing 8 recommended products" [ref=f3e96]
+  - contentinfo [ref=f3e97]:
+    - generic [ref=f3e98]:
+      - generic [ref=f3e99]: Probably tweaking this footer again.
+      - heading "That's the work. Here's the awkward reaching out part." [level=2] [ref=f3e100]
+      - generic [ref=f3e101]:
+        - link "Drop an Email" [ref=f3e102] [cursor=pointer]:
+          - /url: https://mail.google.com/mail/?view=cm&fs=1&to=a.parulatwork@gmail.com&su=Let%27s%20work%20together
+        - link "Download resume ↓" [ref=f3e103] [cursor=pointer]:
+          - /url: assets/Parul-Aggarwal-Resume.pdf
+        - link "Medium ↗" [ref=f3e104] [cursor=pointer]:
+          - /url: https://medium.com/@theparul
+        - link "LinkedIn ↗" [ref=f3e105] [cursor=pointer]:
+          - /url: https://linkedin.com/in/parulatwork
+      - generic [ref=f3e106]:
+        - generic [ref=f3e107]: 🧿
+        - generic [ref=f3e108]: No templates were harmed
+  - navigation [ref=f3e109]:
+    - generic [ref=f3e110]:
+      - button "Home" [ref=f3e111] [cursor=pointer]
+      - button "Work" [ref=f3e115] [cursor=pointer]
+      - button "About" [ref=f3e119] [cursor=pointer]
+      - button "Play with Parul" [ref=f3e123] [cursor=pointer]

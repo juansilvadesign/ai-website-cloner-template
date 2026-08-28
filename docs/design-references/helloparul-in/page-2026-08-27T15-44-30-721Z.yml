@@ -1,0 +1,85 @@
+- generic [ref=e3]:
+  - navigation [ref=e147]:
+    - button "Parul Aggarwal" [ref=e148] [cursor=pointer]
+    - generic [ref=e149]:
+      - button "work" [ref=e150] [cursor=pointer]
+      - button "about" [ref=e151] [cursor=pointer]
+      - button "play with parul" [ref=e152] [cursor=pointer]
+      - generic [ref=e153]: Open to work
+  - generic [ref=e155]:
+    - banner [ref=e156]:
+      - generic [ref=e157]: About
+      - generic [ref=e158]:
+        - generic [ref=e159]:
+          - heading [level=1] [ref=e160]:
+            - text: Hi, I'm Parul
+            - emphasis [ref=e161]: .
+          - paragraph [ref=e162]: Senior UI/UX Designer with 5+ years designing for B2C and D2C mobile apps at a scale. At Smytten, I owned end-to-end UX — focusing on retention, conversion, and revenue for a 2Cr+ user base.
+          - paragraph [ref=e163]: Before that, at Swiggy, I designed high-impact campaigns reaching 7Cr+ users — learning to build fast, stay consistent, and create systems that scale.
+          - generic [ref=e164]:
+            - link "Download resume ↓" [ref=e165] [cursor=pointer]:
+              - /url: assets/Parul-Aggarwal-Resume.pdf
+            - link "a.parulatwork@gmail.com" [ref=e166] [cursor=pointer]:
+              - /url: https://mail.google.com/mail/?view=cm&fs=1&to=a.parulatwork@gmail.com&su=Let%27s%20work%20together
+        - generic [ref=e167]:
+          - generic [ref=e169]:
+            - img "Parul — photo" [ref=e170]
+            - img "Parul — photo" [ref=e171]
+            - img "Parul — photo" [ref=e172]
+            - img "Parul — photo" [ref=e173]
+            - img "Parul — photo" [ref=e174]
+            - img "Parul — photo" [ref=e175]
+          - generic [ref=e176]:
+            - button "Go to photo" [ref=e177] [cursor=pointer]
+            - button "Go to photo" [ref=e178] [cursor=pointer]
+            - button "Go to photo" [ref=e179] [cursor=pointer]
+            - button "Go to photo" [ref=e180] [cursor=pointer]
+            - button "Go to photo" [ref=e181] [cursor=pointer]
+            - button "Go to photo" [ref=e182] [cursor=pointer]
+    - generic [ref=e183]:
+      - heading "Experience" [level=2] [ref=e184]
+      - generic [ref=e185]:
+        - generic [ref=e186]:
+          - generic [ref=e187]: Senior UI/UX Designer · Smytten
+          - generic [ref=e188]: Sept 2022 — Jan 2026 · Bangalore
+        - list [ref=e189]:
+          - listitem [ref=e190]: Owned end-to-end UX across Smytten's mobile app and web platform — a high-scale B2C & D2C discovery and e-commerce product serving millions of consumers — from research and problem framing through engineering handoff.
+          - listitem [ref=e191]: Improved PDP-to-cart progression by 5% by designing AI-powered review summaries and trust-signal experiences optimised for mobile; decisions driven by funnel data, drop-off analysis, and usability testing.
+          - listitem [ref=e192]: Drove competitive benchmarking across key verticals; delivered structured analysis that informed feature prioritisation and design direction across product squads.
+          - listitem [ref=e193]: Maintained consistent IA across multiple surfaces; produced annotated component specs, interaction notes, and edge-case docs that significantly reduced design-to-dev ambiguity.
+          - listitem [ref=e194]: Led user research cycles (interviews, usability tests, persona mapping) that surfaced unmet needs across the trial journey and directly shaped quarterly roadmap priorities alongside PMs.
+          - listitem [ref=e195]: Contributed to a Figma-based design system — building and maintaining reusable mobile components, interaction specs, and edge-case documentation that reduced design-to-dev ambiguity at scale.
+      - generic [ref=e196]:
+        - generic [ref=e197]:
+          - generic [ref=e198]: Senior Graphic Designer · Swiggy
+          - generic [ref=e199]: Sept 2020 — Sept 2022 · Bangalore
+        - list [ref=e200]:
+          - listitem [ref=e201]: Designed high-impact consumer campaigns and in-app visual experiences across Swiggy's mobile ecosystem, reaching 10M+ users at national scale.
+          - listitem [ref=e202]: Led end-to-end production of festive and occasion-based campaigns, maintaining brand consistency across diverse cultural contexts.
+          - listitem [ref=e203]: Built standardised design systems, style guides, and reusable component libraries in Figma — reducing production turnaround and enabling consistent execution across marketing and product teams.
+    - generic [ref=e204]:
+      - heading "Education" [level=2] [ref=e205]
+      - generic [ref=e206]:
+        - generic [ref=e207]:
+          - generic [ref=e208]: Bachelor of Design (B.Des)
+          - generic [ref=e209]: Lovely Professional University, Phagwara
+          - generic [ref=e210]: 2017 — 2020
+        - generic [ref=e211]:
+          - generic [ref=e212]: Diploma in Graphics, Web Designing & 2D Animation
+          - generic [ref=e213]: Maya Academy of Advanced Cinematics, Jalandhar
+          - generic [ref=e214]: 2016 — 2017
+    - generic [ref=e215]:
+      - heading "Skills" [level=2] [ref=e216]
+      - generic [ref=e217]:
+        - generic [ref=e218]: UX Strategy
+        - generic [ref=e219]: AI-Assisted Design
+        - generic [ref=e220]: User Research
+        - generic [ref=e221]: Wireframing
+        - generic [ref=e222]: Conversion Rate Optimisation
+        - generic [ref=e223]: Retention & Growth Design
+        - generic [ref=e224]: Interaction Design
+        - generic [ref=e225]: Prototyping
+        - generic [ref=e226]: Information Architecture
+        - generic [ref=e227]: Design Systems (Figma)
+        - generic [ref=e228]: Product Thinking
+        - generic [ref=e229]: Usability Testing

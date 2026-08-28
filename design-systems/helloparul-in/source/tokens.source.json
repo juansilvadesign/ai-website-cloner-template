@@ -1,0 +1,81 @@
+{
+  "$schema": "clone-website extraction artifact — consumed by scripts/emit-design-system.ts",
+  "brand": "helloparul-in",
+  "name": "Hello Parul Portfolio",
+  "extraction": {
+    "target": "https://helloparul.in/",
+    "sourcePath": "https://helloparul.in/",
+    "method": "Playwright MCP rendered inspection at 1440×1000 and 390×844, backed by exact inline source styles from source.html",
+    "evidence": "docs/research/helloparul-in/source.html, browser-evidence.json, BEHAVIORS.md, and original captures",
+    "note": "The target is a light-only portfolio. Structural scale bridge tokens are derived only where OpenDesign requires a complete monotonic contract; all visual values used by the clone resolve through the emitted package.",
+    "extractedAt": "2026-08-27"
+  },
+  "themes": {
+    "light": {
+      "--bg": { "value": "#F2EEE3", "confidence": "high", "reason": "Global cream canvas.", "source": "docs/research/helloparul-in/source.html:14; browser-evidence.json colors.canvas" },
+      "--surface": { "value": "#FBF9F3", "confidence": "high", "reason": "Case-card surface.", "source": "docs/research/helloparul-in/source.html:184; browser-evidence.json desktop.cards" },
+      "--surface-warm": { "value": "#F3EEE3", "confidence": "high", "reason": "Availability pill and subtle warm interior surface.", "source": "docs/research/helloparul-in/source.html:116" },
+
+      "--fg": { "value": "#181510", "confidence": "high", "reason": "Primary portfolio ink and dark band.", "source": "docs/research/helloparul-in/source.html:14; browser-evidence.json colors.ink" },
+      "--fg-2": { "value": "#3A352C", "confidence": "high", "reason": "Case-study descriptive copy and stat labels.", "source": "docs/research/helloparul-in/source.html:195" },
+      "--muted": { "value": "#7A7468", "confidence": "high", "reason": "Hero metadata and case-detail secondary text.", "source": "docs/research/helloparul-in/source.html:134" },
+      "--meta": { "value": "#8F8A7C", "confidence": "high", "reason": "Footer eyebrow and subdued dark-mode copy.", "source": "docs/research/helloparul-in/source.html:311" },
+
+      "--border": { "value": "rgba(24, 21, 16, .30)", "confidence": "high", "reason": "Outlined topic-chip edge.", "source": "docs/research/helloparul-in/source.html:190" },
+      "--border-soft": { "value": "rgba(24, 21, 16, .14)", "confidence": "high", "reason": "Stats-board outer and divider line.", "source": "docs/research/helloparul-in/source.html:158" },
+
+      "--accent": { "value": "#FF3B1F", "confidence": "high", "reason": "Primary action, availability dot, case hover edge, and red stat accent.", "source": "docs/research/helloparul-in/source.html:14,138,184" },
+      "--accent-on": { "value": "#F2EEE3", "confidence": "high", "reason": "Text over the red primary action and dark canvas ink inverse.", "source": "docs/research/helloparul-in/source.html:138" },
+      "--accent-hover": { "value": "#181510", "confidence": "high", "reason": "Primary CTA’s authored hover background.", "source": "docs/research/helloparul-in/source.html:138 style-hover" },
+      "--accent-active": { "value": "color-mix(in srgb, var(--accent) 86%, var(--fg))", "confidence": "derived", "reason": "Reserved pressed accent derived from the observed red and ink pair.", "source": "derived from --accent and --fg; target has no separate active color" },
+
+      "--font-display": { "value": "'Bricolage Grotesque', sans-serif", "confidence": "high", "reason": "All display headings, brand wordmark, and marquee text.", "source": "docs/research/helloparul-in/source.html:10,105,128" },
+      "--font-body": { "value": "'Instrument Sans', sans-serif", "confidence": "high", "reason": "Page canvas and product-story body copy.", "source": "docs/research/helloparul-in/source.html:10,14" },
+
+      "--text-xs": { "value": "11px", "confidence": "high", "reason": "Case-stat labels.", "source": "docs/research/helloparul-in/source.html:201" },
+      "--text-sm": { "value": "12px", "confidence": "high", "reason": "Chips and compact stats labels.", "source": "docs/research/helloparul-in/source.html:159,190" },
+      "--text-base": { "value": "14px", "confidence": "high", "reason": "Hero metadata and primary button label.", "source": "docs/research/helloparul-in/source.html:134,138" },
+      "--text-lg": { "value": "17px", "confidence": "high", "reason": "Case-study descriptive text.", "source": "docs/research/helloparul-in/source.html:195" },
+      "--text-xl": { "value": "19px", "confidence": "high", "reason": "Navigation wordmark.", "source": "docs/research/helloparul-in/source.html:105" },
+      "--text-2xl": { "value": "42px", "confidence": "high", "reason": "Large desktop case-study heading endpoint.", "source": "docs/research/helloparul-in/source.html:192" },
+      "--text-3xl": { "value": "64px", "confidence": "high", "reason": "Selected-work display heading endpoint.", "source": "docs/research/helloparul-in/source.html:180" },
+      "--text-4xl": { "value": "118px", "confidence": "high", "reason": "Hero display heading endpoint.", "source": "docs/research/helloparul-in/source.html:128" },
+
+      "--leading-body": { "value": "1.55", "confidence": "high", "reason": "Case-study paragraph leading.", "source": "docs/research/helloparul-in/source.html:195" },
+      "--leading-tight": { "value": ".94", "confidence": "high", "reason": "Hero display leading.", "source": "docs/research/helloparul-in/source.html:128" },
+      "--tracking-display": { "value": "-.035em", "confidence": "high", "reason": "Hero and footer display tracking.", "source": "docs/research/helloparul-in/source.html:128,312" },
+
+      "--space-1": { "value": "1px", "confidence": "high", "reason": "Stats-board divider gap.", "source": "docs/research/helloparul-in/source.html:158" },
+      "--space-2": { "value": "4px", "confidence": "high", "reason": "Small label offset.", "source": "docs/research/helloparul-in/source.html:161" },
+      "--space-3": { "value": "8px", "confidence": "high", "reason": "Chip and inline-control gap.", "source": "docs/research/helloparul-in/source.html:112" },
+      "--space-4": { "value": "12px", "confidence": "high", "reason": "Small nav and label inset.", "source": "docs/research/helloparul-in/source.html:112" },
+      "--space-5": { "value": "16px", "confidence": "high", "reason": "Primary CTA vertical padding and marquee inset.", "source": "docs/research/helloparul-in/source.html:138,145" },
+      "--space-6": { "value": "22px", "confidence": "high", "reason": "Phone shell gutter and hero metadata gap.", "source": "docs/research/helloparul-in/source.html:46,134" },
+      "--space-8": { "value": "32px", "confidence": "high", "reason": "Desktop shell gutter.", "source": "docs/research/helloparul-in/source.html:101" },
+      "--space-12": { "value": "64px", "confidence": "high", "reason": "Stats vertical margin.", "source": "docs/research/helloparul-in/source.html:158" },
+
+      "--section-y-desktop": { "value": "88px", "confidence": "high", "reason": "Hero top spacing.", "source": "docs/research/helloparul-in/source.html:125" },
+      "--section-y-tablet": { "value": "88px", "confidence": "high", "reason": "No authored hero override until phone breakpoint.", "source": "docs/research/helloparul-in/source.html:27-42" },
+      "--section-y-phone": { "value": "48px", "confidence": "high", "reason": "Hero top spacing at ≤760px.", "source": "docs/research/helloparul-in/source.html:35" },
+
+      "--radius-sm": { "value": "8px", "confidence": "high", "reason": "Small availability and chip roundness bridge.", "source": "derived from compact controls; cards use the observed larger tiers" },
+      "--radius-md": { "value": "18px", "confidence": "high", "reason": "Stats board and detail imagery.", "source": "docs/research/helloparul-in/source.html:158,550" },
+      "--radius-lg": { "value": "26px", "confidence": "high", "reason": "Featured case-study cards.", "source": "docs/research/helloparul-in/source.html:184" },
+      "--radius-pill": { "value": "999px", "confidence": "high", "reason": "Buttons, chips, and availability badge.", "source": "docs/research/helloparul-in/source.html:112,138" },
+
+      "--elev-flat": { "value": "none", "confidence": "high", "reason": "Resting cards and page canvas are flat.", "source": "browser-evidence.json desktop cards" },
+      "--elev-ring": { "value": "none", "confidence": "high", "reason": "The target uses border rather than resting shadow.", "source": "browser-evidence.json desktop cards" },
+      "--elev-raised": { "value": "0 10px 0 -4px var(--accent)", "confidence": "high", "reason": "Case-card authored hover shadow.", "source": "docs/research/helloparul-in/source.html:184 style-hover" },
+      "--focus-ring": { "value": "0 0 0 3px color-mix(in srgb, var(--accent) 48%, transparent)", "confidence": "derived", "reason": "Visible keyboard-focus ring derived from the target primary action.", "source": "derived accessibility baseline" },
+
+      "--motion-fast": { "value": "150ms", "confidence": "derived", "reason": "Conservative native transition for source style-hover rules, which do not declare a duration.", "source": "docs/research/helloparul-in/BEHAVIORS.md pointer states" },
+      "--motion-base": { "value": "26000ms", "confidence": "high", "reason": "Skills marquee duration.", "source": "docs/research/helloparul-in/source.html:145" },
+      "--ease-standard": { "value": "ease", "confidence": "derived", "reason": "Appropriate interpolation for the target’s small pointer changes; marquee overrides it with linear.", "source": "docs/research/helloparul-in/BEHAVIORS.md" },
+
+      "--container-max": { "value": "1280px", "confidence": "high", "reason": "Centered desktop shell maximum.", "source": "docs/research/helloparul-in/source.html:101; browser-evidence.json desktop.shell" },
+      "--container-gutter-desktop": { "value": "32px", "confidence": "high", "reason": "Desktop and tablet shell gutters.", "source": "docs/research/helloparul-in/source.html:101" },
+      "--container-gutter-tablet": { "value": "32px", "confidence": "high", "reason": "The source leaves shell gutters unchanged through tablet.", "source": "docs/research/helloparul-in/source.html:27-31" },
+      "--container-gutter-phone": { "value": "22px", "confidence": "high", "reason": "Phone shell and footer gutter.", "source": "docs/research/helloparul-in/source.html:27-28" }
+    }
+  }
+}

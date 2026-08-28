@@ -1,0 +1,5389 @@
+{
+  "url": "https://www.adspirer.com/",
+  "title": "Adspirer — Hire an AI Paid Media Manager | MCP Server for Ads",
+  "viewport": {
+    "width": 1440,
+    "height": 1000,
+    "dpr": 1,
+    "scrollY": 0
+  },
+  "document": {
+    "width": 1440,
+    "height": 11871,
+    "htmlClass": "geist_e799d87a-module__u8MhCG__variable inter_c15e96cb-module__0bjUvq__variable instrument_sans_1eebe396-module__NfIg2q__variable w-mod-js wf-fx wfx wfx-armed",
+    "bodyClass": "body"
+  },
+  "root": {
+    "fontFamily": "sans-serif",
+    "fontSize": "16px",
+    "fontWeight": "400",
+    "lineHeight": "normal",
+    "letterSpacing": "normal",
+    "color": "rgb(0, 0, 0)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "backgroundImage": "none",
+    "borderColor": "rgb(0, 0, 0)",
+    "borderRadius": "0px",
+    "boxShadow": "none",
+    "transition": "all",
+    "display": "block",
+    "position": "static",
+    "overflow": "clip visible",
+    "scrollBehavior": "auto"
+  },
+  "body": {
+    "fontFamily": "Inter, \"Inter Fallback\", sans-serif",
+    "fontSize": "16px",
+    "fontWeight": "400",
+    "lineHeight": "24px",
+    "letterSpacing": "normal",
+    "color": "rgb(0, 0, 0)",
+    "backgroundColor": "rgb(246, 248, 250)",
+    "backgroundImage": "none",
+    "borderColor": "rgb(0, 0, 0)",
+    "borderRadius": "0px",
+    "boxShadow": "none",
+    "transition": "all",
+    "display": "block",
+    "position": "static",
+    "overflow": "clip visible",
+    "scrollBehavior": "auto"
+  },
+  "rootVars": {
+    "--font-instrument": "\"Instrument Sans\", \"Instrument Sans Fallback\"",
+    "--_ui-styles---size--6-medium": "6.5rem",
+    "--_ui-styles---size--1-extra-small": "1rem",
+    "--_primitives---opacity--white-5": "#ffffff0d",
+    "--_primitives---opacity--neutral-darkest-40": "#0006",
+    "--_ui-styles---size--5-large": "5.75rem",
+    "--_ui-styles---size--extra-extra-small": ".125rem",
+    "--color-scheme-1--secondary-text": "#666d80",
+    "--_ui-styles---size--6-large": "6.75rem",
+    "--color-scheme-1--foreground": "#f6f8fa",
+    "--_typography---letter-spacing--extrawide": "-.05em",
+    "--_typography---line-height--loose": "1.5",
+    "--_ui-styles---size--7-large": "7.75rem",
+    "--_ui-styles---size--5-medium": "5.5rem",
+    "--_primitives---opacity--white-60": "#fff9",
+    "--_typography---letter-spacing--tight": "-.02em",
+    "--_typography---font-weight--semi-bold": "600",
+    "--color-scheme-1--border": "#c1c7d0",
+    "--_primitives---opacity--neutral-darkest-20": "#0003",
+    "--_typography---font-weight--bold": "700",
+    "--_ui-styles---size--7-small": "7rem",
+    "--_ui-styles---size--8-medium": "8.5rem",
+    "--_typography---line-height--tightest": "1",
+    "--color-scheme-1--primary-text": "black",
+    "--_primitives---opacity--neutral-darkest-50": "#00000080",
+    "--_ui-styles---size--4-large": "4.75rem",
+    "--font-geist": "\"Geist\", \"Geist Fallback\"",
+    "--_ui-styles---radius--medium": "1.125rem",
+    "--_ui-styles---size--2-extra-small": "2rem",
+    "--_typography---line-height--normal": "1.3",
+    "--color-scheme-1--background": "#fff",
+    "--_primitives---opacity--transparent": "transparent",
+    "--_ui-styles---size--9-medium": "9.5rem",
+    "--_primitives---opacity--neutral-darkest-30": "#0000004d",
+    "--_ui-styles---size--none": "0rem",
+    "--_ui-styles---size--9-small": "9rem",
+    "--_primitives---colors--neutral-lighter": "#ccc",
+    "--_primitives---colors--neutral-dark": "#666d80",
+    "--_primitives---opacity--neutral-darkest-5": "#0000000d",
+    "--_ui-styles---size--large": ".85rem",
+    "--_ui-styles---size--medium": ".75rem",
+    "--_ui-styles---size--2-large": "2.75rem",
+    "--_ui-styles---size--1-small": "1.125rem",
+    "--_typography---line-height--tighter": "1.1",
+    "--_ui-styles---size--9-large": "9.75rem",
+    "--_typography---line-height--relaxed": "1.4",
+    "--_ui-styles---size--1-normal": "1.25rem",
+    "--_ui-styles---size--5-small": "5rem",
+    "--_primitives---colors--neutral-darker": "#222",
+    "--_ui-styles---radius--small": ".5rem",
+    "--_ui-styles---size--1-medium": "1.5rem",
+    "--_ui-styles---stroke--border-width": "0rem",
+    "--_ui-styles---size--12-small": "12rem",
+    "--_primitives---opacity--neutral-darkest-15": "#00000026",
+    "--_primitives---colors--neutral": "#666",
+    "--_ui-styles---size--6-small": "6rem",
+    "--_primitives---opacity--white-10": "#ffffff1a",
+    "--color-scheme-1--accent": "black",
+    "--text-color--text-alternate<deleted|relume-variable-text-color-3>": "white",
+    "--_ui-styles---size--13-small": "13rem",
+    "--_ui-styles---size--small": ".5rem",
+    "--_ui-styles---size--7-medium": "7.5rem",
+    "--_primitives---opacity--white-20": "#fff3",
+    "--_typography---letter-spacing--wide": "-.04em",
+    "--_typography---font-weight--extra-bold": "800",
+    "--_primitives---colors--neutral-light": "#c1c7d0",
+    "--_typography---font-weight--medium": "500",
+    "--_ui-styles---size--8-small": "8rem",
+    "--_ui-styles---size--3-small": "3rem",
+    "--_primitives---opacity--neutral-darkest-10": "#0000001a",
+    "--_primitives---colors--neutral-darkest": "black",
+    "--_ui-styles---size--2-small": "2.125rem",
+    "--_ui-styles---size--2-normal": "2.25rem",
+    "--_typography---font-weight--normal": "400",
+    "--_ui-styles---size--15-small": "15rem",
+    "--_ui-styles---stroke--divider-width": "0rem",
+    "--_primitives---opacity--white-50": "#ffffff80",
+    "--_typography---font-styles--heading": "\"Geist\", \"Geist Fallback\",sans-serif",
+    "--_primitives---opacity--white-40": "#fff6",
+    "--_ui-styles---size--4-normal": "4.25rem",
+    "--_ui-styles---size--3-large": "3.75rem",
+    "--_ui-styles---size--8-normal": "8.25rem",
+    "--_ui-styles---size--10-small": "10rem",
+    "--_ui-styles---size--3-medium": "3.5rem",
+    "--base-color-neutral--black<deleted|relume-variable-color-neutral-1>": "black",
+    "--base-color-neutral--neutral-lightest<deleted|relume-variable-color-neutral-3>": "#eee",
+    "--_typography---letter-spacing--normal": "-.03em",
+    "--_primitives---colors--neutral-lightest": "#f6f8fa",
+    "--_ui-styles---size--5-normal": "5.25rem",
+    "--_ui-styles---size--4-small": "4rem",
+    "--_typography---font-styles--body": "\"Inter\", \"Inter Fallback\",sans-serif",
+    "--border-color--border-primary<deleted|relume-variable-border-color-1>": "black",
+    "--_ui-styles---size--7-normal": "7.25rem",
+    "--_ui-styles---size--8-large": "8.75rem",
+    "--_ui-styles---size--6-normal": "6.25rem",
+    "--_ui-styles---size--9-normal": "9.25rem",
+    "--font-inter": "\"Inter\", \"Inter Fallback\"",
+    "--_ui-styles---size--3-normal": "3.25rem",
+    "--_ui-styles---size--1-large": "1.75rem",
+    "--_ui-styles---size--2-medium": "2.5rem",
+    "--_ui-styles---size--11-small": "11rem",
+    "--_ui-styles---size--4-medium": "4.5rem",
+    "--_primitives---colors--white": "#fff",
+    "--_ui-styles---radius--large": "0rem",
+    "--background-color--background-secondary<deleted|relume-variable-background-color-2>": "#eee",
+    "--_primitives---opacity--white-30": "#ffffff4d",
+    "--_primitives---brand-color--primary-color": "#1067fe",
+    "--base-color-neutral--white<deleted|relume-variable-color-neutral-2>": "white",
+    "--_ui-styles---size--extra-small": ".25rem",
+    "--_typography---letter-spacing--extratight": "-.01em",
+    "--_typography---font-weight--extra-light": "200",
+    "--_primitives---brand-color--secondary-color": "#ff8400",
+    "--_typography---letter-spacing--none": "0",
+    "--_primitives---opacity--white-15": "#ffffff26",
+    "--_typography---line-height--tight": "1.2",
+    "--_typography---font-weight--light": "300",
+    "--_primitives---opacity--neutral-darkest-60": "#0009",
+    "--_ui-styles---size--14-small": "14rem"
+  },
+  "meta": [
+    {
+      "name": "viewport",
+      "property": null,
+      "content": "width=device-width, initial-scale=1"
+    },
+    {
+      "name": "next-size-adjust",
+      "property": null,
+      "content": ""
+    },
+    {
+      "name": "description",
+      "property": null,
+      "content": "Adspirer is the AI paid media manager — an MCP server that plans, builds, monitors, and optimizes campaigns across Google, Meta, Amazon, LinkedIn, TikTok, and ChatGPT Ads, working inside ChatGPT, Claude, Cursor, and the AI tools your team already uses. You set the goal. It runs the account."
+    },
+    {
+      "name": "robots",
+      "property": null,
+      "content": "index, follow"
+    },
+    {
+      "name": null,
+      "property": "og:title",
+      "content": "Hire an AI Paid Media Manager | Adspirer"
+    },
+    {
+      "name": null,
+      "property": "og:description",
+      "content": "Give every ad account an AI media buyer for campaign builds, daily monitoring, optimization proposals, and cross-platform reporting — with human approval on every consequential move."
+    },
+    {
+      "name": null,
+      "property": "og:url",
+      "content": "https://www.adspirer.com"
+    },
+    {
+      "name": null,
+      "property": "og:site_name",
+      "content": "Adspirer"
+    },
+    {
+      "name": null,
+      "property": "og:image",
+      "content": "https://www.adspirer.com/opengraph.jpg"
+    },
+    {
+      "name": null,
+      "property": "og:image:width",
+      "content": "1200"
+    },
+    {
+      "name": null,
+      "property": "og:image:height",
+      "content": "630"
+    },
+    {
+      "name": null,
+      "property": "og:image:alt",
+      "content": "Adspirer — AI paid media manager"
+    },
+    {
+      "name": null,
+      "property": "og:type",
+      "content": "website"
+    },
+    {
+      "name": "twitter:card",
+      "property": null,
+      "content": "summary_large_image"
+    },
+    {
+      "name": "twitter:site",
+      "property": null,
+      "content": "@adspirer"
+    },
+    {
+      "name": "twitter:title",
+      "property": null,
+      "content": "Hire an AI Paid Media Manager | Adspirer"
+    },
+    {
+      "name": "twitter:description",
+      "property": null,
+      "content": "Give every ad account an AI media buyer for campaign builds, daily monitoring, optimization proposals, and cross-platform reporting — with human approval on every consequential move."
+    },
+    {
+      "name": "twitter:image",
+      "property": null,
+      "content": "https://www.adspirer.com/opengraph.jpg"
+    },
+    {
+      "name": "twitter:image:alt",
+      "property": null,
+      "content": "Adspirer — AI paid media manager"
+    },
+    {
+      "name": "twitter:image:width",
+      "property": null,
+      "content": "1200"
+    },
+    {
+      "name": "twitter:image:height",
+      "property": null,
+      "content": "630"
+    }
+  ],
+  "links": [
+    {
+      "rel": "preload",
+      "href": "https://www.adspirer.com/_next/static/media/83afe278b6a6bb3c-s.p.2bn3s6zvc0dyp.woff2",
+      "as": "font",
+      "type": "font/woff2",
+      "sizes": ""
+    },
+    {
+      "rel": "preload",
+      "href": "https://www.adspirer.com/_next/static/media/caa3a2e1cccd8315-s.p.0wgildi0cnwt9.woff2",
+      "as": "font",
+      "type": "font/woff2",
+      "sizes": ""
+    },
+    {
+      "rel": "preload",
+      "href": "https://www.adspirer.com/_next/static/media/f06bf9da926bae75-s.p.2874ccu1_u7jf.woff2",
+      "as": "font",
+      "type": "font/woff2",
+      "sizes": ""
+    },
+    {
+      "rel": "preload",
+      "href": "https://www.adspirer.com/webflow/images/adspirer-logo-full.svg",
+      "as": "image",
+      "type": "",
+      "sizes": ""
+    },
+    {
+      "rel": "preload",
+      "href": "https://www.adspirer.com/webflow/images/platform-google-ads.svg",
+      "as": "image",
+      "type": "",
+      "sizes": ""
+    },
+    {
+      "rel": "preload",
+      "href": "https://www.adspirer.com/webflow/images/platform-google-shopping.svg",
+      "as": "image",
+      "type": "",
+      "sizes": ""
+    },
+    {
+      "rel": "preload",
+      "href": "https://www.adspirer.com/webflow/images/platform-meta-ads.svg",
+      "as": "image",
+      "type": "",
+      "sizes": ""
+    },
+    {
+      "rel": "preload",
+      "href": "https://www.adspirer.com/webflow/images/platform-meta-catalog.svg",
+      "as": "image",
+      "type": "",
+      "sizes": ""
+    },
+    {
+      "rel": "preload",
+      "href": "https://www.adspirer.com/webflow/images/platform-linkedin-ads.svg",
+      "as": "image",
+      "type": "",
+      "sizes": ""
+    },
+    {
+      "rel": "preload",
+      "href": "https://www.adspirer.com/webflow/images/platform-tiktok-ads.svg",
+      "as": "image",
+      "type": "",
+      "sizes": ""
+    },
+    {
+      "rel": "preload",
+      "href": "https://www.adspirer.com/webflow/images/platform-amazon-ads.svg",
+      "as": "image",
+      "type": "",
+      "sizes": ""
+    },
+    {
+      "rel": "preload",
+      "href": "https://www.adspirer.com/webflow/images/platform-chatgpt-ads.svg",
+      "as": "image",
+      "type": "",
+      "sizes": ""
+    },
+    {
+      "rel": "preload",
+      "href": "https://www.adspirer.com/webflow/images/ai-chatgpt.svg",
+      "as": "image",
+      "type": "",
+      "sizes": ""
+    },
+    {
+      "rel": "stylesheet",
+      "href": "https://www.adspirer.com/_next/static/chunks/0w19fbyfk0f9q.css",
+      "as": "",
+      "type": "",
+      "sizes": ""
+    },
+    {
+      "rel": "stylesheet",
+      "href": "https://www.adspirer.com/webflow/css/normalize.css",
+      "as": "",
+      "type": "",
+      "sizes": ""
+    },
+    {
+      "rel": "stylesheet",
+      "href": "https://www.adspirer.com/webflow/css/webflow.css",
+      "as": "",
+      "type": "",
+      "sizes": ""
+    },
+    {
+      "rel": "stylesheet",
+      "href": "https://www.adspirer.com/webflow/css/adspirer-poc-site.webflow.css",
+      "as": "",
+      "type": "",
+      "sizes": ""
+    },
+    {
+      "rel": "stylesheet",
+      "href": "https://www.adspirer.com/webflow/css/webflow-custom.css?v=112",
+      "as": "",
+      "type": "",
+      "sizes": ""
+    },
+    {
+      "rel": "preload",
+      "href": "https://www.adspirer.com/_next/static/chunks/20c3urj2vq69t.js",
+      "as": "script",
+      "type": "",
+      "sizes": ""
+    },
+    {
+      "rel": "preload",
+      "href": "https://www.adspirer.com/webflow/css/one-prompt-demo.css?v=3",
+      "as": "style",
+      "type": "",
+      "sizes": ""
+    },
+    {
+      "rel": "preload",
+      "href": "https://www.adspirer.com/webflow/images/ai-claude.svg",
+      "as": "image",
+      "type": "",
+      "sizes": ""
+    },
+    {
+      "rel": "preload",
+      "href": "https://www.adspirer.com/webflow/images/ai-claude-code.svg",
+      "as": "image",
+      "type": "",
+      "sizes": ""
+    },
+    {
+      "rel": "preload",
+      "href": "https://www.adspirer.com/webflow/images/ai-cursor.svg",
+      "as": "image",
+      "type": "",
+      "sizes": ""
+    },
+    {
+      "rel": "preload",
+      "href": "https://www.adspirer.com/webflow/images/ai-codex.svg",
+      "as": "image",
+      "type": "",
+      "sizes": ""
+    },
+    {
+      "rel": "preload",
+      "href": "https://www.adspirer.com/webflow/images/ai-windsurf.svg",
+      "as": "image",
+      "type": "",
+      "sizes": ""
+    },
+    {
+      "rel": "preload",
+      "href": "https://www.adspirer.com/webflow/images/ai-open-claw.svg",
+      "as": "image",
+      "type": "",
+      "sizes": ""
+    },
+    {
+      "rel": "preload",
+      "href": "https://www.adspirer.com/webflow/images/ai-perplexity.svg",
+      "as": "image",
+      "type": "",
+      "sizes": ""
+    },
+    {
+      "rel": "preload",
+      "href": "https://www.adspirer.com/webflow/images/ai-manus.svg",
+      "as": "image",
+      "type": "",
+      "sizes": ""
+    },
+    {
+      "rel": "preload",
+      "href": "https://www.adspirer.com/webflow/js/one-prompt-demo.js?v=5",
+      "as": "script",
+      "type": "",
+      "sizes": ""
+    },
+    {
+      "rel": "preload",
+      "href": "https://www.adspirer.com/webflow/css/one-prompt-demo.css?v=3",
+      "as": "style",
+      "type": "",
+      "sizes": ""
+    },
+    {
+      "rel": "preconnect",
+      "href": "https://www.googletagmanager.com/",
+      "as": "",
+      "type": "",
+      "sizes": ""
+    },
+    {
+      "rel": "preconnect",
+      "href": "https://connect.facebook.net/",
+      "as": "",
+      "type": "",
+      "sizes": ""
+    },
+    {
+      "rel": "dns-prefetch",
+      "href": "https://www.googletagmanager.com/",
+      "as": "",
+      "type": "",
+      "sizes": ""
+    },
+    {
+      "rel": "dns-prefetch",
+      "href": "https://connect.facebook.net/",
+      "as": "",
+      "type": "",
+      "sizes": ""
+    },
+    {
+      "rel": "preconnect",
+      "href": "https://analytics.ahrefs.com/",
+      "as": "",
+      "type": "",
+      "sizes": ""
+    },
+    {
+      "rel": "dns-prefetch",
+      "href": "https://analytics.ahrefs.com/",
+      "as": "",
+      "type": "",
+      "sizes": ""
+    },
+    {
+      "rel": "preconnect",
+      "href": "https://us-assets.i.posthog.com/",
+      "as": "",
+      "type": "",
+      "sizes": ""
+    },
+    {
+      "rel": "preconnect",
+      "href": "https://us.i.posthog.com/",
+      "as": "",
+      "type": "",
+      "sizes": ""
+    },
+    {
+      "rel": "manifest",
+      "href": "https://www.adspirer.com/manifest.json",
+      "as": "",
+      "type": "",
+      "sizes": ""
+    },
+    {
+      "rel": "canonical",
+      "href": "https://www.adspirer.com/",
+      "as": "",
+      "type": "",
+      "sizes": ""
+    },
+    {
+      "rel": "shortcut icon",
+      "href": "https://www.adspirer.com/favicon.ico",
+      "as": "",
+      "type": "",
+      "sizes": ""
+    },
+    {
+      "rel": "icon",
+      "href": "https://www.adspirer.com/favicon.ico",
+      "as": "",
+      "type": "image/x-icon",
+      "sizes": "48x48"
+    },
+    {
+      "rel": "icon",
+      "href": "https://www.adspirer.com/favicon.svg",
+      "as": "",
+      "type": "image/svg+xml",
+      "sizes": ""
+    },
+    {
+      "rel": "icon",
+      "href": "https://www.adspirer.com/favicon.png",
+      "as": "",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "rel": "apple-touch-icon",
+      "href": "https://www.adspirer.com/apple-icon.png",
+      "as": "",
+      "type": "image/png",
+      "sizes": "180x180"
+    },
+    {
+      "rel": "stylesheet",
+      "href": "https://www.adspirer.com/webflow/css/one-prompt-demo.css?v=3",
+      "as": "",
+      "type": "",
+      "sizes": ""
+    }
+  ],
+  "fonts": [
+    {
+      "family": "Geist",
+      "status": "unloaded",
+      "weight": "100 900",
+      "style": "normal"
+    },
+    {
+      "family": "Geist",
+      "status": "unloaded",
+      "weight": "100 900",
+      "style": "normal"
+    },
+    {
+      "family": "Geist",
+      "status": "unloaded",
+      "weight": "100 900",
+      "style": "normal"
+    },
+    {
+      "family": "Geist",
+      "status": "unloaded",
+      "weight": "100 900",
+      "style": "normal"
+    },
+    {
+      "family": "Geist",
+      "status": "loaded",
+      "weight": "100 900",
+      "style": "normal"
+    },
+    {
+      "family": "Geist Fallback",
+      "status": "unloaded",
+      "weight": "normal",
+      "style": "normal"
+    },
+    {
+      "family": "Inter",
+      "status": "unloaded",
+      "weight": "100 900",
+      "style": "normal"
+    },
+    {
+      "family": "Inter",
+      "status": "unloaded",
+      "weight": "100 900",
+      "style": "normal"
+    },
+    {
+      "family": "Inter",
+      "status": "unloaded",
+      "weight": "100 900",
+      "style": "normal"
+    },
+    {
+      "family": "Inter",
+      "status": "unloaded",
+      "weight": "100 900",
+      "style": "normal"
+    },
+    {
+      "family": "Inter",
+      "status": "unloaded",
+      "weight": "100 900",
+      "style": "normal"
+    },
+    {
+      "family": "Inter",
+      "status": "unloaded",
+      "weight": "100 900",
+      "style": "normal"
+    },
+    {
+      "family": "Inter",
+      "status": "loaded",
+      "weight": "100 900",
+      "style": "normal"
+    },
+    {
+      "family": "Inter Fallback",
+      "status": "error",
+      "weight": "normal",
+      "style": "normal"
+    },
+    {
+      "family": "Instrument Sans",
+      "status": "unloaded",
+      "weight": "400 700",
+      "style": "normal"
+    },
+    {
+      "family": "Instrument Sans",
+      "status": "unloaded",
+      "weight": "400 700",
+      "style": "normal"
+    },
+    {
+      "family": "Instrument Sans Fallback",
+      "status": "unloaded",
+      "weight": "normal",
+      "style": "normal"
+    },
+    {
+      "family": "webflow-icons",
+      "status": "unloaded",
+      "weight": "normal",
+      "style": "normal"
+    }
+  ],
+  "stylesheets": [
+    {
+      "href": "https://www.adspirer.com/_next/static/chunks/0w19fbyfk0f9q.css",
+      "rules": 23
+    },
+    {
+      "href": "https://www.adspirer.com/webflow/css/normalize.css",
+      "rules": 39
+    },
+    {
+      "href": "https://www.adspirer.com/webflow/css/webflow.css",
+      "rules": 270
+    },
+    {
+      "href": "https://www.adspirer.com/webflow/css/adspirer-poc-site.webflow.css",
+      "rules": 837
+    },
+    {
+      "href": "https://www.adspirer.com/webflow/css/webflow-custom.css?v=112",
+      "rules": 571
+    },
+    {
+      "href": "https://www.adspirer.com/webflow/css/one-prompt-demo.css?v=3",
+      "rules": 170
+    },
+    {
+      "href": null,
+      "rules": 6
+    }
+  ],
+  "headings": [
+    {
+      "index": 0,
+      "tag": "h1",
+      "text": "AI agents that run your paid media.",
+      "rect": {
+        "x": 208,
+        "y": 215,
+        "width": 1024,
+        "height": 202
+      },
+      "styles": {
+        "fontFamily": "Geist, \"Geist Fallback\", sans-serif",
+        "fontSize": "84px",
+        "fontWeight": "400",
+        "lineHeight": "100.8px",
+        "letterSpacing": "-3.78px",
+        "color": "rgb(0, 0, 0)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(0, 0, 0)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "transition": "all",
+        "display": "block",
+        "position": "static",
+        "overflow": "visible",
+        "scrollBehavior": "auto"
+      }
+    },
+    {
+      "index": 1,
+      "tag": "h2",
+      "text": "Less advice. More account work.",
+      "rect": {
+        "x": 80,
+        "y": 1974,
+        "width": 600,
+        "height": 115
+      },
+      "styles": {
+        "fontFamily": "Geist, \"Geist Fallback\", sans-serif",
+        "fontSize": "48px",
+        "fontWeight": "400",
+        "lineHeight": "57.6px",
+        "letterSpacing": "-1.68px",
+        "color": "rgb(0, 0, 0)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(0, 0, 0)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "transition": "opacity 1s cubic-bezier(0.165, 0.84, 0.44, 1) 0.1s, transform 1s cubic-bezier(0.165, 0.84, 0.44, 1) 0.1s",
+        "display": "block",
+        "position": "static",
+        "overflow": "visible",
+        "scrollBehavior": "auto"
+      }
+    },
+    {
+      "index": 2,
+      "tag": "h2",
+      "text": "Builds campaigns",
+      "rect": {
+        "x": 104,
+        "y": 2702,
+        "width": 259,
+        "height": 38
+      },
+      "styles": {
+        "fontFamily": "Geist, \"Geist Fallback\", sans-serif",
+        "fontSize": "32px",
+        "fontWeight": "400",
+        "lineHeight": "38.4px",
+        "letterSpacing": "normal",
+        "color": "rgb(0, 0, 0)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(0, 0, 0)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "transition": "all",
+        "display": "block",
+        "position": "static",
+        "overflow": "visible",
+        "scrollBehavior": "auto"
+      }
+    },
+    {
+      "index": 3,
+      "tag": "h3",
+      "text": "Works where you work",
+      "rect": {
+        "x": 671,
+        "y": 2184,
+        "width": 333,
+        "height": 38
+      },
+      "styles": {
+        "fontFamily": "Geist, \"Geist Fallback\", sans-serif",
+        "fontSize": "32px",
+        "fontWeight": "400",
+        "lineHeight": "38.4px",
+        "letterSpacing": "normal",
+        "color": "rgb(0, 0, 0)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(0, 0, 0)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "transition": "all",
+        "display": "block",
+        "position": "static",
+        "overflow": "visible",
+        "scrollBehavior": "auto"
+      }
+    },
+    {
+      "index": 4,
+      "tag": "h3",
+      "text": "Checks every account",
+      "rect": {
+        "x": 671,
+        "y": 2653,
+        "width": 251,
+        "height": 77
+      },
+      "styles": {
+        "fontFamily": "Geist, \"Geist Fallback\", sans-serif",
+        "fontSize": "32px",
+        "fontWeight": "400",
+        "lineHeight": "38.4px",
+        "letterSpacing": "normal",
+        "color": "rgb(0, 0, 0)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(0, 0, 0)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "transition": "all",
+        "display": "block",
+        "position": "static",
+        "overflow": "visible",
+        "scrollBehavior": "auto"
+      }
+    },
+    {
+      "index": 5,
+      "tag": "h3",
+      "text": "Remembers the brief",
+      "rect": {
+        "x": 986,
+        "y": 2540,
+        "width": 307,
+        "height": 38
+      },
+      "styles": {
+        "fontFamily": "Geist, \"Geist Fallback\", sans-serif",
+        "fontSize": "32px",
+        "fontWeight": "400",
+        "lineHeight": "38.4px",
+        "letterSpacing": "normal",
+        "color": "rgb(0, 0, 0)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(0, 0, 0)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "transition": "all",
+        "display": "block",
+        "position": "static",
+        "overflow": "visible",
+        "scrollBehavior": "auto"
+      }
+    },
+    {
+      "index": 6,
+      "tag": "h2",
+      "text": "Connect an ad agent this afternoon.",
+      "rect": {
+        "x": 336,
+        "y": 3115,
+        "width": 768,
+        "height": 58
+      },
+      "styles": {
+        "fontFamily": "Geist, \"Geist Fallback\", sans-serif",
+        "fontSize": "48px",
+        "fontWeight": "400",
+        "lineHeight": "57.6px",
+        "letterSpacing": "-1.68px",
+        "color": "rgb(0, 0, 0)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(0, 0, 0)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "transition": "all",
+        "display": "block",
+        "position": "static",
+        "overflow": "visible",
+        "scrollBehavior": "auto"
+      }
+    },
+    {
+      "index": 7,
+      "tag": "h3",
+      "text": "Connect Adspirer to ChatGPT",
+      "rect": {
+        "x": 281,
+        "y": 3413,
+        "width": 878,
+        "height": 33
+      },
+      "styles": {
+        "fontFamily": "Geist, \"Geist Fallback\", sans-serif",
+        "fontSize": "28px",
+        "fontWeight": "500",
+        "lineHeight": "33.04px",
+        "letterSpacing": "-0.98px",
+        "color": "rgb(16, 24, 40)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(16, 24, 40)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "transition": "all",
+        "display": "block",
+        "position": "static",
+        "overflow": "visible",
+        "scrollBehavior": "auto"
+      }
+    },
+    {
+      "index": 8,
+      "tag": "h2",
+      "text": "Six platforms. One operator.",
+      "rect": {
+        "x": 336,
+        "y": 4049,
+        "width": 768,
+        "height": 48
+      },
+      "styles": {
+        "fontFamily": "Geist, \"Geist Fallback\", sans-serif",
+        "fontSize": "40px",
+        "fontWeight": "400",
+        "lineHeight": "48px",
+        "letterSpacing": "normal",
+        "color": "rgb(0, 0, 0)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(0, 0, 0)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "transition": "all",
+        "display": "block",
+        "position": "static",
+        "overflow": "visible",
+        "scrollBehavior": "auto"
+      }
+    },
+    {
+      "index": 9,
+      "tag": "h2",
+      "text": "From brief to approved work.",
+      "rect": {
+        "x": 336,
+        "y": 4482,
+        "width": 768,
+        "height": 58
+      },
+      "styles": {
+        "fontFamily": "Geist, \"Geist Fallback\", sans-serif",
+        "fontSize": "48px",
+        "fontWeight": "400",
+        "lineHeight": "57.6px",
+        "letterSpacing": "-1.68px",
+        "color": "rgb(0, 0, 0)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(0, 0, 0)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "transition": "opacity 1s cubic-bezier(0.165, 0.84, 0.44, 1) 0.1s, transform 1s cubic-bezier(0.165, 0.84, 0.44, 1) 0.1s",
+        "display": "block",
+        "position": "static",
+        "overflow": "visible",
+        "scrollBehavior": "auto"
+      }
+    },
+    {
+      "index": 10,
+      "tag": "h2",
+      "text": "Connect the accounts",
+      "rect": {
+        "x": 74,
+        "y": 4973,
+        "width": 653,
+        "height": 58
+      },
+      "styles": {
+        "fontFamily": "Geist, \"Geist Fallback\", sans-serif",
+        "fontSize": "40px",
+        "fontWeight": "400",
+        "lineHeight": "48px",
+        "letterSpacing": "normal",
+        "color": "rgb(0, 0, 0)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(0, 0, 0)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "transition": "all",
+        "display": "block",
+        "position": "static",
+        "overflow": "visible",
+        "scrollBehavior": "auto"
+      }
+    },
+    {
+      "index": 11,
+      "tag": "h2",
+      "text": "Assign the job",
+      "rect": {
+        "x": 714,
+        "y": 5873,
+        "width": 653,
+        "height": 58
+      },
+      "styles": {
+        "fontFamily": "Geist, \"Geist Fallback\", sans-serif",
+        "fontSize": "40px",
+        "fontWeight": "400",
+        "lineHeight": "48px",
+        "letterSpacing": "normal",
+        "color": "rgb(0, 0, 0)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(0, 0, 0)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "transition": "all",
+        "display": "block",
+        "position": "static",
+        "overflow": "visible",
+        "scrollBehavior": "auto"
+      }
+    },
+    {
+      "index": 12,
+      "tag": "h2",
+      "text": "Review the work",
+      "rect": {
+        "x": 74,
+        "y": 6773,
+        "width": 653,
+        "height": 58
+      },
+      "styles": {
+        "fontFamily": "Geist, \"Geist Fallback\", sans-serif",
+        "fontSize": "40px",
+        "fontWeight": "400",
+        "lineHeight": "48px",
+        "letterSpacing": "normal",
+        "color": "rgb(0, 0, 0)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(0, 0, 0)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "transition": "all",
+        "display": "block",
+        "position": "static",
+        "overflow": "visible",
+        "scrollBehavior": "auto"
+      }
+    },
+    {
+      "index": 13,
+      "tag": "h2",
+      "text": "Live in minutes.",
+      "rect": {
+        "x": 336,
+        "y": 7642,
+        "width": 768,
+        "height": 58
+      },
+      "styles": {
+        "fontFamily": "Geist, \"Geist Fallback\", sans-serif",
+        "fontSize": "48px",
+        "fontWeight": "400",
+        "lineHeight": "57.6px",
+        "letterSpacing": "-1.68px",
+        "color": "rgb(0, 0, 0)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(0, 0, 0)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "transition": "all",
+        "display": "block",
+        "position": "static",
+        "overflow": "visible",
+        "scrollBehavior": "auto"
+      }
+    },
+    {
+      "index": 14,
+      "tag": "h3",
+      "text": "Link your platforms",
+      "rect": {
+        "x": 84,
+        "y": 8194,
+        "width": 400,
+        "height": 26
+      },
+      "styles": {
+        "fontFamily": "Geist, \"Geist Fallback\", sans-serif",
+        "fontSize": "21.6px",
+        "fontWeight": "500",
+        "lineHeight": "25.92px",
+        "letterSpacing": "-0.216px",
+        "color": "rgb(16, 24, 40)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(16, 24, 40)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "transition": "all",
+        "display": "block",
+        "position": "static",
+        "overflow": "visible",
+        "scrollBehavior": "auto"
+      }
+    },
+    {
+      "index": 15,
+      "tag": "h3",
+      "text": "Connect your AI",
+      "rect": {
+        "x": 520,
+        "y": 8194,
+        "width": 400,
+        "height": 26
+      },
+      "styles": {
+        "fontFamily": "Geist, \"Geist Fallback\", sans-serif",
+        "fontSize": "21.6px",
+        "fontWeight": "500",
+        "lineHeight": "25.92px",
+        "letterSpacing": "-0.216px",
+        "color": "rgb(16, 24, 40)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(16, 24, 40)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "transition": "all",
+        "display": "block",
+        "position": "static",
+        "overflow": "visible",
+        "scrollBehavior": "auto"
+      }
+    },
+    {
+      "index": 16,
+      "tag": "h3",
+      "text": "Brief your first job",
+      "rect": {
+        "x": 956,
+        "y": 8194,
+        "width": 400,
+        "height": 26
+      },
+      "styles": {
+        "fontFamily": "Geist, \"Geist Fallback\", sans-serif",
+        "fontSize": "21.6px",
+        "fontWeight": "500",
+        "lineHeight": "25.92px",
+        "letterSpacing": "-0.216px",
+        "color": "rgb(16, 24, 40)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(16, 24, 40)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "transition": "all",
+        "display": "block",
+        "position": "static",
+        "overflow": "visible",
+        "scrollBehavior": "auto"
+      }
+    },
+    {
+      "index": 17,
+      "tag": "h2",
+      "text": "Ask AI about Adspirer.",
+      "rect": {
+        "x": 132,
+        "y": 8550,
+        "width": 609,
+        "height": 48
+      },
+      "styles": {
+        "fontFamily": "Geist, \"Geist Fallback\", sans-serif",
+        "fontSize": "44px",
+        "fontWeight": "500",
+        "lineHeight": "47.52px",
+        "letterSpacing": "-0.88px",
+        "color": "rgb(255, 255, 255)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(255, 255, 255)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "transition": "all",
+        "display": "block",
+        "position": "static",
+        "overflow": "visible",
+        "scrollBehavior": "auto"
+      }
+    },
+    {
+      "index": 18,
+      "tag": "h2",
+      "text": "Priced for the work, not the size of your budget.",
+      "rect": {
+        "x": 336,
+        "y": 9059,
+        "width": 768,
+        "height": 115
+      },
+      "styles": {
+        "fontFamily": "Geist, \"Geist Fallback\", sans-serif",
+        "fontSize": "48px",
+        "fontWeight": "400",
+        "lineHeight": "57.6px",
+        "letterSpacing": "-1.68px",
+        "color": "rgb(0, 0, 0)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(0, 0, 0)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "transition": "all",
+        "display": "block",
+        "position": "static",
+        "overflow": "visible",
+        "scrollBehavior": "auto"
+      }
+    },
+    {
+      "index": 19,
+      "tag": "h2",
+      "text": "Free Forever",
+      "rect": {
+        "x": 113,
+        "y": 9349,
+        "width": 242,
+        "height": 31
+      },
+      "styles": {
+        "fontFamily": "Geist, \"Geist Fallback\", sans-serif",
+        "fontSize": "24px",
+        "fontWeight": "400",
+        "lineHeight": "31.2px",
+        "letterSpacing": "normal",
+        "color": "rgb(0, 0, 0)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(0, 0, 0)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "transition": "all",
+        "display": "block",
+        "position": "static",
+        "overflow": "visible",
+        "scrollBehavior": "auto"
+      }
+    },
+    {
+      "index": 20,
+      "tag": "h2",
+      "text": "What's included",
+      "rect": {
+        "x": 112,
+        "y": 9694,
+        "width": 244,
+        "height": 25
+      },
+      "styles": {
+        "fontFamily": "Geist, \"Geist Fallback\", sans-serif",
+        "fontSize": "18px",
+        "fontWeight": "400",
+        "lineHeight": "25.2px",
+        "letterSpacing": "normal",
+        "color": "rgb(0, 0, 0)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(0, 0, 0)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "transition": "all",
+        "display": "block",
+        "position": "static",
+        "overflow": "visible",
+        "scrollBehavior": "auto"
+      }
+    },
+    {
+      "index": 21,
+      "tag": "h2",
+      "text": "Plus",
+      "rect": {
+        "x": 437,
+        "y": 9349,
+        "width": 242,
+        "height": 31
+      },
+      "styles": {
+        "fontFamily": "Geist, \"Geist Fallback\", sans-serif",
+        "fontSize": "24px",
+        "fontWeight": "400",
+        "lineHeight": "31.2px",
+        "letterSpacing": "normal",
+        "color": "rgb(0, 0, 0)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(0, 0, 0)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "transition": "all",
+        "display": "block",
+        "position": "static",
+        "overflow": "visible",
+        "scrollBehavior": "auto"
+      }
+    },
+    {
+      "index": 22,
+      "tag": "h2",
+      "text": "What's included",
+      "rect": {
+        "x": 436,
+        "y": 9694,
+        "width": 244,
+        "height": 25
+      },
+      "styles": {
+        "fontFamily": "Geist, \"Geist Fallback\", sans-serif",
+        "fontSize": "18px",
+        "fontWeight": "400",
+        "lineHeight": "25.2px",
+        "letterSpacing": "normal",
+        "color": "rgb(0, 0, 0)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(0, 0, 0)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "transition": "all",
+        "display": "block",
+        "position": "static",
+        "overflow": "visible",
+        "scrollBehavior": "auto"
+      }
+    },
+    {
+      "index": 23,
+      "tag": "h2",
+      "text": "Pro",
+      "rect": {
+        "x": 761,
+        "y": 9349,
+        "width": 37,
+        "height": 31
+      },
+      "styles": {
+        "fontFamily": "Geist, \"Geist Fallback\", sans-serif",
+        "fontSize": "24px",
+        "fontWeight": "400",
+        "lineHeight": "31.2px",
+        "letterSpacing": "normal",
+        "color": "rgb(0, 0, 0)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(0, 0, 0)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "transition": "all",
+        "display": "block",
+        "position": "static",
+        "overflow": "visible",
+        "scrollBehavior": "auto"
+      }
+    },
+    {
+      "index": 24,
+      "tag": "h2",
+      "text": "What's included",
+      "rect": {
+        "x": 760,
+        "y": 9694,
+        "width": 244,
+        "height": 25
+      },
+      "styles": {
+        "fontFamily": "Geist, \"Geist Fallback\", sans-serif",
+        "fontSize": "18px",
+        "fontWeight": "400",
+        "lineHeight": "25.2px",
+        "letterSpacing": "normal",
+        "color": "rgb(0, 0, 0)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(0, 0, 0)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "transition": "all",
+        "display": "block",
+        "position": "static",
+        "overflow": "visible",
+        "scrollBehavior": "auto"
+      }
+    },
+    {
+      "index": 25,
+      "tag": "h2",
+      "text": "Max",
+      "rect": {
+        "x": 1085,
+        "y": 9349,
+        "width": 242,
+        "height": 31
+      },
+      "styles": {
+        "fontFamily": "Geist, \"Geist Fallback\", sans-serif",
+        "fontSize": "24px",
+        "fontWeight": "400",
+        "lineHeight": "31.2px",
+        "letterSpacing": "normal",
+        "color": "rgb(0, 0, 0)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(0, 0, 0)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "transition": "all",
+        "display": "block",
+        "position": "static",
+        "overflow": "visible",
+        "scrollBehavior": "auto"
+      }
+    },
+    {
+      "index": 26,
+      "tag": "h2",
+      "text": "What's included",
+      "rect": {
+        "x": 1084,
+        "y": 9694,
+        "width": 244,
+        "height": 25
+      },
+      "styles": {
+        "fontFamily": "Geist, \"Geist Fallback\", sans-serif",
+        "fontSize": "18px",
+        "fontWeight": "400",
+        "lineHeight": "25.2px",
+        "letterSpacing": "normal",
+        "color": "rgb(0, 0, 0)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(0, 0, 0)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "transition": "all",
+        "display": "block",
+        "position": "static",
+        "overflow": "visible",
+        "scrollBehavior": "auto"
+      }
+    },
+    {
+      "index": 27,
+      "tag": "h2",
+      "text": "Agencies & Enterprise",
+      "rect": {
+        "x": 112,
+        "y": 9959,
+        "width": 239,
+        "height": 31
+      },
+      "styles": {
+        "fontFamily": "Geist, \"Geist Fallback\", sans-serif",
+        "fontSize": "24px",
+        "fontWeight": "400",
+        "lineHeight": "31.2px",
+        "letterSpacing": "normal",
+        "color": "rgb(0, 0, 0)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(0, 0, 0)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "transition": "all",
+        "display": "block",
+        "position": "static",
+        "overflow": "visible",
+        "scrollBehavior": "auto"
+      }
+    },
+    {
+      "index": 28,
+      "tag": "h2",
+      "text": "Let's talk",
+      "rect": {
+        "x": 112,
+        "y": 9994,
+        "width": 444,
+        "height": 58
+      },
+      "styles": {
+        "fontFamily": "Geist, \"Geist Fallback\", sans-serif",
+        "fontSize": "48px",
+        "fontWeight": "400",
+        "lineHeight": "57.6px",
+        "letterSpacing": "-1.68px",
+        "color": "rgb(0, 0, 0)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(0, 0, 0)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "transition": "all",
+        "display": "block",
+        "position": "static",
+        "overflow": "visible",
+        "scrollBehavior": "auto"
+      }
+    },
+    {
+      "index": 29,
+      "tag": "h2",
+      "text": "Everything in Max, plus your agents get:",
+      "rect": {
+        "x": 588,
+        "y": 9998,
+        "width": 740,
+        "height": 25
+      },
+      "styles": {
+        "fontFamily": "Geist, \"Geist Fallback\", sans-serif",
+        "fontSize": "18px",
+        "fontWeight": "400",
+        "lineHeight": "25.2px",
+        "letterSpacing": "normal",
+        "color": "rgb(0, 0, 0)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(0, 0, 0)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "transition": "all",
+        "display": "block",
+        "position": "static",
+        "overflow": "visible",
+        "scrollBehavior": "auto"
+      }
+    },
+    {
+      "index": 30,
+      "tag": "h2",
+      "text": "Put Adspirer on",
+      "rect": {
+        "x": 29,
+        "y": 10502,
+        "width": 768,
+        "height": 58
+      },
+      "styles": {
+        "fontFamily": "Geist, \"Geist Fallback\", sans-serif",
+        "fontSize": "48px",
+        "fontWeight": "400",
+        "lineHeight": "57.6px",
+        "letterSpacing": "-1.68px",
+        "color": "rgb(0, 0, 0)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(0, 0, 0)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "transition": "all",
+        "display": "block",
+        "position": "static",
+        "overflow": "visible",
+        "scrollBehavior": "auto"
+      }
+    },
+    {
+      "index": 31,
+      "tag": "h2",
+      "text": "your first account.",
+      "rect": {
+        "x": 643,
+        "y": 10559,
+        "width": 768,
+        "height": 58
+      },
+      "styles": {
+        "fontFamily": "Geist, \"Geist Fallback\", sans-serif",
+        "fontSize": "48px",
+        "fontWeight": "400",
+        "lineHeight": "57.6px",
+        "letterSpacing": "-1.68px",
+        "color": "rgb(0, 0, 0)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(0, 0, 0)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "transition": "all",
+        "display": "block",
+        "position": "static",
+        "overflow": "visible",
+        "scrollBehavior": "auto"
+      }
+    },
+    {
+      "index": 32,
+      "tag": "h2",
+      "text": "Paid media. Handled.",
+      "rect": {
+        "x": 93,
+        "y": 10970,
+        "width": 978,
+        "height": 48
+      },
+      "styles": {
+        "fontFamily": "Geist, \"Geist Fallback\", sans-serif",
+        "fontSize": "40px",
+        "fontWeight": "400",
+        "lineHeight": "48px",
+        "letterSpacing": "normal",
+        "color": "rgb(0, 0, 0)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "borderColor": "rgb(0, 0, 0)",
+        "borderRadius": "0px",
+        "boxShadow": "none",
+        "transition": "all",
+        "display": "block",
+        "position": "static",
+        "overflow": "visible",
+        "scrollBehavior": "auto"
+      }
+    }
+  ],
+  "sections": [
+    {
+      "index": 0,
+      "tag": "header",
+      "id": "hero",
+      "classes": "section_hero position-relative overflow-hidden",
+      "text": "New Available in the ChatGPT App Store & Claude directory AI agents that run your paid media. Adspirer plans, builds, monitors, and improves campaigns across six ad platforms. You approve what goes live. Get Started for Free ClaudeChatGPT S",
+      "rect": {
+        "x": 0,
+        "y": 97,
+        "width": 1440,
+        "height": 1389
+      },
+      "styles": {
+        "display": "block",
+        "position": "relative",
+        "backgroundColor": "rgb(246, 248, 250)",
+        "backgroundImage": "none",
+        "paddingTop": "0px",
+        "paddingBottom": "0px",
+        "marginTop": "0px",
+        "marginBottom": "0px",
+        "borderTopWidth": "0px",
+        "borderBottomWidth": "0px"
+      }
+    },
+    {
+      "index": 1,
+      "tag": "section",
+      "id": "social-proof",
+      "classes": "section_social-proof",
+      "text": "Trusted by enterprises Trusted by agencies Trusted by small businesses",
+      "rect": {
+        "x": 0,
+        "y": 1486,
+        "width": 1440,
+        "height": 311
+      },
+      "styles": {
+        "display": "block",
+        "position": "static",
+        "backgroundColor": "rgb(255, 255, 255)",
+        "backgroundImage": "none",
+        "paddingTop": "0px",
+        "paddingBottom": "0px",
+        "marginTop": "0px",
+        "marginBottom": "0px",
+        "borderTopWidth": "0px",
+        "borderBottomWidth": "0px"
+      }
+    },
+    {
+      "index": 2,
+      "tag": "section",
+      "id": "featured",
+      "classes": "section_featured overflow-hidden",
+      "text": "What Adspirer does Less advice. More account work. Build campaigns. Find waste. Check pacing. Prepare the next move. Every high-impact change stays yours to approve. Builds campaigns Turns the brief into a verified campaign — paused and rea",
+      "rect": {
+        "x": 0,
+        "y": 1797,
+        "width": 1440,
+        "height": 1149
+      },
+      "styles": {
+        "display": "block",
+        "position": "static",
+        "backgroundColor": "rgb(255, 255, 255)",
+        "backgroundImage": "none",
+        "paddingTop": "0px",
+        "paddingBottom": "0px",
+        "marginTop": "0px",
+        "marginBottom": "0px",
+        "borderTopWidth": "0px",
+        "borderBottomWidth": "0px"
+      }
+    },
+    {
+      "index": 3,
+      "tag": "section",
+      "id": "agents",
+      "classes": "section_featured overflow-hidden",
+      "text": "Your AI workspace Connect an ad agent this afternoon. Choose your AI workspace. Follow three steps. Start delegating paid media. Quickstart Connect Adspirer to ChatGPT 1Find Adspirer in AppsOpen ChatGPT Apps, search for Adspirer, and open t",
+      "rect": {
+        "x": 0,
+        "y": 2946,
+        "width": 1440,
+        "height": 980
+      },
+      "styles": {
+        "display": "block",
+        "position": "static",
+        "backgroundColor": "rgb(255, 255, 255)",
+        "backgroundImage": "none",
+        "paddingTop": "0px",
+        "paddingBottom": "0px",
+        "marginTop": "0px",
+        "marginBottom": "0px",
+        "borderTopWidth": "0px",
+        "borderBottomWidth": "0px"
+      }
+    },
+    {
+      "index": 4,
+      "tag": "section",
+      "id": "platforms",
+      "classes": "section_logo overflow-hidden",
+      "text": "Six platforms. One operator. Adspirer works every account from the AI workspace your team already uses.",
+      "rect": {
+        "x": 0,
+        "y": 3926,
+        "width": 1440,
+        "height": 387
+      },
+      "styles": {
+        "display": "block",
+        "position": "static",
+        "backgroundColor": "rgb(246, 248, 250)",
+        "backgroundImage": "none",
+        "paddingTop": "0px",
+        "paddingBottom": "0px",
+        "marginTop": "0px",
+        "marginBottom": "0px",
+        "borderTopWidth": "0px",
+        "borderBottomWidth": "0px"
+      }
+    },
+    {
+      "index": 5,
+      "tag": "section",
+      "id": "benefit",
+      "classes": "section_benefit",
+      "text": "How it works From brief to approved work. Connect the accounts. Set the guardrails. Adspirer does the work. You review what matters. Step 1 — Onboard Connect the accounts Authorize your ad platforms. Adspirer never needs your platform passw",
+      "rect": {
+        "x": 0,
+        "y": 4313,
+        "width": 1440,
+        "height": 3161
+      },
+      "styles": {
+        "display": "block",
+        "position": "static",
+        "backgroundColor": "rgb(246, 248, 250)",
+        "backgroundImage": "none",
+        "paddingTop": "0px",
+        "paddingBottom": "0px",
+        "marginTop": "0px",
+        "marginBottom": "0px",
+        "borderTopWidth": "0px",
+        "borderBottomWidth": "0px"
+      }
+    },
+    {
+      "index": 6,
+      "tag": "section",
+      "id": "setup",
+      "classes": "section_featured overflow-hidden",
+      "text": "Setup Live in minutes. No implementation project. No new dashboard. Google Ads✓ Meta✓ TikTok✓ 1 Link your platforms Securely connect Google Ads, Meta, and TikTok in one OAuth click. No API setup — just log in and link. 2 Connect your AI Add",
+      "rect": {
+        "x": 0,
+        "y": 7474,
+        "width": 1440,
+        "height": 940
+      },
+      "styles": {
+        "display": "block",
+        "position": "static",
+        "backgroundColor": "rgb(255, 255, 255)",
+        "backgroundImage": "none",
+        "paddingTop": "0px",
+        "paddingBottom": "0px",
+        "marginTop": "0px",
+        "marginBottom": "0px",
+        "borderTopWidth": "0px",
+        "borderBottomWidth": "0px"
+      }
+    },
+    {
+      "index": 7,
+      "tag": "section",
+      "id": "ask-ai",
+      "classes": "section_ask-ai",
+      "text": "Ask AI about Adspirer. Don't take our word for it. Pick your favorite AI and ask what it thinks about Adspirer. Ask ChatGPT Ask Claude Ask Perplexity Suggested prompt “I'm evaluating Adspirer — the AI ad-ops agent that runs Google, Meta, Ti",
+      "rect": {
+        "x": 0,
+        "y": 8414,
+        "width": 1440,
+        "height": 453
+      },
+      "styles": {
+        "display": "block",
+        "position": "static",
+        "backgroundColor": "rgb(255, 255, 255)",
+        "backgroundImage": "none",
+        "paddingTop": "0px",
+        "paddingBottom": "0px",
+        "marginTop": "0px",
+        "marginBottom": "0px",
+        "borderTopWidth": "0px",
+        "borderBottomWidth": "0px"
+      }
+    },
+    {
+      "index": 8,
+      "tag": "section",
+      "id": "pricing",
+      "classes": "section_pricing",
+      "text": "Pricing Priced for the work, not the size of your budget. Pay for the work. Never a percentage of ad spend. Start free. No credit card. Monthly Annual −17% Free Forever $0per month Start free Try it free. See the work. What's included 15 ta",
+      "rect": {
+        "x": 0,
+        "y": 8867,
+        "width": 1440,
+        "height": 1475
+      },
+      "styles": {
+        "display": "block",
+        "position": "relative",
+        "backgroundColor": "rgb(246, 248, 250)",
+        "backgroundImage": "none",
+        "paddingTop": "0px",
+        "paddingBottom": "0px",
+        "marginTop": "0px",
+        "marginBottom": "0px",
+        "borderTopWidth": "0px",
+        "borderBottomWidth": "0px"
+      }
+    },
+    {
+      "index": 9,
+      "tag": "section",
+      "id": "cta",
+      "classes": "section_cta position-relative overflow-hidden",
+      "text": "Start free Put Adspirer on your first account. Connect one platform. Give Adspirer a real job. Review the work before anything goes live. Get Started for Free Contact Sales",
+      "rect": {
+        "x": 0,
+        "y": 10342,
+        "width": 1440,
+        "height": 520
+      },
+      "styles": {
+        "display": "block",
+        "position": "relative",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "paddingTop": "0px",
+        "paddingBottom": "0px",
+        "marginTop": "0px",
+        "marginBottom": "0px",
+        "borderTopWidth": "0px",
+        "borderBottomWidth": "0px"
+      }
+    },
+    {
+      "index": 10,
+      "tag": "img",
+      "id": "",
+      "classes": "primary-gradient-footer",
+      "text": "",
+      "rect": {
+        "x": 0,
+        "y": 11471,
+        "width": 400,
+        "height": 400
+      },
+      "styles": {
+        "display": "flex",
+        "position": "absolute",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "paddingTop": "0px",
+        "paddingBottom": "0px",
+        "marginTop": "0px",
+        "marginBottom": "0px",
+        "borderTopWidth": "0px",
+        "borderBottomWidth": "0px"
+      }
+    },
+    {
+      "index": 11,
+      "tag": "img",
+      "id": "",
+      "classes": "secondary-gradient-footer",
+      "text": "",
+      "rect": {
+        "x": 1040,
+        "y": 11471,
+        "width": 400,
+        "height": 400
+      },
+      "styles": {
+        "display": "flex",
+        "position": "absolute",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "paddingTop": "0px",
+        "paddingBottom": "0px",
+        "marginTop": "0px",
+        "marginBottom": "0px",
+        "borderTopWidth": "0px",
+        "borderBottomWidth": "0px"
+      }
+    },
+    {
+      "index": 12,
+      "tag": "div",
+      "id": "",
+      "classes": "padding-global",
+      "text": "Paid media. Handled.Your AI paid media manager for every account and every major ad platform.Get Started for Freehello@adspirer.comwww.adspirer.comProductWhat they doHow it worksPricingDocumentationDevelopersLog inAI platformsChatGPTClaudeC",
+      "rect": {
+        "x": 21,
+        "y": 10862,
+        "width": 1398,
+        "height": 1009
+      },
+      "styles": {
+        "display": "block",
+        "position": "static",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "paddingTop": "0px",
+        "paddingBottom": "0px",
+        "marginTop": "0px",
+        "marginBottom": "0px",
+        "borderTopWidth": "0px",
+        "borderBottomWidth": "0px"
+      }
+    }
+  ],
+  "images": [
+    {
+      "src": "https://www.adspirer.com/webflow/images/adspirer-logo-full.svg",
+      "alt": "Adspirer",
+      "width": 213,
+      "height": 40,
+      "rect": {
+        "x": 86,
+        "y": 29,
+        "width": 213,
+        "height": 40
+      },
+      "classes": "navbar2_logo",
+      "loading": "eager"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/platform-google-ads.svg",
+      "alt": "Google Ads",
+      "width": 147,
+      "height": 40,
+      "rect": {
+        "x": 516,
+        "y": 125,
+        "width": 85,
+        "height": 23
+      },
+      "classes": "",
+      "loading": "eager"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/platform-google-shopping.svg",
+      "alt": "Google Shopping",
+      "width": 192,
+      "height": 40,
+      "rect": {
+        "x": 725,
+        "y": 125,
+        "width": 110,
+        "height": 23
+      },
+      "classes": "",
+      "loading": "eager"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/platform-meta-ads.svg",
+      "alt": "Meta Ads",
+      "width": 132,
+      "height": 40,
+      "rect": {
+        "x": 516,
+        "y": 166,
+        "width": 76,
+        "height": 23
+      },
+      "classes": "",
+      "loading": "eager"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/platform-meta-catalog.svg",
+      "alt": "Meta Catalog",
+      "width": 168,
+      "height": 40,
+      "rect": {
+        "x": 725,
+        "y": 166,
+        "width": 97,
+        "height": 23
+      },
+      "classes": "",
+      "loading": "eager"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/platform-linkedin-ads.svg",
+      "alt": "LinkedIn Ads",
+      "width": 167,
+      "height": 40,
+      "rect": {
+        "x": 516,
+        "y": 207,
+        "width": 96,
+        "height": 23
+      },
+      "classes": "",
+      "loading": "eager"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/platform-tiktok-ads.svg",
+      "alt": "TikTok Ads",
+      "width": 147,
+      "height": 40,
+      "rect": {
+        "x": 725,
+        "y": 207,
+        "width": 85,
+        "height": 23
+      },
+      "classes": "",
+      "loading": "eager"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/platform-amazon-ads.svg",
+      "alt": "Amazon Ads",
+      "width": 124,
+      "height": 40,
+      "rect": {
+        "x": 516,
+        "y": 248,
+        "width": 71,
+        "height": 23
+      },
+      "classes": "",
+      "loading": "eager"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/platform-chatgpt-ads.svg",
+      "alt": "ChatGPT Ads",
+      "width": 157,
+      "height": 40,
+      "rect": {
+        "x": 725,
+        "y": 248,
+        "width": 90,
+        "height": 23
+      },
+      "classes": "",
+      "loading": "eager"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/ai-chatgpt.svg",
+      "alt": "",
+      "width": 16,
+      "height": 16,
+      "rect": {
+        "x": 551,
+        "y": 133,
+        "width": 24,
+        "height": 24
+      },
+      "classes": "",
+      "loading": "eager"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/ai-claude.svg",
+      "alt": "",
+      "width": 16,
+      "height": 16,
+      "rect": {
+        "x": 670,
+        "y": 133,
+        "width": 24,
+        "height": 24
+      },
+      "classes": "",
+      "loading": "eager"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/ai-claude-code.svg",
+      "alt": "",
+      "width": 24,
+      "height": 24,
+      "rect": {
+        "x": 789,
+        "y": 133,
+        "width": 24,
+        "height": 24
+      },
+      "classes": "",
+      "loading": "eager"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/ai-cursor.svg",
+      "alt": "",
+      "width": 16,
+      "height": 16,
+      "rect": {
+        "x": 551,
+        "y": 217,
+        "width": 24,
+        "height": 24
+      },
+      "classes": "",
+      "loading": "eager"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/ai-codex.svg",
+      "alt": "",
+      "width": 16,
+      "height": 16,
+      "rect": {
+        "x": 670,
+        "y": 217,
+        "width": 24,
+        "height": 24
+      },
+      "classes": "",
+      "loading": "eager"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/ai-windsurf.svg",
+      "alt": "",
+      "width": 16,
+      "height": 16,
+      "rect": {
+        "x": 789,
+        "y": 217,
+        "width": 24,
+        "height": 24
+      },
+      "classes": "",
+      "loading": "eager"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/ai-chatgpt.svg",
+      "alt": "",
+      "width": 16,
+      "height": 16,
+      "rect": {
+        "x": 709,
+        "y": 131,
+        "width": 22,
+        "height": 22
+      },
+      "classes": "",
+      "loading": "eager"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/ai-claude.svg",
+      "alt": "",
+      "width": 16,
+      "height": 16,
+      "rect": {
+        "x": 829,
+        "y": 131,
+        "width": 22,
+        "height": 22
+      },
+      "classes": "",
+      "loading": "eager"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/ai-claude-code.svg",
+      "alt": "",
+      "width": 24,
+      "height": 24,
+      "rect": {
+        "x": 948,
+        "y": 131,
+        "width": 22,
+        "height": 22
+      },
+      "classes": "",
+      "loading": "eager"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/ai-cursor.svg",
+      "alt": "",
+      "width": 16,
+      "height": 16,
+      "rect": {
+        "x": 709,
+        "y": 203,
+        "width": 22,
+        "height": 22
+      },
+      "classes": "",
+      "loading": "eager"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/ai-codex.svg",
+      "alt": "",
+      "width": 16,
+      "height": 16,
+      "rect": {
+        "x": 829,
+        "y": 203,
+        "width": 22,
+        "height": 22
+      },
+      "classes": "",
+      "loading": "eager"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/ai-windsurf.svg",
+      "alt": "",
+      "width": 16,
+      "height": 16,
+      "rect": {
+        "x": 948,
+        "y": 203,
+        "width": 22,
+        "height": 22
+      },
+      "classes": "",
+      "loading": "eager"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/ai-open-claw.svg",
+      "alt": "",
+      "width": 16,
+      "height": 16,
+      "rect": {
+        "x": 709,
+        "y": 274,
+        "width": 22,
+        "height": 22
+      },
+      "classes": "",
+      "loading": "eager"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/ai-perplexity.svg",
+      "alt": "",
+      "width": 16,
+      "height": 16,
+      "rect": {
+        "x": 829,
+        "y": 274,
+        "width": 22,
+        "height": 22
+      },
+      "classes": "",
+      "loading": "eager"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/ai-manus.svg",
+      "alt": "",
+      "width": 16,
+      "height": 16,
+      "rect": {
+        "x": 948,
+        "y": 274,
+        "width": 22,
+        "height": 22
+      },
+      "classes": "",
+      "loading": "eager"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/logo-boden.svg",
+      "alt": "Boden",
+      "width": 126,
+      "height": 20,
+      "rect": {
+        "x": 149,
+        "y": 1594,
+        "width": 126,
+        "height": 20
+      },
+      "classes": "tier-logo",
+      "loading": "auto"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/logo-zozo.svg",
+      "alt": "ZOZO",
+      "width": 420,
+      "height": 125,
+      "rect": {
+        "x": 310,
+        "y": 1585,
+        "width": 129,
+        "height": 38
+      },
+      "classes": "tier-logo",
+      "loading": "auto"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/logo-splash-financial.svg",
+      "alt": "Splash Financial",
+      "width": 300,
+      "height": 78,
+      "rect": {
+        "x": 141,
+        "y": 1646,
+        "width": 142,
+        "height": 37
+      },
+      "classes": "tier-logo",
+      "loading": "auto"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/logo-nextbase.png",
+      "alt": "Nextbase",
+      "width": 250,
+      "height": 32,
+      "rect": {
+        "x": 303,
+        "y": 1655,
+        "width": 142,
+        "height": 18
+      },
+      "classes": "tier-logo",
+      "loading": "auto"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/logo-chosen-foods.png",
+      "alt": "Chosen Foods",
+      "width": 115,
+      "height": 41,
+      "rect": {
+        "x": 158,
+        "y": 1705,
+        "width": 108,
+        "height": 38
+      },
+      "classes": "tier-logo",
+      "loading": "auto"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/logo-inside-real-estate.svg",
+      "alt": "Inside Real Estate",
+      "width": 238,
+      "height": 30,
+      "rect": {
+        "x": 303,
+        "y": 1715,
+        "width": 142,
+        "height": 18
+      },
+      "classes": "tier-logo",
+      "loading": "auto"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/logo-dantes-ink.png",
+      "alt": "Dantes Ink",
+      "width": 237,
+      "height": 62,
+      "rect": {
+        "x": 569,
+        "y": 1586,
+        "width": 142,
+        "height": 37
+      },
+      "classes": "tier-logo",
+      "loading": "auto"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/logo-statknows.png",
+      "alt": "StatKnows",
+      "width": 294,
+      "height": 83,
+      "rect": {
+        "x": 733,
+        "y": 1585,
+        "width": 136,
+        "height": 38
+      },
+      "classes": "tier-logo",
+      "loading": "auto"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/logo-truth.png",
+      "alt": "Truth Marketing + Media",
+      "width": 1000,
+      "height": 370,
+      "rect": {
+        "x": 588,
+        "y": 1646,
+        "width": 104,
+        "height": 38
+      },
+      "classes": "tier-logo",
+      "loading": "auto"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/logo-we-are-stellar.svg",
+      "alt": "We Are Stellar",
+      "width": 300,
+      "height": 84,
+      "rect": {
+        "x": 733,
+        "y": 1646,
+        "width": 137,
+        "height": 38
+      },
+      "classes": "tier-logo",
+      "loading": "auto"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/logo-enkindle.svg",
+      "alt": "Enkindle Group",
+      "width": 300,
+      "height": 101,
+      "rect": {
+        "x": 583,
+        "y": 1707,
+        "width": 114,
+        "height": 38
+      },
+      "classes": "tier-logo",
+      "loading": "auto"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/logo-permagreen.png",
+      "alt": "PermaGreen",
+      "width": 286,
+      "height": 42,
+      "rect": {
+        "x": 995,
+        "y": 1585,
+        "width": 142,
+        "height": 21
+      },
+      "classes": "tier-logo",
+      "loading": "auto"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/logo-jack-vartanian.png",
+      "alt": "Jack Vartanian",
+      "width": 2599,
+      "height": 249,
+      "rect": {
+        "x": 1157,
+        "y": 1589,
+        "width": 142,
+        "height": 14
+      },
+      "classes": "tier-logo",
+      "loading": "auto"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/logo-maxwell-clinic.png",
+      "alt": "MaxWell Clinic",
+      "width": 700,
+      "height": 99,
+      "rect": {
+        "x": 995,
+        "y": 1638,
+        "width": 142,
+        "height": 20
+      },
+      "classes": "tier-logo",
+      "loading": "auto"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/logo-alesmith.png",
+      "alt": "AleSmith Brewing",
+      "width": 154,
+      "height": 97,
+      "rect": {
+        "x": 1198,
+        "y": 1628,
+        "width": 61,
+        "height": 38
+      },
+      "classes": "tier-logo",
+      "loading": "auto"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/logo-mega-furniture.png",
+      "alt": "Mega Furniture",
+      "width": 250,
+      "height": 112,
+      "rect": {
+        "x": 1023,
+        "y": 1689,
+        "width": 86,
+        "height": 38
+      },
+      "classes": "tier-logo",
+      "loading": "auto"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/logo-the-urban-geek.png",
+      "alt": "The Urban Geek",
+      "width": 380,
+      "height": 144,
+      "rect": {
+        "x": 1178,
+        "y": 1689,
+        "width": 101,
+        "height": 38
+      },
+      "classes": "tier-logo",
+      "loading": "auto"
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/62ee7ab65cac0ad27a68a870/6929eab6ee4f91625f1c7b45_Gradient.svg",
+      "alt": "",
+      "width": 500,
+      "height": 500,
+      "rect": {
+        "x": -204,
+        "y": 1902,
+        "width": 480,
+        "height": 480
+      },
+      "classes": "gradient-primary",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/62ee7ab65cac0ad27a68a870/6929eab6b0327281ab59f84d_Gradient.svg",
+      "alt": "",
+      "width": 347,
+      "height": 347,
+      "rect": {
+        "x": 339,
+        "y": 2152,
+        "width": 400,
+        "height": 400
+      },
+      "classes": "gradient-secondary",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/blur_1blur.avif",
+      "alt": "Blurred image with abstract light and shadow patterns in green and blue tones.",
+      "width": 0,
+      "height": 0,
+      "rect": {
+        "x": 80,
+        "y": 2493,
+        "width": 535,
+        "height": 341
+      },
+      "classes": "blur-main",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/adspirer-works-where.svg",
+      "alt": "Adspirer sits at the center as a hub, connected to ChatGPT, Claude, Slack and email, with work flowing into it.",
+      "width": 0,
+      "height": 0,
+      "rect": {
+        "x": 671,
+        "y": 2412,
+        "width": 665,
+        "height": 0
+      },
+      "classes": "opd-illu",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/adspirer-watches-spend.svg",
+      "alt": "A round-the-clock monitoring panel where Adspirer catches a spend anomaly and surfaces a ready fix.",
+      "width": 0,
+      "height": 0,
+      "rect": {
+        "x": 671,
+        "y": 2484,
+        "width": 251,
+        "height": 167
+      },
+      "classes": "opd-illu",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/adspirer-knows-brand.svg",
+      "alt": "Adspirer's brand-memory card holding brand voice, margins, promo calendar and account history.",
+      "width": 0,
+      "height": 0,
+      "rect": {
+        "x": 986,
+        "y": 2810,
+        "width": 350,
+        "height": 0
+      },
+      "classes": "opd-illu",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/platform-google-ads.svg",
+      "alt": "Google Ads",
+      "width": 147,
+      "height": 40,
+      "rect": {
+        "x": -7,
+        "y": 4161,
+        "width": 147,
+        "height": 40
+      },
+      "classes": "logo-company",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/platform-meta-ads.svg",
+      "alt": "Meta Ads",
+      "width": 132,
+      "height": 40,
+      "rect": {
+        "x": 204,
+        "y": 4161,
+        "width": 132,
+        "height": 40
+      },
+      "classes": "logo-company",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/platform-linkedin-ads.svg",
+      "alt": "LinkedIn Ads",
+      "width": 167,
+      "height": 40,
+      "rect": {
+        "x": 400,
+        "y": 4161,
+        "width": 167,
+        "height": 40
+      },
+      "classes": "logo-company",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/platform-chatgpt-ads.svg",
+      "alt": "ChatGPT Ads",
+      "width": 157,
+      "height": 40,
+      "rect": {
+        "x": 631,
+        "y": 4161,
+        "width": 157,
+        "height": 40
+      },
+      "classes": "logo-company",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/platform-amazon-ads.svg",
+      "alt": "Amazon Ads",
+      "width": 124,
+      "height": 40,
+      "rect": {
+        "x": 852,
+        "y": 4161,
+        "width": 124,
+        "height": 40
+      },
+      "classes": "logo-company",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/platform-tiktok-ads.svg",
+      "alt": "TikTok Ads",
+      "width": 147,
+      "height": 40,
+      "rect": {
+        "x": 1040,
+        "y": 4161,
+        "width": 147,
+        "height": 40
+      },
+      "classes": "logo-company",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/platform-google-ads.svg",
+      "alt": "",
+      "width": 147,
+      "height": 40,
+      "rect": {
+        "x": 1251,
+        "y": 4161,
+        "width": 147,
+        "height": 40
+      },
+      "classes": "logo-company",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/platform-meta-ads.svg",
+      "alt": "",
+      "width": 132,
+      "height": 40,
+      "rect": {
+        "x": 1462,
+        "y": 4161,
+        "width": 132,
+        "height": 40
+      },
+      "classes": "logo-company",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/platform-linkedin-ads.svg",
+      "alt": "",
+      "width": 167,
+      "height": 40,
+      "rect": {
+        "x": 1658,
+        "y": 4161,
+        "width": 167,
+        "height": 40
+      },
+      "classes": "logo-company",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/platform-chatgpt-ads.svg",
+      "alt": "",
+      "width": 157,
+      "height": 40,
+      "rect": {
+        "x": 1889,
+        "y": 4161,
+        "width": 157,
+        "height": 40
+      },
+      "classes": "logo-company",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/platform-amazon-ads.svg",
+      "alt": "",
+      "width": 124,
+      "height": 40,
+      "rect": {
+        "x": 2110,
+        "y": 4161,
+        "width": 124,
+        "height": 40
+      },
+      "classes": "logo-company",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/platform-tiktok-ads.svg",
+      "alt": "",
+      "width": 147,
+      "height": 40,
+      "rect": {
+        "x": 2298,
+        "y": 4161,
+        "width": 147,
+        "height": 40
+      },
+      "classes": "logo-company",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/platform-google-ads.svg",
+      "alt": "",
+      "width": 147,
+      "height": 40,
+      "rect": {
+        "x": 2541,
+        "y": 4161,
+        "width": 147,
+        "height": 40
+      },
+      "classes": "logo-company",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/platform-meta-ads.svg",
+      "alt": "",
+      "width": 132,
+      "height": 40,
+      "rect": {
+        "x": 2752,
+        "y": 4161,
+        "width": 132,
+        "height": 40
+      },
+      "classes": "logo-company",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/platform-linkedin-ads.svg",
+      "alt": "",
+      "width": 167,
+      "height": 40,
+      "rect": {
+        "x": 2948,
+        "y": 4161,
+        "width": 167,
+        "height": 40
+      },
+      "classes": "logo-company",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/platform-chatgpt-ads.svg",
+      "alt": "",
+      "width": 157,
+      "height": 40,
+      "rect": {
+        "x": 3179,
+        "y": 4161,
+        "width": 157,
+        "height": 40
+      },
+      "classes": "logo-company",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/platform-amazon-ads.svg",
+      "alt": "",
+      "width": 124,
+      "height": 40,
+      "rect": {
+        "x": 3400,
+        "y": 4161,
+        "width": 124,
+        "height": 40
+      },
+      "classes": "logo-company",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/platform-tiktok-ads.svg",
+      "alt": "",
+      "width": 147,
+      "height": 40,
+      "rect": {
+        "x": 3588,
+        "y": 4161,
+        "width": 147,
+        "height": 40
+      },
+      "classes": "logo-company",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/platform-google-ads.svg",
+      "alt": "",
+      "width": 147,
+      "height": 40,
+      "rect": {
+        "x": 3799,
+        "y": 4161,
+        "width": 147,
+        "height": 40
+      },
+      "classes": "logo-company",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/platform-meta-ads.svg",
+      "alt": "",
+      "width": 132,
+      "height": 40,
+      "rect": {
+        "x": 4010,
+        "y": 4161,
+        "width": 132,
+        "height": 40
+      },
+      "classes": "logo-company",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/platform-linkedin-ads.svg",
+      "alt": "",
+      "width": 167,
+      "height": 40,
+      "rect": {
+        "x": 4206,
+        "y": 4161,
+        "width": 167,
+        "height": 40
+      },
+      "classes": "logo-company",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/platform-chatgpt-ads.svg",
+      "alt": "",
+      "width": 157,
+      "height": 40,
+      "rect": {
+        "x": 4437,
+        "y": 4161,
+        "width": 157,
+        "height": 40
+      },
+      "classes": "logo-company",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/platform-amazon-ads.svg",
+      "alt": "",
+      "width": 124,
+      "height": 40,
+      "rect": {
+        "x": 4658,
+        "y": 4161,
+        "width": 124,
+        "height": 40
+      },
+      "classes": "logo-company",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/platform-tiktok-ads.svg",
+      "alt": "",
+      "width": 147,
+      "height": 40,
+      "rect": {
+        "x": 4846,
+        "y": 4161,
+        "width": 147,
+        "height": 40
+      },
+      "classes": "logo-company",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/adspirer-step-onboard.svg",
+      "alt": "Onboarding: ad accounts connect into Adspirer's profile while brand voice, goals and guardrails are filled in.",
+      "width": 0,
+      "height": 0,
+      "rect": {
+        "x": 747,
+        "y": 5062,
+        "width": 586,
+        "height": 0
+      },
+      "classes": "layout_image opd-illu",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/adspirer-step-delegate.svg",
+      "alt": "One request fans out into dozens of completed platform actions across every channel.",
+      "width": 0,
+      "height": 0,
+      "rect": {
+        "x": 107,
+        "y": 5962,
+        "width": 586,
+        "height": 0
+      },
+      "classes": "layout_image opd-illu",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/adspirer-step-supervise.svg",
+      "alt": "Supervise with receipts: campaigns wait paused under a hard spend cap while every change is logged for approval.",
+      "width": 0,
+      "height": 0,
+      "rect": {
+        "x": 747,
+        "y": 6862,
+        "width": 586,
+        "height": 0
+      },
+      "classes": "layout_image opd-illu",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/icons/google-ads-icon.svg",
+      "alt": "",
+      "width": 0,
+      "height": 0,
+      "rect": {
+        "x": 177,
+        "y": 7911,
+        "width": 22,
+        "height": 22
+      },
+      "classes": "",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/icons/meta-icon.svg",
+      "alt": "",
+      "width": 0,
+      "height": 0,
+      "rect": {
+        "x": 177,
+        "y": 7964,
+        "width": 22,
+        "height": 22
+      },
+      "classes": "",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/icons/tiktok-solo-icon.svg",
+      "alt": "",
+      "width": 0,
+      "height": 0,
+      "rect": {
+        "x": 177,
+        "y": 8017,
+        "width": 22,
+        "height": 22
+      },
+      "classes": "",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/icons/adspirer-app-icon.svg",
+      "alt": "",
+      "width": 0,
+      "height": 0,
+      "rect": {
+        "x": 700,
+        "y": 7955,
+        "width": 40,
+        "height": 40
+      },
+      "classes": "",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/icons/chatgpt-icon.svg",
+      "alt": "",
+      "width": 0,
+      "height": 0,
+      "rect": {
+        "x": 605,
+        "y": 7892,
+        "width": 26,
+        "height": 26
+      },
+      "classes": "",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/icons/claude-ai-icon.svg",
+      "alt": "",
+      "width": 0,
+      "height": 0,
+      "rect": {
+        "x": 816,
+        "y": 7902,
+        "width": 26,
+        "height": 26
+      },
+      "classes": "",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/icons/google-gemini-icon.svg",
+      "alt": "",
+      "width": 0,
+      "height": 0,
+      "rect": {
+        "x": 707,
+        "y": 8032,
+        "width": 26,
+        "height": 26
+      },
+      "classes": "",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/Info-Circle.svg",
+      "alt": "",
+      "width": 0,
+      "height": 0,
+      "rect": {
+        "x": 113,
+        "y": 9581,
+        "width": 0,
+        "height": 0
+      },
+      "classes": "icon-info",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/Check-Circle.svg",
+      "alt": "",
+      "width": 0,
+      "height": 0,
+      "rect": {
+        "x": 112,
+        "y": 9741,
+        "width": 0,
+        "height": 0
+      },
+      "classes": "icon-check",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/Check-Circle.svg",
+      "alt": "",
+      "width": 0,
+      "height": 0,
+      "rect": {
+        "x": 112,
+        "y": 9797,
+        "width": 0,
+        "height": 0
+      },
+      "classes": "icon-check",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/Check-Circle.svg",
+      "alt": "",
+      "width": 0,
+      "height": 0,
+      "rect": {
+        "x": 112,
+        "y": 9829,
+        "width": 0,
+        "height": 0
+      },
+      "classes": "icon-check",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/Check-Circle.svg",
+      "alt": "",
+      "width": 0,
+      "height": 0,
+      "rect": {
+        "x": 112,
+        "y": 9885,
+        "width": 0,
+        "height": 0
+      },
+      "classes": "icon-check",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/Info-Circle.svg",
+      "alt": "",
+      "width": 0,
+      "height": 0,
+      "rect": {
+        "x": 437,
+        "y": 9583,
+        "width": 0,
+        "height": 0
+      },
+      "classes": "icon-info",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/Check-Circle.svg",
+      "alt": "",
+      "width": 0,
+      "height": 0,
+      "rect": {
+        "x": 436,
+        "y": 9741,
+        "width": 0,
+        "height": 0
+      },
+      "classes": "icon-check",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/Check-Circle.svg",
+      "alt": "",
+      "width": 0,
+      "height": 0,
+      "rect": {
+        "x": 436,
+        "y": 9773,
+        "width": 0,
+        "height": 0
+      },
+      "classes": "icon-check",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/Check-Circle.svg",
+      "alt": "",
+      "width": 0,
+      "height": 0,
+      "rect": {
+        "x": 436,
+        "y": 9829,
+        "width": 0,
+        "height": 0
+      },
+      "classes": "icon-check",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/Check-Circle.svg",
+      "alt": "",
+      "width": 0,
+      "height": 0,
+      "rect": {
+        "x": 436,
+        "y": 9885,
+        "width": 0,
+        "height": 0
+      },
+      "classes": "icon-check",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/Info-Circle.svg",
+      "alt": "",
+      "width": 0,
+      "height": 0,
+      "rect": {
+        "x": 761,
+        "y": 9583,
+        "width": 0,
+        "height": 0
+      },
+      "classes": "icon-info",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/Check-Circle.svg",
+      "alt": "",
+      "width": 0,
+      "height": 0,
+      "rect": {
+        "x": 760,
+        "y": 9741,
+        "width": 0,
+        "height": 0
+      },
+      "classes": "icon-check",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/Check-Circle.svg",
+      "alt": "",
+      "width": 0,
+      "height": 0,
+      "rect": {
+        "x": 760,
+        "y": 9773,
+        "width": 0,
+        "height": 0
+      },
+      "classes": "icon-check",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/Check-Circle.svg",
+      "alt": "",
+      "width": 0,
+      "height": 0,
+      "rect": {
+        "x": 760,
+        "y": 9829,
+        "width": 0,
+        "height": 0
+      },
+      "classes": "icon-check",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/Check-Circle.svg",
+      "alt": "",
+      "width": 0,
+      "height": 0,
+      "rect": {
+        "x": 760,
+        "y": 9861,
+        "width": 0,
+        "height": 0
+      },
+      "classes": "icon-check",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/Info-Circle.svg",
+      "alt": "",
+      "width": 0,
+      "height": 0,
+      "rect": {
+        "x": 1085,
+        "y": 9583,
+        "width": 0,
+        "height": 0
+      },
+      "classes": "icon-info",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/Check-Circle.svg",
+      "alt": "",
+      "width": 0,
+      "height": 0,
+      "rect": {
+        "x": 1084,
+        "y": 9741,
+        "width": 0,
+        "height": 0
+      },
+      "classes": "icon-check",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/Check-Circle.svg",
+      "alt": "",
+      "width": 0,
+      "height": 0,
+      "rect": {
+        "x": 1084,
+        "y": 9773,
+        "width": 0,
+        "height": 0
+      },
+      "classes": "icon-check",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/Check-Circle.svg",
+      "alt": "",
+      "width": 0,
+      "height": 0,
+      "rect": {
+        "x": 1084,
+        "y": 9805,
+        "width": 0,
+        "height": 0
+      },
+      "classes": "icon-check",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/Check-Circle.svg",
+      "alt": "",
+      "width": 0,
+      "height": 0,
+      "rect": {
+        "x": 1084,
+        "y": 9861,
+        "width": 0,
+        "height": 0
+      },
+      "classes": "icon-check",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/Check-Circle.svg",
+      "alt": "",
+      "width": 0,
+      "height": 0,
+      "rect": {
+        "x": 588,
+        "y": 10053,
+        "width": 0,
+        "height": 0
+      },
+      "classes": "icon-check",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/Check-Circle.svg",
+      "alt": "",
+      "width": 0,
+      "height": 0,
+      "rect": {
+        "x": 970,
+        "y": 10053,
+        "width": 0,
+        "height": 0
+      },
+      "classes": "icon-check",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/Check-Circle.svg",
+      "alt": "",
+      "width": 0,
+      "height": 0,
+      "rect": {
+        "x": 588,
+        "y": 10085,
+        "width": 0,
+        "height": 0
+      },
+      "classes": "icon-check",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/Check-Circle.svg",
+      "alt": "",
+      "width": 0,
+      "height": 0,
+      "rect": {
+        "x": 970,
+        "y": 10085,
+        "width": 0,
+        "height": 0
+      },
+      "classes": "icon-check",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/Check-Circle.svg",
+      "alt": "",
+      "width": 0,
+      "height": 0,
+      "rect": {
+        "x": 588,
+        "y": 10117,
+        "width": 0,
+        "height": 0
+      },
+      "classes": "icon-check",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/Check-Circle.svg",
+      "alt": "",
+      "width": 0,
+      "height": 0,
+      "rect": {
+        "x": 970,
+        "y": 10117,
+        "width": 0,
+        "height": 0
+      },
+      "classes": "icon-check",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/Check-Circle.svg",
+      "alt": "",
+      "width": 0,
+      "height": 0,
+      "rect": {
+        "x": 588,
+        "y": 10149,
+        "width": 0,
+        "height": 0
+      },
+      "classes": "icon-check",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/Check-Circle.svg",
+      "alt": "",
+      "width": 0,
+      "height": 0,
+      "rect": {
+        "x": 970,
+        "y": 10149,
+        "width": 0,
+        "height": 0
+      },
+      "classes": "icon-check",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/62ee7ab65cac0ad27a68a870/692991a0a9107dc1a72dca59_Gradient.svg",
+      "alt": "",
+      "width": 0,
+      "height": 0,
+      "rect": {
+        "x": 0,
+        "y": 11471,
+        "width": 400,
+        "height": 400
+      },
+      "classes": "primary-gradient-footer",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/62ee7ab65cac0ad27a68a870/692991a0ca242c255ebe8481_Gradient.svg",
+      "alt": "",
+      "width": 0,
+      "height": 0,
+      "rect": {
+        "x": 1040,
+        "y": 11471,
+        "width": 400,
+        "height": 400
+      },
+      "classes": "secondary-gradient-footer",
+      "loading": "lazy"
+    },
+    {
+      "src": "https://www.adspirer.com/webflow/images/adspirer-logo-full.svg",
+      "alt": "Adspirer",
+      "width": 213,
+      "height": 40,
+      "rect": {
+        "x": 93,
+        "y": 11109,
+        "width": 213,
+        "height": 40
+      },
+      "classes": "footer2_logo",
+      "loading": "lazy"
+    }
+  ],
+  "videos": [],
+  "backgrounds": [
+    {
+      "tag": "DIV",
+      "classes": "opd-picker",
+      "bg": "radial-gradient(140% 180%, rgba(255, 255, 255, 0.48), rgba(255, 255, 255, 0.14) 68%, rgba(255, 255, 255, 0.08))",
+      "rect": {
+        "x": 568,
+        "y": 664,
+        "width": 304,
+        "height": 43
+      }
+    },
+    {
+      "tag": "DIV",
+      "classes": "opd-glow",
+      "bg": "linear-gradient(120deg, rgb(89, 188, 223), rgb(124, 108, 255) 45%, rgb(212, 128, 95))",
+      "rect": {
+        "x": 328,
+        "y": 701,
+        "width": 784,
+        "height": 728
+      }
+    },
+    {
+      "tag": "DIV",
+      "classes": "bg-blur-hero-1",
+      "bg": "radial-gradient(52% 56% at 46% 46%, rgba(96, 150, 255, 0.42), rgba(0, 0, 0, 0) 70%)",
+      "rect": {
+        "x": 0,
+        "y": -41,
+        "width": 2288,
+        "height": 1500
+      }
+    },
+    {
+      "tag": "DIV",
+      "classes": "bg-blur-hero-2",
+      "bg": "radial-gradient(56% 46% at 34% 58%, rgba(112, 120, 255, 0.3), rgba(0, 0, 0, 0) 72%)",
+      "rect": {
+        "x": 0,
+        "y": -576,
+        "width": 1174,
+        "height": 2062
+      }
+    },
+    {
+      "tag": "DIV",
+      "classes": "bg-blur-hero-3",
+      "bg": "radial-gradient(56% 56% at 56% 46%, rgba(255, 166, 84, 0.4), rgba(0, 0, 0, 0) 70%)",
+      "rect": {
+        "x": 640,
+        "y": -180,
+        "width": 800,
+        "height": 800
+      }
+    },
+    {
+      "tag": "DIV",
+      "classes": "layout408_image-wrapper",
+      "bg": "radial-gradient(70% 70% at 4% 2%, rgba(16, 103, 254, 0.5), rgba(0, 0, 0, 0) 70%), radial-gradient(70% 70% at 96% 98%, rgba(255, 132, 0, 0.45), rgba(0, 0, 0, 0) 72%), none",
+      "rect": {
+        "x": 748,
+        "y": 4921,
+        "width": 584,
+        "height": 282
+      }
+    },
+    {
+      "tag": "DIV",
+      "classes": "layout408_image-wrapper",
+      "bg": "radial-gradient(70% 70% at 4% 2%, rgba(16, 103, 254, 0.5), rgba(0, 0, 0, 0) 70%), radial-gradient(70% 70% at 96% 98%, rgba(255, 132, 0, 0.45), rgba(0, 0, 0, 0) 72%), none",
+      "rect": {
+        "x": 108,
+        "y": 5821,
+        "width": 584,
+        "height": 282
+      }
+    },
+    {
+      "tag": "DIV",
+      "classes": "layout408_image-wrapper",
+      "bg": "radial-gradient(70% 70% at 4% 2%, rgba(16, 103, 254, 0.5), rgba(0, 0, 0, 0) 70%), radial-gradient(70% 70% at 96% 98%, rgba(255, 132, 0, 0.45), rgba(0, 0, 0, 0) 72%), none",
+      "rect": {
+        "x": 748,
+        "y": 6721,
+        "width": 584,
+        "height": 282
+      }
+    },
+    {
+      "tag": "DIV",
+      "classes": "hiw-card",
+      "bg": "linear-gradient(160deg, rgb(239, 244, 255) 0%, rgb(219, 231, 251) 100%)",
+      "rect": {
+        "x": 80,
+        "y": 7822,
+        "width": 408,
+        "height": 306
+      }
+    },
+    {
+      "tag": "SPAN",
+      "classes": "hiw-badge",
+      "bg": "linear-gradient(135deg, rgb(16, 103, 254), rgb(11, 69, 196))",
+      "rect": {
+        "x": 84,
+        "y": 8152,
+        "width": 28,
+        "height": 28
+      }
+    },
+    {
+      "tag": "DIV",
+      "classes": "hiw-card",
+      "bg": "linear-gradient(160deg, rgb(239, 244, 255) 0%, rgb(219, 231, 251) 100%)",
+      "rect": {
+        "x": 516,
+        "y": 7822,
+        "width": 408,
+        "height": 306
+      }
+    },
+    {
+      "tag": "SPAN",
+      "classes": "hiw-badge",
+      "bg": "linear-gradient(135deg, rgb(16, 103, 254), rgb(11, 69, 196))",
+      "rect": {
+        "x": 520,
+        "y": 8152,
+        "width": 28,
+        "height": 28
+      }
+    },
+    {
+      "tag": "DIV",
+      "classes": "hiw-card",
+      "bg": "linear-gradient(160deg, rgb(239, 244, 255) 0%, rgb(219, 231, 251) 100%)",
+      "rect": {
+        "x": 952,
+        "y": 7822,
+        "width": 408,
+        "height": 306
+      }
+    },
+    {
+      "tag": "SPAN",
+      "classes": "hiw-badge",
+      "bg": "linear-gradient(135deg, rgb(16, 103, 254), rgb(11, 69, 196))",
+      "rect": {
+        "x": 956,
+        "y": 8152,
+        "width": 28,
+        "height": 28
+      }
+    },
+    {
+      "tag": "DIV",
+      "classes": "ask-ai-card",
+      "bg": "radial-gradient(130% 150% at 0% 0%, rgb(74, 134, 255) 0%, rgb(16, 103, 254) 48%, rgb(11, 69, 196) 100%)",
+      "rect": {
+        "x": 80,
+        "y": 8494,
+        "width": 1280,
+        "height": 293
+      }
+    },
+    {
+      "tag": "DIV",
+      "classes": "display-footer reveal-zoom",
+      "bg": "linear-gradient(90deg, rgb(16, 103, 254), rgb(255, 132, 0))",
+      "rect": {
+        "x": -32,
+        "y": 11472,
+        "width": 1505,
+        "height": 307
+      }
+    }
+  ],
+  "svgCount": 44,
+  "canvasCount": 0,
+  "scripts": [
+    "https://snap.licdn.com/li.lms-analytics/insight.old.min.js",
+    "https://snap.licdn.com/li.lms-analytics/insight.min.js",
+    "https://www.googletagmanager.com/gtag/js?id=G-ZX09MFTP89&cx=c&gtm=4e68q1h1",
+    "https://www.googletagmanager.com/gtag/js?id=AW-17156980431&cx=c&gtm=4e68q1h1",
+    "https://connect.facebook.net/signals/config/749811444811245?v=2.9.385&r=stable&domain=www.adspirer.com&hme=1a72ec78e057d90ba48afa55a82b063b1c9b6ab7c0155009fecc72226a622ed2&ex_m=113%2C218%2C164%2C25%2C78%2C79%2C156%2C74%2C73%2C11%2C174%2C98%2C19%2C148%2C136%2C43%2C81%2C86%2C144%2C169%2C176%2C29%2C17%2C30%2C31%2C32%2C34%2C52%2C157%2C83%2C121%2C21%2C23%2C48%2C44%2C46%2C45%2C91%2C100%2C104%2C119%2C155%2C158%2C50%2C120%2C27%2C24%2C128%2C75%2C40%2C160%2C159%2C161%2C152%2C150%2C28%2C39%2C63%2C118%2C171%2C76%2C20%2C123%2C89%2C72%2C22%2C93%2C94%2C125%2C92%2C146%2C145%2C149%2C105%2C170%2C173%2C38%2C53%2C122%2C51%2C8%2C4%2C5%2C7%2C6%2C3%2C99%2C110%2C177%2C185%2C232%2C80%2C245%2C244%2C243%2C14%2C26%2C37%2C59%2C112%2C65%2C10%2C69%2C106%2C107%2C108%2C114%2C139%2C35%2C33%2C141%2C142%2C143%2C138%2C137%2C165%2C82%2C168%2C166%2C167%2C54%2C64%2C132%2C18%2C172%2C49%2C293%2C294%2C292%2C307%2C329%2C225%2C214%2C66%2C215%2C213%2C332%2C323%2C56%2C226%2C116%2C140%2C88%2C130%2C58%2C129%2C135%2C134%2C62%2C70%2C68%2C162%2C84%2C85%2C124%2C41%2C36%2C57%2C60%2C109%2C175%2C1%2C133%2C16%2C131%2C12%2C2%2C61%2C101%2C15%2C71%2C67%2C127%2C97%2C96%2C178%2C179%2C102%2C103%2C9%2C111%2C55%2C153%2C95%2C87%2C77%2C126%2C115%2C47%2C154%2C0%2C90%2C147%2C151%2C163%2C42%2C117%2C13%2C180",
+    "https://connect.facebook.net/en_US/fbevents.js",
+    "https://us-assets.i.posthog.com/static/array.js",
+    "https://www.googletagmanager.com/gtm.js?id=GTM-PQGBFK5Q",
+    "https://www.adspirer.com/_next/static/chunks/1rsn1dago3cd5.js",
+    "https://www.adspirer.com/_next/static/chunks/0mk1g55o6kl1e.js",
+    "https://www.adspirer.com/_next/static/chunks/31fd-p02t682y.js",
+    "https://www.adspirer.com/_next/static/chunks/turbopack-0dgkjk6e92vq1.js",
+    "https://www.adspirer.com/_next/static/chunks/05-c3ty_6dwfk.js",
+    "https://www.adspirer.com/_next/static/chunks/14mrh2-p_w84d.js",
+    "https://www.adspirer.com/_next/static/chunks/00hwua4wg9gym.js",
+    "https://www.adspirer.com/_next/static/chunks/0cz1d0mv5g_q7.js",
+    "(function(o,c){var n=c.documentElement;(\"ontouchstart\"in o||o.DocumentTouch&&c instanceof DocumentTo",
+    "(function(d){try{if(location.pathname!==\"/\")return;var m=window.matchMedia&&window.matchMedia(\"(pref",
+    "https://analytics.ahrefs.com/analytics.js",
+    "https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache=99j0f4",
+    "https://us-assets.i.posthog.com/array/phc_rjinAsLd6D4ye5qWeAbWrN7fJEJWEG28BQY4br2t7dgB/config.js",
+    "https://us-assets.i.posthog.com/static/1.422.1/dead-clicks-autocapture.js",
+    "https://us-assets.i.posthog.com/static/1.422.1/web-vitals-with-attribution.js",
+    "https://googleads.g.doubleclick.net/pagead/viewthroughconversion/17156980431/?random=1787885672063&cv=11&fst=1787885672063&bg=ffffff&guid=ON&async=1&en=gtag.config&gtm=45be68q1h1v9222115166z89232923682za20gzb9232923682zd9232923682xec&gcd=13l3l3l3l1l1&dma=0&tag_exp=115616986~115938466~115938468~117776795~118897920~118897930~119367802~119367810~120385423&u_w=1280&u_h=720&url=https%3A%2F%2Fwww.adspirer.com%2F&rcb=8&frm=0&tiba=Adspirer%20%E2%80%94%20Hire%20an%20AI%20Paid%20Media%20Manager%20%7C%20MCP%20Server%20for%20Ads&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=990306454.1787885671&uaa=x86&uab=64&uafvl=Not%253FA_Brand%3B24.0.0.0%7CChromium%3B152.0.7977.8&uamb=0&uam=&uap=Linux&uapv=&uaw=0&_tu=BA&data=event%3Dgtag.config&ept=9&rfmt=3&fmt=4",
+    "(self.__next_s=self.__next_s||[]).push([0,{\"children\":\"(function(o,c){var n=c.documentElement;(\\\"ont",
+    "(self.__next_s=self.__next_s||[]).push([0,{\"children\":\"(function(d){try{if(location.pathname!==\\\"/\\\"",
+    "{\"@context\":\"https://schema.org\",\"@type\":\"SoftwareApplication\",\"name\":\"Adspirer\",\"url\":\"https://www.",
+    "{\"@context\":\"https://schema.org\",\"@type\":\"Organization\",\"name\":\"Adspirer\",\"url\":\"https://www.adspire",
+    "{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"Adspirer\",\"url\":\"https://www.adspirer.com",
+    "{\"@context\":\"https://schema.org\",\"@type\":\"SiteNavigationElement\",\"name\":\"Main Navigation\",\"hasPart\":",
+    "\n  // Reveal footer blocks only once they actually scroll into view.\n  (function () {\n    var els = ",
+    "\n  // Pricing period toggle — rolls the per-month price between Monthly and Annual\n  // (tween with ",
+    "\n  // Resend-inspired platform quickstarts sourced from the canonical docs repo.\n  // Every tab keep",
+    "https://www.adspirer.com/_next/static/chunks/20c3urj2vq69t.js",
+    "(self.__next_f=self.__next_f||[]).push([0])",
+    "self.__next_f.push([1,\"1:\\\"$Sreact.fragment\\\"\\n2:I[39756,[\\\"/_next/static/chunks/05-c3ty_6dwfk.js\\\",",
+    "self.__next_f.push([1,\"0:{\\\"P\\\":null,\\\"c\\\":[\\\"\\\",\\\"\\\"],\\\"q\\\":\\\"\\\",\\\"i\\\":false,\\\"f\\\":[[[\\\"\\\",{\\\"child",
+    "self.__next_f.push([1,\"1a:I[30246,[\\\"/_next/static/chunks/00hwua4wg9gym.js\\\"],\\\"AttributionProvider\\",
+    "self.__next_f.push([1,\"\\n          !function(t,e){var o,n,p,r;e.__SV||(window.posthog \\u0026\\u0026 w",
+    "self.__next_f.push([1,\"a:[\\\"$\\\",\\\"$L4\\\",null,{\\\"id\\\":\\\"posthog\\\",\\\"strategy\\\":\\\"afterInteractive\\\",\\",
+    "self.__next_f.push([1,\"d:[[\\\"$\\\",\\\"script\\\",null,{\\\"type\\\":\\\"application/ld+json\\\",\\\"dangerouslySetI",
+    "self.__next_f.push([1,\"e:[\\\"$\\\",\\\"$L1a\\\",null,{\\\"children\\\":[[\\\"$\\\",\\\"$L1b\\\",null,{}],[\\\"$\\\",\\\"$L2\\\"",
+    "self.__next_f.push([1,\"f:[\\\"$\\\",\\\"$L25\\\",null,{}]\\n10:[\\\"$\\\",\\\"$L4\\\",null,{\\\"id\\\":\\\"opd-css\\\",\\\"stra",
+    "self.__next_f.push([1,\"\\u003ca href=\\\"#main-content\\\" class=\\\"skip-link\\\"\\u003eSkip to main content\\",
+    "self.__next_f.push([1,\"12:[\\\"$\\\",\\\"$1\\\",\\\"c\\\",{\\\"children\\\":[[\\\"$\\\",\\\"div\\\",null,{\\\"suppressHydratio",
+    "self.__next_f.push([1,\"2e:I[97367,[\\\"/_next/static/chunks/05-c3ty_6dwfk.js\\\",\\\"/_next/static/chunks/",
+    "self.__next_f.push([1,\"mo\\\":\\\"$undefined\\\",\\\"children\\\":\\\"Privacy\\\"}],[\\\"$\\\",\\\"a\\\",\\\"Company-Terms\\\"",
+    "self.__next_f.push([1,\"2a:[[\\\"$\\\",\\\"meta\\\",\\\"0\\\",{\\\"charSet\\\":\\\"utf-8\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"1\\\",{\\\"n",
+    "self.__next_f.push([1,\"30:I[27201,[\\\"/_next/static/chunks/05-c3ty_6dwfk.js\\\",\\\"/_next/static/chunks/",
+    "self.__next_f.push([1,\"2d:[[\\\"$\\\",\\\"title\\\",\\\"0\\\",{\\\"children\\\":\\\"Adspirer — Hire an AI Paid Media M",
+    "self.__next_f.push([1,\"2f:null\\n\"])",
+    "\n          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':\n          new Date().getTime()",
+    "\n          !function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.p",
+    "(function(){if(document.querySelector('link[data-opd-css]'))return;var l=document.createElement('lin",
+    "https://www.adspirer.com/webflow/js/one-prompt-demo.js?v=5",
+    "\n          !function(f,b,e,v,n,t,s)\n          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?\n    ",
+    "\n          if ('requestIdleCallback' in window) {\n            requestIdleCallback(function() {\n     ",
+    "\n          var ahrefs_analytics_script = document.createElement('script');\n          ahrefs_analytic",
+    "_linkedin_partner_id=\"8481436\";window._linkedin_data_partner_ids=window._linkedin_data_partner_ids||",
+    "(function(a){a||(window.lintrk=function(c,d){window.lintrk.q.push([c,d])},window.lintrk.q=[]);a=docu"
+  ],
+  "controls": [
+    {
+      "index": 0,
+      "tag": "a",
+      "role": null,
+      "text": "",
+      "aria": "Adspirer home",
+      "href": "https://www.adspirer.com/",
+      "rect": {
+        "x": 86,
+        "y": 29,
+        "width": 213,
+        "height": 40
+      },
+      "classes": "navbar_logo-link w-nav-brand"
+    },
+    {
+      "index": 1,
+      "tag": "button",
+      "role": null,
+      "text": "Ad platforms",
+      "aria": null,
+      "href": "",
+      "rect": {
+        "x": 489,
+        "y": 30,
+        "width": 102,
+        "height": 38
+      },
+      "classes": "navbar_link w-nav-link nav-mm-trigger"
+    },
+    {
+      "index": 2,
+      "tag": "button",
+      "role": null,
+      "text": "AI platforms",
+      "aria": null,
+      "href": "",
+      "rect": {
+        "x": 615,
+        "y": 30,
+        "width": 97,
+        "height": 38
+      },
+      "classes": "navbar_link w-nav-link nav-mm-trigger"
+    },
+    {
+      "index": 3,
+      "tag": "button",
+      "role": null,
+      "text": "Docs",
+      "aria": null,
+      "href": "",
+      "rect": {
+        "x": 736,
+        "y": 30,
+        "width": 50,
+        "height": 38
+      },
+      "classes": "navbar_link w-nav-link nav-mm-trigger"
+    },
+    {
+      "index": 4,
+      "tag": "a",
+      "role": null,
+      "text": "Pricing",
+      "aria": null,
+      "href": "https://www.adspirer.com/pricing",
+      "rect": {
+        "x": 810,
+        "y": 30,
+        "width": 47,
+        "height": 38
+      },
+      "classes": "navbar_link w-nav-link"
+    },
+    {
+      "index": 5,
+      "tag": "a",
+      "role": null,
+      "text": "Enterprise",
+      "aria": null,
+      "href": "https://www.adspirer.com/enterprise",
+      "rect": {
+        "x": 881,
+        "y": 30,
+        "width": 70,
+        "height": 38
+      },
+      "classes": "navbar_link w-nav-link"
+    },
+    {
+      "index": 6,
+      "tag": "a",
+      "role": null,
+      "text": "",
+      "aria": null,
+      "href": "https://www.adspirer.com/integrations/platforms/google-ads",
+      "rect": {
+        "x": 506,
+        "y": 117,
+        "width": 207,
+        "height": 39
+      },
+      "classes": ""
+    },
+    {
+      "index": 7,
+      "tag": "a",
+      "role": null,
+      "text": "",
+      "aria": null,
+      "href": "https://www.adspirer.com/integrations/platforms/google-ads",
+      "rect": {
+        "x": 715,
+        "y": 117,
+        "width": 207,
+        "height": 39
+      },
+      "classes": ""
+    },
+    {
+      "index": 8,
+      "tag": "a",
+      "role": null,
+      "text": "",
+      "aria": null,
+      "href": "https://www.adspirer.com/integrations/platforms/meta-ads",
+      "rect": {
+        "x": 506,
+        "y": 158,
+        "width": 207,
+        "height": 39
+      },
+      "classes": ""
+    },
+    {
+      "index": 9,
+      "tag": "a",
+      "role": null,
+      "text": "",
+      "aria": null,
+      "href": "https://www.adspirer.com/integrations/platforms/meta-ads",
+      "rect": {
+        "x": 715,
+        "y": 158,
+        "width": 207,
+        "height": 39
+      },
+      "classes": ""
+    },
+    {
+      "index": 10,
+      "tag": "a",
+      "role": null,
+      "text": "",
+      "aria": null,
+      "href": "https://www.adspirer.com/integrations/platforms/linkedin-ads",
+      "rect": {
+        "x": 506,
+        "y": 199,
+        "width": 207,
+        "height": 39
+      },
+      "classes": ""
+    },
+    {
+      "index": 11,
+      "tag": "a",
+      "role": null,
+      "text": "",
+      "aria": null,
+      "href": "https://www.adspirer.com/integrations/platforms/tiktok-ads",
+      "rect": {
+        "x": 715,
+        "y": 199,
+        "width": 207,
+        "height": 39
+      },
+      "classes": ""
+    },
+    {
+      "index": 12,
+      "tag": "a",
+      "role": null,
+      "text": "",
+      "aria": null,
+      "href": "https://www.adspirer.com/integrations",
+      "rect": {
+        "x": 506,
+        "y": 240,
+        "width": 207,
+        "height": 39
+      },
+      "classes": ""
+    },
+    {
+      "index": 13,
+      "tag": "a",
+      "role": null,
+      "text": "",
+      "aria": null,
+      "href": "https://www.adspirer.com/integrations/advertise-on-chatgpt",
+      "rect": {
+        "x": 715,
+        "y": 240,
+        "width": 207,
+        "height": 39
+      },
+      "classes": ""
+    },
+    {
+      "index": 14,
+      "tag": "a",
+      "role": null,
+      "text": "View all integrations",
+      "aria": null,
+      "href": "https://www.adspirer.com/integrations",
+      "rect": {
+        "x": 778,
+        "y": 301,
+        "width": 144,
+        "height": 19
+      },
+      "classes": "nav-mm-more"
+    },
+    {
+      "index": 15,
+      "tag": "a",
+      "role": null,
+      "text": "ChatGPT",
+      "aria": null,
+      "href": "https://www.adspirer.com/integrations/clients/chatgpt",
+      "rect": {
+        "x": 506,
+        "y": 117,
+        "width": 115,
+        "height": 80
+      },
+      "classes": ""
+    },
+    {
+      "index": 16,
+      "tag": "a",
+      "role": null,
+      "text": "Claude",
+      "aria": null,
+      "href": "https://www.adspirer.com/integrations/clients/claude",
+      "rect": {
+        "x": 625,
+        "y": 117,
+        "width": 115,
+        "height": 80
+      },
+      "classes": ""
+    },
+    {
+      "index": 17,
+      "tag": "a",
+      "role": null,
+      "text": "Claude Code",
+      "aria": null,
+      "href": "https://www.adspirer.com/integrations/clients/claude-code",
+      "rect": {
+        "x": 743,
+        "y": 117,
+        "width": 115,
+        "height": 80
+      },
+      "classes": ""
+    },
+    {
+      "index": 18,
+      "tag": "a",
+      "role": null,
+      "text": "Cursor",
+      "aria": null,
+      "href": "https://www.adspirer.com/integrations/clients/cursor",
+      "rect": {
+        "x": 506,
+        "y": 201,
+        "width": 115,
+        "height": 80
+      },
+      "classes": ""
+    },
+    {
+      "index": 19,
+      "tag": "a",
+      "role": null,
+      "text": "Codex",
+      "aria": null,
+      "href": "https://www.adspirer.com/integrations/clients/codex",
+      "rect": {
+        "x": 625,
+        "y": 201,
+        "width": 115,
+        "height": 80
+      },
+      "classes": ""
+    },
+    {
+      "index": 20,
+      "tag": "a",
+      "role": null,
+      "text": "Windsurf",
+      "aria": null,
+      "href": "https://www.adspirer.com/integrations/clients/windsurf",
+      "rect": {
+        "x": 743,
+        "y": 201,
+        "width": 115,
+        "height": 80
+      },
+      "classes": ""
+    },
+    {
+      "index": 21,
+      "tag": "a",
+      "role": null,
+      "text": "View all integrations",
+      "aria": null,
+      "href": "https://www.adspirer.com/integrations",
+      "rect": {
+        "x": 714,
+        "y": 303,
+        "width": 144,
+        "height": 19
+      },
+      "classes": "nav-mm-more"
+    },
+    {
+      "index": 22,
+      "tag": "a",
+      "role": null,
+      "text": "Introduction",
+      "aria": null,
+      "href": "https://www.adspirer.com/docs/introduction",
+      "rect": {
+        "x": 506,
+        "y": 117,
+        "width": 136,
+        "height": 32
+      },
+      "classes": ""
+    },
+    {
+      "index": 23,
+      "tag": "a",
+      "role": null,
+      "text": "Quickstart",
+      "aria": null,
+      "href": "https://www.adspirer.com/docs/quickstart",
+      "rect": {
+        "x": 506,
+        "y": 150,
+        "width": 136,
+        "height": 32
+      },
+      "classes": ""
+    },
+    {
+      "index": 24,
+      "tag": "a",
+      "role": null,
+      "text": "How MCP works",
+      "aria": null,
+      "href": "https://www.adspirer.com/docs/mcp",
+      "rect": {
+        "x": 506,
+        "y": 183,
+        "width": 136,
+        "height": 32
+      },
+      "classes": ""
+    },
+    {
+      "index": 25,
+      "tag": "a",
+      "role": null,
+      "text": "Agent skills",
+      "aria": null,
+      "href": "https://www.adspirer.com/docs/agent-skills/overview",
+      "rect": {
+        "x": 506,
+        "y": 216,
+        "width": 136,
+        "height": 32
+      },
+      "classes": ""
+    },
+    {
+      "index": 26,
+      "tag": "a",
+      "role": null,
+      "text": "Guides",
+      "aria": null,
+      "href": "https://www.adspirer.com/docs/guides/set-up-your-project",
+      "rect": {
+        "x": 506,
+        "y": 249,
+        "width": 136,
+        "height": 32
+      },
+      "classes": ""
+    },
+    {
+      "index": 27,
+      "tag": "a",
+      "role": null,
+      "text": "Knowledge base",
+      "aria": null,
+      "href": "https://www.adspirer.com/docs/knowledge-base/pricing",
+      "rect": {
+        "x": 506,
+        "y": 282,
+        "width": 136,
+        "height": 32
+      },
+      "classes": ""
+    },
+    {
+      "index": 28,
+      "tag": "a",
+      "role": null,
+      "text": "ChatGPT",
+      "aria": null,
+      "href": "https://www.adspirer.com/docs/ai-clients/chatgpt",
+      "rect": {
+        "x": 662,
+        "y": 117,
+        "width": 117,
+        "height": 69
+      },
+      "classes": ""
+    },
+    {
+      "index": 29,
+      "tag": "a",
+      "role": null,
+      "text": "Claude",
+      "aria": null,
+      "href": "https://www.adspirer.com/docs/ai-clients/claude",
+      "rect": {
+        "x": 781,
+        "y": 117,
+        "width": 117,
+        "height": 69
+      },
+      "classes": ""
+    },
+    {
+      "index": 30,
+      "tag": "a",
+      "role": null,
+      "text": "Claude Code",
+      "aria": null,
+      "href": "https://www.adspirer.com/docs/ai-clients/claude-code",
+      "rect": {
+        "x": 901,
+        "y": 117,
+        "width": 117,
+        "height": 69
+      },
+      "classes": ""
+    },
+    {
+      "index": 31,
+      "tag": "a",
+      "role": null,
+      "text": "Cursor",
+      "aria": null,
+      "href": "https://www.adspirer.com/docs/ai-clients/cursor",
+      "rect": {
+        "x": 662,
+        "y": 189,
+        "width": 117,
+        "height": 69
+      },
+      "classes": ""
+    },
+    {
+      "index": 32,
+      "tag": "a",
+      "role": null,
+      "text": "Codex",
+      "aria": null,
+      "href": "https://www.adspirer.com/docs/ai-clients/codex",
+      "rect": {
+        "x": 781,
+        "y": 189,
+        "width": 117,
+        "height": 69
+      },
+      "classes": ""
+    },
+    {
+      "index": 33,
+      "tag": "a",
+      "role": null,
+      "text": "Windsurf",
+      "aria": null,
+      "href": "https://www.adspirer.com/docs/ai-clients/windsurf",
+      "rect": {
+        "x": 901,
+        "y": 189,
+        "width": 117,
+        "height": 69
+      },
+      "classes": ""
+    },
+    {
+      "index": 34,
+      "tag": "a",
+      "role": null,
+      "text": "OpenClaw",
+      "aria": null,
+      "href": "https://www.adspirer.com/docs/ai-clients/openclaw",
+      "rect": {
+        "x": 662,
+        "y": 260,
+        "width": 117,
+        "height": 69
+      },
+      "classes": ""
+    },
+    {
+      "index": 35,
+      "tag": "a",
+      "role": null,
+      "text": "Perplexity",
+      "aria": null,
+      "href": "https://www.adspirer.com/docs/ai-clients/perplexity",
+      "rect": {
+        "x": 781,
+        "y": 260,
+        "width": 117,
+        "height": 69
+      },
+      "classes": ""
+    },
+    {
+      "index": 36,
+      "tag": "a",
+      "role": null,
+      "text": "Manus",
+      "aria": null,
+      "href": "https://www.adspirer.com/docs/ai-clients/manus",
+      "rect": {
+        "x": 901,
+        "y": 260,
+        "width": 117,
+        "height": 69
+      },
+      "classes": ""
+    },
+    {
+      "index": 37,
+      "tag": "a",
+      "role": null,
+      "text": "All docs",
+      "aria": null,
+      "href": "https://www.adspirer.com/docs",
+      "rect": {
+        "x": 950,
+        "y": 351,
+        "width": 68,
+        "height": 19
+      },
+      "classes": "nav-mm-more"
+    },
+    {
+      "index": 38,
+      "tag": "a",
+      "role": null,
+      "text": "Contact Sales",
+      "aria": null,
+      "href": "https://www.adspirer.com/book-demo",
+      "rect": {
+        "x": 1012,
+        "y": 25,
+        "width": 142,
+        "height": 47
+      },
+      "classes": "button is-secondary is-small hide-mobile-portrait w-button"
+    },
+    {
+      "index": 39,
+      "tag": "a",
+      "role": null,
+      "text": "Get Started for Free",
+      "aria": null,
+      "href": "https://adspirer.ai/sign-up",
+      "rect": {
+        "x": 1166,
+        "y": 25,
+        "width": 188,
+        "height": 47
+      },
+      "classes": "button is-navbar2-button hide-mobile-portrait w-button"
+    },
+    {
+      "index": 40,
+      "tag": "button",
+      "role": null,
+      "text": "",
+      "aria": "Open navigation menu",
+      "href": "",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "classes": "navbar_menu-button w-nav-button"
+    },
+    {
+      "index": 41,
+      "tag": "a",
+      "role": null,
+      "text": "Skip to main content",
+      "aria": null,
+      "href": "https://www.adspirer.com/#main-content",
+      "rect": {
+        "x": 0,
+        "y": -100,
+        "width": 198,
+        "height": 48
+      },
+      "classes": "skip-link"
+    },
+    {
+      "index": 42,
+      "tag": "a",
+      "role": null,
+      "text": "Get Started for Free",
+      "aria": null,
+      "href": "https://adspirer.ai/sign-up",
+      "rect": {
+        "x": 612,
+        "y": 527,
+        "width": 217,
+        "height": 52
+      },
+      "classes": "button primary w-button skill-hero-cta"
+    },
+    {
+      "index": 43,
+      "tag": "button",
+      "role": "tab",
+      "text": "Claude",
+      "aria": "Claude",
+      "href": "",
+      "rect": {
+        "x": 574,
+        "y": 670,
+        "width": 94,
+        "height": 31
+      },
+      "classes": "opd-pick"
+    },
+    {
+      "index": 44,
+      "tag": "button",
+      "role": "tab",
+      "text": "ChatGPT",
+      "aria": "ChatGPT",
+      "href": "",
+      "rect": {
+        "x": 672,
+        "y": 670,
+        "width": 106,
+        "height": 31
+      },
+      "classes": "opd-pick"
+    },
+    {
+      "index": 45,
+      "tag": "button",
+      "role": "tab",
+      "text": "Slack",
+      "aria": "Slack",
+      "href": "",
+      "rect": {
+        "x": 782,
+        "y": 670,
+        "width": 84,
+        "height": 31
+      },
+      "classes": "opd-pick"
+    },
+    {
+      "index": 46,
+      "tag": "button",
+      "role": "tab",
+      "text": "",
+      "aria": "ChatGPT",
+      "href": "",
+      "rect": {
+        "x": 463,
+        "y": 3302,
+        "width": 54,
+        "height": 38
+      },
+      "classes": "ww-seg"
+    },
+    {
+      "index": 47,
+      "tag": "button",
+      "role": "tab",
+      "text": "",
+      "aria": "Claude",
+      "href": "",
+      "rect": {
+        "x": 521,
+        "y": 3302,
+        "width": 54,
+        "height": 38
+      },
+      "classes": "ww-seg"
+    },
+    {
+      "index": 48,
+      "tag": "button",
+      "role": "tab",
+      "text": "",
+      "aria": "Codex",
+      "href": "",
+      "rect": {
+        "x": 578,
+        "y": 3302,
+        "width": 54,
+        "height": 38
+      },
+      "classes": "ww-seg"
+    },
+    {
+      "index": 49,
+      "tag": "button",
+      "role": "tab",
+      "text": "",
+      "aria": "Claude Code",
+      "href": "",
+      "rect": {
+        "x": 635,
+        "y": 3302,
+        "width": 54,
+        "height": 38
+      },
+      "classes": "ww-seg"
+    },
+    {
+      "index": 50,
+      "tag": "button",
+      "role": "tab",
+      "text": "",
+      "aria": "Open Claw",
+      "href": "",
+      "rect": {
+        "x": 693,
+        "y": 3302,
+        "width": 54,
+        "height": 38
+      },
+      "classes": "ww-seg"
+    },
+    {
+      "index": 51,
+      "tag": "button",
+      "role": "tab",
+      "text": "",
+      "aria": "Perplexity",
+      "href": "",
+      "rect": {
+        "x": 750,
+        "y": 3302,
+        "width": 54,
+        "height": 38
+      },
+      "classes": "ww-seg"
+    },
+    {
+      "index": 52,
+      "tag": "button",
+      "role": "tab",
+      "text": "",
+      "aria": "Cursor",
+      "href": "",
+      "rect": {
+        "x": 808,
+        "y": 3302,
+        "width": 54,
+        "height": 38
+      },
+      "classes": "ww-seg"
+    },
+    {
+      "index": 53,
+      "tag": "button",
+      "role": "tab",
+      "text": "",
+      "aria": "Windsurf",
+      "href": "",
+      "rect": {
+        "x": 865,
+        "y": 3302,
+        "width": 54,
+        "height": 38
+      },
+      "classes": "ww-seg"
+    },
+    {
+      "index": 54,
+      "tag": "button",
+      "role": "tab",
+      "text": "",
+      "aria": "Manus",
+      "href": "",
+      "rect": {
+        "x": 922,
+        "y": 3302,
+        "width": 54,
+        "height": 38
+      },
+      "classes": "ww-seg"
+    },
+    {
+      "index": 55,
+      "tag": "a",
+      "role": null,
+      "text": "Open the full guide→",
+      "aria": null,
+      "href": "https://www.adspirer.com/docs/ai-clients/chatgpt",
+      "rect": {
+        "x": 1000,
+        "y": 3769,
+        "width": 159,
+        "height": 38
+      },
+      "classes": "ww-docs-link"
+    },
+    {
+      "index": 56,
+      "tag": "a",
+      "role": null,
+      "text": "Get Started for Free",
+      "aria": null,
+      "href": "https://adspirer.ai/sign-up",
+      "rect": {
+        "x": 74,
+        "y": 5128,
+        "width": 241,
+        "height": 60
+      },
+      "classes": "button is-navbar2-button max-width-full-mobile-portrait w-button"
+    },
+    {
+      "index": 57,
+      "tag": "a",
+      "role": null,
+      "text": "See the Work",
+      "aria": null,
+      "href": "https://www.adspirer.com/#featured",
+      "rect": {
+        "x": 714,
+        "y": 6028,
+        "width": 183,
+        "height": 60
+      },
+      "classes": "button is-navbar2-button max-width-full-mobile-portrait w-button"
+    },
+    {
+      "index": 58,
+      "tag": "a",
+      "role": null,
+      "text": "Contact Sales",
+      "aria": null,
+      "href": "https://www.adspirer.com/book-demo",
+      "rect": {
+        "x": 74,
+        "y": 6928,
+        "width": 187,
+        "height": 60
+      },
+      "classes": "button is-navbar2-button max-width-full-mobile-portrait w-button"
+    },
+    {
+      "index": 59,
+      "tag": "a",
+      "role": null,
+      "text": "Ask ChatGPT",
+      "aria": null,
+      "href": "https://chatgpt.com/?q=I%27m%20evaluating%20Adspirer%20%E2%80%94%20the%20AI%20ad-ops%20agent%20that%20runs%20Google%2C%20Meta%2C%20TikTok%2C%20LinkedIn%2C%20Amazon%20and%20ChatGPT%20Ads%20from%20inside%20ChatGPT%20and%20Claude.%20What%20does%20it%20do%2C%20what%20are%20its%20strengths%20and%20weaknesses%2C%20and%20who%20is%20it%20best%20for%3F",
+      "rect": {
+        "x": 132,
+        "y": 8684,
+        "width": 141,
+        "height": 47
+      },
+      "classes": "ask-ai-btn"
+    },
+    {
+      "index": 60,
+      "tag": "a",
+      "role": null,
+      "text": "Ask Claude",
+      "aria": null,
+      "href": "https://claude.ai/new?q=I%27m%20evaluating%20Adspirer%20%E2%80%94%20the%20AI%20ad-ops%20agent%20that%20runs%20Google%2C%20Meta%2C%20TikTok%2C%20LinkedIn%2C%20Amazon%20and%20ChatGPT%20Ads%20from%20inside%20ChatGPT%20and%20Claude.%20What%20does%20it%20do%2C%20what%20are%20its%20strengths%20and%20weaknesses%2C%20and%20who%20is%20it%20best%20for%3F",
+      "rect": {
+        "x": 283,
+        "y": 8684,
+        "width": 127,
+        "height": 47
+      },
+      "classes": "ask-ai-btn"
+    },
+    {
+      "index": 61,
+      "tag": "a",
+      "role": null,
+      "text": "Ask Perplexity",
+      "aria": null,
+      "href": "https://www.perplexity.ai/search?q=I%27m%20evaluating%20Adspirer%20%E2%80%94%20the%20AI%20ad-ops%20agent%20that%20runs%20Google%2C%20Meta%2C%20TikTok%2C%20LinkedIn%2C%20Amazon%20and%20ChatGPT%20Ads%20from%20inside%20ChatGPT%20and%20Claude.%20What%20does%20it%20do%2C%20what%20are%20its%20strengths%20and%20weaknesses%2C%20and%20who%20is%20it%20best%20for%3F",
+      "rect": {
+        "x": 420,
+        "y": 8684,
+        "width": 150,
+        "height": 47
+      },
+      "classes": "ask-ai-btn"
+    },
+    {
+      "index": 62,
+      "tag": "button",
+      "role": null,
+      "text": "Monthly",
+      "aria": null,
+      "href": "",
+      "rect": {
+        "x": 607,
+        "y": 9231,
+        "width": 96,
+        "height": 39
+      },
+      "classes": "pt"
+    },
+    {
+      "index": 63,
+      "tag": "button",
+      "role": null,
+      "text": "Annual −17%",
+      "aria": null,
+      "href": "",
+      "rect": {
+        "x": 707,
+        "y": 9231,
+        "width": 125,
+        "height": 39
+      },
+      "classes": "pt is-active"
+    },
+    {
+      "index": 64,
+      "tag": "a",
+      "role": null,
+      "text": "Start free",
+      "aria": null,
+      "href": "https://adspirer.ai/sign-up",
+      "rect": {
+        "x": 113,
+        "y": 9515,
+        "width": 242,
+        "height": 50
+      },
+      "classes": "button max-width-full w-button"
+    },
+    {
+      "index": 65,
+      "tag": "a",
+      "role": null,
+      "text": "Start Plus",
+      "aria": null,
+      "href": "https://adspirer.ai/sign-up",
+      "rect": {
+        "x": 437,
+        "y": 9517,
+        "width": 242,
+        "height": 50
+      },
+      "classes": "button max-width-full w-button"
+    },
+    {
+      "index": 66,
+      "tag": "a",
+      "role": null,
+      "text": "Start Pro",
+      "aria": null,
+      "href": "https://adspirer.ai/sign-up",
+      "rect": {
+        "x": 761,
+        "y": 9517,
+        "width": 242,
+        "height": 50
+      },
+      "classes": "button max-width-full w-button"
+    },
+    {
+      "index": 67,
+      "tag": "a",
+      "role": null,
+      "text": "Start Max",
+      "aria": null,
+      "href": "https://adspirer.ai/sign-up",
+      "rect": {
+        "x": 1085,
+        "y": 9517,
+        "width": 242,
+        "height": 50
+      },
+      "classes": "button max-width-full w-button"
+    },
+    {
+      "index": 68,
+      "tag": "a",
+      "role": null,
+      "text": "Contact Sales",
+      "aria": null,
+      "href": "https://www.adspirer.com/book-demo",
+      "rect": {
+        "x": 112,
+        "y": 10148,
+        "width": 156,
+        "height": 50
+      },
+      "classes": "button primary w-button"
+    },
+    {
+      "index": 69,
+      "tag": "a",
+      "role": null,
+      "text": "Get Started for Free",
+      "aria": null,
+      "href": "https://adspirer.ai/sign-up",
+      "rect": {
+        "x": 496,
+        "y": 10695,
+        "width": 241,
+        "height": 60
+      },
+      "classes": "button primary max-width-full-mobile-portrait w-button"
+    },
+    {
+      "index": 70,
+      "tag": "a",
+      "role": null,
+      "text": "Contact Sales",
+      "aria": null,
+      "href": "https://www.adspirer.com/book-demo",
+      "rect": {
+        "x": 756,
+        "y": 10695,
+        "width": 187,
+        "height": 60
+      },
+      "classes": "button is-navbar2-button max-width-full-mobile-portrait w-button"
+    },
+    {
+      "index": 71,
+      "tag": "a",
+      "role": null,
+      "text": "Get Started for Free",
+      "aria": null,
+      "href": "https://adspirer.ai/sign-up",
+      "rect": {
+        "x": 1146,
+        "y": 10990,
+        "width": 201,
+        "height": 50
+      },
+      "classes": "button is-navbar2-button max-width-full-mobile-portrait w-button"
+    },
+    {
+      "index": 72,
+      "tag": "a",
+      "role": null,
+      "text": "",
+      "aria": "Adspirer home",
+      "href": "https://www.adspirer.com/",
+      "rect": {
+        "x": 93,
+        "y": 11109,
+        "width": 213,
+        "height": 40
+      },
+      "classes": "footer2_logo-link w-nav-brand"
+    },
+    {
+      "index": 73,
+      "tag": "a",
+      "role": null,
+      "text": "hello@adspirer.com",
+      "aria": null,
+      "href": "mailto:hello@adspirer.com",
+      "rect": {
+        "x": 93,
+        "y": 11157,
+        "width": 159,
+        "height": 26
+      },
+      "classes": "link w-inline-block"
+    },
+    {
+      "index": 74,
+      "tag": "a",
+      "role": null,
+      "text": "www.adspirer.com",
+      "aria": null,
+      "href": "https://www.adspirer.com/",
+      "rect": {
+        "x": 93,
+        "y": 11191,
+        "width": 150,
+        "height": 26
+      },
+      "classes": "link w-inline-block"
+    },
+    {
+      "index": 75,
+      "tag": "a",
+      "role": null,
+      "text": "What they do",
+      "aria": null,
+      "href": "https://www.adspirer.com/#featured",
+      "rect": {
+        "x": 728,
+        "y": 11141,
+        "width": 94,
+        "height": 40
+      },
+      "classes": "text-size-regular"
+    },
+    {
+      "index": 76,
+      "tag": "a",
+      "role": null,
+      "text": "How it works",
+      "aria": null,
+      "href": "https://www.adspirer.com/#benefit",
+      "rect": {
+        "x": 728,
+        "y": 11191,
+        "width": 92,
+        "height": 40
+      },
+      "classes": "text-size-regular"
+    },
+    {
+      "index": 77,
+      "tag": "a",
+      "role": null,
+      "text": "Pricing",
+      "aria": null,
+      "href": "https://www.adspirer.com/pricing",
+      "rect": {
+        "x": 728,
+        "y": 11240,
+        "width": 49,
+        "height": 40
+      },
+      "classes": "text-size-regular"
+    },
+    {
+      "index": 78,
+      "tag": "a",
+      "role": null,
+      "text": "Documentation",
+      "aria": null,
+      "href": "https://www.adspirer.com/docs",
+      "rect": {
+        "x": 728,
+        "y": 11290,
+        "width": 108,
+        "height": 40
+      },
+      "classes": "text-size-regular"
+    },
+    {
+      "index": 79,
+      "tag": "a",
+      "role": null,
+      "text": "Developers",
+      "aria": null,
+      "href": "https://www.adspirer.com/developers",
+      "rect": {
+        "x": 728,
+        "y": 11339,
+        "width": 80,
+        "height": 40
+      },
+      "classes": "text-size-regular"
+    },
+    {
+      "index": 80,
+      "tag": "a",
+      "role": null,
+      "text": "Log in",
+      "aria": null,
+      "href": "https://adspirer.ai/sign-in",
+      "rect": {
+        "x": 728,
+        "y": 11389,
+        "width": 43,
+        "height": 40
+      },
+      "classes": "text-size-regular"
+    },
+    {
+      "index": 81,
+      "tag": "a",
+      "role": null,
+      "text": "ChatGPT",
+      "aria": null,
+      "href": "https://www.adspirer.com/integrations/clients/chatgpt",
+      "rect": {
+        "x": 856,
+        "y": 11141,
+        "width": 64,
+        "height": 40
+      },
+      "classes": "text-size-regular"
+    },
+    {
+      "index": 82,
+      "tag": "a",
+      "role": null,
+      "text": "Claude",
+      "aria": null,
+      "href": "https://www.adspirer.com/integrations/clients/claude",
+      "rect": {
+        "x": 856,
+        "y": 11191,
+        "width": 50,
+        "height": 40
+      },
+      "classes": "text-size-regular"
+    },
+    {
+      "index": 83,
+      "tag": "a",
+      "role": null,
+      "text": "Claude Code",
+      "aria": null,
+      "href": "https://www.adspirer.com/integrations/clients/claude-code",
+      "rect": {
+        "x": 856,
+        "y": 11240,
+        "width": 92,
+        "height": 40
+      },
+      "classes": "text-size-regular"
+    },
+    {
+      "index": 84,
+      "tag": "a",
+      "role": null,
+      "text": "Cursor",
+      "aria": null,
+      "href": "https://www.adspirer.com/integrations/clients/cursor",
+      "rect": {
+        "x": 856,
+        "y": 11290,
+        "width": 48,
+        "height": 40
+      },
+      "classes": "text-size-regular"
+    },
+    {
+      "index": 85,
+      "tag": "a",
+      "role": null,
+      "text": "Codex",
+      "aria": null,
+      "href": "https://www.adspirer.com/integrations/clients/codex",
+      "rect": {
+        "x": 856,
+        "y": 11339,
+        "width": 46,
+        "height": 40
+      },
+      "classes": "text-size-regular"
+    },
+    {
+      "index": 86,
+      "tag": "a",
+      "role": null,
+      "text": "Windsurf",
+      "aria": null,
+      "href": "https://www.adspirer.com/integrations/clients/windsurf",
+      "rect": {
+        "x": 856,
+        "y": 11389,
+        "width": 65,
+        "height": 40
+      },
+      "classes": "text-size-regular"
+    },
+    {
+      "index": 87,
+      "tag": "a",
+      "role": null,
+      "text": "All integrations",
+      "aria": null,
+      "href": "https://www.adspirer.com/integrations",
+      "rect": {
+        "x": 856,
+        "y": 11438,
+        "width": 105,
+        "height": 40
+      },
+      "classes": "text-size-regular"
+    },
+    {
+      "index": 88,
+      "tag": "a",
+      "role": null,
+      "text": "Google Ads",
+      "aria": null,
+      "href": "https://www.adspirer.com/integrations/platforms/google-ads",
+      "rect": {
+        "x": 984,
+        "y": 11141,
+        "width": 82,
+        "height": 40
+      },
+      "classes": "text-size-regular"
+    },
+    {
+      "index": 89,
+      "tag": "a",
+      "role": null,
+      "text": "Meta Ads",
+      "aria": null,
+      "href": "https://www.adspirer.com/integrations/platforms/meta-ads",
+      "rect": {
+        "x": 984,
+        "y": 11191,
+        "width": 67,
+        "height": 40
+      },
+      "classes": "text-size-regular"
+    },
+    {
+      "index": 90,
+      "tag": "a",
+      "role": null,
+      "text": "LinkedIn Ads",
+      "aria": null,
+      "href": "https://www.adspirer.com/integrations/platforms/linkedin-ads",
+      "rect": {
+        "x": 984,
+        "y": 11240,
+        "width": 91,
+        "height": 40
+      },
+      "classes": "text-size-regular"
+    },
+    {
+      "index": 91,
+      "tag": "a",
+      "role": null,
+      "text": "TikTok Ads",
+      "aria": null,
+      "href": "https://www.adspirer.com/integrations/platforms/tiktok-ads",
+      "rect": {
+        "x": 984,
+        "y": 11290,
+        "width": 78,
+        "height": 40
+      },
+      "classes": "text-size-regular"
+    },
+    {
+      "index": 92,
+      "tag": "a",
+      "role": null,
+      "text": "Amazon Ads",
+      "aria": null,
+      "href": "https://www.adspirer.com/integrations",
+      "rect": {
+        "x": 984,
+        "y": 11339,
+        "width": 90,
+        "height": 40
+      },
+      "classes": "text-size-regular"
+    },
+    {
+      "index": 93,
+      "tag": "a",
+      "role": null,
+      "text": "ChatGPT Ads",
+      "aria": null,
+      "href": "https://www.adspirer.com/integrations/advertise-on-chatgpt",
+      "rect": {
+        "x": 984,
+        "y": 11389,
+        "width": 95,
+        "height": 40
+      },
+      "classes": "text-size-regular"
+    },
+    {
+      "index": 94,
+      "tag": "a",
+      "role": null,
+      "text": "Blog",
+      "aria": null,
+      "href": "https://www.adspirer.com/blog",
+      "rect": {
+        "x": 1111,
+        "y": 11141,
+        "width": 32,
+        "height": 40
+      },
+      "classes": "text-size-regular"
+    },
+    {
+      "index": 95,
+      "tag": "a",
+      "role": null,
+      "text": "Guides",
+      "aria": null,
+      "href": "https://www.adspirer.com/guides",
+      "rect": {
+        "x": 1111,
+        "y": 11191,
+        "width": 50,
+        "height": 40
+      },
+      "classes": "text-size-regular"
+    },
+    {
+      "index": 96,
+      "tag": "a",
+      "role": null,
+      "text": "Newsroom",
+      "aria": null,
+      "href": "https://www.adspirer.com/newsroom",
+      "rect": {
+        "x": 1111,
+        "y": 11240,
+        "width": 77,
+        "height": 40
+      },
+      "classes": "text-size-regular"
+    },
+    {
+      "index": 97,
+      "tag": "a",
+      "role": null,
+      "text": "Docs",
+      "aria": null,
+      "href": "https://www.adspirer.com/docs",
+      "rect": {
+        "x": 1111,
+        "y": 11290,
+        "width": 36,
+        "height": 40
+      },
+      "classes": "text-size-regular"
+    },
+    {
+      "index": 98,
+      "tag": "a",
+      "role": null,
+      "text": "Contact Sales",
+      "aria": null,
+      "href": "https://www.adspirer.com/book-demo",
+      "rect": {
+        "x": 1111,
+        "y": 11339,
+        "width": 98,
+        "height": 40
+      },
+      "classes": "text-size-regular"
+    },
+    {
+      "index": 99,
+      "tag": "a",
+      "role": null,
+      "text": "About",
+      "aria": null,
+      "href": "https://www.adspirer.com/about",
+      "rect": {
+        "x": 1239,
+        "y": 11141,
+        "width": 42,
+        "height": 40
+      },
+      "classes": "text-size-regular"
+    },
+    {
+      "index": 100,
+      "tag": "a",
+      "role": null,
+      "text": "Contact",
+      "aria": null,
+      "href": "mailto:hello@adspirer.com",
+      "rect": {
+        "x": 1239,
+        "y": 11191,
+        "width": 56,
+        "height": 40
+      },
+      "classes": "text-size-regular"
+    },
+    {
+      "index": 101,
+      "tag": "a",
+      "role": null,
+      "text": "Privacy",
+      "aria": null,
+      "href": "https://www.adspirer.com/privacy",
+      "rect": {
+        "x": 1239,
+        "y": 11240,
+        "width": 53,
+        "height": 40
+      },
+      "classes": "text-size-regular"
+    },
+    {
+      "index": 102,
+      "tag": "a",
+      "role": null,
+      "text": "Terms",
+      "aria": null,
+      "href": "https://www.adspirer.com/terms",
+      "rect": {
+        "x": 1239,
+        "y": 11290,
+        "width": 44,
+        "height": 40
+      },
+      "classes": "text-size-regular"
+    }
+  ]
+}

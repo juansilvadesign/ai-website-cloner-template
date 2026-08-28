@@ -1,0 +1,11 @@
+{
+  "styles": {
+    "color": "rgb(255, 255, 255)",
+    "backgroundColor": "rgb(16, 103, 254)",
+    "borderColor": "rgb(16, 103, 254)",
+    "transform": "none",
+    "boxShadow": "none",
+    "transition": "0.5s ease-in-out",
+    "filter": "none"
+  }
+}

@@ -1,0 +1,75 @@
+---
+const platforms = [
+  ["chatgpt", "ChatGPT", "ai-chatgpt.svg"],
+  ["claude", "Claude", "ai-claude.svg"],
+  ["codex", "Codex", "ai-codex.svg"],
+  ["claude-code", "Claude Code", "ai-claude-code.svg"],
+  ["open-claw", "Open Claw", "ai-open-claw.svg"],
+  ["perplexity", "Perplexity", "ai-perplexity.svg"],
+  ["cursor", "Cursor", "ai-cursor.svg"],
+  ["windsurf", "Windsurf", "ai-windsurf.svg"],
+  ["manus", "Manus", "ai-manus.svg"],
+];
+---
+
+<section class="ad-workspace" id="agents">
+  <div class="ad-shell" data-reveal>
+    <div class="ad-section-intro ad-section-intro--center">
+      <p class="ad-eyebrow">One connection, many agents</p>
+      <h2>Bring Adspirer into<br />your AI workspace.</h2>
+      <p>Connect once, then give any compatible agent the context and tools to actually move the account forward.</p>
+    </div>
+
+    <div class="ad-workspace-tabs" role="tablist" aria-label="AI platform setup guides">
+      {platforms.map(([id, label, icon], index) => <button type="button" role="tab" aria-selected={index === 0 ? "true" : "false"} data-workspace-tab={id}><img src={`/clones/adspirer-com/images/${icon}`} alt="" width="18" height="18" />{label}</button>)}
+    </div>
+
+    <article class="ad-workspace-panel" data-workspace-panel>
+      <div class="ad-workspace-panel__content">
+        <p class="ad-eyebrow">Get started</p>
+        <h3 data-workspace-title>Connect Adspirer to ChatGPT</h3>
+        <p class="ad-workspace-panel__lede" data-workspace-lede>Give ChatGPT a secure connection to your paid-media accounts in a few clear steps.</p>
+        <ol data-workspace-steps><li>Open Settings in ChatGPT and choose Connectors.</li><li>Add the Adspirer MCP server to your workspace.</li><li>Ask ChatGPT to review or build a campaign.</li></ol>
+      </div>
+      <div class="ad-workspace-panel__code">
+        <span class="ad-workspace-panel__code-label">MCP endpoint</span>
+        <code data-workspace-code>https://mcp.adspirer.com/chatgpt</code>
+        <div class="ad-workspace-panel__tip"><span>✓</span><p data-workspace-note>Adspirer only acts after you connect an account and approve the work.</p></div>
+        <a href="https://adspirer.com/" data-workspace-link>Read the ChatGPT guide <span aria-hidden="true">→</span></a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<script>
+  const workspaceTabs = Array.from(document.querySelectorAll<HTMLButtonElement>("[data-workspace-tab]"));
+  const workspaceTitle = document.querySelector<HTMLElement>("[data-workspace-title]");
+  const workspaceLede = document.querySelector<HTMLElement>("[data-workspace-lede]");
+  const workspaceSteps = document.querySelector<HTMLOListElement>("[data-workspace-steps]");
+  const workspaceCode = document.querySelector<HTMLElement>("[data-workspace-code]");
+  const workspaceNote = document.querySelector<HTMLElement>("[data-workspace-note]");
+  const workspaceLink = document.querySelector<HTMLAnchorElement>("[data-workspace-link]");
+  const workspaceData: Record<string, { title: string; lede: string; steps: string[]; code: string; note: string }> = {
+    chatgpt: { title: "Connect Adspirer to ChatGPT", lede: "Give ChatGPT a secure connection to your paid-media accounts in a few clear steps.", steps: ["Open Settings in ChatGPT and choose Connectors.", "Add the Adspirer MCP server to your workspace.", "Ask ChatGPT to review or build a campaign."], code: "https://mcp.adspirer.com/chatgpt", note: "Adspirer only acts after you connect an account and approve the work." },
+    claude: { title: "Connect Adspirer to Claude", lede: "Give Claude account context and practical campaign tools in one connection.", steps: ["Open Claude settings and select Integrations.", "Paste the Adspirer MCP endpoint.", "Authorize your account and start with a campaign question."], code: "https://mcp.adspirer.com/claude", note: "Your workspace can review the output before a campaign goes live." },
+    codex: { title: "Connect Adspirer to Codex", lede: "Let Codex inspect the account, make a plan, and perform the approved work.", steps: ["Open your Codex MCP configuration.", "Add Adspirer as a remote MCP server.", "Authenticate, then ask Codex to inspect a paid-media account."], code: "https://mcp.adspirer.com/codex", note: "Codex receives the campaign tools and context, while approvals stay with your team." },
+    "claude-code": { title: "Connect Adspirer to Claude Code", lede: "Use account-aware paid-media tools directly from your development workspace.", steps: ["Open the Claude Code MCP settings.", "Register the Adspirer endpoint.", "Connect the account and delegate a campaign task."], code: "https://mcp.adspirer.com/claude-code", note: "Keep a recorded brief and clear approval point for every launch." },
+    "open-claw": { title: "Connect Adspirer to Open Claw", lede: "Add paid-media execution tools to your Open Claw agent workflow.", steps: ["Create a new MCP connection.", "Use the Adspirer server URL.", "Authorize an account and start an account review."], code: "https://mcp.adspirer.com/open-claw", note: "Account permissions are scoped to the work you choose to delegate." },
+    perplexity: { title: "Connect Adspirer to Perplexity", lede: "Move from a research answer into practical account work without changing context.", steps: ["Open Perplexity’s connector settings.", "Add the Adspirer MCP endpoint.", "Ask for an account check or campaign plan."], code: "https://mcp.adspirer.com/perplexity", note: "The attached account remains visible and controllable from Adspirer." },
+    cursor: { title: "Connect Adspirer to Cursor", lede: "Bring paid-media operations into the tool your technical team already uses.", steps: ["Open Cursor settings.", "Add a remote MCP server for Adspirer.", "Authenticate and ask the agent to inspect an account."], code: "https://mcp.adspirer.com/cursor", note: "Campaign changes can be reviewed as structured work, not black-box output." },
+    windsurf: { title: "Connect Adspirer to Windsurf", lede: "Let your Windsurf agent work with campaign structure, settings, and account context.", steps: ["Open MCP settings in Windsurf.", "Add the Adspirer remote endpoint.", "Connect an account and begin with a focused task."], code: "https://mcp.adspirer.com/windsurf", note: "Keep the approval loop visible while the agent handles the groundwork." },
+    manus: { title: "Connect Adspirer to Manus", lede: "Give Manus the same clear account tools used by the rest of your team.", steps: ["Open the Manus connector settings.", "Choose to add a custom MCP server.", "Authenticate with Adspirer and delegate the first task."], code: "https://mcp.adspirer.com/manus", note: "Adspirer makes the work traceable from brief to approval." },
+  };
+
+  workspaceTabs.forEach((tab) => tab.addEventListener("click", () => {
+    const id = tab.dataset.workspaceTab ?? "chatgpt";
+    const data = workspaceData[id];
+    workspaceTabs.forEach((button) => button.setAttribute("aria-selected", String(button === tab)));
+    if (workspaceTitle) workspaceTitle.textContent = data.title;
+    if (workspaceLede) workspaceLede.textContent = data.lede;
+    if (workspaceCode) workspaceCode.textContent = data.code;
+    if (workspaceNote) workspaceNote.textContent = data.note;
+    if (workspaceLink) workspaceLink.textContent = `Read the ${tab.textContent?.trim() ?? "platform"} guide →`;
+    if (workspaceSteps) workspaceSteps.replaceChildren(...data.steps.map((step) => { const item = document.createElement("li"); item.textContent = step; return item; }));
+  }));
+</script>

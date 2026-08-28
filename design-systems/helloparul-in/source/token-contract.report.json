@@ -1,0 +1,637 @@
+{
+  "schemaVersion": 1,
+  "format": "od-token-contract-report/v1",
+  "generatedAt": "2026-08-27T15:51:54.550Z",
+  "summary": {
+    "total": 56,
+    "byConfidence": {
+      "high": 48,
+      "derived": 4,
+      "fallback": 4
+    },
+    "byLayer": {
+      "A1-identity": 8,
+      "B-slot": 4,
+      "A2": 26,
+      "A1-structure": 18
+    }
+  },
+  "tokens": [
+    {
+      "name": "--bg",
+      "layer": "A1-identity",
+      "value": "#F2EEE3",
+      "confidence": "high",
+      "reason": "Global cream canvas.",
+      "sources": [
+        "docs/research/helloparul-in/source.html:14; browser-evidence.json colors.canvas",
+        "tokens.css:8"
+      ]
+    },
+    {
+      "name": "--surface",
+      "layer": "A1-identity",
+      "value": "#FBF9F3",
+      "confidence": "high",
+      "reason": "Case-card surface.",
+      "sources": [
+        "docs/research/helloparul-in/source.html:184; browser-evidence.json desktop.cards",
+        "tokens.css:9"
+      ]
+    },
+    {
+      "name": "--surface-warm",
+      "layer": "B-slot",
+      "value": "#F3EEE3",
+      "confidence": "high",
+      "reason": "Availability pill and subtle warm interior surface.",
+      "sources": [
+        "docs/research/helloparul-in/source.html:116",
+        "tokens.css:10"
+      ]
+    },
+    {
+      "name": "--fg",
+      "layer": "A1-identity",
+      "value": "#181510",
+      "confidence": "high",
+      "reason": "Primary portfolio ink and dark band.",
+      "sources": [
+        "docs/research/helloparul-in/source.html:14; browser-evidence.json colors.ink",
+        "tokens.css:13"
+      ]
+    },
+    {
+      "name": "--fg-2",
+      "layer": "B-slot",
+      "value": "#3A352C",
+      "confidence": "high",
+      "reason": "Case-study descriptive copy and stat labels.",
+      "sources": [
+        "docs/research/helloparul-in/source.html:195",
+        "tokens.css:14"
+      ]
+    },
+    {
+      "name": "--muted",
+      "layer": "A1-identity",
+      "value": "#7A7468",
+      "confidence": "high",
+      "reason": "Hero metadata and case-detail secondary text.",
+      "sources": [
+        "docs/research/helloparul-in/source.html:134",
+        "tokens.css:15"
+      ]
+    },
+    {
+      "name": "--meta",
+      "layer": "B-slot",
+      "value": "#8F8A7C",
+      "confidence": "high",
+      "reason": "Footer eyebrow and subdued dark-mode copy.",
+      "sources": [
+        "docs/research/helloparul-in/source.html:311",
+        "tokens.css:16"
+      ]
+    },
+    {
+      "name": "--border",
+      "layer": "A1-identity",
+      "value": "rgba(24, 21, 16, .30)",
+      "confidence": "high",
+      "reason": "Outlined topic-chip edge.",
+      "sources": [
+        "docs/research/helloparul-in/source.html:190",
+        "tokens.css:19"
+      ]
+    },
+    {
+      "name": "--border-soft",
+      "layer": "B-slot",
+      "value": "rgba(24, 21, 16, .14)",
+      "confidence": "high",
+      "reason": "Stats-board outer and divider line.",
+      "sources": [
+        "docs/research/helloparul-in/source.html:158",
+        "tokens.css:20"
+      ]
+    },
+    {
+      "name": "--accent",
+      "layer": "A1-identity",
+      "value": "#FF3B1F",
+      "confidence": "high",
+      "reason": "Primary action, availability dot, case hover edge, and red stat accent.",
+      "sources": [
+        "docs/research/helloparul-in/source.html:14,138,184",
+        "tokens.css:23"
+      ]
+    },
+    {
+      "name": "--accent-on",
+      "layer": "A2",
+      "value": "#F2EEE3",
+      "confidence": "high",
+      "reason": "Text over the red primary action and dark canvas ink inverse.",
+      "sources": [
+        "docs/research/helloparul-in/source.html:138",
+        "tokens.css:24"
+      ]
+    },
+    {
+      "name": "--accent-hover",
+      "layer": "A2",
+      "value": "#181510",
+      "confidence": "high",
+      "reason": "Primary CTA’s authored hover background.",
+      "sources": [
+        "docs/research/helloparul-in/source.html:138 style-hover",
+        "tokens.css:25"
+      ]
+    },
+    {
+      "name": "--accent-active",
+      "layer": "A2",
+      "value": "color-mix(in srgb, var(--accent) 86%, var(--fg))",
+      "confidence": "derived",
+      "reason": "Reserved pressed accent derived from the observed red and ink pair.",
+      "sources": [
+        "derived from --accent and --fg; target has no separate active color",
+        "tokens.css:26"
+      ]
+    },
+    {
+      "name": "--success",
+      "layer": "A2",
+      "value": "#16a34a",
+      "confidence": "fallback",
+      "reason": "OpenDesign A2 default (Success state.)",
+      "sources": [
+        "_schema/defaults.css",
+        "tokens.css:29"
+      ]
+    },
+    {
+      "name": "--warn",
+      "layer": "A2",
+      "value": "#eab308",
+      "confidence": "fallback",
+      "reason": "OpenDesign A2 default (Warning state.)",
+      "sources": [
+        "_schema/defaults.css",
+        "tokens.css:30"
+      ]
+    },
+    {
+      "name": "--danger",
+      "layer": "A2",
+      "value": "#dc2626",
+      "confidence": "fallback",
+      "reason": "OpenDesign A2 default (Danger state.)",
+      "sources": [
+        "_schema/defaults.css",
+        "tokens.css:31"
+      ]
+    },
+    {
+      "name": "--font-display",
+      "layer": "A1-identity",
+      "value": "'Bricolage Grotesque', sans-serif",
+      "confidence": "high",
+      "reason": "All display headings, brand wordmark, and marquee text.",
+      "sources": [
+        "docs/research/helloparul-in/source.html:10,105,128",
+        "tokens.css:34"
+      ]
+    },
+    {
+      "name": "--font-body",
+      "layer": "A1-identity",
+      "value": "'Instrument Sans', sans-serif",
+      "confidence": "high",
+      "reason": "Page canvas and product-story body copy.",
+      "sources": [
+        "docs/research/helloparul-in/source.html:10,14",
+        "tokens.css:35"
+      ]
+    },
+    {
+      "name": "--font-mono",
+      "layer": "A2",
+      "value": "ui-monospace, \"SF Mono\", \"JetBrains Mono\", Menlo, Monaco, Consolas, monospace",
+      "confidence": "fallback",
+      "reason": "OpenDesign A2 default (Monospace font stack — used by kbd, code, tabular metrics.)",
+      "sources": [
+        "_schema/defaults.css",
+        "tokens.css:36"
+      ]
+    },
+    {
+      "name": "--text-xs",
+      "layer": "A1-structure",
+      "value": "11px",
+      "confidence": "high",
+      "reason": "Case-stat labels.",
+      "sources": [
+        "docs/research/helloparul-in/source.html:201",
+        "tokens.css:39"
+      ]
+    },
+    {
+      "name": "--text-sm",
+      "layer": "A1-structure",
+      "value": "12px",
+      "confidence": "high",
+      "reason": "Chips and compact stats labels.",
+      "sources": [
+        "docs/research/helloparul-in/source.html:159,190",
+        "tokens.css:40"
+      ]
+    },
+    {
+      "name": "--text-base",
+      "layer": "A1-structure",
+      "value": "14px",
+      "confidence": "high",
+      "reason": "Hero metadata and primary button label.",
+      "sources": [
+        "docs/research/helloparul-in/source.html:134,138",
+        "tokens.css:41"
+      ]
+    },
+    {
+      "name": "--text-lg",
+      "layer": "A1-structure",
+      "value": "17px",
+      "confidence": "high",
+      "reason": "Case-study descriptive text.",
+      "sources": [
+        "docs/research/helloparul-in/source.html:195",
+        "tokens.css:42"
+      ]
+    },
+    {
+      "name": "--text-xl",
+      "layer": "A1-structure",
+      "value": "19px",
+      "confidence": "high",
+      "reason": "Navigation wordmark.",
+      "sources": [
+        "docs/research/helloparul-in/source.html:105",
+        "tokens.css:43"
+      ]
+    },
+    {
+      "name": "--text-2xl",
+      "layer": "A1-structure",
+      "value": "42px",
+      "confidence": "high",
+      "reason": "Large desktop case-study heading endpoint.",
+      "sources": [
+        "docs/research/helloparul-in/source.html:192",
+        "tokens.css:44"
+      ]
+    },
+    {
+      "name": "--text-3xl",
+      "layer": "A1-structure",
+      "value": "64px",
+      "confidence": "high",
+      "reason": "Selected-work display heading endpoint.",
+      "sources": [
+        "docs/research/helloparul-in/source.html:180",
+        "tokens.css:45"
+      ]
+    },
+    {
+      "name": "--text-4xl",
+      "layer": "A1-structure",
+      "value": "118px",
+      "confidence": "high",
+      "reason": "Hero display heading endpoint.",
+      "sources": [
+        "docs/research/helloparul-in/source.html:128",
+        "tokens.css:46"
+      ]
+    },
+    {
+      "name": "--leading-body",
+      "layer": "A1-structure",
+      "value": "1.55",
+      "confidence": "high",
+      "reason": "Case-study paragraph leading.",
+      "sources": [
+        "docs/research/helloparul-in/source.html:195",
+        "tokens.css:49"
+      ]
+    },
+    {
+      "name": "--leading-tight",
+      "layer": "A1-structure",
+      "value": ".94",
+      "confidence": "high",
+      "reason": "Hero display leading.",
+      "sources": [
+        "docs/research/helloparul-in/source.html:128",
+        "tokens.css:50"
+      ]
+    },
+    {
+      "name": "--tracking-display",
+      "layer": "A1-structure",
+      "value": "-.035em",
+      "confidence": "high",
+      "reason": "Hero and footer display tracking.",
+      "sources": [
+        "docs/research/helloparul-in/source.html:128,312",
+        "tokens.css:51"
+      ]
+    },
+    {
+      "name": "--space-1",
+      "layer": "A2",
+      "value": "1px",
+      "confidence": "high",
+      "reason": "Stats-board divider gap.",
+      "sources": [
+        "docs/research/helloparul-in/source.html:158",
+        "tokens.css:54"
+      ]
+    },
+    {
+      "name": "--space-2",
+      "layer": "A2",
+      "value": "4px",
+      "confidence": "high",
+      "reason": "Small label offset.",
+      "sources": [
+        "docs/research/helloparul-in/source.html:161",
+        "tokens.css:55"
+      ]
+    },
+    {
+      "name": "--space-3",
+      "layer": "A2",
+      "value": "8px",
+      "confidence": "high",
+      "reason": "Chip and inline-control gap.",
+      "sources": [
+        "docs/research/helloparul-in/source.html:112",
+        "tokens.css:56"
+      ]
+    },
+    {
+      "name": "--space-4",
+      "layer": "A2",
+      "value": "12px",
+      "confidence": "high",
+      "reason": "Small nav and label inset.",
+      "sources": [
+        "docs/research/helloparul-in/source.html:112",
+        "tokens.css:57"
+      ]
+    },
+    {
+      "name": "--space-5",
+      "layer": "A2",
+      "value": "16px",
+      "confidence": "high",
+      "reason": "Primary CTA vertical padding and marquee inset.",
+      "sources": [
+        "docs/research/helloparul-in/source.html:138,145",
+        "tokens.css:58"
+      ]
+    },
+    {
+      "name": "--space-6",
+      "layer": "A2",
+      "value": "22px",
+      "confidence": "high",
+      "reason": "Phone shell gutter and hero metadata gap.",
+      "sources": [
+        "docs/research/helloparul-in/source.html:46,134",
+        "tokens.css:59"
+      ]
+    },
+    {
+      "name": "--space-8",
+      "layer": "A2",
+      "value": "32px",
+      "confidence": "high",
+      "reason": "Desktop shell gutter.",
+      "sources": [
+        "docs/research/helloparul-in/source.html:101",
+        "tokens.css:60"
+      ]
+    },
+    {
+      "name": "--space-12",
+      "layer": "A2",
+      "value": "64px",
+      "confidence": "high",
+      "reason": "Stats vertical margin.",
+      "sources": [
+        "docs/research/helloparul-in/source.html:158",
+        "tokens.css:61"
+      ]
+    },
+    {
+      "name": "--section-y-desktop",
+      "layer": "A1-structure",
+      "value": "88px",
+      "confidence": "high",
+      "reason": "Hero top spacing.",
+      "sources": [
+        "docs/research/helloparul-in/source.html:125",
+        "tokens.css:64"
+      ]
+    },
+    {
+      "name": "--section-y-tablet",
+      "layer": "A1-structure",
+      "value": "88px",
+      "confidence": "high",
+      "reason": "No authored hero override until phone breakpoint.",
+      "sources": [
+        "docs/research/helloparul-in/source.html:27-42",
+        "tokens.css:65"
+      ]
+    },
+    {
+      "name": "--section-y-phone",
+      "layer": "A1-structure",
+      "value": "48px",
+      "confidence": "high",
+      "reason": "Hero top spacing at ≤760px.",
+      "sources": [
+        "docs/research/helloparul-in/source.html:35",
+        "tokens.css:66"
+      ]
+    },
+    {
+      "name": "--radius-sm",
+      "layer": "A2",
+      "value": "8px",
+      "confidence": "high",
+      "reason": "Small availability and chip roundness bridge.",
+      "sources": [
+        "derived from compact controls; cards use the observed larger tiers",
+        "tokens.css:69"
+      ]
+    },
+    {
+      "name": "--radius-md",
+      "layer": "A2",
+      "value": "18px",
+      "confidence": "high",
+      "reason": "Stats board and detail imagery.",
+      "sources": [
+        "docs/research/helloparul-in/source.html:158,550",
+        "tokens.css:70"
+      ]
+    },
+    {
+      "name": "--radius-lg",
+      "layer": "A2",
+      "value": "26px",
+      "confidence": "high",
+      "reason": "Featured case-study cards.",
+      "sources": [
+        "docs/research/helloparul-in/source.html:184",
+        "tokens.css:71"
+      ]
+    },
+    {
+      "name": "--radius-pill",
+      "layer": "A2",
+      "value": "999px",
+      "confidence": "high",
+      "reason": "Buttons, chips, and availability badge.",
+      "sources": [
+        "docs/research/helloparul-in/source.html:112,138",
+        "tokens.css:72"
+      ]
+    },
+    {
+      "name": "--elev-flat",
+      "layer": "A2",
+      "value": "none",
+      "confidence": "high",
+      "reason": "Resting cards and page canvas are flat.",
+      "sources": [
+        "browser-evidence.json desktop cards",
+        "tokens.css:75"
+      ]
+    },
+    {
+      "name": "--elev-ring",
+      "layer": "A2",
+      "value": "none",
+      "confidence": "high",
+      "reason": "The target uses border rather than resting shadow.",
+      "sources": [
+        "browser-evidence.json desktop cards",
+        "tokens.css:76"
+      ]
+    },
+    {
+      "name": "--elev-raised",
+      "layer": "A2",
+      "value": "0 10px 0 -4px var(--accent)",
+      "confidence": "high",
+      "reason": "Case-card authored hover shadow.",
+      "sources": [
+        "docs/research/helloparul-in/source.html:184 style-hover",
+        "tokens.css:77"
+      ]
+    },
+    {
+      "name": "--focus-ring",
+      "layer": "A2",
+      "value": "0 0 0 3px color-mix(in srgb, var(--accent) 48%, transparent)",
+      "confidence": "derived",
+      "reason": "Visible keyboard-focus ring derived from the target primary action.",
+      "sources": [
+        "derived accessibility baseline",
+        "tokens.css:80"
+      ]
+    },
+    {
+      "name": "--motion-fast",
+      "layer": "A2",
+      "value": "150ms",
+      "confidence": "derived",
+      "reason": "Conservative native transition for source style-hover rules, which do not declare a duration.",
+      "sources": [
+        "docs/research/helloparul-in/BEHAVIORS.md pointer states",
+        "tokens.css:83"
+      ]
+    },
+    {
+      "name": "--motion-base",
+      "layer": "A2",
+      "value": "26000ms",
+      "confidence": "high",
+      "reason": "Skills marquee duration.",
+      "sources": [
+        "docs/research/helloparul-in/source.html:145",
+        "tokens.css:84"
+      ]
+    },
+    {
+      "name": "--ease-standard",
+      "layer": "A2",
+      "value": "ease",
+      "confidence": "derived",
+      "reason": "Appropriate interpolation for the target’s small pointer changes; marquee overrides it with linear.",
+      "sources": [
+        "docs/research/helloparul-in/BEHAVIORS.md",
+        "tokens.css:85"
+      ]
+    },
+    {
+      "name": "--container-max",
+      "layer": "A1-structure",
+      "value": "1280px",
+      "confidence": "high",
+      "reason": "Centered desktop shell maximum.",
+      "sources": [
+        "docs/research/helloparul-in/source.html:101; browser-evidence.json desktop.shell",
+        "tokens.css:88"
+      ]
+    },
+    {
+      "name": "--container-gutter-desktop",
+      "layer": "A1-structure",
+      "value": "32px",
+      "confidence": "high",
+      "reason": "Desktop and tablet shell gutters.",
+      "sources": [
+        "docs/research/helloparul-in/source.html:101",
+        "tokens.css:89"
+      ]
+    },
+    {
+      "name": "--container-gutter-tablet",
+      "layer": "A1-structure",
+      "value": "32px",
+      "confidence": "high",
+      "reason": "The source leaves shell gutters unchanged through tablet.",
+      "sources": [
+        "docs/research/helloparul-in/source.html:27-31",
+        "tokens.css:90"
+      ]
+    },
+    {
+      "name": "--container-gutter-phone",
+      "layer": "A1-structure",
+      "value": "22px",
+      "confidence": "high",
+      "reason": "Phone shell and footer gutter.",
+      "sources": [
+        "docs/research/helloparul-in/source.html:27-28",
+        "tokens.css:91"
+      ]
+    }
+  ]
+}

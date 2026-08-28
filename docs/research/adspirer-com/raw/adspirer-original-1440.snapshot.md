@@ -1,0 +1,149 @@
+- generic [active] [ref=e1] [box=0,0,1440,11871]:
+  - banner [ref=e2] [box=0,0,1440,97]:
+    - generic [ref=e3] [box=86,0,1267,97]:
+      - link "Adspirer home" [ref=e4] [cursor=pointer] [box=86,29,213,40]:
+        - /url: /
+        - img "Adspirer" [ref=e5] [box=86,29,213,40]
+      - navigation "Primary navigation" [ref=e6] [box=489,30,462,38]:
+        - button "Ad platforms" [ref=e7] [cursor=pointer] [box=489,30,102,38]
+        - button "AI platforms" [ref=e10] [cursor=pointer] [box=615,30,97,38]
+        - button "Docs" [ref=e13] [cursor=pointer] [box=736,30,50,38]
+        - link "Pricing" [ref=e16] [cursor=pointer] [box=810,30,47,38]:
+          - /url: /pricing
+        - link "Enterprise" [ref=e17] [cursor=pointer] [box=881,30,70,38]:
+          - /url: /enterprise
+      - generic [ref=e18] [box=1012,25,342,47]:
+        - link "Contact Sales" [ref=e19] [cursor=pointer] [box=1012,25,142,47]:
+          - /url: /book-demo
+        - link "Get Started for Free" [ref=e20] [cursor=pointer] [box=1166,25,188,47]:
+          - /url: https://adspirer.ai/sign-up
+  - generic [ref=e21] [box=0,0,0,0]:
+    - link "Skip to main content" [ref=e22] [cursor=pointer] [box=0,-100,198,48]:
+      - /url: "#main-content"
+    - main [ref=e24] [box=0,97,1440,10765]:
+      - generic [ref=e29] [box=80,177,1280,1229]:
+        - generic [ref=e33] [box=208,177,1024,402]:
+          - generic [ref=e35] [box=208,177,1024,22]
+          - heading "AI agents that run your paid media." [level=1] [ref=e39] [box=208,215,1024,202]
+          - paragraph [ref=e42] [box=416,441,608,54]: Adspirer plans, builds, monitors, and improves campaigns across six ad platforms. You approve what goes live.
+          - link "Get Started for Free" [ref=e46] [cursor=pointer] [box=612,527,217,52]:
+            - /url: https://adspirer.ai/sign-up
+        - generic [ref=e48] [box=80,660,1280,745]:
+          - tablist "See how Adspirer works inside your tools" [ref=e50] [box=568,664,304,43]
+          - generic [ref=e70] [box=360,725,720,680]
+      - generic [ref=e113] [box=80,1534,1280,215]:
+        - generic [ref=e114] [box=80,1534,427,215]:
+          - paragraph [ref=e115] [box=108,1538,371,17]: Trusted by enterprises
+          - generic [ref=e116] [box=141,1585,304,158]
+        - generic [ref=e123] [box=507,1534,427,215]:
+          - paragraph [ref=e124] [box=536,1538,370,17]: Trusted by agencies
+          - generic [ref=e125] [box=568,1585,304,160]
+        - generic [ref=e131] [box=933,1534,427,215]:
+          - paragraph [ref=e132] [box=962,1538,370,17]: Trusted by small businesses
+          - generic [ref=e133] [box=995,1585,304,142]
+      - generic [ref=e144] [box=80,1909,1280,925]:
+        - generic [ref=e146] [box=80,1909,1280,163]:
+          - generic [ref=e147] [box=80,1909,600,163]
+          - paragraph [ref=e153] [box=760,2026,600,54]: Build campaigns. Find waste. Check pacing. Prepare the next move. Every high-impact change stays yours to approve.
+        - generic [ref=e155] [box=80,2152,1280,682]:
+          - generic [ref=e157] [box=80,2152,535,682]
+          - generic [ref=e180] [box=647,2152,713,682]
+      - generic [ref=e198] [box=80,2946,1280,980]:
+        - generic [ref=e201] [box=336,3058,768,157]:
+          - generic [ref=e202] [box=336,3058,768,32]: Your AI workspace
+          - heading "Connect an ad agent this afternoon." [level=2] [ref=e206] [box=336,3115,768,58]
+          - paragraph [ref=e207] [box=336,3192,768,27]: Choose your AI workspace. Follow three steps. Start delegating paid media.
+        - tablist "Choose AI tool to view setup instructions" [ref=e210] [box=458,3297,524,48]:
+          - tab "ChatGPT" [selected] [ref=e211] [cursor=pointer] [box=463,3302,54,38]
+          - tab "Claude" [ref=e215] [cursor=pointer] [box=521,3302,54,38]
+          - tab "Codex" [ref=e219] [cursor=pointer] [box=578,3302,54,38]
+          - tab "Claude Code" [ref=e224] [cursor=pointer] [box=635,3302,54,38]
+          - tab "Open Claw" [ref=e228] [cursor=pointer] [box=693,3302,54,38]
+          - tab "Perplexity" [ref=e237] [cursor=pointer] [box=750,3302,54,38]
+          - tab "Cursor" [ref=e241] [cursor=pointer] [box=808,3302,54,38]
+          - tab "Windsurf" [ref=e245] [cursor=pointer] [box=865,3302,54,38]
+          - tab "Manus" [ref=e249] [cursor=pointer] [box=922,3302,54,38]
+        - tabpanel "ChatGPT" [ref=e255] [box=256,3366,928,448]:
+          - generic [ref=e256] [box=257,3367,926,394]
+          - link "Open the full guide" [ref=e279] [cursor=pointer] [box=1000,3769,159,38]:
+            - /url: /docs/ai-clients/chatgpt
+      - generic [ref=e282] [box=0,3926,1440,387]:
+        - generic [ref=e287] [box=336,4049,768,75]:
+          - heading "Six platforms. One operator." [level=2] [ref=e288] [box=336,4049,768,48]
+          - paragraph [ref=e289] [box=336,4097,768,27]: Adspirer works every account from the AI workspace your team already uses.
+        - img "Supported ad platforms" [ref=e290] [box=-1632,4161,5096,40]:
+          - generic [ref=e291] [box=-1632,4161,2516,40]
+      - generic [ref=e326] [box=80,4313,1280,3161]:
+        - generic [ref=e329] [box=336,4425,768,157]:
+          - generic [ref=e330] [box=336,4425,768,32]: How it works
+          - heading "From brief to approved work." [level=2] [ref=e334] [box=336,4482,768,58]
+          - paragraph [ref=e335] [box=336,4559,768,27]: Connect the accounts. Set the guardrails. Adspirer does the work. You review what matters.
+        - generic [ref=e336] [box=80,4662,1280,2700]:
+          - generic [ref=e337] [box=80,4662,1280,800]
+          - generic [ref=e350] [box=80,5562,1280,800]
+          - generic [ref=e363] [box=80,6462,1280,800]
+      - generic [ref=e379] [box=80,7474,1280,940]:
+        - generic [ref=e382] [box=336,7586,768,157]:
+          - generic [ref=e383] [box=336,7586,768,32]: Setup
+          - heading "Live in minutes." [level=2] [ref=e387] [box=336,7642,768,58]
+          - paragraph [ref=e388] [box=336,7719,768,27]: No implementation project. No new dashboard.
+        - generic [ref=e389] [box=80,7822,1280,480]:
+          - article [ref=e390] [box=80,7822,408,480]
+          - article [ref=e406] [box=516,7822,408,480]
+          - article [ref=e417] [box=952,7822,408,480]
+      - generic [ref=e432] [box=80,8494,1280,293]:
+        - generic [ref=e433] [box=132,8550,609,181]:
+          - heading "Ask AI about Adspirer." [level=2] [ref=e434] [box=132,8550,609,48]
+          - paragraph [ref=e435] [box=132,8610,480,50]: Don't take our word for it. Pick your favorite AI and ask what it thinks about Adspirer.
+          - generic [ref=e436] [box=132,8684,609,47]
+        - generic [ref=e441] [box=789,8555,519,171]:
+          - generic [ref=e442] [box=814,8578,469,17]: Suggested prompt
+          - paragraph [ref=e443] [box=814,8602,469,101]: “I'm evaluating Adspirer — the AI ad-ops agent that runs Google, Meta, TikTok, LinkedIn, Amazon and ChatGPT Ads from inside ChatGPT and Claude. What does it do, what are its strengths and weaknesses, and who is it best for?”
+      - generic [ref=e448] [box=80,8979,1280,1251]:
+        - generic [ref=e451] [box=336,9011,768,214]:
+          - generic [ref=e452] [box=336,9011,768,32]: Pricing
+          - heading "Priced for the work, not the size of your budget." [level=2] [ref=e456] [box=336,9059,768,115]
+          - paragraph [ref=e457] [box=336,9198,768,27]: Pay for the work. Never a percentage of ad spend. Start free. No credit card.
+        - group "Billing period" [ref=e459] [box=601,9225,237,51]:
+          - button "Monthly" [ref=e460] [cursor=pointer] [box=607,9231,96,39]
+          - button "Annual −17%" [pressed] [ref=e461] [cursor=pointer] [box=707,9231,125,39]
+        - generic [ref=e463] [box=80,9316,1280,595]:
+          - generic [ref=e464] [box=80,9316,308,595]
+          - generic [ref=e486] [box=404,9316,308,595]
+          - generic [ref=e511] [box=728,9316,308,595]
+          - generic [ref=e541] [box=1052,9316,308,595]
+        - generic [ref=e568] [box=112,9959,1216,239]:
+          - generic [ref=e569] [box=112,9959,444,239]
+          - generic [ref=e579] [box=588,9990,740,177]
+      - generic [ref=e603] [box=80,10454,1280,296]:
+        - generic [ref=e604] [box=80,10454,1280,32]: Start free
+        - generic [ref=e607] [box=336,10502,768,248]:
+          - heading "Put Adspirer on" [level=2] [ref=e609] [box=29,10502,768,58]
+          - heading "your first account." [level=2] [ref=e612] [box=643,10559,768,58]
+          - paragraph [ref=e613] [box=336,10645,768,27]: Connect one platform. Give Adspirer a real job. Review the work before anything goes live.
+          - generic [ref=e615] [box=259,10695,922,60]
+  - contentinfo [ref=e620] [box=0,10862,1440,1009]:
+    - generic [ref=e623] [box=93,10862,1254,1009]:
+      - generic [ref=e624] [box=93,10970,1254,91]:
+        - generic [ref=e625] [box=93,10970,978,91]:
+          - heading "Paid media. Handled." [level=2] [ref=e627] [box=93,10970,978,48]
+          - generic [ref=e628] [box=93,11034,978,27]: Your AI paid media manager for every account and every major ad platform.
+        - link "Get Started for Free" [ref=e630] [cursor=pointer] [box=1146,10990,201,50]:
+          - /url: https://adspirer.ai/sign-up
+      - generic [ref=e632] [box=93,11109,1254,369]:
+        - generic [ref=e633] [box=93,11109,619,108]:
+          - link "Adspirer home" [ref=e634] [cursor=pointer] [box=93,11109,213,40]:
+            - /url: /
+          - link "hello@adspirer.com" [ref=e636] [cursor=pointer] [box=93,11157,159,26]:
+            - /url: mailto:hello@adspirer.com
+          - link "www.adspirer.com" [ref=e638] [cursor=pointer] [box=93,11191,150,26]:
+            - /url: /
+        - generic [ref=e640] [box=728,11109,619,369]:
+          - generic [ref=e641] [box=728,11109,108,319]
+          - generic [ref=e650] [box=856,11109,108,369]
+          - generic [ref=e660] [box=984,11109,108,319]
+          - generic [ref=e669] [box=1111,11109,108,270]
+          - generic [ref=e677] [box=1239,11109,108,220]
+      - generic [ref=e684] [box=-32,11472,1505,307]: ADSPIRER
+      - generic [ref=e685] [box=93,11770,1254,21]: © 2026 Adspirer. All rights reserved.
+  - alert [ref=e686] [box=-1,11870,1,1]

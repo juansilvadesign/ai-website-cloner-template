@@ -1,0 +1,78 @@
+---
+import WorkCard from "./WorkCard.astro";
+
+const work = [
+  {
+    href: "/helloparul-in/case/smytten/",
+    chips: ["Smytten", "Conversion"],
+    title: "Building trust through AI-powered review summaries",
+    description: "Users lingered on reviews but bailed before buying. I dug into funnels and session recordings, fixed the trust gap with reward-based reviews — then killed the information overload it created with concise, contextual AI summaries.",
+    emphasis: "information overload",
+    metrics: [
+      { value: "+5 pts", label: "PDP→cart conversion", tone: "red" },
+      { value: "↑↑", label: "review participation", tone: "blue" },
+      { value: "−fatigue", label: "faster decisions", tone: "ink" },
+    ],
+    image: "/clones/helloparul-in/images/smytten-review-summary.png",
+    imageAlt: "Smytten product page showing the AI-generated review summary and sentiment tags",
+  },
+  {
+    href: "/helloparul-in/case/billbuster/",
+    chips: ["Smytten", "Gamification", "Reward Systems", "Cart value"],
+    title: "Bill Buster: more in the cart, by making progress visible",
+    description: "Shoppers checked out before unlocking offers because static discount banners were easy to ignore. I designed a sticky, real-time reward tracker that updates with every add-to-cart — and defended keeping it always-visible over a PM's toast idea. It shipped sticky.",
+    emphasis: "sticky, real-time reward tracker",
+    metrics: [
+      { value: "19%→26%", label: "offer completion", tone: "blue" },
+      { value: "₹150", label: "gap made visible", tone: "red" },
+      { value: "+motivate", label: "user to buy more", tone: "ink" },
+    ],
+    image: "/clones/helloparul-in/images/billbuster-hero.png",
+    imageAlt: "Smytten cart screen showing the Bill Buster reward unlocked popup — ₹75 OFF applied",
+    reverse: true,
+  },
+  {
+    href: "/helloparul-in/case/combo/",
+    chips: ["Smytten", "Discovery"],
+    title: "Combo Generator: guided trial selection for a 300+ product catalog",
+    description: "Users came to explore, not search — with no query, no filter habit and no anchor, that's a discovery problem, not a browsing one. I reframed the flow around removing decisions instead of adding filters, with two low-cost ways to correct a wrong guess.",
+    metrics: [
+      { value: "22–28%", label: "proceeded to checkout", tone: "red" },
+      { value: "14–18%", label: "lift in selection completion", tone: "blue" },
+    ],
+    image: "/clones/helloparul-in/images/combo-generator-hero.png",
+    imageAlt: "Combo Generator — the curated combo view showing 8 recommended products",
+  },
+] as const;
+---
+
+<section class="selected-work parul-shell" id="work">
+  <div class="selected-work__heading"><h2>Selected work</h2></div>
+  {work.map((item) => <WorkCard {...item} />)}
+</section>
+
+<style>
+  .selected-work { padding: 40px var(--container-gutter-desktop) 20px; }
+
+  .selected-work__heading {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-4);
+    margin-bottom: 36px;
+  }
+
+  .selected-work h2 {
+    margin: 0;
+    color: var(--fg);
+    font-family: var(--font-display);
+    font-size: clamp(34px, 5vw, var(--text-3xl));
+    font-weight: 800;
+    letter-spacing: -0.03em;
+  }
+
+  @media (max-width: 760px) {
+    .selected-work { padding: 40px var(--container-gutter-phone) 20px; }
+  }
+</style>

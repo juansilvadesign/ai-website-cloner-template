@@ -1,0 +1,421 @@
+{
+  "schemaVersion": 1,
+  "brandId": "adspirer-com",
+  "source": {
+    "componentsHtml": "components.html",
+    "tokensCss": "tokens.css"
+  },
+  "fixture": {
+    "title": "Adspirer components",
+    "description": "Adspirer component and state reference.",
+    "styleBlockCount": 1,
+    "selectorCount": 31,
+    "classCount": 22,
+    "elementCount": 22
+  },
+  "tokens": {
+    "declared": [
+      "--accent",
+      "--accent-active",
+      "--accent-hover",
+      "--accent-on",
+      "--bg",
+      "--border",
+      "--border-soft",
+      "--container-gutter-desktop",
+      "--container-gutter-phone",
+      "--container-gutter-tablet",
+      "--container-max",
+      "--danger",
+      "--ease-standard",
+      "--elev-flat",
+      "--elev-raised",
+      "--elev-ring",
+      "--fg",
+      "--fg-2",
+      "--focus-ring",
+      "--font-body",
+      "--font-display",
+      "--font-mono",
+      "--leading-body",
+      "--leading-tight",
+      "--meta",
+      "--motion-base",
+      "--motion-fast",
+      "--muted",
+      "--radius-lg",
+      "--radius-md",
+      "--radius-pill",
+      "--radius-sm",
+      "--section-y-desktop",
+      "--section-y-phone",
+      "--section-y-tablet",
+      "--space-1",
+      "--space-12",
+      "--space-2",
+      "--space-3",
+      "--space-4",
+      "--space-5",
+      "--space-6",
+      "--space-8",
+      "--success",
+      "--surface",
+      "--surface-warm",
+      "--text-2xl",
+      "--text-3xl",
+      "--text-4xl",
+      "--text-base",
+      "--text-lg",
+      "--text-sm",
+      "--text-xl",
+      "--text-xs",
+      "--tracking-display",
+      "--warn"
+    ],
+    "referenced": [
+      "--accent",
+      "--accent-on",
+      "--bg",
+      "--border",
+      "--border-soft",
+      "--container-max",
+      "--ease-standard",
+      "--elev-ring",
+      "--fg",
+      "--fg-2",
+      "--focus-ring",
+      "--font-body",
+      "--font-display",
+      "--font-mono",
+      "--leading-body",
+      "--leading-tight",
+      "--meta",
+      "--motion-base",
+      "--motion-fast",
+      "--muted",
+      "--radius-md",
+      "--radius-pill",
+      "--radius-sm",
+      "--space-1",
+      "--space-12",
+      "--space-2",
+      "--space-3",
+      "--space-4",
+      "--space-8",
+      "--success",
+      "--surface",
+      "--surface-warm",
+      "--text-3xl",
+      "--text-base",
+      "--text-lg",
+      "--text-sm",
+      "--text-xs",
+      "--tracking-display"
+    ],
+    "unusedDeclared": [
+      "--accent-active",
+      "--accent-hover",
+      "--container-gutter-desktop",
+      "--container-gutter-phone",
+      "--container-gutter-tablet",
+      "--danger",
+      "--elev-flat",
+      "--elev-raised",
+      "--radius-lg",
+      "--section-y-desktop",
+      "--section-y-phone",
+      "--section-y-tablet",
+      "--space-5",
+      "--space-6",
+      "--text-2xl",
+      "--text-4xl",
+      "--text-xl",
+      "--warn"
+    ],
+    "undeclaredReferenced": []
+  },
+  "selectors": [
+    ".btn",
+    ".btn--primary",
+    ".btn--secondary",
+    ".btn:focus-visible",
+    ".btn:hover",
+    ".card",
+    ".card__copy",
+    ".card__title",
+    ".chip",
+    ".chip__dot",
+    ".container",
+    ".display-heading",
+    ".eyebrow",
+    ".field-control",
+    ".field-control:focus-visible",
+    ".field-label",
+    ".icon",
+    ".inline-link",
+    ".inline-link:focus-visible",
+    ".lead",
+    ".panel",
+    ".row-between",
+    ".shortcut",
+    ".stack-4",
+    ".tab-control",
+    ".tab-control:focus-visible",
+    ".tab-control[aria-selected=\"true\"]",
+    ".tab-list",
+    "*",
+    "body",
+    "kbd"
+  ],
+  "classes": [
+    "btn",
+    "btn--primary",
+    "btn--secondary",
+    "card",
+    "card__copy",
+    "card__title",
+    "chip",
+    "chip__dot",
+    "container",
+    "display-heading",
+    "eyebrow",
+    "field-control",
+    "field-label",
+    "icon",
+    "inline-link",
+    "lead",
+    "panel",
+    "row-between",
+    "shortcut",
+    "stack-4",
+    "tab-control",
+    "tab-list"
+  ],
+  "elements": [
+    "a",
+    "body",
+    "button",
+    "div",
+    "h1",
+    "h2",
+    "head",
+    "html",
+    "input",
+    "kbd",
+    "label",
+    "link",
+    "main",
+    "meta",
+    "nav",
+    "p",
+    "path",
+    "section",
+    "span",
+    "style",
+    "svg",
+    "title"
+  ],
+  "groups": [
+    {
+      "id": "buttons",
+      "label": "Buttons and calls to action",
+      "present": true,
+      "selectors": [
+        ".btn",
+        ".btn--primary",
+        ".btn--secondary",
+        ".btn:focus-visible",
+        ".btn:hover"
+      ],
+      "classes": [
+        "btn",
+        "btn--primary",
+        "btn--secondary"
+      ],
+      "elements": [
+        "button"
+      ],
+      "tokenReferences": [
+        "--border",
+        "--ease-standard",
+        "--fg",
+        "--focus-ring",
+        "--font-body",
+        "--motion-base",
+        "--motion-fast",
+        "--radius-sm",
+        "--space-8",
+        "--surface",
+        "--text-base"
+      ]
+    },
+    {
+      "id": "inputs",
+      "label": "Form fields and controls",
+      "present": true,
+      "selectors": [
+        ".field-control",
+        ".field-control:focus-visible",
+        ".field-label"
+      ],
+      "classes": [
+        "field-control",
+        "field-label",
+        "tab-control"
+      ],
+      "elements": [
+        "input",
+        "label"
+      ],
+      "tokenReferences": [
+        "--fg-2",
+        "--focus-ring",
+        "--space-2",
+        "--text-sm"
+      ]
+    },
+    {
+      "id": "cards",
+      "label": "Cards and panels",
+      "present": true,
+      "selectors": [
+        ".card",
+        ".card__copy",
+        ".card__title",
+        ".panel"
+      ],
+      "classes": [
+        "card",
+        "panel"
+      ],
+      "elements": [],
+      "tokenReferences": [
+        "--border-soft",
+        "--muted",
+        "--radius-md",
+        "--space-4",
+        "--space-8",
+        "--surface",
+        "--surface-warm"
+      ]
+    },
+    {
+      "id": "badges",
+      "label": "Badges, chips, and status labels",
+      "present": true,
+      "selectors": [
+        ".chip",
+        ".chip__dot"
+      ],
+      "classes": [
+        "chip"
+      ],
+      "elements": [],
+      "tokenReferences": [
+        "--radius-pill",
+        "--success"
+      ]
+    },
+    {
+      "id": "links",
+      "label": "Links and inline actions",
+      "present": true,
+      "selectors": [],
+      "classes": [],
+      "elements": [
+        "a"
+      ],
+      "tokenReferences": []
+    },
+    {
+      "id": "keyboard",
+      "label": "Keyboard hints",
+      "present": true,
+      "selectors": [
+        "kbd"
+      ],
+      "classes": [
+        "shortcut"
+      ],
+      "elements": [
+        "kbd"
+      ],
+      "tokenReferences": [
+        "--border",
+        "--fg-2",
+        "--font-mono",
+        "--radius-sm",
+        "--space-1",
+        "--space-2",
+        "--surface"
+      ]
+    },
+    {
+      "id": "icons",
+      "label": "Icon slots",
+      "present": true,
+      "selectors": [
+        ".icon"
+      ],
+      "classes": [
+        "icon"
+      ],
+      "elements": [
+        "svg"
+      ],
+      "tokenReferences": []
+    },
+    {
+      "id": "typography",
+      "label": "Typography scale and text utilities",
+      "present": true,
+      "selectors": [
+        ".eyebrow",
+        ".lead"
+      ],
+      "classes": [
+        "eyebrow",
+        "lead"
+      ],
+      "elements": [
+        "h1",
+        "h2",
+        "p"
+      ],
+      "tokenReferences": [
+        "--muted",
+        "--text-base"
+      ]
+    },
+    {
+      "id": "layout",
+      "label": "Layout primitives",
+      "present": true,
+      "selectors": [
+        ".container",
+        ".row-between",
+        ".stack-4"
+      ],
+      "classes": [
+        "container",
+        "row-between",
+        "stack-4"
+      ],
+      "elements": [
+        "main",
+        "nav",
+        "section"
+      ],
+      "tokenReferences": [
+        "--container-max",
+        "--space-12",
+        "--space-4"
+      ]
+    }
+  ],
+  "literals": {
+    "colorExpressions": 0,
+    "pixelValues": 15,
+    "hardcodedFontFamilies": 3
+  }
+}

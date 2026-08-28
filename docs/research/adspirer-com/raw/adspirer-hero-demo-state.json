@@ -1,0 +1,109 @@
+{
+  "root": {
+    "className": "opd-mount",
+    "html": "<div class=\"opd opd--claude opd-enter opd--chat\" aria-hidden=\"true\"><div class=\"opd-glow\"></div><div class=\"opd-chrome\"><span class=\"opd-dots\"><span class=\"opd-dot opd-dot--r\"></span><span class=\"opd-dot opd-dot--y\"></span><span class=\"opd-dot opd-dot--g\"></span></span><span class=\"opd-navicons\"><svg class=\"\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\"></rect><path d=\"M9 3v18\"></path></svg><svg class=\"\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m15 18-6-6 6-6\"></path></svg><svg class=\"\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m9 18 6-6-6-6\"></path></svg></span><span class=\"opd-navicons opd-share\"><svg class=\"\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><polyline points=\"15 14 20 9 15 4\"></polyline><path d=\"M4 20v-7a4 4 0 0 1 4-4h12\"></path></svg></span></div><div class=\"opd-newchat opd-leaving\"><div class=\"opd-greet-mark\"><svg class=\"\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 6v12\"></path><path d=\"M17.196 9 6.804 15\"></path><path d=\"m6.804 9 10.392 6\"></path></svg></div><div class=\"opd-greet\">How can I help you today?</div><div class=\"opd-composer-box opd-center-box\"><div class=\"opd-composer-text opd-center-text\" data-ph=\"Message Claude…\">Build the approved Q3 search campaign. Keep CPC under $8 and create it paused.<span class=\"opd-caret\"></span></div><div class=\"opd-composer-bar\"><span class=\"opd-composer-left\"><svg class=\"\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"></path><path d=\"M12 5v14\"></path></svg><svg class=\"\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"10\"></circle><polyline points=\"12 6 12 12 16 14\"></polyline></svg></span><span class=\"opd-composer-right\"><span class=\"opd-model\">Opus 4.5<svg class=\"opd-i-xs\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m6 9 6 6 6-6\"></path></svg></span><span class=\"opd-send opd-send-center opd-send--pulse\"><svg class=\"\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m5 12 7-7 7 7\"></path><path d=\"M12 19V5\"></path></svg></span></span></div></div><p class=\"opd-disclaimer opd-disclaimer--center\">Claude is AI and can make mistakes. Please double-check responses.</p></div><div class=\"opd-title\"><span class=\"opd-title-name\"><span>Q3 search campaign — ready for review</span><svg class=\"\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m6 9 6 6 6-6\"></path></svg></span><span class=\"opd-share\"><svg class=\"\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><polyline points=\"15 14 20 9 15 4\"></polyline><path d=\"M4 20v-7a4 4 0 0 1 4-4h12\"></path></svg></span></div><div class=\"opd-scroll\"><div class=\"opd-body\"><div class=\"opd-reveal opd-bubble opd-in\" data-show=\"1\" data-delay=\"0\" style=\"transition-delay: 0s;\">Build the approved Q3 search campaign. Keep CPC under $8 and create it paused.</div><div class=\"opd-reveal opd-toolcall opd-toolcall-1 opd-in\" data-show=\"1\" data-delay=\"0\" style=\"transition-delay: 0s;\"><span class=\"opd-spin-slot\"></span><span class=\"opd-toolcall-label\">Build Google Search Campaign<svg class=\"opd-i-sm\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m9 18 6-6-6-6\"></path></svg></span></div><div class=\"opd-reveal opd-in\" data-show=\"2\" data-delay=\"0\" style=\"transition-delay: 0s;\"><p class=\"opd-strong\">Campaign built and verified.</p></div><div class=\"opd-reveal opd-in\" data-show=\"2\" data-delay=\"0.06\" style=\"transition-delay: 0.06s;\"><p><span class=\"opd-strong\">Status:</span> PAUSED · 7 ad groups · 126 keywords · ready for review.</p></div><div class=\"opd-reveal opd-in\" data-show=\"3\" data-delay=\"0\" style=\"transition-delay: 0s;\"><p>Checks completed:</p></div><ul class=\"opd-tips\"><div class=\"opd-reveal opd-tip opd-in\" data-show=\"3\" data-delay=\"0.12\" style=\"transition-delay: 0.12s;\"><span class=\"opd-bulletdot\"></span><span>126 keywords grouped into 7 intent-led ad groups</span></div><div class=\"opd-reveal opd-tip opd-in\" data-show=\"3\" data-delay=\"0.26\" style=\"transition-delay: 0.26s;\"><span class=\"opd-bulletdot\"></span><span>Budget, bidding, copy, and extensions match the brief</span></div><div class=\"opd-reveal opd-tip opd-in\" data-show=\"3\" data-delay=\"0.4\" style=\"transition-delay: 0.4s;\"><span class=\"opd-bulletdot\"></span><span>Campaign is paused — nothing spends until you approve</span></div></ul><div class=\"opd-reveal opd-in\" data-show=\"4\" data-delay=\"0.05\" style=\"transition-delay: 0.05s;\"><p>Nothing is live. Approve the build when you are ready.</p></div><div class=\"opd-reveal opd-bubble opd-in\" data-show=\"6\" data-delay=\"0\" style=\"transition-delay: 0s;\">Approved. Launch it.</div><div class=\"opd-reveal opd-toolcall opd-toolcall-2 opd-in\" data-show=\"6\" data-delay=\"0\" style=\"transition-delay: 0s;\"><span class=\"opd-spin-slot\"></span><span class=\"opd-toolcall-label\">Update Campaign Status<svg class=\"opd-i-sm\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m9 18 6-6-6-6\"></path></svg></span></div><div class=\"opd-reveal opd-in\" data-show=\"7\" data-delay=\"0\" style=\"transition-delay: 0s;\"><p class=\"opd-strong\">Campaign live.</p></div><div class=\"opd-reveal opd-in\" data-show=\"7\" data-delay=\"0.06\" style=\"transition-delay: 0.06s;\"><p><span class=\"opd-strong\">Status:</span> ENABLED — serving on Google Search.</p></div><div class=\"opd-reveal opd-in\" data-show=\"8\" data-delay=\"0.05\" style=\"transition-delay: 0.05s;\"><p>I’ll watch pacing and CPA, then bring you the next decision.</p></div><div class=\"opd-reveal opd-actions opd-in\" data-show=\"8\" data-delay=\"0.2\" style=\"transition-delay: 0.2s;\"><svg class=\"opd-i-sm\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect width=\"14\" height=\"14\" x=\"8\" y=\"8\" rx=\"2\" ry=\"2\"></rect><path d=\"M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2\"></path></svg><svg class=\"opd-i-sm\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M7 10v12\"></path><path d=\"M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z\"></path></svg><svg class=\"opd-i-sm\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M17 14V2\"></path><path d=\"M9 18.12 10 14H4.17a2 2 0 0 1-1.92-2.56l2.33-8A2 2 0 0 1 6.5 2H20a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.76a2 2 0 0 0-1.79 1.11L12 22a3.13 3.13 0 0 1-3-3.88Z\"></path></svg><svg class=\"opd-i-sm\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8\"></path><path d=\"M3 3v5h5\"></path></svg><span class=\"opd-pager\"><svg class=\"opd-i-sm\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m15 18-6-6 6-6\"></path></svg>2/2<svg class=\"opd-i-sm\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m9 18 6-6-6-6\"></path></svg></span></div><div class=\"opd-reveal opd-asterisk opd-in\" data-show=\"2\" data-delay=\"0.1\" style=\"transition-delay: 0.1s;\"><svg class=\"\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 6v12\"></path><path d=\"M17.196 9 6.804 15\"></path><path d=\"m6.804 9 10.392 6\"></path></svg></div></div></div><div class=\"opd-composer opd-composer-dock\"><div class=\"opd-composer-box\"><div class=\"opd-composer-text opd-dock-text\" data-ph=\"Reply…\"><span class=\"opd-placeholder\">Reply…</span></div><div class=\"opd-composer-bar\"><span class=\"opd-composer-left\"><svg class=\"\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"></path><path d=\"M12 5v14\"></path></svg><svg class=\"\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"10\"></circle><polyline points=\"12 6 12 12 16 14\"></polyline></svg></span><span class=\"opd-composer-right\"><span class=\"opd-model\">Opus 4.5<svg class=\"opd-i-xs\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m6 9 6 6 6-6\"></path></svg></span><span class=\"opd-send opd-send-dock\"><svg class=\"\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m5 12 7-7 7 7\"></path><path d=\"M12 19V5\"></path></svg></span></span></div></div><p class=\"opd-disclaimer\">Claude is AI and can make mistakes. Please double-check responses.</p></div></div>",
+    "text": "How can I help you today?Build the approved Q3 search campaign. Keep CPC under $8 and create it paused.Opus 4.5Claude is AI and can make mistakes. Please double-check responses.Q3 search campaign — ready for reviewBuild the approved Q3 search campaign. Keep CPC under $8 and create it paused.Build Google Search CampaignCampaign built and verified.Status: PAUSED · 7 ad groups · 126 keywords · ready for review.Checks completed:126 keywords grouped into 7 intent-led ad groupsBudget, bidding, copy, and extensions match the briefCampaign is paused — nothing spends until you approveNothing is live. Approve the build when you are ready.Approved. Launch it.Update Campaign StatusCampaign live.Status: ENABLED — serving on Google Search.I’ll watch pacing and CPA, then bring you the next decision.2/2Reply…Opus 4.5Claude is AI and can make mistakes. Please double-check responses.",
+    "rect": {
+      "x": 80,
+      "y": 725.25,
+      "width": 1280,
+      "height": 680
+    }
+  },
+  "picks": [
+    {
+      "text": "Claude",
+      "className": "opd-pick",
+      "ariaSelected": "true",
+      "styles": {
+        "display": "flex",
+        "width": "94.0156px",
+        "height": "30.7969px",
+        "maxWidth": "none",
+        "padding": "7px 13px",
+        "borderRadius": "999px",
+        "background": "rgb(16, 103, 254) none repeat scroll 0% 0% / auto padding-box border-box",
+        "color": "rgb(255, 255, 255)",
+        "opacity": "1",
+        "transform": "none",
+        "transition": "background 0.18s, color 0.18s, box-shadow 0.18s, transform 0.18s",
+        "boxShadow": "rgba(16, 103, 254, 0.5) 0px 8px 22px -12px, rgba(255, 255, 255, 0.18) 0px 0px 0px 1px inset",
+        "fontFamily": "Inter, sans-serif",
+        "fontSize": "13px",
+        "lineHeight": "13px"
+      }
+    },
+    {
+      "text": "ChatGPT",
+      "className": "opd-pick",
+      "ariaSelected": "false",
+      "styles": {
+        "display": "flex",
+        "width": "106.109px",
+        "height": "30.7969px",
+        "maxWidth": "none",
+        "padding": "7px 13px",
+        "borderRadius": "999px",
+        "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+        "color": "rgb(71, 84, 103)",
+        "opacity": "1",
+        "transform": "none",
+        "transition": "background 0.18s, color 0.18s, box-shadow 0.18s, transform 0.18s",
+        "boxShadow": "none",
+        "fontFamily": "Inter, sans-serif",
+        "fontSize": "13px",
+        "lineHeight": "13px"
+      }
+    },
+    {
+      "text": "Slack",
+      "className": "opd-pick",
+      "ariaSelected": "false",
+      "styles": {
+        "display": "flex",
+        "width": "84.0938px",
+        "height": "30.7969px",
+        "maxWidth": "none",
+        "padding": "7px 13px",
+        "borderRadius": "999px",
+        "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+        "color": "rgb(71, 84, 103)",
+        "opacity": "1",
+        "transform": "none",
+        "transition": "background 0.18s, color 0.18s, box-shadow 0.18s, transform 0.18s",
+        "boxShadow": "none",
+        "fontFamily": "Inter, sans-serif",
+        "fontSize": "13px",
+        "lineHeight": "13px"
+      }
+    }
+  ],
+  "window": [
+    {
+      "text": "How can I help you today?Build the approved Q3 search campaign. Keep CPC under $8 and create it paused.Opus 4.5Claude is AI and can make mistakes. Please double-check responses.Q3 search campaign — ready for reviewBuild the approved Q3 search campaign. Keep CPC under $8 and create it paused.Build Google Search CampaignCampaign built and verified.Status: PAUSED · 7 ad groups · 126 keywords · ready for review.Checks completed:126 keywords grouped into 7 intent-led ad groupsBudget, bidding, copy, and extensions match the briefCampaign is paused — nothing spends until you approveNothing is live. Approve the build when you are ready.Approved. Launch it.Update Campaign StatusCampaign live.Status: ENABLED — serving on Google Search.I’ll watch pacing and CPA, then bring you the next decision.2/2Reply…Opus 4.5Claude is AI and can make mistakes. Please double-check responses.",
+      "className": "opd opd--claude opd-enter opd--chat",
+      "ariaSelected": null,
+      "styles": {
+        "display": "flex",
+        "width": "720px",
+        "height": "680px",
+        "maxWidth": "720px",
+        "padding": "0px",
+        "borderRadius": "20px",
+        "background": "rgb(250, 249, 245) none repeat scroll 0% 0% / auto padding-box border-box",
+        "color": "rgb(42, 42, 39)",
+        "opacity": "1",
+        "transform": "none",
+        "transition": "opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1)",
+        "boxShadow": "rgba(0, 0, 0, 0.18) 0px 25px 50px -12px",
+        "fontFamily": "Inter, sans-serif",
+        "fontSize": "16px",
+        "lineHeight": "24px"
+      }
+    }
+  ],
+  "state": {
+    "scrollY": 1797,
+    "reducedMotion": false
+  }
+}

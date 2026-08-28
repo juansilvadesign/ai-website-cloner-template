@@ -1,0 +1,100 @@
+<footer class="contact-footer" id="contact">
+  <div class="contact-footer__inner parul-shell">
+    <p class="contact-footer__eyebrow">Probably tweaking this footer again.</p>
+    <h2>That's the work. Here's the <span>awkward</span> reaching out part.</h2>
+    <div class="contact-footer__actions">
+      <a class="contact-footer__primary" href="https://mail.google.com/mail/?view=cm&fs=1&to=a.parulatwork@gmail.com&su=Let%27s%20work%20together" target="_blank" rel="noopener">Drop an Email</a>
+      <a href="/clones/helloparul-in/documents/Parul-Aggarwal-Resume.pdf" download="Parul-Aggarwal-Resume.pdf">Download resume ↓</a>
+      <a href="https://medium.com/@theparul" target="_blank" rel="noopener">Medium ↗</a>
+      <a href="https://linkedin.com/in/parulatwork" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+    <div class="contact-footer__bottom"><span>🧿</span><span>No templates were harmed</span></div>
+  </div>
+</footer>
+
+<style>
+  .contact-footer {
+    margin-top: 40px;
+    background: var(--fg);
+    color: var(--accent-on);
+  }
+
+  .contact-footer__inner { padding-top: var(--section-y-desktop); padding-bottom: 40px; }
+
+  .contact-footer__eyebrow {
+    margin: 0 0 var(--space-6);
+    color: var(--meta);
+    font-family: "Space Mono", monospace;
+    font-size: 13px;
+  }
+
+  .contact-footer h2 {
+    max-width: 16ch;
+    margin: 0;
+    color: var(--accent-on);
+    font-family: var(--font-display);
+    font-size: clamp(40px, 8vw, 108px);
+    font-weight: 800;
+    letter-spacing: var(--tracking-display);
+    line-height: .95;
+    text-wrap: balance;
+  }
+
+  .contact-footer h2 span { color: color-mix(in srgb, var(--accent-on) 10%, transparent); }
+
+  .contact-footer__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 44px;
+  }
+
+  .contact-footer__actions a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: var(--space-5) calc(var(--space-6) + var(--space-2));
+    border: 1.5px solid color-mix(in srgb, var(--accent-on) 35%, transparent);
+    border-radius: var(--radius-pill);
+    color: var(--accent-on);
+    font-family: "Space Mono", monospace;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    transition:
+      background-color var(--motion-fast) var(--ease-standard),
+      border-color var(--motion-fast) var(--ease-standard),
+      color var(--motion-fast) var(--ease-standard);
+  }
+
+  .contact-footer__actions a.contact-footer__primary {
+    border-color: var(--accent);
+    background: var(--accent);
+  }
+
+  .contact-footer__bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--space-5);
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid color-mix(in srgb, var(--accent-on) 18%, transparent);
+    color: #a8a293;
+    font-family: "Space Mono", monospace;
+    font-size: var(--text-sm);
+  }
+
+  @media (hover: hover) {
+    .contact-footer__actions a:hover { border-color: var(--accent-on); }
+    .contact-footer__actions a.contact-footer__primary:hover { background: var(--accent-on); color: var(--fg); }
+  }
+
+  @media (max-width: 760px) {
+    .contact-footer__inner { padding-top: 56px; padding-bottom: 78px; }
+    .contact-footer h2 { font-size: clamp(38px, 10vw, var(--text-3xl)); }
+    .contact-footer__actions { gap: 10px; margin-top: 28px; }
+    .contact-footer__actions a { flex: 1 1 100%; justify-content: center; padding: 11px 18px; font-size: 13px; }
+    .contact-footer__bottom { margin-top: 36px; padding-top: var(--space-5); padding-bottom: var(--space-3); }
+  }
+</style>

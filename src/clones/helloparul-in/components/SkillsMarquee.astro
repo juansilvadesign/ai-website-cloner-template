@@ -1,0 +1,67 @@
+---
+const skills = [
+  ["Product design", ""],
+  ["✦", "red"],
+  ["Micro-interactions", ""],
+  ["✦", "yellow"],
+  ["Design systems", ""],
+  ["✦", "green"],
+  ["AI-assisted UX", ""],
+  ["✦", "red"],
+  ["Prototyping", ""],
+  ["✦", "yellow"],
+  ["User research", ""],
+  ["✦", "green"],
+] as const;
+---
+
+<section class="skills-marquee" aria-label="Design skills">
+  <div class="skills-marquee__track">
+    {Array.from({ length: 2 }, (_, sequenceIndex) => (
+      <div class="skills-marquee__sequence" aria-hidden={sequenceIndex === 1 ? "true" : undefined}>
+        {skills.map(([skill, tone]) => <span class={tone}>{skill}</span>)}
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .skills-marquee {
+    overflow: hidden;
+    padding: var(--space-5) 0;
+    border-top: 2px solid var(--fg);
+    border-bottom: 2px solid var(--fg);
+    background: var(--fg);
+    color: var(--accent-on);
+  }
+
+  .skills-marquee__track {
+    display: flex;
+    width: max-content;
+    animation: marquee var(--motion-base) linear infinite;
+    font-family: var(--font-display);
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  .skills-marquee__sequence {
+    display: flex;
+    gap: 34px;
+    padding-right: 34px;
+    white-space: nowrap;
+  }
+
+  .red { color: var(--accent); }
+  .yellow { color: #ffc83d; }
+  .green { color: #7cffb2; }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  @media (max-width: 480px) {
+    .skills-marquee__track { font-size: 20px; }
+  }
+</style>

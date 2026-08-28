@@ -1,0 +1,246 @@
+---
+const photos = Array.from(
+  { length: 6 },
+  (_, index) => `/clones/helloparul-in/images/about-photo-${index + 1}.png`,
+);
+
+const skills = [
+  "UX Strategy",
+  "AI-Assisted Design",
+  "User Research",
+  "Wireframing",
+  "Conversion Rate Optimisation",
+  "Retention & Growth Design",
+  "Interaction Design",
+  "Prototyping",
+  "Information Architecture",
+  "Design Systems (Figma)",
+  "Product Thinking",
+  "Usability Testing",
+];
+---
+
+<main class="about-page parul-shell">
+  <header class="about-page__header">
+    <div class="about-page__eyebrow">About</div>
+    <div class="about-page__intro">
+      <div>
+        <h1>Hi, I’m Parul<span>.</span></h1>
+        <p>Senior UI/UX Designer with 5+ years designing for B2C and D2C mobile apps at scale. At Smytten, I owned end-to-end UX — focusing on retention, conversion, and revenue for a 2Cr+ user base.</p>
+        <p>Before that, at Swiggy, I designed high-impact campaigns reaching 7Cr+ users — learning to build fast, stay consistent, and create systems that scale.</p>
+        <div class="about-page__actions">
+          <a class="about-page__resume" href="/clones/helloparul-in/documents/Parul-Aggarwal-Resume.pdf" download="Parul-Aggarwal-Resume.pdf">Download resume ↓</a>
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=a.parulatwork@gmail.com&su=Let%27s%20work%20together" target="_blank" rel="noopener">a.parulatwork@gmail.com</a>
+        </div>
+      </div>
+
+      <div class="about-carousel" data-about-carousel>
+        <div class="about-carousel__viewport">
+          <div class="about-carousel__track">
+            {photos.map((photo) => <img src={photo} alt="Parul — photo" loading="lazy" />)}
+          </div>
+        </div>
+        <div class="about-carousel__dots" aria-label="Photo gallery controls">
+          {photos.map((_, index) => <button type="button" aria-label={`Go to photo ${index + 1}`} aria-current={index === 0 ? "true" : undefined} data-about-dot={index}></button>)}
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="about-page__section">
+    <h2>Experience</h2>
+    <article class="about-page__experience">
+      <div class="about-page__role">
+        <h3>Senior UI/UX Designer · Smytten</h3>
+        <span>Sept 2022 — Jan 2026 · Bangalore</span>
+      </div>
+      <ul>
+        <li>Owned end-to-end UX across Smytten’s mobile app and web platform, from research and problem framing through engineering handoff.</li>
+        <li>Improved PDP-to-cart progression by 5% by designing AI-powered review summaries and trust-signal experiences optimised for mobile.</li>
+        <li>Led user research cycles, usability tests, and persona mapping that directly shaped quarterly roadmap priorities.</li>
+        <li>Contributed to a Figma-based design system, including reusable mobile components and interaction specifications.</li>
+      </ul>
+    </article>
+    <article class="about-page__experience">
+      <div class="about-page__role">
+        <h3>Senior Graphic Designer · Swiggy</h3>
+        <span>Sept 2020 — Sept 2022 · Bangalore</span>
+      </div>
+      <ul>
+        <li>Designed high-impact consumer campaigns and in-app visual experiences across Swiggy’s mobile ecosystem.</li>
+        <li>Led festive and occasion-based campaigns while maintaining consistency across cultural contexts.</li>
+        <li>Built standardised design systems, style guides, and reusable component libraries in Figma.</li>
+      </ul>
+    </article>
+  </section>
+
+  <section class="about-page__section">
+    <h2>Education</h2>
+    <div class="about-page__education">
+      <article>
+        <h3>Bachelor of Design (B.Des)</h3>
+        <p>Lovely Professional University, Phagwara<br />2017 — 2020</p>
+      </article>
+      <article>
+        <h3>Diploma in Graphics, Web Designing &amp; 2D Animation</h3>
+        <p>Maya Academy of Advanced Cinematics, Jalandhar<br />2016 — 2017</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="about-page__section about-page__section--skills">
+    <h2>Skills</h2>
+    <div class="about-page__skills">
+      {skills.map((skill) => <span>{skill}</span>)}
+    </div>
+  </section>
+</main>
+
+<script>
+  const carousel = document.querySelector<HTMLElement>("[data-about-carousel]");
+  const track = carousel?.querySelector<HTMLElement>(".about-carousel__track");
+  const dots = [...(carousel?.querySelectorAll<HTMLButtonElement>("[data-about-dot]") ?? [])];
+  let index = 0;
+  let intervalId: number | undefined;
+
+  const selectPhoto = (nextIndex: number) => {
+    index = nextIndex;
+    track?.style.setProperty("transform", `translateX(-${index * (100 / dots.length)}%)`);
+    dots.forEach((dot, dotIndex) => {
+      if (dotIndex === index) dot.setAttribute("aria-current", "true");
+      else dot.removeAttribute("aria-current");
+    });
+  };
+
+  const restartAutoplay = () => {
+    if (intervalId) window.clearInterval(intervalId);
+    if (dots.length > 0) intervalId = window.setInterval(() => selectPhoto((index + 1) % dots.length), 8000);
+  };
+
+  dots.forEach((dot, dotIndex) => dot.addEventListener("click", () => {
+    selectPhoto(dotIndex);
+    restartAutoplay();
+  }));
+
+  restartAutoplay();
+</script>
+
+<style>
+  .about-page {
+    width: min(100%, 1080px);
+    min-height: 100vh;
+    padding-top: 48px;
+    padding-bottom: 90px;
+  }
+
+  .about-page__eyebrow {
+    margin-bottom: 18px;
+    color: var(--muted);
+    font-family: "Space Mono", monospace;
+    font-size: var(--text-sm);
+  }
+
+  .about-page__intro {
+    display: grid;
+    grid-template-columns: 1.3fr .7fr;
+    gap: 56px;
+    align-items: start;
+  }
+
+  .about-page h1 {
+    margin: 0 0 24px;
+    color: var(--fg);
+    font-family: var(--font-display);
+    font-size: clamp(38px, 5.6vw, 64px);
+    font-weight: 800;
+    letter-spacing: var(--tracking-display);
+    line-height: 1.02;
+  }
+
+  .about-page h1 span { color: var(--accent); font-style: italic; }
+
+  .about-page__intro > div:first-child > p {
+    margin: 0 0 16px;
+    color: var(--fg-2);
+    font-size: 19px;
+    line-height: 1.6;
+  }
+
+  .about-page__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 28px;
+  }
+
+  .about-page__actions a {
+    display: inline-flex;
+    align-items: center;
+    padding: 14px 22px;
+    border: 1.5px solid var(--fg);
+    border-radius: var(--radius-pill);
+    color: var(--fg);
+    font-family: "Space Mono", monospace;
+    font-size: var(--text-base);
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color var(--motion-fast) var(--ease-standard), color var(--motion-fast) var(--ease-standard);
+  }
+
+  .about-page__actions .about-page__resume { border-color: var(--accent); background: var(--accent); color: var(--accent-on); }
+
+  .about-carousel { display: flex; flex-direction: column; align-items: center; }
+  .about-carousel__viewport { width: 100%; max-width: 340px; aspect-ratio: 3 / 4; overflow: hidden; border-radius: 22px; }
+  .about-carousel__track { display: flex; width: 600%; height: 100%; transition: transform .6s cubic-bezier(.4, 0, .2, 1); }
+  .about-carousel__track img { width: calc(100% / 6); height: 100%; flex-shrink: 0; object-fit: cover; }
+  .about-carousel__dots { display: flex; gap: 8px; margin-top: 18px; }
+  .about-carousel__dots button { width: 8px; height: 8px; padding: 0; border: 0; border-radius: 50%; background: color-mix(in srgb, var(--fg) 20%, transparent); cursor: pointer; }
+  .about-carousel__dots button[aria-current="true"] { background: var(--accent); }
+
+  .about-page__section { margin-top: 64px; }
+  .about-page__section h2 {
+    margin: 0 0 26px;
+    color: var(--fg);
+    font-family: var(--font-display);
+    font-size: clamp(24px, 3vw, 34px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+
+  .about-page__experience,
+  .about-page__education article { padding-top: 24px; border-top: 2px solid var(--fg); }
+  .about-page__experience + .about-page__experience { margin-top: 34px; }
+  .about-page__role { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 10px; margin-bottom: 6px; }
+  .about-page h3 { margin: 0; color: var(--fg); font-family: var(--font-display); font-size: 22px; font-weight: 800; letter-spacing: -0.02em; }
+  .about-page__role span,
+  .about-page__education p { color: var(--muted); font-family: "Space Mono", monospace; font-size: var(--text-sm); line-height: 1.55; }
+  .about-page__experience ul { display: flex; flex-direction: column; gap: 10px; margin: 14px 0 0; padding-left: 20px; }
+  .about-page__experience li { color: var(--fg-2); font-size: 16px; line-height: 1.55; }
+
+  .about-page__education { display: flex; flex-direction: column; gap: 24px; }
+  .about-page__education article { padding-top: 18px; }
+  .about-page__education h3 { font-size: 18px; font-weight: 700; }
+  .about-page__education p { margin: 6px 0 0; }
+
+  .about-page__section--skills { margin-top: 56px; }
+  .about-page__skills { display: flex; flex-wrap: wrap; gap: 10px; }
+  .about-page__skills span { padding: 9px 16px; border-radius: var(--radius-sm); background: color-mix(in srgb, var(--fg) 6%, transparent); color: var(--fg-2); font-family: "Space Mono", monospace; font-size: var(--text-sm); font-weight: 500; transition: transform var(--motion-fast) var(--ease-standard), background-color var(--motion-fast) var(--ease-standard), color var(--motion-fast) var(--ease-standard); }
+
+  @media (hover: hover) {
+    .about-page__actions a:hover { background: var(--fg); color: var(--accent-on); }
+    .about-page__actions .about-page__resume:hover { background: var(--fg); }
+    .about-page__skills span:hover { transform: translateY(-3px); background: color-mix(in srgb, var(--accent) 12%, transparent); color: var(--accent); }
+  }
+
+  @media (max-width: 1024px) {
+    .about-page__intro { grid-template-columns: 1fr; gap: 38px; }
+    .about-carousel__viewport { max-width: 440px; }
+  }
+
+  @media (max-width: 760px) {
+    .about-page { padding-top: 34px; padding-bottom: 60px; }
+    .about-page__intro > div:first-child > p { font-size: 17px; }
+    .about-page__section { margin-top: 48px; }
+    .about-page__role span { width: 100%; }
+  }
+</style>

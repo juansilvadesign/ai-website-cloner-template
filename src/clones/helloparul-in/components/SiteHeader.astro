@@ -1,0 +1,118 @@
+---
+interface Props {
+  active?: "home" | "about" | "play";
+}
+
+const { active = "home" } = Astro.props;
+---
+
+<div class="parul-shell">
+  <nav class="site-header" aria-label="Primary navigation">
+    <a class="site-header__brand" href="/helloparul-in/">Parul Aggarwal</a>
+
+    <span class="site-header__availability site-header__availability--mobile">
+      <span></span>Open to work
+    </span>
+
+    <div class="site-header__links">
+      <a class="site-header__link" href="/helloparul-in/#work">work</a>
+      <a class:list={["site-header__link", { "is-active": active === "about" }]} href="/helloparul-in/about/">about</a>
+      <a class:list={["site-header__link", { "is-active": active === "play" }]} href="/helloparul-in/play/">play with parul</a>
+      <span class="site-header__availability"><span></span>Open to work</span>
+    </div>
+  </nav>
+</div>
+
+<style>
+  .site-header {
+    position: sticky;
+    z-index: 50;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 0;
+    border-bottom: 1px solid color-mix(in srgb, var(--fg) 12%, transparent);
+    background: color-mix(in srgb, var(--bg) 82%, transparent);
+    backdrop-filter: blur(10px);
+  }
+
+  .site-header__brand {
+    color: var(--fg);
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    text-decoration: none;
+    transition: color var(--motion-fast) var(--ease-standard);
+  }
+
+  .site-header__links {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-family: "Space Mono", monospace;
+    font-size: 13px;
+  }
+
+  .site-header__link {
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-pill);
+    color: var(--fg);
+    text-decoration: none;
+    transition: background-color var(--motion-fast) var(--ease-standard);
+  }
+
+  .site-header__availability {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px var(--space-4);
+    border: 1.5px solid color-mix(in srgb, var(--accent) 92%, transparent);
+    border-radius: var(--radius-pill);
+    color: color-mix(in srgb, var(--fg) 92%, transparent);
+    background: var(--surface-warm);
+    font-family: "Space Mono", monospace;
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .site-header__availability span {
+    width: 7px;
+    height: 7px;
+    border-radius: var(--radius-pill);
+    background: color-mix(in srgb, var(--accent) 80%, transparent);
+    animation: availability-blink 1.4s infinite;
+  }
+
+  .site-header__availability--mobile {
+    display: none;
+  }
+
+  @media (hover: hover) {
+    .site-header__brand:hover { color: var(--accent); }
+    .site-header__link:hover,
+    .site-header__link.is-active { background: color-mix(in srgb, var(--fg) 7%, transparent); }
+  }
+
+  @media (max-width: 760px) {
+    .site-header__links { display: none; }
+
+    .site-header__availability--mobile {
+      display: inline-flex;
+      padding: 6px 11px;
+      border: 0;
+      color: var(--accent-on);
+      background: var(--accent);
+      font-weight: 600;
+    }
+
+    .site-header__availability--mobile span { background: var(--accent-on); }
+  }
+
+  @keyframes availability-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: .25; }
+  }
+</style>

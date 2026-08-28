@@ -1,0 +1,40 @@
+---
+import FeatureGrid from "../../clones/adspirer-com/components/FeatureGrid.astro";
+import HeroSection from "../../clones/adspirer-com/components/HeroSection.astro";
+import OperationsSections from "../../clones/adspirer-com/components/OperationsSections.astro";
+import PricingSection from "../../clones/adspirer-com/components/PricingSection.astro";
+import SiteFooter from "../../clones/adspirer-com/components/SiteFooter.astro";
+import SiteHeader from "../../clones/adspirer-com/components/SiteHeader.astro";
+import SocialProof from "../../clones/adspirer-com/components/SocialProof.astro";
+import WorkspaceSection from "../../clones/adspirer-com/components/WorkspaceSection.astro";
+import BaseLayout from "../../clones/adspirer-com/layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <SiteHeader />
+  <main>
+    <HeroSection />
+    <SocialProof />
+    <FeatureGrid />
+    <WorkspaceSection />
+    <OperationsSections />
+    <PricingSection />
+  </main>
+  <SiteFooter />
+</BaseLayout>
+
+<script>
+  const revealItems = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]"));
+  if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    revealItems.forEach((item) => item.classList.add("ad-reveal"));
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          (entry.target as HTMLElement).classList.add("ad-reveal--visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.18, rootMargin: "0px 0px -10%" });
+    revealItems.forEach((item) => observer.observe(item));
+  }
+</script>

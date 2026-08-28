@@ -1,0 +1,29 @@
+---
+const groups = [
+  {
+    label: "Trusted by performance teams",
+    logos: ["logo-alesmith.png", "logo-boden.svg", "logo-chosen-foods.png", "logo-dantes-ink.png", "logo-enkindle.svg", "logo-inside-real-estate.svg"],
+  },
+  {
+    label: "Built with operators",
+    logos: ["logo-jack-vartanian.png", "logo-maxwell-clinic.png", "logo-mega-furniture.png", "logo-nextbase.png", "logo-permagreen.png", "logo-splash-financial.svg"],
+  },
+  {
+    label: "Across ambitious accounts",
+    logos: ["logo-statknows.png", "logo-the-urban-geek.png", "logo-truth.png", "logo-we-are-stellar.svg", "logo-zozo.svg"],
+  },
+];
+---
+
+<section class="ad-proof" id="social-proof">
+  <div class="ad-shell ad-proof__grid" data-reveal>
+    {groups.map((group) => (
+      <div class="ad-proof__group">
+        <p>{group.label}</p>
+        <div class="ad-proof__logos">
+          {group.logos.map((logo) => <img src={`/clones/adspirer-com/images/${logo}`} alt="" loading="lazy" />)}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

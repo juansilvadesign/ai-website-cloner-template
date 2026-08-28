@@ -1,0 +1,40 @@
+---
+const plans = [
+  { name: "Free", annual: "0", monthly: "0", description: "Explore how Adspirer fits your workflow.", features: ["1 connected account", "Account context and briefs", "Guided AI setup"], cta: "Start free", featured: false },
+  { name: "Plus", annual: "40", monthly: "49", description: "For a focused account that needs work moving.", features: ["3 connected accounts", "Campaign builds and checks", "All AI platform guides"], cta: "Choose Plus", featured: false },
+  { name: "Pro", annual: "83", monthly: "99", description: "For teams running meaningful paid-media programs.", features: ["10 connected accounts", "Priority account monitoring", "Brand and team context", "Priority support"], cta: "Choose Pro", featured: true },
+  { name: "Max", annual: "167", monthly: "199", description: "For teams with a larger portfolio of account work.", features: ["Unlimited connected accounts", "Advanced operating context", "Dedicated onboarding", "Priority support"], cta: "Choose Max", featured: false },
+];
+---
+
+<section class="ad-pricing" id="pricing">
+  <div class="ad-shell" data-reveal>
+    <div class="ad-section-intro ad-section-intro--center"><p class="ad-eyebrow">Simple pricing</p><h2>Hire an AI paid media manager.</h2><p>Start with a plan that matches the amount of account work your team needs handled.</p></div>
+    <div class="ad-billing" role="radiogroup" aria-label="Billing frequency"><button type="button" role="radio" aria-checked="false" data-billing="monthly">Monthly</button><button type="button" role="radio" aria-checked="true" data-billing="annual">Annual <span>−17%</span></button></div>
+    <div class="ad-pricing-grid">
+      {plans.map((plan) => (
+        <article class:list={["ad-price-card", plan.featured ? "ad-price-card--featured" : ""]}>
+          {plan.featured && <span class="ad-price-card__flag">Most popular</span>}
+          <div class="ad-price-card__top"><h3>{plan.name}</h3><p>{plan.description}</p></div>
+          <div class="ad-price"><sup>$</sup><strong data-price data-annual={plan.annual} data-monthly={plan.monthly}>{plan.annual}</strong><span>/ month</span></div>
+          <p class="ad-price-card__bill" data-bill-copy>Billed annually</p>
+          <a class:list={["ad-button", plan.featured ? "ad-button--primary" : "ad-button--outline"]} href="https://adspirer.ai/sign-up">{plan.cta}</a>
+          <ul>{plan.features.map((feature) => <li><img src="/clones/adspirer-com/images/check-circle.svg" alt="" width="18" height="18" />{feature}</li>)}</ul>
+        </article>
+      ))}
+    </div>
+    <article class="ad-enterprise"><div><p class="ad-eyebrow">Enterprise</p><h3>More accounts. More operating context.</h3><p>For teams that need a tailored account portfolio, permissions, onboarding, and support plan.</p></div><a class="ad-button ad-button--dark" href="mailto:hello@adspirer.com">Talk to sales <span aria-hidden="true">→</span></a></article>
+  </div>
+</section>
+
+<script>
+  const billingButtons = Array.from(document.querySelectorAll<HTMLButtonElement>("[data-billing]"));
+  const prices = Array.from(document.querySelectorAll<HTMLElement>("[data-price]"));
+  const billCopies = Array.from(document.querySelectorAll<HTMLElement>("[data-bill-copy]"));
+  billingButtons.forEach((button) => button.addEventListener("click", () => {
+    const frequency = button.dataset.billing === "monthly" ? "monthly" : "annual";
+    billingButtons.forEach((control) => control.setAttribute("aria-checked", String(control === button)));
+    prices.forEach((price) => { price.textContent = frequency === "monthly" ? price.dataset.monthly ?? "" : price.dataset.annual ?? ""; });
+    billCopies.forEach((copy) => { copy.textContent = frequency === "monthly" ? "Billed monthly" : "Billed annually"; });
+  }));
+</script>

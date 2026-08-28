@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hello Parul component fixture</title>
+    <link rel="stylesheet" href="./tokens.css" />
+    <style>
+      * { box-sizing: border-box; }
+      body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--font-body); }
+      .fixture { max-width: var(--container-max); margin: 0 auto; padding: var(--space-8); }
+      .eyebrow { margin: 0 0 var(--space-3); color: var(--muted); font-family: "Space Mono", monospace; font-size: var(--text-sm); }
+      .hero { padding: var(--section-y-desktop) 0; }
+      .hero h1 { max-width: 10ch; margin: 0; font-family: var(--font-display); font-size: var(--text-4xl); font-weight: 800; letter-spacing: var(--tracking-display); line-height: var(--leading-tight); }
+      .primary-action { display: inline-flex; margin-top: var(--space-6); padding: var(--space-5) calc(var(--space-6) + var(--space-2)); border-radius: var(--radius-pill); background: var(--accent); color: var(--accent-on); font: 700 var(--text-base) "Space Mono", monospace; text-decoration: none; }
+      .marquee { margin-inline: calc(var(--space-8) * -1); padding: var(--space-5) 0; overflow: hidden; background: var(--fg); color: var(--accent-on); font-family: var(--font-display); font-size: var(--text-xl); }
+      .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-1); margin: var(--space-12) 0; overflow: hidden; border: 1px solid var(--border-soft); border-radius: var(--radius-md); background: var(--border-soft); }
+      .stat { padding: calc(var(--space-6) + var(--space-3)); background: var(--bg); }
+      .stat strong { display: block; color: var(--accent); font-family: var(--font-display); font-size: calc(var(--text-2xl) + var(--space-2)); letter-spacing: var(--tracking-display); }
+      .stat span { color: var(--fg-2); font: var(--text-sm) "Space Mono", monospace; }
+      .case-card { display: grid; grid-template-columns: 1.15fr .85fr; overflow: hidden; border: 2px solid var(--fg); border-radius: var(--radius-lg); background: var(--surface); }
+      .case-card__copy { padding: calc(var(--space-8) + var(--space-4)); }
+      .case-card__chip { display: inline-block; padding: var(--space-2) calc(var(--space-3) + var(--space-1)); border-radius: var(--radius-pill); background: var(--fg); color: var(--accent-on); font: var(--text-sm) "Space Mono", monospace; }
+      .case-card h2 { margin: var(--space-6) 0; font-family: var(--font-display); font-size: var(--text-2xl); letter-spacing: calc(var(--tracking-display) + .01em); line-height: 1.02; }
+      .case-card p { max-width: 44ch; margin: 0; color: var(--fg-2); font-size: var(--text-lg); line-height: var(--leading-body); }
+      .case-card__visual { min-height: 280px; background: var(--accent); }
+      .footer-actions { margin-top: var(--space-12); padding: calc(var(--section-y-desktop) - var(--space-6)); background: var(--fg); color: var(--accent-on); }
+      .footer-actions h2 { max-width: 12ch; margin: 0; font-family: var(--font-display); font-size: var(--text-3xl); letter-spacing: var(--tracking-display); line-height: var(--leading-tight); }
+      @media (max-width: 760px) { .fixture { padding: var(--space-6); } .hero { padding: var(--section-y-phone) 0; } .hero h1 { font-size: clamp(54px, 13.5vw, var(--text-4xl)); } .stats { grid-template-columns: repeat(2, 1fr); } .case-card { grid-template-columns: 1fr; } .case-card__copy { padding: calc(var(--space-6) + var(--space-3)); } }
+    </style>
+  </head>
+  <body>
+    <main class="fixture">
+      <section class="hero"><p class="eyebrow">PRODUCT DESIGNER · 5+ YEARS</p><h1>Designer. Thinker. who removes friction.</h1><a class="primary-action btn-primary" href="#work">See the work ↓</a></section>
+      <section class="marquee" aria-label="Skills">Product design ✦ Micro-interactions ✦ Design systems ✦ AI-assisted UX</section>
+      <section class="stats" aria-label="Evidence"><div class="stat"><strong>5+</strong><span>years shipping</span></div><div class="stat"><strong>25+</strong><span>features shipped</span></div><div class="stat"><strong>15Cr+</strong><span>consumer served</span></div><div class="stat"><strong>0</strong><span>px left unaligned</span></div></section>
+      <article class="case-card card-case" id="work"><div class="case-card__copy"><span class="case-card__chip chip-topic">Smytten</span><h2>Building trust through AI-powered review summaries</h2><p>Evidence-led product design that removes friction at the moment of decision.</p></div><div class="case-card__visual" aria-hidden="true"></div></article>
+    </main>
+    <footer class="footer-actions"><div class="fixture"><p class="eyebrow">PROBABLY TWEAKING THIS FOOTER AGAIN.</p><h2>That’s the work. Here’s the reaching out part.</h2></div></footer>
+  </body>
+</html>

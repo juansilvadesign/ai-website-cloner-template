@@ -1,0 +1,308 @@
+{
+  "schemaVersion": 1,
+  "brandId": "helloparul-in",
+  "source": {
+    "componentsHtml": "components.html",
+    "tokensCss": "tokens.css"
+  },
+  "fixture": {
+    "title": "Hello Parul component fixture",
+    "styleBlockCount": 1,
+    "selectorCount": 20,
+    "classCount": 15,
+    "elementCount": 18
+  },
+  "tokens": {
+    "declared": [
+      "--accent",
+      "--accent-active",
+      "--accent-hover",
+      "--accent-on",
+      "--bg",
+      "--border",
+      "--border-soft",
+      "--container-gutter-desktop",
+      "--container-gutter-phone",
+      "--container-gutter-tablet",
+      "--container-max",
+      "--danger",
+      "--ease-standard",
+      "--elev-flat",
+      "--elev-raised",
+      "--elev-ring",
+      "--fg",
+      "--fg-2",
+      "--focus-ring",
+      "--font-body",
+      "--font-display",
+      "--font-mono",
+      "--leading-body",
+      "--leading-tight",
+      "--meta",
+      "--motion-base",
+      "--motion-fast",
+      "--muted",
+      "--radius-lg",
+      "--radius-md",
+      "--radius-pill",
+      "--radius-sm",
+      "--section-y-desktop",
+      "--section-y-phone",
+      "--section-y-tablet",
+      "--space-1",
+      "--space-12",
+      "--space-2",
+      "--space-3",
+      "--space-4",
+      "--space-5",
+      "--space-6",
+      "--space-8",
+      "--success",
+      "--surface",
+      "--surface-warm",
+      "--text-2xl",
+      "--text-3xl",
+      "--text-4xl",
+      "--text-base",
+      "--text-lg",
+      "--text-sm",
+      "--text-xl",
+      "--text-xs",
+      "--tracking-display",
+      "--warn"
+    ],
+    "referenced": [
+      "--accent",
+      "--accent-on",
+      "--bg",
+      "--border-soft",
+      "--container-max",
+      "--fg",
+      "--fg-2",
+      "--font-body",
+      "--font-display",
+      "--leading-body",
+      "--leading-tight",
+      "--muted",
+      "--radius-lg",
+      "--radius-md",
+      "--radius-pill",
+      "--section-y-desktop",
+      "--section-y-phone",
+      "--space-1",
+      "--space-12",
+      "--space-2",
+      "--space-3",
+      "--space-4",
+      "--space-5",
+      "--space-6",
+      "--space-8",
+      "--surface",
+      "--text-2xl",
+      "--text-3xl",
+      "--text-4xl",
+      "--text-base",
+      "--text-lg",
+      "--text-sm",
+      "--text-xl",
+      "--tracking-display"
+    ],
+    "unusedDeclared": [
+      "--accent-active",
+      "--accent-hover",
+      "--border",
+      "--container-gutter-desktop",
+      "--container-gutter-phone",
+      "--container-gutter-tablet",
+      "--danger",
+      "--ease-standard",
+      "--elev-flat",
+      "--elev-raised",
+      "--elev-ring",
+      "--focus-ring",
+      "--font-mono",
+      "--meta",
+      "--motion-base",
+      "--motion-fast",
+      "--radius-sm",
+      "--section-y-tablet",
+      "--success",
+      "--surface-warm",
+      "--text-xs",
+      "--warn"
+    ],
+    "undeclaredReferenced": []
+  },
+  "selectors": [
+    ".case-card",
+    ".case-card h2",
+    ".case-card p",
+    ".case-card__chip",
+    ".case-card__copy",
+    ".case-card__visual",
+    ".eyebrow",
+    ".fixture",
+    ".footer-actions",
+    ".footer-actions h2",
+    ".hero",
+    ".hero h1",
+    ".marquee",
+    ".primary-action",
+    ".stat",
+    ".stat span",
+    ".stat strong",
+    ".stats",
+    "*",
+    "body"
+  ],
+  "classes": [
+    "btn-primary",
+    "card-case",
+    "case-card",
+    "case-card__chip",
+    "case-card__copy",
+    "case-card__visual",
+    "chip-topic",
+    "eyebrow",
+    "fixture",
+    "footer-actions",
+    "hero",
+    "marquee",
+    "primary-action",
+    "stat",
+    "stats"
+  ],
+  "elements": [
+    "a",
+    "article",
+    "body",
+    "div",
+    "footer",
+    "h1",
+    "h2",
+    "head",
+    "html",
+    "link",
+    "main",
+    "meta",
+    "p",
+    "section",
+    "span",
+    "strong",
+    "style",
+    "title"
+  ],
+  "groups": [
+    {
+      "id": "buttons",
+      "label": "Buttons and calls to action",
+      "present": true,
+      "selectors": [],
+      "classes": [
+        "btn-primary"
+      ],
+      "elements": [],
+      "tokenReferences": []
+    },
+    {
+      "id": "inputs",
+      "label": "Form fields and controls",
+      "present": false,
+      "selectors": [],
+      "classes": [],
+      "elements": [],
+      "tokenReferences": []
+    },
+    {
+      "id": "cards",
+      "label": "Cards and panels",
+      "present": true,
+      "selectors": [],
+      "classes": [
+        "card-case"
+      ],
+      "elements": [],
+      "tokenReferences": []
+    },
+    {
+      "id": "badges",
+      "label": "Badges, chips, and status labels",
+      "present": true,
+      "selectors": [],
+      "classes": [
+        "chip-topic"
+      ],
+      "elements": [],
+      "tokenReferences": []
+    },
+    {
+      "id": "links",
+      "label": "Links and inline actions",
+      "present": true,
+      "selectors": [],
+      "classes": [],
+      "elements": [
+        "a"
+      ],
+      "tokenReferences": []
+    },
+    {
+      "id": "keyboard",
+      "label": "Keyboard hints",
+      "present": false,
+      "selectors": [],
+      "classes": [],
+      "elements": [],
+      "tokenReferences": []
+    },
+    {
+      "id": "icons",
+      "label": "Icon slots",
+      "present": false,
+      "selectors": [],
+      "classes": [],
+      "elements": [],
+      "tokenReferences": []
+    },
+    {
+      "id": "typography",
+      "label": "Typography scale and text utilities",
+      "present": true,
+      "selectors": [
+        ".case-card h2",
+        ".eyebrow",
+        ".footer-actions h2",
+        ".hero h1"
+      ],
+      "classes": [
+        "eyebrow"
+      ],
+      "elements": [
+        "h1",
+        "h2",
+        "p"
+      ],
+      "tokenReferences": [
+        "--text-4xl"
+      ]
+    },
+    {
+      "id": "layout",
+      "label": "Layout primitives",
+      "present": true,
+      "selectors": [],
+      "classes": [],
+      "elements": [
+        "footer",
+        "main",
+        "section"
+      ],
+      "tokenReferences": []
+    }
+  ],
+  "literals": {
+    "colorExpressions": 0,
+    "pixelValues": 5,
+    "hardcodedFontFamilies": 7
+  }
+}

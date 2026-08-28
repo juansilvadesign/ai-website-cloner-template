@@ -1,0 +1,47 @@
+{
+  "button": {
+    "className": "navbar_menu-button w-nav-button w--open",
+    "ariaExpanded": "true",
+    "rect": {
+      "x": 326.5,
+      "y": 14,
+      "width": 44,
+      "height": 44
+    },
+    "styles": {
+      "display": "block",
+      "position": "relative",
+      "inset": "0px",
+      "width": "44px",
+      "height": "44px",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "opacity": "1",
+      "transform": "none",
+      "transition": "all",
+      "overflow": "visible"
+    }
+  },
+  "nav": {
+    "className": "navbar_menu is-page-height-tablet w-nav-menu nav-desktop",
+    "ariaExpanded": null,
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0
+    },
+    "styles": {
+      "display": "none",
+      "position": "absolute",
+      "inset": "0% 0% auto",
+      "width": "90%",
+      "height": "506.4px",
+      "backgroundColor": "rgb(255, 255, 255)",
+      "opacity": "1",
+      "transform": "none",
+      "transition": "height 0.5s",
+      "overflow": "auto"
+    }
+  },
+  "visibleLinks": []
+}

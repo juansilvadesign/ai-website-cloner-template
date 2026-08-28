@@ -1,0 +1,697 @@
+{
+  "schemaVersion": 1,
+  "format": "od-design-tokens/v1",
+  "contract": "TOKEN_SCHEMA",
+  "generatedAt": "2026-08-28T03:19:57.559Z",
+  "source": {
+    "tokensCss": "tokens.css",
+    "tokenContractReport": "source/token-contract.report.json"
+  },
+  "summary": {
+    "total": 56,
+    "byConfidence": {
+      "high": 51,
+      "derived": 5
+    },
+    "byLayer": {
+      "A1-identity": 8,
+      "B-slot": 4,
+      "A2": 26,
+      "A1-structure": 18
+    }
+  },
+  "tokens": [
+    {
+      "name": "--bg",
+      "value": "#f6f8fa",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Continuous page canvas behind hero, platforms, benefits, and pricing.",
+      "sources": [
+        "raw/adspirer-global.json computed body background",
+        "tokens.css:8"
+      ]
+    },
+    {
+      "name": "--surface",
+      "value": "#ffffff",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Primary card, proof-band, and setup surface.",
+      "sources": [
+        "raw/adspirer-component-styles-1440.json computed panels",
+        "tokens.css:9"
+      ]
+    },
+    {
+      "name": "--surface-warm",
+      "value": "#eef1f5",
+      "type": "color",
+      "layer": "B-slot",
+      "confidence": "high",
+      "reason": "Segmented controls and quiet inset surfaces.",
+      "sources": [
+        "raw/adspirer-pricing-monthly-state.json billing control",
+        "tokens.css:10"
+      ]
+    },
+    {
+      "name": "--fg",
+      "value": "#000000",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Dominant display and navigation ink.",
+      "sources": [
+        "raw/adspirer-global.json root color scheme",
+        "tokens.css:13"
+      ]
+    },
+    {
+      "name": "--fg-2",
+      "value": "#101828",
+      "type": "color",
+      "layer": "B-slot",
+      "confidence": "high",
+      "reason": "Structured panel and guide text tier.",
+      "sources": [
+        "raw/adspirer-component-styles-1440.json workspace panel",
+        "tokens.css:14"
+      ]
+    },
+    {
+      "name": "--muted",
+      "value": "#666d80",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Body supporting copy and secondary navigation color.",
+      "sources": [
+        "raw/adspirer-global.json --color-scheme-1--secondary-text",
+        "tokens.css:15"
+      ]
+    },
+    {
+      "name": "--meta",
+      "value": "#667085",
+      "type": "color",
+      "layer": "B-slot",
+      "confidence": "high",
+      "reason": "Tertiary plan and instruction metadata.",
+      "sources": [
+        "raw/adspirer-component-styles-1440.json pricing text",
+        "tokens.css:16"
+      ]
+    },
+    {
+      "name": "--border",
+      "value": "#c1c7d0",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Default card edge and quiet division.",
+      "sources": [
+        "raw/adspirer-global.json --color-scheme-1--border",
+        "tokens.css:19"
+      ]
+    },
+    {
+      "name": "--border-soft",
+      "value": "rgba(16, 24, 40, 0.10)",
+      "type": "color",
+      "layer": "B-slot",
+      "confidence": "high",
+      "reason": "Low-contrast internal panel outline.",
+      "sources": [
+        "raw/adspirer-component-styles-1440.json product card border",
+        "tokens.css:20"
+      ]
+    },
+    {
+      "name": "--accent",
+      "value": "#1067fe",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Primary conversion button, selected tab, and main interactive signal.",
+      "sources": [
+        "raw/adspirer-global.json native primitive blue",
+        "tokens.css:23"
+      ]
+    },
+    {
+      "name": "--accent-on",
+      "value": "#ffffff",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Readable foreground on saturated blue buttons and selected tabs.",
+      "sources": [
+        "computed CTA styles",
+        "tokens.css:24"
+      ]
+    },
+    {
+      "name": "--accent-hover",
+      "value": "#0e5ee5",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Slightly deeper blue preserves the source press hierarchy.",
+      "sources": [
+        "derived from --accent and observed CTA transition",
+        "tokens.css:25"
+      ]
+    },
+    {
+      "name": "--accent-active",
+      "value": "#0b45c4",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Deep blue present in the Ask AI gradient and pressed visual language.",
+      "sources": [
+        "source custom CSS Ask AI gradient",
+        "tokens.css:26"
+      ]
+    },
+    {
+      "name": "--success",
+      "value": "#12b76a",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Campaign ready / approved status indication.",
+      "sources": [
+        "raw/adspirer-hero-demo-state.json visible status color",
+        "tokens.css:29"
+      ]
+    },
+    {
+      "name": "--warn",
+      "value": "#f79009",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Warm operational warning tier compatible with the orange source palette.",
+      "sources": [
+        "derived from source orange #ff8400",
+        "tokens.css:30"
+      ]
+    },
+    {
+      "name": "--danger",
+      "value": "#f04438",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Accessible destructive-state red, not a decorative page color.",
+      "sources": [
+        "OpenDesign semantic role calibrated to neutral palette",
+        "tokens.css:31"
+      ]
+    },
+    {
+      "name": "--font-display",
+      "value": "Geist, \"Helvetica Neue\", Arial, sans-serif",
+      "type": "fontFamily",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Downloaded Geist webfont is used for headings and display copy.",
+      "sources": [
+        "raw/adspirer-global.json and next font preload",
+        "tokens.css:34"
+      ]
+    },
+    {
+      "name": "--font-body",
+      "value": "Inter, \"Helvetica Neue\", Arial, sans-serif",
+      "type": "fontFamily",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Downloaded Inter webfont is used for reading copy and controls.",
+      "sources": [
+        "raw/adspirer-global.json computed body font",
+        "tokens.css:35"
+      ]
+    },
+    {
+      "name": "--font-mono",
+      "value": "ui-monospace, \"SF Mono\", Menlo, Monaco, Consolas, monospace",
+      "type": "fontFamily",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Endpoint and code examples need a legible technical fallback.",
+      "sources": [
+        "workspace guide code treatment",
+        "tokens.css:36"
+      ]
+    },
+    {
+      "name": "--text-xs",
+      "value": "12px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Eyebrows, compact labels, and plan metadata.",
+      "sources": [
+        "computed social proof and pricing labels",
+        "tokens.css:39"
+      ]
+    },
+    {
+      "name": "--text-sm",
+      "value": "14px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Navigation and card support tier.",
+      "sources": [
+        "computed desktop nav styles",
+        "tokens.css:40"
+      ]
+    },
+    {
+      "name": "--text-base",
+      "value": "16px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Page body baseline.",
+      "sources": [
+        "raw/adspirer-global.json computed body font size",
+        "tokens.css:41"
+      ]
+    },
+    {
+      "name": "--text-lg",
+      "value": "24px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Product-card and feature heading tier.",
+      "sources": [
+        "computed card headings",
+        "tokens.css:42"
+      ]
+    },
+    {
+      "name": "--text-xl",
+      "value": "32px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Phone section title tier and desktop minor display.",
+      "sources": [
+        "raw/adspirer-responsive-390.json section heading styles",
+        "tokens.css:43"
+      ]
+    },
+    {
+      "name": "--text-2xl",
+      "value": "40px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Large section title tier.",
+      "sources": [
+        "computed platforms and Ask AI headings",
+        "tokens.css:44"
+      ]
+    },
+    {
+      "name": "--text-3xl",
+      "value": "48px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Desktop section headline tier.",
+      "sources": [
+        "raw/adspirer-component-styles-1440.json title styles",
+        "tokens.css:45"
+      ]
+    },
+    {
+      "name": "--text-4xl",
+      "value": "84px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Hero display scale at desktop.",
+      "sources": [
+        "raw/adspirer-component-styles-1440.json hero h1",
+        "tokens.css:46"
+      ]
+    },
+    {
+      "name": "--leading-body",
+      "value": "1.5",
+      "type": "number",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "24px body leading over the 16px base size.",
+      "sources": [
+        "raw/adspirer-global.json computed body line-height",
+        "tokens.css:49"
+      ]
+    },
+    {
+      "name": "--leading-tight",
+      "value": "1.2",
+      "type": "number",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Headline 84px/100.8px and section 48px/57.6px ratio.",
+      "sources": [
+        "raw/adspirer-component-styles-1440.json display heading styles",
+        "tokens.css:50"
+      ]
+    },
+    {
+      "name": "--tracking-display",
+      "value": "-0.045em",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Tight geometric heading tracking.",
+      "sources": [
+        "raw/adspirer-component-styles-1440.json hero letter spacing",
+        "tokens.css:51"
+      ]
+    },
+    {
+      "name": "--space-1",
+      "value": "4px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Micro-label and compact icon gap unit.",
+      "sources": [
+        "component rhythm inspection",
+        "tokens.css:54"
+      ]
+    },
+    {
+      "name": "--space-2",
+      "value": "8px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Button internals and status gaps.",
+      "sources": [
+        "component rhythm inspection",
+        "tokens.css:55"
+      ]
+    },
+    {
+      "name": "--space-3",
+      "value": "12px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Small card and control gaps.",
+      "sources": [
+        "component rhythm inspection",
+        "tokens.css:56"
+      ]
+    },
+    {
+      "name": "--space-4",
+      "value": "16px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Default panel internal gap.",
+      "sources": [
+        "component rhythm inspection",
+        "tokens.css:57"
+      ]
+    },
+    {
+      "name": "--space-5",
+      "value": "20px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Phone gutter.",
+      "sources": [
+        "raw/adspirer-responsive-390.json horizontal geometry",
+        "tokens.css:58"
+      ]
+    },
+    {
+      "name": "--space-6",
+      "value": "24px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Desktop card and grid gap.",
+      "sources": [
+        "computed product card grid",
+        "tokens.css:59"
+      ]
+    },
+    {
+      "name": "--space-8",
+      "value": "32px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Major component interior space.",
+      "sources": [
+        "computed panel layout",
+        "tokens.css:60"
+      ]
+    },
+    {
+      "name": "--space-12",
+      "value": "48px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Headline-to-content and large card spacing.",
+      "sources": [
+        "screenshot composition",
+        "tokens.css:61"
+      ]
+    },
+    {
+      "name": "--section-y-desktop",
+      "value": "112px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Desktop section rhythm seen across the lower marketing page.",
+      "sources": [
+        "original-1440.png section boundaries",
+        "tokens.css:64"
+      ]
+    },
+    {
+      "name": "--section-y-tablet",
+      "value": "88px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "derived",
+      "reason": "Interpolation between desktop and phone visual rhythm.",
+      "sources": [
+        "raw/adspirer-responsive-768.json",
+        "tokens.css:65"
+      ]
+    },
+    {
+      "name": "--section-y-phone",
+      "value": "72px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Phone section rhythm retains deliberate empty space.",
+      "sources": [
+        "raw/adspirer-responsive-390.json section boundaries",
+        "tokens.css:66"
+      ]
+    },
+    {
+      "name": "--radius-sm",
+      "value": "8px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Primary CTA and input radius.",
+      "sources": [
+        "raw/adspirer-component-styles-1440.json button border radius",
+        "tokens.css:69"
+      ]
+    },
+    {
+      "name": "--radius-md",
+      "value": "16px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Cards, menu, and workspace panel corners.",
+      "sources": [
+        "raw/adspirer-component-styles-1440.json card styles",
+        "tokens.css:70"
+      ]
+    },
+    {
+      "name": "--radius-lg",
+      "value": "20px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Large hero demonstration container.",
+      "sources": [
+        "raw/adspirer-component-styles-1440.json demo panel",
+        "tokens.css:71"
+      ]
+    },
+    {
+      "name": "--radius-pill",
+      "value": "9999px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Billing picker, tabs, labels, and status dots.",
+      "sources": [
+        "pricing and workspace tab styles",
+        "tokens.css:72"
+      ]
+    },
+    {
+      "name": "--elev-flat",
+      "value": "none",
+      "type": "shadow",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Most cards use borders rather than depth.",
+      "sources": [
+        "screenshot composition",
+        "tokens.css:75"
+      ]
+    },
+    {
+      "name": "--elev-ring",
+      "value": "0 0 0 1px rgba(16, 24, 40, 0.10)",
+      "type": "shadow",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Source panel outline expressed as a low-contrast ring.",
+      "sources": [
+        "raw/adspirer-component-styles-1440.json",
+        "tokens.css:76"
+      ]
+    },
+    {
+      "name": "--elev-raised",
+      "value": "0 24px 70px -52px rgba(16, 24, 40, 0.50)",
+      "type": "shadow",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Workspace panel’s distinctive deep soft shadow.",
+      "sources": [
+        "raw/adspirer-component-styles-1440.json workspace shadow",
+        "tokens.css:77"
+      ]
+    },
+    {
+      "name": "--focus-ring",
+      "value": "0 0 0 3px rgba(16, 103, 254, 0.35)",
+      "type": "shadow",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Clear blue keyboard ring aligned to selected control color.",
+      "sources": [
+        "derived from --accent",
+        "tokens.css:80"
+      ]
+    },
+    {
+      "name": "--motion-fast",
+      "value": "160ms",
+      "type": "duration",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Source platform-tab transition duration.",
+      "sources": [
+        "computed workspace tab transition",
+        "tokens.css:83"
+      ]
+    },
+    {
+      "name": "--motion-base",
+      "value": "500ms",
+      "type": "duration",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Source CTA hover transition uses half-second easing.",
+      "sources": [
+        "raw/adspirer-button-hover-state.json",
+        "tokens.css:84"
+      ]
+    },
+    {
+      "name": "--ease-standard",
+      "value": "cubic-bezier(0.165, 0.84, 0.44, 1)",
+      "type": "cubicBezier",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Source reveal easing curve.",
+      "sources": [
+        "live page animation inspection",
+        "tokens.css:85"
+      ]
+    },
+    {
+      "name": "--container-max",
+      "value": "1280px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "1440px capture leaves 80px outer gutters around the main grid.",
+      "sources": [
+        "original-1440.png",
+        "tokens.css:88"
+      ]
+    },
+    {
+      "name": "--container-gutter-desktop",
+      "value": "80px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Main desktop content starts around x=80px.",
+      "sources": [
+        "raw/adspirer-component-styles-1440.json",
+        "tokens.css:89"
+      ]
+    },
+    {
+      "name": "--container-gutter-tablet",
+      "value": "40px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Intermediate content gutter before phone compression.",
+      "sources": [
+        "raw/adspirer-responsive-768.json",
+        "tokens.css:90"
+      ]
+    },
+    {
+      "name": "--container-gutter-phone",
+      "value": "20px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Measured phone viewport gutter.",
+      "sources": [
+        "raw/adspirer-responsive-390.json",
+        "tokens.css:91"
+      ]
+    }
+  ]
+}

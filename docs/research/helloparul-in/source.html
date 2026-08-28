@@ -1,0 +1,1406 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&amp;family=Instrument+Sans:wght@400;500;600&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#F2EEE3;color:#181510;font-family:'Instrument Sans',sans-serif;-webkit-font-smoothing:antialiased}
+  ::selection{background:#FF3B1F;color:#F2EEE3}
+  a{color:inherit;text-decoration:none}
+  @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+  @keyframes float{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-10px) rotate(var(--r,0deg))}}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @keyframes splashProgress{from{width:0%}to{width:100%}}
+  @keyframes splashWiggle{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+  @keyframes splashBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+
+
+  /* ---- responsive: laptop default, iPad & mobile reflow ---- */
+  img{max-width:100%}
+  /* ---- responsive: laptop default, iPad & mobile reflow ---- */
+  @media (max-width:1024px){
+    .case-grid{grid-template-columns:1fr !important}
+    .case-pad{padding:38px 36px 34px !important}
+    .case-img{width:100% !important;height:auto !important;aspect-ratio:1/1 !important;max-height:480px !important;object-fit:cover !important}
+    .about-grid{grid-template-columns:1fr !important;gap:38px !important}
+    .about-photo{max-width:440px !important;margin:0 auto !important}
+    .detail-meta{gap:18px !important}
+  }
+  @media (max-width:760px){
+    .wrap{padding-left:22px !important;padding-right:22px !important}
+    .foot-wrap{padding-left:22px !important;padding-right:22px !important}
+    .stats{grid-template-columns:repeat(2,1fr) !important;margin:36px 0 !important}
+    .stat-cell{padding:16px 10px !important}
+    .stat-num{font-size:clamp(20px,7vw,30px) !important}
+    .stat-label{font-size:9.5px !important;line-height:1.3 !important}
+    .mini-grid{grid-template-columns:1fr !important}
+    .case-pad{padding:30px 24px 30px !important}
+    .case-extra{display:none !important}
+    .nav-links{gap:4px !important}
+    .hero{padding-top:48px !important}
+    .hero-h1{font-size:clamp(54px,13.5vw,118px) !important;max-width:11ch !important}
+    .hero-badge{font-size:10.5px !important;padding:5px 11px !important;margin-bottom:20px !important}
+    .hero-desc{font-size:12.5px !important;margin-top:16px !important}
+    .hero-cta-row{margin-top:28px !important;gap:16px !important}
+    .hero-cta-primary{padding:13px 20px !important;font-size:12.5px !important}
+    .detail-meta{grid-template-columns:1fr 1fr !important;gap:18px 16px !important}
+    .detail-metrics{gap:24px 30px !important;margin-top:34px !important}
+    .detail-section{margin-top:36px !important}
+    .detail-head{padding-top:34px !important}
+    .detail-wrap{padding-bottom:60px !important}
+    .foot-wrap{padding:56px 22px 80px !important}
+    .foot-wrap h2{font-size:clamp(38px,10vw,64px) !important}
+    .foot-cta{margin-top:28px !important;gap:10px !important}
+    .foot-cta a{flex:1 1 100% !important;justify-content:center !important;padding:11px 18px !important;font-size:13px !important}
+    .foot-bottom{margin-top:36px !important;padding-top:16px !important;padding-bottom:8px !important}
+  }
+  @media (max-width:480px){
+    .nav-sec{display:none !important}
+    .marq{font-size:20px !important}
+    .detail-name{font-size:15px !important}
+    .detail-metrics > div{min-width:42% !important}
+  }
+  @media (min-width:761px){ .mobile-only-badge{display:none !important} }
+  @media (max-width:760px){ .mobile-nav-badge{display:inline-flex !important} }
+  @media (max-width:1024px){ .case-pad{order:1} .case-thumb-wrap{order:2} }
+  .bottom-nav{display:none}
+  footer h2 ul{list-style:none;margin:0;padding:0}
+  footer h2 li{margin:0}
+  @media (max-width:760px){
+    .nav-links{display:none !important}
+    .bottom-nav{display:block !important}
+    body{padding-bottom:80px}
+    .exp-pad{padding-left:0 !important;padding-right:0 !important}
+  }
+</style>
+</helmet>
+
+<sc-if value="{{ splashVisible }}" hint-placeholder-val="{{ true }}">
+  <div style="position:fixed;inset:0;z-index:9999;background:#F2EEE3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;opacity:{{ splashOpacity }};transform:{{ splashTransform }};filter:{{ splashFilter }};pointer-events:{{ splashPointerEvents }};transition:transform .6s cubic-bezier(.6,0,.2,1)">
+    <img src="assets/splash-avatar.png" alt="" style="width:120px;height:120px;object-fit:contain;animation:splashBob 1.6s ease-in-out infinite">
+    <div style="font-family:'Bricolage Grotesque';font-weight:800;font-size:22px;letter-spacing:-.02em">Parul Aggarwal</div>
+    <div style="font-family:'Space Mono';font-size:13px;color:#7a7468;min-height:20px;max-width:88vw;text-align:center">{{ splashCaption }}</div>
+    <div style="width:220px;height:6px;border-radius:999px;background:rgba(24,21,16,.12);overflow:hidden">
+      <div style="height:100%;background:#FF3B1F;border-radius:999px;animation:splashProgress 6s linear forwards"></div>
+    </div>
+  </div>
+</sc-if>
+
+<sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+<div class="wrap" style="max-width:1280px;margin:0 auto;padding:0 32px;overflow-x:clip">
+
+  <!-- NAV -->
+  <nav style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:18px 0;background:rgba(242,238,227,.82);backdrop-filter:blur(10px);border-bottom:1px solid rgba(24,21,16,.12)">
+    <button onClick="{{ goHome }}" style="display:flex;align-items:center;gap:10px;font-family:'Bricolage Grotesque';font-weight:800;font-size:19px;letter-spacing:-.02em;background:none;border:none;cursor:pointer;color:#181510;padding:0" style-hover="color:#FF3B1F">Parul Aggarwal</button>
+    <sc-if value="{{ showAvailability }}" hint-placeholder-val="{{ true }}">
+      <span class="mobile-nav-badge" style="display:none;align-items:center;gap:6px;padding:6px 11px;color:#f3eee3;border-radius:999px;font-weight:600;background-color:#ff3b1f;font-family:'Space Mono';font-size:13px">
+        <span style="width:7px;height:7px;border-radius:50px;animation:blink 1.4s infinite;background-color:#f3eee3"></span>Open to work
+      </span>
+    </sc-if>
+    <div class="nav-links" style="display:flex;align-items:center;gap:8px;font-family:'Space Mono';font-size:13px">
+      <button onClick="{{ goWork }}" class="nav-sec" style="padding:8px 12px;border-radius:999px;background:none;border:none;cursor:pointer;font-family:'Space Mono';font-size:13px;color:#181510" style-hover="background:rgba(24,21,16,.07)">work</button>
+      <button onClick="{{ goAbout }}" style="padding:8px 12px;border-radius:999px;background:none;border:none;cursor:pointer;font-family:'Space Mono';font-size:13px;color:#181510" style-hover="background:rgba(24,21,16,.07)">about</button>
+      <button onClick="{{ goPlay }}" class="nav-sec" style="padding:8px 12px;border-radius:999px;background:none;border:none;cursor:pointer;font-family:'Space Mono';font-size:13px;color:#181510" style-hover="background:rgba(24,21,16,.07)">play with parul</button>
+      <sc-if value="{{ showAvailability }}" hint-placeholder-val="{{ true }}">
+        <span style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; color: #181510EB; border-radius: 999px; font-weight: 500; background-color: #F3EEE3; font-family: 'Space Mono'; font-size: 13px; border-width: 1.5px; border-style: solid; border-color: #FF3B1FEB">
+          <span style="width: 7px; height: 7px; border-radius: 50px; animation: blink 1.4s infinite; background-color: #FF3B1FCC; color: #FF3B1FEB"></span>Open to work
+        </span>
+      </sc-if>
+      
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header id="top" class="hero" style="padding:88px 0 56px">
+
+
+    <h1 class="hero-h1" style="font-family:'Bricolage Grotesque';font-weight:800;font-size:clamp(44px,8.4vw,118px);line-height:.94;letter-spacing:-.035em;text-wrap:balance;max-width:14ch">
+      Designer. Thinker. who removes
+      <span style="position: relative; display: inline-block; white-space: nowrap;">friction<span style="position: absolute; left: -4px; right: -4px; bottom: 0.1em; height: 0.34em; background: rgb(255, 200, 61); z-index: -1; transform: rotate(-1.5deg);"></span></span>.
+    </h1>
+
+    <div class="hero-desc" style="font-family:'Space Mono';font-size:14px;color:#7a7468;letter-spacing:.01em;margin-top:22px">
+      Product Designer · 5+ years · Consumer Products · Growth &amp; Conversion
+    </div>
+
+    <div class="hero-cta-row" style="display:flex;flex-wrap:wrap;align-items:center;gap:22px;margin-top:40px">
+      <a href="#work" class="hero-cta-primary" style="display:inline-flex;align-items:center;gap:8px;padding:16px 26px;background:#FF3B1F;color:#F2EEE3;border-radius:999px;font-weight:700;font-family:'Space Mono';font-size:14px" style-hover="background:#181510">See the work ↓</a>
+    </div>
+  </header>
+</div>
+
+<!-- MARQUEE -->
+<div style="border-top:2px solid #181510;border-bottom:2px solid #181510;background:#181510;color:#F2EEE3;overflow:hidden;padding:16px 0">
+  <div class="marq" style="display:flex;width:max-content;animation:marquee 26s linear infinite;animation-play-state:{{ marqueePlay }};font-family:'Bricolage Grotesque';font-weight:700;font-size:30px;letter-spacing:-.01em">
+    <span style="display:flex;gap:34px;padding-right:34px;white-space:nowrap">
+      <span>Product design</span><span style="color:#FF3B1F">✦</span><span>Micro-interactions</span><span style="color:#FFC83D">✦</span><span>Design systems</span><span style="color:#7CFFB2">✦</span><span>AI-assisted UX</span><span style="color:#FF3B1F">✦</span><span>Prototyping</span><span style="color:#FFC83D">✦</span><span>User research</span><span style="color:#7CFFB2">✦</span>
+    </span>
+    <span style="display:flex;gap:34px;padding-right:34px;white-space:nowrap" aria-hidden="true">
+      <span>Product design</span><span style="color:#FF3B1F">✦</span><span>Micro-interactions</span><span style="color:#FFC83D">✦</span><span>Design systems</span><span style="color:#7CFFB2">✦</span><span>AI-assisted UX</span><span style="color:#FF3B1F">✦</span><span>Prototyping</span><span style="color:#FFC83D">✦</span><span>User research</span><span style="color:#7CFFB2">✦</span>
+    </span>
+  </div>
+</div>
+
+<div class="wrap" style="max-width:1280px;margin:0 auto;padding:0 32px">
+
+  <!-- STATS -->
+  <section class="stats" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(24,21,16,.14);border:1px solid rgba(24,21,16,.14);border-radius:18px;overflow:hidden;margin:64px 0">
+    <div class="stat-cell" style="background:#F2EEE3;padding:30px 26px">
+      <div class="stat-num" style="font-family:'Bricolage Grotesque';font-weight:800;font-size:46px;letter-spacing:-.03em;color:#FF3B1F">5+</div>
+      <div class="stat-label" style="font-family:'Space Mono';font-size:12px;color:#3a352c;margin-top:4px">years shipping</div>
+    </div>
+    <div class="stat-cell" style="background:#F2EEE3;padding:30px 26px">
+      <div class="stat-num" style="font-family:'Bricolage Grotesque';font-weight:800;font-size:46px;letter-spacing:-.03em;color:#1E37D8">25+</div>
+      <div class="stat-label" style="font-family:'Space Mono';font-size:12px;color:#3a352c;margin-top:4px">features shipped</div>
+    </div>
+    <div class="stat-cell" style="background:#F2EEE3;padding:30px 26px">
+      <div class="stat-num" style="font-family: 'Bricolage Grotesque'; font-weight: 800; font-size: 46px; letter-spacing: -.03em; color: #35B86B">15Cr+</div>
+      <div class="stat-label" style="font-family:'Space Mono';font-size:12px;color:#3a352c;margin-top:4px">consumer served</div>
+    </div>
+    <div class="stat-cell" style="background:#F2EEE3;padding:30px 26px">
+      <div class="stat-num" style="font-family:'Bricolage Grotesque';font-weight:800;font-size:46px;letter-spacing:-.03em">0</div>
+      <div class="stat-label" style="font-family:'Space Mono';font-size:12px;color:#3a352c;margin-top:4px">px left unaligned</div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section id="work" style="padding:40px 0 20px">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:36px">
+      <h2 style="font-family:'Bricolage Grotesque';font-weight:800;font-size:clamp(34px,5vw,64px);letter-spacing:-.03em">Selected work</h2>
+      
+    </div>
+
+    <!-- FEATURED CASE STUDY -->
+    <article onClick="{{ openSmytten }}" style="border:2px solid #181510;border-radius:26px;overflow:hidden;background:#FBF9F3;margin-bottom:28px;cursor:pointer" style-hover="box-shadow:0 10px 0 -4px #FF3B1F">
+      <div class="case-grid" style="display:grid;grid-template-columns:1.15fr .85fr;gap:0">
+        <div class="case-pad" style="padding:44px 44px 40px">
+          <div style="display:flex;gap:8px;flex-wrap:wrap;font-family:'Space Mono';font-size:12px;margin-bottom:22px">
+            <span style="padding:6px 11px;background:#181510;color:#F2EEE3;border-radius:999px">Smytten</span>
+            <span style="padding:6px 11px;border:1px solid rgba(24,21,16,.3);border-radius:999px">Conversion</span>
+          </div>
+          <h3 style="font-family:'Bricolage Grotesque';font-weight:800;font-size:clamp(28px,3.3vw,42px);line-height:1.02;letter-spacing:-.025em;margin-bottom:18px;text-wrap:balance">
+            Building trust through AI-powered review summaries
+          </h3>
+          <p class="case-extra" style="font-size:17px;line-height:1.55;color:#3a352c;max-width:48ch">
+            Users lingered on reviews but bailed before buying. I dug into funnels and session recordings, fixed the trust gap with reward-based reviews — then killed the <em style="font-style:italic">information overload</em> it created with concise, contextual AI summaries.
+          </p>
+          <div class="case-extra" style="display:flex;gap:34px;margin:30px 0 8px;flex-wrap:wrap">
+            <div>
+              <div style="font-family:'Bricolage Grotesque';font-weight:800;font-size:34px;letter-spacing:-.02em;color:#FF3B1F">+5 pts</div>
+              <div style="font-family:'Space Mono';font-size:11px;color:#3a352c">PDP→cart conversion</div>
+            </div>
+            <div>
+              <div style="font-family:'Bricolage Grotesque';font-weight:800;font-size:34px;letter-spacing:-.02em;color:#1E37D8">↑↑</div>
+              <div style="font-family:'Space Mono';font-size:11px;color:#3a352c">review participation</div>
+            </div>
+            <div>
+              <div style="font-family:'Bricolage Grotesque';font-weight:800;font-size:34px;letter-spacing:-.02em">−fatigue</div>
+              <div style="font-family:'Space Mono';font-size:11px;color:#3a352c">faster decisions</div>
+            </div>
+          </div>
+          <span style="display:inline-flex;align-items:center;gap:8px;margin-top:22px;font-family:'Space Mono';font-size:14px;font-weight:700;border-bottom:2px solid #FF3B1F;padding-bottom:3px">Read the full case study →</span>
+        </div>
+
+        <!-- CASE THUMBNAIL -->
+        <div class="case-thumb-wrap" style="position:relative;display:flex;align-items:stretch;justify-content:center;overflow:hidden">
+          <img class="case-img" src="./0001-mqsg8y7g.png" alt="Smytten product page showing the AI-generated review summary and sentiment tags" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block">
+        </div>
+      </div>
+    </article>
+
+    <!-- FEATURED CASE STUDY 02 -->
+    <article onClick="{{ openBillBuster }}" style="border:2px solid #181510;border-radius:26px;overflow:hidden;background:#FBF9F3;margin-bottom:28px;cursor:pointer" style-hover="box-shadow:0 10px 0 -4px #FF3B1F">
+      <div class="case-grid" style="display:grid;grid-template-columns:.85fr 1.15fr;gap:0">
+        <!-- CASE THUMBNAIL -->
+        <div class="case-thumb-wrap" style="position:relative;display:flex;align-items:stretch;justify-content:center;overflow:hidden">
+          <img class="case-img" src="assets/billbuster-hero.png" alt="Smytten cart screen showing the Bill Buster reward unlocked popup — ₹75 OFF applied" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block">
+        </div>
+        <div class="case-pad" style="padding:44px 44px 40px">
+          <div style="display:flex;gap:8px;flex-wrap:wrap;font-family:'Space Mono';font-size:12px;margin-bottom:22px">
+            <span style="padding:6px 11px;background:#181510;color:#F2EEE3;border-radius:999px">Smytten</span>
+            <span style="padding:6px 11px;border:1px solid rgba(24,21,16,.3);border-radius:999px">Gamification</span>
+            <span style="padding:6px 11px;border:1px solid rgba(24,21,16,.3);border-radius:999px">Reward Systems</span><span style="padding:6px 11px;border:1px solid rgba(24,21,16,.3);border-radius:999px">Cart value</span>
+          </div>
+          <h3 style="font-family:'Bricolage Grotesque';font-weight:800;font-size:clamp(28px,3.3vw,42px);line-height:1.02;letter-spacing:-.025em;margin-bottom:18px;text-wrap:balance">
+            Bill Buster: more in the cart, by making progress visible
+          </h3>
+          <p class="case-extra" style="font-size:17px;line-height:1.55;color:#3a352c;max-width:48ch">
+            Shoppers checked out before unlocking offers because static discount banners were easy to ignore. I designed a <em style="font-style:italic">sticky, real-time reward tracker</em> that updates with every add-to-cart — and defended keeping it always-visible over a PM's toast idea. It shipped sticky.
+          </p>
+          <div class="case-extra" style="display:flex;gap:34px;margin:30px 0 8px;flex-wrap:wrap">
+            <div>
+              <div style="font-family:'Bricolage Grotesque';font-weight:800;font-size:34px;letter-spacing:-.02em;color:#1E37D8">19%→26%</div>
+              <div style="font-family:'Space Mono';font-size:11px;color:#3a352c">offer completion</div>
+            </div>
+            <div>
+              <div style="font-family:'Bricolage Grotesque';font-weight:800;font-size:34px;letter-spacing:-.02em;color:#FF3B1F">₹150</div>
+              <div style="font-family:'Space Mono';font-size:11px;color:#3a352c">gap made visible</div>
+            </div>
+            <div>
+              <div style="font-family:'Bricolage Grotesque';font-weight:800;font-size:34px;letter-spacing:-.02em">+motivate</div>
+              <div style="font-family:'Space Mono';font-size:11px;color:#3a352c">user to buy more</div>
+            </div>
+          </div>
+          <span style="display:inline-flex;align-items:center;gap:8px;margin-top:22px;font-family:'Space Mono';font-size:14px;font-weight:700;border-bottom:2px solid #FF3B1F;padding-bottom:3px">Read the full case study →</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- FEATURED CASE STUDY 03 -->
+    <article onClick="{{ openCombo }}" style="border:2px solid #181510;border-radius:26px;overflow:hidden;background:#FBF9F3;margin-bottom:28px;cursor:pointer" style-hover="box-shadow:0 10px 0 -4px #FF3B1F">
+      <div class="case-grid" style="display:grid;grid-template-columns:1.15fr .85fr;gap:0">
+        <div class="case-pad" style="padding:44px 44px 40px">
+          <div style="display:flex;gap:8px;flex-wrap:wrap;font-family:'Space Mono';font-size:12px;margin-bottom:22px">
+            <span style="padding:6px 11px;background:#181510;color:#F2EEE3;border-radius:999px">Smytten</span>
+            <span style="padding:6px 11px;border:1px solid rgba(24,21,16,.3);border-radius:999px">Discovery</span>
+          </div>
+          <h3 style="font-family:'Bricolage Grotesque';font-weight:800;font-size:clamp(28px,3.3vw,42px);line-height:1.02;letter-spacing:-.025em;margin-bottom:18px;text-wrap:balance">
+            Combo Generator: guided trial selection for a 300+ product catalog
+          </h3>
+          <p class="case-extra" style="font-size:17px;line-height:1.55;color:#3a352c;max-width:48ch">
+            Users came to explore, not search — with no query, no filter habit and no anchor, that's a discovery problem, not a browsing one. I reframed the flow around removing decisions instead of adding filters, with two low-cost ways to correct a wrong guess.
+          </p>
+          <div class="case-extra" style="display:flex;gap:34px;margin:30px 0 8px;flex-wrap:wrap">
+            <div>
+              <div style="font-family:'Bricolage Grotesque';font-weight:800;font-size:34px;letter-spacing:-.02em;color:#FF3B1F">22–28%</div>
+              <div style="font-family:'Space Mono';font-size:11px;color:#3a352c">proceeded to checkout</div>
+            </div>
+            <div>
+              <div style="font-family:'Bricolage Grotesque';font-weight:800;font-size:34px;letter-spacing:-.02em;color:#1E37D8">14–18%</div>
+              <div style="font-family:'Space Mono';font-size:11px;color:#3a352c">lift in selection completion</div>
+            </div>
+            <div>
+              
+              
+            </div>
+          </div>
+          <span style="display:inline-flex;align-items:center;gap:8px;margin-top:22px;font-family:'Space Mono';font-size:14px;font-weight:700;border-bottom:2px solid #FF3B1F;padding-bottom:3px">Read the full case study →</span>
+        </div>
+
+        <!-- CASE THUMBNAIL -->
+        <div class="case-thumb-wrap" style="position:relative;display:flex;align-items:stretch;justify-content:center;overflow:hidden">
+          <img class="case-img" src="./frame-3-mr4uqgc1.png" alt="Combo Generator — the curated combo view showing 8 recommended products" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block">
+        </div>
+      </div>
+    </article>
+
+    <!-- SMALLER PROJECTS -->
+    <div class="mini-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:28px">
+      
+      
+    </div>
+  </section>
+
+
+</div>
+
+<!-- CONTACT / FOOTER -->
+<footer id="contact" style="background:#181510;color:#F2EEE3;margin-top:40px">
+  <div class="foot-wrap" style="max-width:1280px;margin:0 auto;padding:88px 32px 40px">
+    <div style="font-family:'Space Mono';font-size:13px;color:#8f8a7c;margin-bottom:22px">Probably tweaking this footer again.</div>
+    <h2 style="font-family:'Bricolage Grotesque';font-weight:800;font-size:clamp(40px,8vw,108px);line-height:.95;letter-spacing:-.035em;text-wrap:balance;max-width:16ch">That's the work. Here's the <span style="font-weight: 800; color: #F2EEE31A">awkward</span> reaching out part.</h2>
+    <div class="foot-cta" style="display:flex;flex-wrap:wrap;gap:14px;margin-top:44px">
+      <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=a.parulatwork@gmail.com&amp;su=Let%27s%20work%20together" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;padding:16px 26px;background:#FF3B1F;color:#F2EEE3;border-radius:999px;font-family:'Space Mono';font-weight:700;font-size:15px" style-hover="background:#F2EEE3;color:#181510">Drop an Email</a>
+      <a href="assets/Parul-Aggarwal-Resume.pdf" download="Parul-Aggarwal-Resume.pdf" onClick="{{ downloadResume }}" style="display:inline-flex;align-items:center;gap:10px;padding:16px 26px;border:1.5px solid rgba(242,238,227,.35);border-radius:999px;font-family:'Space Mono';font-weight:700;font-size:15px" style-hover="border-color:#F2EEE3">Download resume ↓</a>
+      <a href="https://medium.com/@theparul" target="_blank" style="display:inline-flex;align-items:center;gap:10px;padding:16px 26px;border:1.5px solid rgba(242,238,227,.35);border-radius:999px;font-family:'Space Mono';font-weight:700;font-size:15px" style-hover="border-color:#F2EEE3">Medium ↗</a>
+      <a href="https://linkedin.com/in/parulatwork" target="_blank" style="display:inline-flex;align-items:center;gap:10px;padding:16px 26px;border:1.5px solid rgba(242,238,227,.35);border-radius:999px;font-family:'Space Mono';font-weight:700;font-size:15px" style-hover="border-color:#F2EEE3">LinkedIn ↗</a>
+    </div>
+    <div class="foot-bottom" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;margin-top:80px;padding-top:24px;border-top:1px solid rgba(242,238,227,.18);font-family:'Space Mono';font-size:12px;color:#a8a293">
+      <span>🧿</span>
+      <span>No templates were harmed</span>
+    </div>
+  </div>
+</footer>
+
+<nav class="bottom-nav" style="position:fixed;bottom:0;left:0;right:0;z-index:70;height:56px;background:#181510;border-top:2px solid #181510">
+  <div style="display:flex;height:100%">
+    <button onClick="{{ goHome }}" aria-label="Home" style="flex:1;display:flex;align-items:center;justify-content:center;background:none;border:none;color:#7CFFB2;cursor:pointer">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"></path><path d="M5.5 10v9a1 1 0 0 0 1 1H9a1 1 0 0 0 1-1v-4h4v4a1 1 0 0 0 1 1h2.5a1 1 0 0 0 1-1v-9"></path></svg>
+    </button>
+    <button onClick="{{ goWork }}" aria-label="Work" style="flex:1;display:flex;align-items:center;justify-content:center;background:none;border:none;color:#F2EEE3;cursor:pointer">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7.5" width="18" height="12" rx="1.5"></rect><path d="M8.5 7.5V6a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v1.5"></path><path d="M3 12.5h18"></path></svg>
+    </button>
+    <button onClick="{{ goAbout }}" aria-label="About" style="flex:1;display:flex;align-items:center;justify-content:center;background:none;border:none;color:#F2EEE3;cursor:pointer">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"></circle><path d="M5 20c0-3.6 3.1-6.5 7-6.5s7 2.9 7 6.5"></path></svg>
+    </button>
+    <button onClick="{{ goPlay }}" aria-label="Play with Parul" style="flex:1;display:flex;align-items:center;justify-content:center;background:none;border:none;color:#F2EEE3;cursor:pointer">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="8.5" width="19" height="9" rx="4"></rect><path d="M7.5 11v3M6 12.5h3"></path><circle cx="15.5" cy="11.5" r="0.9" fill="currentColor" stroke="none"></circle><circle cx="17.5" cy="13.5" r="0.9" fill="currentColor" stroke="none"></circle></svg>
+    </button>
+  </div>
+</nav>
+</sc-if>
+
+<!-- ===== ABOUT PAGE ===== -->
+<sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}">
+<div class="wrap" style="max-width:1280px;margin:0 auto;padding:0 32px;overflow-x:clip">
+  <nav style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:18px 0;background:rgba(242,238,227,.82);backdrop-filter:blur(10px);border-bottom:1px solid rgba(24,21,16,.12)">
+    <button onClick="{{ goHome }}" style="display:flex;align-items:center;gap:10px;font-family:'Bricolage Grotesque';font-weight:800;font-size:19px;letter-spacing:-.02em;background:none;border:none;cursor:pointer;color:#181510;padding:0" style-hover="color:#FF3B1F">Parul Aggarwal</button>
+    <sc-if value="{{ showAvailability }}" hint-placeholder-val="{{ true }}">
+      <span class="mobile-nav-badge" style="display:none;align-items:center;gap:6px;padding:6px 11px;color:#f3eee3;border-radius:999px;font-weight:600;background-color:#ff3b1f;font-family:'Space Mono';font-size:13px">
+        <span style="width:7px;height:7px;border-radius:50px;animation:blink 1.4s infinite;background-color:#f3eee3"></span>Open to work
+      </span>
+    </sc-if>
+    <div class="nav-links" style="display:flex;align-items:center;gap:8px;font-family:'Space Mono';font-size:13px">
+      <button onClick="{{ goWork }}" class="nav-sec" style="padding:8px 12px;border-radius:999px;background:none;border:none;cursor:pointer;font-family:'Space Mono';font-size:13px;color:#181510" style-hover="background:rgba(24,21,16,.07)">work</button>
+      <button onClick="{{ goAbout }}" style="padding:8px 12px;border-radius:999px;background:none;border:none;cursor:pointer;font-family:'Space Mono';font-size:13px;color:#181510" style-hover="background:rgba(24,21,16,.07)">about</button>
+      <button onClick="{{ goPlay }}" class="nav-sec" style="padding:8px 12px;border-radius:999px;background:none;border:none;cursor:pointer;font-family:'Space Mono';font-size:13px;color:#181510" style-hover="background:rgba(24,21,16,.07)">play with parul</button>
+      <sc-if value="{{ showAvailability }}" hint-placeholder-val="{{ true }}">
+        <span style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; color: #181510EB; border-radius: 999px; font-weight: 500; background-color: #F3EEE3; font-family: 'Space Mono'; font-size: 13px; border-width: 1.5px; border-style: solid; border-color: #FF3B1FEB">
+          <span style="width: 7px; height: 7px; border-radius: 50px; animation: blink 1.4s infinite; background-color: #FF3B1FCC; color: #FF3B1FEB"></span>Open to work
+        </span>
+      </sc-if>
+    </div>
+  </nav>
+</div>
+
+<div class="wrap detail-wrap" style="max-width:1080px;margin:0 auto;padding:0 32px 90px;min-height:100vh">
+  <header class="detail-head" style="padding:48px 0 8px">
+    <div style="font-family:'Space Mono';font-size:13px;color:#7a7468;margin-bottom:18px">About</div>
+    <div class="about-grid" style="display: grid; grid-template-columns: 1.3fr .7fr; gap: 56px; align-items: start; position: relative">
+      <div>
+        <h1 style="font-family:'Bricolage Grotesque';font-weight:800;font-size:clamp(38px,5.6vw,64px);line-height:1.02;letter-spacing:-.03em;margin-bottom:24px;text-wrap:balance">
+          Hi, I'm Parul<em style="font-style:italic;color:#FF3B1F">.</em>
+        </h1>
+        <p style="font-size:19px;line-height:1.6;color:#3a352c;margin-bottom:16px">
+          Senior UI/UX Designer with 5+ years designing for B2C and D2C mobile apps at a scale. At Smytten, I owned end-to-end UX — focusing on retention, conversion, and revenue for a 2Cr+ user base.
+        </p>
+        <p style="font-size:19px;line-height:1.6;color:#3a352c;margin-bottom:28px">
+          Before that, at Swiggy, I designed high-impact campaigns reaching 7Cr+ users — learning to build fast, stay consistent, and create systems that scale.
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:14px">
+          <a href="assets/Parul-Aggarwal-Resume.pdf" download="Parul-Aggarwal-Resume.pdf" onClick="{{ downloadResume }}" style="display:inline-flex;align-items:center;gap:10px;padding:14px 22px;background:#FF3B1F;color:#F2EEE3;border-radius:999px;font-family:'Space Mono';font-weight:700;font-size:14px" style-hover="background:#181510">Download resume ↓</a>
+          <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=a.parulatwork@gmail.com&amp;su=Let%27s%20work%20together" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border:1.5px solid #181510;border-radius:999px;font-family:'Space Mono';font-weight:700;font-size:14px" style-hover="background:#181510;color:#F2EEE3">a.parulatwork@gmail.com</a>
+        </div>
+      </div>
+
+      <!-- PHOTO CAROUSEL -->
+      <div style="display:flex;flex-direction:column;align-items:center">
+        <div style="position:relative;width:100%;max-width:340px;aspect-ratio:3/4;border-radius:22px;overflow:hidden">
+          <div style="{{ aboutTrackStyle }}">
+            <sc-for list="{{ aboutPhotos }}" as="p" hint-placeholder-count="6">
+              <img src="{{ p.src }}" alt="Parul — photo" loading="lazy" style="width:{{ aboutSlideWidthPercent }}%;flex-shrink:0;height:100%;object-fit:cover;display:block">
+            </sc-for>
+          </div>
+          
+          
+        </div>
+        <div style="display:flex;gap:8px;margin-top:18px">
+          <sc-for list="{{ aboutPhotos }}" as="p" hint-placeholder-count="6">
+            <button onClick="{{ p.onClick }}" aria-label="Go to photo" style="width:8px;height:8px;border-radius:50%;border:none;cursor:pointer;background:{{ p.dotColor }};padding:0"></button>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- EXPERIENCE -->
+  <div class="detail-section exp-pad" style="margin-top: 64px; padding-left: 0px; padding-right: 32px">
+    <h2 style="font-family: 'Bricolage Grotesque'; font-weight: 800; font-size: clamp(24px,3vw,34px); letter-spacing: -.02em; margin-bottom: 26px; text-align: left">Experience</h2>
+
+    <div style="border-top:2px solid #181510;padding-top:24px;margin-bottom:34px">
+      <div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:6px">
+        <div style="font-family:'Bricolage Grotesque';font-weight:800;font-size:22px;letter-spacing:-.02em">Senior UI/UX Designer · Smytten</div>
+        <div style="font-family:'Space Mono';font-size:12px;color:#7a7468">Sept 2022 — Jan 2026 · Bangalore</div>
+      </div>
+      <ul style="margin-top:14px;padding-left:20px;display:flex;flex-direction:column;gap:10px">
+        <li style="font-size:16px;line-height:1.55;color:#3a352c">Owned end-to-end UX across Smytten's mobile app and web platform — a high-scale B2C &amp; D2C discovery and e-commerce product serving millions of consumers — from research and problem framing through engineering handoff.</li>
+        <li style="font-size:16px;line-height:1.55;color:#3a352c">Improved PDP-to-cart progression by 5% by designing AI-powered review summaries and trust-signal experiences optimised for mobile; decisions driven by funnel data, drop-off analysis, and usability testing.</li>
+        <li style="font-size:16px;line-height:1.55;color:#3a352c">Drove competitive benchmarking across key verticals; delivered structured analysis that informed feature prioritisation and design direction across product squads.</li>
+        <li style="font-size:16px;line-height:1.55;color:#3a352c">Maintained consistent IA across multiple surfaces; produced annotated component specs, interaction notes, and edge-case docs that significantly reduced design-to-dev ambiguity.</li>
+        <li style="font-size:16px;line-height:1.55;color:#3a352c">Led user research cycles (interviews, usability tests, persona mapping) that surfaced unmet needs across the trial journey and directly shaped quarterly roadmap priorities alongside PMs.</li>
+        <li style="font-size:16px;line-height:1.55;color:#3a352c">Contributed to a Figma-based design system — building and maintaining reusable mobile components, interaction specs, and edge-case documentation that reduced design-to-dev ambiguity at scale.</li>
+      </ul>
+    </div>
+
+    <div style="border-top:2px solid #181510;padding-top:24px">
+      <div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:6px">
+        <div style="font-family:'Bricolage Grotesque';font-weight:800;font-size:22px;letter-spacing:-.02em">Senior Graphic Designer · Swiggy</div>
+        <div style="font-family:'Space Mono';font-size:12px;color:#7a7468">Sept 2020 — Sept 2022 · Bangalore</div>
+      </div>
+      <ul style="margin-top:14px;padding-left:20px;display:flex;flex-direction:column;gap:10px">
+        <li style="font-size:16px;line-height:1.55;color:#3a352c">Designed high-impact consumer campaigns and in-app visual experiences across Swiggy's mobile ecosystem, reaching 10M+ users at national scale.</li>
+        <li style="font-size:16px;line-height:1.55;color:#3a352c">Led end-to-end production of festive and occasion-based campaigns, maintaining brand consistency across diverse cultural contexts.</li>
+        <li style="font-size:16px;line-height:1.55;color:#3a352c">Built standardised design systems, style guides, and reusable component libraries in Figma — reducing production turnaround and enabling consistent execution across marketing and product teams.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- EDUCATION -->
+  <div class="detail-section exp-pad" style="margin-top: 56px; padding-left: 0px; padding-right: 32px">
+    <h2 style="font-family:'Bricolage Grotesque';font-weight:800;font-size:clamp(24px,3vw,34px);letter-spacing:-.02em;margin-bottom:26px">Education</h2>
+    <div style="display:flex;flex-direction:column;gap:24px">
+      <div style="border-top:2px solid #181510;padding-top:18px">
+        <div style="font-family:'Bricolage Grotesque';font-weight:700;font-size:18px">Bachelor of Design (B.Des)</div>
+        <div style="font-family:'Space Mono';font-size:12px;color:#7a7468;margin-top:6px">Lovely Professional University, Phagwara</div>
+        <div style="font-family:'Space Mono';font-size:12px;color:#7a7468">2017 — 2020</div>
+      </div>
+      <div style="border-top:2px solid #181510;padding-top:18px">
+        <div style="font-family:'Bricolage Grotesque';font-weight:700;font-size:18px">Diploma in Graphics, Web Designing &amp; 2D Animation</div>
+        <div style="font-family:'Space Mono';font-size:12px;color:#7a7468;margin-top:6px">Maya Academy of Advanced Cinematics, Jalandhar</div>
+        <div style="font-family:'Space Mono';font-size:12px;color:#7a7468">2016 — 2017</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SKILLS -->
+  <div class="detail-section" style="margin-top:56px">
+    <h2 style="font-family:'Bricolage Grotesque';font-weight:800;font-size:clamp(24px,3vw,34px);letter-spacing:-.02em;margin-bottom:22px">Skills</h2>
+    <div style="display:flex;flex-wrap:wrap;gap:10px">
+      <sc-for list="{{ skills }}" as="s" hint-placeholder-count="12">
+        <span style="padding:9px 16px;background:rgba(24,21,16,.06);color:#3a352c;border-radius:8px;font-family:'Space Mono';font-size:13px;font-weight:500;transition:transform .2s cubic-bezier(.4,0,.2,1),background .2s ease" style-hover="background:rgba(255,59,31,.12);color:#FF3B1F;transform:translateY(-3px)">{{ s }}</span>
+      </sc-for>
+    </div>
+  </div>
+
+</div>
+
+<nav class="bottom-nav" style="position:fixed;bottom:0;left:0;right:0;z-index:70;height:56px;background:#181510;border-top:2px solid #181510">
+  <div style="display:flex;height:100%">
+    <button onClick="{{ goHome }}" aria-label="Home" style="flex:1;display:flex;align-items:center;justify-content:center;background:none;border:none;color:#F2EEE3;cursor:pointer">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"></path><path d="M5.5 10v9a1 1 0 0 0 1 1H9a1 1 0 0 0 1-1v-4h4v4a1 1 0 0 0 1 1h2.5a1 1 0 0 0 1-1v-9"></path></svg>
+    </button>
+    <button onClick="{{ goWork }}" aria-label="Work" style="flex:1;display:flex;align-items:center;justify-content:center;background:none;border:none;color:#F2EEE3;cursor:pointer">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7.5" width="18" height="12" rx="1.5"></rect><path d="M8.5 7.5V6a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v1.5"></path><path d="M3 12.5h18"></path></svg>
+    </button>
+    <button onClick="{{ goAbout }}" aria-label="About" style="flex:1;display:flex;align-items:center;justify-content:center;background:none;border:none;color:#7CFFB2;cursor:pointer">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"></circle><path d="M5 20c0-3.6 3.1-6.5 7-6.5s7 2.9 7 6.5"></path></svg>
+    </button>
+    <button onClick="{{ goPlay }}" aria-label="Play with Parul" style="flex:1;display:flex;align-items:center;justify-content:center;background:none;border:none;color:#F2EEE3;cursor:pointer">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="8.5" width="19" height="9" rx="4"></rect><path d="M7.5 11v3M6 12.5h3"></path><circle cx="15.5" cy="11.5" r="0.9" fill="currentColor" stroke="none"></circle><circle cx="17.5" cy="13.5" r="0.9" fill="currentColor" stroke="none"></circle></svg>
+    </button>
+  </div>
+</nav>
+</sc-if>
+
+<!-- ===== CASE STUDY DETAIL ===== -->
+<sc-if value="{{ showCase }}" hint-placeholder-val="{{ false }}">
+<div class="wrap" style="max-width:1280px;margin:0 auto;padding:0 32px;overflow-x:clip">
+  <nav style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:18px 0;background:rgba(242,238,227,.82);backdrop-filter:blur(10px);border-bottom:1px solid rgba(24,21,16,.12)">
+    <button onClick="{{ goHome }}" style="display:flex;align-items:center;gap:10px;font-family:'Bricolage Grotesque';font-weight:800;font-size:19px;letter-spacing:-.02em;background:none;border:none;cursor:pointer;color:#181510;padding:0" style-hover="color:#FF3B1F">Parul Aggarwal</button>
+    <sc-if value="{{ showAvailability }}" hint-placeholder-val="{{ true }}">
+      <span class="mobile-nav-badge" style="display:none;align-items:center;gap:6px;padding:6px 11px;color:#f3eee3;border-radius:999px;font-weight:600;background-color:#ff3b1f;font-family:'Space Mono';font-size:13px">
+        <span style="width:7px;height:7px;border-radius:50px;animation:blink 1.4s infinite;background-color:#f3eee3"></span>Open to work
+      </span>
+    </sc-if>
+    <div class="nav-links" style="display:flex;align-items:center;gap:8px;font-family:'Space Mono';font-size:13px">
+      <button onClick="{{ goWork }}" class="nav-sec" style="padding:8px 12px;border-radius:999px;background:none;border:none;cursor:pointer;font-family:'Space Mono';font-size:13px;color:#181510" style-hover="background:rgba(24,21,16,.07)">work</button>
+      <button onClick="{{ goAbout }}" style="padding:8px 12px;border-radius:999px;background:none;border:none;cursor:pointer;font-family:'Space Mono';font-size:13px;color:#181510" style-hover="background:rgba(24,21,16,.07)">about</button>
+      <button onClick="{{ goPlay }}" class="nav-sec" style="padding:8px 12px;border-radius:999px;background:none;border:none;cursor:pointer;font-family:'Space Mono';font-size:13px;color:#181510" style-hover="background:rgba(24,21,16,.07)">play with parul</button>
+      <sc-if value="{{ showAvailability }}" hint-placeholder-val="{{ true }}">
+        <span style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; color: #181510EB; border-radius: 999px; font-weight: 500; background-color: #F3EEE3; font-family: 'Space Mono'; font-size: 13px; border-width: 1.5px; border-style: solid; border-color: #FF3B1FEB">
+          <span style="width: 7px; height: 7px; border-radius: 50px; animation: blink 1.4s infinite; background-color: #FF3B1FCC; color: #FF3B1FEB"></span>Open to work
+        </span>
+      </sc-if>
+    </div>
+  </nav>
+</div>
+
+<div class="wrap detail-wrap" style="max-width:1080px;margin:0 auto;padding:0 32px 90px;min-height:100vh">
+  <header class="detail-head" style="padding: 48px 0 8px; padding-bottom: 0px">
+    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px;font-family:'Space Mono';font-size:13px;letter-spacing:.02em;margin-bottom:22px">
+      <span style="padding:6px 12px;background:#181510;color:#F2EEE3;border-radius:999px">{{ caseClient }}</span><sc-for list="{{ caseChips }}" as="chip" hint-placeholder-count="3"><span style="padding: 6px 12px; color: #181510eb; border-radius: 999px; background-color: #f3eee3; border-width: 1px; border-style: solid; border-color: #0f0c08">{{ chip }}</span></sc-for>
+    </div>
+    <h1 style="font-family: 'Bricolage Grotesque'; font-weight: 800; font-size: clamp(34px,5.6vw,72px); line-height: 1; letter-spacing: -.03em; text-wrap: balance; max-width: 999px; margin-bottom: 24px; width: 100%">{{ caseTitle }}</h1>
+    <p style="font-size:20px;line-height:1.55;color:#3a352c;max-width:60ch">{{ caseSubtitle }}</p>
+    
+  </header>
+
+  <div class="detail-meta" style="display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin:34px 0 6px;padding:24px 0;border-top:1px solid rgba(24,21,16,.18);border-bottom:1px solid rgba(24,21,16,.18)">
+    <sc-for list="{{ caseMeta }}" as="mt" hint-placeholder-count="4">
+      <div>
+        <div style="font-family:'Space Mono';font-size:11px;letter-spacing:.04em;color:#7a7468;margin-bottom:5px">{{ mt.k }}</div>
+        <div style="font-weight:600;font-size:15px">{{ mt.v }}</div>
+      </div>
+    </sc-for>
+  </div>
+
+  <sc-if value="{{ caseHasImage }}" hint-placeholder-val="{{ false }}">
+    
+  </sc-if>
+  <sc-if value="{{ caseNoImage }}" hint-placeholder-val="{{ false }}">
+    <div style="margin-top:30px;border:2px solid #181510;border-radius:22px;aspect-ratio:16/9;background:repeating-linear-gradient(45deg,#ECE7DA,#ECE7DA 14px,#F2EEE3 14px,#F2EEE3 28px);display:flex;align-items:center;justify-content:center">
+      <span style="font-family:'Space Mono';font-size:12px;color:#7a7468;background:#F2EEE3;padding:9px 15px;border-radius:999px;border:1px solid rgba(24,21,16,.2)">{{ casePlaceholder }}</span>
+    </div>
+  </sc-if>
+
+  <div class="detail-metrics" style="display:flex;flex-wrap:wrap;gap:46px;margin:46px 0 8px">
+    <sc-for list="{{ caseMetrics }}" as="m" hint-placeholder-count="3">
+      <div>
+        <div style="font-family:'Bricolage Grotesque';font-weight:800;font-size:46px;letter-spacing:-.02em;color:{{ m.color }}">{{ m.value }}</div>
+        <div style="font-family:'Space Mono';font-size:12px;color:#3a352c;margin-top:2px">{{ m.label }}</div>
+      </div>
+    </sc-for>
+  </div>
+
+  <sc-if value="{{ isSmytten }}" hint-placeholder-val="{{ false }}">
+    
+
+    <div class="detail-section" style="margin-top:30px;max-width:999px;width:100%">
+      <img src="./frame-2147224476-mrmhc5lq-fqii.png" alt="Hero / cover image" style="width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:18px;display:block">
+    </div>
+
+    <div class="detail-section" style="margin-top: 46px; max-width: 999px; width: 100%">
+      <h2 style="font-family: 'Bricolage Grotesque'; font-weight: 800; font-size: clamp(24px,3vw,34px); letter-spacing: -.02em; margin-bottom: 14px; width: 100%">Brief</h2>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:16px">At Smytten, the Product Detail Page (PDP) plays a critical role in the conversion journey. Users discover products, evaluate trust signals, compare opinions, and decide whether to move forward with a purchase.</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:8px">But while tracking user behavior across the funnel, we noticed a recurring problem:</p>
+      <p style="font-family:'Bricolage Grotesque';font-weight:700;font-size:clamp(22px,2.6vw,30px);line-height:1.3;letter-spacing:-.01em;color:#181510;border-left:3px solid #FF3B1F;padding-left:22px;margin:18px 0 22px">Users were spending time on the PDP, especially around reviews, but many were exiting before making a purchase.</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:16px">This drop-off was directly impacting conversion performance.</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:22px">For categories like skincare and beauty, users rarely purchase based on product descriptions alone. They look for reassurance from real users before making a decision. Reviews had become one of the strongest trust indicators within the journey.</p>
+      <p style="font-family:'Bricolage Grotesque';font-weight:700;font-size:19px;color:#181510;margin-bottom:6px">The problem was</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c">many products simply didn't have enough meaningful reviews to build confidence.</p>
+    </div>
+
+    <div class="detail-section" style="margin-top: 46px; max-width: 999px; width: 100%">
+      <h2 style="font-family: 'Bricolage Grotesque'; font-weight: 800; font-size: clamp(24px,3vw,34px); letter-spacing: -.02em; margin-bottom: 14px; width: 100%">Understanding the Problem</h2>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:10px">To understand what was happening, I collaborated closely with the Product Manager to analyze user behavior through:</p>
+      <ul style="margin:0 0 22px;padding-left:22px;display:flex;flex-direction:column;gap:8px">
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">Funnel analysis</li>
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">Session recordings</li>
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">Review page interaction tracking</li>
+      </ul>
+      <p style="font-family:'Bricolage Grotesque';font-weight:700;font-size:19px;color:#181510;margin-bottom:10px">Tools Used</p>
+      <ul style="margin:0 0 22px;padding-left:22px;display:flex;flex-direction:column;gap:8px">
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">MoEngage</li>
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">Clarity</li>
+      </ul>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:16px">What we discovered was interesting.</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:16px">Users were actively opening the review section before purchasing, but products with fewer reviews created hesitation and uncertainty. In many cases, users simply abandoned the journey without progressing further.</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:22px">At the same time, we noticed another behavioral pattern: users who had bad product experiences were naturally more likely to leave reviews, while users who had positive experiences often moved on without contributing anything.</p>
+      <p style="font-family:'Bricolage Grotesque';font-weight:700;font-size:19px;color:#181510;margin-bottom:10px">This created an imbalance:</p>
+      <ul style="margin:0 0 22px;padding-left:22px;display:flex;flex-direction:column;gap:8px">
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">fewer reviews overall</li>
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">inconsistent trust signals</li>
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">weaker social proof across PDPs</li>
+      </ul>
+      <p style="font-family:'Bricolage Grotesque';font-weight:700;font-size:19px;color:#181510;margin-bottom:6px">The business impact was clear:</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c">low trust was increasing friction inside the conversion funnel.</p>
+    </div>
+
+    <div class="detail-section" style="margin-top: 46px; max-width: 999px; width: 100%">
+      <h2 style="font-family: 'Bricolage Grotesque'; font-weight: 800; font-size: clamp(24px,3vw,34px); letter-spacing: -.02em; margin-bottom: 14px; width: 100%">Funnel Performance Before vs After Feature Rollout</h2>
+    </div>
+
+    <div class="detail-section" style="margin-top: 46px; max-width: 999px; width: 100%">
+      <h2 style="font-family: 'Bricolage Grotesque'; font-weight: 800; font-size: clamp(24px,3vw,34px); letter-spacing: -.02em; margin-bottom: 14px; width: 100%">Business Impact</h2>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:16px">After introducing reward-based reviews and AI-powered review summaries, we observed stronger progression within the purchase funnel.</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:22px">The most noticeable improvement was seen between the PDP and Cart stage, where conversion progression increased from 58% to 63%, indicating improved purchase confidence and reduced friction during product evaluation.</p>
+      <p style="font-family:'Bricolage Grotesque';font-weight:700;font-size:19px;color:#181510;margin-bottom:10px">The feature also contributed to:</p>
+      <ul style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:8px">
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">higher review participation</li>
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">stronger PDP engagement</li>
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">faster user decision-making</li>
+      </ul>
+    </div>
+
+    <div class="detail-section" style="margin-top: 46px; max-width: 999px; width: 100%">
+      <h2 style="font-family: 'Bricolage Grotesque'; font-weight: 800; font-size: clamp(24px,3vw,34px); letter-spacing: -.02em; margin-bottom: 14px; width: 100%">Phase 1 — Solving the Trust Gap</h2>
+      <p style="font-family:'Bricolage Grotesque';font-weight:700;font-size:19px;color:#181510;margin-bottom:6px">Our first objective was simple:</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:22px">increase authentic review participation across products.</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:16px">But instead of forcing users into feedback flows, we wanted to create motivation at the right moment in the journey.</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:16px">We introduced a reward-based review system where users received 5–10 Smytten Bucks for submitting product reviews after delivery.</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:22px">Once a product was delivered, users received a push notification encouraging them to share feedback and earn rewards redeemable within the platform ecosystem.</p>
+      <p style="font-family:'Bricolage Grotesque';font-weight:700;font-size:19px;color:#181510;margin-bottom:10px">The experience was intentionally designed to feel:</p>
+      <ul style="margin:0 0 22px;padding-left:22px;display:flex;flex-direction:column;gap:8px">
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">lightweight</li>
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">rewarding</li>
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">frictionless</li>
+      </ul>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:6px">The goal wasn't just collecting more reviews.</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:16px">It was strengthening trust signals across the PDP experience.</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:16px">And it worked.</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c">Review participation started increasing across products, helping users discover more authentic product experiences before purchasing.</p>
+      <div style="margin-top:30px;display:flex;flex-direction:column;align-items:center">
+        
+        <img src="./frame-2147224675-mrmhcy2k-3ayp.png" alt="Hero / cover image" style="width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:18px;display:block">
+      </div>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-top:24px">But shortly after improving one problem, another one surfaced.</p>
+    </div>
+
+    <div class="detail-section" style="margin-top: 46px; max-width: 999px; width: 100%">
+      <h2 style="font-family: 'Bricolage Grotesque'; font-weight: 800; font-size: clamp(24px,3vw,34px); letter-spacing: -.02em; margin-bottom: 14px; width: 100%">A New UX Problem Emerged</h2>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:16px">As review volume increased, user behavior started shifting again.</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:22px">Users were now spending excessive time scrolling through reviews, comparing opinions, filtering sentiments manually, and trying to understand whether a product was actually suitable for them.</p>
+      <p style="font-family:'Bricolage Grotesque';font-weight:700;font-size:19px;color:#181510;margin-bottom:10px">Session recordings revealed users repeatedly:</p>
+      <ul style="margin:0 0 22px;padding-left:22px;display:flex;flex-direction:column;gap:8px">
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">scrolling through long review sections</li>
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">opening multiple reviews</li>
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">comparing positive and negative experiences</li>
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">exiting the PDP without progressing further</li>
+      </ul>
+      <div style="margin-top:8px">
+        
+        <img src="./frame-2147224676-mrmhd6l3-h39q.png" alt="Session recording insights / long review section" style="width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:18px;display:block">
+      </div>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-top:24px;margin-bottom:6px">The issue was no longer:</p>
+      <p style="font-family:'Bricolage Grotesque';font-weight:700;font-size:clamp(22px,2.6vw,30px);line-height:1.3;letter-spacing:-.01em;color:#181510;border-left:3px solid #FF3B1F;padding-left:22px;margin:14px 0 22px">"Users don't have enough information."</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:6px">The issue became:</p>
+      <p style="font-family:'Bricolage Grotesque';font-weight:700;font-size:clamp(22px,2.6vw,30px);line-height:1.3;letter-spacing:-.01em;color:#181510;border-left:3px solid #FF3B1F;padding-left:22px;margin:14px 0 22px">"Users have too much information to process."</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c">This created decision fatigue inside the purchase journey.</p>
+    </div>
+
+    <div class="detail-section" style="margin-top: 46px; max-width: 999px; width: 100%">
+      <h2 style="font-family: 'Bricolage Grotesque'; font-weight: 800; font-size: clamp(24px,3vw,34px); letter-spacing: -.02em; margin-bottom: 14px; width: 100%">Rethinking the Review Experience</h2>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:16px">At this stage, we explored how users consume reviews rather than how many reviews existed.</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:6px">Traditional filtering and sorting patterns could help users navigate reviews, but they still required effort:</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:22px">users had to manually filter ratings, compare sentiments, and interpret feedback themselves.</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:16px">We wanted to reduce the effort required to reach a decision.</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:6px">Instead of making users search for answers, we asked:</p>
+      <p style="font-family:'Bricolage Grotesque';font-weight:700;font-size:clamp(22px,2.6vw,30px);line-height:1.3;letter-spacing:-.01em;color:#181510;border-left:3px solid #FF3B1F;padding-left:22px;margin:14px 0 22px">"What if the interface could summarize collective user sentiment instantly?"</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c">This led to the AI Summary concept.</p>
+      <div style="margin-top:24px">
+        
+        <img src="./frame-2147224476-mrmhdf5x-ty3d.png" alt="Early AI Summary exploration / wireframe" style="width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:18px;display:block">
+      </div>
+    </div>
+
+    <div class="detail-section" style="margin-top: 46px; max-width: 999px; width: 100%">
+      <h2 style="font-family: 'Bricolage Grotesque'; font-weight: 800; font-size: clamp(24px,3vw,34px); letter-spacing: -.02em; margin-bottom: 14px; width: 100%">The Solution — AI-Powered Review Summaries</h2>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:16px">We introduced concise AI-generated summaries directly inside the PDP review section.</p>
+      <p style="font-family:'Bricolage Grotesque';font-weight:700;font-size:19px;color:#181510;margin-bottom:10px">As users reached the review area, they were shown:</p>
+      <ul style="margin:0 0 22px;padding-left:22px;display:flex;flex-direction:column;gap:8px">
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">a short summary generated from real user reviews</li>
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">quick sentiment chips</li>
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">contextual "good fit / not ideal for" indicators</li>
+      </ul>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:6px">The goal was not to replace reviews.</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c">The goal was to help users understand reviews faster.</p>
+      <div style="margin-top:30px;display:flex;flex-direction:column;align-items:center">
+        
+        
+      </div>
+    </div>
+
+    <div class="detail-section" style="margin-top: 46px; max-width: 999px; width: 100%">
+      <h2 style="font-family: 'Bricolage Grotesque'; font-weight: 800; font-size: clamp(24px,3vw,34px); letter-spacing: -.02em; margin-bottom: 14px; width: 100%">Designing for Personal Relevance</h2>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:16px">One important UX decision was avoiding generic "good" or "bad" labeling.</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:22px">Beauty and skincare products are highly subjective. A product that works well for one user may not work for another.</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:6px">Instead of saying:</p>
+      <p style="font-family:'Bricolage Grotesque';font-weight:700;font-size:clamp(22px,2.6vw,30px);line-height:1.3;letter-spacing:-.01em;color:#181510;border-left:3px solid #FF3B1F;padding-left:22px;margin:14px 0 22px">"This product is bad"</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:6px">the experience focused on:</p>
+      <p style="font-family:'Bricolage Grotesque';font-weight:700;font-size:clamp(22px,2.6vw,30px);line-height:1.3;letter-spacing:-.01em;color:#181510;border-left:3px solid #FF3B1F;padding-left:22px;margin:14px 0 22px">"This product may not be suitable for your specific need."</p>
+      <p style="font-family:'Bricolage Grotesque';font-weight:700;font-size:19px;color:#181510;margin-bottom:10px">For example:</p>
+      <ul style="margin:0 0 22px;padding-left:22px;display:flex;flex-direction:column;gap:8px">
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">Not for frizzy hair</li>
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">Good for dry hair</li>
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">Better for lightweight hydration</li>
+      </ul>
+      <div style="margin-top:8px;display:flex;flex-direction:column;align-items:center">
+        
+        <img src="./1_ogtxfqe_ejw81jvs17llqq-mrmhdvlb-o85l.webp" alt="Early AI Summary exploration / wireframe" style="width: 1002px; aspect-ratio: 16/9; object-fit: scale-down; border-radius: 0px; display: block; height: 158px">
+      </div>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-top:24px;margin-bottom:16px">This shifted the experience from broad product judgment to contextual product understanding.</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c">And from a business perspective, it helped users make faster and more confident decisions without leaving the PDP journey.</p>
+    </div>
+
+    <div class="detail-section" style="margin-top: 46px; max-width: 999px; width: 100%">
+      <h2 style="font-family: 'Bricolage Grotesque'; font-weight: 800; font-size: clamp(24px,3vw,34px); letter-spacing: -.02em; margin-bottom: 14px; width: 100%">My Contribution</h2>
+      <p style="font-family:'Bricolage Grotesque';font-weight:700;font-size:19px;color:#181510;margin-bottom:10px">As the UX Designer on the project, I worked on:</p>
+      <ul style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:8px">
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">User behavior analysis through funnel tracking and session recordings</li>
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">Identifying trust and decision-fatigue friction points</li>
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">Designing the review feedback journey</li>
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">Collaborating closely with the Product Manager on product direction</li>
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">Defining the AI summary experience from a UX perspective</li>
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">Simplifying review consumption within the PDP flow</li>
+      </ul>
+    </div>
+
+    <div class="detail-section" style="margin-top: 46px; max-width: 999px; width: 100%">
+      <h2 style="font-family: 'Bricolage Grotesque'; font-weight: 800; font-size: clamp(24px,3vw,34px); letter-spacing: -.02em; margin-bottom: 14px; width: 100%">Outcomes</h2>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:24px">The project helped improve how users interacted with reviews during the purchase journey.</p>
+      <p style="font-family:'Bricolage Grotesque';font-weight:700;font-size:19px;color:#181510;margin-bottom:10px">Impact</p>
+      <ul style="margin:0;padding-left:22px;display:flex;flex-direction:column;gap:8px">
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">Increased review submissions across products</li>
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">Faster user decision-making</li>
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">Better interaction with PDP review sections</li>
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">Reduced friction within the conversion funnel</li>
+        <li style="font-size:18px;line-height:1.5;color:#3a352c">PDP to Cart progression improved from 58% → 63%</li>
+      </ul>
+    </div>
+
+    <div class="detail-section" style="margin-top: 46px; max-width: 999px; width: 100%">
+      <h2 style="font-family: 'Bricolage Grotesque'; font-weight: 800; font-size: clamp(24px,3vw,34px); letter-spacing: -.02em; margin-bottom: 14px; width: 100%">Key Learning</h2>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:16px">One of the biggest learnings from this project was understanding how solving one business problem can unintentionally create another.</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:22px">Increasing review participation successfully improved trust across the platform, but it also introduced information overload.</p>
+      <p style="font-family:'Bricolage Grotesque';font-weight:700;font-size:19px;color:#181510;margin-bottom:6px">The real UX challenge wasn't simply adding more content.</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:16px">It was helping users consume the right information faster and with less effort.</p>
+      <p style="font-size:18px;line-height:1.62;color:#3a352c">This project reinforced the importance of designing not just for engagement, but for clarity, confidence, and decision-making speed within high-intent user journeys.</p>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ caseNotSmytten }}" hint-placeholder-val="{{ true }}">
+  <sc-for list="{{ caseSections }}" as="sec" hint-placeholder-count="4">
+    <div class="detail-section" style="margin-top: 46px; max-width: 999px; width: 100%">
+      <sc-if value="{{ sec.h }}" hint-placeholder-val="{{ true }}">
+        <h2 style="font-family: 'Bricolage Grotesque'; font-weight: 800; font-size: clamp(24px,3vw,34px); letter-spacing: -.02em; margin-bottom: 14px; width: 100%">{{ sec.h }}</h2>
+      </sc-if>
+      <sc-for list="{{ sec.p }}" as="para" hint-placeholder-count="2">
+        <p style="font-size:18px;line-height:1.62;color:#3a352c;margin-bottom:14px">{{ para }}</p>
+      </sc-for>
+      <sc-if value="{{ sec.hasImg }}" hint-placeholder-val="{{ false }}">
+        <figure style="margin:26px 0 4px">
+          <img src="{{ sec.img }}" alt="{{ sec.imgAlt }}" loading="lazy" style="width: 100%; border: 2px solid #181510; border-radius: 20px; display: block; border-width: 0px">
+          <figcaption style="font-family:'Space Mono';font-size:12px;color:#7a7468;margin-top:10px">{{ sec.imgCaption }}</figcaption>
+        </figure>
+      </sc-if>
+      <sc-if value="{{ sec.hasScreens }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-direction:column;gap:36px;margin-top:8px">
+          <sc-for list="{{ sec.screens }}" as="scr" hint-placeholder-count="7">
+            <div style="border-top:1px solid rgba(24,21,16,.18);padding-top:28px">
+              
+              
+              <img src="{{ scr.img }}" alt="{{ scr.label }}" loading="lazy" style="display: block; border-radius: 18px; object-fit: contain; height: 584px; width: 1125px; position: relative; left: 0px"><div style="font-family:'Bricolage Grotesque';font-weight:700;font-size:17px;margin-top:16px">{{ scr.label }}</div><div style="font-family:'Space Mono';font-size:12.5px;color:#7a7468;margin-top:8px;line-height:1.6">{{ scr.caption }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+    </div>
+  </sc-for>
+  </sc-if>
+
+</div>
+</sc-if>
+
+<!-- ===== LET'S PLAY WITH ME ===== -->
+<sc-if value="{{ isPlay }}" hint-placeholder-val="{{ false }}">
+<div class="wrap" style="max-width:1280px;margin:0 auto;padding:0 32px;overflow-x:clip">
+  <nav style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:18px 0;background:rgba(242,238,227,.82);backdrop-filter:blur(10px);border-bottom:1px solid rgba(24,21,16,.12)">
+    <button onClick="{{ goHome }}" style="display:flex;align-items:center;gap:10px;font-family:'Bricolage Grotesque';font-weight:800;font-size:19px;letter-spacing:-.02em;background:none;border:none;cursor:pointer;color:#181510;padding:0" style-hover="color:#FF3B1F">Parul Aggarwal</button>
+    <sc-if value="{{ showAvailability }}" hint-placeholder-val="{{ true }}">
+      <span class="mobile-nav-badge" style="display:none;align-items:center;gap:6px;padding:6px 11px;color:#f3eee3;border-radius:999px;font-weight:600;background-color:#ff3b1f;font-family:'Space Mono';font-size:13px">
+        <span style="width:7px;height:7px;border-radius:50px;animation:blink 1.4s infinite;background-color:#f3eee3"></span>Open to work
+      </span>
+    </sc-if>
+    <div class="nav-links" style="display:flex;align-items:center;gap:8px;font-family:'Space Mono';font-size:13px">
+      <button onClick="{{ goWork }}" class="nav-sec" style="padding:8px 12px;border-radius:999px;background:none;border:none;cursor:pointer;font-family:'Space Mono';font-size:13px;color:#181510" style-hover="background:rgba(24,21,16,.07)">work</button>
+      <button onClick="{{ goAbout }}" style="padding:8px 12px;border-radius:999px;background:none;border:none;cursor:pointer;font-family:'Space Mono';font-size:13px;color:#181510" style-hover="background:rgba(24,21,16,.07)">about</button>
+      <button onClick="{{ goPlay }}" class="nav-sec" style="padding:8px 12px;border-radius:999px;background:none;border:none;cursor:pointer;font-family:'Space Mono';font-size:13px;color:#181510" style-hover="background:rgba(24,21,16,.07)">play with parul</button>
+      <sc-if value="{{ showAvailability }}" hint-placeholder-val="{{ true }}">
+        <span style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; color: #181510EB; border-radius: 999px; font-weight: 500; background-color: #F3EEE3; font-family: 'Space Mono'; font-size: 13px; border-width: 1.5px; border-style: solid; border-color: #FF3B1FEB">
+          <span style="width: 7px; height: 7px; border-radius: 50px; animation: blink 1.4s infinite; background-color: #FF3B1FCC; color: #FF3B1FEB"></span>Open to work
+        </span>
+      </sc-if>
+    </div>
+  </nav>
+</div>
+
+<div class="wrap detail-wrap" style="max-width:1080px;margin:0 auto;padding:0 32px 90px;min-height:100vh">
+  <header class="detail-head" style="padding:48px 0 8px">
+    <div style="font-family:'Space Mono';font-size:13px;color:#7a7468;margin-bottom:18px">Let's Play With Me</div>
+    <h1 style="font-family:'Bricolage Grotesque';font-weight:800;font-size:clamp(34px,5.6vw,58px);line-height:1.02;letter-spacing:-.03em;margin-bottom:16px;text-wrap:balance">
+      Tic-tac-toe, on the house.
+    </h1>
+    <p style="font-size:18px;line-height:1.55;color:#3a352c;max-width:56ch">A short break from case studies. You're X, Parul is playing O — take turns and see who removes the last bit of friction.</p>
+  </header>
+
+  <div style="display:flex;flex-direction:column;align-items:center;gap:28px;margin-top:40px">
+    <div style="font-family:'Space Mono';font-size:15px;font-weight:700;color:{{ ttt.statusColor }}">{{ ttt.status }}</div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(84px,110px));grid-template-rows:repeat(3,minmax(84px,110px));gap:0;border:3px solid #181510;border-radius:18px;overflow:hidden;background:#181510">
+      <sc-for list="{{ ttt.cells }}" as="cell" hint-placeholder-count="9">
+        <button onClick="{{ cell.onClick }}" style="background:#FBF9F3;border:1px solid rgba(24,21,16,.5);font-family:'Bricolage Grotesque';font-weight:800;font-size:44px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:{{ cell.color }}" style-hover="background:#F2EEE3">{{ cell.mark }}</button>
+      </sc-for>
+    </div>
+
+    <button onClick="{{ ttt.reset }}" style="display:inline-flex;align-items:center;gap:8px;padding:14px 24px;border:1.5px solid #181510;border-radius:999px;font-family:'Space Mono';font-weight:700;font-size:13px;background:none;cursor:pointer" style-hover="background:#181510;color:#F2EEE3">Reset board ↺</button>
+  </div>
+</div>
+
+<nav class="bottom-nav" style="position:fixed;bottom:0;left:0;right:0;z-index:70;height:56px;background:#181510;border-top:2px solid #181510">
+  <div style="display:flex;height:100%">
+    <button onClick="{{ goHome }}" aria-label="Home" style="flex:1;display:flex;align-items:center;justify-content:center;background:none;border:none;color:#F2EEE3;cursor:pointer">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"></path><path d="M5.5 10v9a1 1 0 0 0 1 1H9a1 1 0 0 0 1-1v-4h4v4a1 1 0 0 0 1 1h2.5a1 1 0 0 0 1-1v-9"></path></svg>
+    </button>
+    <button onClick="{{ goWork }}" aria-label="Work" style="flex:1;display:flex;align-items:center;justify-content:center;background:none;border:none;color:#F2EEE3;cursor:pointer">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7.5" width="18" height="12" rx="1.5"></rect><path d="M8.5 7.5V6a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v1.5"></path><path d="M3 12.5h18"></path></svg>
+    </button>
+    <button onClick="{{ goAbout }}" aria-label="About" style="flex:1;display:flex;align-items:center;justify-content:center;background:none;border:none;color:#F2EEE3;cursor:pointer">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"></circle><path d="M5 20c0-3.6 3.1-6.5 7-6.5s7 2.9 7 6.5"></path></svg>
+    </button>
+    <button onClick="{{ goPlay }}" aria-label="Play with Parul" style="flex:1;display:flex;align-items:center;justify-content:center;background:none;border:none;color:#7CFFB2;cursor:pointer">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="8.5" width="19" height="9" rx="4"></rect><path d="M7.5 11v3M6 12.5h3"></path><circle cx="15.5" cy="11.5" r="0.9" fill="currentColor" stroke="none"></circle><circle cx="17.5" cy="13.5" r="0.9" fill="currentColor" stroke="none"></circle></svg>
+    </button>
+  </div>
+</nav>
+</sc-if>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;reduceMotion&quot;: {&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;},
+  &quot;showAvailability&quot;: {&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},
+  &quot;screenImgWidth&quot;: {&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:320,&quot;min&quot;:160,&quot;max&quot;:600,&quot;step&quot;:10,&quot;unit&quot;:&quot;px&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Combo Generator screens&quot;}
+}">
+const CASES = {
+  smytten: {
+    kicker: "Case study 01",
+    client: "Smytten",
+    chips: ["UX", "Conversion Optimization", "AI", "Review", "Customer Feedback"],
+    title: "Building Trust in Product Discovery Through AI-Powered Review Summaries",
+    subtitle: "How we reduced PDP drop-offs by improving trust, simplifying decision-making, and transforming how users consume reviews.",
+    meta: [
+      { k: "Role", v: "UX Designer" },
+      { k: "Company", v: "Smytten" },
+      { k: "Tools", v: "MoEngage · Clarity" },
+      { k: "Platform", v: "iOS · Android" },
+    ],
+    hasImage: true,
+    img: "https://miro.medium.com/v2/resize:fit:1200/1*U8BvJ6YS7NthlYsqiUEFdA.png",
+    imgAlt: "Cover image — Building Trust in Product Discovery Through AI-Powered Review Summaries",
+    metrics: [
+      { value: "58→63%", label: "PDP → Cart progression", color: "#1E37D8" },
+      { value: "+reviews", label: "higher participation", color: "#FF3B1F" },
+      { value: "−fatigue", label: "faster decisions", color: "#181510" },
+    ],
+    sections: [
+      { h: "Brief", p: [
+        "At Smytten, the Product Detail Page (PDP) plays a critical role in the conversion journey. Users discover products, evaluate trust signals, compare opinions, and decide whether to move forward with a purchase.",
+        "But while tracking user behavior across the funnel, we noticed a recurring problem: Users were spending time on the PDP, especially around reviews, but many were exiting before making a purchase.",
+        "This drop-off was directly impacting conversion performance.",
+        "For categories like skincare and beauty, users rarely purchase based on product descriptions alone. They look for reassurance from real users before making a decision. Reviews had become one of the strongest trust indicators within the journey.",
+        "The problem was many products simply didn’t have enough meaningful reviews to build confidence." ] },
+      { h: "Understanding the Problem", p: [
+        "To understand what was happening, I collaborated closely with the Product Manager to analyze user behavior through: Funnel analysis, Session recordings, Review page interaction tracking.",
+        "Tools Used: MoEngage, Clarity.",
+        "What we discovered was interesting.",
+        "Users were actively opening the review section before purchasing, but products with fewer reviews created hesitation and uncertainty. In many cases, users simply abandoned the journey without progressing further.",
+        "At the same time, we noticed another behavioral pattern: users who had bad product experiences were naturally more likely to leave reviews, while users who had positive experiences often moved on without contributing anything.",
+        "This created an imbalance: fewer reviews overall, inconsistent trust signals, weaker social proof across PDPs.",
+        "The business impact was clear: low trust was increasing friction inside the conversion funnel." ] },
+      { h: "Business Impact", p: [
+        "After introducing reward-based reviews and AI-powered review summaries, we observed stronger progression within the purchase funnel.",
+        "The most noticeable improvement was seen between the PDP and Cart stage, where conversion progression increased from 58% to 63%, indicating improved purchase confidence and reduced friction during product evaluation.",
+        "The feature also contributed to: higher review participation, stronger PDP engagement, faster user decision-making." ] },
+      { h: "Phase 1 — Solving the Trust Gap", p: [
+        "Our first objective was simple: increase authentic review participation across products.",
+        "But instead of forcing users into feedback flows, we wanted to create motivation at the right moment in the journey.",
+        "We introduced a reward-based review system where users received 5–10 Smytten Bucks for submitting product reviews after delivery.",
+        "Once a product was delivered, users received a push notification encouraging them to share feedback and earn rewards redeemable within the platform ecosystem.",
+        "The experience was intentionally designed to feel: lightweight, rewarding, frictionless.",
+        "The goal wasn’t just collecting more reviews. It was strengthening trust signals across the PDP experience.",
+        "And it worked.",
+        "Review participation started increasing across products, helping users discover more authentic product experiences before purchasing." ],
+        img: "assets/smytten-phase1-reviews.png",
+        imgAlt: "Reward-based review flow — feedbacks list, product rating sheet, and the Bucks-earned reward screen",
+        imgCaption: "Reward-based review flow: browse available feedbacks, rate the product, and earn Smytten Bucks." },
+      { h: "A New UX Problem Emerged", p: [
+        "As review volume increased, user behavior started shifting again.",
+        "Users were now spending excessive time scrolling through reviews, comparing opinions, filtering sentiments manually, and trying to understand whether a product was actually suitable for them.",
+        "Session recordings revealed users repeatedly: scrolling through long review sections, opening multiple reviews, comparing positive and negative experiences, exiting the PDP without progressing further.",
+        "The issue was no longer: “Users don’t have enough information.”",
+        "The issue became: “Users have too much information to process.”",
+        "This created decision fatigue inside the purchase journey." ] },
+      { h: "Rethinking the Review Experience", p: [
+        "At this stage, we explored how users consume reviews rather than how many reviews existed.",
+        "Traditional filtering and sorting patterns could help users navigate reviews, but they still required effort: users had to manually filter ratings, compare sentiments, and interpret feedback themselves.",
+        "We wanted to reduce the effort required to reach a decision.",
+        "Instead of making users search for answers, we asked: What if the interface could summarize collective user sentiment instantly?",
+        "This led to the AI Summary concept." ] },
+      { h: "The Solution — AI-Powered Review Summaries", p: [
+        "We introduced concise AI-generated summaries directly inside the PDP review section.",
+        "As users reached the review area, they were shown: a short summary generated from real user reviews, quick sentiment chips, contextual “good fit / not ideal for” indicators.",
+        "The goal was not to replace reviews.",
+        "The goal was to help users understand reviews faster." ] },
+      { h: "Designing for Personal Relevance", p: [
+        "One important UX decision was avoiding generic “good” or “bad” labeling.",
+        "Beauty and skincare products are highly subjective. A product that works well for one user may not work for another.",
+        "Instead of saying: “This product is bad” the experience focused on: “This product may not be suitable for your specific need.”",
+        "For example: Not for frizzy hair, Good for dry hair, Better for lightweight hydration.",
+        "This shifted the experience from broad product judgment to contextual product understanding.",
+        "And from a business perspective, it helped users make faster and more confident decisions without leaving the PDP journey." ] },
+      { h: "My Contribution", p: [
+        "As the UX Designer on the project, I worked on: User behavior analysis through funnel tracking and session recordings, Identifying trust and decision-fatigue friction points, Designing the review feedback journey, Collaborating closely with the Product Manager on product direction, Defining the AI summary experience from a UX perspective, Simplifying review consumption within the PDP flow." ] },
+      { h: "Outcomes", p: [
+        "The project helped improve how users interacted with reviews during the purchase journey." ] },
+      { h: "Impact", p: [
+        "Increased review submissions across products.",
+        "Faster user decision-making.",
+        "Better interaction with PDP review sections.",
+        "Reduced friction within the conversion funnel.",
+        "PDP to Cart progression improved from 58% → 63%." ] },
+      { h: "Key Learning", p: [
+        "One of the biggest learnings from this project was understanding how solving one business problem can unintentionally create another.",
+        "Increasing review participation successfully improved trust across the platform, but it also introduced information overload.",
+        "The real UX challenge wasn’t simply adding more content. It was helping users consume the right information faster and with less effort.",
+        "This project reinforced the importance of designing not just for engagement, but for clarity, confidence, and decision-making speed within high-intent user journeys." ] },
+    ],
+    next: "billbuster",
+  },
+  billbuster: {
+    kicker: "Case study 02",
+    client: "Smytten",
+    chips: ["Gamification", "Reward systems", "Cart value"],
+    title: "Bill Buster: The ₹150 Users Didn't Know They Were Leaving Behind",
+    subtitle: "Increasing Cart Value Through Real-Time Reward Progress",
+    meta: [
+      { k: "Role", v: "Product Designer" },
+      { k: "Timeline", v: "6 weeks" },
+      { k: "Team", v: "1 PM · 2 Eng · me" },
+      { k: "Platform", v: "iOS · Android" },
+    ],
+    hasImage: true,
+    img: "assets/billbuster-hero.png",
+    imgAlt: "Smytten cart screen showing the Bill Buster reward unlocked popup — ₹75 OFF applied",
+    metrics: [
+      { value: "19%→26%", label: "offer completion", color: "#1E37D8" },
+      { value: "₹150", label: "gap made visible", color: "#FF3B1F" },
+      { value: "+motivate", label: "buy more", color: "#181510" },
+    ],
+    sections: [
+      { h: "Overview", p: [
+        "Bill Buster was a cart value incentive feature on the Smytten app. When a user crosses ₹500 in their cart, an offer unlocks — a discount or reward, redeemable right there in the journey. The mechanism already existed. What it lacked was a reason for users to notice it." ], img: "assets/billbuster-hero.png", imgAlt: "Bill Buster reward unlocked popup on the Smytten app", imgCaption: "" },
+      { h: "The Discovery", p: [
+        "While reviewing cart data with the Product Manager, we found something we should've caught earlier: An offer unlocked when a user added items to their cart worth ₹500. Average cart value sat at ₹350 and a ₹150 gap, and a large share of orders were closing out right inside it. Users weren't choosing to skip the offer. They simply didn't know it existed." ] },
+      { h: "Why It Was Happening", p: [
+        "The reward system itself wasn't the problem. The visibility was. The only signal users got was a static discount banner — sitting at the top of the screen, scrolled past in seconds, never seen again." ], img: "assets/billbuster-why.png", imgAlt: "The original static discount banner at the top of the Smytten cart", imgCaption: "" },
+      { h: "", p: [
+        "So I went looking at how other apps solved this. Quick-commerce platforms like Instamart do something deceptively simple: show users exactly how close they are to free delivery. A user shopping for just milk ends up adding two more items — not because they were told to, but to save on delivery." ], img: "assets/billbuster-cross-apps.png", imgAlt: "Quick-commerce apps making the gap-to-reward visible in real time", imgCaption: "" },
+      { h: "", p: [
+        "In Smytten, I used that same principle — make the gap visible, in the moment — to help users unlock rewards, offers, and gifts they were already eligible for." ] },
+      { h: "The Fix", p: [
+        "I designed a sticky progress bar that stayed on screen the moment a user added their first product to cart. It moved through three simple states:" ], screens: [
+        { id: "billbuster-before", label: "Before adding anything", caption: "A quiet line of text about the reward. No pressure yet.", img: "assets/billbuster-before.png" },
+        { id: "billbuster-after", label: "After the first add-to-cart", caption: "The bar appears at the bottom, updating live with every item added, showing exactly how much more was needed.", img: "assets/billbuster-after.png" },
+        { id: "billbuster-unlocked", label: "Once ₹500 is crossed", caption: "A popup confirms the offer is unlocked, shows the reward, and gives a clear path to continue.", img: "assets/billbuster-unlocked.png" },
+      ] },
+      { h: "", p: [
+        "Nothing forced. Nothing hidden. Just the gap, made visible, in real time." ] },
+      { h: "The Disagreement", p: [
+        "Before this shipped, the PM raised a fair point: a permanently visible bar might feel heavy. A toast — popping up briefly after each add-to-cart — would be lighter.",
+        "I disagreed, and explained why: a toast disappears in two seconds. The moment it's gone, so is the motivation. A sticky bar stays in the corner of a user's eye for the entire shopping session — it doesn't need to be remembered, because it's always there.",
+        "The sticky version shipped." ] },
+      { h: "What Changed", p: [
+        "Offer completion rose from 19% to 26%",
+        "Improved visibility of active rewards",
+        "Better engagement with the reward experience" ] },
+      { h: "The Real Lesson", p: [
+        "The reward was never the problem. It existed the whole time. What changed everything was timing — making sure users saw how close they were, exactly when it could still change their decision. Sometimes the biggest unlock in a product isn't a new feature. It's making an old one impossible to miss." ] },
+    ],
+    next: "combo",
+  },
+  combo: {
+    kicker: "Case study 03",
+    client: "Smytten",
+    chips: ["Discovery", "Decision design", "Activation"],
+    title: "Combo Generator — Guided Trial Selection for Smytten",
+    subtitle: "Smytten's catalog has 300+ trial products. Users come to explore, not search for something specific — there's no clear query, no category filter habit, no prior purchase to anchor on. That's a discovery problem, not a browsing problem.",
+    meta: [
+      { k: "Role", v: "Product Designer" },
+      { k: "Company", v: "Smytten" },
+      { k: "Focus", v: "Discovery & Activation" },
+      { k: "Platform", v: "iOS · Android" },
+    ],
+    hasImage: true,
+    img: "assets/combo-05-curated.webp",
+    imgAlt: "Combo Generator — the curated combo view showing 8 recommended products",
+    placeholder: "combo generator — flow screens",
+    metrics: [
+      { value: "22–28%", label: "of Combo Generator users proceeded to checkout", color: "#FF3B1F" },
+      { value: "14–18%", label: "increase in trial selection completion", color: "#1E37D8" },
+      { value: "2 ways", label: "to correct a wrong guess", color: "#181510" },
+    ],
+    sections: [
+      { h: "Business problem", p: [
+        "Unguided discovery was capping activation, not just engagement.",
+        "Every user who doesn't complete a trial selection is a user who never reaches cart, never reaches checkout, and never becomes a repeat trial-taker. In a trial-led model, selection completion is the top of the activation funnel — if it leaks, every downstream metric (cart adds, checkout, repeat usage) is structurally capped regardless of how good cart or checkout is.",
+        "Business framing: \"We can't improve conversion downstream if users are dropping before they even pick something to try.\"" ] },
+      { h: "What's evidenced vs. assumed", p: [
+        "Evidenced: post-launch Combo Generator usage → 22–28% checkout conversion, 14–18% lift in trial selection completion.",
+        "Assumed/inferred: the pre-launch drop-off was driven specifically by choice overload. If you don't have a pre-redesign baseline (browse-to-selection rate, time-to-decision, session depth before abandon), say so explicitly rather than implying it was measured. A line like \"Hypothesis based on funnel drop-off at the discovery stage and qualitative feedback\" is more credible to an interviewer than an unsupported causal claim — and it shows you know the difference, which is itself a senior-level signal." ] },
+      { h: "User problem", p: [
+        "Users aren't failing to browse — they're failing to decide.",
+        "They want to try the right things, not just some things. With 300+ options and no structure, every additional choice raises the cost of choosing wrong. There's no signal for \"what should I trust\" — no guided narrowing, no curation logic visible to the user." ] },
+      { h: "Friction, mapped to where it actually occurs", p: [
+        "Landing/Discovery — Friction: no entry point that narrows the catalog. Consequence: user scrolls passively, no momentum.",
+        "Category browsing — Friction: flat list, no progressive narrowing. Consequence: cognitive load front-loaded all at once.",
+        "Decision point — Friction: no curation or \"best for you\" logic. Consequence: user defaults to random pick or exits.",
+        "Re-evaluation — Friction: no easy way to swap one choice without restarting. Consequence: sunk-cost abandonment — easier to leave than fix one item.",
+        "Mapping friction to a stage (rather than one generic \"too many choices\" line) is what makes a problem statement defensible — it shows you isolated where in the journey the cost was highest, not just that a cost existed." ] },
+      { h: "Approach", p: [
+        "1. Reframe the problem: not \"add more filters\" (which adds more decisions) but \"remove decisions until confidence is reached.\"",
+        "2. Constrain inputs, not outputs: ask 1–2 lightweight preference questions (category, optionally brand) instead of full configuration.",
+        "3. Pre-commit to a default: generate a complete, ready-to-act-on set immediately — never leave the user at an empty state waiting for more input.",
+        "4. Allow low-cost revision: shuffle (full reset) and swipe-to-replace (single-item edit) cover both the explorer and the decisive user without forcing either into the other's mode." ] },
+      { h: "Solution", p: [
+        "Guided flow: Category → (optional) Brand → generated set of 8 curated products.",
+        "Two correction mechanisms at different granularity: full shuffle vs. single swap.",
+        "One-tap \"add full combo to cart\" — no per-item re-decision required after the set is accepted." ] },
+      { h: "Screens — the 7-step flow", p: [], screens: [
+        { id: "combo-01-entry", label: "1. Entry point — \u201cBuild your combo\u201d", caption: "Homepage banner + hover CTA (\u201cCreate your perfect combo → Let's start\u201d). A clear entry point cuts aimless browsing before it starts.", img: "assets/combo-01-entry.webp" },
+        { id: "combo-02-categories", label: "2. Choose categories", caption: "Category chips modal — \u201cChoose up to 8 categories.\u201d Narrows 300+ products to a focused set — the first real reduction in choice.", img: "assets/combo-02-categories.webp" },
+        { id: "combo-03-brands", label: "3. Choose brands (optional)", caption: "Brand grid — \u201cSelect up to 8 brands.\u201d An optional lever, never a required one.", img: "assets/combo-03-brands.webp" },
+        { id: "combo-04-generating", label: "4. Generating the combo", caption: "Loading state — \u201cCrafting your perfect combo…\u201d Sets the expectation something curated is coming.", img: "assets/combo-04-generating.webp" },
+        { id: "combo-05-curated", label: "5. Curated combo view", caption: "8 recommended products matched to chosen categories/brands + smart defaults. The \u201caha\u201d screen.", img: "assets/combo-05-curated.webp" },
+        { id: "combo-06-shuffle", label: "6. Shuffle & replace", caption: "Two correction mechanisms — shuffle (replaces all 8) vs. swipe to replace (one item at a time).", img: "assets/combo-06-shuffle.webp" },
+        { id: "combo-07-cart", label: "7. Add to cart & completion", caption: "Single CTA adds the entire combo, plus a completion modal (\u201cYou've used all 8 trial points\u201d).", img: "assets/combo-07-cart.webp" },
+      ] },
+      { h: "Impact", p: [
+        "22–28% of Combo Generator users proceeded to checkout.", ] },
+      { h: "Key takeaway", p: [
+        "This wasn't a feature add-on — it was a redesign of the decision architecture itself: trading an unbounded choice space for a bounded, correctable one. The mechanism that made it work wasn't the recommendation logic, it was giving users two different-cost ways to fix a wrong guess, so neither explorers nor decisive users were forced into the other's mental model." ] },
+    ],
+    next: "onboarding",
+  },
+  onboarding: {
+    kicker: "Case study 03",
+    client: "Consumer app",
+    chips: ["Onboarding", "Activation", "Permissions"],
+    title: "Cutting first-run drop-off in half",
+    subtitle: "A progressive, reward-led onboarding that earns the permission ask instead of begging for it.",
+    meta: [
+      { k: "Role", v: "Product Designer" },
+      { k: "Timeline", v: "5 weeks" },
+      { k: "Team", v: "1 PM · 2 Eng · me" },
+      { k: "Platform", v: "iOS · Android" },
+    ],
+    hasImage: false,
+    placeholder: "onboarding flow — 6 screens",
+    metrics: [
+      { value: "−50%", label: "first-run drop-off", color: "#FF3B1F" },
+      { value: "3→6", label: "steps completed", color: "#1E37D8" },
+      { value: "+day-1", label: "activation", color: "#181510" },
+    ],
+    sections: [
+      { h: "The problem", p: [
+        "The old flow front-loaded everything: sign-up, a notifications prompt, and location access — all before showing a shred of value. Most people quit on the second screen." ] },
+      { h: "The principle", p: [
+        "Earn every ask. Let people feel the product work first, then request a permission at the exact moment it pays off for them." ] },
+      { h: "The design", p: [
+        "A progressive flow that reveals value before friction — browse, react, save — and defers each permission prompt until a reward (a price-drop alert, a saved list) makes the ask obvious." ] },
+      { h: "Outcome", p: [
+        "First-run drop-off roughly halved, and far more users reached the activation moment on day one." ] },
+    ],
+    next: "system",
+  },
+  system: {
+    kicker: "Case study 04",
+    client: "Internal",
+    chips: ["Design system", "Tokens", "Process"],
+    title: "One source of truth, zero pixel debates",
+    subtitle: "Tokens, components and rituals that let a small team ship fast without things drifting apart.",
+    meta: [
+      { k: "Role", v: "Design system lead" },
+      { k: "Timeline", v: "Ongoing" },
+      { k: "Team", v: "4 designers · 8 eng" },
+      { k: "Platform", v: "Cross-platform" },
+    ],
+    hasImage: false,
+    placeholder: "design system — tokens & components",
+    metrics: [
+      { value: "1", label: "source of truth", color: "#1E37D8" },
+      { value: "−debates", label: "in standups", color: "#FF3B1F" },
+      { value: "faster", label: "design → ship", color: "#181510" },
+    ],
+    sections: [
+      { h: "The problem", p: [
+        "Three slightly different button styles, two blues that were almost the same, and endless “which spacing?” threads. Small team, big drift." ] },
+      { h: "Foundations", p: [
+        "I defined tokens for color, type, spacing and radius — named by intent, not by value — so every decision lived in one place and changed in one place." ] },
+      { h: "Components & rituals", p: [
+        "A lean component library plus lightweight rituals — a weekly tidy and a design check on every PR — kept the system alive instead of rotting in a forgotten file." ] },
+      { h: "Outcome", p: [
+        "The team stopped debating pixels and started shipping. New screens assembled from trusted parts in a fraction of the time." ] },
+    ],
+    next: "smytten",
+  },
+};
+
+const SKILLS = [
+  "UX Strategy", "AI-Assisted Design", "User Research", "Wireframing",
+  "Conversion Rate Optimisation", "Retention & Growth Design", "Interaction Design",
+  "Prototyping", "Information Architecture", "Design Systems (Figma)",
+  "Product Thinking", "Usability Testing",
+];
+
+const WIN_LINES = [
+  [0,1,2],[3,4,5],[6,7,8],
+  [0,3,6],[1,4,7],[2,5,8],
+  [0,4,8],[2,4,6],
+];
+
+function computeWinner(board) {
+  for (const [a,b,c] of WIN_LINES) {
+    if (board[a] && board[a] === board[b] && board[a] === board[c]) return board[a];
+  }
+  return null;
+}
+
+const ABOUT_PHOTOS = [
+  "assets/about-photo-1.png",
+  "assets/about-photo-2.png",
+  "assets/about-photo-3.png",
+  "assets/about-photo-4.png",
+  "assets/about-photo-5.png",
+  "assets/about-photo-6.png",
+];
+
+const SPLASH_CAPTIONS = [
+  "Politely arguing with a PM about spacing…",
+  "Blaming the developers for it instead…",
+];
+
+class Component extends DCLogic {
+  state = { caseId: null, page: 'home', board: Array(9).fill(null), xIsNext: true, splashVisible: true, splashClosing: false, splashCaptionIndex: 0, aboutPhotoIndex: 0 };
+
+  componentDidMount() {
+    this._splashCaptionTimer = setTimeout(() => this.setState({ splashCaptionIndex: 1 }), 3000);
+    this._splashCloseTimer = setTimeout(() => this.setState({ splashClosing: true }), 5400);
+    this._splashHideTimer = setTimeout(() => this.setState({ splashVisible: false }), 6000);
+    this._aboutPhotoTimer = setInterval(() => {
+      this.setState((s) => ({ aboutPhotoIndex: (s.aboutPhotoIndex + 1) % ABOUT_PHOTOS.length }));
+    }, 8000);
+
+    // Real browser history: each section gets its own back/forward + swipe-back stop.
+    this._onPopState = () => {
+      const parsed = this.parseHash();
+      this.setState({ caseId: parsed.caseId, page: parsed.page });
+      try { window.scrollTo({ top: 0, behavior: 'instant' }); } catch (e) { window.scrollTo(0, 0); }
+    };
+    window.addEventListener('popstate', this._onPopState);
+    const initial = this.parseHash();
+    if (initial.caseId || initial.page !== 'home') {
+      this.setState({ caseId: initial.caseId, page: initial.page });
+    }
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this._splashCaptionTimer);
+    clearTimeout(this._splashCloseTimer);
+    clearTimeout(this._splashHideTimer);
+    clearInterval(this._aboutPhotoTimer);
+    window.removeEventListener('popstate', this._onPopState);
+  }
+
+  parseHash() {
+    const h = (window.location.hash || '').replace(/^#\/?/, '');
+    if (h.startsWith('case/')) return { caseId: h.slice(5), page: 'home' };
+    if (h === 'about') return { caseId: null, page: 'about' };
+    if (h === 'play') return { caseId: null, page: 'play' };
+    return { caseId: null, page: 'home' };
+  }
+
+  navigate(next, scrollAfter) {
+    const hash = next.caseId ? '#/case/' + next.caseId : next.page && next.page !== 'home' ? '#/' + next.page : '#/';
+    if (window.location.hash !== hash) {
+      window.history.pushState({ caseId: next.caseId || null, page: next.page || 'home' }, '', hash);
+    }
+    this.setState({ caseId: next.caseId || null, page: next.page || 'home' }, scrollAfter);
+  }
+
+  playCell(i) {
+    return () => {
+      if (!this.state.xIsNext) return;
+      if (this.state.board[i] || computeWinner(this.state.board)) return;
+      const board = this.state.board.slice();
+      board[i] = 'X';
+      this.setState({ board, xIsNext: false });
+      if (!computeWinner(board) && board.some((c) => !c)) {
+        clearTimeout(this._cpuTimer);
+        this._cpuTimer = setTimeout(() => this.cpuMove(board), 500);
+      }
+    };
+  }
+
+  cpuMove(prevBoard) {
+    const board = prevBoard.slice();
+    const empties = board.map((c, i) => (c ? null : i)).filter((v) => v !== null);
+    if (!empties.length || computeWinner(board)) return;
+    const idx = this.smartMove(board, empties);
+    board[idx] = 'O';
+    this.setState({ board, xIsNext: true });
+  }
+
+  smartMove(board, empties) {
+    // Unbeatable: full minimax search.
+    let bestScore = -Infinity;
+    let bestMoves = [];
+    for (const i of empties) {
+      const t = board.slice(); t[i] = 'O';
+      const score = this.minimax(t, 0, false);
+      if (score > bestScore) { bestScore = score; bestMoves = [i]; }
+      else if (score === bestScore) bestMoves.push(i);
+    }
+    return bestMoves[Math.floor(Math.random() * bestMoves.length)];
+  }
+
+  minimax(board, depth, isMaximizing) {
+    const winner = computeWinner(board);
+    if (winner === 'O') return 10 - depth;
+    if (winner === 'X') return depth - 10;
+    if (board.every((c) => c)) return 0;
+
+    const empties = board.map((c, i) => (c ? null : i)).filter((v) => v !== null);
+    if (isMaximizing) {
+      let best = -Infinity;
+      for (const i of empties) {
+        const t = board.slice(); t[i] = 'O';
+        best = Math.max(best, this.minimax(t, depth + 1, false));
+      }
+      return best;
+    } else {
+      let best = Infinity;
+      for (const i of empties) {
+        const t = board.slice(); t[i] = 'X';
+        best = Math.min(best, this.minimax(t, depth + 1, true));
+      }
+      return best;
+    }
+  }
+
+  resetGame() {
+    clearTimeout(this._cpuTimer);
+    this.setState({ board: Array(9).fill(null), xIsNext: true });
+  }
+
+  downloadResume(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    fetch('assets/Parul-Aggarwal-Resume.pdf')
+      .then((res) => res.blob())
+      .then((blob) => {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'Parul-Aggarwal-Resume.pdf';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        setTimeout(() => URL.revokeObjectURL(url), 4000);
+      })
+      .catch(() => { window.open('assets/Parul-Aggarwal-Resume.pdf', '_blank'); });
+  }
+
+  open(id) {
+    return () => {
+      this.navigate({ caseId: id, page: 'home' }, () => {
+        try { window.scrollTo({ top: 0, behavior: 'instant' }); }
+        catch (e) { window.scrollTo(0, 0); }
+      });
+    };
+  }
+
+  renderVals() {
+    const reduceMotion = this.props.reduceMotion ?? false;
+    const showAvailability = this.props.showAvailability ?? true;
+    const screenImgWidth = this.props.screenImgWidth ?? 320;
+    const id = this.state.caseId;
+    const c = (id && CASES[id]) ? CASES[id] : null;
+    return {
+      showAvailability,
+      splashVisible: this.state.splashVisible,
+      splashOpacity: 1,
+      splashTransform: this.state.splashClosing ? 'translateY(-100%)' : 'translateY(0)',
+      splashFilter: 'none',
+      splashPointerEvents: this.state.splashClosing ? 'none' : 'auto',
+      splashCaption: SPLASH_CAPTIONS[this.state.splashCaptionIndex],
+      screenImgWidth,
+      marqueePlay: reduceMotion ? 'paused' : 'running',
+      isHome: !id && this.state.page !== 'about' && this.state.page !== 'play',
+      showCase: !!id,
+      isAbout: !id && this.state.page === 'about',
+      isPlay: !id && this.state.page === 'play',
+      skills: SKILLS,
+      downloadResume: (e) => this.downloadResume(e),
+      aboutTrackStyle: {
+        display: 'flex',
+        width: (ABOUT_PHOTOS.length * 100) + '%',
+        height: '100%',
+        transform: 'translateX(-' + (this.state.aboutPhotoIndex * (100 / ABOUT_PHOTOS.length)) + '%)',
+        transition: 'transform .6s cubic-bezier(.4,0,.2,1)',
+      },
+      aboutSlideWidthPercent: (100 / ABOUT_PHOTOS.length),
+      aboutPhotoPrev: () => { clearInterval(this._aboutPhotoTimer); this._aboutPhotoTimer = setInterval(() => this.setState((s) => ({ aboutPhotoIndex: (s.aboutPhotoIndex + 1) % ABOUT_PHOTOS.length })), 8000); this.setState((s) => ({ aboutPhotoIndex: (s.aboutPhotoIndex - 1 + ABOUT_PHOTOS.length) % ABOUT_PHOTOS.length })); },
+      aboutPhotoNext: () => { clearInterval(this._aboutPhotoTimer); this._aboutPhotoTimer = setInterval(() => this.setState((s) => ({ aboutPhotoIndex: (s.aboutPhotoIndex + 1) % ABOUT_PHOTOS.length })), 8000); this.setState((s) => ({ aboutPhotoIndex: (s.aboutPhotoIndex + 1) % ABOUT_PHOTOS.length })); },
+      aboutPhotos: ABOUT_PHOTOS.map((src, i) => ({
+        src,
+        dotColor: i === this.state.aboutPhotoIndex ? '#FF3B1F' : 'rgba(24,21,16,.2)',
+        onClick: () => {
+          clearInterval(this._aboutPhotoTimer);
+          this._aboutPhotoTimer = setInterval(() => this.setState((s) => ({ aboutPhotoIndex: (s.aboutPhotoIndex + 1) % ABOUT_PHOTOS.length })), 8000);
+          this.setState({ aboutPhotoIndex: i });
+        },
+      })),
+      ttt: (() => {
+        const board = this.state.board;
+        const winner = computeWinner(board);
+        const isDraw = !winner && board.every((c) => c);
+        const status = winner === 'X' ? 'You win! 🎉' : winner === 'O' ? 'Parul wins!' : isDraw ? "It's a draw." : this.state.xIsNext ? 'Your turn (X)' : 'Parul is thinking…';
+        const statusColor = winner === 'X' ? '#7CFFB2' : winner === 'O' ? '#FF3B1F' : '#181510';
+        return {
+          status,
+          statusColor,
+          reset: () => this.resetGame(),
+          cells: board.map((mark, i) => ({
+            mark: mark || '',
+            color: mark === 'X' ? '#FF3B1F' : mark === 'O' ? '#1E37D8' : '#181510',
+            onClick: this.playCell(i),
+          })),
+        };
+      })(),
+      openSmytten: this.open('smytten'),
+      openBillBuster: this.open('billbuster'),
+      openCombo: this.open('combo'),
+      openOnboarding: this.open('onboarding'),
+      openSystem: this.open('system'),
+      goAbout: () => this.navigate({ caseId: null, page: 'about' }, () => {
+        try { window.scrollTo({ top: 0, behavior: 'instant' }); } catch (e) { window.scrollTo(0, 0); }
+      }),
+      goPlay: () => this.navigate({ caseId: null, page: 'play' }, () => {
+        try { window.scrollTo({ top: 0, behavior: 'instant' }); } catch (e) { window.scrollTo(0, 0); }
+      }),
+      goHome: () => this.navigate({ caseId: null, page: 'home' }, () => {
+        try { window.scrollTo({ top: 0, behavior: 'instant' }); } catch (e) { window.scrollTo(0, 0); }
+      }),
+      goWork: () => this.navigate({ caseId: null, page: 'home' }, () => {
+        requestAnimationFrame(() => {
+          const el = document.getElementById('work');
+          const y = el ? el.getBoundingClientRect().top + window.scrollY - 70 : 0;
+          try { window.scrollTo({ top: y, behavior: 'instant' }); } catch (e) { window.scrollTo(0, y); }
+        });
+      }),
+      goContact: () => this.navigate({ caseId: null, page: 'home' }, () => {
+        requestAnimationFrame(() => {
+          const el = document.getElementById('contact');
+          const y = el ? el.getBoundingClientRect().top + window.scrollY - 70 : 0;
+          try { window.scrollTo({ top: y, behavior: 'instant' }); } catch (e) { window.scrollTo(0, y); }
+        });
+      }),
+      caseKicker: c && c.kicker,
+      caseClient: c && c.client,
+      caseChips: c && c.chips,
+      caseTitle: c && c.title,
+      caseSubtitle: c && c.subtitle,
+      caseMeta: c && c.meta,
+      caseHasImage: !!(c && c.hasImage),
+      caseNoImage: !!(c && !c.hasImage),
+      caseImg: c && c.img,
+      caseImgAlt: c && c.imgAlt,
+      casePlaceholder: c && c.placeholder,
+      caseMetrics: c && c.metrics,
+      isSmytten: this.state.caseId === 'smytten',
+      caseNotSmytten: this.state.caseId !== 'smytten',
+      caseSections: c && (c.sections || []).map((s) => ({
+        h: s.h,
+        p: s.p,
+        hasImg: !!s.img,
+        img: s.img || null,
+        imgAlt: s.imgAlt || '',
+        imgCaption: s.imgCaption || '',
+        hasScreens: !!s.screens,
+        screens: s.screens || [],
+      })),
+    };
+  }
+}
+</script>
+</body>
+</html>
