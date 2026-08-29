@@ -1,0 +1,42 @@
+<section class="sp-security sp-section">
+  <div class="sp-shell">
+    <div class="sp-security__panel">
+      <div class="sp-security__copy">
+        <p class="sp-eyebrow">Built-in protection</p>
+        <h2 class="sp-display">Security as standard</h2>
+        <p>Build your digital future safe in the knowledge your domains, products, accounts, and data are safe and protected.</p>
+        <a class="sp-button sp-button--secondary" href="#features">See measures <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="sp-security__art">
+        <div class="sp-security__orbit sp-security__orbit--one"></div>
+        <div class="sp-security__orbit sp-security__orbit--two"></div>
+        <img src="/clones/spaceship-com/images/security-person.webp" alt="" loading="lazy" />
+        <span class="sp-security__seal"><i>✓</i> Protected by design</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .sp-security { background: var(--bg); }
+  .sp-security__panel { min-height: clamp(580px, 58vw, 730px); display: grid; grid-template-columns: .95fr 1.05fr; align-items: center; overflow: hidden; border-radius: var(--radius-lg); background: var(--accent); }
+  .sp-security__copy { position: relative; z-index: 2; max-width: 560px; padding: clamp(32px, 7vw, 96px); }
+  .sp-security__copy .sp-eyebrow { color: var(--accent-on); }
+  .sp-security__copy > p:last-of-type { margin: var(--space-5) 0 0; color: var(--accent-on); font-size: var(--text-lg); line-height: 1.35; }
+  .sp-security__copy .sp-button { width: max-content; margin-top: var(--space-8); border-color: color-mix(in srgb, var(--accent-on), transparent 62%); background: color-mix(in srgb, var(--accent-active), transparent 14%); }
+  .sp-security__art { position: relative; align-self: stretch; overflow: hidden; }
+  .sp-security__art::after { position: absolute; inset: 0; background: linear-gradient(90deg, var(--accent), transparent 32%, color-mix(in srgb, var(--accent-active), transparent 65%)); content: ""; pointer-events: none; }
+  .sp-security__art img { position: absolute; z-index: 1; bottom: 0; left: 50%; width: min(100%, 640px); height: 104%; max-width: none; object-fit: contain; object-position: bottom; transform: translateX(-50%); }
+  .sp-security__orbit { position: absolute; z-index: 0; top: 50%; left: 50%; width: 430px; aspect-ratio: 1; border: 1px solid color-mix(in srgb, var(--accent-on), transparent 68%); border-radius: 50%; transform: translate(-50%, -50%) scaleY(.44) rotate(-23deg); }
+  .sp-security__orbit--two { width: 620px; transform: translate(-50%, -50%) scaleY(.44) rotate(37deg); }
+  .sp-security__seal { position: absolute; z-index: 3; right: clamp(20px, 4vw, 56px); bottom: clamp(20px, 4vw, 56px); display: inline-flex; align-items: center; gap: var(--space-2); padding: 9px 12px; border: 1px solid color-mix(in srgb, var(--accent-on), transparent 62%); border-radius: var(--radius-pill); background: color-mix(in srgb, var(--accent-active), transparent 18%); color: var(--accent-on); font-size: var(--text-xs); font-weight: 700; }
+  .sp-security__seal i { width: 17px; aspect-ratio: 1; display: grid; place-items: center; border-radius: 50%; background: var(--success); color: var(--bg); font-style: normal; }
+  @media (max-width: 760px) {
+    .sp-security__panel { min-height: 680px; grid-template-columns: 1fr; }
+    .sp-security__copy { padding: var(--space-6); }
+    .sp-security__copy > p:last-of-type { font-size: var(--text-base); }
+    .sp-security__art { min-height: 330px; }
+    .sp-security__art::after { background: linear-gradient(180deg, var(--accent), transparent 70%); }
+    .sp-security__art img { height: 124%; }
+  }
+</style>

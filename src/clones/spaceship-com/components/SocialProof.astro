@@ -1,0 +1,41 @@
+---
+const notes = [
+  { title: "A clear place to begin", copy: "“The interface makes a complex digital setup feel like one connected, manageable thing.”", tag: "Domain setup" },
+  { title: "Everything in reach", copy: "“The product dashboard has the calm, focused rhythm I want when I am launching something new.”", tag: "Product experience" },
+  { title: "Built for momentum", copy: "“A polished home for a project that is ready to move from idea to online.”", tag: "Launch workflow" },
+];
+---
+
+<section class="sp-proof sp-section">
+  <div class="sp-shell">
+    <div class="sp-proof__heading">
+      <p class="sp-eyebrow">Customer stories</p>
+      <h2 class="sp-display">Customers know best</h2>
+      <p class="sp-copy">Here’s what people with first-hand experience are saying about Spaceship.</p>
+    </div>
+    <div class="sp-proof__grid">
+      {notes.map((note) => (
+        <article class="sp-proof-card">
+          <div class="sp-proof-card__stars" aria-label="Five out of five stars">★★★★★</div>
+          <p>{note.copy}</p>
+          <div><strong>{note.title}</strong><span>{note.tag}</span></div>
+        </article>
+      ))}
+    </div>
+    <p class="sp-proof__note">Static interface reconstruction; live review-provider content is not loaded.</p>
+  </div>
+</section>
+
+<style>
+  .sp-proof { background: var(--bg); }
+  .sp-proof__heading { max-width: 650px; }
+  .sp-proof__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-4); margin-top: clamp(48px, 7vw, 88px); }
+  .sp-proof-card { min-height: 290px; display: flex; flex-direction: column; padding: var(--space-6); border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--surface); box-shadow: var(--elev-ring); }
+  .sp-proof-card__stars { color: var(--accent); font-size: var(--text-sm); letter-spacing: .14em; }
+  .sp-proof-card > p { margin: var(--space-6) 0 auto; font-size: var(--text-lg); font-weight: 500; letter-spacing: -.02em; line-height: 1.32; }
+  .sp-proof-card > div:last-child { display: grid; gap: 2px; margin-top: var(--space-6); }
+  .sp-proof-card strong { font-size: var(--text-sm); }
+  .sp-proof-card span { color: var(--muted); font-size: var(--text-xs); }
+  .sp-proof__note { margin: var(--space-5) 0 0; color: var(--meta); font-size: var(--text-xs); }
+  @media (max-width: 760px) { .sp-proof__grid { grid-template-columns: 1fr; } .sp-proof-card { min-height: 230px; } }
+</style>

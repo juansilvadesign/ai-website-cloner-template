@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Spaceship component specimens</title>
+    <link rel="stylesheet" href="tokens.css" />
+    <style>
+      body { margin: 0; padding: var(--space-8); background: var(--bg); color: var(--fg); font-family: var(--font-body); }
+      .fixture { max-width: var(--container-max); margin: 0 auto; display: grid; gap: var(--space-8); }
+      .fixture__label { margin: 0 0 var(--space-3); color: var(--meta); font-size: var(--text-xs); letter-spacing: .14em; text-transform: uppercase; }
+      .button-row { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+      .button { border: 0; border-radius: var(--radius-pill); padding: var(--space-3) var(--space-5); font: 700 var(--text-sm)/1 var(--font-body); cursor: pointer; }
+      .button--primary { background: var(--accent); color: var(--accent-on); box-shadow: var(--elev-ring); }
+      .button--neutral { background: var(--surface-warm); color: var(--fg); box-shadow: var(--elev-ring); }
+      .search { display: grid; grid-template-columns: 1fr auto auto; gap: var(--space-2); padding: var(--space-2); border-radius: var(--radius-pill); background: var(--surface); box-shadow: var(--elev-ring); }
+      .search__input { min-width: 0; border: 0; background: transparent; color: var(--fg); font: var(--text-base)/var(--leading-body) var(--font-body); }
+      .card-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-6); }
+      .card { min-height: 220px; padding: var(--space-8); border-radius: var(--radius-md); background: var(--surface-warm); box-shadow: var(--elev-ring); }
+      .card__title { margin: 0 0 var(--space-3); color: var(--fg-2); font: 700 var(--text-xl)/var(--leading-tight) var(--font-display); letter-spacing: var(--tracking-display); }
+      .card__copy { margin: 0; color: var(--muted); font-size: var(--text-base); line-height: var(--leading-body); }
+      .notice { padding: var(--space-6); border-radius: var(--radius-lg); background: var(--accent-active); color: var(--accent-on); box-shadow: var(--elev-raised); }
+      .faq-row { display: flex; justify-content: space-between; gap: var(--space-4); padding: var(--space-5) 0; border-bottom: 1px solid var(--border); }
+      .icon-disc { display: grid; width: 48px; height: 48px; place-items: center; border-radius: var(--radius-pill); background: var(--surface); color: var(--accent); box-shadow: var(--elev-ring); }
+      .stats { display: flex; gap: var(--space-6); padding: var(--space-6); border-radius: var(--radius-md); background: var(--surface); }
+      .stats strong { display: block; color: var(--fg); font: 700 var(--text-2xl)/var(--leading-tight) var(--font-display); }
+      @media (max-width: 640px) { body { padding: var(--container-gutter-phone); } .search { grid-template-columns: 1fr auto; } .search .button--neutral { display: none; } .card-grid { grid-template-columns: 1fr; } }
+    </style>
+  </head>
+  <body>
+    <main class="fixture">
+      <section><p class="fixture__label">Controls</p><div class="button-row"><button class="button button--neutral">Register</button><button class="button button--primary">Search</button><span class="icon-disc">↗</span></div></section>
+      <section><p class="fixture__label">Domain search</p><form class="search"><input class="search__input" aria-label="Domain name" placeholder="Search for a domain name…" /><button class="button button--neutral" type="button">Beast Mode</button><button class="button button--primary">Search</button></form></section>
+      <section class="card-grid"><article class="card"><h2 class="card__title">Powerfully simple</h2><p class="card__copy">A raised product surface with the source’s dark, deliberate hierarchy.</p></article><article class="card"><h2 class="card__title">Effortless email</h2><p class="card__copy">Editorial space and concise supporting text keep the card calm.</p></article></section>
+      <aside class="notice"><p class="fixture__label">Launchpad</p><strong>Access everything, instantly</strong></aside>
+      <section><p class="fixture__label">Disclosure</p><div class="faq-row"><strong>Who is Spaceship for?</strong><span>⌄</span></div></section>
+      <section class="stats"><div><strong>4</strong><span>key steps</span></div><div><strong>24px</strong><span>card radius</span></div></section>
+    </main>
+  </body>
+</html>

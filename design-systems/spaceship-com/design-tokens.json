@@ -1,0 +1,698 @@
+{
+  "schemaVersion": 1,
+  "format": "od-design-tokens/v1",
+  "contract": "TOKEN_SCHEMA",
+  "generatedAt": "2026-08-29T02:16:04.243Z",
+  "source": {
+    "tokensCss": "tokens.css",
+    "tokenContractReport": "source/token-contract.report.json"
+  },
+  "summary": {
+    "total": 56,
+    "byConfidence": {
+      "high": 51,
+      "derived": 4,
+      "fallback": 1
+    },
+    "byLayer": {
+      "A1-identity": 8,
+      "B-slot": 4,
+      "A2": 26,
+      "A1-structure": 18
+    }
+  },
+  "tokens": [
+    {
+      "name": "--bg",
+      "value": "#000000",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Hero and benefit-story canvas use pure black as their continuous base.",
+      "sources": [
+        "raw/homepage.css .hp-hero-section and .hp-benefit-section__wrapper",
+        "tokens.css:8"
+      ]
+    },
+    {
+      "name": "--surface",
+      "value": "#18191b",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Dark-mode base surface used by the product-card region.",
+      "sources": [
+        "raw/global-tokens.css --sds-color-surface-base",
+        "tokens.css:9"
+      ]
+    },
+    {
+      "name": "--surface-warm",
+      "value": "#252628",
+      "type": "color",
+      "layer": "B-slot",
+      "confidence": "high",
+      "reason": "Raised dark card and muted-control surface.",
+      "sources": [
+        "raw/global-tokens.css --sds-color-surface-raised",
+        "tokens.css:10"
+      ]
+    },
+    {
+      "name": "--fg",
+      "value": "#f9f9f9",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Dark-mode primary neutral text and icon color.",
+      "sources": [
+        "raw/global-tokens.css --sds-color-text-neutral-primary",
+        "tokens.css:13"
+      ]
+    },
+    {
+      "name": "--fg-2",
+      "value": "#f9f9f9",
+      "type": "color",
+      "layer": "B-slot",
+      "confidence": "high",
+      "reason": "The marketing page’s display tier keeps the primary neutral foreground.",
+      "sources": [
+        "raw/global-tokens.css --sds-color-text-neutral-primary",
+        "tokens.css:14"
+      ]
+    },
+    {
+      "name": "--muted",
+      "value": "#b3b3b4",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Dark-mode secondary explanatory copy.",
+      "sources": [
+        "raw/global-tokens.css --sds-color-text-neutral-secondary",
+        "tokens.css:15"
+      ]
+    },
+    {
+      "name": "--meta",
+      "value": "#8f8f91",
+      "type": "color",
+      "layer": "B-slot",
+      "confidence": "derived",
+      "reason": "Quiet label tier between primary and secondary neutral text.",
+      "sources": [
+        "derived from dark neutral hierarchy in raw/global-tokens.css",
+        "tokens.css:16"
+      ]
+    },
+    {
+      "name": "--border",
+      "value": "rgba(238, 239, 241, 0.14)",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Dark-mode subtle neutral divider.",
+      "sources": [
+        "raw/global-tokens.css --sds-color-border-neutral-subtle",
+        "tokens.css:19"
+      ]
+    },
+    {
+      "name": "--border-soft",
+      "value": "rgba(249, 249, 249, 0.08)",
+      "type": "color",
+      "layer": "B-slot",
+      "confidence": "high",
+      "reason": "Dark raised-surface inset edge.",
+      "sources": [
+        "raw/global-tokens.css --sds-shadow-raised",
+        "tokens.css:20"
+      ]
+    },
+    {
+      "name": "--accent",
+      "value": "#475bff",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Spaceship blue used for conversion buttons and the branded bold surface.",
+      "sources": [
+        "raw/global-tokens.css --sds-color-background-spaceship-bold",
+        "tokens.css:23"
+      ]
+    },
+    {
+      "name": "--accent-on",
+      "value": "#ffffff",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Button text over branded blue.",
+      "sources": [
+        "raw/global-tokens.css --sds-color-text-inverted-primary",
+        "tokens.css:24"
+      ]
+    },
+    {
+      "name": "--accent-hover",
+      "value": "#394eff",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Darker Spaceship blue is present in the brand foreground palette.",
+      "sources": [
+        "raw/global-tokens.css --sds-color-text-spaceship-primary",
+        "tokens.css:25"
+      ]
+    },
+    {
+      "name": "--accent-active",
+      "value": "#1f2da0",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Deep branded blue supports pressed and high-contrast states.",
+      "sources": [
+        "raw/global-tokens.css --sds-color-background-spaceship-strong",
+        "tokens.css:26"
+      ]
+    },
+    {
+      "name": "--success",
+      "value": "#2fa35f",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Dark-mode success icon color in the source token set.",
+      "sources": [
+        "raw/global-tokens.css --sds-color-icon-success-primary",
+        "tokens.css:29"
+      ]
+    },
+    {
+      "name": "--warn",
+      "value": "#e4a73b",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Dark-mode warning icon color in the source token set.",
+      "sources": [
+        "raw/global-tokens.css --sds-color-icon-warning-primary",
+        "tokens.css:30"
+      ]
+    },
+    {
+      "name": "--danger",
+      "value": "#ff553b",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Dark-mode danger icon color in the source token set.",
+      "sources": [
+        "raw/global-tokens.css --sds-color-icon-danger-primary",
+        "tokens.css:31"
+      ]
+    },
+    {
+      "name": "--font-display",
+      "value": "\"Spaceship Sans\", \"GB Proxima Nova\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+      "type": "fontFamily",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Public @font-face declarations and all source typography tokens name Spaceship Sans first.",
+      "sources": [
+        "raw/global.css @font-face and raw/global-tokens.css --sds-typography-display-large-font",
+        "tokens.css:34"
+      ]
+    },
+    {
+      "name": "--font-body",
+      "value": "\"Spaceship Sans\", \"GB Proxima Nova\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+      "type": "fontFamily",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Source body-medium typography uses the same local Spaceship Sans stack.",
+      "sources": [
+        "raw/global-tokens.css --sds-typography-body-medium-font",
+        "tokens.css:35"
+      ]
+    },
+    {
+      "name": "--font-mono",
+      "value": "ui-monospace, \"SF Mono\", Menlo, Monaco, Consolas, monospace",
+      "type": "fontFamily",
+      "layer": "A2",
+      "confidence": "fallback",
+      "reason": "No branded monospace treatment is visible on the target page.",
+      "sources": [
+        "OpenDesign A2 fallback",
+        "tokens.css:36"
+      ]
+    },
+    {
+      "name": "--text-xs",
+      "value": "12px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Tertiary labels and compact metadata tier.",
+      "sources": [
+        "raw/global-tokens.css spacing/type scale inspection",
+        "tokens.css:39"
+      ]
+    },
+    {
+      "name": "--text-sm",
+      "value": "14px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Navigation and compact control text tier.",
+      "sources": [
+        "raw homepage screenshot nav and source button typography",
+        "tokens.css:40"
+      ]
+    },
+    {
+      "name": "--text-base",
+      "value": "16px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Source body-medium typography is 1rem.",
+      "sources": [
+        "raw/global-tokens.css --sds-typography-body-medium-font",
+        "tokens.css:41"
+      ]
+    },
+    {
+      "name": "--text-lg",
+      "value": "22px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Source marketing subtitle tier is 1.375rem.",
+      "sources": [
+        "raw/homepage.css .hp-section__subtitle",
+        "tokens.css:42"
+      ]
+    },
+    {
+      "name": "--text-xl",
+      "value": "32px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Source product title mobile/medium tier is 2rem.",
+      "sources": [
+        "raw/homepage.css .hp-product-info__title",
+        "tokens.css:43"
+      ]
+    },
+    {
+      "name": "--text-2xl",
+      "value": "48px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Source section title baseline at the larger breakpoint.",
+      "sources": [
+        "raw/homepage.css .hp-section__title",
+        "tokens.css:44"
+      ]
+    },
+    {
+      "name": "--text-3xl",
+      "value": "56px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Source section headline tier is 3.5rem.",
+      "sources": [
+        "raw/homepage.css .hp-section__title",
+        "tokens.css:45"
+      ]
+    },
+    {
+      "name": "--text-4xl",
+      "value": "72px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Desktop hero and benefit display tier is 4.5rem.",
+      "sources": [
+        "raw/homepage.css .hp-hero-section__title and .hp-benefit-section__title",
+        "tokens.css:46"
+      ]
+    },
+    {
+      "name": "--leading-body",
+      "value": "1.5",
+      "type": "number",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Source body-medium token is 1rem / 1.5.",
+      "sources": [
+        "raw/global-tokens.css --sds-typography-body-medium-font",
+        "tokens.css:49"
+      ]
+    },
+    {
+      "name": "--leading-tight",
+      "value": "1.028",
+      "type": "number",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Source desktop display-medium font is 4.5rem / 1.0278.",
+      "sources": [
+        "raw/global-tokens.css --sds-typography-display-medium-font--lg",
+        "tokens.css:50"
+      ]
+    },
+    {
+      "name": "--tracking-display",
+      "value": "-0.025rem",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Hero and benefits use this source tracking at the desktop display tier.",
+      "sources": [
+        "raw/homepage.css .hp-hero-section__title and .hp-benefit-section__title",
+        "tokens.css:51"
+      ]
+    },
+    {
+      "name": "--space-1",
+      "value": "4px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Source space-100 token.",
+      "sources": [
+        "raw/global-tokens.css --sds-space-100",
+        "tokens.css:54"
+      ]
+    },
+    {
+      "name": "--space-2",
+      "value": "8px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Source space-200 token.",
+      "sources": [
+        "raw/global-tokens.css --sds-space-200",
+        "tokens.css:55"
+      ]
+    },
+    {
+      "name": "--space-3",
+      "value": "12px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Source space-300 token.",
+      "sources": [
+        "raw/global-tokens.css --sds-space-300",
+        "tokens.css:56"
+      ]
+    },
+    {
+      "name": "--space-4",
+      "value": "16px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Source space-400 token.",
+      "sources": [
+        "raw/global-tokens.css --sds-space-400",
+        "tokens.css:57"
+      ]
+    },
+    {
+      "name": "--space-5",
+      "value": "20px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Source space-500 token.",
+      "sources": [
+        "raw/global-tokens.css --sds-space-500",
+        "tokens.css:58"
+      ]
+    },
+    {
+      "name": "--space-6",
+      "value": "24px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Source space-600 token.",
+      "sources": [
+        "raw/global-tokens.css --sds-space-600",
+        "tokens.css:59"
+      ]
+    },
+    {
+      "name": "--space-8",
+      "value": "32px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Source space-800 token.",
+      "sources": [
+        "raw/global-tokens.css --sds-space-800",
+        "tokens.css:60"
+      ]
+    },
+    {
+      "name": "--space-12",
+      "value": "48px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Source space-1200 token.",
+      "sources": [
+        "raw/global-tokens.css --sds-space-1200",
+        "tokens.css:61"
+      ]
+    },
+    {
+      "name": "--section-y-desktop",
+      "value": "120px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "The source hp-section uses 120px vertical padding at desktop.",
+      "sources": [
+        "raw/homepage.css .hp-section",
+        "tokens.css:64"
+      ]
+    },
+    {
+      "name": "--section-y-tablet",
+      "value": "96px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "The source hp-section uses 96px at the lower desktop/tablet range.",
+      "sources": [
+        "raw/homepage.css .hp-section",
+        "tokens.css:65"
+      ]
+    },
+    {
+      "name": "--section-y-phone",
+      "value": "72px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "derived",
+      "reason": "Keeps the source’s long-form rhythm while fitting the observed phone gutter.",
+      "sources": [
+        "derived from source 96px/120px section cadence",
+        "tokens.css:66"
+      ]
+    },
+    {
+      "name": "--radius-sm",
+      "value": "16px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Source small radius token.",
+      "sources": [
+        "raw/global-tokens.css --sds-radius-small",
+        "tokens.css:69"
+      ]
+    },
+    {
+      "name": "--radius-md",
+      "value": "24px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Source medium radius token and product-card radius.",
+      "sources": [
+        "raw/global-tokens.css --sds-radius-medium and raw/homepage.css .hp-product-info__inner",
+        "tokens.css:70"
+      ]
+    },
+    {
+      "name": "--radius-lg",
+      "value": "32px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Source large radius token and product-section transition target.",
+      "sources": [
+        "raw/global-tokens.css --sds-radius-large and raw/homepage HTML productSection style",
+        "tokens.css:71"
+      ]
+    },
+    {
+      "name": "--radius-pill",
+      "value": "9999px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Source full radius token powers button pills.",
+      "sources": [
+        "raw/global-tokens.css --sds-radius-full",
+        "tokens.css:72"
+      ]
+    },
+    {
+      "name": "--elev-flat",
+      "value": "none",
+      "type": "shadow",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Cinematic panels largely rely on surface contrast instead of shadows.",
+      "sources": [
+        "raw homepage visual evidence",
+        "tokens.css:75"
+      ]
+    },
+    {
+      "name": "--elev-ring",
+      "value": "0 0 0 1px rgba(249, 249, 249, 0.08) inset",
+      "type": "shadow",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Dark raised-surface inset edge.",
+      "sources": [
+        "raw/global-tokens.css --sds-shadow-raised",
+        "tokens.css:76"
+      ]
+    },
+    {
+      "name": "--elev-raised",
+      "value": "0 0 0 1px rgba(249, 249, 249, 0.10) inset, 0 12px 24px -1px rgba(0, 0, 0, 0.18), 0 24px 48px -1px rgba(0, 0, 0, 0.14)",
+      "type": "shadow",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Source dark overlay-variant shadow.",
+      "sources": [
+        "raw/global-tokens.css --sds-shadow-overlay-variant",
+        "tokens.css:77"
+      ]
+    },
+    {
+      "name": "--focus-ring",
+      "value": "0 0 0 3px rgba(93, 139, 255, 0.45)",
+      "type": "shadow",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Visible keyboard ring calibrated to the dark-mode Spaceship primary.",
+      "sources": [
+        "derived from raw/global-tokens.css --sds-color-icon-spaceship-primary",
+        "tokens.css:80"
+      ]
+    },
+    {
+      "name": "--motion-fast",
+      "value": "200ms",
+      "type": "duration",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Source state changes use 0.2s opacity transitions.",
+      "sources": [
+        "raw/homepage.css product action and FAQ styles",
+        "tokens.css:83"
+      ]
+    },
+    {
+      "name": "--motion-base",
+      "value": "300ms",
+      "type": "duration",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Source product hover and hero transitions use 0.3s.",
+      "sources": [
+        "raw/homepage.css .hp-product-info__inner and .hp-hero-section .sp-search",
+        "tokens.css:84"
+      ]
+    },
+    {
+      "name": "--ease-standard",
+      "value": "cubic-bezier(0.55, 0, 0.35, 1)",
+      "type": "cubicBezier",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Source cinematic transition curve.",
+      "sources": [
+        "raw/homepage.css .hp-hero-section .sp-search and product image hover",
+        "tokens.css:85"
+      ]
+    },
+    {
+      "name": "--container-max",
+      "value": "1280px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "The source renderer’s desktop reference uses a 1280px canvas and center-aligned container.",
+      "sources": [
+        "docs/design-references/spaceship-com/original-pageshot.png",
+        "tokens.css:88"
+      ]
+    },
+    {
+      "name": "--container-gutter-desktop",
+      "value": "64px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Desktop screenshot shows ~64px of outer content inset.",
+      "sources": [
+        "docs/design-references/spaceship-com/raw/reference-search-alt.png",
+        "tokens.css:89"
+      ]
+    },
+    {
+      "name": "--container-gutter-tablet",
+      "value": "40px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "derived",
+      "reason": "Intermediate responsive gutter between desktop and phone.",
+      "sources": [
+        "source responsive breakpoints and layout interpolation",
+        "tokens.css:90"
+      ]
+    },
+    {
+      "name": "--container-gutter-phone",
+      "value": "20px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Spaceship control and card composition uses compact phone side padding.",
+      "sources": [
+        "source mobile asset aspect and visual system",
+        "tokens.css:91"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+---
+import "../styles/clone.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Spaceship — A domain odyssey",
+  description = "A cinematic domain, hosting, and digital-products marketing page reconstructed from spaceship.com.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#000000" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <link rel="canonical" href="https://www.spaceship.com/" />
+    <link rel="icon" type="image/svg+xml" href="/clones/spaceship-com/seo/favicon.svg" />
+    <link rel="apple-touch-icon" href="/clones/spaceship-com/seo/apple-touch-icon.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/clones/spaceship-com/images/meta-image.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

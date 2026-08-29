@@ -1,0 +1,62 @@
+---
+const faqs = [
+  ["Who is Spaceship for?", "Spaceship is designed for people building a digital presence: founders, creators, businesses, and anyone who wants their domain, website products, and management tools to work together."],
+  ["What is Unbox?", "Unbox is the setup experience that activates the products you choose alongside a domain and prepares them to launch and manage from one place."],
+  ["Will you be offering more products?", "The product direction shown here is built to grow. The source site invites customers to explore, suggest, and vote on new tools and features."],
+  ["How can I build a website with Spaceship?", "Start with a domain, choose the website and hosting products that fit your idea, and use the setup flow to connect and configure them."],
+  ["Why do I need a domain to build a website?", "A domain gives your website an address people can remember and is the foundation for connecting website, email, and related online services."],
+  ["Which domain extensions do you offer?", "The product catalog includes familiar extensions such as .com and .net alongside a broad selection of domain endings for different ideas and industries."],
+  ["How do I choose and connect my website products?", "Choose the services that suit your goals, then connect them in the management space so your domain, site, hosting, and email are ready together."],
+  ["What is a CMS?", "A content management system is an application used to create, organize, and publish website content without editing each page directly."],
+  ["Why is it better to choose my own website builder or CMS?", "Choosing your preferred platform lets you match your workflow, content needs, and desired level of flexibility while keeping the rest of your online stack connected."],
+  ["Will I need to know or use code?", "Not necessarily. Many website tools are designed for visual setup, while hosting and domain controls remain available when you need more advanced options."],
+  ["How do I choose my website hosting?", "Consider the performance, control, scalability, and site software you need. The hosting choices shown in this page cover simple sites, WordPress, and virtual machines."],
+  ["What is Spacemail?", "Spacemail is the full-service business email offering for a domain, designed to make professional communication simple and secure."],
+];
+---
+
+<section class="sp-faq sp-section" id="faq">
+  <div class="sp-shell">
+    <div class="sp-faq__intro">
+      <p class="sp-eyebrow">Help center</p>
+      <h2 class="sp-display">Questions, answered.</h2>
+    </div>
+    <div class="sp-faq__list">
+      {faqs.map(([question, answer], index) => {
+        const id = `sp-faq-${index}`;
+        return (
+          <article class="sp-faq__item">
+            <h3><button type="button" aria-expanded={index === 0 ? "true" : "false"} aria-controls={id}><span>{question}</span><i aria-hidden="true">+</i></button></h3>
+            <div id={id} class="sp-faq__answer" role="region"><p>{answer}</p></div>
+          </article>
+        );
+      })}
+    </div>
+  </div>
+</section>
+
+<script>
+  const faqButtons = document.querySelectorAll<HTMLButtonElement>(".sp-faq__item button");
+  faqButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const willOpen = button.getAttribute("aria-expanded") !== "true";
+      faqButtons.forEach((item) => item.setAttribute("aria-expanded", "false"));
+      button.setAttribute("aria-expanded", String(willOpen));
+    });
+  });
+</script>
+
+<style>
+  .sp-faq { background: var(--surface); }
+  .sp-faq__intro { max-width: 630px; }
+  .sp-faq__list { margin-top: clamp(48px, 7vw, 88px); border-top: 1px solid var(--border); }
+  .sp-faq__item { border-bottom: 1px solid var(--border); }
+  h3 { margin: 0; }
+  h3 button { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: var(--space-5); padding: var(--space-6) 0; border: 0; background: transparent; color: var(--fg); text-align: left; font-size: clamp(var(--text-lg), 2.4vw, var(--text-xl)); font-weight: 700; letter-spacing: var(--tracking-display); line-height: 1.14; }
+  h3 i { flex: 0 0 auto; width: 32px; height: 32px; display: grid; place-items: center; border: 1px solid var(--border); border-radius: 50%; color: var(--accent); font-size: 24px; font-style: normal; font-weight: 400; line-height: 1; transition: transform var(--motion-fast) var(--ease-standard), background-color var(--motion-fast) var(--ease-standard), color var(--motion-fast) var(--ease-standard); }
+  h3 button[aria-expanded="true"] i { background: var(--accent); color: var(--accent-on); transform: rotate(45deg); }
+  .sp-faq__answer { display: grid; grid-template-rows: 0fr; transition: grid-template-rows var(--motion-base) var(--ease-standard), padding-bottom var(--motion-base) var(--ease-standard); }
+  .sp-faq__answer > p { min-height: 0; max-width: 760px; margin: 0; overflow: hidden; color: var(--muted); font-size: var(--text-lg); line-height: 1.42; }
+  .sp-faq__item:has(button[aria-expanded="true"]) .sp-faq__answer { grid-template-rows: 1fr; padding-bottom: var(--space-6); }
+  @media (max-width: 620px) { h3 button { padding: var(--space-5) 0; font-size: var(--text-lg); } .sp-faq__answer > p { font-size: var(--text-base); } }
+</style>

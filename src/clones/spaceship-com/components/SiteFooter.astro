@@ -1,0 +1,71 @@
+---
+const groups = [
+  { title: "Domains", links: ["Domain name search", "Domain transfer", "Premium domains", "Domain extensions"] },
+  { title: "Hosting", links: ["Web Hosting", "WordPress Hosting", "Virtual machines", "Website Builder"] },
+  { title: "Email", links: ["Spacemail", "Business email", "Email security", "Setup guides"] },
+  { title: "Spaceship Cloud", links: ["Launchpad", "Unbox", "Connection Manager", "Library"] },
+  { title: "Security", links: ["Security Center", "Account protection", "Domain security", "Status"] },
+  { title: "Customer Service", links: ["Help Center", "Contact us", "Blog", "About Spaceship"] },
+];
+---
+
+<footer class="sp-footer">
+  <div class="sp-shell">
+    <section class="sp-footer__subscribe">
+      <div><p class="sp-eyebrow">Stay in orbit</p><h2>Keep up with everything happening on Spaceship.</h2></div>
+      <form id="sp-subscribe-form">
+        <label class="sp-sr-only" for="sp-subscribe-email">Email address</label>
+        <input id="sp-subscribe-email" type="email" placeholder="Enter your email here" required />
+        <button class="sp-button sp-button--primary" type="submit">Subscribe <span aria-hidden="true">→</span></button>
+        <p id="sp-subscribe-status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <nav class="sp-footer__links" aria-label="Footer navigation">
+      {groups.map((group) => (
+        <section><h3>{group.title}</h3><ul>{group.links.map((link) => <li><a href="#faq">{link}</a></li>)}</ul></section>
+      ))}
+    </nav>
+
+    <div class="sp-footer__bottom">
+      <div class="sp-footer__badges"><span>Payment Options</span><span>We protect and save your data.</span><span>Certified By</span></div>
+      <div class="sp-footer__legal"><p>We are an ICANN-accredited registrar. Serving customers since 2022.</p><p>© 2019–2026 Spaceship, Inc. 4600 East Washington Street, Suite 305, Phoenix, AZ 85034, USA.</p></div>
+      <a class="sp-footer__mark" href="/spaceship-com/" aria-label="Spaceship home">spaceship<span>✦</span></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const subscribeForm = document.querySelector<HTMLFormElement>("#sp-subscribe-form");
+  const subscribeEmail = document.querySelector<HTMLInputElement>("#sp-subscribe-email");
+  const subscribeStatus = document.querySelector<HTMLElement>("#sp-subscribe-status");
+  subscribeForm?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (!subscribeStatus) return;
+    subscribeStatus.textContent = subscribeEmail?.validity.valid ? "Thanks — this local demo has saved no email address." : "Please enter a valid email address.";
+  });
+</script>
+
+<style>
+  .sp-footer { padding-top: var(--section-y-desktop); background: var(--bg); }
+  .sp-footer__subscribe { display: grid; grid-template-columns: 1fr minmax(320px, .85fr); gap: clamp(32px, 8vw, 120px); align-items: end; padding-bottom: var(--section-y-desktop); border-bottom: 1px solid var(--border); }
+  .sp-footer__subscribe h2 { max-width: 560px; margin: 0; font-size: clamp(var(--text-xl), 4vw, var(--text-2xl)); font-weight: 700; letter-spacing: var(--tracking-display); line-height: 1.04; }
+  .sp-footer form { display: grid; grid-template-columns: 1fr auto; gap: var(--space-2); }
+  .sp-footer input { min-width: 0; min-height: 50px; padding: 0 var(--space-4); border: 1px solid var(--border); border-radius: var(--radius-pill); outline: 0; background: var(--surface); color: var(--fg); }
+  .sp-footer input::placeholder { color: var(--muted); }
+  .sp-footer form p { grid-column: 1 / -1; min-height: 18px; margin: 0; color: var(--muted); font-size: var(--text-xs); }
+  .sp-footer__links { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: var(--space-5); padding: var(--section-y-desktop) 0; }
+  .sp-footer__links h3 { margin: 0 0 var(--space-4); font-size: var(--text-sm); font-weight: 700; }
+  .sp-footer__links ul { display: grid; gap: var(--space-3); padding: 0; margin: 0; list-style: none; }
+  .sp-footer__links a { color: var(--muted); font-size: var(--text-sm); transition: color var(--motion-fast) var(--ease-standard); }
+  .sp-footer__links a:hover { color: var(--fg); }
+  .sp-footer__bottom { position: relative; display: grid; gap: var(--space-6); padding: var(--space-8) 0; border-top: 1px solid var(--border); }
+  .sp-footer__badges { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+  .sp-footer__badges span { padding: 6px 9px; border: 1px solid var(--border); border-radius: var(--radius-pill); color: var(--muted); font-size: var(--text-xs); }
+  .sp-footer__legal { display: grid; gap: var(--space-2); max-width: 760px; color: var(--meta); font-size: var(--text-xs); }
+  .sp-footer__legal p { margin: 0; }
+  .sp-footer__mark { position: absolute; right: 0; bottom: var(--space-8); color: var(--fg); font-size: clamp(32px, 5vw, 62px); font-weight: 700; letter-spacing: -.085em; line-height: .8; }
+  .sp-footer__mark span { color: var(--accent); font-size: .46em; vertical-align: top; }
+  @media (max-width: 860px) { .sp-footer__links { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  @media (max-width: 620px) { .sp-footer { padding-top: var(--section-y-phone); } .sp-footer__subscribe { grid-template-columns: 1fr; padding-bottom: var(--section-y-phone); } .sp-footer form { grid-template-columns: 1fr; } .sp-footer__links { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: var(--section-y-phone) 0; } .sp-footer__mark { position: static; justify-self: start; margin-top: var(--space-3); } }
+</style>

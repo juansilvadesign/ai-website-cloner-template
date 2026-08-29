@@ -1,0 +1,186 @@
+<div class="sp-announce" role="note">
+  <a href="#domains">Build the future with a <strong>.ai</strong> for $79.98/yr — lowest market price <span aria-hidden="true">→</span></a>
+</div>
+
+<header class="sp-header">
+  <div class="sp-shell sp-header__inner">
+    <a class="sp-wordmark" href="/spaceship-com/" aria-label="Spaceship home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M7 17c4-10 14-13 18-10-1 7-7 15-17 16 4-2 8-7 10-12-4 3-8 5-11 6Z" fill="currentColor"/><circle cx="24.5" cy="7.5" r="2.5" fill="var(--accent)" /></svg>
+      <span>spaceship</span>
+    </a>
+
+    <nav class="sp-header__nav" aria-label="Primary navigation">
+      <a href="#domains">Domains</a>
+      <a href="#products">SellerHub</a>
+      <a href="#products">Hosting</a>
+      <a href="#features">Explore all <span aria-hidden="true">↗</span></a>
+    </nav>
+
+    <div class="sp-header__actions">
+      <a class="sp-header__ask" href="#alf"><span class="sp-header__spark" aria-hidden="true">✦</span> Ask Alf</a>
+      <button class="sp-launch-button" type="button" data-launchpad-trigger aria-haspopup="dialog">
+        <span>Launchpad</span><kbd>⌘ K</kbd>
+      </button>
+    </div>
+
+    <button class="sp-mobile-menu-button" id="sp-mobile-menu-button" type="button" aria-expanded="false" aria-controls="sp-mobile-menu">
+      <span class="sp-sr-only">Open navigation</span>
+      <span></span><span></span>
+    </button>
+  </div>
+
+  <div class="sp-mobile-menu" id="sp-mobile-menu" hidden>
+    <div class="sp-shell sp-mobile-menu__inner">
+      <div class="sp-mobile-menu__top">
+        <span class="sp-wordmark sp-wordmark--small" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M7 17c4-10 14-13 18-10-1 7-7 15-17 16 4-2 8-7 10-12-4 3-8 5-11 6Z" fill="currentColor"/></svg>spaceship</span>
+        <button class="sp-icon-button sp-button--secondary" id="sp-mobile-menu-close" type="button" aria-label="Close navigation">×</button>
+      </div>
+      <nav aria-label="Mobile navigation">
+        <a href="#domains">Domains <span>→</span></a>
+        <a href="#products">SellerHub <span>→</span></a>
+        <a href="#products">Hosting <span>→</span></a>
+        <a href="#features">Explore all <span>→</span></a>
+      </nav>
+      <div class="sp-mobile-menu__bottom">
+        <a class="sp-button sp-button--secondary" href="#alf">✦ Ask Alf</a>
+        <button class="sp-button sp-button--primary" type="button" data-launchpad-trigger>Open Launchpad</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  const menuButton = document.querySelector<HTMLButtonElement>("#sp-mobile-menu-button");
+  const menu = document.querySelector<HTMLElement>("#sp-mobile-menu");
+  const menuClose = document.querySelector<HTMLButtonElement>("#sp-mobile-menu-close");
+
+  const setMenu = (open: boolean) => {
+    if (!menuButton || !menu) return;
+    menuButton.setAttribute("aria-expanded", String(open));
+    menu.hidden = !open;
+    document.body.classList.toggle("sp-menu-open", open);
+  };
+
+  menuButton?.addEventListener("click", () => setMenu(menuButton.getAttribute("aria-expanded") !== "true"));
+  menuClose?.addEventListener("click", () => setMenu(false));
+  menu?.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => setMenu(false)));
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") setMenu(false);
+  });
+</script>
+
+<style>
+  .sp-announce {
+    position: relative;
+    z-index: 20;
+    min-height: 32px;
+    display: grid;
+    place-items: center;
+    padding: 6px var(--space-5);
+    border-bottom: 1px solid var(--border-soft);
+    background: var(--surface);
+    color: var(--muted);
+    font-size: var(--text-xs);
+    text-align: center;
+  }
+
+  .sp-announce a { transition: color var(--motion-fast) var(--ease-standard); }
+  .sp-announce a:hover { color: var(--fg); }
+  .sp-announce strong { color: var(--fg); }
+
+  .sp-header {
+    position: relative;
+    z-index: 20;
+    border-bottom: 1px solid var(--border-soft);
+    background: color-mix(in srgb, var(--accent-active), var(--bg) 42%);
+  }
+
+  .sp-header__inner {
+    min-height: 76px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: var(--space-6);
+  }
+
+  .sp-wordmark {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    width: max-content;
+    color: var(--fg);
+    font-size: 21px;
+    font-weight: 700;
+    letter-spacing: -.07em;
+    line-height: 1;
+  }
+
+  .sp-wordmark svg { width: 25px; height: 25px; }
+  .sp-wordmark--small { font-size: var(--text-lg); }
+
+  .sp-header__nav,
+  .sp-header__actions,
+  .sp-header__ask,
+  .sp-launch-button {
+    display: flex;
+    align-items: center;
+  }
+
+  .sp-header__nav { gap: var(--space-6); font-size: var(--text-sm); font-weight: 500; }
+  .sp-header__nav a { color: var(--muted); transition: color var(--motion-fast) var(--ease-standard); }
+  .sp-header__nav a:hover { color: var(--fg); }
+
+  .sp-header__actions { justify-content: flex-end; gap: var(--space-4); }
+  .sp-header__ask { min-height: 38px; gap: 6px; padding: 8px 12px; border: 1px solid color-mix(in srgb, var(--fg), transparent 88%); border-radius: var(--radius-pill); background: color-mix(in srgb, var(--accent), transparent 75%); color: var(--fg); font-size: var(--text-sm); font-weight: 700; }
+  .sp-header__spark { color: var(--accent); font-size: var(--text-lg); line-height: 1; }
+
+  .sp-launch-button {
+    min-height: 38px;
+    gap: var(--space-2);
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--surface-warm);
+    color: var(--fg);
+    box-shadow: var(--elev-ring);
+    font-size: var(--text-xs);
+    font-weight: 700;
+  }
+
+  kbd {
+    padding: 3px 5px;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    color: var(--muted);
+    font-family: var(--font-body);
+    font-size: 10px;
+  }
+
+  .sp-mobile-menu-button { display: none; }
+  .sp-mobile-menu { position: fixed; inset: 0; z-index: 100; background: var(--bg); }
+  .sp-mobile-menu[hidden] { display: none; }
+  .sp-mobile-menu__inner { min-height: 100%; display: flex; flex-direction: column; padding-block: var(--space-6); }
+  .sp-mobile-menu__top { display: flex; align-items: center; justify-content: space-between; }
+  .sp-mobile-menu nav { display: grid; margin-top: clamp(60px, 16vh, 140px); }
+  .sp-mobile-menu nav a { display: flex; justify-content: space-between; padding: var(--space-5) 0; border-bottom: 1px solid var(--border); font-size: var(--text-xl); font-weight: 700; }
+  .sp-mobile-menu nav span { color: var(--accent); }
+  .sp-mobile-menu__bottom { display: grid; gap: var(--space-3); margin-top: auto; }
+
+  @media (max-width: 900px) {
+    .sp-header__inner { grid-template-columns: 1fr auto; min-height: 68px; }
+    .sp-header__nav,
+    .sp-header__actions { display: none; }
+    .sp-mobile-menu-button {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      align-content: center;
+      gap: 5px;
+      padding: 0;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-pill);
+      background: var(--surface-warm);
+    }
+    .sp-mobile-menu-button span:not(.sp-sr-only) { width: 17px; height: 1px; justify-self: center; background: var(--fg); }
+  }
+</style>

@@ -1,0 +1,53 @@
+---
+const stories = [
+  {
+    title: "Domain game, raised",
+    copy: "Get next-level domain management through high-performance tools and apps for complete control.",
+    image: "/clones/spaceship-com/images/benefit-domain.webp",
+    label: "01 — Domains",
+  },
+  {
+    title: "Powerful connections",
+    copy: "Add advanced hosting, email, and tools to your domain to better launch and manage your digital future.",
+    image: "/clones/spaceship-com/images/benefit-connections.webp",
+    label: "02 — Connected products",
+  },
+  {
+    title: "Made for you, with you",
+    copy: "Explore, suggest, and vote on new features and products, helping us deliver what drives your success.",
+    image: "/clones/spaceship-com/images/benefit-community.webp",
+    label: "03 — Community",
+  },
+];
+---
+
+<section class="sp-benefits" aria-label="Why Spaceship">
+  {stories.map((story) => (
+    <article class="sp-benefit-stage">
+      <img src={story.image} alt="" loading="lazy" />
+      <div class="sp-benefit-stage__shade"></div>
+      <div class="sp-shell sp-benefit-stage__copy">
+        <p class="sp-eyebrow">{story.label}</p>
+        <h2>{story.title}</h2>
+        <p>{story.copy}</p>
+      </div>
+    </article>
+  ))}
+</section>
+
+<style>
+  .sp-benefits { background: var(--bg); }
+  .sp-benefit-stage { position: relative; min-height: min(760px, 100svh); overflow: clip; isolation: isolate; }
+  .sp-benefit-stage img { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; }
+  .sp-benefit-stage__shade { position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, color-mix(in srgb, var(--bg), transparent 100%) 15%, color-mix(in srgb, var(--bg), transparent 15%) 88%); }
+  .sp-benefit-stage__copy { min-height: min(760px, 100svh); display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: clamp(72px, 12vh, 150px); }
+  .sp-benefit-stage__copy .sp-eyebrow { color: var(--fg); }
+  h2 { max-width: 710px; margin: 0; font-family: var(--font-display); font-size: clamp(var(--text-2xl), 5.5vw, var(--text-4xl)); font-weight: 700; letter-spacing: var(--tracking-display); line-height: var(--leading-tight); }
+  .sp-benefit-stage__copy > p:last-child { max-width: 680px; margin: var(--space-5) 0 0; color: var(--fg); font-size: clamp(var(--text-lg), 2.3vw, var(--text-xl)); line-height: 1.25; }
+  @media (max-width: 620px) {
+    .sp-benefit-stage,
+    .sp-benefit-stage__copy { min-height: 610px; }
+    .sp-benefit-stage__copy { padding-bottom: var(--section-y-phone); }
+    .sp-benefit-stage__copy > p:last-child { font-size: var(--text-lg); }
+  }
+</style>

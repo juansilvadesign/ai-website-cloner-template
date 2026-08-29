@@ -1,0 +1,60 @@
+<section class="sp-alf sp-section" id="alf">
+  <div class="sp-shell">
+    <div class="sp-alf__card">
+      <video class="sp-alf__video" autoplay muted loop playsinline poster="/clones/spaceship-com/images/animation-fallback.svg">
+        <source src="/clones/spaceship-com/videos/alf-desktop.mp4" type="video/mp4" />
+      </video>
+      <div class="sp-alf__shade"></div>
+      <div class="sp-alf__content">
+        <p class="sp-eyebrow">AI assistant</p>
+        <h2 class="sp-display">Meet your AI assistant</h2>
+        <p>Alf is your intelligent digital assistant ready to redefine your customer experience.</p>
+        <a class="sp-button sp-button--primary" href="#launchpad">Say hello <span aria-hidden="true">→</span></a>
+      </div>
+      <button class="sp-alf__media-toggle sp-icon-button sp-button--secondary" type="button" aria-pressed="false" aria-label="Pause Alf video"><span aria-hidden="true">Ⅱ</span></button>
+    </div>
+  </div>
+</section>
+
+<script>
+  const alfVideo = document.querySelector<HTMLVideoElement>(".sp-alf__video");
+  const alfToggle = document.querySelector<HTMLButtonElement>(".sp-alf__media-toggle");
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  const setAlfPlaying = (playing: boolean) => {
+    if (!alfVideo || !alfToggle) return;
+    if (playing) {
+      void alfVideo.play().catch(() => undefined);
+    } else {
+      alfVideo.pause();
+    }
+    alfToggle.setAttribute("aria-pressed", String(!playing));
+    alfToggle.setAttribute("aria-label", playing ? "Pause Alf video" : "Play Alf video");
+    alfToggle.innerHTML = playing ? "<span aria-hidden=\"true\">Ⅱ</span>" : "<span aria-hidden=\"true\">▶</span>";
+  };
+
+  if (reducedMotion.matches) setAlfPlaying(false);
+  alfToggle?.addEventListener("click", () => setAlfVideoState());
+
+  function setAlfVideoState() {
+    setAlfPlaying(Boolean(alfVideo?.paused));
+  }
+</script>
+
+<style>
+  .sp-alf { background: var(--bg); }
+  .sp-alf__card { position: relative; min-height: clamp(500px, 60vw, 720px); overflow: hidden; border: 1px solid var(--border-soft); border-radius: var(--radius-lg); background: var(--surface); box-shadow: var(--elev-raised); }
+  .sp-alf__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .sp-alf__shade { position: absolute; inset: 0; background: linear-gradient(90deg, color-mix(in srgb, var(--bg), transparent 8%) 0%, color-mix(in srgb, var(--bg), transparent 48%) 48%, color-mix(in srgb, var(--bg), transparent 100%) 82%); }
+  .sp-alf__content { position: relative; z-index: 2; width: min(100% - (var(--space-12) * 2), 570px); min-height: inherit; display: flex; flex-direction: column; justify-content: center; padding: var(--space-12); }
+  .sp-alf__content .sp-eyebrow { color: var(--fg); }
+  .sp-alf__content > p:last-of-type { max-width: 470px; margin: var(--space-5) 0 0; color: var(--fg); font-size: var(--text-lg); line-height: 1.35; }
+  .sp-alf__content .sp-button { width: max-content; margin-top: var(--space-8); }
+  .sp-alf__media-toggle { position: absolute; z-index: 3; right: var(--space-6); bottom: var(--space-6); }
+  @media (max-width: 620px) {
+    .sp-alf__card { min-height: 560px; }
+    .sp-alf__shade { background: linear-gradient(180deg, color-mix(in srgb, var(--bg), transparent 8%) 0%, color-mix(in srgb, var(--bg), transparent 38%) 60%, color-mix(in srgb, var(--bg), transparent 90%) 100%); }
+    .sp-alf__content { width: auto; padding: var(--space-6); justify-content: flex-end; }
+    .sp-alf__content > p:last-of-type { font-size: var(--text-base); }
+  }
+</style>

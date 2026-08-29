@@ -1,0 +1,32 @@
+---
+import AlfSection from "../../clones/spaceship-com/components/AlfSection.astro";
+import BenefitStory from "../../clones/spaceship-com/components/BenefitStory.astro";
+import FaqSection from "../../clones/spaceship-com/components/FaqSection.astro";
+import FeatureGrid from "../../clones/spaceship-com/components/FeatureGrid.astro";
+import HeroSection from "../../clones/spaceship-com/components/HeroSection.astro";
+import LaunchpadSection from "../../clones/spaceship-com/components/LaunchpadSection.astro";
+import ProductGrid from "../../clones/spaceship-com/components/ProductGrid.astro";
+import SecuritySection from "../../clones/spaceship-com/components/SecuritySection.astro";
+import SiteFooter from "../../clones/spaceship-com/components/SiteFooter.astro";
+import SiteHeader from "../../clones/spaceship-com/components/SiteHeader.astro";
+import SocialProof from "../../clones/spaceship-com/components/SocialProof.astro";
+import UnboxSection from "../../clones/spaceship-com/components/UnboxSection.astro";
+import BaseLayout from "../../clones/spaceship-com/layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <SiteHeader />
+  <main>
+    <HeroSection />
+    <BenefitStory />
+    <ProductGrid />
+    <UnboxSection />
+    <AlfSection />
+    <LaunchpadSection />
+    <SecuritySection />
+    <FeatureGrid />
+    <SocialProof />
+    <FaqSection />
+  </main>
+  <SiteFooter />
+</BaseLayout>

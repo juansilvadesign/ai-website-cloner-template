@@ -1,0 +1,95 @@
+---
+const products = [
+  {
+    title: "Web Hosting",
+    subtitle: "Powerfully simple",
+    copy: "Get everything for launching a successful website, from high-performance servers to easy management.",
+    kind: "hosting",
+  },
+  {
+    title: "No stress hosting for WordPress",
+    subtitle: "Built to keep you moving",
+    copy: "Give your site a head start with the fastest hosting for WordPress on next-gen cloud technology.",
+    kind: "wordpress",
+  },
+  {
+    title: "Virtual machines",
+    subtitle: "Extra server muscle",
+    copy: "Power more possibilities through flexible control and scalability.",
+    kind: "machines",
+  },
+  {
+    title: "Effortless email",
+    subtitle: "Spacemail",
+    copy: "Send the right message with ultra-simple and secure full-service business email for your domain.",
+    kind: "email",
+  },
+];
+---
+
+<section class="sp-products sp-section" id="products">
+  <div class="sp-shell">
+    <div class="sp-products__intro">
+      <p class="sp-eyebrow">Products for momentum</p>
+      <h2 class="sp-display">More power to your ideas.</h2>
+    </div>
+    <div class="sp-product-grid">
+      {products.map((product, index) => (
+        <article class:list={["sp-product-card", `sp-product-card--${product.kind}`, { "sp-product-card--lead": index === 0 }]}>
+          <div class="sp-product-card__visual" aria-hidden="true">
+            {product.kind === "wordpress" && <img src="/clones/spaceship-com/images/starlight.webp" alt="" loading="lazy" />}
+            {product.kind === "email" && <img src="/clones/spaceship-com/images/spacemail.webp" alt="" loading="lazy" />}
+            {product.kind === "hosting" && <div class="sp-orbit-art"><i></i><i></i><i></i><b>◒</b></div>}
+            {product.kind === "machines" && <div class="sp-machine-art"><i></i><i></i><i></i><i></i></div>}
+          </div>
+          <div class="sp-product-card__content">
+            <p>{product.subtitle}</p>
+            <h3>{product.title}</h3>
+            <span>{product.copy}</span>
+            <a class="sp-button sp-button--text" href="#unbox">See plans</a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .sp-products { position: relative; background: var(--surface); border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
+  .sp-products__intro { max-width: 710px; margin-bottom: clamp(48px, 7vw, 88px); }
+  .sp-product-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-5); }
+  .sp-product-card { position: relative; min-height: 490px; display: grid; overflow: hidden; border: 1px solid var(--border-soft); border-radius: var(--radius-md); background: var(--bg); box-shadow: var(--elev-ring); transition: transform var(--motion-base) var(--ease-standard), border-color var(--motion-fast) var(--ease-standard); }
+  .sp-product-card--lead { min-height: 570px; grid-column: 1 / -1; grid-template-columns: 1fr 1fr; }
+  .sp-product-card:hover { transform: translateY(-4px); border-color: var(--border); }
+  .sp-product-card__visual { position: relative; min-height: 260px; overflow: hidden; background: var(--surface-warm); }
+  .sp-product-card--lead .sp-product-card__visual { grid-column: 2; grid-row: 1; min-height: 100%; }
+  .sp-product-card__visual::after { position: absolute; inset: 0; background: linear-gradient(135deg, color-mix(in srgb, var(--accent), transparent 44%), transparent 64%); content: ""; mix-blend-mode: screen; pointer-events: none; }
+  .sp-product-card__visual img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--motion-base) var(--ease-standard); }
+  .sp-product-card:hover img { transform: scale(1.04); }
+  .sp-product-card__content { position: relative; z-index: 2; align-self: end; display: grid; align-content: end; gap: var(--space-3); padding: clamp(28px, 4vw, 48px); }
+  .sp-product-card--lead .sp-product-card__content { grid-column: 1; grid-row: 1; }
+  .sp-product-card__content > p { margin: 0; color: var(--accent); font-size: var(--text-sm); font-weight: 700; }
+  h3 { max-width: 410px; margin: 0; font-size: clamp(var(--text-xl), 3vw, var(--text-2xl)); font-weight: 700; letter-spacing: var(--tracking-display); line-height: 1; }
+  .sp-product-card__content > span { max-width: 420px; color: var(--muted); font-size: var(--text-base); }
+  .sp-product-card__content a { width: max-content; margin-top: var(--space-4); }
+  .sp-orbit-art { position: absolute; inset: 0; display: grid; place-items: center; overflow: hidden; background: radial-gradient(circle at 50% 50%, var(--accent) 0 3%, transparent 3.5%), radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--accent), transparent 70%) 0 22%, transparent 22.5%), linear-gradient(130deg, var(--surface-warm), var(--bg)); }
+  .sp-orbit-art::before,
+  .sp-orbit-art::after { position: absolute; width: min(52vw, 570px); height: min(52vw, 570px); border: 1px solid color-mix(in srgb, var(--fg), transparent 68%); border-radius: 50%; content: ""; transform: rotate(-28deg) scaleY(.43); }
+  .sp-orbit-art::after { transform: rotate(42deg) scaleY(.43); }
+  .sp-orbit-art i { position: absolute; width: 8px; height: 8px; border-radius: 50%; background: var(--fg); box-shadow: 0 0 28px var(--fg); }
+  .sp-orbit-art i:nth-child(1) { transform: translate(130px, -66px); }
+  .sp-orbit-art i:nth-child(2) { transform: translate(-140px, 80px); background: var(--accent); }
+  .sp-orbit-art i:nth-child(3) { transform: translate(40px, 125px); }
+  .sp-orbit-art b { position: relative; z-index: 2; color: var(--fg); font-size: clamp(90px, 16vw, 200px); font-weight: 400; transform: rotate(-25deg); }
+  .sp-machine-art { position: absolute; inset: 0; display: grid; align-content: center; justify-items: center; gap: var(--space-2); padding: var(--space-8); background: linear-gradient(140deg, var(--accent-active), var(--surface-warm)); }
+  .sp-machine-art i { width: min(80%, 340px); height: 42px; border: 1px solid color-mix(in srgb, var(--fg), transparent 56%); border-radius: var(--space-2); background: color-mix(in srgb, var(--bg), transparent 46%); box-shadow: var(--elev-ring); }
+  .sp-machine-art i::after { display: block; width: 7px; height: 7px; margin: 17px 13px 0 auto; border-radius: 50%; background: var(--success); content: ""; }
+  @media (max-width: 700px) {
+    .sp-product-grid { grid-template-columns: 1fr; }
+    .sp-product-card,
+    .sp-product-card--lead { min-height: 480px; grid-column: auto; grid-template-columns: 1fr; }
+    .sp-product-card--lead .sp-product-card__visual { grid-column: 1; grid-row: 1; min-height: 260px; }
+    .sp-product-card--lead .sp-product-card__content { grid-column: 1; grid-row: 2; }
+    .sp-product-card__content { min-height: 240px; }
+  }
+</style>

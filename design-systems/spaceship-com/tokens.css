@@ -1,0 +1,93 @@
+/* Spaceship — tokens.css
+ * Emitted by scripts/emit-design-system.ts from source/tokens.source.json.
+ * Declares every OpenDesign TOKEN_SCHEMA slot (56). Edit the
+ * source artifact and re-emit; do not hand-edit derived files. */
+
+:root {
+  /* ─── Surface ─────────────────────────────────────────────────── */
+  --bg:                       #000000;
+  --surface:                  #18191b;
+  --surface-warm:             #252628;
+
+  /* ─── Foreground ──────────────────────────────────────────────── */
+  --fg:                       #f9f9f9;
+  --fg-2:                     #f9f9f9;
+  --muted:                    #b3b3b4;
+  --meta:                     #8f8f91;
+
+  /* ─── Border ──────────────────────────────────────────────────── */
+  --border:                   rgba(238, 239, 241, 0.14);
+  --border-soft:              rgba(249, 249, 249, 0.08);
+
+  /* ─── Accent ──────────────────────────────────────────────────── */
+  --accent:                   #475bff;
+  --accent-on:                #ffffff;
+  --accent-hover:             #394eff;
+  --accent-active:            #1f2da0;
+
+  /* ─── Semantic ────────────────────────────────────────────────── */
+  --success:                  #2fa35f;
+  --warn:                     #e4a73b;
+  --danger:                   #ff553b;
+
+  /* ─── Typography — fonts ──────────────────────────────────────── */
+  --font-display:             "Spaceship Sans", "GB Proxima Nova", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-body:                "Spaceship Sans", "GB Proxima Nova", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono:                ui-monospace, "SF Mono", Menlo, Monaco, Consolas, monospace;
+
+  /* ─── Typography — scale ──────────────────────────────────────── */
+  --text-xs:                  12px;
+  --text-sm:                  14px;
+  --text-base:                16px;
+  --text-lg:                  22px;
+  --text-xl:                  32px;
+  --text-2xl:                 48px;
+  --text-3xl:                 56px;
+  --text-4xl:                 72px;
+
+  /* ─── Typography — leading & tracking ─────────────────────────── */
+  --leading-body:             1.5;
+  --leading-tight:            1.028;
+  --tracking-display:         -0.025rem;
+
+  /* ─── Spacing ─────────────────────────────────────────────────── */
+  --space-1:                  4px;
+  --space-2:                  8px;
+  --space-3:                  12px;
+  --space-4:                  16px;
+  --space-5:                  20px;
+  --space-6:                  24px;
+  --space-8:                  32px;
+  --space-12:                 48px;
+
+  /* ─── Section rhythm ──────────────────────────────────────────── */
+  --section-y-desktop:        120px;
+  --section-y-tablet:         96px;
+  --section-y-phone:          72px;
+
+  /* ─── Radius ──────────────────────────────────────────────────── */
+  --radius-sm:                16px;
+  --radius-md:                24px;
+  --radius-lg:                32px;
+  --radius-pill:              9999px;
+
+  /* ─── Elevation ───────────────────────────────────────────────── */
+  --elev-flat:                none;
+  --elev-ring:                0 0 0 1px rgba(249, 249, 249, 0.08) inset;
+  --elev-raised:              0 0 0 1px rgba(249, 249, 249, 0.10) inset, 0 12px 24px -1px rgba(0, 0, 0, 0.18), 0 24px 48px -1px rgba(0, 0, 0, 0.14);
+
+  /* ─── Focus ───────────────────────────────────────────────────── */
+  --focus-ring:               0 0 0 3px rgba(93, 139, 255, 0.45);
+
+  /* ─── Motion ──────────────────────────────────────────────────── */
+  --motion-fast:              200ms;
+  --motion-base:              300ms;
+  --ease-standard:            cubic-bezier(0.55, 0, 0.35, 1);
+
+  /* ─── Layout ──────────────────────────────────────────────────── */
+  --container-max:            1280px;
+  --container-gutter-desktop: 64px;
+  --container-gutter-tablet:  40px;
+  --container-gutter-phone:   20px;
+}
+

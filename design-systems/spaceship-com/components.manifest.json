@@ -1,0 +1,339 @@
+{
+  "schemaVersion": 1,
+  "brandId": "spaceship-com",
+  "source": {
+    "componentsHtml": "components.html",
+    "tokensCss": "tokens.css"
+  },
+  "fixture": {
+    "title": "Spaceship component specimens",
+    "styleBlockCount": 1,
+    "selectorCount": 19,
+    "classCount": 16,
+    "elementCount": 19
+  },
+  "tokens": {
+    "declared": [
+      "--accent",
+      "--accent-active",
+      "--accent-hover",
+      "--accent-on",
+      "--bg",
+      "--border",
+      "--border-soft",
+      "--container-gutter-desktop",
+      "--container-gutter-phone",
+      "--container-gutter-tablet",
+      "--container-max",
+      "--danger",
+      "--ease-standard",
+      "--elev-flat",
+      "--elev-raised",
+      "--elev-ring",
+      "--fg",
+      "--fg-2",
+      "--focus-ring",
+      "--font-body",
+      "--font-display",
+      "--font-mono",
+      "--leading-body",
+      "--leading-tight",
+      "--meta",
+      "--motion-base",
+      "--motion-fast",
+      "--muted",
+      "--radius-lg",
+      "--radius-md",
+      "--radius-pill",
+      "--radius-sm",
+      "--section-y-desktop",
+      "--section-y-phone",
+      "--section-y-tablet",
+      "--space-1",
+      "--space-12",
+      "--space-2",
+      "--space-3",
+      "--space-4",
+      "--space-5",
+      "--space-6",
+      "--space-8",
+      "--success",
+      "--surface",
+      "--surface-warm",
+      "--text-2xl",
+      "--text-3xl",
+      "--text-4xl",
+      "--text-base",
+      "--text-lg",
+      "--text-sm",
+      "--text-xl",
+      "--text-xs",
+      "--tracking-display",
+      "--warn"
+    ],
+    "referenced": [
+      "--accent",
+      "--accent-active",
+      "--accent-on",
+      "--bg",
+      "--border",
+      "--container-gutter-phone",
+      "--container-max",
+      "--elev-raised",
+      "--elev-ring",
+      "--fg",
+      "--fg-2",
+      "--font-body",
+      "--font-display",
+      "--leading-body",
+      "--leading-tight",
+      "--meta",
+      "--muted",
+      "--radius-lg",
+      "--radius-md",
+      "--radius-pill",
+      "--space-2",
+      "--space-3",
+      "--space-4",
+      "--space-5",
+      "--space-6",
+      "--space-8",
+      "--surface",
+      "--surface-warm",
+      "--text-2xl",
+      "--text-base",
+      "--text-sm",
+      "--text-xl",
+      "--text-xs",
+      "--tracking-display"
+    ],
+    "unusedDeclared": [
+      "--accent-hover",
+      "--border-soft",
+      "--container-gutter-desktop",
+      "--container-gutter-tablet",
+      "--danger",
+      "--ease-standard",
+      "--elev-flat",
+      "--focus-ring",
+      "--font-mono",
+      "--motion-base",
+      "--motion-fast",
+      "--radius-sm",
+      "--section-y-desktop",
+      "--section-y-phone",
+      "--section-y-tablet",
+      "--space-1",
+      "--space-12",
+      "--success",
+      "--text-3xl",
+      "--text-4xl",
+      "--text-lg",
+      "--warn"
+    ],
+    "undeclaredReferenced": []
+  },
+  "selectors": [
+    ".button",
+    ".button--neutral",
+    ".button--primary",
+    ".button-row",
+    ".card",
+    ".card__copy",
+    ".card__title",
+    ".card-grid",
+    ".faq-row",
+    ".fixture",
+    ".fixture__label",
+    ".icon-disc",
+    ".notice",
+    ".search",
+    ".search .button--neutral",
+    ".search__input",
+    ".stats",
+    ".stats strong",
+    "body"
+  ],
+  "classes": [
+    "button",
+    "button--neutral",
+    "button--primary",
+    "button-row",
+    "card",
+    "card__copy",
+    "card__title",
+    "card-grid",
+    "faq-row",
+    "fixture",
+    "fixture__label",
+    "icon-disc",
+    "notice",
+    "search",
+    "search__input",
+    "stats"
+  ],
+  "elements": [
+    "article",
+    "aside",
+    "body",
+    "button",
+    "div",
+    "form",
+    "h2",
+    "head",
+    "html",
+    "input",
+    "link",
+    "main",
+    "meta",
+    "p",
+    "section",
+    "span",
+    "strong",
+    "style",
+    "title"
+  ],
+  "groups": [
+    {
+      "id": "buttons",
+      "label": "Buttons and calls to action",
+      "present": true,
+      "selectors": [
+        ".button",
+        ".button--neutral",
+        ".button--primary",
+        ".button-row",
+        ".search .button--neutral"
+      ],
+      "classes": [
+        "button",
+        "button--neutral",
+        "button--primary",
+        "button-row"
+      ],
+      "elements": [
+        "button"
+      ],
+      "tokenReferences": [
+        "--elev-ring",
+        "--fg",
+        "--font-body",
+        "--radius-pill",
+        "--space-3",
+        "--space-5",
+        "--surface-warm",
+        "--text-sm"
+      ]
+    },
+    {
+      "id": "inputs",
+      "label": "Form fields and controls",
+      "present": true,
+      "selectors": [],
+      "classes": [
+        "search__input"
+      ],
+      "elements": [
+        "form",
+        "input"
+      ],
+      "tokenReferences": []
+    },
+    {
+      "id": "cards",
+      "label": "Cards and panels",
+      "present": true,
+      "selectors": [
+        ".card",
+        ".card__copy",
+        ".card__title",
+        ".card-grid"
+      ],
+      "classes": [
+        "card",
+        "card-grid"
+      ],
+      "elements": [],
+      "tokenReferences": [
+        "--elev-ring",
+        "--leading-body",
+        "--muted",
+        "--radius-md",
+        "--space-8",
+        "--surface-warm",
+        "--text-base"
+      ]
+    },
+    {
+      "id": "badges",
+      "label": "Badges, chips, and status labels",
+      "present": false,
+      "selectors": [],
+      "classes": [],
+      "elements": [],
+      "tokenReferences": []
+    },
+    {
+      "id": "links",
+      "label": "Links and inline actions",
+      "present": false,
+      "selectors": [],
+      "classes": [],
+      "elements": [],
+      "tokenReferences": []
+    },
+    {
+      "id": "keyboard",
+      "label": "Keyboard hints",
+      "present": false,
+      "selectors": [],
+      "classes": [],
+      "elements": [],
+      "tokenReferences": []
+    },
+    {
+      "id": "icons",
+      "label": "Icon slots",
+      "present": true,
+      "selectors": [
+        ".icon-disc"
+      ],
+      "classes": [
+        "icon-disc"
+      ],
+      "elements": [],
+      "tokenReferences": []
+    },
+    {
+      "id": "typography",
+      "label": "Typography scale and text utilities",
+      "present": true,
+      "selectors": [],
+      "classes": [],
+      "elements": [
+        "h2",
+        "p"
+      ],
+      "tokenReferences": []
+    },
+    {
+      "id": "layout",
+      "label": "Layout primitives",
+      "present": true,
+      "selectors": [],
+      "classes": [
+        "card-grid"
+      ],
+      "elements": [
+        "main",
+        "section"
+      ],
+      "tokenReferences": []
+    }
+  ],
+  "literals": {
+    "colorExpressions": 0,
+    "pixelValues": 5,
+    "hardcodedFontFamilies": 1
+  }
+}
