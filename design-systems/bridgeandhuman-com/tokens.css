@@ -1,0 +1,93 @@
+/* Bridge & Human — tokens.css
+ * Emitted by scripts/emit-design-system.ts from source/tokens.source.json.
+ * Declares every OpenDesign TOKEN_SCHEMA slot (56). Edit the
+ * source artifact and re-emit; do not hand-edit derived files. */
+
+:root {
+  /* ─── Surface ─────────────────────────────────────────────────── */
+  --bg:                       #ffffff;
+  --surface:                  #ffffff;
+  --surface-warm:             #f5f5f3;
+
+  /* ─── Foreground ──────────────────────────────────────────────── */
+  --fg:                       #111111;
+  --fg-2:                     #111111;
+  --muted:                    rgba(17, 17, 17, 0.58);
+  --meta:                     rgba(17, 17, 17, 0.48);
+
+  /* ─── Border ──────────────────────────────────────────────────── */
+  --border:                   rgba(17, 17, 17, 0.2);
+  --border-soft:              rgba(17, 17, 17, 0.12);
+
+  /* ─── Accent ──────────────────────────────────────────────────── */
+  --accent:                   #111111;
+  --accent-on:                #ffffff;
+  --accent-hover:             #2b2b2b;
+  --accent-active:            #000000;
+
+  /* ─── Semantic ────────────────────────────────────────────────── */
+  --success:                  #237a42;
+  --warn:                     #a86500;
+  --danger:                   #bd3030;
+
+  /* ─── Typography — fonts ──────────────────────────────────────── */
+  --font-display:             Geist, "Geist Placeholder", sans-serif;
+  --font-body:                "IBM Plex Sans", "IBM Plex Sans Placeholder", sans-serif;
+  --font-mono:                "IBM Plex Mono", monospace;
+
+  /* ─── Typography — scale ──────────────────────────────────────── */
+  --text-xs:                  10px;
+  --text-sm:                  12px;
+  --text-base:                14px;
+  --text-lg:                  18px;
+  --text-xl:                  28px;
+  --text-2xl:                 40px;
+  --text-3xl:                 64px;
+  --text-4xl:                 88px;
+
+  /* ─── Typography — leading & tracking ─────────────────────────── */
+  --leading-body:             1.2;
+  --leading-tight:            1;
+  --tracking-display:         -0.0298em;
+
+  /* ─── Spacing ─────────────────────────────────────────────────── */
+  --space-1:                  4px;
+  --space-2:                  8px;
+  --space-3:                  12px;
+  --space-4:                  16px;
+  --space-5:                  24px;
+  --space-6:                  32px;
+  --space-8:                  48px;
+  --space-12:                 96px;
+
+  /* ─── Section rhythm ──────────────────────────────────────────── */
+  --section-y-desktop:        60px;
+  --section-y-tablet:         60px;
+  --section-y-phone:          60px;
+
+  /* ─── Radius ──────────────────────────────────────────────────── */
+  --radius-sm:                16px;
+  --radius-md:                30px;
+  --radius-lg:                42px;
+  --radius-pill:              9999px;
+
+  /* ─── Elevation ───────────────────────────────────────────────── */
+  --elev-flat:                none;
+  --elev-ring:                0 0 0 1px rgba(255, 255, 255, 0.24) inset;
+  --elev-raised:              0 10px 30px rgba(17, 17, 17, 0.08);
+
+  /* ─── Focus ───────────────────────────────────────────────────── */
+  --focus-ring:               0 0 0 3px rgba(17, 17, 17, 0.36);
+
+  /* ─── Motion ──────────────────────────────────────────────────── */
+  --motion-fast:              200ms;
+  --motion-base:              500ms;
+  --ease-standard:            cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* ─── Layout ──────────────────────────────────────────────────── */
+  --container-max:            1416px;
+  --container-gutter-desktop: 12px;
+  --container-gutter-tablet:  12px;
+  --container-gutter-phone:   12px;
+}
+

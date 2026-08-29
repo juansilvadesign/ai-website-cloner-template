@@ -1,0 +1,26 @@
+---
+import "../styles/clone.css";
+import SEOHead from "../components/SEOHead.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+}
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="generator" content={Astro.generator} />
+    <SEOHead {...Astro.props} />
+    <link rel="icon" type="image/png" href="/clones/bridgeandhuman-com/seo/favicon-32.png" />
+    <link rel="apple-touch-icon" href="/clones/bridgeandhuman-com/seo/apple-touch-icon.png" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

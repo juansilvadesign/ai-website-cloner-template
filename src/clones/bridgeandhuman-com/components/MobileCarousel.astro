@@ -1,0 +1,362 @@
+---
+import { stories } from "../data/stories";
+
+const mobileStories = stories.map((story) => ({
+  ...story,
+  actions: story.mobileActions ?? story.desktopActions,
+  gallery: story.media.mobileGallery ?? (
+    story.media.type === "image"
+      ? [story.media.src, ...(story.media.overlay ? [story.media.overlay] : [])]
+      : []
+  ),
+}));
+---
+
+<main class="bh-mobile" aria-label="Bridge & Human mobile stories">
+  <ol class="bh-mobile__scroller" data-bh-mobile-scroller>
+    {mobileStories.map((story, index) => (
+      <li class:list={["bh-mobile__story", { "is-hero": index === 0, "is-closing": story.closing }]}>
+        {index === 0 ? (
+          <div class="bh-mobile__hero-media">
+            <video
+              src={story.media.src}
+              poster={story.media.poster}
+              autoplay
+              loop
+              muted
+              playsinline
+              aria-label={story.media.alt}
+            />
+          </div>
+        ) : story.media.type === "video" ? (
+          <div class="bh-mobile__project-media">
+            <video
+              src={story.media.src}
+              poster={story.media.poster}
+              loop
+              muted
+              playsinline
+              preload="metadata"
+              aria-label={story.media.alt}
+            />
+          </div>
+        ) : (
+          <div class="bh-mobile__project-media bh-mobile__gallery" data-bh-gallery data-bh-gallery-index="0">
+            {story.gallery.map((source, mediaIndex) => (
+              <img
+                class="bh-mobile__gallery-panel"
+                data-bh-gallery-panel
+                data-bh-gallery-panel-index={mediaIndex}
+                src={source}
+                alt={mediaIndex === 0 ? story.media.alt : ""}
+                hidden={mediaIndex !== 0}
+              />
+            ))}
+            {story.gallery.length > 1 && (
+              <div class="bh-mobile__gallery-controls" aria-label={story.mobileTitle + " gallery"}>
+                <button type="button" data-bh-gallery-prev aria-label="Previous image" disabled>←</button>
+                <button type="button" data-bh-gallery-next aria-label="Next image">→</button>
+              </div>
+            )}
+          </div>
+        )}
+
+        <div class="bh-mobile__content">
+          <p class="bh-mobile__eyebrow">{story.eyebrow}</p>
+          <h1 class="bh-mobile__title">{story.mobileTitle}</h1>
+          {index === 0 ? (
+            <p class="bh-mobile__chip">© 2026</p>
+          ) : story.mobileMeta ? (
+            <p class="bh-mobile__meta">{story.mobileMeta}</p>
+          ) : null}
+          {story.closing && story.description && <p class="bh-mobile__description">{story.description}</p>}
+
+          {index !== 0 && story.actions.length > 0 && (
+            <div class="bh-mobile__links">
+              {story.actions.map((action) => (
+                <a href={action.href} target="_blank" rel="noopener noreferrer">{action.label}</a>
+              ))}
+            </div>
+          )}
+
+          <a class="bh-mobile__primary" href={story.ctaHref} target="_blank" rel="noopener noreferrer">
+            {story.mobileCtaLabel ?? story.ctaLabel}
+          </a>
+          {index === 0 && <p class="bh-mobile__scroll-cue">SCROLL TO SEE OUR WORKS</p>}
+          {story.id === "whatsapp" && <p class="bh-mobile__disclaimer">(*NOT AFFILIATED WITH META)</p>}
+        </div>
+      </li>
+    ))}
+  </ol>
+</main>
+
+<style>
+  .bh-mobile { display: none; }
+
+  @media (max-width: 1023.98px) {
+    .bh-mobile {
+      display: block;
+      height: 100dvh;
+      background: var(--bg);
+    }
+
+    .bh-mobile__scroller {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      flex: 1 1 100%;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      overflow: hidden auto;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      scroll-snap-type: y mandatory;
+      scrollbar-width: none;
+    }
+
+    .bh-mobile__scroller::-webkit-scrollbar { display: none; }
+
+    .bh-mobile__story {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-height: 100%;
+      flex-shrink: 0;
+      overflow: hidden;
+      background: var(--bg);
+      scroll-snap-align: center;
+      scroll-snap-stop: always;
+    }
+
+    .bh-mobile__hero-media {
+      position: absolute;
+      top: var(--section-y-phone);
+      right: 0;
+      bottom: calc(var(--space-12) + var(--space-3));
+      left: 0;
+      overflow: hidden;
+      border-radius: var(--radius-md) var(--radius-md) 0 0;
+      background: var(--surface-warm);
+      mask-image: linear-gradient(to bottom, black 0%, black 68%, transparent 100%);
+    }
+
+    .bh-mobile__hero-media video,
+    .bh-mobile__project-media video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .bh-mobile__project-media {
+      position: absolute;
+      top: var(--section-y-phone);
+      right: 0;
+      left: 0;
+      height: calc(100% - var(--space-12) - var(--space-3));
+      overflow: hidden;
+      background: var(--surface-warm);
+    }
+
+    .bh-mobile__gallery-panel {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .bh-mobile__gallery-panel[hidden] { display: none; }
+
+    .bh-mobile__gallery-controls {
+      position: absolute;
+      right: var(--container-gutter-phone);
+      bottom: calc(50% - var(--space-4));
+      left: var(--container-gutter-phone);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .bh-mobile__gallery-controls button {
+      display: grid;
+      width: 28px;
+      height: 28px;
+      place-items: center;
+      border: 0;
+      border-radius: var(--radius-pill);
+      background: color-mix(in srgb, var(--fg) 20%, transparent);
+      color: var(--fg);
+      font-family: "Bridge Plex Sans", var(--font-body);
+      font-size: var(--text-base);
+      transition: opacity var(--motion-fast) var(--ease-standard);
+    }
+
+    .bh-mobile__gallery-controls button:disabled {
+      opacity: 0;
+      cursor: default;
+    }
+
+    .bh-mobile__content {
+      position: absolute;
+      right: var(--container-gutter-phone);
+      bottom: var(--container-gutter-phone);
+      left: var(--container-gutter-phone);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .bh-mobile__story:not(.is-hero) .bh-mobile__content {
+      bottom: var(--space-2);
+      min-height: calc(var(--space-12) + var(--space-12));
+      justify-content: end;
+    }
+
+    .bh-mobile__eyebrow,
+    .bh-mobile__title,
+    .bh-mobile__chip,
+    .bh-mobile__meta,
+    .bh-mobile__description,
+    .bh-mobile__scroll-cue,
+    .bh-mobile__disclaimer {
+      margin: 0;
+    }
+
+    .bh-mobile__eyebrow {
+      font-family: "Bridge Plex Sans", var(--font-body);
+      font-size: var(--text-base);
+      font-weight: 500;
+      letter-spacing: -0.0298em;
+      line-height: var(--leading-body);
+    }
+
+    .bh-mobile__title {
+      max-width: 17ch;
+      margin-top: var(--space-1);
+      color: var(--fg-2);
+      font-family: "Bridge Geist", var(--font-display);
+      font-size: calc(var(--text-2xl) - var(--space-2));
+      font-weight: 400;
+      letter-spacing: -0.0126em;
+      line-height: 1.1;
+    }
+
+    .bh-mobile__story.is-hero .bh-mobile__eyebrow,
+    .bh-mobile__story.is-hero .bh-mobile__title,
+    .bh-mobile__story.is-hero .bh-mobile__chip {
+      transform: translateY(calc(-1 * var(--space-3)));
+    }
+
+    .bh-mobile__story:not(.is-hero) .bh-mobile__title {
+      max-width: 24ch;
+      font-size: calc(var(--text-lg) + (var(--space-1) / 2));
+    }
+
+    .bh-mobile__chip {
+      margin-top: var(--space-2);
+      padding: 2px var(--space-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-pill);
+      font-family: "Bridge Plex Mono", var(--font-mono);
+      font-size: var(--text-xs);
+      line-height: var(--leading-body);
+    }
+
+    .bh-mobile__meta {
+      margin-top: var(--space-3);
+      font-family: "Bridge Plex Mono", var(--font-mono);
+      font-size: var(--text-xs);
+      font-weight: 500;
+      line-height: var(--leading-body);
+      text-transform: uppercase;
+    }
+
+    .bh-mobile__description {
+      max-width: 33ch;
+      margin-top: var(--space-3);
+      font-size: var(--text-xs);
+      line-height: var(--leading-body);
+    }
+
+    .bh-mobile__links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--space-5);
+      margin-top: var(--space-5);
+      font-family: "Bridge Plex Mono", var(--font-mono);
+      font-size: var(--text-xs);
+      font-weight: 500;
+      line-height: var(--leading-body);
+    }
+
+    .bh-mobile__links a { text-transform: uppercase; }
+
+    .bh-mobile__primary {
+      display: grid;
+      width: 100%;
+      min-height: calc(var(--section-y-phone) - var(--space-1));
+      place-items: center;
+      margin-top: var(--space-5);
+      border-radius: var(--radius-md);
+      background: var(--accent);
+      color: var(--accent-on);
+      font-family: "Bridge Plex Sans", var(--font-body);
+      font-size: var(--text-base);
+      font-weight: 500;
+      letter-spacing: -0.0256em;
+      line-height: var(--leading-body);
+      transition: background-color var(--motion-fast) var(--ease-standard);
+    }
+
+    .bh-mobile__primary:hover { background: var(--accent-hover); }
+
+    .bh-mobile__scroll-cue,
+    .bh-mobile__disclaimer {
+      margin-top: var(--space-2);
+      color: var(--meta);
+      font-family: "Bridge Plex Mono", var(--font-mono);
+      font-size: var(--text-xs);
+      font-weight: 500;
+      line-height: var(--leading-body);
+    }
+
+    .bh-mobile__disclaimer { margin-top: var(--space-1); }
+
+    .bh-mobile__story.is-closing .bh-mobile__project-media { opacity: 0.25; }
+  }
+
+  @media (min-width: 1024px) {
+    .bh-mobile { display: none; }
+  }
+</style>
+
+<script>
+  const galleries = Array.from(document.querySelectorAll<HTMLElement>("[data-bh-gallery]"));
+
+  galleries.forEach((gallery) => {
+    const panels = Array.from(gallery.querySelectorAll<HTMLElement>("[data-bh-gallery-panel]"));
+    const previous = gallery.querySelector<HTMLButtonElement>("[data-bh-gallery-prev]");
+    const next = gallery.querySelector<HTMLButtonElement>("[data-bh-gallery-next]");
+    let active = 0;
+
+    const render = () => {
+      panels.forEach((panel, index) => { panel.hidden = index !== active; });
+      if (previous) previous.disabled = active === 0;
+      if (next) next.disabled = active === panels.length - 1;
+      gallery.dataset.bhGalleryIndex = String(active);
+    };
+
+    previous?.addEventListener("click", () => {
+      active = Math.max(0, active - 1);
+      render();
+    });
+
+    next?.addEventListener("click", () => {
+      active = Math.min(panels.length - 1, active + 1);
+      render();
+    });
+
+    render();
+  });
+</script>

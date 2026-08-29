@@ -1,0 +1,9 @@
+<link rel="stylesheet" href="../tokens.css" />
+<style>
+  body { margin: 0; padding: 32px; background: var(--bg); color: var(--fg); font-family: var(--font-body); }
+  .grid { display: grid; grid-template-columns: repeat(4, minmax(120px, 1fr)); gap: var(--space-3); }
+  .swatch { min-height: 128px; padding: var(--space-3); border: 1px solid var(--border); border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: var(--text-xs); }
+  .bg { background: var(--bg); } .surface { background: var(--surface-warm); } .fg { background: var(--fg); color: var(--accent-on); } .muted { background: var(--muted); color: var(--accent-on); }
+</style>
+<h1>Bridge &amp; Human color roles</h1>
+<div class="grid"><div class="swatch bg">--bg</div><div class="swatch surface">--surface-warm</div><div class="swatch fg">--fg / --accent</div><div class="swatch muted">--muted</div></div>

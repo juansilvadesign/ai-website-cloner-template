@@ -3,6 +3,7 @@
  *
  *   node scripts/download-assets.mjs [publicDir]
  *   node scripts/download-assets.mjs --clone helloparul-in public/clones/helloparul-in
+ *   node scripts/download-assets.mjs --clone spaceship-com public/clones/spaceship-com
  *
  * Defaults retain the original FESN behaviour. Downloads run in batches of
  * four, and a non-zero exit code makes any incomplete asset inventory explicit.
@@ -70,6 +71,63 @@ const PROFILES = {
       ["/assets/about-photo-4.png", "images/about-photo-4.png"],
       ["/assets/about-photo-5.png", "images/about-photo-5.png"],
       ["/assets/about-photo-6.png", "images/about-photo-6.png"],
+    ],
+  },
+  "spaceship-com": {
+    base: "https://spaceship-cdn.com",
+    assets: [
+      ["/spaceship-homepage-ui/assets/register-desktop.dc09772549f5ebb32b52.webp", "images/hero-register.webp"],
+      ["/spaceship-homepage-ui/assets/transfer-desktop.ae2ee622aaf1894a3e5e.webp", "images/hero-transfer.webp"],
+      ["/spaceship-homepage-ui/assets/primary-figure-desktop.db048b6c12ed6b8c04d9.webp", "images/hero-primary-figure.webp"],
+      ["/spaceship-homepage-ui/assets/secondary-figure.da14b9ea376c65391051.webp", "images/hero-secondary-figure.webp"],
+      ["/spaceship-homepage-ui/assets/benefits-1-desktop.7a323c156b83e1b3946b.webp", "images/benefit-domain.webp"],
+      ["/spaceship-homepage-ui/assets/benefits-2-desktop.46ab19ec10a8706030c6.webp", "images/benefit-connections.webp"],
+      ["/spaceship-homepage-ui/assets/benefits-3-desktop.5c92155befe59168a261.webp", "images/benefit-community.webp"],
+      ["/spaceship-homepage-ui/assets/person-desktop.d8fd898e852b91d6f579.webp", "images/security-person.webp"],
+      ["/spaceship-homepage-ui/assets/starlight.eaf2dcc7eb27f6a470ad.webp", "images/starlight.webp"],
+      ["/spaceship-homepage-ui/assets/spacemail-product.c7afb0f51815d772336a.webp", "images/spacemail.webp"],
+      ["/spaceship-homepage-ui/assets/meta-image.67211176d9ea9268ae27.jpg", "images/meta-image.jpg"],
+      ["/spaceship-homepage-ui/assets/animation-fallback.b5f21a289314e7d99db4.svg", "images/animation-fallback.svg"],
+      ["/spaceship-homepage-ui/assets/alf-desktop.ae9dd6461037c79b5297.mp4", "videos/alf-desktop.mp4"],
+      ["/static/spaceship/favicon/spaceship-icon.svg", "seo/favicon.svg"],
+      ["/static/spaceship/favicon/spaceship-apple-touch-icon.png", "seo/apple-touch-icon.png"],
+      ["https://spaceship-cdn.com/sharedstaticresources-ui/9a93ecd23c2ef0fb7f8e.9a93ecd23c2ef0fb7f8e.woff2", "fonts/spaceship-sans-400.woff2"],
+      ["https://spaceship-cdn.com/sharedstaticresources-ui/9845558fc59cb1ba1b87.9845558fc59cb1ba1b87.woff2", "fonts/spaceship-sans-500.woff2"],
+      ["https://spaceship-cdn.com/sharedstaticresources-ui/ff0080baa663b824059b.ff0080baa663b824059b.woff2", "fonts/spaceship-sans-700.woff2"],
+    ],
+  },
+  "bridgeandhuman-com": {
+    base: "https://www.bridgeandhuman.com",
+    assets: [
+      ["https://framerusercontent.com/assets/JIBhCGpTch171J3WANyVEQDw.mp4", "videos/hero-orchestra.mp4"],
+      ["https://framerusercontent.com/images/3dqO2pOqEGhikA9M7mc1ZVLA.png?width=1016&height=1016", "images/hero-orchestra-poster.png"],
+      ["https://framerusercontent.com/assets/FcobIz4BN8muKxCrOxQFQrNZTiY.mp4", "videos/launch-identity.mp4"],
+      ["https://framerusercontent.com/images/JBWuRpSqZlCsudQKju773vpG6cY.jpg?width=2048&height=2048", "images/launch-identity-poster.jpg"],
+      ["https://framerusercontent.com/images/iIghx1dev40lQpZcGbaGf4Jznw.svg?width=1375&height=242", "images/launch-identity-logo.svg"],
+      ["https://framerusercontent.com/images/lrsW6h16vtjb1ozA0dULu6KVE.jpg?width=2048&height=2048", "images/bitcoin-angels-one.jpg"],
+      ["https://framerusercontent.com/images/NjJej63zG9uKtT9fgpfCqhEW9bc.jpg?width=2048&height=2048", "images/bitcoin-angels-two.jpg"],
+      ["https://framerusercontent.com/images/Nhzu4dblw8hmqXBB5X33dqgVug.png?width=1024&height=1024", "images/ecommerce-background.png"],
+      ["https://framerusercontent.com/images/soPQPYCn8gixDGEn7P7iMPGPD8I.png?width=2272&height=1586", "images/ecommerce-desktop.png"],
+      ["https://framerusercontent.com/images/j1QjaDtCPVAnmNiKNcGGJG1QjY.png?width=1682&height=2672", "images/ecommerce-mobile.png"],
+      ["https://framerusercontent.com/images/Ex7GCntcexjTWTLB4tDXLB3i2o8.png?width=2160&height=2160", "images/onboarding-background.png"],
+      ["https://framerusercontent.com/images/BtIN6LrKi5r7jYG8bfc7pE50.gif?width=1364&height=762", "images/onboarding-desktop.gif"],
+      ["https://framerusercontent.com/images/W4pW5W2Ph9qZydc2USrmi7Q6lOg.gif?width=358&height=636", "images/onboarding-mobile.gif"],
+      ["https://framerusercontent.com/images/nbD7ohlbjIpPMexuIf6i8Q31E.png?width=2360&height=352", "images/haven-graphic.png"],
+      ["https://framerusercontent.com/images/YAHlQXPGTAEy8bAG1zZsNzM5ESc.png?width=3024&height=1740", "images/haven-screenshot.png"],
+      ["https://framerusercontent.com/assets/tzJJeFicep9l7lZb6epPE7Jt0s.mp4", "videos/publish-kit.mp4"],
+      ["https://framerusercontent.com/images/Rv0qFh4GAZGAaA5io5fZOGTw7w.png?width=2048&height=2048", "images/publish-kit-poster.png"],
+      ["https://framerusercontent.com/assets/5sGqWH0Y1z5XnJx0FsQKLxA.mp4", "videos/closing-story.mp4"],
+      ["https://framerusercontent.com/images/3H3HHcEqPd1xFSxcjm8LZyK9Cc4.png?width=1024&height=1024", "images/closing-story-poster.png"],
+      ["https://framerusercontent.com/images/6tTbkXggWgQCAJ4DO2QEdXXmgM.svg", "images/gallery-previous.svg"],
+      ["https://framerusercontent.com/images/11KSGbIZoRSg4pjdnUoif6MKHI.svg", "images/gallery-next.svg"],
+      ["https://framerusercontent.com/images/HjqsKyhr4eTPXS8WuYuyvsmC8.png", "seo/favicon-32.png"],
+      ["https://framerusercontent.com/images/2c22VHaDDGEiFjJiQCj53GEwUk.png", "seo/favicon-192.png"],
+      ["https://framerusercontent.com/images/HgmfIs0x5Wi6PKU8vMrdDcxh0ig.png", "seo/apple-touch-icon.png"],
+      ["https://framerusercontent.com/images/iVxkZqSg2KWkYP06SFLgL57udVg.png", "seo/og.png"],
+      ["https://fonts.gstatic.com/s/geist/v4/gyBhhwUxId8gMGYQMKR3pzfaWI_RnOMImpna.woff2", "fonts/geist-latin-400.woff2"],
+      ["https://fonts.gstatic.com/s/ibmplexsans/v23/zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxeKYY.woff2", "fonts/ibm-plex-sans-latin.woff2"],
+      ["https://fonts.gstatic.com/s/ibmplexmono/v20/-F63fjptAgt5VM-kVkqdyU8n1i8q1w.woff2", "fonts/ibm-plex-mono-latin-400.woff2"],
+      ["https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3twJwlBFgg.woff2", "fonts/ibm-plex-mono-latin-500.woff2"],
     ],
   },
 };

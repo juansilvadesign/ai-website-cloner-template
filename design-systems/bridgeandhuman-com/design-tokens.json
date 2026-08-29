@@ -1,0 +1,698 @@
+{
+  "schemaVersion": 1,
+  "format": "od-design-tokens/v1",
+  "contract": "TOKEN_SCHEMA",
+  "generatedAt": "2026-08-29T05:10:57.586Z",
+  "source": {
+    "tokensCss": "tokens.css",
+    "tokenContractReport": "source/token-contract.report.json"
+  },
+  "summary": {
+    "total": 56,
+    "byConfidence": {
+      "high": 34,
+      "derived": 19,
+      "fallback": 3
+    },
+    "byLayer": {
+      "A1-identity": 8,
+      "B-slot": 4,
+      "A2": 26,
+      "A1-structure": 18
+    }
+  },
+  "tokens": [
+    {
+      "name": "--bg",
+      "value": "#ffffff",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Continuous page canvas and the sampled Framer About surface are white.",
+      "sources": [
+        "computed [data-framer-name=About] background-color",
+        "tokens.css:8"
+      ]
+    },
+    {
+      "name": "--surface",
+      "value": "#ffffff",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Header and card-like content regions retain the white base surface.",
+      "sources": [
+        "1440px and 390px rendered references",
+        "tokens.css:9"
+      ]
+    },
+    {
+      "name": "--surface-warm",
+      "value": "#f5f5f3",
+      "type": "color",
+      "layer": "B-slot",
+      "confidence": "derived",
+      "reason": "Warm near-white supports quiet media and fixture surfaces without adding a competing palette.",
+      "sources": [
+        "derived from observed white/black monochrome system",
+        "tokens.css:10"
+      ]
+    },
+    {
+      "name": "--fg",
+      "value": "#111111",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Computed primary text, logo stroke, progress line, and primary button background are rgb(17, 17, 17).",
+      "sources": [
+        "computed visible desktop text and Framer token --token-843f…",
+        "tokens.css:13"
+      ]
+    },
+    {
+      "name": "--fg-2",
+      "value": "#111111",
+      "type": "color",
+      "layer": "B-slot",
+      "confidence": "high",
+      "reason": "Display headings use the same observed black foreground.",
+      "sources": [
+        "computed 1440px Design That Connects. text",
+        "tokens.css:14"
+      ]
+    },
+    {
+      "name": "--muted",
+      "value": "rgba(17, 17, 17, 0.58)",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "derived",
+      "reason": "Reserved subdued textual tier for explanatory content.",
+      "sources": [
+        "derived from observed monochrome hierarchy",
+        "tokens.css:15"
+      ]
+    },
+    {
+      "name": "--meta",
+      "value": "rgba(17, 17, 17, 0.48)",
+      "type": "color",
+      "layer": "B-slot",
+      "confidence": "high",
+      "reason": "Mobile Scroll control and small instructional text render as a quiet black with reduced opacity.",
+      "sources": [
+        "computed mobile header control opacity 0.45",
+        "tokens.css:16"
+      ]
+    },
+    {
+      "name": "--border",
+      "value": "rgba(17, 17, 17, 0.2)",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Observed compact metadata chip and translucent media-action outlines use a thin black border.",
+      "sources": [
+        "computed [data-framer-name=chip] and desktop liquid actions",
+        "tokens.css:19"
+      ]
+    },
+    {
+      "name": "--border-soft",
+      "value": "rgba(17, 17, 17, 0.12)",
+      "type": "color",
+      "layer": "B-slot",
+      "confidence": "derived",
+      "reason": "Low-emphasis divider continuation behind the desktop progress marker.",
+      "sources": [
+        "1440px header progress line reference",
+        "tokens.css:20"
+      ]
+    },
+    {
+      "name": "--accent",
+      "value": "#111111",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "The brand is deliberately monochrome; the action color is the same near-black as primary foreground.",
+      "sources": [
+        "computed desktop primary control",
+        "tokens.css:23"
+      ]
+    },
+    {
+      "name": "--accent-on",
+      "value": "#ffffff",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Computed primary button copy is white.",
+      "sources": [
+        "computed Start A Conversation text",
+        "tokens.css:24"
+      ]
+    },
+    {
+      "name": "--accent-hover",
+      "value": "#2b2b2b",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Slightly lighter black preserves a usable hover response without changing brand character.",
+      "sources": [
+        "derived because Framer hover is a masked liquid layer rather than a flat color",
+        "tokens.css:25"
+      ]
+    },
+    {
+      "name": "--accent-active",
+      "value": "#000000",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Pressed monochrome action state.",
+      "sources": [
+        "derived from primary control system",
+        "tokens.css:26"
+      ]
+    },
+    {
+      "name": "--success",
+      "value": "#237a42",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "fallback",
+      "reason": "No success role occurs in the extracted page.",
+      "sources": [
+        "OpenDesign semantic completion",
+        "tokens.css:29"
+      ]
+    },
+    {
+      "name": "--warn",
+      "value": "#a86500",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "fallback",
+      "reason": "No warning role occurs in the extracted page.",
+      "sources": [
+        "OpenDesign semantic completion",
+        "tokens.css:30"
+      ]
+    },
+    {
+      "name": "--danger",
+      "value": "#bd3030",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "fallback",
+      "reason": "No danger role occurs in the extracted page.",
+      "sources": [
+        "OpenDesign semantic completion",
+        "tokens.css:31"
+      ]
+    },
+    {
+      "name": "--font-display",
+      "value": "Geist, \"Geist Placeholder\", sans-serif",
+      "type": "fontFamily",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Computed desktop display heading uses Geist.",
+      "sources": [
+        "computed 1440px Design That / Connects. paragraphs and Google Fonts @font-face",
+        "tokens.css:34"
+      ]
+    },
+    {
+      "name": "--font-body",
+      "value": "\"IBM Plex Sans\", \"IBM Plex Sans Placeholder\", sans-serif",
+      "type": "fontFamily",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Computed labels, body copy, controls, and logo name use IBM Plex Sans.",
+      "sources": [
+        "computed 1440px header and CTA text",
+        "tokens.css:35"
+      ]
+    },
+    {
+      "name": "--font-mono",
+      "value": "\"IBM Plex Mono\", monospace",
+      "type": "fontFamily",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Date, copyright, chip, and microcopy use IBM Plex Mono.",
+      "sources": [
+        "computed 1440px date and copyright text",
+        "tokens.css:36"
+      ]
+    },
+    {
+      "name": "--text-xs",
+      "value": "10px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Mobile chips, delivery labels, and project links are 10px.",
+      "sources": [
+        "computed 390px project metadata",
+        "tokens.css:39"
+      ]
+    },
+    {
+      "name": "--text-sm",
+      "value": "12px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Desktop date, body description, and copyright labels are 12px.",
+      "sources": [
+        "computed 1440px text nodes",
+        "tokens.css:40"
+      ]
+    },
+    {
+      "name": "--text-base",
+      "value": "14px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Mobile section eyebrow is 14px.",
+      "sources": [
+        "computed 390px We Craft label",
+        "tokens.css:41"
+      ]
+    },
+    {
+      "name": "--text-lg",
+      "value": "18px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Desktop eyebrow and action labels are 18px.",
+      "sources": [
+        "computed 1440px We Craft and primary action",
+        "tokens.css:42"
+      ]
+    },
+    {
+      "name": "--text-xl",
+      "value": "28px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Desktop header arrows use 28px IBM Plex Sans Light.",
+      "sources": [
+        "computed 1440px arrow controls",
+        "tokens.css:43"
+      ]
+    },
+    {
+      "name": "--text-2xl",
+      "value": "40px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Mobile statement title uses 40px.",
+      "sources": [
+        "computed 390px We Don't Judge. text",
+        "tokens.css:44"
+      ]
+    },
+    {
+      "name": "--text-3xl",
+      "value": "64px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "derived",
+      "reason": "Intermediate display tier between mobile statement and 88px desktop hero.",
+      "sources": [
+        "responsive interpolation from rendered references",
+        "tokens.css:45"
+      ]
+    },
+    {
+      "name": "--text-4xl",
+      "value": "88px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Desktop hero display computes to 87.8265px.",
+      "sources": [
+        "computed 1440px Design That and Connects. text",
+        "tokens.css:46"
+      ]
+    },
+    {
+      "name": "--leading-body",
+      "value": "1.2",
+      "type": "number",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "IBM Plex body values compute to 14.4px at 12px and 21.6px at 18px.",
+      "sources": [
+        "computed desktop copy and controls",
+        "tokens.css:49"
+      ]
+    },
+    {
+      "name": "--leading-tight",
+      "value": "1",
+      "type": "number",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Desktop display copies use 87.8265px font-size and line-height.",
+      "sources": [
+        "computed 1440px display text",
+        "tokens.css:50"
+      ]
+    },
+    {
+      "name": "--tracking-display",
+      "value": "-0.0298em",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Desktop display tracking computes to -2.61792px on an 87.8265px font.",
+      "sources": [
+        "computed 1440px display text",
+        "tokens.css:51"
+      ]
+    },
+    {
+      "name": "--space-1",
+      "value": "4px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Smallest spacing increment used for fine icon and label adjustment.",
+      "sources": [
+        "derived from 12px page grid",
+        "tokens.css:54"
+      ]
+    },
+    {
+      "name": "--space-2",
+      "value": "8px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Compact intra-control spacing.",
+      "sources": [
+        "derived from rendered control stack",
+        "tokens.css:55"
+      ]
+    },
+    {
+      "name": "--space-3",
+      "value": "12px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Observed desktop outer page inset.",
+      "sources": [
+        "1440px reference x=12 and header geometry",
+        "tokens.css:56"
+      ]
+    },
+    {
+      "name": "--space-4",
+      "value": "16px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Secondary layout interval consistent with mobile control stack.",
+      "sources": [
+        "rendered mobile reference",
+        "tokens.css:57"
+      ]
+    },
+    {
+      "name": "--space-5",
+      "value": "24px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Desktop primary action uses 24px vertical padding.",
+      "sources": [
+        "computed Start A Conversation anchor padding",
+        "tokens.css:58"
+      ]
+    },
+    {
+      "name": "--space-6",
+      "value": "32px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Content-to-media breathing room.",
+      "sources": [
+        "rendered desktop reference",
+        "tokens.css:59"
+      ]
+    },
+    {
+      "name": "--space-8",
+      "value": "48px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Large editorial separation.",
+      "sources": [
+        "rendered desktop reference",
+        "tokens.css:60"
+      ]
+    },
+    {
+      "name": "--space-12",
+      "value": "96px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Desktop lower-pinned action rhythm.",
+      "sources": [
+        "rendered desktop reference",
+        "tokens.css:61"
+      ]
+    },
+    {
+      "name": "--section-y-desktop",
+      "value": "60px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Desktop header and progress band occupy 60px before the media story.",
+      "sources": [
+        "1440px header geometry",
+        "tokens.css:64"
+      ]
+    },
+    {
+      "name": "--section-y-tablet",
+      "value": "60px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Tablet retains the mobile header band height.",
+      "sources": [
+        "768px rendered reference",
+        "tokens.css:65"
+      ]
+    },
+    {
+      "name": "--section-y-phone",
+      "value": "60px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Mobile hero media starts immediately below the 60px header.",
+      "sources": [
+        "390px rendered reference",
+        "tokens.css:66"
+      ]
+    },
+    {
+      "name": "--radius-sm",
+      "value": "16px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Small rounded control/state radius.",
+      "sources": [
+        "mobile action and chip family",
+        "tokens.css:69"
+      ]
+    },
+    {
+      "name": "--radius-md",
+      "value": "30px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Primary actions and chips use 30px radius.",
+      "sources": [
+        "computed primary anchor and chip",
+        "tokens.css:70"
+      ]
+    },
+    {
+      "name": "--radius-lg",
+      "value": "42px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Desktop hero media uses a visibly large rounded frame.",
+      "sources": [
+        "1440px reference media frame",
+        "tokens.css:71"
+      ]
+    },
+    {
+      "name": "--radius-pill",
+      "value": "9999px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Pill actions and small metadata chip are fully rounded.",
+      "sources": [
+        "computed primary action and chip",
+        "tokens.css:72"
+      ]
+    },
+    {
+      "name": "--elev-flat",
+      "value": "none",
+      "type": "shadow",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "The target uses border and contrast rather than shadows.",
+      "sources": [
+        "computed desktop controls",
+        "tokens.css:75"
+      ]
+    },
+    {
+      "name": "--elev-ring",
+      "value": "0 0 0 1px rgba(255, 255, 255, 0.24) inset",
+      "type": "shadow",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Soft inner ring approximates observed glass-like media actions over imagery.",
+      "sources": [
+        "desktop media action reference",
+        "tokens.css:76"
+      ]
+    },
+    {
+      "name": "--elev-raised",
+      "value": "0 10px 30px rgba(17, 17, 17, 0.08)",
+      "type": "shadow",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Subtle accessibility-safe elevation for overlays; not used by the dominant flat layout.",
+      "sources": [
+        "derived from flat page system",
+        "tokens.css:77"
+      ]
+    },
+    {
+      "name": "--focus-ring",
+      "value": "0 0 0 3px rgba(17, 17, 17, 0.36)",
+      "type": "shadow",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Visible keyboard treatment that preserves monochrome direction.",
+      "sources": [
+        "derived for accessibility; target Framer page has no visible ring",
+        "tokens.css:80"
+      ]
+    },
+    {
+      "name": "--motion-fast",
+      "value": "200ms",
+      "type": "duration",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Compact control transition duration.",
+      "sources": [
+        "observed Framer light interactive response",
+        "tokens.css:83"
+      ]
+    },
+    {
+      "name": "--motion-base",
+      "value": "500ms",
+      "type": "duration",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Carousel change is perceptibly slower than micro-controls.",
+      "sources": [
+        "desktop arrow sweep observation",
+        "tokens.css:84"
+      ]
+    },
+    {
+      "name": "--ease-standard",
+      "value": "cubic-bezier(0.22, 1, 0.36, 1)",
+      "type": "cubicBezier",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Close visual stand-in for the source Framer spring transition.",
+      "sources": [
+        "desktop arrow sweep observation",
+        "tokens.css:85"
+      ]
+    },
+    {
+      "name": "--container-max",
+      "value": "1416px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Desktop shell spans viewport less two 12px outer insets.",
+      "sources": [
+        "1440px header and progress line boxes",
+        "tokens.css:88"
+      ]
+    },
+    {
+      "name": "--container-gutter-desktop",
+      "value": "12px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Observed desktop page inset.",
+      "sources": [
+        "1440px reference",
+        "tokens.css:89"
+      ]
+    },
+    {
+      "name": "--container-gutter-tablet",
+      "value": "12px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Observed tablet page inset.",
+      "sources": [
+        "768px reference",
+        "tokens.css:90"
+      ]
+    },
+    {
+      "name": "--container-gutter-phone",
+      "value": "12px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Observed mobile content inset.",
+      "sources": [
+        "390px reference",
+        "tokens.css:91"
+      ]
+    }
+  ]
+}

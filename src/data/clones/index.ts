@@ -12,15 +12,19 @@
 // validates in `npm run check:release`, not a cloned target.
 
 import type { Clone } from "./types";
+import { spaceshipClone } from "../../clones/spaceship-com/clone.config";
 import { completeShelfClone } from "../../clones/complete-shelf/clone.config";
 import { fesnClone } from "../../clones/fesn/clone.config";
 import { appcieClone } from "../../clones/appcie/clone.config";
 import { fecoelhoClone } from "../../clones/fecoelho-com-br/clone.config";
 import { helloParulClone } from "../../clones/helloparul-in/clone.config";
 import { adspirerClone } from "../../clones/adspirer-com/clone.config";
+import { bridgeHumanClone } from "../../clones/bridgeandhuman-com/clone.config";
 
 /** Every registered clone, newest extraction first. */
 export const allClones: Clone[] = [
+  bridgeHumanClone,
+  spaceshipClone,
   adspirerClone,
   helloParulClone,
   fecoelhoClone,
