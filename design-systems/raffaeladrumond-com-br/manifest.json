@@ -1,0 +1,55 @@
+{
+  "schemaVersion": "od-design-system-project/v1",
+  "id": "raffaeladrumond-com-br",
+  "name": "Dra. Raffaela Drumond",
+  "category": "Medical aesthetics landing page",
+  "description": "A refined dermatology clinic landing page centered on medical criteria, natural outcomes, and personalized care in Brasília.",
+  "source": {
+    "type": "local",
+    "path": "https://raffaeladrumond.com.br/",
+    "importedAt": "2026-08-30T16:55:45.404Z"
+  },
+  "files": {
+    "design": "DESIGN.md",
+    "tokens": "tokens.css",
+    "designTokens": "design-tokens.json",
+    "tailwind": "tailwind-v4.css",
+    "components": "components.html"
+  },
+  "usage": "USAGE.md",
+  "componentsManifest": "components.manifest.json",
+  "importMode": "normalized",
+  "craft": {
+    "applies": [],
+    "suggested": [
+      "color",
+      "accessibility-baseline"
+    ],
+    "exemptions": []
+  },
+  "preview": {
+    "dir": "preview",
+    "pages": [
+      {
+        "path": "preview/colors.html",
+        "role": "colors",
+        "title": "Colors"
+      },
+      {
+        "path": "preview/typography.html",
+        "role": "typography",
+        "title": "Typography"
+      },
+      {
+        "path": "preview/spacing.html",
+        "role": "spacing",
+        "title": "Spacing"
+      }
+    ]
+  },
+  "sourceFiles": {
+    "evidence": "source/evidence.md",
+    "tokens": "source/tokens.source.json",
+    "report": "source/token-contract.report.json"
+  }
+}

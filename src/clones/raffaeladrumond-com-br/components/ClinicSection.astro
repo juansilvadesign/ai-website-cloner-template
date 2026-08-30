@@ -1,0 +1,120 @@
+---
+const gallery = [
+  ["Rectangle-40891.png", "Recepção da Clínica Raffaela Drumond"],
+  ["Group-1707478969.png", "Espaço de atendimento da Clínica RD"],
+  ["Rectangle-40893.png", "Detalhe da clínica"],
+  ["Rectangle-40894.png", "Ambiente de conforto"],
+  ["Rectangle-40895.png", "Sala da clínica"],
+  ["Rectangle-40896.png", "Interior da clínica"],
+  ["Rectangle-40897.png", "Detalhe do espaço clínico"],
+];
+---
+
+<section id="clinica" class="clinic rd-section" aria-labelledby="clinic-title">
+  <div class="rd-container">
+    <div class="clinic-heading" data-reveal>
+      <p class="rd-eyebrow">Conheça a clínica</p>
+      <h2 id="clinic-title" class="rd-title">A Clínica Raffaela Drumond</h2>
+    </div>
+    <div class="clinic-grid">
+      <div class="gallery" data-reveal>
+        {gallery.map(([image, alt], index) => (
+          <img class:list={["gallery-image", "gallery-" + (index + 1)]} src={"/clones/raffaeladrumond-com-br/images/" + image} alt={alt} width="500" height="400" loading="lazy" />
+        ))}
+      </div>
+      <article class="clinic-copy" data-reveal>
+        <a class="address" href="https://maps.google.com/?q=SGAS+915+Advance+2+Brasília" target="_blank" rel="noreferrer">SGAS 915, Salas 210/212<br />Advance 2 – Asa Sul<br />Brasília – DF <span aria-hidden="true">↗</span></a>
+        <p class="rd-copy">A Clínica Raffaela Drumond, em Brasília, é um espaço de alto padrão estruturado para oferecer dermatologia moderna, com tecnologias de última geração e os procedimentos mais atuais da especialidade.</p>
+        <p class="rd-copy">A clínica foi pensada para atender pacientes que valorizam planejamento, segurança e acompanhamento médico real, não soluções genéricas.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+  .clinic {
+    background: var(--surface);
+  }
+
+  .clinic-heading {
+    max-width: 650px;
+    margin-bottom: var(--space-12);
+  }
+
+  .clinic-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(280px, .8fr);
+    align-items: center;
+    gap: clamp(var(--space-8), 8vw, 130px);
+  }
+
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 140px);
+    gap: var(--space-3);
+  }
+
+  .gallery-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--radius-sm);
+    object-fit: cover;
+  }
+
+  .gallery-1 {
+    grid-row: span 2;
+    grid-column: span 2;
+  }
+
+  .gallery-2 {
+    grid-column: span 2;
+  }
+
+  .gallery-5,
+  .gallery-6 {
+    grid-column: span 2;
+  }
+
+  .gallery-7 {
+    display: none;
+  }
+
+  .clinic-copy .rd-copy + .rd-copy {
+    margin-top: var(--space-5);
+  }
+
+  .address {
+    display: inline-block;
+    margin-bottom: var(--space-8);
+    color: var(--muted);
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.3;
+  }
+
+  .address span {
+    color: var(--accent);
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+  }
+
+  @media (max-width: 719px) {
+    .clinic-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+    }
+
+    .gallery {
+      grid-template-rows: repeat(3, 100px);
+      gap: var(--space-2);
+    }
+
+    .address {
+      font-size: var(--text-xl);
+    }
+  }
+</style>

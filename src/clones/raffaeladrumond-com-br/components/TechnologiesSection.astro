@@ -1,0 +1,496 @@
+---
+const technologies = [
+  {
+    className: "punto",
+    name: "Laser Punto",
+    description: "Promove renovação profunda da pele, melhora textura, cicatrizes, rugas e estimula intensamente a produção de colágeno.",
+    image: "image-2.png",
+    width: 230,
+    height: 545,
+    alt: "Laser Punto",
+  },
+  {
+    className: "red-touch",
+    name: "Laser Red Touch",
+    description: "Estimula colágeno de forma seletiva, melhorando firmeza, qualidade da pele e sinais do envelhecimento.",
+    image: "Group-1707479025.png",
+    width: 333,
+    height: 586,
+    alt: "Laser Red Touch",
+  },
+  {
+    className: "zye",
+    name: "Laser ZYE",
+    description: "Plataforma versátil com múltiplas ponteiras para tratar estímulo de colágeno, manchas solares, fotoenvelhecimento, vasos, rosácea e olheiras.",
+    image: "image-4.png",
+    width: 521,
+    height: 403,
+    alt: "Laser ZYE",
+  },
+  {
+    className: "liftera",
+    name: "Liftera 2",
+    description: "Atua nas camadas profundas da pele promovendo lifting, firmeza e estímulo de colágeno.",
+    image: "image-5.png",
+    width: 395,
+    height: 395,
+    alt: "Liftera 2",
+  },
+  {
+    className: "oligio",
+    name: "Oligio X",
+    description: "Indicado para flacidez superficial, melhora a firmeza e a textura da pele.",
+    image: "image-6.png",
+    width: 238,
+    height: 436,
+    alt: "Oligio X",
+  },
+  {
+    className: "mesoject",
+    name: "MesojectGun",
+    description: "Permite a entrega precisa de ativos da medicina regenerativa nas camadas adequadas da pele, potencializando os resultados dos tratamentos.",
+    image: "relaxmedic-3-desumidificador-de-ar-antimofo-multi-dry-cor-branco-10-oygbgeda6t-1.png",
+    width: 354,
+    height: 354,
+    alt: "MesojectGun",
+  },
+];
+---
+
+<section id="tecnologias" class="technologies" aria-labelledby="technologies-title">
+  <div class="technology-shell">
+    <header class="technology-intro" data-reveal>
+      <p class="technology-pill"><span aria-hidden="true">✦</span> TECNOLOGIA DE PRIMEIRA LINHA</p>
+      <h2 id="technologies-title" class="rd-title">A Clínica RD une <em>inovação tecnológica</em> e<br /> excelência para potencializar seus tratamentos.</h2>
+    </header>
+
+    <div class="technology-stage">
+      {technologies.map((technology) => (
+        <article class:list={["technology-card", technology.className]} data-reveal>
+          <img
+            class="technology-device"
+            src={`/clones/raffaeladrumond-com-br/images/${technology.image}`}
+            alt={technology.alt}
+            width={technology.width}
+            height={technology.height}
+            loading="lazy"
+          />
+          <div class="technology-copy">
+            <h3>{technology.name}</h3>
+            <p>{technology.description}</p>
+          </div>
+        </article>
+      ))}
+
+      <article class="linear-card" data-reveal>
+        <img src="/clones/raffaeladrumond-com-br/images/image-8.png" alt="Tecnologia Linear Z" width="505" height="595" loading="lazy" />
+        <div class="linear-copy">
+          <h3>Linear Z</h3>
+          <p>O Linear Z é uma tecnologia sul-coreana de ultrassom micro e macrofocado (HIFU) de nova geração, indicada para lifting facial, firmeza da pele e remodelação facial. Além de reduzir gordura e emagrecer a face, o Linear Z também pode estimular a adipogênese, sendo uma alternativa para faces muito emagrecidas que desejam melhorar o volume sem o uso de preenchimentos. Sua tecnologia em linhas contínuas permite uma aplicação mais rápida, com menos dor e resultados mais uniformes.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+  .technologies {
+    box-sizing: border-box;
+    min-height: 2916px;
+    padding: 60px 0 90px;
+    overflow: hidden;
+    background: var(--bg);
+  }
+
+  .technology-shell {
+    width: min(calc(100% - 40px), 1400px);
+    margin-inline: auto;
+  }
+
+  .technology-intro {
+    text-align: center;
+  }
+
+  .technology-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    box-sizing: border-box;
+    min-width: 308px;
+    min-height: 56px;
+    margin: 0 0 32px;
+    padding: 16px;
+    border: 1px solid rgba(30, 35, 15, .18);
+    border-radius: 100px;
+    color: var(--fg-2);
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1;
+  }
+
+  .technology-pill span {
+    color: var(--fg);
+    font-size: 23px;
+    line-height: 0;
+  }
+
+  .technology-intro .rd-title {
+    width: min(1232px, 100%);
+    margin-inline: auto;
+    color: var(--fg);
+    font-size: 64px;
+    line-height: 1.25;
+  }
+
+  .technology-intro em {
+    color: var(--muted);
+    font-style: italic;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 16px;
+  }
+
+  .technology-stage {
+    position: relative;
+    height: 2498px;
+    margin-top: 20px;
+  }
+
+  .technology-card,
+  .linear-card {
+    position: absolute;
+    box-sizing: border-box;
+    overflow: visible;
+    border-radius: 18px;
+    background: var(--surface);
+  }
+
+  .technology-card {
+    width: 32%;
+    height: 635px;
+    padding: 32px;
+  }
+
+  .technology-device {
+    position: absolute;
+    z-index: 1;
+    display: block;
+    max-width: calc(100% - 64px);
+    height: auto;
+    object-fit: contain;
+  }
+
+  .technology-copy {
+    position: absolute;
+    right: 32px;
+    left: 32px;
+  }
+
+  .technology-copy h3,
+  .linear-copy h3 {
+    margin: 0;
+    color: var(--fg);
+    font-family: var(--font-display);
+    font-size: 32px;
+    font-weight: 300;
+    line-height: 1.25;
+  }
+
+  .technology-copy p,
+  .linear-copy p {
+    margin: 16px 0 0;
+    color: #101010;
+    font-size: 20px;
+    line-height: 1.5;
+  }
+
+  .punto {
+    top: 210px;
+    left: -1.571%;
+  }
+
+  .punto .technology-device {
+    top: -173px;
+    left: 50%;
+    width: 230px;
+    transform: translateX(-50%);
+  }
+
+  .punto .technology-copy { top: 400px; }
+
+  .red-touch {
+    top: 290px;
+    left: 34%;
+  }
+
+  .red-touch .technology-device {
+    top: -212px;
+    left: 50%;
+    width: 333px;
+    transform: translateX(-50%);
+  }
+
+  .red-touch .technology-copy {
+    top: 402px;
+    left: 52px;
+    right: 52px;
+  }
+
+  .zye {
+    top: 210px;
+    left: 69.571%;
+  }
+
+  .zye .technology-device {
+    top: -42px;
+    left: 50%;
+    width: 497px;
+    max-width: none;
+    transform: translateX(-50%);
+  }
+
+  .zye .technology-copy {
+    top: 391px;
+    left: 50px;
+    right: 50px;
+  }
+
+  .liftera,
+  .oligio,
+  .mesoject { height: 603px; }
+
+  .liftera {
+    top: 965px;
+    left: -1.571%;
+  }
+
+  .liftera .technology-device {
+    top: -51px;
+    left: 50%;
+    width: 382px;
+    transform: translateX(-50%);
+  }
+
+  .liftera .technology-copy {
+    top: 359px;
+    left: 48px;
+    right: 48px;
+  }
+
+  .oligio {
+    top: 1045px;
+    left: 34%;
+  }
+
+  .oligio .technology-device {
+    top: -70px;
+    left: 50%;
+    width: 231px;
+    transform: translateX(-50%);
+  }
+
+  .oligio .technology-copy {
+    top: 362px;
+    left: 62px;
+    right: 62px;
+  }
+
+  .mesoject {
+    top: 965px;
+    left: 69.571%;
+  }
+
+  .mesoject .technology-device {
+    top: -25px;
+    left: 50%;
+    width: 382px;
+    max-width: none;
+    transform: translateX(-50%);
+  }
+
+  .mesoject .technology-copy {
+    top: 359px;
+    left: 52px;
+    right: 52px;
+  }
+
+  .linear-card {
+    top: 1688px;
+    left: 30px;
+    width: 100%;
+    height: 801px;
+    padding: 32px;
+  }
+
+  .linear-card > img {
+    position: absolute;
+    top: 43px;
+    left: 13px;
+    display: block;
+    width: 637px;
+    height: 751px;
+    object-fit: contain;
+  }
+
+  .linear-copy {
+    position: absolute;
+    top: 184px;
+    left: 782px;
+    width: 573px;
+  }
+
+  .linear-copy h3 {
+    font-size: 48px;
+    line-height: 1.25;
+  }
+
+  @media (max-width: 1199px) {
+    .technologies {
+      min-height: 0;
+      padding-bottom: 80px;
+    }
+
+    .technology-intro .rd-title {
+      font-size: clamp(44px, 5.5vw, 62px);
+    }
+
+    .technology-stage {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      height: auto;
+      gap: 100px 32px;
+      margin-top: 100px;
+      padding-top: 120px;
+    }
+
+    .technology-card,
+    .linear-card {
+      position: relative;
+      top: auto;
+      left: auto;
+      width: auto;
+      height: 560px;
+    }
+
+    .technology-card .technology-device {
+      top: -105px;
+      left: 50%;
+      max-width: calc(100% - 64px);
+      transform: translateX(-50%);
+    }
+
+    .technology-card .technology-copy {
+      top: 360px;
+      right: 32px;
+      left: 32px;
+    }
+
+    .linear-card {
+      grid-column: 1 / -1;
+      height: 670px;
+    }
+
+    .linear-card > img {
+      top: 45px;
+      left: 5%;
+      width: min(47%, 540px);
+      height: calc(100% - 60px);
+    }
+
+    .linear-copy {
+      top: 160px;
+      right: 7%;
+      left: auto;
+      width: 43%;
+    }
+  }
+
+  @media (max-width: 719px) {
+    .technologies { padding: 50px 0 60px; }
+
+    .technology-shell { width: calc(100% - 30px); }
+
+    .technology-pill {
+      min-width: 0;
+      min-height: 46px;
+      margin-bottom: 24px;
+      padding: 12px 16px;
+      font-size: 9px;
+    }
+
+    .technology-pill span { font-size: 19px; }
+
+    .technology-intro .rd-title {
+      font-size: 34px;
+      line-height: 1.1;
+    }
+
+    .technology-intro .rd-title br { display: none; }
+
+    .technology-intro em { text-underline-offset: 9px; }
+
+    .technology-stage {
+      grid-template-columns: 1fr;
+      gap: 80px;
+      margin-top: 72px;
+      padding-top: 105px;
+    }
+
+    .technology-card {
+      height: 500px;
+      padding: 24px;
+      border-radius: 16px;
+    }
+
+    .technology-card .technology-device {
+      top: -100px;
+      max-width: calc(100% - 48px);
+      max-height: 360px;
+    }
+
+    .technology-card .technology-copy {
+      top: 300px;
+      right: 24px;
+      left: 24px;
+    }
+
+    .technology-copy h3 { font-size: 28px; }
+
+    .technology-copy p,
+    .linear-copy p {
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    .linear-card {
+      display: flex;
+      flex-direction: column;
+      height: auto;
+      min-height: 760px;
+      padding: 24px;
+    }
+
+    .linear-card > img {
+      position: relative;
+      top: auto;
+      left: auto;
+      align-self: center;
+      width: 100%;
+      height: auto;
+      max-height: 455px;
+      object-fit: contain;
+    }
+
+    .linear-copy {
+      position: relative;
+      top: auto;
+      right: auto;
+      left: auto;
+      width: auto;
+      margin-top: 10px;
+    }
+
+    .linear-copy h3 { font-size: 38px; }
+  }
+</style>

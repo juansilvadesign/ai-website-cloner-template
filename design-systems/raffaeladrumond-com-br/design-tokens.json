@@ -1,0 +1,698 @@
+{
+  "schemaVersion": 1,
+  "format": "od-design-tokens/v1",
+  "contract": "TOKEN_SCHEMA",
+  "generatedAt": "2026-08-30T16:55:45.404Z",
+  "source": {
+    "tokensCss": "tokens.css",
+    "tokenContractReport": "source/token-contract.report.json"
+  },
+  "summary": {
+    "total": 56,
+    "byConfidence": {
+      "high": 46,
+      "derived": 6,
+      "fallback": 4
+    },
+    "byLayer": {
+      "A1-identity": 8,
+      "B-slot": 4,
+      "A2": 26,
+      "A1-structure": 18
+    }
+  },
+  "tokens": [
+    {
+      "name": "--bg",
+      "value": "#F9F9F9",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Default canvas and authored parent-section background.",
+      "sources": [
+        "target inline style #elementor-post-33-css: .elementor-element-a9b88a7 background-color",
+        "tokens.css:8"
+      ]
+    },
+    {
+      "name": "--surface",
+      "value": "#FFFFFF",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Accordion cards and content surfaces.",
+      "sources": [
+        "target inline style #elementor-post-33-css: .e-n-accordion-item background",
+        "tokens.css:9"
+      ]
+    },
+    {
+      "name": "--surface-warm",
+      "value": "#FFF8F2",
+      "type": "color",
+      "layer": "B-slot",
+      "confidence": "high",
+      "reason": "Expanded accordion-content surface.",
+      "sources": [
+        "target inline style #elementor-post-33-css: .elementor-tab-content background",
+        "tokens.css:10"
+      ]
+    },
+    {
+      "name": "--fg",
+      "value": "#3C4128",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Primary display-heading and dark olive brand ink.",
+      "sources": [
+        "target inline style #elementor-post-33-css: heading and accordion color",
+        "tokens.css:13"
+      ]
+    },
+    {
+      "name": "--fg-2",
+      "value": "#1E230F",
+      "type": "color",
+      "layer": "B-slot",
+      "confidence": "high",
+      "reason": "Darker body/icon ink used across pills and navigation.",
+      "sources": [
+        "target inline style #elementor-post-33-css: icon-list color",
+        "tokens.css:14"
+      ]
+    },
+    {
+      "name": "--muted",
+      "value": "#7D8264",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Ivy display emphasis, plus/minus circles, and muted brand accent.",
+      "sources": [
+        "target inline style #elementor-post-33-css: treatment H3 and icon fills",
+        "tokens.css:15"
+      ]
+    },
+    {
+      "name": "--meta",
+      "value": "#69727D",
+      "type": "color",
+      "layer": "B-slot",
+      "confidence": "high",
+      "reason": "Muted metadata color present in the published stylesheet.",
+      "sources": [
+        "target source palette scan",
+        "tokens.css:16"
+      ]
+    },
+    {
+      "name": "--border",
+      "value": "rgba(60, 65, 40, .52)",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Accordion and featured-content edge.",
+      "sources": [
+        "target inline style #elementor-post-33-css: accordion content border",
+        "tokens.css:19"
+      ]
+    },
+    {
+      "name": "--border-soft",
+      "value": "rgba(30, 35, 15, .17)",
+      "type": "color",
+      "layer": "B-slot",
+      "confidence": "high",
+      "reason": "Outline used around small label pills.",
+      "sources": [
+        "target inline style #elementor-post-33-css: .elementor-element-12dc6b8 border-color #1E230F2B",
+        "tokens.css:20"
+      ]
+    },
+    {
+      "name": "--accent",
+      "value": "#8C916E",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Filled CTA background.",
+      "sources": [
+        "target inline style #elementor-post-33-css: .elementor-button background-color",
+        "tokens.css:23"
+      ]
+    },
+    {
+      "name": "--accent-on",
+      "value": "#FFFFFF",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "CTA label and arrow-circle foreground.",
+      "sources": [
+        "target inline style #elementor-post-33-css: .elementor-button color",
+        "tokens.css:24"
+      ]
+    },
+    {
+      "name": "--accent-hover",
+      "value": "#3C4128",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Exact authored CTA hover background.",
+      "sources": [
+        "target inline style #elementor-post-33-css: .elementor-button:hover",
+        "tokens.css:25"
+      ]
+    },
+    {
+      "name": "--accent-active",
+      "value": "#1E230F",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Reserved pressed state, derived from the target's darker olive ink.",
+      "sources": [
+        "derived from --fg-2",
+        "tokens.css:26"
+      ]
+    },
+    {
+      "name": "--success",
+      "value": "#16a34a",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "fallback",
+      "reason": "OpenDesign A2 default (Success state.)",
+      "sources": [
+        "_schema/defaults.css",
+        "tokens.css:29"
+      ]
+    },
+    {
+      "name": "--warn",
+      "value": "#eab308",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "fallback",
+      "reason": "OpenDesign A2 default (Warning state.)",
+      "sources": [
+        "_schema/defaults.css",
+        "tokens.css:30"
+      ]
+    },
+    {
+      "name": "--danger",
+      "value": "#dc2626",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "fallback",
+      "reason": "OpenDesign A2 default (Danger state.)",
+      "sources": [
+        "_schema/defaults.css",
+        "tokens.css:31"
+      ]
+    },
+    {
+      "name": "--font-display",
+      "value": "\"ivypresto-display\", Georgia, serif",
+      "type": "fontFamily",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Global h1–h3 font family authored by Elementor and loaded by the Adobe Typekit kit pnp3shz.",
+      "sources": [
+        "target inline style .elementor-kit-8 h1/h2/h3; https://use.typekit.net/pnp3shz.css",
+        "tokens.css:34"
+      ]
+    },
+    {
+      "name": "--font-body",
+      "value": "\"Poppins\", system-ui, sans-serif",
+      "type": "fontFamily",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Global body, link, accordion, and label family.",
+      "sources": [
+        "target inline style .elementor-kit-8 body/a; local Poppins @font-face declarations",
+        "tokens.css:35"
+      ]
+    },
+    {
+      "name": "--font-mono",
+      "value": "ui-monospace, \"SF Mono\", \"JetBrains Mono\", Menlo, Monaco, Consolas, monospace",
+      "type": "fontFamily",
+      "layer": "A2",
+      "confidence": "fallback",
+      "reason": "OpenDesign A2 default (Monospace font stack — used by kbd, code, tabular metrics.)",
+      "sources": [
+        "_schema/defaults.css",
+        "tokens.css:36"
+      ]
+    },
+    {
+      "name": "--text-xs",
+      "value": "11px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Small footer and service-list label tier.",
+      "sources": [
+        "target inline style .elementor-element-5f8cc45 font-size",
+        "tokens.css:39"
+      ]
+    },
+    {
+      "name": "--text-sm",
+      "value": "13px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Eyebrow-pill copy tier.",
+      "sources": [
+        "target inline style .elementor-element-79c0f10 font-size",
+        "tokens.css:40"
+      ]
+    },
+    {
+      "name": "--text-base",
+      "value": "16px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Base body and CTA copy tier.",
+      "sources": [
+        "target inline style .elementor-element-e1218fa font-size",
+        "tokens.css:41"
+      ]
+    },
+    {
+      "name": "--text-lg",
+      "value": "20px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Body copy in content accordions.",
+      "sources": [
+        "target inline style .elementor-element-1209272 font-size",
+        "tokens.css:42"
+      ]
+    },
+    {
+      "name": "--text-xl",
+      "value": "24px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Hero lede and medium treatment tier.",
+      "sources": [
+        "target inline style .elementor-element-090f824 font-size",
+        "tokens.css:43"
+      ]
+    },
+    {
+      "name": "--text-2xl",
+      "value": "30px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Global desktop h3 size.",
+      "sources": [
+        "target inline style .elementor-kit-8 h3",
+        "tokens.css:44"
+      ]
+    },
+    {
+      "name": "--text-3xl",
+      "value": "48px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Treatment category heading size.",
+      "sources": [
+        "target inline style .elementor-element-cba209e font-size",
+        "tokens.css:45"
+      ]
+    },
+    {
+      "name": "--text-4xl",
+      "value": "64px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Global desktop h1/h2 size.",
+      "sources": [
+        "target inline style .elementor-kit-8 h1/h2",
+        "tokens.css:46"
+      ]
+    },
+    {
+      "name": "--leading-body",
+      "value": "1.5",
+      "type": "number",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Published body and copy leading.",
+      "sources": [
+        "target inline style .elementor-kit-8 body and text-editor rules",
+        "tokens.css:49"
+      ]
+    },
+    {
+      "name": "--leading-tight",
+      "value": "1.25",
+      "type": "number",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Published h2/h3 leading.",
+      "sources": [
+        "target inline style .elementor-kit-8 h2/h3",
+        "tokens.css:50"
+      ]
+    },
+    {
+      "name": "--tracking-display",
+      "value": "0",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "No authored tracking adjustment on the target display system.",
+      "sources": [
+        "target inline typography rules",
+        "tokens.css:51"
+      ]
+    },
+    {
+      "name": "--space-1",
+      "value": "4px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Schema base tier derived from the target's multiples-of-four spacing system.",
+      "sources": [
+        "published layout values",
+        "tokens.css:54"
+      ]
+    },
+    {
+      "name": "--space-2",
+      "value": "8px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Schema base tier derived from the target's multiples-of-four spacing system.",
+      "sources": [
+        "published layout values",
+        "tokens.css:55"
+      ]
+    },
+    {
+      "name": "--space-3",
+      "value": "12px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Divider and image-box spacing.",
+      "sources": [
+        "target inline style .elementor-divider padding and image-box margin",
+        "tokens.css:56"
+      ]
+    },
+    {
+      "name": "--space-4",
+      "value": "16px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Pill and inner-card inset.",
+      "sources": [
+        "target inline style .elementor-element-12dc6b8 padding",
+        "tokens.css:57"
+      ]
+    },
+    {
+      "name": "--space-5",
+      "value": "20px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Shared rounded-control radius and section gaps.",
+      "sources": [
+        "target inline style CTA and accordion custom CSS",
+        "tokens.css:58"
+      ]
+    },
+    {
+      "name": "--space-6",
+      "value": "24px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Mobile section inset and card content rhythm.",
+      "sources": [
+        "target responsive CSS",
+        "tokens.css:59"
+      ]
+    },
+    {
+      "name": "--space-8",
+      "value": "32px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Desktop card-side inset.",
+      "sources": [
+        "target inline style .elementor-element-de41f31 padding",
+        "tokens.css:60"
+      ]
+    },
+    {
+      "name": "--space-12",
+      "value": "48px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Accordion expanded-content top inset.",
+      "sources": [
+        "target custom accordion CSS",
+        "tokens.css:61"
+      ]
+    },
+    {
+      "name": "--section-y-desktop",
+      "value": "90px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Repeated authored desktop section padding.",
+      "sources": [
+        "target inline style .elementor-element-9fd79c4 and peers",
+        "tokens.css:64"
+      ]
+    },
+    {
+      "name": "--section-y-tablet",
+      "value": "60px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "derived",
+      "reason": "Transitional tablet rhythm between source desktop and mobile values.",
+      "sources": [
+        "derived from 90px desktop and 40px mobile source rules",
+        "tokens.css:65"
+      ]
+    },
+    {
+      "name": "--section-y-phone",
+      "value": "40px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Repeated authored phone section padding.",
+      "sources": [
+        "target @media max-width:767px parent-section rules",
+        "tokens.css:66"
+      ]
+    },
+    {
+      "name": "--radius-sm",
+      "value": "20px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "CTA and small-card corners.",
+      "sources": [
+        "target inline style .elementor-button border-radius",
+        "tokens.css:69"
+      ]
+    },
+    {
+      "name": "--radius-md",
+      "value": "20px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Accordion-card corners.",
+      "sources": [
+        "target custom accordion CSS",
+        "tokens.css:70"
+      ]
+    },
+    {
+      "name": "--radius-lg",
+      "value": "20px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Featured information-card corners.",
+      "sources": [
+        "target inline style .elementor-element-de41f31 border-radius",
+        "tokens.css:71"
+      ]
+    },
+    {
+      "name": "--radius-pill",
+      "value": "9999px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Label-chip and decorative-circle geometry.",
+      "sources": [
+        "target inline style label pills use 100px radius",
+        "tokens.css:72"
+      ]
+    },
+    {
+      "name": "--elev-flat",
+      "value": "none",
+      "type": "shadow",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Default sections remain flat.",
+      "sources": [
+        "target section styling",
+        "tokens.css:75"
+      ]
+    },
+    {
+      "name": "--elev-ring",
+      "value": "0 0 0 1px var(--border)",
+      "type": "shadow",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Schema edge treatment matched to the target's visible 1px olive outlines.",
+      "sources": [
+        "derived from --border",
+        "tokens.css:76"
+      ]
+    },
+    {
+      "name": "--elev-raised",
+      "value": "0 12px 15px rgba(0, 0, 0, .10)",
+      "type": "shadow",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Exact accordion-card shadow.",
+      "sources": [
+        "target custom accordion CSS",
+        "tokens.css:77"
+      ]
+    },
+    {
+      "name": "--focus-ring",
+      "value": "0 0 0 3px color-mix(in srgb, var(--accent), transparent 68%)",
+      "type": "shadow",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Accessible focus ring derived from the CTA color because the source relies on browser focus behavior.",
+      "sources": [
+        "derived from --accent",
+        "tokens.css:80"
+      ]
+    },
+    {
+      "name": "--motion-fast",
+      "value": "300ms",
+      "type": "duration",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Menu and icon hover transition tier.",
+      "sources": [
+        "target menu CSS and Elementor icon rules",
+        "tokens.css:83"
+      ]
+    },
+    {
+      "name": "--motion-base",
+      "value": "900ms",
+      "type": "duration",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Scroll reveal transition duration.",
+      "sources": [
+        "target custom .scroll-bottom/.scroll-left CSS",
+        "tokens.css:84"
+      ]
+    },
+    {
+      "name": "--ease-standard",
+      "value": "ease",
+      "type": "cubicBezier",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Target's menu overlay and image transition easing.",
+      "sources": [
+        "target menu CSS and image CSS",
+        "tokens.css:85"
+      ]
+    },
+    {
+      "name": "--container-max",
+      "value": "1485px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Widest authored content container.",
+      "sources": [
+        "target inline style .elementor-element-b32881a --content-width",
+        "tokens.css:88"
+      ]
+    },
+    {
+      "name": "--container-gutter-desktop",
+      "value": "32px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Desktop featured-card inset and practical clone gutter.",
+      "sources": [
+        "target inline style .elementor-element-de41f31 padding-left/right",
+        "tokens.css:89"
+      ]
+    },
+    {
+      "name": "--container-gutter-tablet",
+      "value": "24px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Repeated target tablet/mobile inset tier.",
+      "sources": [
+        "target responsive parent-section padding",
+        "tokens.css:90"
+      ]
+    },
+    {
+      "name": "--container-gutter-phone",
+      "value": "15px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Repeated target phone parent-section gutter.",
+      "sources": [
+        "target @media max-width:767px parent-section rules",
+        "tokens.css:91"
+      ]
+    }
+  ]
+}

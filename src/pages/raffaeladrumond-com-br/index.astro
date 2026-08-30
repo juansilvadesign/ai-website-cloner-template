@@ -1,0 +1,55 @@
+---
+import BaseLayout from "../../clones/raffaeladrumond-com-br/layouts/BaseLayout.astro";
+import SiteHeader from "../../clones/raffaeladrumond-com-br/components/SiteHeader.astro";
+import HeroSection from "../../clones/raffaeladrumond-com-br/components/HeroSection.astro";
+import CriteriaSection from "../../clones/raffaeladrumond-com-br/components/CriteriaSection.astro";
+import TreatmentsSection from "../../clones/raffaeladrumond-com-br/components/TreatmentsSection.astro";
+import TechnologiesSection from "../../clones/raffaeladrumond-com-br/components/TechnologiesSection.astro";
+import AssessmentCta from "../../clones/raffaeladrumond-com-br/components/AssessmentCta.astro";
+import ComfortSection from "../../clones/raffaeladrumond-com-br/components/ComfortSection.astro";
+import DoctorSection from "../../clones/raffaeladrumond-com-br/components/DoctorSection.astro";
+import TestimonialsSection from "../../clones/raffaeladrumond-com-br/components/TestimonialsSection.astro";
+import ProtocolsSection from "../../clones/raffaeladrumond-com-br/components/ProtocolsSection.astro";
+import ClinicSection from "../../clones/raffaeladrumond-com-br/components/ClinicSection.astro";
+import ContactFooter from "../../clones/raffaeladrumond-com-br/components/ContactFooter.astro";
+---
+
+<BaseLayout>
+  <SiteHeader />
+  <main id="top" aria-label="Clínica Raffaela Drumond">
+    <HeroSection />
+    <CriteriaSection />
+    <TreatmentsSection />
+    <TechnologiesSection />
+    <AssessmentCta />
+    <ComfortSection />
+    <DoctorSection />
+    <TestimonialsSection />
+    <ProtocolsSection />
+    <ClinicSection />
+  </main>
+  <ContactFooter />
+</BaseLayout>
+
+<script>
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const elements = document.querySelectorAll<HTMLElement>("[data-reveal]");
+
+  if (reduceMotion || !("IntersectionObserver" in window)) {
+    elements.forEach((element) => element.classList.add("is-visible"));
+  } else {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            (entry.target as HTMLElement).classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 },
+    );
+
+    elements.forEach((element) => observer.observe(element));
+  }
+</script>

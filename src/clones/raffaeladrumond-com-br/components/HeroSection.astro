@@ -1,0 +1,170 @@
+---
+const whatsappUrl =
+  "https://wa.me/5561999195497?text=Ol%C3%A1%2C%20estive%20no%20site%20e%20gostaria%20de%20agendar%20uma%20consulta.";
+---
+
+<section class="hero" aria-labelledby="hero-title">
+  <div class="rd-container hero-content" data-reveal>
+    <img class="hero-identity" src="/clones/raffaeladrumond-com-br/images/Frame-47.png" alt="Dra. Raffaela Drumond, CRM 14344 DF | RQE 7085" width="610" height="117" />
+    <h1 id="hero-title" class="rd-title">Beleza natural com<br />toque de <em>elegância</em></h1>
+    <p class="hero-copy">Dermatologia estética com critério médico.<br />Resultados consistentes. Sem excessos.</p>
+    <div class="hero-divider" aria-hidden="true"></div>
+    <a class="rd-button" href={whatsappUrl} target="_blank" rel="noreferrer"><span class="button-text">AGENDAR CONSULTA COM A DRA.</span><span class="button-arrow" aria-hidden="true">→</span></a>
+    <p class="location">Atendimento personalizado em Brasília</p>
+  </div>
+</section>
+
+<style>
+  .hero {
+    min-height: 950px;
+    background-color: var(--bg);
+    background-image: url("/clones/raffaeladrumond-com-br/images/Rectangle-10.webp");
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .hero-content {
+    box-sizing: border-box;
+    padding: 278px 10px 0;
+  }
+
+  .hero-identity {
+    display: block;
+    width: 319px;
+    height: auto;
+    margin: 0 0 20px;
+  }
+
+  .hero .rd-title {
+    max-width: 580px;
+    font-size: 64px;
+    line-height: 1.09;
+  }
+
+  .hero .rd-title em {
+    color: var(--muted);
+    font-style: italic;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 14px;
+  }
+
+  .hero-copy {
+    max-width: 580px;
+    margin: 32px 0 0;
+    color: #101010;
+    font-size: 24px;
+    line-height: 1.5;
+  }
+
+  .hero-divider {
+    width: 516px;
+    margin-top: 19px;
+    border-top: 1px solid var(--fg-2);
+  }
+
+  .hero .rd-button {
+    position: relative;
+    width: 498px;
+    min-height: 96px;
+    margin-top: 32px;
+    padding: 26px 60px;
+    border: 0;
+    border-radius: 20px;
+    background: var(--accent);
+    color: var(--accent-on);
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+
+  .button-arrow {
+    position: absolute;
+    right: 60px;
+    display: grid;
+    width: 44px;
+    height: 44px;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--surface);
+    color: var(--fg-2);
+    font-size: 25px;
+    font-weight: 300;
+    line-height: 1;
+  }
+
+  .location {
+    margin: 20px 0 0;
+    color: #101010;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 719px) {
+    .hero {
+      min-height: 844px;
+      background-image: linear-gradient(180deg, transparent 0%, transparent 68%, var(--bg) 92%), url("/clones/raffaeladrumond-com-br/images/Rectangle-10.webp");
+      background-position: center top, 62% top;
+      background-size: 100% 430px, auto 385px;
+    }
+
+    .hero-content.rd-container {
+      width: 100%;
+      padding: 376px 22px 0;
+      text-align: center;
+    }
+
+    .hero-identity {
+      width: 188px;
+      margin-inline: auto;
+      margin-bottom: 25px;
+    }
+
+    .hero .rd-title {
+      max-width: 320px;
+      margin-inline: auto;
+      font-size: 34px;
+      line-height: 1.09;
+    }
+
+    .hero .rd-title em {
+      text-underline-offset: 9px;
+    }
+
+    .hero-copy {
+      max-width: 300px;
+      margin: 31px auto 0;
+      color: #101010;
+      font-size: 18px;
+      line-height: 1.47;
+    }
+
+    .hero-divider {
+      width: 100%;
+      margin-top: 21px;
+    }
+
+    .hero .rd-button {
+      width: 100%;
+      min-height: 80px;
+      margin-top: 22px;
+      padding: 16px 72px 16px 22px;
+      border-radius: 20px;
+      font-size: 16px;
+      line-height: 1.25;
+    }
+
+    .button-arrow {
+      right: 22px;
+      width: 34px;
+      height: 34px;
+      font-size: 20px;
+    }
+
+    .location {
+      margin-top: 21px;
+      font-size: 15px;
+    }
+  }
+</style>

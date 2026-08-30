@@ -1,0 +1,223 @@
+---
+const whatsappUrl =
+  "https://wa.me/5561999195497?text=Ol%C3%A1%2C%20estive%20no%20site%20e%20gostaria%20de%20agendar%20uma%20consulta.";
+---
+
+<section class="assessment" aria-labelledby="assessment-title">
+  <div class="assessment-card" data-reveal>
+    <img class="assessment-portrait" src="/clones/raffaeladrumond-com-br/images/Rectangle-40926.png" alt="Dra. Raffaela Drumond" width="454" height="200" loading="lazy" />
+    <div class="assessment-content">
+      <p class="assessment-pill"><span aria-hidden="true">✦</span> AGENDE A SUA AVALIAÇÃO AGORA</p>
+      <h2 id="assessment-title" class="rd-title">Cuidar da sua pele começa<br /> com avaliação médica</h2>
+      <p class="assessment-copy">Cada pele exige uma decisão diferente. Aqui, ela é médica.</p>
+      <a class="rd-button" href={whatsappUrl} target="_blank" rel="noreferrer"><span>AGENDAR AVALIAÇÃO MÉDICA</span><span class="button-arrow" aria-hidden="true">→</span></a>
+      <p class="assessment-location">Atendimento personalizado em <strong>Brasília</strong></p>
+    </div>
+  </div>
+  <img class="assessment-secondary" src="/clones/raffaeladrumond-com-br/images/Rectangle-40928.png" alt="" width="321" height="232" loading="lazy" />
+</section>
+
+<style>
+  .assessment {
+    position: relative;
+    box-sizing: border-box;
+    height: 808px;
+    padding: 10px 20px 0;
+    overflow: visible;
+    background: var(--bg);
+  }
+
+  .assessment-card {
+    position: relative;
+    z-index: 1;
+    box-sizing: border-box;
+    height: 628px;
+    border: 1px solid rgba(30, 35, 15, .22);
+    border-radius: 19px;
+    background: var(--surface) url("/clones/raffaeladrumond-com-br/images/Group-1707478999.webp") center top / cover no-repeat;
+  }
+
+  .assessment-portrait {
+    position: absolute;
+    top: -47px;
+    left: 50%;
+    display: block;
+    width: 200px;
+    height: 88px;
+    border-radius: 15px;
+    object-fit: cover;
+    transform: translateX(-50%);
+  }
+
+  .assessment-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 88px 32px 0;
+    text-align: center;
+  }
+
+  .assessment-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    box-sizing: border-box;
+    min-height: 56px;
+    margin: 0;
+    padding: 16px 20px;
+    border: 1px solid rgba(30, 35, 15, .18);
+    border-radius: 100px;
+    color: var(--fg-2);
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1;
+  }
+
+  .assessment-pill span {
+    color: var(--fg);
+    font-size: 23px;
+    line-height: 0;
+  }
+
+  .assessment-content .rd-title {
+    width: min(720px, 100%);
+    margin-top: 28px;
+    font-size: 64px;
+    line-height: 1.25;
+  }
+
+  .assessment-copy {
+    margin: 26px 0 0;
+    color: #101010;
+    font-size: 20px;
+    line-height: 1.5;
+  }
+
+  .assessment .rd-button {
+    position: relative;
+    width: 466px;
+    min-height: 96px;
+    margin-top: 20px;
+    padding: 26px 66px 26px 42px;
+    border: 0;
+    border-radius: 20px;
+    background: var(--accent);
+    color: var(--accent-on);
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+
+  .button-arrow {
+    position: absolute;
+    right: 60px;
+    display: grid;
+    width: 44px;
+    height: 44px;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--surface);
+    color: var(--fg-2);
+    font-size: 25px;
+    font-weight: 300;
+    line-height: 1;
+  }
+
+  .assessment-location {
+    margin: 20px 0 0;
+    color: #101010;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .assessment-location strong { color: var(--fg); }
+
+  .assessment-secondary {
+    position: absolute;
+    z-index: 0;
+    top: 525px;
+    left: 58px;
+    display: block;
+    width: 288px;
+    height: 208px;
+    border-radius: 18px;
+    object-fit: cover;
+  }
+
+  @media (max-width: 719px) {
+    .assessment {
+      height: auto;
+      min-height: 710px;
+      padding: 54px 15px 96px;
+    }
+
+    .assessment-card {
+      height: auto;
+      min-height: 560px;
+      border-radius: 16px;
+      background-position: 64% top;
+    }
+
+    .assessment-portrait {
+      top: -37px;
+      width: 170px;
+      height: 75px;
+    }
+
+    .assessment-content {
+      padding: 65px 22px 34px;
+    }
+
+    .assessment-pill {
+      min-height: 46px;
+      padding: 12px 14px;
+      font-size: 9px;
+    }
+
+    .assessment-pill span { font-size: 19px; }
+
+    .assessment-content .rd-title {
+      margin-top: 23px;
+      font-size: 37px;
+      line-height: 1.1;
+    }
+
+    .assessment-content .rd-title br { display: none; }
+
+    .assessment-copy {
+      margin-top: 22px;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .assessment .rd-button {
+      width: 100%;
+      min-height: 80px;
+      margin-top: 22px;
+      padding: 18px 64px 18px 20px;
+      font-size: 15px;
+      line-height: 1.25;
+    }
+
+    .button-arrow {
+      right: 20px;
+      width: 34px;
+      height: 34px;
+      font-size: 20px;
+    }
+
+    .assessment-location {
+      margin-top: 18px;
+      font-size: 14px;
+    }
+
+    .assessment-secondary {
+      top: auto;
+      bottom: 54px;
+      left: 28px;
+      width: 150px;
+      height: 108px;
+      border-radius: 12px;
+    }
+  }
+</style>

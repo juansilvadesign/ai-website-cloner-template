@@ -1,0 +1,93 @@
+/* Dra. Raffaela Drumond — tokens.css
+ * Emitted by scripts/emit-design-system.ts from source/tokens.source.json.
+ * Declares every OpenDesign TOKEN_SCHEMA slot (56). Edit the
+ * source artifact and re-emit; do not hand-edit derived files. */
+
+:root {
+  /* ─── Surface ─────────────────────────────────────────────────── */
+  --bg:                       #F9F9F9;
+  --surface:                  #FFFFFF;
+  --surface-warm:             #FFF8F2;
+
+  /* ─── Foreground ──────────────────────────────────────────────── */
+  --fg:                       #3C4128;
+  --fg-2:                     #1E230F;
+  --muted:                    #7D8264;
+  --meta:                     #69727D;
+
+  /* ─── Border ──────────────────────────────────────────────────── */
+  --border:                   rgba(60, 65, 40, .52);
+  --border-soft:              rgba(30, 35, 15, .17);
+
+  /* ─── Accent ──────────────────────────────────────────────────── */
+  --accent:                   #8C916E;
+  --accent-on:                #FFFFFF;
+  --accent-hover:             #3C4128;
+  --accent-active:            #1E230F;
+
+  /* ─── Semantic ────────────────────────────────────────────────── */
+  --success:                  #16a34a;
+  --warn:                     #eab308;
+  --danger:                   #dc2626;
+
+  /* ─── Typography — fonts ──────────────────────────────────────── */
+  --font-display:             "ivypresto-display", Georgia, serif;
+  --font-body:                "Poppins", system-ui, sans-serif;
+  --font-mono:                ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Monaco, Consolas, monospace;
+
+  /* ─── Typography — scale ──────────────────────────────────────── */
+  --text-xs:                  11px;
+  --text-sm:                  13px;
+  --text-base:                16px;
+  --text-lg:                  20px;
+  --text-xl:                  24px;
+  --text-2xl:                 30px;
+  --text-3xl:                 48px;
+  --text-4xl:                 64px;
+
+  /* ─── Typography — leading & tracking ─────────────────────────── */
+  --leading-body:             1.5;
+  --leading-tight:            1.25;
+  --tracking-display:         0;
+
+  /* ─── Spacing ─────────────────────────────────────────────────── */
+  --space-1:                  4px;
+  --space-2:                  8px;
+  --space-3:                  12px;
+  --space-4:                  16px;
+  --space-5:                  20px;
+  --space-6:                  24px;
+  --space-8:                  32px;
+  --space-12:                 48px;
+
+  /* ─── Section rhythm ──────────────────────────────────────────── */
+  --section-y-desktop:        90px;
+  --section-y-tablet:         60px;
+  --section-y-phone:          40px;
+
+  /* ─── Radius ──────────────────────────────────────────────────── */
+  --radius-sm:                20px;
+  --radius-md:                20px;
+  --radius-lg:                20px;
+  --radius-pill:              9999px;
+
+  /* ─── Elevation ───────────────────────────────────────────────── */
+  --elev-flat:                none;
+  --elev-ring:                0 0 0 1px var(--border);
+  --elev-raised:              0 12px 15px rgba(0, 0, 0, .10);
+
+  /* ─── Focus ───────────────────────────────────────────────────── */
+  --focus-ring:               0 0 0 3px color-mix(in srgb, var(--accent), transparent 68%);
+
+  /* ─── Motion ──────────────────────────────────────────────────── */
+  --motion-fast:              300ms;
+  --motion-base:              900ms;
+  --ease-standard:            ease;
+
+  /* ─── Layout ──────────────────────────────────────────────────── */
+  --container-max:            1485px;
+  --container-gutter-desktop: 32px;
+  --container-gutter-tablet:  24px;
+  --container-gutter-phone:   15px;
+}
+

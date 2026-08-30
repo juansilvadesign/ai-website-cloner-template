@@ -1,0 +1,52 @@
+---
+import "../styles/clone.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Dra Raffaela - Dra. Raffaela Drumond",
+  description = "Dermatologia estética com critério médico. Resultados consistentes. Sem excessos.",
+} = Astro.props;
+
+const localUrl = "http://localhost:4321/raffaeladrumond-com-br/";
+const medicalSchema = {
+  "@context": "https://schema.org",
+  "@type": "MedicalClinic",
+  name: "Clínica Raffaela Drumond",
+  url: localUrl,
+  description,
+  telephone: "+55-61-99919-5497",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "SGAS 915, Salas 210/212, 2º Andar – Advance 2",
+    addressLocality: "Brasília",
+    addressRegion: "DF",
+    postalCode: "70390-150",
+    addressCountry: "BR",
+  },
+};
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#F9F9F9" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={localUrl} />
+    <link rel="icon" href="/clones/raffaeladrumond-com-br/images/Group-1707478973.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://use.typekit.net" />
+    <link rel="stylesheet" href="https://use.typekit.net/pnp3shz.css" />
+    <title>{title}</title>
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(medicalSchema)}></script>
+    <slot name="head" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

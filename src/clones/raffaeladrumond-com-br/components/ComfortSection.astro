@@ -1,0 +1,125 @@
+---
+const clinicPhotos = [
+  "Frame-1707479028.webp",
+  "Frame-1707479029.webp",
+  "Frame-1707479030.webp",
+  "Frame-1707479031.webp",
+  "Frame-1707479026.webp",
+  "Rectangle-40891.webp",
+];
+---
+
+<section class="comfort" aria-labelledby="comfort-title">
+  <h2 id="comfort-title" class="rd-title" data-reveal>Um ambiente pensado para o seu conforto!</h2>
+  <div class="clinic-rail" data-reveal aria-label="Ambientes da Clínica Raffaela Drumond">
+    <div class="clinic-track">
+      {[...clinicPhotos, ...clinicPhotos].map((photo, index) => (
+        <img src={`/clones/raffaeladrumond-com-br/images/${photo}`} alt={index < clinicPhotos.length ? "Ambiente da Clínica Raffaela Drumond" : ""} width="352" height="253" loading="lazy" />
+      ))}
+    </div>
+  </div>
+  <h3 data-reveal>Modernidade, segurança e conforto. Tudo em um único lugar.</h3>
+</section>
+
+<style>
+  .comfort {
+    box-sizing: border-box;
+    height: 970px;
+    padding: 104px 0 90px;
+    overflow: hidden;
+    background: var(--bg);
+  }
+
+  .comfort > .rd-title {
+    width: min(1200px, calc(100% - 64px));
+    margin: 0 auto;
+    color: var(--fg);
+    font-size: 64px;
+    line-height: 1.25;
+    text-align: center;
+  }
+
+  .clinic-rail {
+    width: 100%;
+    margin-top: 211px;
+  }
+
+  .clinic-track {
+    display: flex;
+    width: max-content;
+    gap: 10px;
+    animation: clinic-rail 54s linear infinite;
+  }
+
+  .clinic-track img {
+    display: block;
+    width: 352px;
+    height: 253px;
+    border-radius: 0;
+    object-fit: cover;
+  }
+
+  .comfort h3 {
+    margin: 36px 0 0;
+    color: var(--fg);
+    font-family: var(--font-display);
+    font-size: 48px;
+    font-weight: 300;
+    line-height: 1.25;
+    text-align: center;
+  }
+
+  @keyframes clinic-rail {
+    from { transform: translateX(0); }
+    to { transform: translateX(calc(-50% - 5px)); }
+  }
+
+  @media (max-width: 719px) {
+    .comfort {
+      height: auto;
+      padding: 48px 0 60px;
+    }
+
+    .comfort > .rd-title {
+      width: calc(100% - 30px);
+      font-size: 36px;
+      line-height: 1.1;
+    }
+
+    .clinic-rail {
+      overflow-x: auto;
+      margin-top: 54px;
+      padding-left: 15px;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+    }
+
+    .clinic-rail::-webkit-scrollbar { display: none; }
+
+    .clinic-track {
+      gap: 12px;
+      padding-right: 15px;
+      animation: none;
+    }
+
+    .clinic-track img {
+      width: 280px;
+      height: 201px;
+      border-radius: 14px;
+      scroll-snap-align: start;
+    }
+
+    .clinic-track img:nth-child(n + 7) { display: none; }
+
+    .comfort h3 {
+      width: calc(100% - 36px);
+      margin: 34px auto 0;
+      font-size: 34px;
+      line-height: 1.15;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .clinic-track { animation: none; }
+  }
+</style>

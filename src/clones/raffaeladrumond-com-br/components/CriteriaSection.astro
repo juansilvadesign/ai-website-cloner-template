@@ -1,0 +1,88 @@
+<section class="criterion rd-section" aria-labelledby="criterion-title">
+  <div class="rd-container criterion-grid">
+    <figure class="criterion-photo" data-reveal>
+      <img src="/clones/raffaeladrumond-com-br/images/Group-1707479005.webp" alt="Dra. Raffaela Drumond em consulta" width="590" height="771" loading="lazy" />
+      <img class="leaf" src="/clones/raffaeladrumond-com-br/images/Group-1707479004.svg" alt="" width="163" height="163" loading="lazy" />
+    </figure>
+    <article class="criterion-card" data-reveal>
+      <p class="rd-eyebrow">Um olhar médico, antes de qualquer indicação</p>
+      <h2 id="criterion-title" class="rd-title">Critério é o que sustenta resultados.</h2>
+      <p class="rd-copy">Cada pele carrega uma história, uma estrutura e um tempo. Por isso, o cuidado começa com avaliação médica detalhada e um plano construído para você.</p>
+      <p class="rd-copy">A estética só faz sentido quando respeita a individualidade — com naturalidade, segurança e acompanhamento de verdade.</p>
+    </article>
+  </div>
+</section>
+
+<style>
+  .criterion {
+    background: var(--bg);
+  }
+
+  .criterion-grid {
+    display: grid;
+    grid-template-columns: minmax(0, .94fr) minmax(0, 1.06fr);
+    align-items: center;
+    gap: clamp(var(--space-8), 7vw, 110px);
+  }
+
+  .criterion-photo {
+    position: relative;
+    margin: 0;
+  }
+
+  .criterion-photo > img:first-child {
+    display: block;
+    width: min(100%, 520px);
+    margin-left: auto;
+    border-radius: var(--radius-lg);
+    object-fit: cover;
+  }
+
+  .leaf {
+    position: absolute;
+    z-index: -1;
+    right: -5%;
+    bottom: -7%;
+    width: 163px;
+  }
+
+  .criterion-card {
+    padding: clamp(var(--space-8), 6vw, 82px);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background: var(--surface);
+  }
+
+  .criterion-card .rd-title {
+    max-width: 530px;
+    margin-bottom: var(--space-6);
+  }
+
+  .criterion-card .rd-copy + .rd-copy {
+    margin-top: var(--space-5);
+  }
+
+  @media (max-width: 719px) {
+    .criterion-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+    }
+
+    .criterion-photo > img:first-child {
+      width: 100%;
+      max-height: 480px;
+      object-fit: cover;
+      object-position: top;
+    }
+
+    .leaf {
+      right: 3%;
+      bottom: -4%;
+      width: 112px;
+    }
+
+    .criterion-card {
+      padding: var(--space-6);
+    }
+  }
+</style>

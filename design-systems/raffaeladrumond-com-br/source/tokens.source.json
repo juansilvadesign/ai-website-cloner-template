@@ -1,0 +1,81 @@
+{
+  "$schema": "clone-website extraction artifact — consumed by scripts/emit-design-system.ts",
+  "brand": "raffaeladrumond-com-br",
+  "name": "Dra. Raffaela Drumond",
+  "extraction": {
+    "target": "https://raffaeladrumond.com.br/",
+    "sourcePath": "https://raffaeladrumond.com.br/",
+    "method": "Live HTML and authored Elementor CSS extraction on 2026-08-30; the browser navigation approval timed out, so all high-confidence values below come from the target's published CSS rather than estimated screenshots.",
+    "evidence": "design-systems/raffaeladrumond-com-br/source/evidence.md",
+    "note": "The source has a single light theme. Exact source values use the target's #F9F9F9, #FFFFFF, #3C4128, #7D8264, and #8C916E palette; schema-only tiers are documented as derived.",
+    "extractedAt": "2026-08-30"
+  },
+  "themes": {
+    "light": {
+      "--bg": { "value": "#F9F9F9", "confidence": "high", "reason": "Default canvas and authored parent-section background.", "source": "target inline style #elementor-post-33-css: .elementor-element-a9b88a7 background-color" },
+      "--surface": { "value": "#FFFFFF", "confidence": "high", "reason": "Accordion cards and content surfaces.", "source": "target inline style #elementor-post-33-css: .e-n-accordion-item background" },
+      "--surface-warm": { "value": "#FFF8F2", "confidence": "high", "reason": "Expanded accordion-content surface.", "source": "target inline style #elementor-post-33-css: .elementor-tab-content background" },
+
+      "--fg": { "value": "#3C4128", "confidence": "high", "reason": "Primary display-heading and dark olive brand ink.", "source": "target inline style #elementor-post-33-css: heading and accordion color" },
+      "--fg-2": { "value": "#1E230F", "confidence": "high", "reason": "Darker body/icon ink used across pills and navigation.", "source": "target inline style #elementor-post-33-css: icon-list color" },
+      "--muted": { "value": "#7D8264", "confidence": "high", "reason": "Ivy display emphasis, plus/minus circles, and muted brand accent.", "source": "target inline style #elementor-post-33-css: treatment H3 and icon fills" },
+      "--meta": { "value": "#69727D", "confidence": "high", "reason": "Muted metadata color present in the published stylesheet.", "source": "target source palette scan" },
+
+      "--border": { "value": "rgba(60, 65, 40, .52)", "confidence": "high", "reason": "Accordion and featured-content edge.", "source": "target inline style #elementor-post-33-css: accordion content border" },
+      "--border-soft": { "value": "rgba(30, 35, 15, .17)", "confidence": "high", "reason": "Outline used around small label pills.", "source": "target inline style #elementor-post-33-css: .elementor-element-12dc6b8 border-color #1E230F2B" },
+
+      "--accent": { "value": "#8C916E", "confidence": "high", "reason": "Filled CTA background.", "source": "target inline style #elementor-post-33-css: .elementor-button background-color" },
+      "--accent-on": { "value": "#FFFFFF", "confidence": "high", "reason": "CTA label and arrow-circle foreground.", "source": "target inline style #elementor-post-33-css: .elementor-button color" },
+      "--accent-hover": { "value": "#3C4128", "confidence": "high", "reason": "Exact authored CTA hover background.", "source": "target inline style #elementor-post-33-css: .elementor-button:hover" },
+      "--accent-active": { "value": "#1E230F", "confidence": "derived", "reason": "Reserved pressed state, derived from the target's darker olive ink.", "source": "derived from --fg-2" },
+
+      "--font-display": { "value": "\"ivypresto-display\", Georgia, serif", "confidence": "high", "reason": "Global h1–h3 font family authored by Elementor and loaded by the Adobe Typekit kit pnp3shz.", "source": "target inline style .elementor-kit-8 h1/h2/h3; https://use.typekit.net/pnp3shz.css" },
+      "--font-body": { "value": "\"Poppins\", system-ui, sans-serif", "confidence": "high", "reason": "Global body, link, accordion, and label family.", "source": "target inline style .elementor-kit-8 body/a; local Poppins @font-face declarations" },
+
+      "--text-xs": { "value": "11px", "confidence": "high", "reason": "Small footer and service-list label tier.", "source": "target inline style .elementor-element-5f8cc45 font-size" },
+      "--text-sm": { "value": "13px", "confidence": "high", "reason": "Eyebrow-pill copy tier.", "source": "target inline style .elementor-element-79c0f10 font-size" },
+      "--text-base": { "value": "16px", "confidence": "high", "reason": "Base body and CTA copy tier.", "source": "target inline style .elementor-element-e1218fa font-size" },
+      "--text-lg": { "value": "20px", "confidence": "high", "reason": "Body copy in content accordions.", "source": "target inline style .elementor-element-1209272 font-size" },
+      "--text-xl": { "value": "24px", "confidence": "high", "reason": "Hero lede and medium treatment tier.", "source": "target inline style .elementor-element-090f824 font-size" },
+      "--text-2xl": { "value": "30px", "confidence": "high", "reason": "Global desktop h3 size.", "source": "target inline style .elementor-kit-8 h3" },
+      "--text-3xl": { "value": "48px", "confidence": "high", "reason": "Treatment category heading size.", "source": "target inline style .elementor-element-cba209e font-size" },
+      "--text-4xl": { "value": "64px", "confidence": "high", "reason": "Global desktop h1/h2 size.", "source": "target inline style .elementor-kit-8 h1/h2" },
+
+      "--leading-body": { "value": "1.5", "confidence": "high", "reason": "Published body and copy leading.", "source": "target inline style .elementor-kit-8 body and text-editor rules" },
+      "--leading-tight": { "value": "1.25", "confidence": "high", "reason": "Published h2/h3 leading.", "source": "target inline style .elementor-kit-8 h2/h3" },
+      "--tracking-display": { "value": "0", "confidence": "high", "reason": "No authored tracking adjustment on the target display system.", "source": "target inline typography rules" },
+
+      "--space-1": { "value": "4px", "confidence": "derived", "reason": "Schema base tier derived from the target's multiples-of-four spacing system.", "source": "published layout values" },
+      "--space-2": { "value": "8px", "confidence": "derived", "reason": "Schema base tier derived from the target's multiples-of-four spacing system.", "source": "published layout values" },
+      "--space-3": { "value": "12px", "confidence": "high", "reason": "Divider and image-box spacing.", "source": "target inline style .elementor-divider padding and image-box margin" },
+      "--space-4": { "value": "16px", "confidence": "high", "reason": "Pill and inner-card inset.", "source": "target inline style .elementor-element-12dc6b8 padding" },
+      "--space-5": { "value": "20px", "confidence": "high", "reason": "Shared rounded-control radius and section gaps.", "source": "target inline style CTA and accordion custom CSS" },
+      "--space-6": { "value": "24px", "confidence": "high", "reason": "Mobile section inset and card content rhythm.", "source": "target responsive CSS" },
+      "--space-8": { "value": "32px", "confidence": "high", "reason": "Desktop card-side inset.", "source": "target inline style .elementor-element-de41f31 padding" },
+      "--space-12": { "value": "48px", "confidence": "high", "reason": "Accordion expanded-content top inset.", "source": "target custom accordion CSS" },
+
+      "--section-y-desktop": { "value": "90px", "confidence": "high", "reason": "Repeated authored desktop section padding.", "source": "target inline style .elementor-element-9fd79c4 and peers" },
+      "--section-y-tablet": { "value": "60px", "confidence": "derived", "reason": "Transitional tablet rhythm between source desktop and mobile values.", "source": "derived from 90px desktop and 40px mobile source rules" },
+      "--section-y-phone": { "value": "40px", "confidence": "high", "reason": "Repeated authored phone section padding.", "source": "target @media max-width:767px parent-section rules" },
+
+      "--radius-sm": { "value": "20px", "confidence": "high", "reason": "CTA and small-card corners.", "source": "target inline style .elementor-button border-radius" },
+      "--radius-md": { "value": "20px", "confidence": "high", "reason": "Accordion-card corners.", "source": "target custom accordion CSS" },
+      "--radius-lg": { "value": "20px", "confidence": "high", "reason": "Featured information-card corners.", "source": "target inline style .elementor-element-de41f31 border-radius" },
+      "--radius-pill": { "value": "9999px", "confidence": "high", "reason": "Label-chip and decorative-circle geometry.", "source": "target inline style label pills use 100px radius" },
+
+      "--elev-flat": { "value": "none", "confidence": "high", "reason": "Default sections remain flat.", "source": "target section styling" },
+      "--elev-ring": { "value": "0 0 0 1px var(--border)", "confidence": "derived", "reason": "Schema edge treatment matched to the target's visible 1px olive outlines.", "source": "derived from --border" },
+      "--elev-raised": { "value": "0 12px 15px rgba(0, 0, 0, .10)", "confidence": "high", "reason": "Exact accordion-card shadow.", "source": "target custom accordion CSS" },
+      "--focus-ring": { "value": "0 0 0 3px color-mix(in srgb, var(--accent), transparent 68%)", "confidence": "derived", "reason": "Accessible focus ring derived from the CTA color because the source relies on browser focus behavior.", "source": "derived from --accent" },
+
+      "--motion-fast": { "value": "300ms", "confidence": "high", "reason": "Menu and icon hover transition tier.", "source": "target menu CSS and Elementor icon rules" },
+      "--motion-base": { "value": "900ms", "confidence": "high", "reason": "Scroll reveal transition duration.", "source": "target custom .scroll-bottom/.scroll-left CSS" },
+      "--ease-standard": { "value": "ease", "confidence": "high", "reason": "Target's menu overlay and image transition easing.", "source": "target menu CSS and image CSS" },
+
+      "--container-max": { "value": "1485px", "confidence": "high", "reason": "Widest authored content container.", "source": "target inline style .elementor-element-b32881a --content-width" },
+      "--container-gutter-desktop": { "value": "32px", "confidence": "high", "reason": "Desktop featured-card inset and practical clone gutter.", "source": "target inline style .elementor-element-de41f31 padding-left/right" },
+      "--container-gutter-tablet": { "value": "24px", "confidence": "high", "reason": "Repeated target tablet/mobile inset tier.", "source": "target responsive parent-section padding" },
+      "--container-gutter-phone": { "value": "15px", "confidence": "high", "reason": "Repeated target phone parent-section gutter.", "source": "target @media max-width:767px parent-section rules" }
+    }
+  }
+}

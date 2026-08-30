@@ -1,0 +1,224 @@
+---
+const categories = [
+  {
+    title: "Manchas e qualidade da pele",
+    image: "Group-1707479027.webp",
+    alt: "Tratamento dermatológico para qualidade da pele",
+    items: [
+      ["Melasma e manchas", "Avaliação do tipo de pele e profundidade da mancha para definição de plano de controle e manutenção a longo prazo."],
+      ["Rejuvenescimento da pele", "Protocolos voltados para textura, viço, poros e uniformidade, com combinações indicadas conforme necessidade individual."],
+    ],
+  },
+  {
+    title: "Flacidez e estrutura",
+    image: "Group-1707479093.webp",
+    alt: "Cuidados para firmeza e estrutura facial",
+    items: [
+      ["Flacidez facial", "Estímulo de colágeno e melhora de sustentação com indicação criteriosa de tecnologias e injetáveis."],
+      ["Flacidez corporal", "Tratamento de regiões como colo, pescoço, mãos, abdômen e glúteos, focado em firmeza progressiva e qualidade da pele."],
+    ],
+  },
+  {
+    title: "Injetáveis",
+    image: "Group-1707479094.webp",
+    alt: "Consulta para tratamentos injetáveis",
+    items: [
+      ["Toxina botulínica (Botox)", "Indicação médica para suavização de linhas e prevenção do envelhecimento, respeitando expressão e naturalidade."],
+      ["Preenchimento com ácido hialurônico", "Reposição ou redistribuição de volume para equilíbrio facial e contorno, sem exageros."],
+      ["Bioestimuladores de colágeno", "Estímulo gradual da produção de colágeno para melhora da firmeza e estrutura da pele."],
+      ["Skinbooster e Profhilo", "Hidratação profunda e melhora da qualidade da pele por meio de protocolos injetáveis indicados individualmente."],
+    ],
+  },
+  {
+    title: "Ainda tem mais…",
+    image: "Group-1707479095.webp",
+    alt: "Procedimentos personalizados em dermatologia",
+    items: [
+      ["Olheiras e região dos olhos", "Abordagem personalizada para olhar cansado, qualidade da pele e sustentação da região."],
+      ["Rugas e marcas de expressão", "Planejamento médico para tratar sinais do tempo sem apagar a identidade do rosto."],
+    ],
+  },
+  {
+    title: "Medicina regenerativa e corporal",
+    image: "Group-1707479095-2.webp",
+    alt: "Tratamentos de medicina regenerativa",
+    items: [
+      ["Medicina regenerativa", "Ativos e tecnologias aplicados de forma precisa para apoiar a vitalidade e a qualidade da pele."],
+      ["Tratamentos corporais", "Planos médicos que combinam estímulo, cuidado e acompanhamento para diferentes áreas do corpo."],
+    ],
+  },
+  {
+    title: "Tratamento capilar",
+    image: "Frame-1707479026.webp",
+    alt: "Avaliação de saúde capilar",
+    items: [
+      ["Queda de cabelo", "Investigação médica das causas e indicação de tratamento conforme o diagnóstico individual."],
+      ["Saúde do couro cabeludo", "Cuidado contínuo para fortalecer fios, couro cabeludo e rotina de manutenção."],
+    ],
+  },
+];
+---
+
+<section id="tratamentos" class="treatments rd-section" aria-labelledby="treatments-title">
+  <div class="rd-container">
+    <header class="treatments-intro" data-reveal>
+      <p class="rd-eyebrow">Tratamentos</p>
+      <h2 id="treatments-title" class="rd-title">Tratamentos personalizados, definidos após avaliação médica.</h2>
+    </header>
+
+    <div class="treatment-list">
+      {categories.map((category, categoryIndex) => (
+        <article class:list={["treatment-row", { reverse: categoryIndex % 2 === 1 }]} data-reveal>
+          <figure class="treatment-image">
+            <img src={"/clones/raffaeladrumond-com-br/images/" + category.image} alt={category.alt} width="654" height="792" loading="lazy" />
+          </figure>
+          <div class="treatment-copy">
+            <h3>{category.title}</h3>
+            <div class="details-list">
+              {category.items.map(([label, description], itemIndex) => (
+                <details open={categoryIndex === 0 && itemIndex === 0}>
+                  <summary>{label}<span aria-hidden="true">+</span></summary>
+                  <p>{description}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .treatments {
+    background: var(--surface);
+  }
+
+  .treatments-intro {
+    max-width: 780px;
+    margin-bottom: clamp(var(--space-12), 8vw, 110px);
+  }
+
+  .treatment-list {
+    display: grid;
+    gap: clamp(70px, 10vw, 150px);
+  }
+
+  .treatment-row {
+    display: grid;
+    grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+    align-items: center;
+    gap: clamp(var(--space-8), 8vw, 130px);
+  }
+
+  .treatment-row.reverse .treatment-image {
+    order: 2;
+  }
+
+  .treatment-image {
+    margin: 0;
+    min-height: 480px;
+  }
+
+  .treatment-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-height: 640px;
+    border-radius: var(--radius-lg);
+    object-fit: cover;
+  }
+
+  .treatment-copy h3 {
+    margin: 0 0 var(--space-6);
+    color: var(--muted);
+    font-family: var(--font-display);
+    font-size: var(--text-3xl);
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.15;
+  }
+
+  .details-list {
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  details {
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--surface);
+    box-shadow: var(--elev-raised);
+  }
+
+  details[open] {
+    background: var(--surface-warm);
+  }
+
+  summary {
+    display: flex;
+    min-height: 58px;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    padding: var(--space-4) var(--space-5);
+    color: var(--fg);
+    cursor: pointer;
+    font-size: var(--text-sm);
+    font-weight: 500;
+    list-style: none;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  summary span {
+    color: var(--muted);
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    font-weight: 300;
+    transition: transform var(--motion-fast) var(--ease-standard);
+  }
+
+  details[open] summary span {
+    transform: rotate(45deg);
+  }
+
+  details p {
+    margin: 0;
+    padding: 0 var(--space-5) var(--space-5);
+    color: var(--fg);
+    font-size: var(--text-sm);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 719px) {
+    .treatment-list {
+      gap: 70px;
+    }
+
+    .treatment-row,
+    .treatment-row.reverse {
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+    }
+
+    .treatment-row.reverse .treatment-image {
+      order: initial;
+    }
+
+    .treatment-image {
+      min-height: 340px;
+    }
+
+    .treatment-image img {
+      max-height: 450px;
+    }
+
+    .treatment-copy h3 {
+      font-size: clamp(32px, 10vw, 42px);
+    }
+  }
+</style>
