@@ -1,0 +1,99 @@
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-pattern" aria-hidden="true"></div>
+
+  <div class="container">
+    <div class="hero-copy">
+      <p class="eyebrow"><span aria-hidden="true"></span>Plataforma segura</p>
+      <h1 id="hero-title">
+        Consulta de processos por CPF e CNPJ para decisões <em>inteligentes</em>
+      </h1>
+      <p class="hero-description">
+        Consulte processos judiciais e dados cadastrais utilizando CPF ou CNPJ em uma
+        plataforma desenvolvida para análises rápidas, organizadas e confiáveis.
+      </p>
+
+      <div class="hero-actions">
+        <a class="button button-primary" href="#cadastro">Criar conta gratuita</a>
+        <a class="button button-secondary" href="#contato">Falar com especialista</a>
+      </div>
+    </div>
+
+    <aside class="hero-visual" aria-label="Exemplo de resultado de consulta processual">
+      <div class="radial-marks" aria-hidden="true"></div>
+
+      <figure class="profile-card">
+        <img
+          src="/clones/consultadeprocessos-com-br/images/hero-person-alt.webp"
+          alt="Marcos Blando em uma consulta processual"
+          width="350"
+          height="400"
+          loading="eager"
+          decoding="async"
+        />
+        <figcaption>
+          <strong>Marcos Blando</strong>
+          <span>36 anos</span>
+        </figcaption>
+      </figure>
+
+      <div class="status-card status-processes">
+        <span class="status-icon status-icon-teal" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M12 3v18M5.6 6.2h12.8M4 8.5h16M7.2 6.2 5 16.3a3 3 0 0 0 5.8 1.4L12 13m4.8-6.8L19 16.3a3 3 0 0 1-5.8 1.4L12 13" />
+          </svg>
+        </span>
+        <span class="status-copy"><strong>3 processos</strong><small>criminais</small></span>
+      </div>
+
+      <div class="status-card status-pep">
+        <span class="status-icon status-icon-coral" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M12 3.5 5.7 6v5.2c0 4.1 2.6 7.8 6.3 9.3 3.7-1.5 6.3-5.2 6.3-9.3V6L12 3.5Z" />
+            <path d="m9.4 12.1 1.7 1.7 3.6-3.6" />
+          </svg>
+        </span>
+        <span class="status-copy"><strong>PEP</strong><small>Pessoa politicamente exposta</small></span>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<style>
+  .hero { position:relative; min-height:698px; overflow:hidden; padding:var(--space-6) 0; background:linear-gradient(180deg,var(--surface-warm) 0%,var(--surface) 72%); }
+  .hero-pattern { position:absolute; inset:0; pointer-events:none; opacity:.55; background-image:radial-gradient(circle,color-mix(in srgb,var(--accent) 15%,transparent) 1px,transparent 1.5px); background-position:calc(100% - 88px) 24px; background-size:32px 32px; mask-image:linear-gradient(90deg,transparent 26%,black 54%,transparent 100%); }
+  .container { position:relative; z-index:1; display:grid; width:min(calc(100% - (var(--container-gutter-desktop) * 2)),var(--container-max)); min-height:650px; margin:0 auto; grid-template-columns:minmax(0,560px) minmax(390px,1fr); align-items:center; }
+  .hero-copy { width:min(100%,560px); }
+  .eyebrow { display:inline-flex; min-width:158px; min-height:34px; align-items:center; justify-content:center; gap:var(--space-2); margin:0 0 var(--space-4); padding:0 var(--space-3); border:1px solid color-mix(in srgb,var(--accent) 17%,var(--border)); border-radius:var(--radius-pill); background:color-mix(in srgb,var(--accent) 7%,var(--surface)); color:var(--muted); font-size:var(--text-xs); font-weight:600; letter-spacing:.055em; line-height:1; text-transform:uppercase; }
+  .eyebrow span { width:6px; height:6px; border-radius:50%; background:var(--accent); }
+  h1 { max-width:560px; margin:0; color:var(--fg); font-family:var(--font-display); font-size:var(--text-4xl); font-weight:700; letter-spacing:var(--tracking-display); line-height:var(--leading-tight); }
+  h1 em { color:var(--accent); font-style:normal; }
+  .hero-description { max-width:480px; margin:var(--space-4) 0 0; color:var(--muted); font-size:var(--text-lg); line-height:var(--leading-body); }
+  .hero-actions { display:flex; flex-wrap:wrap; gap:var(--space-3); margin-top:var(--space-6); }
+  .button { display:inline-flex; min-height:56px; align-items:center; justify-content:center; padding:0 var(--space-5); border:1px solid transparent; border-radius:var(--radius-md); font-size:var(--text-base); font-weight:700; line-height:1; transition:background-color var(--motion-fast) var(--ease-standard),border-color var(--motion-fast) var(--ease-standard),color var(--motion-fast) var(--ease-standard); }
+  .button-primary { background:var(--accent); color:var(--accent-on); box-shadow:var(--elev-ring); }
+  .button-primary:hover { background:var(--accent-hover); }
+  .button-primary:active { background:var(--accent-active); }
+  .button-secondary { border-color:var(--border); background:var(--surface); color:var(--fg-2); }
+  .button-secondary:hover { border-color:color-mix(in srgb,var(--accent) 45%,var(--border)); color:var(--accent-hover); }
+  .hero-visual { position:relative; width:390px; height:360px; justify-self:center; }
+  .radial-marks { position:absolute; top:50%; left:50%; width:450px; height:450px; transform:translate(-50%,-50%); opacity:.86; background:repeating-conic-gradient(from 4deg,color-mix(in srgb,var(--accent) 24%,transparent) 0deg 1deg,transparent 1deg 17deg); mask-image:radial-gradient(circle,transparent 0 35%,#000 35.5% 74%,transparent 74.5%); }
+  .profile-card { position:absolute; top:40px; left:65px; width:260px; height:280px; margin:0; overflow:visible; border:3px solid var(--surface); border-radius:var(--radius-lg); box-shadow:var(--elev-raised); }
+  .profile-card img { display:block; width:100%; height:100%; border-radius:calc(var(--radius-lg) - 3px); object-fit:cover; }
+  figcaption { position:absolute; bottom:-16px; left:50%; display:grid; min-width:106px; gap:2px; padding:var(--space-2) var(--space-3); transform:translateX(-50%); border:1px solid var(--border-soft); border-radius:var(--radius-sm); background:var(--surface); box-shadow:var(--elev-ring); color:var(--fg-2); font-size:var(--text-xs); line-height:1.15; }
+  figcaption strong { font-weight:700; }
+  figcaption span { color:var(--muted); font-size:10px; }
+  .status-card { position:absolute; right:-61px; display:flex; width:138px; min-height:50px; align-items:center; gap:var(--space-2); padding:var(--space-2) var(--space-3); border:1px solid var(--border-soft); border-radius:var(--radius-sm); background:var(--surface); box-shadow:var(--elev-ring); }
+  .status-processes { top:92px; }
+  .status-pep { top:152px; }
+  .status-icon { display:grid; width:26px; height:26px; flex:0 0 auto; place-items:center; border-radius:var(--radius-sm); color:var(--accent-on); }
+  .status-icon svg { width:16px; height:16px; }
+  .status-icon-teal { background:var(--accent); }
+  .status-icon-coral { background:var(--danger); }
+  .status-copy { display:grid; min-width:0; gap:2px; color:var(--fg-2); font-size:var(--text-xs); line-height:1.1; }
+  .status-copy strong { font-weight:700; }
+  .status-copy small { overflow:hidden; color:var(--muted); font-size:10px; line-height:1.15; }
+  @media(min-width:1024px) and (max-width:1199px) { .container { width:min(calc(100% - (var(--container-gutter-tablet) * 2)),var(--container-max)); grid-template-columns:minmax(0,1fr) 451px; gap:var(--space-6); } .hero-visual { width:451px; } .radial-marks { left:29%; } .profile-card { left:0; } .status-card { right:0; } }
+  @media(min-width:641px) and (max-width:1023px) { .hero { min-height:660px; } .container { width:min(calc(100% - (var(--container-gutter-tablet) * 2)),var(--container-max)); min-height:612px; grid-template-columns:minmax(0,1fr) 344px; gap:var(--space-6); } h1 { font-size:clamp(34px,4.7vw,42px); } .hero-visual { width:344px; height:330px; } .radial-marks { left:32%; width:350px; height:350px; } .profile-card { top:35px; left:0; width:220px; height:260px; } .status-card { right:0; width:118px; min-height:44px; padding:6px var(--space-2); } .status-processes { top:82px; } .status-pep { top:136px; } .status-icon { width:23px; height:23px; } }
+  @media(max-width:640px) { .hero { min-height:897px; padding:var(--space-3) 0 var(--space-8); } .hero-pattern { background-position:80% 0; mask-image:linear-gradient(180deg,black,transparent 62%); } .container { display:flex; width:min(calc(100% - (var(--container-gutter-phone) * 2)),350px); min-height:829px; flex-direction:column; align-items:stretch; justify-content:flex-start; } .hero-copy { min-height:429px; } .eyebrow { margin-bottom:var(--space-3); } h1 { font-size:30px; line-height:1.15; } .hero-description { margin-top:var(--space-3); line-height:26px; } .hero-actions { flex-direction:column; margin-top:var(--space-5); } .button { width:100%; } .hero-visual { width:100%; height:400px; aspect-ratio:auto; flex:0 0 auto; } .radial-marks { top:-8px; left:50%; width:420px; height:480px; transform:translateX(-50%); opacity:.72; } .profile-card { top:154px; left:9px; width:192px; height:216px; border-radius:var(--radius-lg); } .profile-card img { border-radius:calc(var(--radius-lg) - 3px); } figcaption { bottom:-16px; left:50%; transform:translateX(-50%); } .status-card { right:auto; left:183px; width:167px; } .status-processes { top:206px; } .status-pep { top:266px; } }
+  @media(max-width:359px) { .hero { min-height:0; } .hero-copy { min-height:0; padding-bottom:var(--space-6); } h1 { font-size:28px; } }
+</style>

@@ -1,0 +1,26 @@
+---
+import AiSection from "../../clones/reflect-app/components/AiSection.astro";
+import ClosingSections from "../../clones/reflect-app/components/ClosingSections.astro";
+import FeatureStrip from "../../clones/reflect-app/components/FeatureStrip.astro";
+import HeroSection from "../../clones/reflect-app/components/HeroSection.astro";
+import PricingSection from "../../clones/reflect-app/components/PricingSection.astro";
+import SiteFooter from "../../clones/reflect-app/components/SiteFooter.astro";
+import SiteHeader from "../../clones/reflect-app/components/SiteHeader.astro";
+import StorySections from "../../clones/reflect-app/components/StorySections.astro";
+import TestimonialsSection from "../../clones/reflect-app/components/TestimonialsSection.astro";
+import BaseLayout from "../../clones/reflect-app/layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <SiteHeader />
+  <main>
+    <HeroSection />
+    <FeatureStrip />
+    <AiSection />
+    <StorySections />
+    <PricingSection />
+    <TestimonialsSection />
+    <ClosingSections />
+  </main>
+  <SiteFooter />
+</BaseLayout>

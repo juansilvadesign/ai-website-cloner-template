@@ -130,6 +130,19 @@ const PROFILES = {
       ["https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3twJwlBFgg.woff2", "fonts/ibm-plex-mono-latin-500.woff2"],
     ],
   },
+  "reflect-app": {
+    base: "https://reflect.app",
+    assets: [
+      ["/home/build/q-7110c4a0.png", "images/logo.png"],
+      ["/home/build/q-cb311d1c.png", "images/hero-preview.png"],
+      ["/home/build/q-c3d7becf.webm", "videos/hero-demo.webm"],
+      ["/home/build/q-4c8a7e22.png", "seo/favicon.png"],
+      ["/home/fonts/InterV/regular.woff2", "fonts/inter-v-regular.woff2"],
+      ["/home/fonts/InterV/medium.woff2", "fonts/inter-v-medium.woff2"],
+      ["/home/fonts/AeonikPro/medium.woff2", "fonts/aeonik-pro-medium.woff2"],
+      ["https://site.reflect.app/home/build/q-11289093.jpeg", "seo/opengraph.jpg"],
+    ],
+  },
 };
 
 const profile = PROFILES[clone];

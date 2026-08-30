@@ -1,0 +1,64 @@
+---
+import SEOHead from "../components/SEOHead.astro";
+import { siteConfig } from "../config/site";
+import "../styles/clone.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  image?: string;
+  noindex?: boolean;
+  type?: "website" | "article";
+}
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://consultadeprocessos.com.br/#organization",
+      name: siteConfig.name,
+      legalName: "MONITORE PLUS DESENVOLVIMENTO DE SOFTWARE LTDA",
+      taxID: "58.069.334/0001-00",
+      url: siteConfig.url,
+      logo: `${siteConfig.url}/consulta-de-processos-logo-color.svg`,
+      description:
+        "Plataforma para consulta de processos judiciais por CPF e CNPJ, monitoramento processual e análise jurídica de risco.",
+      sameAs: ["https://www.instagram.com/consultadeprocessos"],
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://consultadeprocessos.com.br/#software",
+      name: siteConfig.name,
+      applicationCategory: "BusinessApplication",
+      operatingSystem: "Web",
+      url: siteConfig.url,
+      image: `${siteConfig.url}/og-image.jpg`,
+      description:
+        "SaaS para consulta de processos por CPF e CNPJ, monitoramento de movimentações e relatórios para due diligence.",
+    },
+  ],
+};
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="generator" content={Astro.generator} />
+    <SEOHead canonical={`${siteConfig.url}/`} {...Astro.props} />
+    <link
+      rel="icon"
+      href="/clones/consultadeprocessos-com-br/seo/favicon.ico"
+      sizes="any"
+    />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(organizationSchema)}></script>
+    <slot name="head" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

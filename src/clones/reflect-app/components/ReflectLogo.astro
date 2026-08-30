@@ -1,0 +1,35 @@
+---
+interface Props {
+  compact?: boolean;
+}
+
+const { compact = false } = Astro.props;
+---
+
+<a class:list={["reflect-logo", { compact }]} href="/reflect-app/" aria-label="Reflect home">
+  <img src="/clones/reflect-app/images/logo.png" alt="" width="36" height="36" />
+  {!compact && <span>Reflect</span>}
+</a>
+
+<style>
+  .reflect-logo {
+    align-items: center;
+    display: inline-flex;
+    flex: 0 0 auto;
+    gap: var(--space-3);
+    font-size: var(--text-base);
+    font-weight: 500;
+    line-height: var(--leading-body);
+  }
+
+  img {
+    border-radius: var(--radius-sm);
+    height: 36px;
+    width: 36px;
+  }
+
+  .compact img {
+    height: 28px;
+    width: 28px;
+  }
+</style>

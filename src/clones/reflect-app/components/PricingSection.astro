@@ -1,0 +1,36 @@
+---
+const features = [
+  "Networked note-taking",
+  "Chrome and Safari web clipper",
+  "Kindle offline sync",
+  "End to end encryption",
+  "Kindle highlights sync",
+  "iOS app",
+];
+---
+
+<section id="pricing" class="pricing" aria-labelledby="pricing-title">
+  <div class="pricing-stars" aria-hidden="true"></div>
+  <div class="pricing-lines" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+  <header>
+    <span>Get access</span>
+    <h2 id="pricing-title">We like keeping things simple<br /> One plan one price.</h2>
+  </header>
+  <div class="amount"><b>$10</b><span>/month<br /><small>(billed annually)</small></span></div>
+  <ul>
+    {features.map((feature) => <li><i aria-hidden="true">✦</i>{feature}</li>)}
+  </ul>
+  <a class="pricing-cta" href="https://reflect.app/sign-up">Start your 14-day trial</a>
+</section>
+
+<style>
+  .pricing { position: relative; overflow: hidden; min-height: 1256px; padding: 192px var(--space-5) var(--section-y-desktop); text-align: center; }
+  .pricing-stars { position: absolute; inset: 420px 50% auto; width: 680px; height: 480px; transform: translateX(-50%); background-image: radial-gradient(circle, color-mix(in srgb, var(--fg) 72%, transparent) 0 1px, transparent 1.5px); background-size: 69px 77px; opacity: .5; mask-image: radial-gradient(ellipse, black 10%, transparent 68%); }
+  .pricing-lines { position: absolute; top: 368px; left: 50%; display: flex; justify-content: space-between; width: 620px; height: 640px; transform: translateX(-50%); pointer-events: none; }.pricing-lines i { width: 1px; height: 100%; background: linear-gradient(to bottom, transparent, color-mix(in srgb, var(--accent-hover) 38%, transparent) 34%, transparent); }.pricing-lines i:nth-child(2), .pricing-lines i:nth-child(4) { opacity: .5; }
+  header, .amount, ul, .pricing-cta { position: relative; z-index: 1; }
+  header { display: grid; justify-items: center; }.pricing header > span { padding: var(--space-1) var(--space-3); border: 1px solid color-mix(in srgb, var(--accent-hover) 46%, var(--border)); border-radius: var(--radius-pill); background: color-mix(in srgb, var(--accent-active) 12%, transparent); color: color-mix(in srgb, var(--accent-hover) 82%, var(--fg)); font-size: var(--text-sm); line-height: 20px; }.pricing h2 { margin: var(--space-4) 0 0; color: var(--fg-2); font-family: "Reflect Aeonik", var(--font-display); font-size: var(--text-2xl); font-weight: 500; line-height: var(--leading-tight); letter-spacing: var(--tracking-display); }
+  .amount { display: flex; align-items: center; justify-content: center; gap: var(--space-4); margin-top: 72px; text-align: left; }.amount b { color: color-mix(in srgb, var(--accent-hover) 78%, var(--fg)); font-family: "Reflect Aeonik", var(--font-display); font-size: var(--text-4xl); font-weight: 500; line-height: var(--leading-tight); }.amount span { color: var(--muted); font-size: var(--text-base); line-height: var(--leading-body); }.amount small { font-size: inherit; }
+  ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-5) 72px; width: min(560px, 100%); margin: 66px auto var(--space-12); padding: 0; list-style: none; text-align: left; }li { display: flex; align-items: center; gap: var(--space-3); color: var(--fg-2); font-size: var(--text-base); line-height: var(--leading-body); }li i { display: grid; place-items: center; flex: 0 0 auto; width: 22px; height: 22px; border: 1px solid var(--border); border-radius: var(--radius-pill); background: color-mix(in srgb, var(--fg) 4%, transparent); color: var(--fg); font-size: 9px; font-style: normal; }
+  .pricing-cta { display: inline-flex; padding: var(--space-2) var(--space-4); border: 1px solid color-mix(in srgb, var(--accent-hover) 54%, transparent); border-radius: var(--radius-sm); background: linear-gradient(135deg, color-mix(in srgb, var(--accent-active) 70%, var(--bg)), color-mix(in srgb, var(--accent) 52%, var(--bg))); box-shadow: inset 0 0 12px color-mix(in srgb, var(--accent-hover) 25%, transparent); color: var(--accent-on); font-size: var(--text-sm); font-weight: 500; transition: transform var(--motion-fast) var(--ease-standard), background var(--motion-fast) var(--ease-standard); }.pricing-cta:hover { background: linear-gradient(135deg, var(--accent-active), var(--accent-hover)); transform: translateY(-2px); }
+  @media (max-width: 780px) { .pricing { min-height: auto; padding: 110px var(--space-5) 122px; }.pricing h2 { font-size: 40px; line-height: 44px; }.amount { margin-top: var(--space-12); }.amount b { font-size: 64px; }.pricing-lines { width: 360px; height: 420px; top: 340px; }.pricing-stars { top: 430px; }.pricing ul { grid-template-columns: 1fr; gap: var(--space-4); width: min(300px, 100%); margin-top: var(--space-12); } }
+</style>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Consulta de Processos — Components</title>
+    <link rel="stylesheet" href="./tokens.css" />
+    <style>
+      * { box-sizing: border-box; }
+      body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--font-body); line-height: var(--leading-body); }
+      main { width: min(calc(100% - (var(--container-gutter-phone) * 2)), var(--container-max)); margin: 0 auto; padding: var(--section-y-tablet) 0; }
+      .fixture-header, .fixture-card, .fixture-faq { border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--surface); }
+      .fixture-header { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); padding: var(--space-3) var(--space-4); }
+      .eyebrow { display: inline-flex; gap: var(--space-2); align-items: center; color: var(--muted); font-size: var(--text-xs); font-weight: 700; letter-spacing: .07em; text-transform: uppercase; }
+      .eyebrow::before { width: 7px; height: 7px; border-radius: 2px; background: var(--accent); content: ''; }
+      .button-primary { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 var(--space-5); border-radius: var(--radius-md); background: var(--accent); color: var(--accent-on); font-size: var(--text-base); font-weight: 700; text-decoration: none; transition: background var(--motion-fast) var(--ease-standard); }
+      .button-primary:hover { background: var(--accent-hover); }
+      .fixture-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4); margin-top: var(--space-6); }
+      .fixture-card { padding: var(--space-5); box-shadow: var(--elev-ring); }
+      .fixture-icon { display: grid; width: 44px; height: 44px; place-items: center; border: 1px solid var(--border); border-radius: var(--radius-sm); color: var(--accent); font-weight: 700; }
+      .fixture-card h2 { margin: var(--space-4) 0 var(--space-2); font-size: var(--text-lg); line-height: var(--leading-tight); }
+      .fixture-card p { margin: 0; color: var(--muted); font-size: var(--text-sm); }
+      .fixture-product { margin-top: var(--space-6); padding: var(--space-5); border-radius: var(--radius-lg); background: var(--surface-warm); }
+      .fixture-chip { display: inline-flex; align-items: center; gap: var(--space-2); padding: var(--space-1) var(--space-3); border-radius: var(--radius-pill); background: color-mix(in srgb, var(--accent) 14%, var(--surface)); color: var(--accent-hover); font-size: var(--text-xs); font-weight: 700; }
+      .fixture-faq { margin-top: var(--space-6); overflow: hidden; }
+      .fixture-faq summary { padding: var(--space-4); color: var(--fg-2); font-size: var(--text-base); font-weight: 700; cursor: pointer; }
+      .fixture-faq p { margin: 0; padding: 0 var(--space-4) var(--space-4); color: var(--muted); font-size: var(--text-sm); }
+      @media (max-width: 700px) { .fixture-grid { grid-template-columns: 1fr; } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header class="fixture-header">
+        <span class="eyebrow">Plataforma segura</span>
+        <a class="button-primary" href="#cadastro">Criar conta gratuita</a>
+      </header>
+      <section class="fixture-grid" aria-label="Exemplos de funcionalidades">
+        <article class="fixture-card"><span class="fixture-icon" aria-hidden="true">⌕</span><h2>Consulta por CPF</h2><p>Resultados organizados para decisões seguras.</p></article>
+        <article class="fixture-card"><span class="fixture-icon" aria-hidden="true">▣</span><h2>Dados cadastrais</h2><p>Informações relevantes em uma única tela.</p></article>
+        <article class="fixture-card"><span class="fixture-icon" aria-hidden="true">✓</span><h2>Monitoramento</h2><p>Alertas automáticos sobre movimentações.</p></article>
+      </section>
+      <section class="fixture-product" aria-label="Exemplo de interface">
+        <span class="fixture-chip">● Atualizado há 2 min</span>
+        <p>Maria Silva dos Santos · 7 processos encontrados</p>
+      </section>
+      <details class="fixture-faq"><summary>A plataforma abrange todos os tribunais?</summary><p>Dados de todos os tribunais brasileiros em um formato confiável e claro.</p></details>
+    </main>
+  </body>
+</html>

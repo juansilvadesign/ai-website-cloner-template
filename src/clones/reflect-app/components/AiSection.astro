@@ -1,0 +1,218 @@
+---
+const capabilities = [
+  { symbol: "♩", title: "Transcribe voice notes", copy: "with human-level accuracy" },
+  { symbol: "☷", title: "Generate article outlines", copy: "from your scattered thoughts" },
+  { symbol: "▤", title: "List key takeaways and action", copy: "items from your meeting notes" },
+  { symbol: "ABC", title: "Fix grammar, spelling,", copy: "and improve your writing" },
+  { symbol: "✦", title: "Save your own", copy: "custom prompts" },
+];
+---
+
+<section id="ai" class="ai-section" aria-labelledby="reflect-ai-title">
+  <div class="stars" aria-hidden="true"></div>
+  <header class="section-heading">
+    <span class="badge">Reflect AI</span>
+    <h2 id="reflect-ai-title">Notes with an AI assistant</h2>
+    <p>Reflect uses GPT-4 and Whisper from OpenAI to improve your writing,<br class="desktop-break" /> organize your thoughts, and act as your intellectual thought partner.</p>
+  </header>
+
+  <div class="ai-stage" data-reflect-ai>
+    <div class="ai-beam" aria-hidden="true"></div>
+    <button type="button" class="prompt-card" aria-expanded="false" data-reflect-ai-trigger>
+      <span class="prompt-head"><strong>How to use AI to take better notes</strong><span class="magic">✦ Click to see magic</span></span>
+      <span class="prompt-question">What can LLMs like GPT do, specifically for note-taking?</span>
+      <span class="prompt-answer" aria-hidden="true">LLM tools like GPT can help with summarizing content, generating ideas, rephrasing notes, and organizing information for note-taking.</span>
+      <span class="answer-actions" aria-hidden="true"><span>Re-run <kbd>R</kbd></span><span>Insert <kbd>I</kbd></span><span>Copy <kbd>C</kbd></span><span>Replace <kbd>⌘↩</kbd></span></span>
+    </button>
+  </div>
+
+  <section class="capabilities" aria-labelledby="ai-capabilities-title">
+    <h3 id="ai-capabilities-title">What can you do with Reflect AI?</h3>
+    <div class="capability-grid">
+      {capabilities.map((item) => (
+        <article class="capability">
+          <span class:list={["capability-icon", { word: item.symbol === "ABC" }]} aria-hidden="true">{item.symbol}</span>
+          <h4>{item.title}</h4>
+          <p>{item.copy}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+</section>
+
+<script>
+  const stage = document.querySelector<HTMLElement>("[data-reflect-ai]");
+  const trigger = stage?.querySelector<HTMLButtonElement>("[data-reflect-ai-trigger]");
+
+  trigger?.addEventListener("click", () => {
+    const active = stage?.classList.toggle("is-active") ?? false;
+    trigger.setAttribute("aria-expanded", String(active));
+    trigger.querySelector<HTMLElement>(".prompt-answer")?.setAttribute("aria-hidden", String(!active));
+  });
+</script>
+
+<style>
+  .ai-section {
+    position: relative;
+    overflow: hidden;
+    padding: var(--section-y-desktop) 0 110px;
+  }
+
+  .stars {
+    position: absolute;
+    left: 50%;
+    top: 292px;
+    width: 740px;
+    height: 330px;
+    opacity: .5;
+    transform: translateX(-50%);
+    background-image: radial-gradient(circle, var(--fg) 0 1px, transparent 1.6px), radial-gradient(circle, var(--accent-hover) 0 1px, transparent 1.7px);
+    background-position: 0 0, 67px 97px;
+    background-size: 118px 142px, 174px 171px;
+    mask-image: linear-gradient(to bottom, transparent, black 28%, black 68%, transparent);
+    pointer-events: none;
+  }
+
+  .section-heading {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    justify-items: center;
+    padding: 0 var(--space-5);
+    text-align: center;
+  }
+
+  .badge {
+    padding: var(--space-1) var(--space-3);
+    border: 1px solid color-mix(in srgb, var(--accent-hover) 46%, var(--border));
+    border-radius: var(--radius-pill);
+    background: color-mix(in srgb, var(--accent-active) 12%, transparent);
+    color: color-mix(in srgb, var(--accent-hover) 82%, var(--fg));
+    font-size: var(--text-sm);
+    line-height: 20px;
+  }
+
+  h2,
+  h3,
+  h4,
+  p { margin: 0; }
+
+  .section-heading h2 {
+    max-width: 760px;
+    margin-top: var(--space-4);
+    color: var(--fg-2);
+    font-family: "Reflect Aeonik", var(--font-display);
+    font-size: var(--text-3xl);
+    font-weight: 500;
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-display);
+  }
+
+  .section-heading p {
+    max-width: 620px;
+    margin-top: var(--space-4);
+    color: var(--muted);
+    font-size: var(--text-base);
+    line-height: var(--leading-body);
+  }
+
+  .ai-stage {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    place-items: end center;
+    min-height: 382px;
+    margin: var(--space-8) auto 0;
+    padding: 0 var(--space-5);
+  }
+
+  .ai-stage::before {
+    position: absolute;
+    bottom: 0;
+    width: min(620px, calc(100vw - 80px));
+    height: 145px;
+    content: "";
+    background: linear-gradient(135deg, transparent 3%, color-mix(in srgb, var(--accent) 27%, transparent) 3.2% 3.5%, transparent 3.7% 16%, color-mix(in srgb, var(--accent) 18%, transparent) 16.2% 16.5%, transparent 16.7%), repeating-linear-gradient(90deg, transparent 0 69px, color-mix(in srgb, var(--accent-hover) 18%, transparent) 70px 71px), linear-gradient(180deg, transparent, color-mix(in srgb, var(--accent) 28%, transparent));
+    clip-path: polygon(21% 0, 79% 0, 100% 100%, 0 100%);
+    opacity: .82;
+    transition: opacity var(--motion-base) var(--ease-standard), transform var(--motion-base) var(--ease-standard);
+  }
+
+  .ai-stage.is-active::before { opacity: 1; transform: translateY(12px); }
+
+  .ai-beam {
+    position: absolute;
+    bottom: 86px;
+    width: 280px;
+    height: 200px;
+    background: radial-gradient(ellipse at center bottom, color-mix(in srgb, var(--accent-hover) 62%, transparent), transparent 65%);
+    filter: blur(18px);
+    opacity: .22;
+    transition: opacity var(--motion-base) var(--ease-standard);
+  }
+
+  .is-active .ai-beam { opacity: .9; }
+
+  .prompt-card {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    width: min(560px, 100%);
+    min-height: 140px;
+    overflow: hidden;
+    padding: var(--space-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background: color-mix(in srgb, var(--surface) 72%, transparent);
+    box-shadow: inset 0 0 0 8px color-mix(in srgb, var(--fg) 2%, transparent);
+    color: var(--fg);
+    cursor: pointer;
+    text-align: left;
+    transition: min-height var(--motion-base) var(--ease-standard), background var(--motion-fast) var(--ease-standard), border-color var(--motion-fast) var(--ease-standard);
+  }
+
+  .prompt-card:hover { border-color: color-mix(in srgb, var(--fg) 22%, var(--border)); background: color-mix(in srgb, var(--surface) 92%, transparent); }
+  .is-active .prompt-card { min-height: 178px; }
+
+  .prompt-head,
+  .prompt-question,
+  .prompt-answer,
+  .answer-actions { position: relative; z-index: 1; display: block; padding: 0 var(--space-6); }
+  .prompt-head { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); padding-top: var(--space-6); font-size: var(--text-base); }
+  .magic { color: var(--success); font-size: var(--text-sm); font-weight: 400; white-space: nowrap; }
+  .prompt-question { margin-top: var(--space-6); color: var(--muted); font-size: var(--text-sm); transition: opacity var(--motion-fast) var(--ease-standard), transform var(--motion-fast) var(--ease-standard); }
+  .prompt-answer { max-height: 0; overflow: hidden; margin-top: 0; color: var(--fg); font-size: var(--text-sm); line-height: var(--leading-body); opacity: 0; transform: translateY(8px); transition: max-height var(--motion-base) var(--ease-standard), margin var(--motion-base) var(--ease-standard), opacity var(--motion-fast) var(--ease-standard), transform var(--motion-fast) var(--ease-standard); }
+  .answer-actions { display: flex; gap: var(--space-2); max-height: 0; padding-top: 0; overflow: hidden; color: var(--muted); font-size: var(--text-xs); opacity: 0; transition: max-height var(--motion-base) var(--ease-standard), padding var(--motion-base) var(--ease-standard), opacity var(--motion-fast) var(--ease-standard); }
+  .answer-actions span { padding: var(--space-1) var(--space-2); border: 1px solid var(--border-soft); border-radius: var(--radius-sm); background: color-mix(in srgb, var(--fg) 3%, transparent); white-space: nowrap; }
+  kbd { color: var(--fg-2); font-family: var(--font-mono); }
+  .is-active .magic, .is-active .prompt-question { opacity: 0; transform: translateY(-8px); }
+  .is-active .prompt-answer { max-height: 90px; margin-top: var(--space-4); opacity: 1; transform: translateY(0); }
+  .is-active .answer-actions { max-height: 44px; padding-top: var(--space-4); opacity: 1; }
+
+  .capabilities { width: min(960px, calc(100% - 80px)); margin: 120px auto 0; text-align: center; }
+  .capabilities h3 { color: var(--fg-2); font-family: "Reflect Aeonik", var(--font-display); font-size: var(--text-xl); font-weight: 500; line-height: var(--leading-tight); }
+  .capability-grid { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: var(--space-8); border-top: 1px solid var(--border-soft); border-left: 1px solid var(--border-soft); }
+  .capability { min-height: 164px; padding: var(--space-6); border-right: 1px solid var(--border-soft); border-bottom: 1px solid var(--border-soft); }
+  .capability:nth-child(4) { grid-column: 1 / span 2; }
+  .capability-icon { display: grid; place-items: center; width: 28px; height: 28px; margin: 0 auto var(--space-4); border: 1px solid color-mix(in srgb, var(--fg) 44%, transparent); border-radius: var(--radius-sm); color: var(--fg-2); font-size: var(--text-sm); }
+  .capability-icon.word { font-size: 10px; }
+  .capability h4 { color: var(--fg-2); font-size: var(--text-base); font-weight: 400; line-height: var(--leading-body); }
+  .capability p { color: var(--muted); font-size: var(--text-base); line-height: var(--leading-body); }
+
+  @media (max-width: 780px) {
+    .ai-section { padding: var(--section-y-phone) 0; }
+    .section-heading h2 { max-width: 340px; font-size: 40px; line-height: 44px; }
+    .desktop-break { display: none; }
+    .ai-stage { min-height: 300px; margin-top: var(--space-6); }
+    .prompt-card { min-height: 168px; }
+    .prompt-head { align-items: start; flex-direction: column; padding: var(--space-5); }
+    .prompt-question, .prompt-answer, .answer-actions { padding-right: var(--space-5); padding-left: var(--space-5); }
+    .magic { white-space: normal; }
+    .answer-actions { flex-wrap: wrap; }
+    .capabilities { width: calc(100% - 32px); margin-top: 96px; text-align: left; }
+    .capability-grid { grid-template-columns: 1fr; }
+    .capability:nth-child(4) { grid-column: auto; }
+    .capability { min-height: auto; padding: var(--space-5); }
+    .capability-icon { margin-left: 0; }
+  }
+</style>

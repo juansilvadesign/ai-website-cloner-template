@@ -1,0 +1,90 @@
+---
+const risks = [
+  {
+    title: "Histórico jurídico oculto",
+    description: "Ações judiciais e padrões de litígio que não aparecem em buscas comuns. Parte relevante do histórico pode ficar fora da análise.",
+    image: "effect-bg1.svg",
+    signal: "8 processos ocultos",
+    detail: "Maria silva dos santos",
+    variant: "history",
+  },
+  {
+    title: "Dados desatualizados",
+    description: "Informações antigas podem não refletir a situação atual e levar a conclusões equivocadas.",
+    image: "effect-bg2.svg",
+    signal: "Dados não sincronizados",
+    detail: "TJ-SP · TRT-2 · TJ-BA",
+    variant: "stale",
+  },
+  {
+    title: "Informações em múltiplas fontes",
+    description: "Dados fragmentados em diferentes tribunais e bases dificultam uma visão completa e confiável.",
+    image: "effect-bg3.svg",
+    signal: "Fontes desconectadas",
+    detail: "Nome completo · Data de nascimento · Situação do CPF",
+    variant: "sources",
+  },
+  {
+    title: "Decisão baseada em informação incompleta",
+    description: "Sem acesso a todos os dados, a análise pode parecer segura, mas esconder riscos relevantes.",
+    image: "effect-bg1.svg",
+    signal: "Análise incompleta",
+    detail: "Decisão sem histórico integral",
+    variant: "decision",
+  },
+] as const;
+---
+
+<section class="hidden-risks" aria-labelledby="hidden-risks-title">
+  <div class="hidden-risks__container">
+    <aside class="hidden-risks__intro">
+      <span class="eyebrow"><i></i>Riscos ocultos</span>
+      <h2 id="hidden-risks-title">Riscos ocultos que podem impactar sua decisão</h2>
+      <p>Mesmo após uma consulta comum, dados importantes podem não aparecer e isso pode gerar decisões erradas.</p>
+      <a href="#contato">Falar com especialista <span aria-hidden="true">→</span></a>
+    </aside>
+
+    <div class="hidden-risks__grid">
+      {risks.map((risk) => (
+        <article class={`hidden-risk hidden-risk--${risk.variant}`}>
+          <div class="hidden-risk__art" aria-hidden="true">
+            <img src={`/clones/consultadeprocessos-com-br/images/${risk.image}`} alt="" loading="lazy" />
+            <span class="hidden-risk__alert">{risk.signal}</span>
+            <span class="hidden-risk__detail">{risk.detail}</span>
+          </div>
+          <div class="hidden-risk__content">
+            <h3>{risk.title}</h3>
+            <p>{risk.description}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .hidden-risks { padding: var(--section-y-desktop) 0 var(--section-y-tablet); background: var(--surface); }
+  .hidden-risks__container { display: grid; grid-template-columns: 340px minmax(0, 1fr); width: min(calc(100% - (var(--container-gutter-desktop) * 2)), var(--container-max)); margin-inline: auto; gap: 80px; }
+  .hidden-risks__intro { position: sticky; top: 128px; align-self: start; }
+  .eyebrow { display:inline-flex; align-items:center; gap:var(--space-2); min-height:27px; color:var(--muted); font-size:var(--text-xs); font-weight:700; letter-spacing:.075em; text-transform:uppercase; }
+  .eyebrow i { width:7px; height:7px; border-radius:2px; background:var(--accent); }
+  .hidden-risks h2 { margin:var(--space-4) 0 var(--space-3); color:var(--fg); font-size:var(--text-3xl); font-weight:700; letter-spacing:var(--tracking-display); line-height:1.2; }
+  .hidden-risks__intro > p { margin:0; color:var(--muted); font-size:var(--text-base); line-height:1.6; }
+  .hidden-risks__intro a { display:inline-flex; align-items:center; gap:var(--space-2); margin-top:var(--space-6); padding:10px 20px; border-radius:var(--radius-sm); background:var(--accent); color:var(--accent-on); font-size:var(--text-sm); font-weight:600; transition:background var(--motion-fast) var(--ease-standard); }
+  .hidden-risks__intro a:hover { background:var(--accent-hover); }
+  .hidden-risks__grid { display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); overflow:hidden; border:1px solid var(--border-soft); border-radius:var(--radius-lg); background:var(--surface); }
+  .hidden-risk { min-height:414px; padding:var(--space-5); border-right:1px solid var(--border-soft); border-bottom:1px solid var(--border-soft); text-align:center; }
+  .hidden-risk:nth-child(even) { border-right:0; }
+  .hidden-risk:nth-last-child(-n+2) { border-bottom:0; }
+  .hidden-risk__art { position:relative; display:grid; height:214px; place-items:center; overflow:hidden; }
+  .hidden-risk__art img { position:absolute; width:280px; max-width:90%; height:auto; opacity:.82; }
+  .hidden-risk__alert { position:relative; z-index:1; padding:7px 13px; border-radius:var(--radius-pill); background:#fee2e2; color:#ef4444; font-size:var(--text-xs); font-weight:700; box-shadow:var(--elev-ring); }
+  .hidden-risk__detail { position:absolute; z-index:1; bottom:22px; max-width:88%; color:var(--meta); font-size:var(--text-xs); line-height:1.45; }
+  .hidden-risk--stale .hidden-risk__alert { background:#fef2f2; color:#ef4444; }
+  .hidden-risk--sources .hidden-risk__alert { background:#ecfeff; color:var(--accent-hover); }
+  .hidden-risk--decision .hidden-risk__alert { background:#fff1f2; color:#f43f5e; }
+  .hidden-risk__content h3 { margin:var(--space-2) 0 var(--space-2); color:var(--fg); font-size:18px; font-weight:700; line-height:1.35; }
+  .hidden-risk__content p { max-width:340px; margin:0 auto; color:var(--muted); font-size:var(--text-sm); line-height:1.55; }
+  @media (max-width:1023px) { .hidden-risks { padding:var(--section-y-tablet) var(--container-gutter-tablet); } .hidden-risks__container { grid-template-columns:1fr; width:100%; gap:var(--space-8); } .hidden-risks__intro { position:static; max-width:560px; } }
+  @media (max-width:767px) { .hidden-risks { padding:var(--section-y-phone) var(--container-gutter-phone); } .hidden-risks h2 { font-size:var(--text-2xl); } .hidden-risks__grid { grid-template-columns:1fr; border-radius:var(--radius-md); } .hidden-risk, .hidden-risk:nth-child(even), .hidden-risk:nth-last-child(-n+2) { min-height:343px; border-right:0; border-bottom:1px solid var(--border-soft); } .hidden-risk:last-child { border-bottom:0; } .hidden-risk__art { height:190px; } }
+</style>

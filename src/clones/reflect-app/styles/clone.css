@@ -1,0 +1,95 @@
+@import "../../../../design-systems/reflect-app/tokens.css";
+@import "../../../styles/reset.css";
+
+@font-face {
+  font-family: "Reflect Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/clones/reflect-app/fonts/inter-v-regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Reflect Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/clones/reflect-app/fonts/inter-v-medium.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Reflect Aeonik";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/clones/reflect-app/fonts/aeonik-pro-medium.woff2") format("woff2");
+}
+
+:root {
+  background: var(--bg);
+  color: var(--fg);
+  color-scheme: dark;
+  font-family: "Reflect Inter", var(--font-body);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+html {
+  background: var(--bg);
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  overflow-x: hidden;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  border: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+.reflect-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

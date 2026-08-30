@@ -1,0 +1,698 @@
+{
+  "schemaVersion": 1,
+  "format": "od-design-tokens/v1",
+  "contract": "TOKEN_SCHEMA",
+  "generatedAt": "2026-08-29T21:29:30.870Z",
+  "source": {
+    "tokensCss": "tokens.css",
+    "tokenContractReport": "source/token-contract.report.json"
+  },
+  "summary": {
+    "total": 56,
+    "byConfidence": {
+      "high": 50,
+      "derived": 2,
+      "fallback": 4
+    },
+    "byLayer": {
+      "A1-identity": 8,
+      "B-slot": 4,
+      "A2": 26,
+      "A1-structure": 18
+    }
+  },
+  "tokens": [
+    {
+      "name": "--bg",
+      "value": "#ffffff",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Computed body canvas and primary page surface.",
+      "sources": [
+        "getComputedStyle(body).backgroundColor at 1440/768/390",
+        "tokens.css:8"
+      ]
+    },
+    {
+      "name": "--surface",
+      "value": "#ffffff",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Header, cards, dashboard, FAQ, and footer surfaces.",
+      "sources": [
+        "Computed section/card backgrounds",
+        "tokens.css:9"
+      ]
+    },
+    {
+      "name": "--surface-warm",
+      "value": "#f8fafc",
+      "type": "color",
+      "layer": "B-slot",
+      "confidence": "high",
+      "reason": "Hero tint, muted quote block, icon tiles, and soft card treatments.",
+      "sources": [
+        "Computed slate-50 surfaces",
+        "tokens.css:10"
+      ]
+    },
+    {
+      "name": "--fg",
+      "value": "#020817",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Computed body and headline ink.",
+      "sources": [
+        "getComputedStyle(body).color; h1 color",
+        "tokens.css:13"
+      ]
+    },
+    {
+      "name": "--fg-2",
+      "value": "#334155",
+      "type": "color",
+      "layer": "B-slot",
+      "confidence": "high",
+      "reason": "Secondary dense UI and nav text.",
+      "sources": [
+        "Computed slate-700/800 text roles",
+        "tokens.css:14"
+      ]
+    },
+    {
+      "name": "--muted",
+      "value": "#64748b",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Body descriptions and inactive labels.",
+      "sources": [
+        "Computed slate-500 text roles",
+        "tokens.css:15"
+      ]
+    },
+    {
+      "name": "--meta",
+      "value": "#94a3b8",
+      "type": "color",
+      "layer": "B-slot",
+      "confidence": "high",
+      "reason": "Small metadata, muted icon, and data-label text.",
+      "sources": [
+        "Computed slate-400 text roles",
+        "tokens.css:16"
+      ]
+    },
+    {
+      "name": "--border",
+      "value": "#e2e8f0",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Header divider, card outlines, and FAQ rows.",
+      "sources": [
+        "Computed border-slate-200 roles",
+        "tokens.css:19"
+      ]
+    },
+    {
+      "name": "--border-soft",
+      "value": "#f1f5f9",
+      "type": "color",
+      "layer": "B-slot",
+      "confidence": "high",
+      "reason": "Subtle dashboard and FAQ interior division.",
+      "sources": [
+        "Computed border-slate-100 roles",
+        "tokens.css:20"
+      ]
+    },
+    {
+      "name": "--accent",
+      "value": "#14b8a6",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Computed teal-500 call-to-action, progress, and illustration accent.",
+      "sources": [
+        "Computed teal-500 roles",
+        "tokens.css:23"
+      ]
+    },
+    {
+      "name": "--accent-on",
+      "value": "#ffffff",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Text and icons on filled teal actions.",
+      "sources": [
+        "Computed primary button foreground",
+        "tokens.css:24"
+      ]
+    },
+    {
+      "name": "--accent-hover",
+      "value": "#0f766e",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Computed teal-700 action text and darker gradient endpoint.",
+      "sources": [
+        "Computed CTA and gradient end roles",
+        "tokens.css:25"
+      ]
+    },
+    {
+      "name": "--accent-active",
+      "value": "#0d9488",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Conservative pressed state between the observed accent and dark accent tiers.",
+      "sources": [
+        "Derived from observed teal palette",
+        "tokens.css:26"
+      ]
+    },
+    {
+      "name": "--success",
+      "value": "#16a34a",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "fallback",
+      "reason": "OpenDesign A2 default (Success state.)",
+      "sources": [
+        "_schema/defaults.css",
+        "tokens.css:29"
+      ]
+    },
+    {
+      "name": "--warn",
+      "value": "#eab308",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "fallback",
+      "reason": "OpenDesign A2 default (Warning state.)",
+      "sources": [
+        "_schema/defaults.css",
+        "tokens.css:30"
+      ]
+    },
+    {
+      "name": "--danger",
+      "value": "#dc2626",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "fallback",
+      "reason": "OpenDesign A2 default (Danger state.)",
+      "sources": [
+        "_schema/defaults.css",
+        "tokens.css:31"
+      ]
+    },
+    {
+      "name": "--font-display",
+      "value": "\"Inter\", \"Inter Fallback\", system-ui, sans-serif",
+      "type": "fontFamily",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Headings resolve to Inter on the live page.",
+      "sources": [
+        "getComputedStyle(h1).fontFamily",
+        "tokens.css:34"
+      ]
+    },
+    {
+      "name": "--font-body",
+      "value": "\"Inter\", \"Inter Fallback\", system-ui, sans-serif",
+      "type": "fontFamily",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Body resolves to Inter on the live page.",
+      "sources": [
+        "getComputedStyle(body).fontFamily",
+        "tokens.css:35"
+      ]
+    },
+    {
+      "name": "--font-mono",
+      "value": "ui-monospace, \"SF Mono\", \"JetBrains Mono\", Menlo, Monaco, Consolas, monospace",
+      "type": "fontFamily",
+      "layer": "A2",
+      "confidence": "fallback",
+      "reason": "OpenDesign A2 default (Monospace font stack — used by kbd, code, tabular metrics.)",
+      "sources": [
+        "_schema/defaults.css",
+        "tokens.css:36"
+      ]
+    },
+    {
+      "name": "--text-xs",
+      "value": "11px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Eyebrows, icon descriptions, and tiny data labels.",
+      "sources": [
+        "Computed text-[11px] roles",
+        "tokens.css:39"
+      ]
+    },
+    {
+      "name": "--text-sm",
+      "value": "12px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Small dashboard, stat, and feature-detail text.",
+      "sources": [
+        "Computed text-[12px] roles",
+        "tokens.css:40"
+      ]
+    },
+    {
+      "name": "--text-base",
+      "value": "15px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Landing-page body descriptions.",
+      "sources": [
+        "Computed text-[15px] roles",
+        "tokens.css:41"
+      ]
+    },
+    {
+      "name": "--text-lg",
+      "value": "16px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Buttons, headings, and site baseline.",
+      "sources": [
+        "getComputedStyle(body).fontSize; computed text-[16px]",
+        "tokens.css:42"
+      ]
+    },
+    {
+      "name": "--text-xl",
+      "value": "20px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Desktop card and subheading tier.",
+      "sources": [
+        "Computed text-[20px] roles",
+        "tokens.css:43"
+      ]
+    },
+    {
+      "name": "--text-2xl",
+      "value": "24px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Mobile section-headline tier.",
+      "sources": [
+        "Computed text-2xl headings at 390",
+        "tokens.css:44"
+      ]
+    },
+    {
+      "name": "--text-3xl",
+      "value": "36px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Desktop secondary section-headline tier.",
+      "sources": [
+        "Computed lg:text-[36px] heading",
+        "tokens.css:45"
+      ]
+    },
+    {
+      "name": "--text-4xl",
+      "value": "48px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Desktop hero and primary section headline tier.",
+      "sources": [
+        "getComputedStyle(h1).fontSize at 1440",
+        "tokens.css:46"
+      ]
+    },
+    {
+      "name": "--leading-body",
+      "value": "1.5",
+      "type": "number",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "The document baseline is 24px at 16px.",
+      "sources": [
+        "getComputedStyle(body).lineHeight",
+        "tokens.css:49"
+      ]
+    },
+    {
+      "name": "--leading-tight",
+      "value": "1.15",
+      "type": "number",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Hero and display-heading leading.",
+      "sources": [
+        "getComputedStyle(h1).lineHeight / fontSize",
+        "tokens.css:50"
+      ]
+    },
+    {
+      "name": "--tracking-display",
+      "value": "-0.02em",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Hero headline letter spacing.",
+      "sources": [
+        "getComputedStyle(h1).letterSpacing",
+        "tokens.css:51"
+      ]
+    },
+    {
+      "name": "--space-1",
+      "value": "4px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Compact badge and inline detail gap.",
+      "sources": [
+        "Computed utility spacing",
+        "tokens.css:54"
+      ]
+    },
+    {
+      "name": "--space-2",
+      "value": "8px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Small icon and label gap.",
+      "sources": [
+        "Computed utility spacing",
+        "tokens.css:55"
+      ]
+    },
+    {
+      "name": "--space-3",
+      "value": "12px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Card inner rhythm and button separation.",
+      "sources": [
+        "Computed py-3 and gap-3 roles",
+        "tokens.css:56"
+      ]
+    },
+    {
+      "name": "--space-4",
+      "value": "16px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Default card and layout gap.",
+      "sources": [
+        "Computed gap-4 roles",
+        "tokens.css:57"
+      ]
+    },
+    {
+      "name": "--space-5",
+      "value": "20px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Phone gutter and common interior inset.",
+      "sources": [
+        "Computed px-5 at 390px",
+        "tokens.css:58"
+      ]
+    },
+    {
+      "name": "--space-6",
+      "value": "24px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Hero, card, and section internal spacing.",
+      "sources": [
+        "Computed p-6 and py-6 roles",
+        "tokens.css:59"
+      ]
+    },
+    {
+      "name": "--space-8",
+      "value": "32px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Desktop outer gutter / medium section rhythm.",
+      "sources": [
+        "Computed xl:px-8 and py-8 roles",
+        "tokens.css:60"
+      ]
+    },
+    {
+      "name": "--space-12",
+      "value": "48px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Large desktop card and section spacing.",
+      "sources": [
+        "Computed h-12, lg:text-[48px] supporting roles",
+        "tokens.css:61"
+      ]
+    },
+    {
+      "name": "--section-y-desktop",
+      "value": "128px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Most desktop sections use lg:py-32.",
+      "sources": [
+        "Computed section padding at 1440",
+        "tokens.css:64"
+      ]
+    },
+    {
+      "name": "--section-y-tablet",
+      "value": "64px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Sections compress to py-16 around 768px.",
+      "sources": [
+        "Computed section padding at 768",
+        "tokens.css:65"
+      ]
+    },
+    {
+      "name": "--section-y-phone",
+      "value": "64px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Sections use py-16 on phone.",
+      "sources": [
+        "Computed section padding at 390",
+        "tokens.css:66"
+      ]
+    },
+    {
+      "name": "--radius-sm",
+      "value": "8px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Small action and icon-tile rounding.",
+      "sources": [
+        "Computed rounded-lg roles",
+        "tokens.css:69"
+      ]
+    },
+    {
+      "name": "--radius-md",
+      "value": "12px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Most buttons and feature cards.",
+      "sources": [
+        "Computed rounded-xl roles",
+        "tokens.css:70"
+      ]
+    },
+    {
+      "name": "--radius-lg",
+      "value": "16px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Hero photo frame and elevated panels.",
+      "sources": [
+        "Computed rounded-2xl roles",
+        "tokens.css:71"
+      ]
+    },
+    {
+      "name": "--radius-pill",
+      "value": "9999px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Eyebrow badges and carousel dots.",
+      "sources": [
+        "Computed rounded-full roles",
+        "tokens.css:72"
+      ]
+    },
+    {
+      "name": "--elev-flat",
+      "value": "none",
+      "type": "shadow",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Most white surfaces are flat.",
+      "sources": [
+        "Computed section backgrounds",
+        "tokens.css:75"
+      ]
+    },
+    {
+      "name": "--elev-ring",
+      "value": "0 1px 2px rgba(15, 23, 42, .04), 0 3px 8px rgba(15, 23, 42, .04)",
+      "type": "shadow",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Light dashboard, stats, and feature-card depth.",
+      "sources": [
+        "Computed card shadows",
+        "tokens.css:76"
+      ]
+    },
+    {
+      "name": "--elev-raised",
+      "value": "0 20px 25px -5px rgba(148, 163, 184, .35), 0 8px 10px -6px rgba(148, 163, 184, .22)",
+      "type": "shadow",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Header dropdown and hero-photo elevation.",
+      "sources": [
+        "Computed dropdown and hero photo boxShadow",
+        "tokens.css:77"
+      ]
+    },
+    {
+      "name": "--focus-ring",
+      "value": "0 0 0 3px color-mix(in srgb, var(--accent) 35%, transparent)",
+      "type": "shadow",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Accessible focus reinforcement compatible with the observed teal system.",
+      "sources": [
+        "Derived from --accent",
+        "tokens.css:80"
+      ]
+    },
+    {
+      "name": "--motion-fast",
+      "value": "150ms",
+      "type": "duration",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Button, card, FAQ, and dropdown color state transitions.",
+      "sources": [
+        "Computed transition-colors duration-150",
+        "tokens.css:83"
+      ]
+    },
+    {
+      "name": "--motion-base",
+      "value": "200ms",
+      "type": "duration",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Nav, FAQ, and vertical-tab transitions.",
+      "sources": [
+        "Computed duration-200 transitions",
+        "tokens.css:84"
+      ]
+    },
+    {
+      "name": "--ease-standard",
+      "value": "cubic-bezier(0.4, 0, 0.2, 1)",
+      "type": "cubicBezier",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Tailwind default easing on observed interactive elements.",
+      "sources": [
+        "Computed dropdown, FAQ, and nav transition timing",
+        "tokens.css:85"
+      ]
+    },
+    {
+      "name": "--container-max",
+      "value": "1336px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Desktop content container is 1336px wide at 1440px viewport.",
+      "sources": [
+        "1440px snapshot and container bounding boxes",
+        "tokens.css:88"
+      ]
+    },
+    {
+      "name": "--container-gutter-desktop",
+      "value": "52px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "1440px viewport minus 1336px content width leaves 52px gutters.",
+      "sources": [
+        "Desktop header/hero container boxes",
+        "tokens.css:89"
+      ]
+    },
+    {
+      "name": "--container-gutter-tablet",
+      "value": "20px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Tablet content maintains a 20px horizontal inset.",
+      "sources": [
+        "Computed px-5 at 768px",
+        "tokens.css:90"
+      ]
+    },
+    {
+      "name": "--container-gutter-phone",
+      "value": "20px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "390px viewport yields the observed 350px content width.",
+      "sources": [
+        "Computed px-5 at 390px",
+        "tokens.css:91"
+      ]
+    }
+  ]
+}

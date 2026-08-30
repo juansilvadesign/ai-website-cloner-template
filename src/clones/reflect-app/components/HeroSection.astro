@@ -1,0 +1,263 @@
+<section class="hero" aria-labelledby="reflect-hero-title">
+  <div class="hero-orbits" aria-hidden="true">
+    <span class="orbit orbit-one"></span><span class="orbit orbit-two"></span><span class="orbit orbit-three"></span>
+    <span class="star star-a"></span><span class="star star-b"></span><span class="star star-c"></span><span class="star star-d"></span>
+  </div>
+  <div class="hero-copy">
+    <a class="eyebrow" href="/reflect-app/#ai"><span aria-hidden="true">✦</span> New: Our AI integration just landed</a>
+    <h1 id="reflect-hero-title">Think better with Reflect</h1>
+    <p>Never miss a note, idea or connection.</p>
+  </div>
+  <div class="black-hole" aria-hidden="true"><div class="black-hole-core"></div></div>
+  <div class="hero-demo">
+    <img src="/clones/reflect-app/images/hero-preview.png" alt="Reflect note editor and April 2023 calendar preview" width="2400" height="1500" />
+    <button type="button" class="play" aria-label="Play Reflect product video" data-reflect-video-open><span></span></button>
+  </div>
+</section>
+
+<dialog class="video-modal" data-reflect-video-dialog aria-label="Reflect product video">
+  <button type="button" class="close" aria-label="Close video" data-reflect-video-close>×</button>
+  <video controls playsinline poster="/clones/reflect-app/images/hero-preview.png" data-reflect-video>
+    <source src="/clones/reflect-app/videos/hero-demo.webm" type="video/webm" />
+  </video>
+</dialog>
+
+<script>
+  const open = document.querySelector<HTMLButtonElement>("[data-reflect-video-open]");
+  const close = document.querySelector<HTMLButtonElement>("[data-reflect-video-close]");
+  const dialog = document.querySelector<HTMLDialogElement>("[data-reflect-video-dialog]");
+  const video = document.querySelector<HTMLVideoElement>("[data-reflect-video]");
+
+  open?.addEventListener("click", () => {
+    dialog?.showModal();
+    void video?.play().catch(() => undefined);
+  });
+
+  const dismiss = () => {
+    video?.pause();
+    dialog?.close();
+  };
+
+  close?.addEventListener("click", dismiss);
+  dialog?.addEventListener("click", (event) => {
+    if (event.target === dialog) dismiss();
+  });
+</script>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 1339px;
+    overflow: hidden;
+    padding-top: 173px;
+  }
+
+  .hero-copy {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-1) var(--space-3);
+    border: 1px solid color-mix(in srgb, var(--accent-hover) 48%, var(--border));
+    border-radius: var(--radius-pill);
+    background: color-mix(in srgb, var(--accent-active) 14%, transparent);
+    color: color-mix(in srgb, var(--accent-hover) 80%, var(--fg));
+    font-size: var(--text-sm);
+    line-height: 20px;
+  }
+
+  h1 {
+    max-width: 960px;
+    margin: var(--space-4) auto 0;
+    color: var(--fg-2);
+    font-family: "Reflect Aeonik", var(--font-display);
+    font-size: var(--text-4xl);
+    font-weight: 500;
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-display);
+  }
+
+  .hero-copy p {
+    margin: var(--space-4) 0 0;
+    color: var(--muted);
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  .hero-orbits {
+    position: absolute;
+    z-index: 0;
+    inset: 160px 50% auto;
+    width: min(100vw, 1440px);
+    height: 720px;
+    transform: translateX(-50%);
+    mask-image: radial-gradient(ellipse at 50% 52%, black 45%, transparent 82%);
+  }
+
+  .orbit {
+    position: absolute;
+    left: 50%;
+    top: 42%;
+    border: 1px solid color-mix(in srgb, var(--accent-hover) 25%, transparent);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .orbit-one { width: 380px; height: 210px; }
+  .orbit-two { width: 680px; height: 410px; transform: translate(-50%, -50%) rotate(13deg); }
+  .orbit-three { width: 1000px; height: 620px; transform: translate(-50%, -50%) rotate(-10deg); }
+
+  .star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    border-radius: var(--radius-pill);
+    background: var(--fg);
+    box-shadow: 0 0 8px var(--accent-hover);
+    animation: twinkle 4s var(--ease-standard) infinite alternate;
+  }
+
+  .star-a { left: 38%; top: 40%; }
+  .star-b { left: 61%; top: 30%; animation-delay: 1s; }
+  .star-c { left: 54%; top: 20%; animation-delay: 2s; }
+  .star-d { left: 70%; top: 52%; animation-delay: 1.4s; }
+
+  .black-hole {
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 362px;
+    width: min(940px, 100vw);
+    height: 224px;
+    transform: translateX(-50%);
+    overflow: hidden;
+    filter: drop-shadow(0 0 35px color-mix(in srgb, var(--accent) 70%, transparent));
+  }
+
+  .black-hole::before,
+  .black-hole::after,
+  .black-hole-core {
+    position: absolute;
+    content: "";
+    left: 50%;
+    border-radius: 50%;
+    transform: translateX(-50%);
+  }
+
+  .black-hole::before {
+    bottom: -16px;
+    width: 660px;
+    height: 210px;
+    background: radial-gradient(ellipse at 50% 100%, transparent 0 23%, color-mix(in srgb, var(--fg) 94%, var(--accent-hover)) 24% 29%, color-mix(in srgb, var(--accent-hover) 72%, transparent) 36%, transparent 64%);
+    filter: blur(5px);
+  }
+
+  .black-hole::after {
+    bottom: 5px;
+    width: 820px;
+    height: 3px;
+    border-radius: var(--radius-pill);
+    background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--accent-hover) 85%, var(--fg)) 25% 75%, transparent);
+    box-shadow: 0 0 22px color-mix(in srgb, var(--accent) 84%, transparent);
+  }
+
+  .black-hole-core {
+    z-index: 2;
+    bottom: 7px;
+    width: 142px;
+    height: 106px;
+    border: 11px solid color-mix(in srgb, var(--fg) 92%, var(--accent-hover));
+    border-bottom: 0;
+    border-radius: 142px 142px 0 0;
+    background: radial-gradient(ellipse at 50% 100%, color-mix(in srgb, var(--accent-active) 58%, var(--bg)), var(--bg) 65%);
+    box-shadow: 0 -4px 38px color-mix(in srgb, var(--accent-hover) 78%, transparent);
+  }
+
+  .hero-demo {
+    position: absolute;
+    z-index: 3;
+    top: 572px;
+    left: 50%;
+    width: min(1216px, calc(100vw - 48px));
+    padding: var(--space-2);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background: color-mix(in srgb, var(--fg) 1%, transparent);
+    box-shadow: inset 0 0 0 8px color-mix(in srgb, var(--fg) 3%, transparent), var(--elev-raised);
+    transform: translateX(-50%);
+  }
+
+  .hero-demo::after {
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    content: "";
+    pointer-events: none;
+    background: linear-gradient(180deg, color-mix(in srgb, var(--bg) 6%, transparent) 0%, color-mix(in srgb, var(--bg) 46%, transparent) 41%, var(--bg) 96%);
+  }
+
+  .hero-demo img {
+    width: 100%;
+    border-radius: calc(var(--radius-lg) - var(--space-2));
+  }
+
+  .play {
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    bottom: 58px;
+    display: grid;
+    place-items: center;
+    width: 76px;
+    height: 76px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-pill);
+    background: color-mix(in srgb, var(--surface) 83%, transparent);
+    color: var(--fg);
+    cursor: pointer;
+    transform: translateX(-50%);
+    transition: background var(--motion-fast) var(--ease-standard), transform var(--motion-fast) var(--ease-standard);
+  }
+
+  .play:hover { background: color-mix(in srgb, var(--accent) 50%, var(--surface)); transform: translateX(-50%) scale(1.05); }
+  .play span { margin-left: 4px; width: 0; height: 0; border-top: 9px solid transparent; border-bottom: 9px solid transparent; border-left: 14px solid currentColor; }
+
+  .video-modal {
+    width: min(980px, calc(100vw - 24px));
+    padding: var(--space-3);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background: color-mix(in srgb, var(--surface) 92%, var(--bg));
+    box-shadow: var(--elev-raised);
+  }
+
+  .video-modal::backdrop { background: color-mix(in srgb, var(--bg) 72%, transparent); backdrop-filter: blur(12px); }
+  .video-modal video { width: 100%; border-radius: var(--radius-md); }
+  .close { position: absolute; z-index: 1; top: var(--space-4); right: var(--space-4); display: grid; place-items: center; width: 32px; height: 32px; border: 1px solid var(--border); border-radius: var(--radius-pill); background: var(--surface); color: var(--fg); cursor: pointer; font-size: var(--text-lg); line-height: 1; }
+
+  @keyframes twinkle { to { opacity: .25; transform: scale(2); } }
+
+  @media (max-width: 780px) {
+    .hero { min-height: 770px; padding-top: 126px; }
+    h1 { max-width: 330px; font-size: 40px; line-height: 44px; }
+    .hero-copy p { max-width: 280px; font-size: var(--text-base); line-height: var(--leading-body); }
+    .hero-orbits { top: 138px; height: 410px; width: 760px; }
+    .orbit-one { width: 210px; height: 118px; }
+    .orbit-two { width: 370px; height: 220px; }
+    .orbit-three { width: 550px; height: 355px; }
+    .black-hole { top: 292px; width: 560px; height: 126px; }
+    .black-hole::before { width: 370px; height: 124px; }
+    .black-hole::after { width: 520px; }
+    .black-hole-core { width: 84px; height: 61px; border-width: 7px; }
+    .hero-demo { top: 402px; width: calc(100vw - 32px); border-radius: var(--radius-md); }
+    .play { bottom: var(--space-4); width: 54px; height: 54px; }
+  }
+</style>

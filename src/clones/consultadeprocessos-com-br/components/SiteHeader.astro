@@ -1,0 +1,119 @@
+---
+const productLinks = [
+  { title: "Consulta por CPF", description: "Todos os tipos de processo pelo CPF.", href: "/consultadeprocessos-com-br/#funcionalidades" },
+  { title: "Consulta por CNPJ", description: "Due diligence e análise de risco por empresa.", href: "/consultadeprocessos-com-br/#funcionalidades" },
+  { title: "Processos criminais", description: "Ações criminais em todos os tribunais.", href: "/consultadeprocessos-com-br/#funcionalidades" },
+  { title: "Processos trabalhistas", description: "Reclamações em todos os 24 TRTs e no TST.", href: "/consultadeprocessos-com-br/#funcionalidades" },
+] as const;
+const utilityLinks = [
+  { label: "Para empresas", href: "/consultadeprocessos-com-br/#para-empresas" },
+  { label: "Planos", href: "/consultadeprocessos-com-br/#planos" },
+  { label: "Blog", href: "/consultadeprocessos-com-br/#blog" },
+] as const;
+---
+
+<header class="site-header" data-site-header>
+  <div class="container">
+    <a class="logo" href="/consultadeprocessos-com-br/" aria-label="Consulta de Processos, início">
+      <img src="/clones/consultadeprocessos-com-br/images/logo.svg" alt="Consulta de Processos" width="164" height="55" />
+    </a>
+    <nav class="desktop-nav" aria-label="Navegação principal">
+      <div class="desktop-product-menu">
+        <button class="desktop-product-trigger" type="button" aria-expanded="false" aria-controls="consulta-processual-menu" aria-haspopup="true" data-product-menu-trigger>
+          <span>Consulta Processual</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4" /></svg>
+        </button>
+        <div class="dropdown-wrapper" data-product-menu-wrapper>
+          <div id="consulta-processual-menu" class="dropdown-panel" aria-hidden="true" data-product-menu-panel>
+            {productLinks.map((link) => (
+              <a class="dropdown-item" href={link.href}>
+                <span class="dropdown-icon" aria-hidden="true"><svg viewBox="0 0 20 20"><circle cx="8.5" cy="8.5" r="3.5" /><path d="m11.25 11.25 3.25 3.25" /></svg></span>
+                <span><strong>{link.title}</strong><small>{link.description}</small></span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+      {utilityLinks.map((link) => <a href={link.href}>{link.label}</a>)}
+    </nav>
+    <div class="desktop-actions"><a class="login-link" href="/consultadeprocessos-com-br/#entrar">Entrar</a><a class="registration-link" href="/consultadeprocessos-com-br/#cadastro">Cadastre-se</a></div>
+    <div class="mobile-actions">
+      <a class="mobile-login-link" href="/consultadeprocessos-com-br/#entrar">Entrar</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="consulta-mobile-menu" aria-label="Abrir menu" data-mobile-menu-toggle>
+        <span class="sr-only" data-mobile-menu-label>Abrir menu</span><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M3 5.25h12M3 9h12M3 12.75h12" /></svg>
+      </button>
+    </div>
+  </div>
+  <nav id="consulta-mobile-menu" class="mobile-menu" aria-label="Navegação principal" hidden data-mobile-menu>
+    <p class="mobile-menu-label">Consulta Processual</p>
+    <div class="mobile-product-links">{productLinks.map((link) => <a class="mobile-product-link" href={link.href}><strong>{link.title}</strong><small>{link.description}</small></a>)}</div>
+    <div class="mobile-utility-links">{utilityLinks.map((link) => <a href={link.href}>{link.label}</a>)}</div>
+    <a class="mobile-registration-link" href="/consultadeprocessos-com-br/#cadastro">Cadastre-se grátis</a>
+  </nav>
+</header>
+
+<script>
+  const header = document.querySelector<HTMLElement>("[data-site-header]");
+  if (header) {
+    const productTrigger = header.querySelector<HTMLButtonElement>("[data-product-menu-trigger]");
+    const productWrapper = header.querySelector<HTMLElement>("[data-product-menu-wrapper]");
+    const productPanel = header.querySelector<HTMLElement>("[data-product-menu-panel]");
+    const mobileToggle = header.querySelector<HTMLButtonElement>("[data-mobile-menu-toggle]");
+    const mobileLabel = header.querySelector<HTMLElement>("[data-mobile-menu-label]");
+    const mobileMenu = header.querySelector<HTMLElement>("[data-mobile-menu]");
+    const setDesktopMenuOpen = (open: boolean) => { productTrigger?.setAttribute("aria-expanded", String(open)); productWrapper?.classList.toggle("is-open", open); productPanel?.setAttribute("aria-hidden", String(!open)); };
+    const setMobileMenuOpen = (open: boolean) => { if (!mobileMenu || !mobileToggle) return; const label = open ? "Fechar menu" : "Abrir menu"; mobileMenu.hidden = !open; mobileToggle.setAttribute("aria-expanded", String(open)); mobileToggle.setAttribute("aria-label", label); if (mobileLabel) mobileLabel.textContent = label; };
+    productTrigger?.addEventListener("click", () => setDesktopMenuOpen(productTrigger.getAttribute("aria-expanded") !== "true"));
+    mobileToggle?.addEventListener("click", () => setMobileMenuOpen(mobileToggle.getAttribute("aria-expanded") !== "true"));
+    mobileMenu?.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => setMobileMenuOpen(false)));
+    document.addEventListener("click", (event) => { if (!header.contains(event.target as Node)) setDesktopMenuOpen(false); });
+    document.addEventListener("keydown", (event) => { if (event.key !== "Escape") return; setDesktopMenuOpen(false); setMobileMenuOpen(false); });
+    window.matchMedia("(min-width: 1024px)").addEventListener("change", (event) => { if (event.matches) setMobileMenuOpen(false); else setDesktopMenuOpen(false); });
+  }
+</script>
+
+<style>
+  .site-header { position:fixed; z-index:60; inset-inline:0; top:0; height:68px; border-bottom:1px solid var(--border); background:var(--surface); }
+  .container { display:flex; align-items:center; width:calc(100% - 32px); height:100%; margin-inline:auto; }
+  .logo { display:flex; width:164px; height:55px; flex:0 0 auto; align-items:center; }
+  .logo img { width:164px; height:55px; object-fit:contain; }
+  .desktop-nav,.desktop-actions { display:none; }
+  .mobile-actions { display:flex; align-items:center; gap:var(--space-3); margin-left:auto; }
+  .mobile-login-link,.menu-toggle { color:var(--fg-2); font-size:var(--text-xs); font-weight:600; }
+  .mobile-login-link { display:inline-flex; height:36px; align-items:center; transition:color var(--motion-fast) var(--ease-standard); }
+  .menu-toggle { display:inline-grid; width:36px; height:36px; place-items:center; padding:0; border:1px solid var(--border); border-radius:6px; background:var(--surface); cursor:pointer; transition:background-color var(--motion-fast) var(--ease-standard),color var(--motion-fast) var(--ease-standard); }
+  .menu-toggle svg { width:18px; height:18px; fill:none; stroke:currentColor; stroke-linecap:round; stroke-width:1.5; }
+  .mobile-menu { position:absolute; z-index:1; top:100%; left:0; width:100%; padding:var(--space-3) 16px var(--space-5); border-bottom:1px solid var(--border); background:var(--surface); }
+  .mobile-menu[hidden] { display:none; }
+  .mobile-menu-label { color:var(--muted); font-size:var(--text-xs); font-weight:600; letter-spacing:.05em; line-height:16px; text-transform:uppercase; }
+  .mobile-product-links { margin-top:var(--space-2); }
+  .mobile-product-link { display:flex; min-height:65px; flex-direction:column; justify-content:center; color:var(--fg); transition:background-color var(--motion-fast) var(--ease-standard),color var(--motion-fast) var(--ease-standard); }
+  .mobile-product-link strong { font-size:14px; font-weight:600; line-height:1.35; }
+  .mobile-product-link small { margin-top:var(--space-1); color:var(--muted); font-size:var(--text-sm); line-height:1.35; }
+  .mobile-utility-links { padding-top:var(--space-2); border-top:1px solid var(--border-soft); }
+  .mobile-utility-links a { display:flex; min-height:47px; align-items:center; color:var(--fg-2); font-size:14px; font-weight:500; transition:background-color var(--motion-fast) var(--ease-standard),color var(--motion-fast) var(--ease-standard); }
+  .mobile-registration-link { display:flex; height:40px; align-items:center; justify-content:center; margin-top:var(--space-3); border-radius:var(--radius-sm); background:var(--accent); color:var(--accent-on); font-size:13px; font-weight:600; transition:background-color var(--motion-fast) var(--ease-standard); }
+  @media(hover:hover) { .mobile-login-link:hover,.mobile-product-link:hover,.mobile-utility-links a:hover { color:var(--accent-hover); } .menu-toggle:hover,.mobile-product-link:hover,.mobile-utility-links a:hover { background:var(--surface-warm); } .mobile-registration-link:hover { background:var(--accent-hover); } }
+  @media(min-width:1024px) {
+    .site-header { height:70px; }
+    .container { width:calc(100% - var(--container-gutter-desktop) - var(--container-gutter-desktop)); max-width:var(--container-max); }
+    .desktop-nav { display:flex; align-items:center; gap:var(--space-6); margin-left:var(--space-12); }
+    .desktop-nav > a,.desktop-product-trigger,.login-link { display:inline-flex; min-height:36px; align-items:center; color:var(--fg-2); font-size:14px; font-weight:500; white-space:nowrap; transition:background-color var(--motion-fast) var(--ease-standard),color var(--motion-fast) var(--ease-standard); }
+    .desktop-product-menu { position:relative; }
+    .desktop-product-trigger { width:188px; justify-content:space-between; padding:0 var(--space-3); border:0; border-radius:var(--radius-sm); background:transparent; cursor:pointer; text-align:left; }
+    .desktop-product-trigger svg { width:16px; height:16px; fill:none; stroke:currentColor; stroke-linecap:round; stroke-linejoin:round; stroke-width:1.5; transition:transform var(--motion-base) var(--ease-standard); }
+    .desktop-product-trigger[aria-expanded="true"] svg { transform:rotate(180deg); }
+    .dropdown-wrapper { position:absolute; z-index:70; top:100%; left:0; width:420px; padding-top:var(--space-3); visibility:hidden; opacity:0; pointer-events:none; transform:translateY(-4px); transition:opacity var(--motion-base) var(--ease-standard),transform var(--motion-base) var(--ease-standard),visibility 0s linear var(--motion-base); }
+    .dropdown-wrapper.is-open { visibility:visible; opacity:1; pointer-events:auto; transform:translateY(0); transition:opacity var(--motion-base) var(--ease-standard),transform var(--motion-base) var(--ease-standard),visibility 0s linear; }
+    .dropdown-panel { padding:var(--space-2); border:1px solid var(--border); border-radius:var(--radius-lg); background:var(--surface); box-shadow:var(--elev-raised); }
+    .dropdown-item { display:flex; gap:var(--space-3); padding:var(--space-3); border-radius:var(--radius-md); color:var(--fg); transition:background-color var(--motion-fast) var(--ease-standard); }
+    .dropdown-icon { display:grid; width:var(--space-6); height:var(--space-6); flex:0 0 auto; place-items:center; border-radius:6px; background:var(--surface-warm); color:var(--muted); }
+    .dropdown-icon svg { width:14px; height:14px; fill:none; stroke:currentColor; stroke-linecap:round; stroke-width:1.5; }
+    .dropdown-item strong,.dropdown-item small { display:block; }
+    .dropdown-item strong { color:var(--fg); font-size:14px; font-weight:600; line-height:1.35; }
+    .dropdown-item small { margin-top:var(--space-1); color:var(--muted); font-size:var(--text-sm); line-height:1.35; }
+    .desktop-actions { display:flex; align-items:center; gap:var(--space-6); margin-left:auto; }
+    .registration-link { display:inline-flex; min-height:36px; align-items:center; padding-inline:9px; border-radius:var(--radius-sm); background:var(--accent); color:var(--accent-on); font-size:13px; font-weight:600; transition:background-color var(--motion-fast) var(--ease-standard); }
+    .mobile-actions,.mobile-menu { display:none; }
+    @media(hover:hover) { .desktop-nav > a:hover,.login-link:hover { color:var(--accent-hover); } .desktop-product-trigger:hover,.desktop-product-trigger[aria-expanded="true"],.dropdown-item:hover { background:var(--surface-warm); } .registration-link:hover { background:var(--accent-hover); } }
+  }
+</style>

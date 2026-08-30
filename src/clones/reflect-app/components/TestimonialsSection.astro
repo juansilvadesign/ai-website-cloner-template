@@ -1,0 +1,37 @@
+---
+import type { Testimonial } from "../types/content";
+
+const testimonials: Testimonial[] = [
+  { name: "Sean Rose", handle: "@seanrose", quote: "Really, really liking @reflectnotes so far. It's just the right amount of simple/fast for a personal note taking app and does most of the hard work of organizing in the background." },
+  { name: "Ryan Delk", handle: "@delk", quote: "Don’t take it from me: @reflectnotes is magic." },
+  { name: "Demetria Giles", handle: "@drosewritings", quote: "Playing around with @reflectnotes. I’m back logging key thoughts, details and soundbites from episodes, books, meetings, articles, etc from the past week." },
+  { name: "Jeremy McPeak", handle: "@jwmcpeak", quote: "I just received an invite to @reflectnotes, and holy crap! It is well thought out, and I can see this being my note-taking platform going forward." },
+  { name: "Fabrizio Rinaldi", handle: "@linuz90", quote: "I’m keeping @reflectnotes open *all* the time, and I’m using both for simple journaling, and long form writing." },
+  { name: "Jonathan Simcoe", handle: "@jdsimcoe", quote: "The speed, focus, and attention to detail is superb. It has already matured to a point where it is a daily driver for me." },
+];
+---
+
+<section class="testimonials" aria-labelledby="testimonials-title">
+  <div class="heart-glow" aria-hidden="true">♡</div>
+  <header>
+    <span>Wall of love</span>
+    <h2 id="testimonials-title">Loved by thinkers</h2>
+    <p>Here’s what people are saying about us</p>
+  </header>
+  <div class="testimonial-grid">
+    {testimonials.map((testimonial) => (
+      <article>
+        <div class="person"><span aria-hidden="true">◌</span><div><h3>{testimonial.name}</h3><p>{testimonial.handle}</p></div></div>
+        <blockquote>{testimonial.quote}</blockquote>
+      </article>
+    ))}
+  </div>
+</section>
+
+<style>
+  .testimonials { position: relative; overflow: hidden; padding: 108px 0 72px; }.heart-glow { position: absolute; z-index: 0; top: 168px; left: 50%; color: color-mix(in srgb, var(--accent-hover) 15%, transparent); font-family: serif; font-size: 620px; line-height: .7; opacity: .18; transform: translateX(-50%); pointer-events: none; }
+  header { position: relative; z-index: 1; display: grid; justify-items: center; padding: 0 var(--space-5); text-align: center; }header > span { padding: var(--space-1) var(--space-3); border: 1px solid color-mix(in srgb, var(--accent-hover) 46%, var(--border)); border-radius: var(--radius-pill); background: color-mix(in srgb, var(--accent-active) 12%, transparent); color: color-mix(in srgb, var(--accent-hover) 82%, var(--fg)); font-size: var(--text-sm); line-height: 20px; }h2, h3, p { margin: 0; }h2 { margin-top: var(--space-4); color: var(--fg-2); font-family: "Reflect Aeonik", var(--font-display); font-size: var(--text-3xl); font-weight: 500; line-height: var(--leading-tight); letter-spacing: var(--tracking-display); }header p { margin-top: var(--space-4); color: var(--muted); font-size: var(--text-base); line-height: var(--leading-body); }
+  .testimonial-grid { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-6); width: min(1440px, calc(100% + 144px)); margin: var(--space-12) auto 0; padding: 0 var(--space-6); }.testimonial-grid article { min-height: 210px; padding: var(--space-6); border: 1px solid var(--border); border-radius: var(--radius-md); background: linear-gradient(180deg, color-mix(in srgb, var(--surface) 72%, transparent), color-mix(in srgb, var(--surface) 18%, transparent)); }.person { display: flex; align-items: center; gap: var(--space-3); }.person > span { display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid var(--border-soft); border-radius: var(--radius-pill); color: var(--meta); }.person h3 { color: var(--fg-2); font-size: var(--text-base); font-weight: 500; line-height: var(--leading-body); }.person p { color: var(--meta); font-size: var(--text-sm); line-height: 20px; }blockquote { margin: var(--space-5) 0 0; color: var(--muted); font-size: var(--text-base); line-height: var(--leading-body); }
+  @media (max-width: 960px) { .testimonial-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); width: min(100%, 760px); padding: 0; } }.testimonials { padding-right: var(--space-5); padding-left: var(--space-5); }
+  @media (max-width: 600px) { .testimonials { padding: var(--section-y-phone) var(--space-5); }.testimonial-grid { grid-template-columns: 1fr; }.testimonial-grid article { min-height: auto; }.heart-glow { top: 300px; font-size: 420px; }h2 { font-size: 40px; line-height: 44px; } }
+</style>

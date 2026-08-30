@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="tokens.css" />
+    <style>
+      body { background: var(--bg); color: var(--fg); font: var(--text-base)/var(--leading-body) var(--font-body); margin: 0; padding: var(--space-8); }
+      .group { border: 1px solid var(--border); border-radius: var(--radius-lg); margin: 0 auto var(--space-8); max-width: var(--container-max); padding: var(--space-6); }
+      .group h2 { font: 500 var(--text-xl)/var(--leading-tight) var(--font-display); letter-spacing: var(--tracking-display); margin: 0 0 var(--space-5); }
+      .row { align-items: center; display: flex; flex-wrap: wrap; gap: var(--space-4); }
+      .button { background: linear-gradient(135deg, var(--accent-active), var(--accent)); border: 1px solid color-mix(in srgb, var(--accent-hover), transparent 35%); border-radius: var(--radius-sm); box-shadow: var(--elev-ring); color: var(--accent-on); display: inline-flex; font-weight: 500; padding: var(--space-2) var(--space-4); }
+      .button:hover { background: var(--accent-hover); }
+      .badge { border: 1px solid var(--border); border-radius: var(--radius-pill); color: var(--muted); font-size: var(--text-sm); padding: var(--space-1) var(--space-3); }
+      .glass { background: radial-gradient(circle at 50% 0%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 54%), var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); box-shadow: inset 0 0 0 8px color-mix(in srgb, var(--fg) 2%, transparent); padding: var(--space-6); }
+      .prompt { color: var(--fg-2); margin: 0 0 var(--space-4); }
+      .answer { background: var(--surface-warm); border-radius: var(--radius-sm); color: var(--muted); padding: var(--space-3); }
+      .feature-grid { display: grid; gap: 1px; grid-template-columns: repeat(3, minmax(0, 1fr)); background: var(--border-soft); }
+      .feature { background: var(--bg); min-height: 120px; padding: var(--space-5); }
+      .feature strong { display: block; margin-bottom: var(--space-2); }
+      .input { align-items: center; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); display: flex; padding-left: var(--space-4); }
+      .input input { background: transparent; border: 0; color: var(--fg); font: inherit; padding: var(--space-3); width: 100%; }
+      @media (max-width: 640px) { body { padding: var(--space-5); } .feature-grid { grid-template-columns: 1fr; } }
+    </style>
+  </head>
+  <body>
+    <section class="group" data-component="actions">
+      <h2>Actions</h2>
+      <div class="row"><a class="button" href="#">Start your 14-day trial</a><span class="badge">Reflect AI</span></div>
+    </section>
+    <section class="group" data-component="navigation">
+      <h2>Navigation</h2>
+      <div class="row"><span class="badge">Product</span><span class="badge">Pricing</span><span class="badge">Company</span></div>
+    </section>
+    <section class="group" data-component="containment">
+      <h2>AI prompt panel</h2>
+      <div class="glass"><p class="prompt">How to use AI to take better notes</p><p class="answer">Ask anything to AI, then re-run, insert, copy, or replace the result.</p></div>
+    </section>
+    <section class="group" data-component="data-display">
+      <h2>Feature cells</h2>
+      <div class="feature-grid"><article class="feature"><strong>Networked notes</strong><span>Backlinked ideas stay connected.</span></article><article class="feature"><strong>End-to-end encryption</strong><span>Only you can access your notes.</span></article><article class="feature"><strong>Publishing</strong><span>Share anything in one click.</span></article></div>
+    </section>
+    <section class="group" data-component="input">
+      <h2>Newsletter input</h2>
+      <label class="input"><input aria-label="Enter your email" placeholder="Enter your email" type="email" /><span class="button">Subscribe</span></label>
+    </section>
+  </body>
+</html>

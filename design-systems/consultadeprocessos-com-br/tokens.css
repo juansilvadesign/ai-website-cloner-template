@@ -1,0 +1,93 @@
+/* Consulta de Processos — tokens.css
+ * Emitted by scripts/emit-design-system.ts from source/tokens.source.json.
+ * Declares every OpenDesign TOKEN_SCHEMA slot (56). Edit the
+ * source artifact and re-emit; do not hand-edit derived files. */
+
+:root {
+  /* ─── Surface ─────────────────────────────────────────────────── */
+  --bg:                       #ffffff;
+  --surface:                  #ffffff;
+  --surface-warm:             #f8fafc;
+
+  /* ─── Foreground ──────────────────────────────────────────────── */
+  --fg:                       #020817;
+  --fg-2:                     #334155;
+  --muted:                    #64748b;
+  --meta:                     #94a3b8;
+
+  /* ─── Border ──────────────────────────────────────────────────── */
+  --border:                   #e2e8f0;
+  --border-soft:              #f1f5f9;
+
+  /* ─── Accent ──────────────────────────────────────────────────── */
+  --accent:                   #14b8a6;
+  --accent-on:                #ffffff;
+  --accent-hover:             #0f766e;
+  --accent-active:            #0d9488;
+
+  /* ─── Semantic ────────────────────────────────────────────────── */
+  --success:                  #16a34a;
+  --warn:                     #eab308;
+  --danger:                   #dc2626;
+
+  /* ─── Typography — fonts ──────────────────────────────────────── */
+  --font-display:             "Inter", "Inter Fallback", system-ui, sans-serif;
+  --font-body:                "Inter", "Inter Fallback", system-ui, sans-serif;
+  --font-mono:                ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Monaco, Consolas, monospace;
+
+  /* ─── Typography — scale ──────────────────────────────────────── */
+  --text-xs:                  11px;
+  --text-sm:                  12px;
+  --text-base:                15px;
+  --text-lg:                  16px;
+  --text-xl:                  20px;
+  --text-2xl:                 24px;
+  --text-3xl:                 36px;
+  --text-4xl:                 48px;
+
+  /* ─── Typography — leading & tracking ─────────────────────────── */
+  --leading-body:             1.5;
+  --leading-tight:            1.15;
+  --tracking-display:         -0.02em;
+
+  /* ─── Spacing ─────────────────────────────────────────────────── */
+  --space-1:                  4px;
+  --space-2:                  8px;
+  --space-3:                  12px;
+  --space-4:                  16px;
+  --space-5:                  20px;
+  --space-6:                  24px;
+  --space-8:                  32px;
+  --space-12:                 48px;
+
+  /* ─── Section rhythm ──────────────────────────────────────────── */
+  --section-y-desktop:        128px;
+  --section-y-tablet:         64px;
+  --section-y-phone:          64px;
+
+  /* ─── Radius ──────────────────────────────────────────────────── */
+  --radius-sm:                8px;
+  --radius-md:                12px;
+  --radius-lg:                16px;
+  --radius-pill:              9999px;
+
+  /* ─── Elevation ───────────────────────────────────────────────── */
+  --elev-flat:                none;
+  --elev-ring:                0 1px 2px rgba(15, 23, 42, .04), 0 3px 8px rgba(15, 23, 42, .04);
+  --elev-raised:              0 20px 25px -5px rgba(148, 163, 184, .35), 0 8px 10px -6px rgba(148, 163, 184, .22);
+
+  /* ─── Focus ───────────────────────────────────────────────────── */
+  --focus-ring:               0 0 0 3px color-mix(in srgb, var(--accent) 35%, transparent);
+
+  /* ─── Motion ──────────────────────────────────────────────────── */
+  --motion-fast:              150ms;
+  --motion-base:              200ms;
+  --ease-standard:            cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ─── Layout ──────────────────────────────────────────────────── */
+  --container-max:            1336px;
+  --container-gutter-desktop: 52px;
+  --container-gutter-tablet:  20px;
+  --container-gutter-phone:   20px;
+}
+

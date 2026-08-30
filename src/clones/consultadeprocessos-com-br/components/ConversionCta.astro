@@ -1,0 +1,50 @@
+---
+const assurances = ["Dados conforme LGPD", "Resultados em segundos"] as const;
+---
+
+<section class="conversion" id="cadastro" aria-labelledby="conversion-title">
+  <div class="conversion__container">
+    <div class="conversion__panel">
+      <div class="conversion__pattern" aria-hidden="true">
+        <span>+</span><span>+</span><span>+</span><span>+</span><span>+</span><span>+</span><span>+</span><span>+</span>
+        <span>+</span><span>+</span><span>+</span><span>+</span><span>+</span><span>+</span><span>+</span><span>+</span>
+      </div>
+      <div class="conversion__content">
+        <h2 id="conversion-title">Comece a consultar em menos de 2 minutos</h2>
+        <p>Crie sua conta gratuita e tenha acesso imediato a processos judiciais e dados cadastrais de todo o Brasil.</p>
+        <div class="conversion__actions">
+          <a class="conversion__primary" href="#cadastro">Criar conta gratuita <span aria-hidden="true">→</span></a>
+          <a class="conversion__secondary" href="#contato">Falar com um especialista <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="conversion__assurances" aria-label="Garantias">
+          {assurances.map((assurance) => <span><i aria-hidden="true">✓</i>{assurance}</span>)}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .conversion { padding:var(--section-y-desktop) 0; background:var(--surface); }
+  .conversion__container { width:min(calc(100% - (var(--container-gutter-desktop) * 2)),1176px); margin-inline:auto; }
+  .conversion__panel { position:relative; display:grid; min-height:570px; place-items:center; overflow:hidden; padding:112px 80px; border-radius:var(--radius-xl); background:linear-gradient(135deg,var(--accent) 0%,var(--accent-hover) 100%); color:var(--on-accent); isolation:isolate; }
+  .conversion__pattern { position:absolute; inset:0; display:grid; grid-template-columns:repeat(8,1fr); grid-template-rows:repeat(2,1fr); align-items:center; justify-items:center; color:rgb(255 255 255 / .12); font-size:28px; font-weight:300; transform:rotate(-9deg) scale(1.15); z-index:-1; }
+  .conversion__pattern::before,.conversion__pattern::after { position:absolute; width:560px; height:560px; border:1px solid rgb(255 255 255 / .13); border-radius:var(--radius-pill); content:""; }
+  .conversion__pattern::before { top:-330px; left:-220px; }
+  .conversion__pattern::after { right:-230px; bottom:-360px; }
+  .conversion__content { max-width:760px; text-align:center; }
+  .conversion h2 { max-width:720px; margin:0 auto; color:inherit; font-size:var(--text-4xl); font-weight:700; letter-spacing:var(--tracking-display); line-height:1.08; }
+  .conversion p { max-width:512px; margin:var(--space-5) auto 0; color:rgb(255 255 255 / .88); font-size:var(--text-lg); line-height:var(--leading-body); }
+  .conversion__actions { display:flex; justify-content:center; gap:var(--space-3); margin-top:var(--space-8); }
+  .conversion__actions a { display:inline-flex; min-height:56px; align-items:center; justify-content:center; gap:var(--space-2); padding:0 var(--space-6); border:1px solid transparent; border-radius:var(--radius-md); font-size:var(--text-md); font-weight:700; transition:background-color var(--duration-fast) var(--ease-standard),border-color var(--duration-fast) var(--ease-standard),transform var(--duration-fast) var(--ease-standard); }
+  .conversion__primary { min-width:222px; background:var(--surface); color:var(--accent-hover); }
+  .conversion__secondary { min-width:272px; border-color:rgb(255 255 255 / .55) !important; color:var(--on-accent); }
+  .conversion__actions a:hover { transform:translateY(-1px); }
+  .conversion__primary:hover { background:var(--accent-soft); }
+  .conversion__secondary:hover { background:rgb(255 255 255 / .12); border-color:var(--surface) !important; }
+  .conversion__assurances { display:flex; justify-content:center; gap:var(--space-6); margin-top:var(--space-6); color:rgb(255 255 255 / .8); font-size:var(--text-sm); }
+  .conversion__assurances span { display:inline-flex; align-items:center; gap:var(--space-2); }
+  .conversion__assurances i { display:grid; width:16px; height:16px; place-items:center; border:1px solid rgb(255 255 255 / .65); border-radius:var(--radius-pill); font-size:10px; font-style:normal; }
+  @media(max-width:1023px) { .conversion { padding:var(--section-y-tablet) var(--container-gutter-tablet); } .conversion__container { width:100%; } .conversion h2 { font-size:var(--text-3xl); } }
+  @media(max-width:767px) { .conversion { padding:var(--section-y-phone) var(--container-gutter-phone); } .conversion__panel { min-height:381px; padding:56px 24px; border-radius:var(--radius-lg); } .conversion__pattern { font-size:20px; } .conversion h2 { font-size:var(--text-xl); line-height:1.32; } .conversion p { margin-top:var(--space-3); font-size:var(--text-sm); line-height:1.55; } .conversion__actions { display:grid; gap:var(--space-3); margin-top:var(--space-6); } .conversion__actions a { width:100%; min-height:48px; font-size:var(--text-sm); } .conversion__primary,.conversion__secondary { min-width:0; } .conversion__assurances { display:grid; gap:var(--space-2); margin-top:var(--space-5); font-size:var(--text-xs); } .conversion__assurances span { justify-content:center; } }
+</style>

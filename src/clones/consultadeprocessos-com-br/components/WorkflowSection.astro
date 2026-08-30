@@ -1,0 +1,124 @@
+---
+const steps = [
+  ["01", "Crie sua conta", "Comece em segundos, sem burocracia."],
+  ["02", "Informe o CPF ou CNPJ", "Consulte qualquer pessoa ou empresa com rapidez."],
+  ["03", "Acesse todos os processos", "Veja histórico completo, atualizado e organizado."],
+  ["04", "Exporte o relatório completo", "Baixe os dados prontos para análise e tomada de decisão."],
+] as const;
+
+const processTypes = [
+  ["Cível", "2"],
+  ["Criminal", "4"],
+  ["Trabalhista", "1"],
+  ["Tributário", "0"],
+  ["Administrativo", "0"],
+] as const;
+---
+
+<section class="workflow" id="como-funciona" aria-labelledby="workflow-title">
+  <div class="workflow__pattern" aria-hidden="true"></div>
+  <div class="workflow__container">
+    <header class="workflow__intro">
+      <h2 id="workflow-title">Veja como funciona na prática</h2>
+      <p>Interface intuitiva projetada para entregar resultados rápidos</p>
+    </header>
+    <div class="workflow__layout">
+      <div class="workflow__steps">
+        <ol>
+          {steps.map(([number, title, description]) => (
+            <li>
+              <span>{number}</span>
+              <div><h3>{title}</h3><p>{description}</p></div>
+            </li>
+          ))}
+        </ol>
+        <a href="#cadastro">Consultar agora <span aria-hidden="true">→</span></a>
+      </div>
+
+      <div class="dashboard" aria-label="Demonstração de resultados de consulta processual">
+        <div class="dashboard__chrome">
+          <span></span><span></span><span></span><small>consultadeprocessos.com.br</small>
+        </div>
+        <div class="dashboard__search">
+          <div><span aria-hidden="true">⌕</span> 123.456.789-10</div>
+          <button type="button">Consultar</button>
+        </div>
+        <div class="dashboard__body">
+          <aside>
+            <h4>Tipo do processo</h4>
+            <ul>{processTypes.map(([type, count], index) => <li class:list={{ "is-selected": index === 0 }}><span>{type}</span><b>{count}</b></li>)}</ul>
+            <h4>Tipo de parte</h4>
+            <ul><li><span>Autor</span><b>0</b></li><li class="is-selected"><span>Réu</span><b>6</b></li><li><span>Outros</span><b>1</b></li></ul>
+          </aside>
+          <div class="dashboard__results">
+            <div class="dashboard__person"><span class="person-dot"></span><div><strong>Maria Silva dos Santos</strong><small>7 PROCESSOS ENCONTRADOS</small></div><em>Atualizado há 2 min</em></div>
+            <article class="process-row">
+              <header><span>1ª instância</span><b>Cível</b></header>
+              <h4>Maria Silva dos Santos x Banco Nacional S.A.</h4>
+              <p>0012847-63.2024.8.26.0100</p>
+              <footer><strong>AÇÃO DE INDENIZAÇÃO POR DANOS MORAIS</strong><span><img src="/clones/consultadeprocessos-com-br/images/sp.png" alt="" width="18" height="14" /> São Paulo - SP</span></footer>
+            </article>
+            <article class="process-row">
+              <header><span>2ª instância</span><b>Trabalhista</b></header>
+              <h4>Maria Silva dos Santos x Comércio Ltda.</h4>
+              <p>0008391-15.2023.5.01.0042</p>
+              <footer><strong>RECURSO ORDINÁRIO TRABALHISTA</strong><span><img src="/clones/consultadeprocessos-com-br/images/rj.png" alt="" width="18" height="14" /> Rio de Janeiro - RJ</span></footer>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .workflow { position:relative; overflow:hidden; padding:var(--section-y-desktop) 0 var(--section-y-tablet); background:linear-gradient(180deg,var(--accent),var(--accent-hover)); color:var(--accent-on); }
+  .workflow__pattern { position:absolute; inset:0; opacity:.055; background-image:linear-gradient(90deg,transparent 49%,rgba(255,255,255,.8) 50%,transparent 51%),linear-gradient(transparent 49%,rgba(255,255,255,.8) 50%,transparent 51%); background-size:60px 60px; }
+  .workflow__container { position:relative; width:min(100%,var(--container-max)); margin-inline:auto; padding-inline:var(--space-5); }
+  .workflow__intro { max-width:672px; margin:0 auto 64px; text-align:center; }
+  .workflow__intro h2 { margin:0; font-size:42px; font-weight:700; letter-spacing:var(--tracking-display); line-height:var(--leading-tight); }
+  .workflow__intro p { margin:var(--space-3) 0 0; color:rgba(255,255,255,.8); font-size:var(--text-lg); }
+  .workflow__layout { display:grid; grid-template-columns:340px minmax(0,1fr); align-items:center; gap:72px; }
+  .workflow__steps ol { position:relative; display:grid; gap:var(--space-5); margin:0; padding:0; list-style:none; }
+  .workflow__steps ol::before { position:absolute; left:8px; top:17px; bottom:17px; width:1px; background:rgba(255,255,255,.24); content:""; }
+  .workflow__steps li { position:relative; display:grid; grid-template-columns:42px 1fr; gap:var(--space-3); }
+  .workflow__steps li > span { position:relative; z-index:1; color:color-mix(in srgb,var(--accent-on) 62%,transparent); font-size:var(--text-lg); font-weight:700; }
+  .workflow__steps h3 { margin:0; font-size:var(--text-lg); font-weight:600; }
+  .workflow__steps p { margin:var(--space-1) 0 0; color:rgba(255,255,255,.7); font-size:var(--text-sm); line-height:1.5; }
+  .workflow__steps > a { display:inline-flex; min-height:48px; margin-top:var(--space-6); align-items:center; gap:var(--space-2); padding-inline:var(--space-5); border-radius:var(--radius-md); background:var(--surface); color:var(--accent-hover); font-size:var(--text-sm); font-weight:700; transition:background var(--motion-base) var(--ease-standard); }
+  .workflow__steps > a:hover { background:var(--surface-warm); }
+  .dashboard { overflow:hidden; border:1px solid color-mix(in srgb,var(--surface) 78%,transparent); border-radius:var(--radius-md); background:var(--surface); color:var(--fg); box-shadow:0 18px 36px rgba(7,91,84,.2); }
+  .dashboard__chrome { display:flex; height:37px; align-items:center; gap:6px; padding-inline:13px; border-bottom:1px solid var(--border-soft); background:var(--surface-warm); }
+  .dashboard__chrome span { width:7px; height:7px; border-radius:var(--radius-pill); background:var(--border); }
+  .dashboard__chrome small { margin-left:var(--space-2); color:var(--meta); font-size:10px; }
+  .dashboard__search { display:flex; align-items:center; justify-content:space-between; gap:var(--space-3); padding:15px var(--space-4); border-bottom:1px solid var(--border-soft); }
+  .dashboard__search > div { display:flex; flex:1; min-height:34px; align-items:center; gap:var(--space-2); padding-inline:var(--space-3); border:1px solid var(--border); border-radius:6px; color:var(--meta); font-size:var(--text-sm); }
+  .dashboard__search span { color:var(--meta); }
+  .dashboard__search button { min-height:34px; padding-inline:var(--space-4); border:0; border-radius:6px; background:var(--accent); color:var(--accent-on); font-size:var(--text-sm); font-weight:700; }
+  .dashboard__body { display:grid; grid-template-columns:188px minmax(0,1fr); min-height:420px; }
+  .dashboard__body aside { padding:var(--space-4); border-right:1px solid var(--border-soft); background:color-mix(in srgb,var(--surface-warm) 65%,var(--surface)); }
+  .dashboard__body h4 { margin:0 0 var(--space-2); color:var(--meta); font-size:10px; font-weight:700; text-transform:uppercase; }
+  .dashboard__body ul { display:grid; gap:3px; margin:0 0 var(--space-5); padding:0; list-style:none; }
+  .dashboard__body li { display:flex; justify-content:space-between; padding:5px 7px; border-radius:5px; color:var(--muted); font-size:10px; }
+  .dashboard__body li.is-selected { background:color-mix(in srgb,var(--accent) 12%,var(--surface)); color:var(--accent-hover); font-weight:700; }
+  .dashboard__body li b { font-size:10px; }
+  .dashboard__results { padding:var(--space-4); }
+  .dashboard__person { display:flex; align-items:center; gap:var(--space-2); padding-bottom:var(--space-4); border-bottom:1px solid var(--border-soft); }
+  .person-dot { width:26px; height:26px; border-radius:var(--radius-pill); background:linear-gradient(135deg,var(--accent),var(--accent-hover)); }
+  .dashboard__person div { display:grid; gap:2px; }
+  .dashboard__person strong { color:var(--fg); font-size:var(--text-sm); }
+  .dashboard__person small { color:var(--accent-hover); font-size:9px; font-weight:700; letter-spacing:.04em; }
+  .dashboard__person em { margin-left:auto; color:var(--meta); font-size:9px; font-style:normal; }
+  .process-row { padding-block:var(--space-4); border-bottom:1px solid var(--border-soft); }
+  .process-row header, .process-row footer { display:flex; align-items:center; justify-content:space-between; gap:var(--space-2); }
+  .process-row header { color:var(--meta); font-size:9px; }
+  .process-row header b { padding:2px 6px; border-radius:var(--radius-pill); background:color-mix(in srgb,var(--accent) 10%,var(--surface)); color:var(--accent-hover); }
+  .process-row h4 { margin:var(--space-2) 0 2px; color:var(--fg-2); font-size:var(--text-sm); text-transform:none; }
+  .process-row p { margin:0; color:var(--meta); font-size:9px; }
+  .process-row footer { margin-top:var(--space-3); color:var(--muted); font-size:8px; }
+  .process-row footer strong { max-width:55%; color:var(--meta); font-size:8px; font-weight:700; }
+  .process-row footer span { display:flex; align-items:center; gap:4px; white-space:nowrap; }
+  .process-row footer img { width:14px; height:auto; border-radius:2px; }
+  @media(max-width:1023px) { .workflow { padding:var(--section-y-tablet) 0; } .workflow__intro h2 { font-size:36px; } .workflow__layout { grid-template-columns:260px minmax(0,1fr); gap:var(--space-8); } .dashboard__body { grid-template-columns:150px minmax(0,1fr); } }
+  @media(max-width:767px) { .workflow { padding:var(--section-y-phone) 0; } .workflow__container { padding-inline:var(--container-gutter-phone); } .workflow__intro { margin-bottom:40px; text-align:left; } .workflow__intro h2 { font-size:var(--text-2xl); } .workflow__intro p { font-size:var(--text-base); line-height:1.5; } .workflow__layout { grid-template-columns:1fr; gap:40px; } .workflow__steps { min-height:526px; } .workflow__steps li { grid-template-columns:38px 1fr; } .dashboard__body { grid-template-columns:108px minmax(0,1fr); min-height:384px; } .dashboard__body aside { padding:var(--space-3); } .dashboard__body li { padding:4px; font-size:8px; } .dashboard__results { padding:var(--space-3); } .dashboard__person strong { font-size:10px; } .dashboard__person em { display:none; } .process-row h4 { font-size:10px; } .process-row footer { align-items:flex-start; flex-direction:column; } }
+</style>

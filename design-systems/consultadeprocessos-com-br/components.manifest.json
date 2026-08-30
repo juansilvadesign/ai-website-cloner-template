@@ -1,0 +1,310 @@
+{
+  "schemaVersion": 1,
+  "brandId": "consultadeprocessos-com-br",
+  "source": {
+    "componentsHtml": "components.html",
+    "tokensCss": "tokens.css"
+  },
+  "fixture": {
+    "title": "Consulta de Processos — Components",
+    "styleBlockCount": 1,
+    "selectorCount": 18,
+    "classCount": 9,
+    "elementCount": 17
+  },
+  "tokens": {
+    "declared": [
+      "--accent",
+      "--accent-active",
+      "--accent-hover",
+      "--accent-on",
+      "--bg",
+      "--border",
+      "--border-soft",
+      "--container-gutter-desktop",
+      "--container-gutter-phone",
+      "--container-gutter-tablet",
+      "--container-max",
+      "--danger",
+      "--ease-standard",
+      "--elev-flat",
+      "--elev-raised",
+      "--elev-ring",
+      "--fg",
+      "--fg-2",
+      "--focus-ring",
+      "--font-body",
+      "--font-display",
+      "--font-mono",
+      "--leading-body",
+      "--leading-tight",
+      "--meta",
+      "--motion-base",
+      "--motion-fast",
+      "--muted",
+      "--radius-lg",
+      "--radius-md",
+      "--radius-pill",
+      "--radius-sm",
+      "--section-y-desktop",
+      "--section-y-phone",
+      "--section-y-tablet",
+      "--space-1",
+      "--space-12",
+      "--space-2",
+      "--space-3",
+      "--space-4",
+      "--space-5",
+      "--space-6",
+      "--space-8",
+      "--success",
+      "--surface",
+      "--surface-warm",
+      "--text-2xl",
+      "--text-3xl",
+      "--text-4xl",
+      "--text-base",
+      "--text-lg",
+      "--text-sm",
+      "--text-xl",
+      "--text-xs",
+      "--tracking-display",
+      "--warn"
+    ],
+    "referenced": [
+      "--accent",
+      "--accent-hover",
+      "--accent-on",
+      "--bg",
+      "--border",
+      "--container-gutter-phone",
+      "--container-max",
+      "--ease-standard",
+      "--elev-ring",
+      "--fg",
+      "--fg-2",
+      "--font-body",
+      "--leading-body",
+      "--leading-tight",
+      "--motion-fast",
+      "--muted",
+      "--radius-lg",
+      "--radius-md",
+      "--radius-pill",
+      "--radius-sm",
+      "--section-y-tablet",
+      "--space-1",
+      "--space-2",
+      "--space-3",
+      "--space-4",
+      "--space-5",
+      "--space-6",
+      "--surface",
+      "--surface-warm",
+      "--text-base",
+      "--text-lg",
+      "--text-sm",
+      "--text-xs"
+    ],
+    "unusedDeclared": [
+      "--accent-active",
+      "--border-soft",
+      "--container-gutter-desktop",
+      "--container-gutter-tablet",
+      "--danger",
+      "--elev-flat",
+      "--elev-raised",
+      "--focus-ring",
+      "--font-display",
+      "--font-mono",
+      "--meta",
+      "--motion-base",
+      "--section-y-desktop",
+      "--section-y-phone",
+      "--space-12",
+      "--space-8",
+      "--success",
+      "--text-2xl",
+      "--text-3xl",
+      "--text-4xl",
+      "--text-xl",
+      "--tracking-display",
+      "--warn"
+    ],
+    "undeclaredReferenced": []
+  },
+  "selectors": [
+    ".button-primary",
+    ".button-primary:hover",
+    ".eyebrow",
+    ".eyebrow::before",
+    ".fixture-card",
+    ".fixture-card h2",
+    ".fixture-card p",
+    ".fixture-chip",
+    ".fixture-faq",
+    ".fixture-faq p",
+    ".fixture-faq summary",
+    ".fixture-grid",
+    ".fixture-header",
+    ".fixture-icon",
+    ".fixture-product",
+    "*",
+    "body",
+    "main"
+  ],
+  "classes": [
+    "button-primary",
+    "eyebrow",
+    "fixture-card",
+    "fixture-chip",
+    "fixture-faq",
+    "fixture-grid",
+    "fixture-header",
+    "fixture-icon",
+    "fixture-product"
+  ],
+  "elements": [
+    "a",
+    "article",
+    "body",
+    "details",
+    "h2",
+    "head",
+    "header",
+    "html",
+    "link",
+    "main",
+    "meta",
+    "p",
+    "section",
+    "span",
+    "style",
+    "summary",
+    "title"
+  ],
+  "groups": [
+    {
+      "id": "buttons",
+      "label": "Buttons and calls to action",
+      "present": true,
+      "selectors": [
+        ".button-primary",
+        ".button-primary:hover"
+      ],
+      "classes": [
+        "button-primary"
+      ],
+      "elements": [],
+      "tokenReferences": [
+        "--accent-hover"
+      ]
+    },
+    {
+      "id": "inputs",
+      "label": "Form fields and controls",
+      "present": false,
+      "selectors": [],
+      "classes": [],
+      "elements": [],
+      "tokenReferences": []
+    },
+    {
+      "id": "cards",
+      "label": "Cards and panels",
+      "present": false,
+      "selectors": [],
+      "classes": [],
+      "elements": [],
+      "tokenReferences": []
+    },
+    {
+      "id": "badges",
+      "label": "Badges, chips, and status labels",
+      "present": false,
+      "selectors": [],
+      "classes": [],
+      "elements": [],
+      "tokenReferences": []
+    },
+    {
+      "id": "links",
+      "label": "Links and inline actions",
+      "present": true,
+      "selectors": [],
+      "classes": [],
+      "elements": [
+        "a"
+      ],
+      "tokenReferences": []
+    },
+    {
+      "id": "keyboard",
+      "label": "Keyboard hints",
+      "present": false,
+      "selectors": [],
+      "classes": [],
+      "elements": [],
+      "tokenReferences": []
+    },
+    {
+      "id": "icons",
+      "label": "Icon slots",
+      "present": false,
+      "selectors": [],
+      "classes": [],
+      "elements": [],
+      "tokenReferences": []
+    },
+    {
+      "id": "typography",
+      "label": "Typography scale and text utilities",
+      "present": true,
+      "selectors": [
+        ".eyebrow",
+        ".eyebrow::before",
+        ".fixture-card h2"
+      ],
+      "classes": [
+        "eyebrow"
+      ],
+      "elements": [
+        "h2",
+        "p"
+      ],
+      "tokenReferences": [
+        "--accent",
+        "--leading-tight",
+        "--space-2",
+        "--space-4",
+        "--text-lg"
+      ]
+    },
+    {
+      "id": "layout",
+      "label": "Layout primitives",
+      "present": true,
+      "selectors": [
+        "main"
+      ],
+      "classes": [
+        "fixture-grid"
+      ],
+      "elements": [
+        "header",
+        "main",
+        "section"
+      ],
+      "tokenReferences": [
+        "--container-gutter-phone",
+        "--container-max",
+        "--section-y-tablet"
+      ]
+    }
+  ],
+  "literals": {
+    "colorExpressions": 1,
+    "pixelValues": 9,
+    "hardcodedFontFamilies": 1
+  }
+}

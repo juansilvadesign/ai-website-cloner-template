@@ -1,0 +1,79 @@
+---
+import type { Feature } from "../types/content";
+
+const features: Feature[] = [
+  { icon: "↯", title: "Built for speed", description: "Instantly sync your notes across devices" },
+  { icon: "⌘", title: "Networked notes", description: "Form a graph of ideas with backlinked notes" },
+  { icon: "⌁", title: "iOS app", description: "Capture ideas on the go, online or offline" },
+  { icon: "◈", title: "End-to-end encryption", description: "Only you can access your notes" },
+  { icon: "◫", title: "Calendar integration", description: "Keep track of meetings and agendas" },
+  { icon: "↗", title: "Publishing", description: "Share anything you write with one click" },
+  { icon: "✦", title: "Instant capture", description: "Save snippets from your browser and Kindle" },
+  { icon: "⌕", title: "Frictionless search", description: "Easily recall and index past notes and ideas" },
+];
+---
+
+<section id="features" class="features" aria-label="Reflect features">
+  <div class="features-grid">
+    {features.map((feature) => (
+      <article class="feature-card">
+        <span class="feature-icon" aria-hidden="true">{feature.icon}</span>
+        <h2>{feature.title}</h2>
+        <p>{feature.description}</p>
+      </article>
+    ))}
+  </div>
+</section>
+
+<style>
+  .features {
+    position: relative;
+    z-index: 5;
+    width: min(var(--container-max), calc(100% - 80px));
+    margin: -78px auto 0;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    overflow: hidden;
+    border-top: 1px solid var(--border-soft);
+    border-left: 1px solid var(--border-soft);
+  }
+
+  .feature-card {
+    min-height: 196px;
+    padding: var(--space-6) var(--space-8) var(--space-8);
+    border-right: 1px solid var(--border-soft);
+    border-bottom: 1px solid var(--border-soft);
+    background: linear-gradient(180deg, color-mix(in srgb, var(--surface) 20%, transparent), transparent 74%);
+  }
+
+  .feature-icon {
+    display: grid;
+    place-items: center;
+    width: 30px;
+    height: 30px;
+    margin-bottom: var(--space-4);
+    border: 1px solid color-mix(in srgb, var(--fg) 38%, transparent);
+    border-radius: var(--radius-sm);
+    color: var(--fg-2);
+    font-size: var(--text-sm);
+  }
+
+  h2,
+  p { margin: 0; }
+  h2 { color: var(--fg-2); font-size: var(--text-base); font-weight: 500; line-height: var(--leading-body); }
+  p { margin-top: var(--space-1); color: var(--muted); font-size: var(--text-sm); line-height: 20px; }
+
+  @media (max-width: 960px) {
+    .features { width: min(var(--container-max), calc(100% - 40px)); }
+    .features-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  @media (max-width: 560px) {
+    .features { width: calc(100% - 32px); margin-top: -44px; }
+    .features-grid { grid-template-columns: 1fr; }
+    .feature-card { min-height: auto; padding: var(--space-5); }
+  }
+</style>

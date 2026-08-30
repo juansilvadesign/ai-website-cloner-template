@@ -1,0 +1,131 @@
+---
+const logos = [
+  ["logo-stf.webp", "Logo do Supremo Tribunal Federal - STF"],
+  ["logo-stj.webp", "Logo do Superior Tribunal de Justiça - STJ"],
+  ["logo-tjdft.webp", "Logo do Tribunal de Justiça do Distrito Federal e dos Territórios - TJDFT"],
+  ["logo-pjerj.webp", "Logo do Tribunal de Justiça do Estado do Rio de Janeiro - TJRJ"],
+  ["logo-tjes.webp", "Logo do Tribunal de Justiça do Estado do Espírito Santo - TJES"],
+  ["logo-tjpr.webp", "Logo do Tribunal de Justiça do Estado do Paraná - TJPR"],
+  ["logo-tjrs.webp", "Logo do Tribunal de Justiça do Estado do Rio Grande do Sul - TJRS"],
+  ["logo-tjsc.webp", "Logo do Tribunal de Justiça do Estado de Santa Catarina - TJSC"],
+] as const;
+---
+
+<section class="trust-rail" aria-label="Fontes de dados confiáveis">
+  <div class="trust-rail__container">
+    <p>Fontes de dados confiáveis e atualizadas de tribunais e órgãos oficiais</p>
+  </div>
+  <div class="trust-rail__mask">
+    <div class="trust-rail__track" aria-hidden="true">
+      {[...logos, ...logos].map(([file, alt]) => (
+        <div class="trust-rail__logo">
+          <img
+            src={`/clones/consultadeprocessos-com-br/images/${file}`}
+            alt={alt}
+            loading="lazy"
+            width="248"
+            height="90"
+          />
+        </div>
+      ))}
+    </div>
+    <span class="trust-rail__fade trust-rail__fade--start"></span>
+    <span class="trust-rail__fade trust-rail__fade--end"></span>
+  </div>
+</section>
+
+<style>
+  .trust-rail {
+    display: block;
+    overflow: hidden;
+    border-block: 1px solid var(--border);
+    background: var(--surface);
+    padding-block: var(--space-8);
+  }
+
+  .trust-rail__container {
+    width: min(calc(100% - (var(--container-gutter-desktop) * 2)), var(--container-max));
+    margin-inline: auto;
+  }
+
+  .trust-rail p {
+    margin: 0;
+    color: var(--muted);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: .055em;
+    line-height: 18px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .trust-rail__mask {
+    position: relative;
+    height: 90px;
+    margin-top: var(--space-3);
+    overflow: hidden;
+  }
+
+  .trust-rail__track {
+    display: flex;
+    width: max-content;
+    animation: logo-drift 32s linear infinite;
+  }
+
+  .trust-rail__logo {
+    display: grid;
+    flex: 0 0 250px;
+    width: 250px;
+    height: 90px;
+    place-items: center;
+    padding-inline: var(--space-2);
+  }
+
+  .trust-rail__logo img {
+    width: auto;
+    max-width: 248px;
+    height: 90px;
+    max-height: 90px;
+    object-fit: contain;
+    opacity: .52;
+    filter: grayscale(1) saturate(.4);
+  }
+
+  .trust-rail__fade {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    width: 96px;
+    pointer-events: none;
+  }
+
+  .trust-rail__fade--start {
+    left: 0;
+    background: linear-gradient(90deg, var(--surface), transparent);
+  }
+
+  .trust-rail__fade--end {
+    right: 0;
+    background: linear-gradient(-90deg, var(--surface), transparent);
+  }
+
+  @keyframes logo-drift {
+    from { transform: translateX(0); }
+    to { transform: translateX(-2000px); }
+  }
+
+  @media (max-width: 1023px) {
+    .trust-rail__container {
+      width: min(calc(100% - (var(--container-gutter-tablet) * 2)), var(--container-max));
+    }
+  }
+
+  @media (max-width: 767px) {
+    .trust-rail { display: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .trust-rail__track { animation-play-state: paused; }
+  }
+</style>

@@ -1,0 +1,48 @@
+---
+const features = [
+  ["⌕", "Consulta por CPF", "Busque processos em tribunais de justiça, federais e superiores vinculados a uma pessoa física."],
+  ["▣", "Consulta por CNPJ", "Encontre a consulta jurídica de qualquer empresa em poucos segundos com cobertura nacional."],
+  ["⌂", "Dados cadastrais (PF)", "Acesse informações básicas como endereço, situação do nome e outros dados cadastrais."],
+  ["▤", "Dados cadastrais (PJ)", "Quadro societário, porte da empresa, capital social e situação cadastral detalhada."],
+  ["⚡", "Consultas ultra rápidas", "Resultados em segundos. A plataforma foi feita para não te fazer esperar por dados essenciais."],
+  ["◌", "Monitoramento processual", "Acompanhe processos com alertas automáticos e resumos simplificados por inteligência artificial."],
+] as const;
+---
+
+<section class="features" id="funcionalidades" aria-labelledby="features-title">
+  <div class="features__container">
+    <header class="features__intro">
+      <span class="eyebrow"><i></i>Funcionalidades</span>
+      <h2 id="features-title">Tudo o que você precisa em um só lugar</h2>
+    </header>
+    <div class="features__grid">
+      {features.map(([icon, title, description]) => (
+        <article class="feature-card">
+          <span class="feature-card__icon" aria-hidden="true"><i></i><b>{icon}</b></span>
+          <h3>{title}</h3>
+          <p>{description}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .features { padding:var(--section-y-desktop) var(--space-8); background:var(--bg); }
+  .features__container { width:min(100%, var(--container-max)); margin-inline:auto; }
+  .features__intro { width:min(100%, 576px); margin:0 auto 64px; text-align:center; }
+  .eyebrow { display:inline-flex; align-items:center; gap:var(--space-2); min-height:28px; color:var(--muted); font-size:var(--text-xs); font-weight:700; letter-spacing:.075em; text-transform:uppercase; }
+  .eyebrow i { width:7px; height:7px; border-radius:2px; background:var(--accent); }
+  .features h2 { margin:var(--space-3) 0 0; color:var(--fg); font-size:42px; font-weight:700; letter-spacing:var(--tracking-display); line-height:var(--leading-tight); }
+  .features__grid { display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:var(--space-4); }
+  .feature-card { min-height:204px; padding:var(--space-5); border:1px solid var(--border); border-radius:var(--radius-md); background:var(--surface); box-shadow:var(--elev-ring); transition:transform var(--motion-base) var(--ease-standard), box-shadow var(--motion-base) var(--ease-standard); }
+  .feature-card:hover { transform:translateY(-3px); box-shadow:var(--elev-raised); }
+  .feature-card__icon { position:relative; display:grid; width:48px; height:48px; place-items:center; overflow:hidden; border-radius:var(--radius-md); background:var(--surface-warm); color:var(--accent-hover); }
+  .feature-card__icon i { position:absolute; inset:0; border-radius:inherit; background:conic-gradient(var(--accent), #6366f1, var(--accent)); transition:transform 500ms ease-out; }
+  .feature-card:hover .feature-card__icon i { transform:rotate(90deg); }
+  .feature-card__icon b { position:relative; display:grid; width:42px; height:42px; place-items:center; border-radius:10px; background:var(--surface); font-size:var(--text-base); }
+  .feature-card h3 { margin:var(--space-4) 0 var(--space-2); color:var(--fg-2); font-size:var(--text-lg); font-weight:600; line-height:1.35; }
+  .feature-card p { margin:0; color:var(--muted); font-size:var(--text-sm); line-height:1.55; }
+  @media (max-width:1023px) { .features { padding:var(--section-y-tablet) var(--container-gutter-tablet); } .features h2 { font-size:36px; } .features__grid { grid-template-columns:repeat(2, minmax(0,1fr)); } }
+  @media (max-width:767px) { .features { padding:32px var(--container-gutter-phone) var(--section-y-phone); } .features__intro { margin-bottom:40px; } .features h2 { font-size:var(--text-2xl); } .features__grid { grid-template-columns:1fr; gap:var(--space-5); } .feature-card { min-height:226px; padding:28px; } }
+</style>

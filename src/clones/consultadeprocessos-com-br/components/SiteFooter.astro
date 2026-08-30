@@ -1,0 +1,42 @@
+---
+const links = [
+  ["Planos", "https://consultadeprocessos.com.br/planos"],
+  ["Consulta Processual", "https://consultadeprocessos.com.br/consulta-processual"],
+  ["Blog", "https://consultadeprocessos.com.br/blog"],
+  ["Termos de Uso", "https://consultadeprocessos.com.br/termos-de-uso"],
+  ["Privacidade", "https://consultadeprocessos.com.br/politica-de-privacidade"],
+] as const;
+---
+
+<footer class="site-footer" id="contato">
+  <div class="site-footer__container">
+    <div class="site-footer__top">
+      <p>Informação jurídica e cadastral para decisões estratégicas.</p>
+      <nav aria-label="Navegação do rodapé"><ul>{links.map(([label, href]) => <li><a href={href}>{label}</a></li>)}</ul></nav>
+    </div>
+    <div class="site-footer__bottom">
+      <small>© 2026 Consulta de Processos. Todos os direitos reservados.</small>
+      <a class="site-footer__instagram" href="https://www.instagram.com/consultadeprocessos" target="_blank" rel="noopener noreferrer" aria-label="Instagram da Consulta de Processos">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle class="site-footer__dot" cx="17.5" cy="6.5" r="1"></circle></svg><span>Instagram</span>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer { border-top:1px solid var(--border); background:var(--surface); }
+  .site-footer__container { width:min(calc(100% - (var(--container-gutter-desktop) * 2)),1336px); margin-inline:auto; }
+  .site-footer__top { display:grid; min-height:170px; align-content:center; gap:var(--space-8); }
+  .site-footer__top > p { margin:0; color:var(--meta); font-size:13px; line-height:1.55; }
+  .site-footer ul { display:flex; align-items:center; gap:var(--space-6); padding:0; margin:0; list-style:none; }
+  .site-footer nav a { color:var(--muted); font-size:13px; transition:color var(--duration-fast) var(--ease-standard); white-space:nowrap; }
+  .site-footer nav a:hover { color:var(--fg); }
+  .site-footer__bottom { display:flex; min-height:61px; align-items:center; justify-content:space-between; border-top:1px solid var(--border); }
+  .site-footer small { color:var(--muted); font-size:var(--text-xs); }
+  .site-footer__instagram { display:inline-flex; align-items:center; gap:var(--space-2); color:var(--muted); font-size:var(--text-xs); transition:color var(--duration-fast) var(--ease-standard); }
+  .site-footer__instagram:hover { color:var(--accent-hover); }
+  .site-footer__instagram svg { width:16px; height:16px; fill:none; stroke:currentColor; stroke-width:1.6; }
+  .site-footer__instagram .site-footer__dot { fill:currentColor; stroke:none; }
+  @media(max-width:1023px) { .site-footer { padding:0 var(--container-gutter-tablet); } .site-footer__container { width:100%; } }
+  @media(max-width:767px) { .site-footer { padding:0 var(--container-gutter-phone); } .site-footer__top { min-height:273px; align-content:center; gap:var(--space-5); padding:36px 0 28px; } .site-footer__top > p { max-width:250px; font-size:var(--text-xs); } .site-footer ul { display:grid; gap:11px; } .site-footer nav a { font-size:var(--text-xs); } .site-footer__bottom { min-height:51px; gap:var(--space-3); } .site-footer small { max-width:235px; line-height:1.45; } .site-footer__instagram span { display:none; } }
+</style>

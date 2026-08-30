@@ -1,0 +1,118 @@
+---
+const integrations = [
+  { mark: "z", title: "Zapier", copy: "Connect with Reflect with dozens of applications without code" },
+  { mark: "R", title: "Readwise", copy: "Sync your reading highlights and notes with Reflect." },
+  { mark: "G", title: "Google and Outlook", copy: "Integrate your contacts and calendars" },
+  { mark: "⌘", title: "Chrome and Safari", copy: "Save web clips and sync with your Kindle" },
+];
+---
+
+<section id="connected" class="story connected" aria-labelledby="connected-title">
+  <div class="connection-stars" aria-hidden="true"></div>
+  <header class="story-heading">
+    <span>All your notes, connected</span>
+    <h2 id="connected-title">Give your brain superpowers</h2>
+    <p>Mirror the way your mind works by associating notes through backlinks.<br /> Reflect builds you a second brain that you can reference anytime.</p>
+  </header>
+  <div class="connected-cards">
+    <article><div class="node-visual nodes" aria-hidden="true"><i></i><i></i><i></i><b></b></div><p><strong>Your thoughts connected.</strong> Backlink your notes to make everything easily searchable.</p></article>
+    <article><div class="node-visual capture" aria-hidden="true"><i></i><i></i><b></b></div><p><strong>Frictionless thought capture.</strong> Record your ideas and to-do’s easily, so you never miss a thing.</p></article>
+  </div>
+</section>
+
+<section class="story research" aria-labelledby="research-title">
+  <div class="research-gridlines" aria-hidden="true"></div>
+  <header class="story-heading">
+    <span>Research and reading</span>
+    <h2 id="research-title">Never lose information</h2>
+    <p>Collect your web snippets, Kindle highlights and important links – all in one place.<br /> Then quickly find them again from any device.</p>
+  </header>
+  <div class="research-cards">
+    <article><div class="radar" aria-hidden="true"><i></i><b></b><span></span></div><h3>Integrated with your devices</h3><p>We're everywhere, mobile or desktop, online or offline. Everything is synced in real-time.</p></article>
+    <article><div class="secure-icon" aria-hidden="true">⌂</div><h3>Secure but open</h3><p>End-to-end encryption keeps your notes secure. Our export and API keeps your notes accessible.</p></article>
+  </div>
+</section>
+
+<section class="encryption" aria-labelledby="encryption-title">
+  <div class="lock-orbit" aria-hidden="true"><div>▣</div></div>
+  <span>Encryption</span>
+  <h2 id="encryption-title">Hardened security</h2>
+  <p>The contents of your notes are end-to-end<br /> encrypted. No one else can read them<br /> (not even us).</p>
+</section>
+
+<section class="story meetings" aria-labelledby="meetings-title">
+  <header class="story-heading">
+    <span>Meetings</span>
+    <h2 id="meetings-title">Get more out<br /> of your meetings</h2>
+    <p>Keep track of all your meetings and what was discussed.<br /> Import events quickly with our Google Calendar and Outlook integrations.</p>
+  </header>
+  <div class="meeting-board" aria-label="Meeting calendar illustration">
+    <div class="calendar-panel"><strong>April 2023</strong><div class="week"><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span><span>Su</span></div><div class="days"><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></div></div>
+    <div class="agenda-panel"><strong>Meetings</strong><div><b>Meeting with Jonathan at Coffee Brewr</b><span>5:00am</span></div><div><b>Product call with the Design team</b><span>7:00am</span></div><div><b>Team call to figure out what's next</b><span>12:00pm</span></div></div>
+  </div>
+</section>
+
+<section id="integrations" class="story integrations" aria-labelledby="integrations-title">
+  <div class="integrations-glow" aria-hidden="true"></div>
+  <header class="story-heading">
+    <span>Integrations</span>
+    <h2 id="integrations-title">Use Reflect<br /> with other apps</h2>
+  </header>
+  <div class="integration-grid">
+    {integrations.map((item) => <article><span aria-hidden="true">{item.mark}</span><h3>{item.title}</h3><p>{item.copy}</p></article>)}
+  </div>
+</section>
+
+<style>
+  .story { position: relative; overflow: hidden; }
+  .story-heading { position: relative; z-index: 1; display: grid; justify-items: center; text-align: center; }
+  .story-heading > span,
+  .encryption > span { padding: var(--space-1) var(--space-3); border: 1px solid color-mix(in srgb, var(--accent-hover) 46%, var(--border)); border-radius: var(--radius-pill); background: color-mix(in srgb, var(--accent-active) 12%, transparent); color: color-mix(in srgb, var(--accent-hover) 82%, var(--fg)); font-size: var(--text-sm); line-height: 20px; }
+  h2, h3, p { margin: 0; }
+  .story-heading h2, .encryption h2 { margin-top: var(--space-4); color: var(--fg-2); font-family: "Reflect Aeonik", var(--font-display); font-size: var(--text-3xl); font-weight: 500; line-height: var(--leading-tight); letter-spacing: var(--tracking-display); }
+  .story-heading p, .encryption p { max-width: 680px; margin-top: var(--space-4); color: var(--muted); font-size: var(--text-base); line-height: var(--leading-body); }
+
+  .connected { min-height: 1240px; padding: 496px var(--space-5) 145px; }
+  .connection-stars { position: absolute; top: 148px; left: 50%; width: 960px; height: 230px; transform: translateX(-50%); background-image: radial-gradient(circle, color-mix(in srgb, var(--fg) 70%, transparent) 0 1px, transparent 1.5px); background-size: 88px 106px; opacity: .48; mask-image: linear-gradient(to bottom, transparent, black, transparent); }
+  .connected-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: min(936px, 100%); margin: 48px auto 0; border-top: 1px solid var(--border-soft); border-left: 1px solid var(--border-soft); }
+  .connected-cards article { min-height: 385px; padding: var(--space-8); border-right: 1px solid var(--border-soft); border-bottom: 1px solid var(--border-soft); }
+  .connected-cards p { max-width: 360px; color: var(--muted); font-size: var(--text-base); line-height: var(--leading-body); }
+  .connected-cards strong { color: var(--fg-2); font-weight: 500; }
+  .node-visual { position: relative; height: 250px; margin-bottom: var(--space-5); }
+  .nodes::before, .nodes::after { position: absolute; top: 44%; left: 15%; width: 70%; height: 1px; content: ""; background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--accent-hover) 76%, transparent), transparent); transform: rotate(24deg); }
+  .nodes::after { transform: rotate(-17deg); }
+  .node-visual i, .node-visual b { position: absolute; display: block; border: 1px solid color-mix(in srgb, var(--accent-hover) 50%, var(--border)); border-radius: var(--radius-pill); background: radial-gradient(circle at 45% 24%, color-mix(in srgb, var(--accent-hover) 55%, transparent), var(--surface)); box-shadow: 0 0 26px color-mix(in srgb, var(--accent) 35%, transparent); }
+  .nodes i:nth-child(1) { top: 18%; left: 20%; width: 66px; height: 66px; }.nodes i:nth-child(2) { top: 42%; right: 20%; width: 98px; height: 98px; }.nodes i:nth-child(3) { bottom: 2%; left: 40%; width: 48px; height: 48px; }.nodes b { top: 42%; left: 44%; width: 36px; height: 36px; }
+  .capture { display: grid; place-items: center; }.capture::before, .capture::after { position: absolute; content: ""; border: 1px solid color-mix(in srgb, var(--fg) 12%, transparent); border-radius: var(--radius-pill); }.capture::before { width: 196px; height: 196px; }.capture::after { width: 116px; height: 116px; }.capture i { width: 10px; height: 10px; }.capture i:nth-child(1) { top: 40%; left: 28%; }.capture i:nth-child(2) { top: 22%; right: 28%; }.capture b { width: 52px; height: 52px; }
+
+  .research { min-height: 1110px; padding: 182px var(--space-5) 145px; }
+  .research-gridlines { position: absolute; inset: 0; background: linear-gradient(90deg, transparent 15%, var(--border-soft) 15.1%, transparent 15.2% 50%, var(--border-soft) 50.1%, transparent 50.2% 84.8%, var(--border-soft) 84.9%, transparent 85%); opacity: .62; mask-image: linear-gradient(to bottom, transparent 0 12%, black 30% 74%, transparent 100%); }
+  .research-cards { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: min(920px, 100%); margin: 112px auto 0; border-top: 1px solid var(--border-soft); border-left: 1px solid var(--border-soft); text-align: center; }
+  .research-cards article { min-height: 302px; padding: var(--space-8); border-right: 1px solid var(--border-soft); border-bottom: 1px solid var(--border-soft); }
+  .research-cards h3, .integration-grid h3 { margin-top: var(--space-4); color: var(--fg-2); font-size: var(--text-base); font-weight: 500; line-height: var(--leading-body); }
+  .research-cards p, .integration-grid p { margin-top: var(--space-2); color: var(--muted); font-size: var(--text-base); line-height: var(--leading-body); }
+  .radar { position: relative; width: 126px; height: 126px; margin: 0 auto; overflow: hidden; border: 1px solid color-mix(in srgb, var(--accent-hover) 28%, transparent); border-radius: var(--radius-pill); background: repeating-radial-gradient(circle, transparent 0 26px, color-mix(in srgb, var(--accent-hover) 14%, transparent) 27px 28px), linear-gradient(140deg, color-mix(in srgb, var(--accent) 36%, transparent), transparent 50%); }
+  .radar::before { position: absolute; top: 50%; left: 50%; width: 105px; height: 1px; content: ""; background: color-mix(in srgb, var(--accent-hover) 60%, transparent); transform-origin: left center; animation: scan 5s linear infinite; }.radar i { position: absolute; top: 27px; right: 34px; width: 6px; height: 6px; border-radius: var(--radius-pill); background: var(--accent-hover); box-shadow: 0 0 12px var(--accent); }.radar b { position: absolute; bottom: 34px; left: 24px; width: 5px; height: 5px; border-radius: var(--radius-pill); background: var(--fg); }.radar span { position: absolute; inset: 50%; width: 8px; height: 8px; border-radius: var(--radius-pill); background: var(--accent); transform: translate(-50%, -50%); }
+  .secure-icon { display: grid; place-items: center; width: 54px; height: 54px; margin: 36px auto; border: 1px solid color-mix(in srgb, var(--fg) 46%, transparent); border-radius: 50% 50% 45% 45%; color: var(--fg-2); font-size: var(--text-lg); }
+
+  .encryption { position: relative; min-height: 776px; padding: 222px var(--space-5) 236px; text-align: center; overflow: hidden; }
+  .lock-orbit { display: grid; place-items: center; width: 112px; height: 112px; margin: 0 auto var(--space-12); border: 1px solid color-mix(in srgb, var(--accent-hover) 42%, var(--border)); border-radius: var(--radius-pill); background: radial-gradient(circle, color-mix(in srgb, var(--accent) 30%, transparent), transparent 65%); box-shadow: 0 0 70px color-mix(in srgb, var(--accent) 42%, transparent); }.lock-orbit div { display: grid; place-items: center; width: 64px; height: 64px; border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--surface); color: var(--fg-2); font-size: var(--text-xl); }
+
+  .meetings { min-height: 1154px; padding: 294px var(--space-5) var(--space-6); }
+  .meeting-board { position: relative; display: grid; grid-template-columns: 1.2fr .8fr; gap: var(--space-2); width: min(896px, 100%); height: 466px; margin: 56px auto 0; overflow: hidden; padding: var(--space-8); border: 1px solid var(--border-soft); border-radius: var(--radius-lg) var(--radius-lg) 0 0; background: linear-gradient(180deg, color-mix(in srgb, var(--surface) 70%, transparent), transparent); mask-image: linear-gradient(to bottom, black 0 55%, transparent 100%); }
+  .meeting-board::before { position: absolute; inset: 0; content: ""; background: repeating-linear-gradient(90deg, transparent 0 95px, var(--border-soft) 96px 97px); opacity: .7; pointer-events: none; }
+  .calendar-panel, .agenda-panel { position: relative; z-index: 1; padding: var(--space-5); border: 1px solid var(--border); border-radius: var(--radius-md); background: color-mix(in srgb, var(--surface) 76%, transparent); color: var(--fg-2); font-size: var(--text-sm); }.week, .days { display: grid; grid-template-columns: repeat(7, 1fr); gap: var(--space-2); margin-top: var(--space-6); color: var(--meta); text-align: center; }.days { margin-top: var(--space-4); }.days span:nth-child(7), .days span:nth-child(14) { border-radius: var(--radius-sm); background: var(--accent-active); color: var(--fg); }.agenda-panel { display: grid; align-content: start; gap: var(--space-4); }.agenda-panel div { display: grid; gap: var(--space-1); padding: var(--space-3); border-radius: var(--radius-sm); background: color-mix(in srgb, var(--fg) 4%, transparent); }.agenda-panel b { font-weight: 500; }.agenda-panel span { color: var(--meta); }
+
+  .integrations { min-height: 940px; padding: 116px var(--space-5) 172px; background: radial-gradient(ellipse at 50% 42%, color-mix(in srgb, var(--accent) 8%, transparent), transparent 54%); }
+  .integrations-glow { position: absolute; top: 126px; left: 50%; width: 650px; height: 390px; border-left: 1px solid var(--border-soft); border-right: 1px solid var(--border-soft); transform: translateX(-50%); mask-image: linear-gradient(to bottom, transparent, black 28%, transparent); }
+  .integration-grid { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: min(936px, 100%); margin: 64px auto 0; border-top: 1px solid var(--border-soft); border-left: 1px solid var(--border-soft); text-align: center; }.integration-grid article { min-height: 204px; padding: var(--space-8); border-right: 1px solid var(--border-soft); border-bottom: 1px solid var(--border-soft); }.integration-grid article > span { display: grid; place-items: center; width: 46px; height: 46px; margin: 0 auto; border: 1px solid color-mix(in srgb, var(--fg) 25%, transparent); border-radius: var(--radius-md); background: color-mix(in srgb, var(--fg) 3%, transparent); color: var(--fg-2); font-size: var(--text-lg); font-weight: 500; }
+
+  @keyframes scan { to { transform: rotate(360deg); } }
+  @media (max-width: 780px) {
+    .story-heading h2, .encryption h2 { max-width: 340px; font-size: 40px; line-height: 44px; }.story-heading p br, .encryption p br { display: none; }
+    .connected { min-height: auto; padding-top: 240px; padding-bottom: var(--section-y-phone); }.connected-cards, .research-cards, .integration-grid { grid-template-columns: 1fr; width: 100%; }.connected-cards article, .research-cards article, .integration-grid article { min-height: auto; }.node-visual { height: 200px; }
+    .research { min-height: auto; padding-top: var(--section-y-phone); padding-bottom: var(--section-y-phone); }.research-cards { margin-top: var(--space-12); }
+    .encryption { min-height: auto; padding: 130px var(--space-5); }.meetings { min-height: auto; padding: 130px var(--space-5) var(--space-6); }.meeting-board { grid-template-columns: 1fr; height: 440px; padding: var(--space-4); }.calendar-panel { display: none; }.agenda-panel { min-height: 280px; }
+    .integrations { min-height: auto; padding: var(--section-y-phone) var(--space-5); }
+  }
+</style>

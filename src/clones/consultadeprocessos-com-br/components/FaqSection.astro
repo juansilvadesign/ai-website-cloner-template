@@ -1,0 +1,79 @@
+---
+const faqs = [
+  ["A plataforma abrange todos os tribunais do Brasil?", "Sim! Nossa plataforma oferece dados de todos os tribunais brasileiros, incluindo 1ª e 2ª instâncias, STF e tribunais militares."],
+  ["O que significa o número CNJ de um processo?", "O número CNJ é uma identificação padronizada para processos em todo o país. Ele possui 20 dígitos que indicam detalhes como o tribunal responsável e o ano de início. Se você não souber o número CNJ, peça ao seu advogado ou faça a consulta pelo seu CPF. Exemplo de formato: 0000000-00.0000.0.00.0000."],
+  ["Quanto tempo leva para o acesso ser ativado após o pagamento?", "Seu acesso é liberado imediatamente assim que o pagamento for confirmado, seja por cartão de crédito ou Pix."],
+  ["Quais tipos de processos estão disponíveis para consulta?", "Permitimos a consulta de vários tipos de processos, como os cíveis, trabalhistas, criminais e administrativos. Nossa cobertura abrange uma ampla gama de informações judiciais."],
+  ["A plataforma permite o acompanhamento de processos?", "Sim! Você pode acompanhar seus processos e receber alertas automáticos sempre que houver atualizações ou novas movimentações."],
+  ["O sistema de pagamento é confiável?", "Sim, totalmente! Usamos um sistema de pagamento com alto nível de segurança, e todas as transações são processadas pelo Stripe, um dos provedores mais confiáveis do mercado."],
+  ["Posso cancelar minha assinatura quando quiser?", "Você pode cancelar sua assinatura a qualquer momento, sem taxas extras. Após o cancelamento, seu acesso continua válido até o final do período já pago."],
+  ["Como proceder para cancelar a assinatura?", "Você pode fazer o cancelamento de forma simples e sem custos adicionais. Basta acessar sua conta e clicar em 'Assinatura e Planos' dentro do menu lateral."],
+  ["Como remover meus dados da plataforma segundo a lei LGPD?", "A solicitação é feita em /privacidade/ocultar-dados: você preenche nome, CPF e e-mail, baixa a declaração gerada pelo sistema, assina no gov.br e envia o PDF assinado. Depois, acompanhe pelo protocolo em /privacidade/ocultar-dados/acompanhar."],
+] as const;
+---
+
+<section class="faq" aria-labelledby="faq-title">
+  <div class="faq__container">
+    <aside class="faq__aside">
+      <span class="faq__eyebrow"><i aria-hidden="true">?</i>Suporte</span>
+      <h2 id="faq-title">Perguntas frequentes</h2>
+      <p>Tire suas dúvidas sobre a plataforma. Não encontrou o que procura?</p>
+      <a href="#contato">Falar com especialista <span aria-hidden="true">→</span></a>
+    </aside>
+    <div class="faq__list">
+      {faqs.map(([question, answer], index) => (
+        <article class="faq__item" data-faq-item>
+          <h3>
+            <button type="button" aria-expanded="false" aria-controls={`faq-answer-${index}`} id={`faq-question-${index}`}>
+              <span>{question}</span><i aria-hidden="true"></i>
+            </button>
+          </h3>
+          <div class="faq__answer" id={`faq-answer-${index}`} role="region" aria-labelledby={`faq-question-${index}`} hidden>
+            <p>{answer}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLElement>("[data-faq-item]").forEach((item) => {
+    const button = item.querySelector<HTMLButtonElement>("button");
+    const answer = item.querySelector<HTMLElement>(".faq__answer");
+    if (!button || !answer) return;
+    button.addEventListener("click", () => {
+      const expanded = button.getAttribute("aria-expanded") === "true";
+      button.setAttribute("aria-expanded", String(!expanded));
+      answer.hidden = expanded;
+    });
+  });
+</script>
+
+<style>
+  .faq { padding:128px 0; background:var(--surface); }
+  .faq__container { display:grid; width:min(calc(100% - (var(--container-gutter-desktop) * 2)),1176px); grid-template-columns:320px minmax(0,752px); justify-content:space-between; gap:var(--space-10); margin-inline:auto; }
+  .faq__aside { position:sticky; top:128px; align-self:start; }
+  .faq__eyebrow { display:inline-flex; align-items:center; gap:var(--space-2); padding:7px 11px; border:1px solid var(--border); border-radius:var(--radius-pill); background:var(--surface-warm); color:var(--muted); font-size:var(--text-xs); font-weight:700; letter-spacing:.05em; text-transform:uppercase; }
+  .faq__eyebrow i { display:grid; width:12px; height:12px; place-items:center; border:1.5px solid currentColor; border-radius:var(--radius-pill); font-size:8px; font-style:normal; line-height:1; }
+  .faq h2 { margin:var(--space-5) 0 0; color:var(--fg); font-size:var(--text-3xl); font-weight:700; letter-spacing:var(--tracking-display); line-height:1.15; }
+  .faq__aside p { margin:var(--space-4) 0 0; color:var(--muted); font-size:var(--text-md); line-height:var(--leading-body); }
+  .faq__aside a { display:inline-flex; align-items:center; gap:var(--space-2); margin-top:var(--space-6); color:var(--accent-hover); font-size:var(--text-sm); font-weight:700; transition:color var(--duration-fast) var(--ease-standard); }
+  .faq__aside a:hover { color:var(--accent); }
+  .faq__list { border-top:1px solid var(--border); }
+  .faq__item { border-bottom:1px solid var(--border); }
+  .faq__item h3 { margin:0; }
+  .faq__item button { display:flex; width:100%; min-height:63px; align-items:center; justify-content:space-between; gap:var(--space-5); padding:18px 0; border:0; background:transparent; color:var(--fg); cursor:pointer; font:inherit; font-size:var(--text-md); font-weight:600; line-height:1.45; text-align:left; }
+  .faq__item button span { max-width:680px; }
+  .faq__item button i { position:relative; width:16px; height:16px; flex:0 0 16px; transition:transform var(--duration-standard) var(--ease-standard); }
+  .faq__item button i::before,.faq__item button i::after { position:absolute; top:7px; width:9px; height:1.5px; border-radius:var(--radius-pill); background:currentColor; content:""; }
+  .faq__item button i::before { right:0; transform:rotate(45deg); }
+  .faq__item button i::after { left:0; transform:rotate(-45deg); }
+  .faq__item button[aria-expanded="true"] { color:var(--accent-hover); }
+  .faq__item button[aria-expanded="true"] i { transform:rotate(180deg); }
+  .faq__answer { overflow:hidden; animation:accordion-down var(--duration-standard) var(--ease-standard); }
+  .faq__answer p { max-width:694px; margin:0; padding:0 40px 22px 0; color:var(--muted); font-size:var(--text-sm); line-height:1.7; }
+  @keyframes accordion-down { from { opacity:0; transform:translateY(-4px); } to { opacity:1; transform:translateY(0); } }
+  @media(max-width:1023px) { .faq { padding:var(--section-y-tablet) var(--container-gutter-tablet); } .faq__container { width:100%; grid-template-columns:1fr; gap:var(--space-9); } .faq__aside { position:static; max-width:480px; } .faq__list { width:100%; } }
+  @media(max-width:767px) { .faq { padding:96px var(--container-gutter-phone); } .faq__container { gap:40px; } .faq h2 { font-size:30px; } .faq__aside p { font-size:var(--text-sm); } .faq__aside a { margin-top:var(--space-5); } .faq__item button { min-height:63px; padding:20px 0; font-size:var(--text-base); } .faq__answer p { padding:0 28px 20px 0; font-size:14px; line-height:1.65; } }
+</style>

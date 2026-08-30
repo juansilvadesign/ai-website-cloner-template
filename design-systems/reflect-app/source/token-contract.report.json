@@ -1,0 +1,636 @@
+{
+  "schemaVersion": 1,
+  "format": "od-token-contract-report/v1",
+  "generatedAt": "2026-08-29T06:09:36.016Z",
+  "summary": {
+    "total": 56,
+    "byConfidence": {
+      "high": 45,
+      "derived": 11
+    },
+    "byLayer": {
+      "A1-identity": 8,
+      "B-slot": 4,
+      "A2": 26,
+      "A1-structure": 18
+    }
+  },
+  "tokens": [
+    {
+      "name": "--bg",
+      "layer": "A1-identity",
+      "value": "#030014",
+      "confidence": "high",
+      "reason": "Continuous page canvas declared on the live body element.",
+      "sources": [
+        "live stylesheet: body background-color",
+        "tokens.css:8"
+      ]
+    },
+    {
+      "name": "--surface",
+      "layer": "A1-identity",
+      "value": "#08051a",
+      "confidence": "derived",
+      "reason": "Lifted glass and demo-panel base calibrated from the live rgba surface stack.",
+      "sources": [
+        "live .ai-showcase and hero-preview computed backgrounds",
+        "tokens.css:9"
+      ]
+    },
+    {
+      "name": "--surface-warm",
+      "layer": "B-slot",
+      "value": "#100a2c",
+      "confidence": "derived",
+      "reason": "Quiet violet inset tone behind cards and modal treatments.",
+      "sources": [
+        "derived from live glass layers over #030014",
+        "tokens.css:10"
+      ]
+    },
+    {
+      "name": "--fg",
+      "layer": "A1-identity",
+      "value": "#f4f0ff",
+      "confidence": "high",
+      "reason": "Primary button and foreground copy color from live styles.",
+      "sources": [
+        "live .button computed color",
+        "tokens.css:13"
+      ]
+    },
+    {
+      "name": "--fg-2",
+      "layer": "B-slot",
+      "value": "#efedfd",
+      "confidence": "high",
+      "reason": "Heading and high-emphasis copy tier.",
+      "sources": [
+        "live body typography and section header inspection",
+        "tokens.css:14"
+      ]
+    },
+    {
+      "name": "--muted",
+      "layer": "A1-identity",
+      "value": "rgba(239, 237, 253, 0.7)",
+      "confidence": "high",
+      "reason": "Hero and section supporting copy tier.",
+      "sources": [
+        "live .section-header-description computed color",
+        "tokens.css:15"
+      ]
+    },
+    {
+      "name": "--meta",
+      "layer": "B-slot",
+      "value": "rgba(239, 237, 253, 0.6)",
+      "confidence": "high",
+      "reason": "Footer links and low-emphasis metadata.",
+      "sources": [
+        "live .footer-nav-group-item computed color",
+        "tokens.css:16"
+      ]
+    },
+    {
+      "name": "--border",
+      "layer": "A1-identity",
+      "value": "rgba(255, 255, 255, 0.1)",
+      "confidence": "high",
+      "reason": "Glass panel, input, and hairline treatment.",
+      "sources": [
+        "live .hero-video-preview and .ai-showcase CSS",
+        "tokens.css:19"
+      ]
+    },
+    {
+      "name": "--border-soft",
+      "layer": "B-slot",
+      "value": "rgba(243, 238, 255, 0.06)",
+      "confidence": "derived",
+      "reason": "Subtle grid and internal divider tier.",
+      "sources": [
+        "derived from live 0.08–0.12 white grid rules",
+        "tokens.css:20"
+      ]
+    },
+    {
+      "name": "--accent",
+      "layer": "A1-identity",
+      "value": "#8a5bff",
+      "confidence": "high",
+      "reason": "Purple primary action and black-hole glow core.",
+      "sources": [
+        "live hero and CTA visual inspection",
+        "tokens.css:23"
+      ]
+    },
+    {
+      "name": "--accent-on",
+      "layer": "A2",
+      "value": "#f4f0ff",
+      "confidence": "high",
+      "reason": "Live button foreground tone over purple action surfaces.",
+      "sources": [
+        "live .button computed color",
+        "tokens.css:24"
+      ]
+    },
+    {
+      "name": "--accent-hover",
+      "layer": "A2",
+      "value": "#a87fff",
+      "confidence": "derived",
+      "reason": "Brighter lavender preserves the live luminous hover hierarchy.",
+      "sources": [
+        "derived from hero glow and hover treatment",
+        "tokens.css:25"
+      ]
+    },
+    {
+      "name": "--accent-active",
+      "layer": "A2",
+      "value": "#6d48ff",
+      "confidence": "high",
+      "reason": "Saturated purple visible in animated diagram and selection states.",
+      "sources": [
+        "live research radar and AI selection CSS",
+        "tokens.css:26"
+      ]
+    },
+    {
+      "name": "--success",
+      "layer": "A2",
+      "value": "#19d3a1",
+      "confidence": "high",
+      "reason": "Emerald copy in the live AI interaction callout.",
+      "sources": [
+        "live ai-showcase-button computed visual",
+        "tokens.css:29"
+      ]
+    },
+    {
+      "name": "--warn",
+      "layer": "A2",
+      "value": "#f2bd74",
+      "confidence": "derived",
+      "reason": "Warm semantic tier chosen to stay legible against the violet canvas.",
+      "sources": [
+        "semantic mapping; no decorative warning state in page scope",
+        "tokens.css:30"
+      ]
+    },
+    {
+      "name": "--danger",
+      "layer": "A2",
+      "value": "#f37c94",
+      "confidence": "derived",
+      "reason": "Accessible red-pink semantic tier for future error feedback.",
+      "sources": [
+        "semantic mapping; no destructive action in page scope",
+        "tokens.css:31"
+      ]
+    },
+    {
+      "name": "--font-display",
+      "layer": "A1-identity",
+      "value": "AeonikPro, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "confidence": "high",
+      "reason": "Live section headings use the downloaded AeonikPro medium face.",
+      "sources": [
+        "live .section-header-title computed font-family",
+        "tokens.css:34"
+      ]
+    },
+    {
+      "name": "--font-body",
+      "layer": "A1-identity",
+      "value": "\"Inter V\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "confidence": "high",
+      "reason": "Live body, controls, navigation, and labels use Inter V.",
+      "sources": [
+        "live body and button computed font-family",
+        "tokens.css:35"
+      ]
+    },
+    {
+      "name": "--font-mono",
+      "layer": "A2",
+      "value": "ui-monospace, \"SF Mono\", Menlo, Monaco, Consolas, monospace",
+      "confidence": "high",
+      "reason": "Keyboard shortcut treatment and note UI support a compact monospace fallback.",
+      "sources": [
+        "live AI demo keyboard labels",
+        "tokens.css:36"
+      ]
+    },
+    {
+      "name": "--text-xs",
+      "layer": "A1-structure",
+      "value": "12px",
+      "confidence": "high",
+      "reason": "Keyboard labels, icon captions, and dense UI tier.",
+      "sources": [
+        "live hero tooltip and AI animation stylesheet",
+        "tokens.css:39"
+      ]
+    },
+    {
+      "name": "--text-sm",
+      "layer": "A1-structure",
+      "value": "14px",
+      "confidence": "high",
+      "reason": "Live navigation, badge, and button size.",
+      "sources": [
+        "live .header-nav-link and .button CSS",
+        "tokens.css:40"
+      ]
+    },
+    {
+      "name": "--text-base",
+      "layer": "A1-structure",
+      "value": "16px",
+      "confidence": "high",
+      "reason": "Live card and body baseline.",
+      "sources": [
+        "live .features-card and .section-header-description CSS",
+        "tokens.css:41"
+      ]
+    },
+    {
+      "name": "--text-lg",
+      "layer": "A1-structure",
+      "value": "24px",
+      "confidence": "high",
+      "reason": "Footer newsletter and compact display tier.",
+      "sources": [
+        "live .footer-newsletter-title CSS",
+        "tokens.css:42"
+      ]
+    },
+    {
+      "name": "--text-xl",
+      "layer": "A1-structure",
+      "value": "32px",
+      "confidence": "high",
+      "reason": "Reflect AI capability heading tier.",
+      "sources": [
+        "live .section-header-title-h5 CSS",
+        "tokens.css:43"
+      ]
+    },
+    {
+      "name": "--text-2xl",
+      "layer": "A1-structure",
+      "value": "48px",
+      "confidence": "high",
+      "reason": "Pricing and smaller section-display tier.",
+      "sources": [
+        "live .section-header-title-h3 CSS",
+        "tokens.css:44"
+      ]
+    },
+    {
+      "name": "--text-3xl",
+      "layer": "A1-structure",
+      "value": "56px",
+      "confidence": "high",
+      "reason": "Primary section heading tier.",
+      "sources": [
+        "live .section-header-title-h2 CSS",
+        "tokens.css:45"
+      ]
+    },
+    {
+      "name": "--text-4xl",
+      "layer": "A1-structure",
+      "value": "72px",
+      "confidence": "high",
+      "reason": "Desktop hero display tier.",
+      "sources": [
+        "live .section-header-title-h1 CSS",
+        "tokens.css:46"
+      ]
+    },
+    {
+      "name": "--leading-body",
+      "layer": "A1-structure",
+      "value": "1.5",
+      "confidence": "high",
+      "reason": "16px body copy renders at 24px line height.",
+      "sources": [
+        "live .section-header-description computed line-height",
+        "tokens.css:49"
+      ]
+    },
+    {
+      "name": "--leading-tight",
+      "layer": "A1-structure",
+      "value": "1.142857",
+      "confidence": "high",
+      "reason": "72px hero heading uses 80px leading; section headings preserve the same tight rhythm.",
+      "sources": [
+        "live heading stylesheet",
+        "tokens.css:50"
+      ]
+    },
+    {
+      "name": "--tracking-display",
+      "layer": "A1-structure",
+      "value": "-0.025em",
+      "confidence": "derived",
+      "reason": "Aeonik display optical tightening inferred from the live 72px title silhouette.",
+      "sources": [
+        "1440px original hero capture",
+        "tokens.css:51"
+      ]
+    },
+    {
+      "name": "--space-1",
+      "layer": "A2",
+      "value": "4px",
+      "confidence": "high",
+      "reason": "Micro control and icon gap unit.",
+      "sources": [
+        "live AI tooltip styles",
+        "tokens.css:54"
+      ]
+    },
+    {
+      "name": "--space-2",
+      "layer": "A2",
+      "value": "8px",
+      "confidence": "high",
+      "reason": "Button padding and small internal gap.",
+      "sources": [
+        "live .button CSS",
+        "tokens.css:55"
+      ]
+    },
+    {
+      "name": "--space-3",
+      "layer": "A2",
+      "value": "12px",
+      "confidence": "high",
+      "reason": "Compact UI content spacing.",
+      "sources": [
+        "live AI answer and menu styles",
+        "tokens.css:56"
+      ]
+    },
+    {
+      "name": "--space-4",
+      "layer": "A2",
+      "value": "16px",
+      "confidence": "high",
+      "reason": "Default body and navigation spacing.",
+      "sources": [
+        "live card and header inspection",
+        "tokens.css:57"
+      ]
+    },
+    {
+      "name": "--space-5",
+      "layer": "A2",
+      "value": "20px",
+      "confidence": "high",
+      "reason": "Header and phone horizontal safety gutter.",
+      "sources": [
+        "live .header padding and 390px capture",
+        "tokens.css:58"
+      ]
+    },
+    {
+      "name": "--space-6",
+      "layer": "A2",
+      "value": "24px",
+      "confidence": "high",
+      "reason": "Feature card and glass panel inset.",
+      "sources": [
+        "live .features-card padding",
+        "tokens.css:59"
+      ]
+    },
+    {
+      "name": "--space-8",
+      "layer": "A2",
+      "value": "32px",
+      "confidence": "high",
+      "reason": "Large card inset and section-grid gap.",
+      "sources": [
+        "live integrations item and research card CSS",
+        "tokens.css:60"
+      ]
+    },
+    {
+      "name": "--space-12",
+      "layer": "A2",
+      "value": "48px",
+      "confidence": "high",
+      "reason": "Headline-to-content and card-to-card rhythm.",
+      "sources": [
+        "live .connected and .testimonials section styles",
+        "tokens.css:61"
+      ]
+    },
+    {
+      "name": "--section-y-desktop",
+      "layer": "A1-structure",
+      "value": "116px",
+      "confidence": "high",
+      "reason": "Repeated desktop section rhythm in the live page.",
+      "sources": [
+        "live .ai and .integrations CSS",
+        "tokens.css:64"
+      ]
+    },
+    {
+      "name": "--section-y-tablet",
+      "layer": "A1-structure",
+      "value": "96px",
+      "confidence": "derived",
+      "reason": "Intermediate compression observed between 1440px and 768px inspections.",
+      "sources": [
+        "responsive browser inspection",
+        "tokens.css:65"
+      ]
+    },
+    {
+      "name": "--section-y-phone",
+      "layer": "A1-structure",
+      "value": "72px",
+      "confidence": "high",
+      "reason": "Mobile capture preserves generous visual pauses between content groups.",
+      "sources": [
+        "original-390.png",
+        "tokens.css:66"
+      ]
+    },
+    {
+      "name": "--radius-sm",
+      "layer": "A2",
+      "value": "8px",
+      "confidence": "high",
+      "reason": "Live action button and input corner value.",
+      "sources": [
+        "live .button and .input CSS",
+        "tokens.css:69"
+      ]
+    },
+    {
+      "name": "--radius-md",
+      "layer": "A2",
+      "value": "12px",
+      "confidence": "high",
+      "reason": "AI menu and answer panel corner value.",
+      "sources": [
+        "live .ai-showcase-animation-answer CSS",
+        "tokens.css:70"
+      ]
+    },
+    {
+      "name": "--radius-lg",
+      "layer": "A2",
+      "value": "24px",
+      "confidence": "high",
+      "reason": "Hero video and AI showcase outer frame radius.",
+      "sources": [
+        "live .hero-video-preview and .ai-showcase CSS",
+        "tokens.css:71"
+      ]
+    },
+    {
+      "name": "--radius-pill",
+      "layer": "A2",
+      "value": "9999px",
+      "confidence": "high",
+      "reason": "Badges, play control, and pill navigation capsule.",
+      "sources": [
+        "live hero badge and header navigation inspection",
+        "tokens.css:72"
+      ]
+    },
+    {
+      "name": "--elev-flat",
+      "layer": "A2",
+      "value": "none",
+      "confidence": "high",
+      "reason": "The page relies on luminous borders rather than conventional elevation.",
+      "sources": [
+        "live section composition",
+        "tokens.css:75"
+      ]
+    },
+    {
+      "name": "--elev-ring",
+      "layer": "A2",
+      "value": "0 0 0 1px rgba(255, 255, 255, 0.1)",
+      "confidence": "high",
+      "reason": "Faithful hairline glass ring used across live panels.",
+      "sources": [
+        "live .hero-video-preview CSS",
+        "tokens.css:76"
+      ]
+    },
+    {
+      "name": "--elev-raised",
+      "layer": "A2",
+      "value": "0 18px 64px rgba(0, 0, 0, 0.45)",
+      "confidence": "derived",
+      "reason": "Deep but quiet lift for modal or interactive panel states.",
+      "sources": [
+        "derived from live hero and modal layers",
+        "tokens.css:77"
+      ]
+    },
+    {
+      "name": "--focus-ring",
+      "layer": "A2",
+      "value": "0 0 0 3px rgba(168, 127, 255, 0.45)",
+      "confidence": "derived",
+      "reason": "Visible keyboard treatment mapped to source lavender glow.",
+      "sources": [
+        "accent derived from live hero glow",
+        "tokens.css:80"
+      ]
+    },
+    {
+      "name": "--motion-fast",
+      "layer": "A2",
+      "value": "300ms",
+      "confidence": "high",
+      "reason": "Live hero and button transitions use 0.3s.",
+      "sources": [
+        "live .hero-video-modal-toggle transition",
+        "tokens.css:83"
+      ]
+    },
+    {
+      "name": "--motion-base",
+      "layer": "A2",
+      "value": "450ms",
+      "confidence": "high",
+      "reason": "Footer and content link transitions use 0.45s.",
+      "sources": [
+        "live .footer-social-media-item transition",
+        "tokens.css:84"
+      ]
+    },
+    {
+      "name": "--ease-standard",
+      "layer": "A2",
+      "value": "cubic-bezier(0.6, 0.6, 0, 1)",
+      "confidence": "high",
+      "reason": "Dominant source transition timing curve.",
+      "sources": [
+        "live button, video, and lazy media CSS",
+        "tokens.css:85"
+      ]
+    },
+    {
+      "name": "--container-max",
+      "layer": "A1-structure",
+      "value": "1200px",
+      "confidence": "high",
+      "reason": "The four-card feature strip is explicitly 1200px wide.",
+      "sources": [
+        "live .features CSS",
+        "tokens.css:88"
+      ]
+    },
+    {
+      "name": "--container-gutter-desktop",
+      "layer": "A1-structure",
+      "value": "72px",
+      "confidence": "high",
+      "reason": "Desktop header logo and CTA sit 72px from the 1440px frame edge.",
+      "sources": [
+        "original-1440-top.png",
+        "tokens.css:89"
+      ]
+    },
+    {
+      "name": "--container-gutter-tablet",
+      "layer": "A1-structure",
+      "value": "32px",
+      "confidence": "derived",
+      "reason": "Tablet-safe gutter before phone compression.",
+      "sources": [
+        "responsive browser inspection",
+        "tokens.css:90"
+      ]
+    },
+    {
+      "name": "--container-gutter-phone",
+      "layer": "A1-structure",
+      "value": "20px",
+      "confidence": "high",
+      "reason": "Source header retains a 20px horizontal inset at phone width.",
+      "sources": [
+        "live .header CSS",
+        "tokens.css:91"
+      ]
+    }
+  ]
+}
