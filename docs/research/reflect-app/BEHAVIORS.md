@@ -43,3 +43,49 @@ Replay checked: 2026-08-29
 ## Intentional fidelity trade-offs
 
 The original’s bespoke canvas / WebGL-like scenery was not copied as a runtime dependency. Reimplementing it as a permanent animation would increase load and create a more fragile clone without changing what visitors can learn or do. The CSS substitutes preserve the visual hierarchy, colour language, depth, and responsive composition; the interactive product video, menu, anchor navigation, and AI demonstration remain real behaviors.
+
+## Fidelity pass — 2026-08-30
+
+Re-verified against a fresh live capture of `https://reflect.app/` at 1440px and
+390px. Corrections made, each anchored to what the source actually renders:
+
+| Area | Was | Now | Why |
+| --- | --- | --- | --- |
+| Hero product frame | `1198x1500` desktop, `340x1500` at 390px | `1198x749` / `340x213` | The shared reset lacked `img { height: auto }`, so the `height="1500"` attribute hint stayed in force and the screenshot rendered 2x (desktop) and 6.6x (mobile) too tall. Fixed in `src/styles/reset.css`, which repairs the same latent trap for every clone. |
+| Favicon | 704x1320 mobile-app screenshot | real 36x36 icon + 180x180 apple-touch | Wrong build hash in the asset manifest. |
+| Hero orbit field | 1440x720, 25% accent strokes | 1180x430, 11% strokes | The frame's chrome is ~12% opaque by design, so orbits at that z-index showed through it as hard rings across the app UI. |
+| Black hole | Bordered dome (`border-radius: … 0 0`, `border-bottom: 0`) | Blurred bell + soft-edged void + one thin disc line | The source is an accretion disc seen edge-on with no hard edge except the line; an outlined dome reads as an archway. |
+| AI prompt beam | Clipped trapezoid ending in two hard purple triangles, drawn behind the card | Masked shaft falling below the card | `clip-path` alone leaves hard corners; the card sat at the stage's bottom edge so a beam anchored there was occluded. |
+| AI capability grid | Outer box border, uneven trailing row, placeholder glyphs | Interior dividers only, trailing pair centred, source line-art icons | Matches the source's divider-only matrix. |
+| Closing CTA halo | Two glowing archways striking through the subtitle and button | Removed | The source CTA carries no decoration at all. |
+| Academy tile board | Visible bordered board colliding with the controls row, piece clipped mid-block | Removed; controls row kept | The source's static state shows nothing there; the controls row is real. |
+| Footer | Single 3-column row, 380px tall | Three bands split by rules, 757px tall | The source stacks brand+links / newsletter / legal. Source footer is 763px. |
+| Footer social icons | `◌` and `𝕏` glyphs in bordered circles | Source Discord and Twitter SVGs, inline, `currentColor` | Real first-party artwork. |
+
+### Verified after the pass
+
+- Page height 13,394px vs the live original's 13,460px at 1440 (0.5%).
+- Section offsets within +/-75px of `PAGE_TOPOLOGY.md` across the full 13k page.
+- No horizontally distorted image on any clone route (rendered vs natural aspect
+  ratio within 5%), confirming the shared-reset change caused no regression.
+- No horizontal overflow at 390px.
+- `npm run check` clean; design-system guard 100 (15 checks, 0 failing).
+
+### Known remaining gaps
+
+- **About-section globe.** The source renders a dotted world map on a canvas; the
+  clone keeps the wireframe-sphere CSS fallback recorded in the table above. Not a
+  regression — it is the documented substitution for canvas content — but it is
+  the largest remaining visual difference.
+- **Mobile page height** is 13,775px against the source's 14,368px (4.1%),
+  concentrated in the stacked narrative modules.
+- The hero bell is slightly less voluminous than the source's, whose glow carries
+  wider horizontal wings along the disc plane.
+
+### Note on the reference captures
+
+`fullPage` captures of `reflect.app` come out 1504px wide at a 1440 viewport and
+979px wide at 390, because the source's `body` overflows past the viewport and is
+clipped by `html`. The captures are faithful; the overflow strip is simply not
+visible to a visitor. The `qa/original-*.png` references are therefore cropped to
+the contract width so both halves of each comparison share a scale.

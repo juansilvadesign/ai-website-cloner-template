@@ -22,9 +22,11 @@ import { adspirerClone } from "../../clones/adspirer-com/clone.config";
 import { bridgeHumanClone } from "../../clones/bridgeandhuman-com/clone.config";
 import { reflectClone } from "../../clones/reflect-app/clone.config";
 import { consultaDeProcessosClone } from "../../clones/consultadeprocessos-com-br/clone.config";
+import { raffaelaDrumondClone } from "../../clones/raffaeladrumond-com-br/clone.config";
 
 /** Every registered clone, newest extraction first. */
 export const allClones: Clone[] = [
+  raffaelaDrumondClone,
   consultaDeProcessosClone,
   reflectClone,
   bridgeHumanClone,

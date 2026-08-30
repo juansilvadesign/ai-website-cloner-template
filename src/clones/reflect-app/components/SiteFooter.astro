@@ -9,16 +9,113 @@ const groups = [
 ---
 
 <footer class="footer">
-  <div class="footer-top">
-    <div class="brand"><ReflectLogo /><div class="social"><a href="https://reflect.app/discord" aria-label="Our Discord server">◌</a><a href="https://twitter.com/reflectnotes" aria-label="Our Twitter account">𝕏</a></div></div>
+  <div class="footer-main">
+    <div class="brand">
+      <ReflectLogo />
+      <div class="social">
+        <a href="https://reflect.app/discord" aria-label="Our Discord server">
+          <svg aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18.9419 5.76947C17.6279 5.16787 16.2407 4.74109 14.8158 4.5C14.6208 4.84857 14.4444 5.20721 14.2872 5.57441C12.7694 5.34569 11.2259 5.34569 9.70802 5.57441C9.55081 5.20725 9.37438 4.84862 9.17947 4.5C7.75362 4.74312 6.36551 5.17092 5.05017 5.77261C2.43887 9.63607 1.73099 13.4036 2.08493 17.1176C3.61417 18.2475 5.32583 19.1067 7.14549 19.6581C7.55523 19.107 7.91779 18.5224 8.22934 17.9104C7.6376 17.6894 7.06647 17.4167 6.52256 17.0956C6.66571 16.9917 6.80571 16.8848 6.94099 16.781C8.52365 17.5252 10.251 17.9111 12 17.9111C13.7489 17.9111 15.4763 17.5252 17.059 16.781C17.1958 16.8926 17.3358 16.9996 17.4774 17.0956C16.9324 17.4173 16.3603 17.6905 15.7675 17.912C16.0786 18.5237 16.4412 19.1078 16.8513 19.6581C18.6726 19.109 20.3855 18.2501 21.915 17.1192C22.3303 12.8121 21.2056 9.0792 18.9419 5.76947ZM8.67766 14.8335C7.69135 14.8335 6.8765 13.9384 6.8765 12.8373C6.8765 11.7361 7.66303 10.8332 8.67452 10.8332C9.686 10.8332 10.4946 11.7361 10.4773 12.8373C10.4599 13.9384 9.68285 14.8335 8.67766 14.8335ZM15.3223 14.8335C14.3344 14.8335 13.5227 13.9384 13.5227 12.8373C13.5227 11.7361 14.3092 10.8332 15.3223 10.8332C16.3354 10.8332 17.1376 11.7361 17.1203 12.8373C17.103 13.9384 16.3275 14.8335 15.3223 14.8335Z" fill="currentColor"></path></svg>
+        </a>
+        <a href="https://twitter.com/reflectnotes" aria-label="Our Twitter account">
+          <svg aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.8986 7.85709C19.9107 8.03438 19.9107 8.21166 19.9107 8.39058C19.9107 13.8424 15.8139 20.13 8.32282 20.13V20.1267C6.10992 20.13 3.94298 19.4878 2.08008 18.277C2.40185 18.3162 2.72524 18.3358 3.04943 18.3367C4.8833 18.3383 6.66476 17.7149 8.1075 16.5671C6.36476 16.5336 4.83653 15.3824 4.30266 13.7019C4.91314 13.8211 5.54217 13.7966 6.14137 13.6308C4.24137 13.2419 2.87443 11.5507 2.87443 9.58666V9.53438C3.44056 9.85382 4.07443 10.0311 4.72282 10.0507C2.9333 8.83911 2.38169 6.42735 3.46234 4.54173C5.53008 7.11934 8.58088 8.68634 11.8559 8.85219C11.5277 7.41918 11.976 5.91755 13.0341 4.91019C14.6744 3.3481 17.2543 3.42817 18.7962 5.08911C19.7083 4.90692 20.5825 4.56787 21.3825 4.08748C21.0785 5.04254 20.4422 5.85382 19.5922 6.36934C20.3994 6.27294 21.1881 6.05398 21.9309 5.71983C21.3841 6.5499 20.6954 7.27294 19.8986 7.85709Z" fill="currentColor"></path></svg>
+        </a>
+      </div>
+    </div>
     <div class="link-groups">{groups.map((group) => <section><h2>{group.title}</h2>{group.links.map(([label, href]) => <a href={href}>{label}</a>)}</section>)}</div>
-    <form class="newsletter" action="#" onsubmit="return false"><h2>Join our newsletter</h2><p>Keep up to date with everything Reflect</p><label><span class="reflect-sr-only">Enter your email</span><input type="email" placeholder="Enter your email" /><button type="submit">Subscribe</button></label></form>
   </div>
-  <div class="footer-bottom"><nav><a href="https://reflect.app/privacy">Privacy Policy</a><span>·</span><a href="https://reflect.app/terms">Terms of Conditions</a></nav><p>Reflect App, LLC. All rights reserved.</p></div>
+
+  <div class="newsletter-band">
+    <div class="newsletter-copy">
+      <h2>Join our newsletter</h2>
+      <p>Keep up to date with everything Reflect</p>
+    </div>
+    <form class="newsletter" action="#" onsubmit="return false">
+      <label>
+        <span class="reflect-sr-only">Enter your email</span>
+        <input type="email" placeholder="Enter your email" />
+      </label>
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+
+  <div class="footer-bottom">
+    <nav><a href="https://reflect.app/privacy">Privacy Policy</a><span>·</span><a href="https://reflect.app/terms">Terms of Conditions</a></nav>
+    <p>Reflect App, LLC. All rights reserved.</p>
+  </div>
 </footer>
 
 <style>
-  .footer { position: relative; padding: 0 var(--space-8); border-top: 1px solid var(--border); background: radial-gradient(ellipse at 50% 0%, color-mix(in srgb, var(--accent-hover) 9%, transparent), transparent 46%), var(--bg); }.footer-top { display: grid; grid-template-columns: 1.1fr 1.6fr 1.2fr; gap: var(--space-8); width: min(1296px, 100%); margin: 0 auto; padding: 74px 0 var(--space-12); }.brand { display: grid; align-content: space-between; gap: var(--space-8); }.social { display: flex; gap: var(--space-3); }.social a { display: grid; place-items: center; width: 28px; height: 28px; border: 1px solid var(--border); border-radius: var(--radius-pill); color: var(--meta); font-size: var(--text-sm); transition: color var(--motion-base) var(--ease-standard), border-color var(--motion-base) var(--ease-standard); }.social a:hover { border-color: var(--accent-hover); color: var(--fg); }.link-groups { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5); }.link-groups section { display: grid; align-content: start; gap: var(--space-3); }.link-groups h2, .newsletter h2 { margin: 0 0 var(--space-2); color: var(--fg-2); font-size: var(--text-sm); font-weight: 500; line-height: 20px; }.link-groups a, .newsletter p, .footer-bottom { color: var(--meta); font-size: var(--text-sm); line-height: 20px; }.link-groups a:hover { color: var(--fg); }.newsletter h2 { font-family: "Reflect Aeonik", var(--font-display); font-size: var(--text-lg); font-weight: 500; line-height: 32px; }.newsletter p { margin: 0; }.newsletter label { display: flex; margin-top: var(--space-5); padding-left: var(--space-4); border: 1px solid var(--border); border-radius: var(--radius-sm); background: color-mix(in srgb, var(--fg) 3%, transparent); }.newsletter input { width: 100%; min-width: 0; border: 0; outline: 0; background: transparent; color: var(--fg); font-size: var(--text-sm); }.newsletter input::placeholder { color: var(--meta); }.newsletter button { flex: 0 0 auto; margin: 3px; padding: var(--space-2) var(--space-3); border-radius: 6px; background: color-mix(in srgb, var(--fg) 5%, transparent); color: var(--fg); cursor: pointer; font-size: var(--text-sm); }.newsletter button:hover { background: color-mix(in srgb, var(--accent) 35%, var(--surface)); }.footer-bottom { display: flex; justify-content: space-between; gap: var(--space-5); width: min(1296px, 100%); margin: 0 auto; padding: var(--space-6) 0; border-top: 1px solid var(--border-soft); }.footer-bottom nav { display: flex; gap: var(--space-3); }.footer-bottom a:hover { color: var(--fg); }.footer-bottom p { margin: 0; }
-  @media (max-width: 960px) { .footer-top { grid-template-columns: 1fr 1.5fr; }.newsletter { grid-column: 1 / -1; max-width: 420px; } }
-  @media (max-width: 640px) { .footer { padding: 0 var(--space-5); }.footer-top, .link-groups { grid-template-columns: 1fr; }.footer-top { padding-top: var(--section-y-phone); }.link-groups { gap: var(--space-8); }.footer-bottom { align-items: start; flex-direction: column; }.newsletter { grid-column: auto; } }
+  /* Three stacked bands separated by rules — brand + links, newsletter, legal.
+     Folding the newsletter into the first band as a third column collapses the
+     footer to roughly half the source's height. */
+  .footer {
+    position: relative;
+    padding: 0 var(--space-8);
+    border-top: 1px solid var(--border);
+    background: radial-gradient(ellipse at 50% 0%, color-mix(in srgb, var(--accent-hover) 9%, transparent), transparent 46%), var(--bg);
+  }
+
+  .footer-main,
+  .newsletter-band,
+  .footer-bottom {
+    width: min(1130px, 100%);
+    margin: 0 auto;
+  }
+
+  .footer-main {
+    display: grid;
+    grid-template-columns: minmax(0, 44%) minmax(0, 56%);
+    gap: var(--space-8);
+    padding: 84px 0 86px;
+    border-bottom: 1px solid var(--border-soft);
+  }
+
+  .brand { display: grid; align-content: space-between; gap: var(--space-8); min-height: 230px; }
+  .social { display: flex; gap: var(--space-5); }
+  .social a { display: grid; place-items: center; color: color-mix(in srgb, var(--fg) 50%, transparent); transition: color var(--motion-base) var(--ease-standard); }
+  .social a:hover { color: var(--fg); }
+
+  .link-groups { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5); }
+  .link-groups section { display: grid; align-content: start; gap: var(--space-3); }
+  .link-groups h2 { margin: 0 0 var(--space-2); color: var(--fg-2); font-size: var(--text-sm); font-weight: 500; line-height: 20px; }
+  .link-groups a { color: var(--meta); font-size: var(--text-sm); line-height: 20px; }
+  .link-groups a:hover { color: var(--fg); }
+
+  .newsletter-band {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: var(--space-8);
+    padding: 54px 0 56px;
+    border-bottom: 1px solid var(--border-soft);
+  }
+
+  .newsletter-copy h2 { margin: 0; color: var(--fg-2); font-family: "Reflect Aeonik", var(--font-display); font-size: var(--text-lg); font-weight: 500; line-height: 32px; }
+  .newsletter-copy p { margin: var(--space-2) 0 0; color: var(--meta); font-size: var(--text-sm); line-height: 20px; }
+
+  .newsletter { display: flex; gap: var(--space-2); }
+  .newsletter label { display: flex; width: 296px; padding: 0 var(--space-4); border: 1px solid var(--border); border-radius: var(--radius-sm); background: color-mix(in srgb, var(--fg) 3%, transparent); }
+  .newsletter input { width: 100%; min-width: 0; height: 34px; border: 0; outline: 0; background: transparent; color: var(--fg); font-size: var(--text-sm); }
+  .newsletter input::placeholder { color: var(--meta); }
+  .newsletter button { flex: 0 0 auto; padding: 0 var(--space-4); height: 36px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: color-mix(in srgb, var(--fg) 5%, transparent); color: var(--fg); cursor: pointer; font-size: var(--text-sm); transition: background var(--motion-fast) var(--ease-standard); }
+  .newsletter button:hover { background: color-mix(in srgb, var(--accent) 35%, var(--surface)); }
+
+  .footer-bottom { display: flex; justify-content: space-between; gap: var(--space-5); padding: 56px 0 108px; color: var(--meta); font-size: var(--text-sm); line-height: 20px; }
+  .footer-bottom nav { display: flex; gap: var(--space-3); }
+  .footer-bottom a:hover { color: var(--fg); }
+  .footer-bottom p { margin: 0; }
+
+  @media (max-width: 960px) {
+    .footer-main { grid-template-columns: 1fr; gap: var(--space-10); padding-bottom: var(--space-10); }
+    .brand { min-height: auto; gap: var(--space-6); }
+  }
+
+  @media (max-width: 640px) {
+    .footer { padding: 0 var(--space-5); }
+    .footer-main { padding-top: var(--section-y-phone); }
+    .link-groups { grid-template-columns: 1fr; gap: var(--space-8); }
+    .newsletter-band { grid-template-columns: 1fr; align-items: start; gap: var(--space-5); }
+    .newsletter label { width: auto; flex: 1; }
+    .footer-bottom { align-items: start; flex-direction: column; padding-bottom: var(--space-10); }
+  }
 </style>

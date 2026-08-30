@@ -42,6 +42,15 @@ svg {
   max-width: 100%;
 }
 
+/* `width`/`height` attributes arrive as presentational hints, so setting only
+   a CSS `width` leaves the intrinsic pixel height in force and the image
+   renders stretched. Presentational hints lose to any author declaration, so
+   this single low-specificity rule restores the aspect ratio without
+   outranking a component that sets a height deliberately. */
+img {
+  height: auto;
+}
+
 a {
   color: inherit;
 }

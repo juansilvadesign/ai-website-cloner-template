@@ -136,7 +136,12 @@ const PROFILES = {
       ["/home/build/q-7110c4a0.png", "images/logo.png"],
       ["/home/build/q-cb311d1c.png", "images/hero-preview.png"],
       ["/home/build/q-c3d7becf.webm", "videos/hero-demo.webm"],
-      ["/home/build/q-4c8a7e22.png", "seo/favicon.png"],
+      ["/home/build/q-171a9a33.png", "seo/apple-touch-icon.png"],
+      // NOTE: reflect.app inlines its favicon as a base64 data: URI in
+      // <link rel="icon">, so there is no URL to fetch. The decoded 36x36
+      // PNG is committed at seo/favicon.png. The build hash previously
+      // listed here (q-4c8a7e22.png) is a 704x1320 mobile app screenshot,
+      // not an icon.
       ["/home/fonts/InterV/regular.woff2", "fonts/inter-v-regular.woff2"],
       ["/home/fonts/InterV/medium.woff2", "fonts/inter-v-medium.woff2"],
       ["/home/fonts/AeonikPro/medium.woff2", "fonts/aeonik-pro-medium.woff2"],

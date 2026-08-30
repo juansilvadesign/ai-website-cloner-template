@@ -18,9 +18,22 @@ heading styles identify AeonikPro Medium at 72/80, 56/64, 48/56, and 32/40;
 Inter V is the 16/24 reading, 14/20 navigation, badge, and control face.
 
 The live stylesheet provides first-party font sources under `/home/fonts/` and
-the logo, hero preview, hero video, favicon, and social image under public
-Reflect hosts. The asset manifest in `scripts/download-assets.mjs` downloads
-those files to the clone-local public tree.
+the logo, hero preview, hero video, apple-touch icon, and social image under
+public Reflect hosts. The asset manifest in `scripts/download-assets.mjs`
+downloads those files to the clone-local public tree.
+
+The favicon is the one exception: `reflect.app` inlines it as a base64 `data:`
+URI inside `<link rel="icon">`, so there is no URL for the manifest to fetch.
+The decoded 36x36 PNG is committed at `seo/favicon.png`. A prior run had mapped
+the build hash `q-4c8a7e22.png` to that path; that asset is a 704x1320 screenshot
+of the Reflect mobile app, not an icon, and served as a squashed browser-tab
+image until it was replaced on 2026-08-30.
+
+The five Reflect-AI capability icons and the two footer social icons are inline
+`<svg>` in the source document rather than fetchable files. Their path data was
+lifted verbatim from the live markup (Qwik `q:key` runtime attributes stripped)
+into `public/clones/reflect-app/icons/`. They are therefore first-party artwork
+reproduced exactly, not CSS approximations.
 
 ## Interaction evidence
 

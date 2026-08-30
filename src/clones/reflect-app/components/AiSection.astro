@@ -1,10 +1,10 @@
 ---
 const capabilities = [
-  { symbol: "♩", title: "Transcribe voice notes", copy: "with human-level accuracy" },
-  { symbol: "☷", title: "Generate article outlines", copy: "from your scattered thoughts" },
-  { symbol: "▤", title: "List key takeaways and action", copy: "items from your meeting notes" },
-  { symbol: "ABC", title: "Fix grammar, spelling,", copy: "and improve your writing" },
-  { symbol: "✦", title: "Save your own", copy: "custom prompts" },
+  { icon: "transcribe", title: "Transcribe voice notes", copy: "with human-level accuracy" },
+  { icon: "outline", title: "Generate article outlines", copy: "from your scattered thoughts" },
+  { icon: "takeaways", title: "List key takeaways and action", copy: "items from your meeting notes" },
+  { icon: "grammar", title: "Fix grammar, spelling,", copy: "and improve your writing" },
+  { icon: "prompts", title: "Save your own", copy: "custom prompts" },
 ];
 ---
 
@@ -31,7 +31,7 @@ const capabilities = [
     <div class="capability-grid">
       {capabilities.map((item) => (
         <article class="capability">
-          <span class:list={["capability-icon", { word: item.symbol === "ABC" }]} aria-hidden="true">{item.symbol}</span>
+          <img class="capability-icon" src={`/clones/reflect-app/icons/${item.icon}.svg`} alt="" width="40" height="40" />
           <h4>{item.title}</h4>
           <p>{item.copy}</p>
         </article>
@@ -121,33 +121,37 @@ const capabilities = [
     z-index: 1;
     display: grid;
     place-items: end center;
-    min-height: 382px;
+    min-height: 262px;
     margin: var(--space-8) auto 0;
     padding: 0 var(--space-5);
   }
 
+  /* The light the card casts downward. The trapezoid must never be wider than
+     the card it falls from, and the radial mask has to dissolve every edge:
+     clipping alone leaves the two bottom corners as hard purple triangles. */
   .ai-stage::before {
     position: absolute;
-    bottom: 0;
-    width: min(620px, calc(100vw - 80px));
-    height: 145px;
+    top: 100%;
+    width: min(574px, calc(100vw - 80px));
+    height: 152px;
     content: "";
-    background: linear-gradient(135deg, transparent 3%, color-mix(in srgb, var(--accent) 27%, transparent) 3.2% 3.5%, transparent 3.7% 16%, color-mix(in srgb, var(--accent) 18%, transparent) 16.2% 16.5%, transparent 16.7%), repeating-linear-gradient(90deg, transparent 0 69px, color-mix(in srgb, var(--accent-hover) 18%, transparent) 70px 71px), linear-gradient(180deg, transparent, color-mix(in srgb, var(--accent) 28%, transparent));
-    clip-path: polygon(21% 0, 79% 0, 100% 100%, 0 100%);
-    opacity: .82;
+    background: repeating-linear-gradient(90deg, transparent 0 69px, color-mix(in srgb, var(--accent-hover) 15%, transparent) 70px 71px), linear-gradient(180deg, color-mix(in srgb, var(--accent) 22%, transparent), transparent 94%);
+    clip-path: polygon(29% 0, 71% 0, 100% 100%, 0 100%);
+    mask-image: radial-gradient(ellipse 72% 104% at 50% 0%, black 26%, transparent 76%);
+    opacity: .55;
     transition: opacity var(--motion-base) var(--ease-standard), transform var(--motion-base) var(--ease-standard);
   }
 
-  .ai-stage.is-active::before { opacity: 1; transform: translateY(12px); }
+  .ai-stage.is-active::before { opacity: .78; transform: translateY(12px); }
 
   .ai-beam {
     position: absolute;
-    bottom: 86px;
-    width: 280px;
-    height: 200px;
-    background: radial-gradient(ellipse at center bottom, color-mix(in srgb, var(--accent-hover) 62%, transparent), transparent 65%);
+    top: 100%;
+    width: 300px;
+    height: 170px;
+    background: radial-gradient(ellipse at center top, color-mix(in srgb, var(--accent-hover) 62%, transparent), transparent 68%);
     filter: blur(18px);
-    opacity: .22;
+    opacity: .3;
     transition: opacity var(--motion-base) var(--ease-standard);
   }
 
@@ -157,14 +161,14 @@ const capabilities = [
     position: relative;
     z-index: 2;
     display: grid;
-    width: min(560px, 100%);
-    min-height: 140px;
+    width: min(574px, 100%);
+    min-height: 145px;
     overflow: hidden;
     padding: var(--space-2);
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
     background: color-mix(in srgb, var(--surface) 72%, transparent);
-    box-shadow: inset 0 0 0 8px color-mix(in srgb, var(--fg) 2%, transparent);
+    box-shadow: inset 0 0 0 12px color-mix(in srgb, var(--bg) 62%, transparent);
     color: var(--fg);
     cursor: pointer;
     text-align: left;
@@ -191,11 +195,15 @@ const capabilities = [
 
   .capabilities { width: min(960px, calc(100% - 80px)); margin: 120px auto 0; text-align: center; }
   .capabilities h3 { color: var(--fg-2); font-family: "Reflect Aeonik", var(--font-display); font-size: var(--text-xl); font-weight: 500; line-height: var(--leading-tight); }
-  .capability-grid { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: var(--space-8); border-top: 1px solid var(--border-soft); border-left: 1px solid var(--border-soft); }
-  .capability { min-height: 164px; padding: var(--space-6); border-right: 1px solid var(--border-soft); border-bottom: 1px solid var(--border-soft); }
-  .capability:nth-child(4) { grid-column: 1 / span 2; }
-  .capability-icon { display: grid; place-items: center; width: 28px; height: 28px; margin: 0 auto var(--space-4); border: 1px solid color-mix(in srgb, var(--fg) 44%, transparent); border-radius: var(--radius-sm); color: var(--fg-2); font-size: var(--text-sm); }
-  .capability-icon.word { font-size: 10px; }
+  /* Six columns so the trailing row of two cells centres under the row of
+     three, as it does on the source. Rules are interior dividers only — the
+     source draws no outer box around the matrix. */
+  .capability-grid { display: grid; grid-template-columns: repeat(6, 1fr); margin-top: var(--space-8); }
+  .capability { grid-column: span 2; min-height: 164px; padding: var(--space-6); border-right: 1px solid var(--border-soft); }
+  .capability:nth-child(-n+3) { border-bottom: 1px solid var(--border-soft); }
+  .capability:nth-child(3), .capability:nth-child(5) { border-right: 0; }
+  .capability:nth-child(4) { grid-column: 2 / span 2; }
+  .capability-icon { width: 40px; height: 40px; margin: 0 auto var(--space-4); }
   .capability h4 { color: var(--fg-2); font-size: var(--text-base); font-weight: 400; line-height: var(--leading-body); }
   .capability p { color: var(--muted); font-size: var(--text-base); line-height: var(--leading-body); }
 
@@ -203,7 +211,7 @@ const capabilities = [
     .ai-section { padding: var(--section-y-phone) 0; }
     .section-heading h2 { max-width: 340px; font-size: 40px; line-height: 44px; }
     .desktop-break { display: none; }
-    .ai-stage { min-height: 300px; margin-top: var(--space-6); }
+    .ai-stage { min-height: 210px; margin-top: var(--space-6); }
     .prompt-card { min-height: 168px; }
     .prompt-head { align-items: start; flex-direction: column; padding: var(--space-5); }
     .prompt-question, .prompt-answer, .answer-actions { padding-right: var(--space-5); padding-left: var(--space-5); }
@@ -211,8 +219,9 @@ const capabilities = [
     .answer-actions { flex-wrap: wrap; }
     .capabilities { width: calc(100% - 32px); margin-top: 96px; text-align: left; }
     .capability-grid { grid-template-columns: 1fr; }
-    .capability:nth-child(4) { grid-column: auto; }
-    .capability { min-height: auto; padding: var(--space-5); }
+    .capability, .capability:nth-child(4) { grid-column: auto; }
+    .capability { min-height: auto; padding: var(--space-5); border-right: 0; border-bottom: 1px solid var(--border-soft); }
+    .capability:last-child { border-bottom: 0; }
     .capability-icon { margin-left: 0; }
   }
 </style>

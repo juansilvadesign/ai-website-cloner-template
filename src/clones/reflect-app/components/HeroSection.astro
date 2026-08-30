@@ -8,7 +8,7 @@
     <h1 id="reflect-hero-title">Think better with Reflect</h1>
     <p>Never miss a note, idea or connection.</p>
   </div>
-  <div class="black-hole" aria-hidden="true"><div class="black-hole-core"></div></div>
+  <div class="black-hole" aria-hidden="true"><div class="black-hole-core"></div><div class="black-hole-bleed"></div></div>
   <div class="hero-demo">
     <img src="/clones/reflect-app/images/hero-preview.png" alt="Reflect note editor and April 2023 calendar preview" width="2400" height="1500" />
     <button type="button" class="play" aria-label="Play Reflect product video" data-reflect-video-open><span></span></button>
@@ -91,28 +91,31 @@
     line-height: 28px;
   }
 
+  /* The orbit field has to die out above the product frame. That frame's chrome
+     is ~12% opaque by design, so anything still drawn at this z-index shows
+     straight through it and reads as hard rings across the app UI. */
   .hero-orbits {
     position: absolute;
     z-index: 0;
     inset: 160px 50% auto;
-    width: min(100vw, 1440px);
-    height: 720px;
+    width: min(100vw, 1180px);
+    height: 430px;
     transform: translateX(-50%);
-    mask-image: radial-gradient(ellipse at 50% 52%, black 45%, transparent 82%);
+    mask-image: radial-gradient(ellipse at 50% 48%, black 30%, transparent 72%);
   }
 
   .orbit {
     position: absolute;
     left: 50%;
-    top: 42%;
-    border: 1px solid color-mix(in srgb, var(--accent-hover) 25%, transparent);
+    top: 46%;
+    border: 1px solid color-mix(in srgb, var(--accent-hover) 11%, transparent);
     border-radius: 50%;
     transform: translate(-50%, -50%);
   }
 
-  .orbit-one { width: 380px; height: 210px; }
-  .orbit-two { width: 680px; height: 410px; transform: translate(-50%, -50%) rotate(13deg); }
-  .orbit-three { width: 1000px; height: 620px; transform: translate(-50%, -50%) rotate(-10deg); }
+  .orbit-one { width: 330px; height: 172px; }
+  .orbit-two { width: 590px; height: 320px; transform: translate(-50%, -50%) rotate(13deg); }
+  .orbit-three { width: 850px; height: 470px; transform: translate(-50%, -50%) rotate(-10deg); }
 
   .star {
     position: absolute;
@@ -129,55 +132,74 @@
   .star-c { left: 54%; top: 20%; animation-delay: 2s; }
   .star-d { left: 70%; top: 52%; animation-delay: 1.4s; }
 
+  /* The source motif is an accretion disc seen edge-on: a soft blurred bell of
+     light, a small dark void at its centre, and one razor-thin bright line
+     across the middle. Nothing here has a hard edge except that line — drawing
+     the void as a bordered dome instead turns the whole thing into an archway.
+     The container's bottom edge IS the line, so the glow can be anchored to it. */
   .black-hole {
     position: absolute;
     z-index: 1;
     left: 50%;
-    top: 362px;
-    width: min(940px, 100vw);
-    height: 224px;
+    top: 366px;
+    width: min(1000px, 100vw);
+    height: 200px;
     transform: translateX(-50%);
-    overflow: hidden;
-    filter: drop-shadow(0 0 35px color-mix(in srgb, var(--accent) 70%, transparent));
   }
 
   .black-hole::before,
   .black-hole::after,
-  .black-hole-core {
+  .black-hole-core,
+  .black-hole-bleed {
     position: absolute;
     content: "";
     left: 50%;
-    border-radius: 50%;
     transform: translateX(-50%);
   }
 
+  /* Broad soft bell rising off the disc. Its bright band has to start OUTSIDE
+     the void's radius (~21% horizontally, ~28% vertically of this gradient) or
+     the void sits on top of it and the motif reads as a black blob. */
   .black-hole::before {
-    bottom: -16px;
-    width: 660px;
-    height: 210px;
-    background: radial-gradient(ellipse at 50% 100%, transparent 0 23%, color-mix(in srgb, var(--fg) 94%, var(--accent-hover)) 24% 29%, color-mix(in srgb, var(--accent-hover) 72%, transparent) 36%, transparent 64%);
-    filter: blur(5px);
+    bottom: 0;
+    width: min(820px, 100vw);
+    height: 235px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse 50% 100% at 50% 100%, transparent 0 17%, color-mix(in srgb, var(--fg) 60%, var(--accent-hover)) 28%, color-mix(in srgb, var(--accent-hover) 95%, transparent) 41%, color-mix(in srgb, var(--accent) 60%, transparent) 58%, transparent 85%);
+    filter: blur(20px);
+  }
+
+  /* The event horizon: a soft-edged dark ellipse, never an outlined shape. */
+  .black-hole-core {
+    z-index: 2;
+    bottom: 0;
+    width: 116px;
+    height: 94px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at 50% 62%, var(--bg) 0 44%, color-mix(in srgb, var(--bg) 34%, transparent) 74%, transparent 100%);
+    filter: blur(11px);
   }
 
   .black-hole::after {
-    bottom: 5px;
-    width: 820px;
+    z-index: 3;
+    bottom: 0;
+    width: min(940px, 100vw);
     height: 3px;
     border-radius: var(--radius-pill);
-    background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--accent-hover) 85%, var(--fg)) 25% 75%, transparent);
-    box-shadow: 0 0 22px color-mix(in srgb, var(--accent) 84%, transparent);
+    background: linear-gradient(90deg, transparent 2%, color-mix(in srgb, var(--accent-hover) 70%, transparent) 16%, color-mix(in srgb, var(--fg) 92%, var(--accent-hover)) 33% 67%, color-mix(in srgb, var(--accent-hover) 70%, transparent) 84%, transparent 98%);
+    box-shadow: 0 0 26px 3px color-mix(in srgb, var(--accent-hover) 85%, transparent), 0 0 64px 10px color-mix(in srgb, var(--accent) 52%, transparent);
   }
 
-  .black-hole-core {
-    z-index: 2;
-    bottom: 7px;
-    width: 142px;
-    height: 106px;
-    border: 11px solid color-mix(in srgb, var(--fg) 92%, var(--accent-hover));
-    border-bottom: 0;
-    border-radius: 142px 142px 0 0;
-    background: radial-gradient(ellipse at 50% 100%, color-mix(in srgb, var(--accent-active) 58%, var(--bg)), var(--bg) 65%);
-    box-shadow: 0 -4px 38px color-mix(in srgb, var(--accent-hover) 78%, transparent);
+  /* Light continuing under the disc. The product frame that overlaps this is
+     only ~12% opaque, so this is what bleeds up through its chrome. */
+  .black-hole-bleed {
+    top: 100%;
+    width: 420px;
+    height: 210px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse 50% 100% at 50% 0%, color-mix(in srgb, var(--accent-hover) 62%, transparent), color-mix(in srgb, var(--accent) 28%, transparent) 46%, transparent 76%);
+    filter: blur(24px);
+    opacity: .75;
   }
 
   .hero-demo {
@@ -249,14 +271,15 @@
     .hero { min-height: 770px; padding-top: 126px; }
     h1 { max-width: 330px; font-size: 40px; line-height: 44px; }
     .hero-copy p { max-width: 280px; font-size: var(--text-base); line-height: var(--leading-body); }
-    .hero-orbits { top: 138px; height: 410px; width: 760px; }
-    .orbit-one { width: 210px; height: 118px; }
-    .orbit-two { width: 370px; height: 220px; }
-    .orbit-three { width: 550px; height: 355px; }
-    .black-hole { top: 292px; width: 560px; height: 126px; }
-    .black-hole::before { width: 370px; height: 124px; }
+    .hero-orbits { top: 138px; height: 250px; width: 620px; }
+    .orbit-one { width: 180px; height: 96px; }
+    .orbit-two { width: 320px; height: 178px; }
+    .orbit-three { width: 470px; height: 262px; }
+    .black-hole { top: 286px; width: 560px; height: 116px; }
+    .black-hole::before { width: 380px; height: 120px; filter: blur(16px); }
     .black-hole::after { width: 520px; }
-    .black-hole-core { width: 84px; height: 61px; border-width: 7px; }
+    .black-hole-core { width: 82px; height: 68px; filter: blur(5px); }
+    .black-hole-bleed { width: 250px; height: 120px; filter: blur(16px); }
     .hero-demo { top: 402px; width: calc(100vw - 32px); border-radius: var(--radius-md); }
     .play { bottom: var(--space-4); width: 54px; height: 54px; }
   }
