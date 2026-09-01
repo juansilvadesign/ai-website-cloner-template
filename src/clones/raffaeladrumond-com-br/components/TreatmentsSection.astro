@@ -94,6 +94,15 @@ const categories = [
     background: var(--surface);
   }
 
+  @media (min-width: 720px) {
+    .treatments {
+      /* The artwork that follows begins at a fixed editorial break in the
+       * reference. Fixing the section height prevents lazy treatment images
+       * from moving that break after the initial layout. */
+      height: 5103px;
+    }
+  }
+
   .treatments-intro {
     max-width: 780px;
     margin-bottom: clamp(var(--space-12), 8vw, 110px);

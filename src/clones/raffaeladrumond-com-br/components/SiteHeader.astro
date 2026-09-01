@@ -132,7 +132,7 @@ const navigation = [
     align-items: center;
     gap: 9px;
     color: var(--fg-2);
-    font-size: 13px;
+    font-size: 20px;
     font-weight: 400;
     white-space: nowrap;
   }
@@ -150,6 +150,19 @@ const navigation = [
   .quick-contact:last-child svg {
     fill: currentColor;
     stroke: none;
+  }
+
+  @media (min-width: 720px) {
+    .menu-toggle {
+      transform: translateX(18px);
+    }
+
+    .brand {
+      transform: translateX(4px);
+    }
+
+    .quick-contact:first-child { order: 2; }
+    .quick-contact:last-child { order: 1; }
   }
 
   .overlay-whatsapp {
@@ -251,6 +264,10 @@ const navigation = [
       gap: 0;
     }
 
+    .menu-toggle {
+      width: 56px;
+    }
+
     .brand img,
     .overlay-brand img {
       width: 88px;
@@ -258,6 +275,7 @@ const navigation = [
 
     .brand {
       justify-self: end;
+      transform: translateX(-21px);
     }
 
     .header-actions {

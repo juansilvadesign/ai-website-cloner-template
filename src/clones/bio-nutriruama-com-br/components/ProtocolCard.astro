@@ -1,0 +1,124 @@
+<section class="protocol-card" aria-label="Protocolo anti-inflamatório gratuito">
+  <img src="/clones/bio-nutriruama-com-br/images/card-protocolo.webp" alt="Protocolo anti-inflamatório exibido em um tablet" width="455" height="803" />
+  <span class="protocol-tab">Gratuito</span>
+  <div class="protocol-action">
+    <button class="protocol-button" type="button"><span>Garantir meu Protocolo</span></button>
+    <p>Esse é um presente para você • 100% gratuito para seu progresso</p>
+  </div>
+</section>
+
+<style>
+  .protocol-card {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 24px;
+    background: var(--fg-2);
+    aspect-ratio: 455 / 803;
+    container-type: inline-size;
+  }
+
+  .protocol-card > img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .protocol-tab {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    display: grid;
+    min-width: 42%;
+    min-height: 8.9cqw;
+    padding: 1.7cqw 5cqw 1.9cqw;
+    place-items: center;
+    border-radius: 0 0 8cqw 8cqw;
+    background: var(--bg);
+    color: var(--fg-2);
+    font-family: var(--font-body);
+    font-size: 5cqw;
+    font-weight: 400;
+    letter-spacing: -.04em;
+    line-height: 1;
+    translate: -50% 0;
+  }
+
+  .protocol-action {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    padding-bottom: 7cqw;
+    flex-direction: column;
+    align-items: center;
+    gap: 4.5cqw;
+    text-align: center;
+  }
+
+  .protocol-button {
+    position: relative;
+    isolation: isolate;
+    display: block;
+    width: 87.7cqw;
+    overflow: hidden;
+    padding: 3.5cqw 0;
+    border: 0;
+    border-radius: 2.2cqw;
+    background: var(--success);
+    color: var(--fg-2);
+    box-shadow: 0 11px 4.85px color-mix(in srgb, #000 19%, transparent);
+    font-family: var(--font-body);
+    font-size: 3.96cqw;
+    font-weight: 600;
+    letter-spacing: -.01em;
+    line-height: 1.5;
+    transition: opacity var(--motion-fast) var(--ease-standard);
+  }
+
+  .protocol-button::before {
+    position: absolute;
+    z-index: 0;
+    top: -25%;
+    bottom: -25%;
+    left: -30%;
+    width: 12%;
+    content: "";
+    opacity: 0;
+    pointer-events: none;
+    background: color-mix(in srgb, var(--accent-on) 80%, transparent);
+    box-shadow: 0 0 22px 13px color-mix(in srgb, var(--accent-on) 55%, transparent);
+    transform: skew(-25deg);
+    animation: protocol-shine 4.5s linear infinite;
+  }
+
+  .protocol-button span { position: relative; z-index: 1; }
+  .protocol-button:hover { opacity: .9; }
+
+  .protocol-action p {
+    margin: 0;
+    color: var(--bg);
+    font-family: var(--font-body);
+    font-size: 2.64cqw;
+    letter-spacing: -.04em;
+    line-height: 1.5;
+  }
+
+  @keyframes protocol-shine {
+    0%, 22% { left: -30%; opacity: 0; }
+    38% { opacity: .82; }
+    58%, 100% { left: 118%; opacity: 0; }
+  }
+
+  @media (min-width: 1024px) {
+    .protocol-card { height: 100%; border-radius: 27px; aspect-ratio: auto; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .protocol-button::before { animation: none; }
+  }
+</style>

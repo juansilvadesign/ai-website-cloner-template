@@ -1,103 +1,171 @@
 ---
-const testimonials = [
-  ["“O atendimento é atencioso desde a primeira conversa. Tudo é explicado com calma, e isso traz muita segurança.”", "Paciente da Clínica RD"],
-  ["“O resultado ficou muito natural. A Dra. Raffaela entende exatamente o que faz sentido para cada rosto.”", "Paciente da Clínica RD"],
-  ["“A clínica é linda, acolhedora e muito organizada. Me senti cuidada em todas as etapas.”", "Paciente da Clínica RD"],
-];
+const whatsappUrl =
+  "https://wa.me/5561999195497?text=Ol%C3%A1%2C%20estive%20no%20site%20e%20gostaria%20de%20agendar%20uma%20consulta.";
 ---
 
-<section id="depoimentos" class="testimonials rd-section" aria-labelledby="testimonials-title">
-  <div class="rd-container">
-    <header class="testimonials-intro" data-reveal>
-      <p class="rd-eyebrow">Depoimentos de pacientes</p>
-      <h2 id="testimonials-title" class="rd-title">O que pacientes dizem após o atendimento.</h2>
-      <p class="rd-copy">Os depoimentos de nossos pacientes refletem não apenas os resultados dos tratamentos, mas também a atenção, respeito e dedicação da Dra. Raffaela Drumond em cada etapa do cuidado com a saúde dos pacientes.</p>
-    </header>
-    <div class="testimonial-grid">
-      {testimonials.map(([quote, attribution]) => (
-        <blockquote data-reveal>
-          <div class="stars" aria-label="5 de 5 estrelas">★★★★★</div>
-          <p>{quote}</p>
-          <footer>{attribution}</footer>
-        </blockquote>
-      ))}
-    </div>
+<section id="depoimentos" class="testimonials" aria-labelledby="testimonials-title">
+  <div class="testimonials-copy" data-reveal>
+    <p class="testimonials-pill"><span aria-hidden="true">✦</span> DEPOIMENTOS DE PACIENTES</p>
+    <p class="rating">Médica com <strong>5 estrelas</strong> no <span class="google-g" aria-label="Google">G</span><span class="stars" aria-label="5 de 5 estrelas">★★★★★</span></p>
+    <h2 id="testimonials-title" class="rd-title">O que pacientes<br />dizem após o<br />atendimento.</h2>
+    <p class="testimonial-description">Os depoimentos de nossos pacientes refletem não apenas os resultados dos tratamentos, mas também a atenção, respeito e dedicação da Dra. Raffaela Drumond em cada etapa do cuidado com a saúde dos pacientes.</p>
+    <a class="rd-button" href={whatsappUrl} target="_blank" rel="noreferrer"><span>AGENDAR AVALIAÇÃO MÉDICA</span><span class="button-arrow" aria-hidden="true">→</span></a>
   </div>
 </section>
 
 <style>
   .testimonials {
-    background: var(--surface-warm);
+    box-sizing: border-box;
+    height: 853px;
+    padding: 100px 88px 0;
+    overflow: hidden;
+    background: var(--bg) url("/clones/raffaeladrumond-com-br/images/Frame-44.png") center top / cover no-repeat;
   }
 
-  .testimonials-intro {
-    display: grid;
-    grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
-    gap: var(--space-8);
-    align-items: end;
-    margin-bottom: var(--space-12);
-  }
+  .testimonials-copy { width: 498px; }
 
-  .testimonials-intro .rd-copy {
-    max-width: 540px;
-    margin-left: auto;
-  }
-
-  .testimonial-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: var(--space-5);
-  }
-
-  blockquote {
-    display: flex;
-    min-height: 270px;
-    flex-direction: column;
+  .testimonials-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    box-sizing: border-box;
+    width: 274px;
+    max-width: 100%;
+    min-height: 56px;
     margin: 0;
-    padding: var(--space-6);
-    border: 1px solid var(--border-soft);
-    border-radius: var(--radius-lg);
-    background: var(--surface);
+    padding: 16px;
+    border: 1px solid rgba(30, 35, 15, .18);
+    border-radius: 100px;
+    color: var(--fg-2);
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1;
+  }
+
+  .testimonials-pill span {
+    color: var(--fg);
+    font-size: 23px;
+    line-height: 0;
+  }
+
+  .rating {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin: 25px 0 0;
+    color: #101010;
+    font-size: 20px;
+    line-height: 1.5;
+  }
+
+  .google-g {
+    margin-left: 4px;
+    color: #4285f4;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1;
   }
 
   .stars {
-    color: var(--accent);
-    font-size: var(--text-sm);
-    letter-spacing: .12em;
+    color: #ff9f00;
+    font-size: 20px;
+    letter-spacing: 1px;
   }
 
-  blockquote p {
-    margin: var(--space-6) 0 auto;
+  .testimonials .rd-title {
+    margin-top: 4px;
     color: var(--fg);
-    font-family: var(--font-display);
-    font-size: var(--text-xl);
-    font-style: italic;
-    font-weight: 300;
-    line-height: 1.35;
+    font-size: 64px;
+    line-height: 1.25;
   }
 
-  blockquote footer {
-    margin-top: var(--space-6);
-    color: var(--muted);
-    font-size: var(--text-xs);
+  .testimonial-description {
+    margin: 20px 0 0;
+    color: #101010;
+    font-size: 20px;
+    line-height: 1.5;
+  }
+
+  .testimonials .rd-button {
+    position: relative;
+    width: 465px;
+    min-height: 96px;
+    margin-top: 32px;
+    padding: 26px 100px 26px 60px;
+    border: 0;
+    border-radius: 20px;
+    background: var(--accent);
+    color: var(--accent-on);
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 0;
+    justify-content: flex-start;
+  }
+
+  .button-arrow {
+    position: absolute;
+    right: 60px;
+    display: grid;
+    width: 44px;
+    height: 44px;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--surface);
+    color: var(--fg-2);
+    font-size: 25px;
+    font-weight: 300;
+    line-height: 1;
   }
 
   @media (max-width: 719px) {
-    .testimonials-intro {
-      grid-template-columns: 1fr;
-      gap: var(--space-5);
+    .testimonials {
+      height: auto;
+      min-height: 780px;
+      padding: 72px 22px 60px;
+      background-position: 64% top;
     }
 
-    .testimonials-intro .rd-copy {
-      margin-left: 0;
+    .testimonials-copy { width: auto; }
+
+    .testimonials-pill {
+      min-height: 46px;
+      padding: 12px 14px;
+      font-size: 9px;
     }
 
-    .testimonial-grid {
-      grid-template-columns: 1fr;
+    .rating {
+      flex-wrap: wrap;
+      margin-top: 22px;
+      font-size: 16px;
     }
 
-    blockquote {
-      min-height: 225px;
+    .testimonials .rd-title {
+      margin-top: 16px;
+      font-size: 47px;
+      line-height: 1.08;
+    }
+
+    .testimonial-description {
+      margin-top: 22px;
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    .testimonials .rd-button {
+      width: 100%;
+      min-height: 80px;
+      margin-top: 28px;
+      padding: 18px 64px 18px 22px;
+      font-size: 15px;
+      line-height: 1.25;
+    }
+
+    .button-arrow {
+      right: 20px;
+      width: 34px;
+      height: 34px;
+      font-size: 20px;
     }
   }
 </style>

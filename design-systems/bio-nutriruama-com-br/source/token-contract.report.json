@@ -1,0 +1,636 @@
+{
+  "schemaVersion": 1,
+  "format": "od-token-contract-report/v1",
+  "generatedAt": "2026-09-01T17:53:08.966Z",
+  "summary": {
+    "total": 56,
+    "byConfidence": {
+      "high": 48,
+      "derived": 8
+    },
+    "byLayer": {
+      "A1-identity": 8,
+      "B-slot": 4,
+      "A2": 26,
+      "A1-structure": 18
+    }
+  },
+  "tokens": [
+    {
+      "name": "--bg",
+      "layer": "A1-identity",
+      "value": "#F8F8F8",
+      "confidence": "high",
+      "reason": "Default body canvas.",
+      "sources": [
+        "live computed body background-color at 1440/768/390; source CSS :root --bg",
+        "tokens.css:8"
+      ]
+    },
+    {
+      "name": "--surface",
+      "layer": "A1-identity",
+      "value": "#FFFFFF",
+      "confidence": "high",
+      "reason": "Cards and hero/social foreground treatment.",
+      "sources": [
+        "source CSS :root --card; card computed styles",
+        "tokens.css:9"
+      ]
+    },
+    {
+      "name": "--surface-warm",
+      "layer": "B-slot",
+      "value": "#F7E9EC",
+      "confidence": "derived",
+      "reason": "Warm pale panel tier derived from the dark-mode ink and menu glass contrast.",
+      "sources": [
+        "source CSS .dark --ink #F7E9EC",
+        "tokens.css:10"
+      ]
+    },
+    {
+      "name": "--fg",
+      "layer": "A1-identity",
+      "value": "#280814",
+      "confidence": "high",
+      "reason": "Primary deep wine ink.",
+      "sources": [
+        "live computed body color; source CSS :root --ink",
+        "tokens.css:13"
+      ]
+    },
+    {
+      "name": "--fg-2",
+      "layer": "B-slot",
+      "value": "#3E3E3E",
+      "confidence": "high",
+      "reason": "Secondary copy tier.",
+      "sources": [
+        "source CSS :root --body",
+        "tokens.css:14"
+      ]
+    },
+    {
+      "name": "--muted",
+      "layer": "A1-identity",
+      "value": "#C37D88",
+      "confidence": "high",
+      "reason": "Reset-card caption and restrained rose subtext.",
+      "sources": [
+        "computed reset caption color",
+        "tokens.css:15"
+      ]
+    },
+    {
+      "name": "--meta",
+      "layer": "B-slot",
+      "value": "#333333",
+      "confidence": "high",
+      "reason": "Title/secondary neutral ink.",
+      "sources": [
+        "source CSS :root --title",
+        "tokens.css:16"
+      ]
+    },
+    {
+      "name": "--border",
+      "layer": "A1-identity",
+      "value": "#DFDFDF",
+      "confidence": "high",
+      "reason": "Default card/control edge.",
+      "sources": [
+        "source CSS :root --border",
+        "tokens.css:19"
+      ]
+    },
+    {
+      "name": "--border-soft",
+      "layer": "B-slot",
+      "value": "#ECECEC",
+      "confidence": "high",
+      "reason": "Header control and soft divider edge.",
+      "sources": [
+        "source CSS :root --border-soft; computed header button border",
+        "tokens.css:20"
+      ]
+    },
+    {
+      "name": "--accent",
+      "layer": "A1-identity",
+      "value": "#C64B4B",
+      "confidence": "high",
+      "reason": "Brand coral in hero overlay, link affordances, and controls.",
+      "sources": [
+        "source CSS :root --accent; live hero gradient",
+        "tokens.css:23"
+      ]
+    },
+    {
+      "name": "--accent-on",
+      "layer": "A2",
+      "value": "#FFFFFF",
+      "confidence": "high",
+      "reason": "Hero and social foreground.",
+      "sources": [
+        "computed hero H1/social-link color",
+        "tokens.css:24"
+      ]
+    },
+    {
+      "name": "--accent-hover",
+      "layer": "A2",
+      "value": "#9D333D",
+      "confidence": "derived",
+      "reason": "Hover/active accent tier derived from the target’s saturated coral.",
+      "sources": [
+        "derived from --accent",
+        "tokens.css:25"
+      ]
+    },
+    {
+      "name": "--accent-active",
+      "layer": "A2",
+      "value": "#602424",
+      "confidence": "high",
+      "reason": "Hero gradient’s dark terminal color.",
+      "sources": [
+        "source CSS --hero-grad-full",
+        "tokens.css:26"
+      ]
+    },
+    {
+      "name": "--success",
+      "layer": "A2",
+      "value": "#ABCC8E",
+      "confidence": "high",
+      "reason": "Protocol CTA background.",
+      "sources": [
+        "computed protocol button background-color",
+        "tokens.css:29"
+      ]
+    },
+    {
+      "name": "--warn",
+      "layer": "A2",
+      "value": "#C37D88",
+      "confidence": "derived",
+      "reason": "Closest warm semantic tier in the extracted palette.",
+      "sources": [
+        "derived from --muted",
+        "tokens.css:30"
+      ]
+    },
+    {
+      "name": "--danger",
+      "layer": "A2",
+      "value": "#C64B4B",
+      "confidence": "derived",
+      "reason": "The target uses coral for assertive actions and links.",
+      "sources": [
+        "derived from --accent",
+        "tokens.css:31"
+      ]
+    },
+    {
+      "name": "--font-display",
+      "layer": "A1-identity",
+      "value": "\"roxborough\", \"Playfair Display\", Georgia, serif",
+      "confidence": "high",
+      "reason": "Hero H1, menu navigation, and featured card titles use Roxborough.",
+      "sources": [
+        "computed hero H1 font-family; source CSS @font-face declarations",
+        "tokens.css:34"
+      ]
+    },
+    {
+      "name": "--font-body",
+      "layer": "A1-identity",
+      "value": "\"degular\", \"Figtree\", system-ui, sans-serif",
+      "confidence": "high",
+      "reason": "Global body, controls, and card copy use the source Adobe Degular stack.",
+      "sources": [
+        "computed body font-family; source CSS --font-body; Adobe kit dpc3nvx",
+        "tokens.css:35"
+      ]
+    },
+    {
+      "name": "--font-mono",
+      "layer": "A2",
+      "value": "\"Questrial\", ui-monospace, monospace",
+      "confidence": "derived",
+      "reason": "Local Questrial fallback exposed by the source font bundle.",
+      "sources": [
+        "source CSS @font-face Questrial",
+        "tokens.css:36"
+      ]
+    },
+    {
+      "name": "--text-xs",
+      "layer": "A1-structure",
+      "value": "9px",
+      "confidence": "high",
+      "reason": "Desktop protocol caption tier.",
+      "sources": [
+        "computed protocol caption at 1440",
+        "tokens.css:39"
+      ]
+    },
+    {
+      "name": "--text-sm",
+      "layer": "A1-structure",
+      "value": "12px",
+      "confidence": "high",
+      "reason": "Small action label tier.",
+      "sources": [
+        "computed eBook label at 390",
+        "tokens.css:40"
+      ]
+    },
+    {
+      "name": "--text-base",
+      "layer": "A1-structure",
+      "value": "16px",
+      "confidence": "high",
+      "reason": "Body/card-copy baseline.",
+      "sources": [
+        "computed body and link-card styles",
+        "tokens.css:41"
+      ]
+    },
+    {
+      "name": "--text-lg",
+      "layer": "A1-structure",
+      "value": "20px",
+      "confidence": "high",
+      "reason": "Mobile card heading tier.",
+      "sources": [
+        "computed consultation-card heading at 390",
+        "tokens.css:42"
+      ]
+    },
+    {
+      "name": "--text-xl",
+      "layer": "A1-structure",
+      "value": "25px",
+      "confidence": "high",
+      "reason": "Desktop hero supporting line.",
+      "sources": [
+        "computed hero supporting copy at 1440",
+        "tokens.css:43"
+      ]
+    },
+    {
+      "name": "--text-2xl",
+      "layer": "A1-structure",
+      "value": "39px",
+      "confidence": "high",
+      "reason": "Desktop hero eyebrow tier.",
+      "sources": [
+        "source CSS lg:text-[39px]",
+        "tokens.css:44"
+      ]
+    },
+    {
+      "name": "--text-3xl",
+      "layer": "A1-structure",
+      "value": "72px",
+      "confidence": "high",
+      "reason": "Mobile hero display word.",
+      "sources": [
+        "computed hero H1 at 390",
+        "tokens.css:45"
+      ]
+    },
+    {
+      "name": "--text-4xl",
+      "layer": "A1-structure",
+      "value": "103px",
+      "confidence": "high",
+      "reason": "Desktop hero display word.",
+      "sources": [
+        "computed hero H1 at 1440",
+        "tokens.css:46"
+      ]
+    },
+    {
+      "name": "--leading-body",
+      "layer": "A1-structure",
+      "value": "1",
+      "confidence": "high",
+      "reason": "Compact link-card copy line-height.",
+      "sources": [
+        "computed card copy line-height at 390",
+        "tokens.css:49"
+      ]
+    },
+    {
+      "name": "--leading-tight",
+      "layer": "A1-structure",
+      "value": "0.95",
+      "confidence": "high",
+      "reason": "Hero display leading.",
+      "sources": [
+        "computed hero H1 line-height",
+        "tokens.css:50"
+      ]
+    },
+    {
+      "name": "--tracking-display",
+      "layer": "A1-structure",
+      "value": "-0.02em",
+      "confidence": "high",
+      "reason": "Hero/title tracking.",
+      "sources": [
+        "computed hero H1 letter-spacing",
+        "tokens.css:51"
+      ]
+    },
+    {
+      "name": "--space-1",
+      "layer": "A2",
+      "value": "4px",
+      "confidence": "derived",
+      "reason": "Source Tailwind spacing base.",
+      "sources": [
+        "source CSS --spacing",
+        "tokens.css:54"
+      ]
+    },
+    {
+      "name": "--space-2",
+      "layer": "A2",
+      "value": "8px",
+      "confidence": "high",
+      "reason": "Mobile card-stack offset.",
+      "sources": [
+        "computed card-stack margin-top at 390",
+        "tokens.css:55"
+      ]
+    },
+    {
+      "name": "--space-3",
+      "layer": "A2",
+      "value": "12px",
+      "confidence": "high",
+      "reason": "Mobile overlay/menu inset tier.",
+      "sources": [
+        "source utility p-3",
+        "tokens.css:56"
+      ]
+    },
+    {
+      "name": "--space-4",
+      "layer": "A2",
+      "value": "16px",
+      "confidence": "high",
+      "reason": "Phone canvas gutter and header inset.",
+      "sources": [
+        "computed main/header padding at 390",
+        "tokens.css:57"
+      ]
+    },
+    {
+      "name": "--space-5",
+      "layer": "A2",
+      "value": "20px",
+      "confidence": "high",
+      "reason": "Mobile grid gap and header horizontal padding.",
+      "sources": [
+        "computed mobile grid gap/header padding",
+        "tokens.css:58"
+      ]
+    },
+    {
+      "name": "--space-6",
+      "layer": "A2",
+      "value": "24px",
+      "confidence": "high",
+      "reason": "Phone bottom padding and mobile hero text inset.",
+      "sources": [
+        "computed main and hero styles",
+        "tokens.css:59"
+      ]
+    },
+    {
+      "name": "--space-8",
+      "layer": "A2",
+      "value": "32px",
+      "confidence": "high",
+      "reason": "Desktop grid gap and header vertical padding.",
+      "sources": [
+        "computed desktop grid/header styles",
+        "tokens.css:60"
+      ]
+    },
+    {
+      "name": "--space-12",
+      "layer": "A2",
+      "value": "48px",
+      "confidence": "high",
+      "reason": "Desktop social-control size rhythm.",
+      "sources": [
+        "computed desktop social-link dimensions",
+        "tokens.css:61"
+      ]
+    },
+    {
+      "name": "--section-y-desktop",
+      "layer": "A1-structure",
+      "value": "32px",
+      "confidence": "high",
+      "reason": "Desktop header/footer vertical rhythm.",
+      "sources": [
+        "computed desktop header/footer padding",
+        "tokens.css:64"
+      ]
+    },
+    {
+      "name": "--section-y-tablet",
+      "layer": "A1-structure",
+      "value": "24px",
+      "confidence": "high",
+      "reason": "Tablet menu and canvas rhythm.",
+      "sources": [
+        "computed 768px overlay padding",
+        "tokens.css:65"
+      ]
+    },
+    {
+      "name": "--section-y-phone",
+      "layer": "A1-structure",
+      "value": "16px",
+      "confidence": "high",
+      "reason": "Mobile header/footer vertical rhythm.",
+      "sources": [
+        "computed 390px header/footer padding",
+        "tokens.css:66"
+      ]
+    },
+    {
+      "name": "--radius-sm",
+      "layer": "A2",
+      "value": "11px",
+      "confidence": "high",
+      "reason": "Header controls.",
+      "sources": [
+        "computed header button border-radius",
+        "tokens.css:69"
+      ]
+    },
+    {
+      "name": "--radius-md",
+      "layer": "A2",
+      "value": "18.6px",
+      "confidence": "high",
+      "reason": "Mobile action cards.",
+      "sources": [
+        "computed first card border-radius at 390",
+        "tokens.css:70"
+      ]
+    },
+    {
+      "name": "--radius-lg",
+      "layer": "A2",
+      "value": "38px",
+      "confidence": "high",
+      "reason": "Desktop hero container.",
+      "sources": [
+        "computed hero border-radius at 1440",
+        "tokens.css:71"
+      ]
+    },
+    {
+      "name": "--radius-pill",
+      "layer": "A2",
+      "value": "9999px",
+      "confidence": "high",
+      "reason": "Social-link circles.",
+      "sources": [
+        "computed social-link border-radius",
+        "tokens.css:72"
+      ]
+    },
+    {
+      "name": "--elev-flat",
+      "layer": "A2",
+      "value": "none",
+      "confidence": "high",
+      "reason": "Default page/card resting state.",
+      "sources": [
+        "computed card box-shadow at rest",
+        "tokens.css:75"
+      ]
+    },
+    {
+      "name": "--elev-ring",
+      "layer": "A2",
+      "value": "0 0 0 1px var(--border)",
+      "confidence": "derived",
+      "reason": "Focus/edge treatment derived from source hairline borders.",
+      "sources": [
+        "derived from --border",
+        "tokens.css:76"
+      ]
+    },
+    {
+      "name": "--elev-raised",
+      "layer": "A2",
+      "value": "0 8px 30px rgba(0, 0, 0, 0.10)",
+      "confidence": "high",
+      "reason": "Link-card hover elevation.",
+      "sources": [
+        "computed consultation-card hover box-shadow",
+        "tokens.css:77"
+      ]
+    },
+    {
+      "name": "--focus-ring",
+      "layer": "A2",
+      "value": "0 0 0 3px color-mix(in srgb, var(--accent), transparent 68%)",
+      "confidence": "derived",
+      "reason": "Keyboard-visible focus derived from the target coral accent.",
+      "sources": [
+        "derived from --accent",
+        "tokens.css:80"
+      ]
+    },
+    {
+      "name": "--motion-fast",
+      "layer": "A2",
+      "value": "150ms",
+      "confidence": "high",
+      "reason": "Card/control hover transition duration.",
+      "sources": [
+        "computed card and header-control transition",
+        "tokens.css:83"
+      ]
+    },
+    {
+      "name": "--motion-base",
+      "layer": "A2",
+      "value": "300ms",
+      "confidence": "high",
+      "reason": "Menu opacity/transform transition.",
+      "sources": [
+        "computed menu overlay/panel transition",
+        "tokens.css:84"
+      ]
+    },
+    {
+      "name": "--ease-standard",
+      "layer": "A2",
+      "value": "cubic-bezier(0.4, 0, 0.2, 1)",
+      "confidence": "high",
+      "reason": "Tailwind default transition curve used by the source.",
+      "sources": [
+        "computed card/menu transitions",
+        "tokens.css:85"
+      ]
+    },
+    {
+      "name": "--container-max",
+      "layer": "A1-structure",
+      "value": "1745px",
+      "confidence": "high",
+      "reason": "Source header/main maximum width.",
+      "sources": [
+        "computed header/main max-width",
+        "tokens.css:88"
+      ]
+    },
+    {
+      "name": "--container-gutter-desktop",
+      "layer": "A1-structure",
+      "value": "0px",
+      "confidence": "high",
+      "reason": "Desktop layout reaches the max-width edge.",
+      "sources": [
+        "computed header/main desktop padding",
+        "tokens.css:89"
+      ]
+    },
+    {
+      "name": "--container-gutter-tablet",
+      "layer": "A1-structure",
+      "value": "16px",
+      "confidence": "high",
+      "reason": "Tablet main gutter.",
+      "sources": [
+        "computed main padding at 768",
+        "tokens.css:90"
+      ]
+    },
+    {
+      "name": "--container-gutter-phone",
+      "layer": "A1-structure",
+      "value": "16px",
+      "confidence": "high",
+      "reason": "Phone main gutter.",
+      "sources": [
+        "computed main padding at 390",
+        "tokens.css:91"
+      ]
+    }
+  ]
+}

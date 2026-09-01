@@ -1,0 +1,55 @@
+---
+import "../styles/clone.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Ruama Cori · Nutricionista",
+  description = "Apaixone-se pelo processo de se tornar sua melhor versão. Consultas, receitas e o Desafio Reset 14 dias com a nutricionista Ruama Cori.",
+} = Astro.props;
+
+const canonicalUrl = "https://bio.nutriruama.com.br/";
+const socialImage = "https://bio.nutriruama.com.br/og.jpg";
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#F8F8F8" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="Ruama Cori" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:image" content={socialImage} />
+    <meta property="og:image:alt" content={title} />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="icon" href="/clones/bio-nutriruama-com-br/seo/favicon.ico" sizes="any" />
+    <link rel="preconnect" href="https://use.typekit.net" />
+    <link rel="stylesheet" href="https://use.typekit.net/dpc3nvx.css" />
+    <title>{title}</title>
+    <script is:inline>
+      try {
+        if (localStorage.getItem("bio-nutriruama-theme") === "dark") {
+          document.documentElement.dataset.theme = "dark";
+        }
+      } catch {}
+    </script>
+    <slot name="head" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

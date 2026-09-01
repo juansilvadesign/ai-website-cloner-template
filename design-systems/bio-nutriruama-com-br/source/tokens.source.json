@@ -1,0 +1,97 @@
+{
+  "$schema": "clone-website extraction artifact — consumed by scripts/emit-design-system.ts",
+  "brand": "bio-nutriruama-com-br",
+  "name": "Ruama Cori · Nutricionista",
+  "extraction": {
+    "target": "https://bio.nutriruama.com.br/",
+    "sourcePath": "https://bio.nutriruama.com.br/",
+    "method": "Live browser inspection at 1440×1000, 768×1000, and 390×844 on 2026-09-01; computed styles, delivered CSS, first-party assets, and interaction states were captured before emission.",
+    "evidence": "design-systems/bio-nutriruama-com-br/source/evidence.md",
+    "note": "The public target exposes a light default and a dark data-theme variant. Its Adobe Typekit Degular kit remains referenced from the source rather than copied locally; first-party Roxborough, Figtree, Montserrat, and Questrial files are mirrored with the clone.",
+    "extractedAt": "2026-09-01"
+  },
+  "themes": {
+    "light": {
+      "--bg": { "value": "#F8F8F8", "confidence": "high", "reason": "Default body canvas.", "source": "live computed body background-color at 1440/768/390; source CSS :root --bg" },
+      "--surface": { "value": "#FFFFFF", "confidence": "high", "reason": "Cards and hero/social foreground treatment.", "source": "source CSS :root --card; card computed styles" },
+      "--surface-warm": { "value": "#F7E9EC", "confidence": "derived", "reason": "Warm pale panel tier derived from the dark-mode ink and menu glass contrast.", "source": "source CSS .dark --ink #F7E9EC" },
+
+      "--fg": { "value": "#280814", "confidence": "high", "reason": "Primary deep wine ink.", "source": "live computed body color; source CSS :root --ink" },
+      "--fg-2": { "value": "#3E3E3E", "confidence": "high", "reason": "Secondary copy tier.", "source": "source CSS :root --body" },
+      "--muted": { "value": "#C37D88", "confidence": "high", "reason": "Reset-card caption and restrained rose subtext.", "source": "computed reset caption color" },
+      "--meta": { "value": "#333333", "confidence": "high", "reason": "Title/secondary neutral ink.", "source": "source CSS :root --title" },
+
+      "--border": { "value": "#DFDFDF", "confidence": "high", "reason": "Default card/control edge.", "source": "source CSS :root --border" },
+      "--border-soft": { "value": "#ECECEC", "confidence": "high", "reason": "Header control and soft divider edge.", "source": "source CSS :root --border-soft; computed header button border" },
+
+      "--accent": { "value": "#C64B4B", "confidence": "high", "reason": "Brand coral in hero overlay, link affordances, and controls.", "source": "source CSS :root --accent; live hero gradient" },
+      "--accent-on": { "value": "#FFFFFF", "confidence": "high", "reason": "Hero and social foreground.", "source": "computed hero H1/social-link color" },
+      "--accent-hover": { "value": "#9D333D", "confidence": "derived", "reason": "Hover/active accent tier derived from the target’s saturated coral.", "source": "derived from --accent" },
+      "--accent-active": { "value": "#602424", "confidence": "high", "reason": "Hero gradient’s dark terminal color.", "source": "source CSS --hero-grad-full" },
+
+      "--success": { "value": "#ABCC8E", "confidence": "high", "reason": "Protocol CTA background.", "source": "computed protocol button background-color" },
+      "--warn": { "value": "#C37D88", "confidence": "derived", "reason": "Closest warm semantic tier in the extracted palette.", "source": "derived from --muted" },
+      "--danger": { "value": "#C64B4B", "confidence": "derived", "reason": "The target uses coral for assertive actions and links.", "source": "derived from --accent" },
+
+      "--font-display": { "value": "\"roxborough\", \"Playfair Display\", Georgia, serif", "confidence": "high", "reason": "Hero H1, menu navigation, and featured card titles use Roxborough.", "source": "computed hero H1 font-family; source CSS @font-face declarations" },
+      "--font-body": { "value": "\"degular\", \"Figtree\", system-ui, sans-serif", "confidence": "high", "reason": "Global body, controls, and card copy use the source Adobe Degular stack.", "source": "computed body font-family; source CSS --font-body; Adobe kit dpc3nvx" },
+      "--font-mono": { "value": "\"Questrial\", ui-monospace, monospace", "confidence": "derived", "reason": "Local Questrial fallback exposed by the source font bundle.", "source": "source CSS @font-face Questrial" },
+
+      "--text-xs": { "value": "9px", "confidence": "high", "reason": "Desktop protocol caption tier.", "source": "computed protocol caption at 1440" },
+      "--text-sm": { "value": "12px", "confidence": "high", "reason": "Small action label tier.", "source": "computed eBook label at 390" },
+      "--text-base": { "value": "16px", "confidence": "high", "reason": "Body/card-copy baseline.", "source": "computed body and link-card styles" },
+      "--text-lg": { "value": "20px", "confidence": "high", "reason": "Mobile card heading tier.", "source": "computed consultation-card heading at 390" },
+      "--text-xl": { "value": "25px", "confidence": "high", "reason": "Desktop hero supporting line.", "source": "computed hero supporting copy at 1440" },
+      "--text-2xl": { "value": "39px", "confidence": "high", "reason": "Desktop hero eyebrow tier.", "source": "source CSS lg:text-[39px]" },
+      "--text-3xl": { "value": "72px", "confidence": "high", "reason": "Mobile hero display word.", "source": "computed hero H1 at 390" },
+      "--text-4xl": { "value": "103px", "confidence": "high", "reason": "Desktop hero display word.", "source": "computed hero H1 at 1440" },
+
+      "--leading-body": { "value": "1", "confidence": "high", "reason": "Compact link-card copy line-height.", "source": "computed card copy line-height at 390" },
+      "--leading-tight": { "value": "0.95", "confidence": "high", "reason": "Hero display leading.", "source": "computed hero H1 line-height" },
+      "--tracking-display": { "value": "-0.02em", "confidence": "high", "reason": "Hero/title tracking.", "source": "computed hero H1 letter-spacing" },
+
+      "--space-1": { "value": "4px", "confidence": "derived", "reason": "Source Tailwind spacing base.", "source": "source CSS --spacing" },
+      "--space-2": { "value": "8px", "confidence": "high", "reason": "Mobile card-stack offset.", "source": "computed card-stack margin-top at 390" },
+      "--space-3": { "value": "12px", "confidence": "high", "reason": "Mobile overlay/menu inset tier.", "source": "source utility p-3" },
+      "--space-4": { "value": "16px", "confidence": "high", "reason": "Phone canvas gutter and header inset.", "source": "computed main/header padding at 390" },
+      "--space-5": { "value": "20px", "confidence": "high", "reason": "Mobile grid gap and header horizontal padding.", "source": "computed mobile grid gap/header padding" },
+      "--space-6": { "value": "24px", "confidence": "high", "reason": "Phone bottom padding and mobile hero text inset.", "source": "computed main and hero styles" },
+      "--space-8": { "value": "32px", "confidence": "high", "reason": "Desktop grid gap and header vertical padding.", "source": "computed desktop grid/header styles" },
+      "--space-12": { "value": "48px", "confidence": "high", "reason": "Desktop social-control size rhythm.", "source": "computed desktop social-link dimensions" },
+
+      "--section-y-desktop": { "value": "32px", "confidence": "high", "reason": "Desktop header/footer vertical rhythm.", "source": "computed desktop header/footer padding" },
+      "--section-y-tablet": { "value": "24px", "confidence": "high", "reason": "Tablet menu and canvas rhythm.", "source": "computed 768px overlay padding" },
+      "--section-y-phone": { "value": "16px", "confidence": "high", "reason": "Mobile header/footer vertical rhythm.", "source": "computed 390px header/footer padding" },
+
+      "--radius-sm": { "value": "11px", "confidence": "high", "reason": "Header controls.", "source": "computed header button border-radius" },
+      "--radius-md": { "value": "18.6px", "confidence": "high", "reason": "Mobile action cards.", "source": "computed first card border-radius at 390" },
+      "--radius-lg": { "value": "38px", "confidence": "high", "reason": "Desktop hero container.", "source": "computed hero border-radius at 1440" },
+      "--radius-pill": { "value": "9999px", "confidence": "high", "reason": "Social-link circles.", "source": "computed social-link border-radius" },
+
+      "--elev-flat": { "value": "none", "confidence": "high", "reason": "Default page/card resting state.", "source": "computed card box-shadow at rest" },
+      "--elev-ring": { "value": "0 0 0 1px var(--border)", "confidence": "derived", "reason": "Focus/edge treatment derived from source hairline borders.", "source": "derived from --border" },
+      "--elev-raised": { "value": "0 8px 30px rgba(0, 0, 0, 0.10)", "confidence": "high", "reason": "Link-card hover elevation.", "source": "computed consultation-card hover box-shadow" },
+      "--focus-ring": { "value": "0 0 0 3px color-mix(in srgb, var(--accent), transparent 68%)", "confidence": "derived", "reason": "Keyboard-visible focus derived from the target coral accent.", "source": "derived from --accent" },
+
+      "--motion-fast": { "value": "150ms", "confidence": "high", "reason": "Card/control hover transition duration.", "source": "computed card and header-control transition" },
+      "--motion-base": { "value": "300ms", "confidence": "high", "reason": "Menu opacity/transform transition.", "source": "computed menu overlay/panel transition" },
+      "--ease-standard": { "value": "cubic-bezier(0.4, 0, 0.2, 1)", "confidence": "high", "reason": "Tailwind default transition curve used by the source.", "source": "computed card/menu transitions" },
+
+      "--container-max": { "value": "1745px", "confidence": "high", "reason": "Source header/main maximum width.", "source": "computed header/main max-width" },
+      "--container-gutter-desktop": { "value": "0px", "confidence": "high", "reason": "Desktop layout reaches the max-width edge.", "source": "computed header/main desktop padding" },
+      "--container-gutter-tablet": { "value": "16px", "confidence": "high", "reason": "Tablet main gutter.", "source": "computed main padding at 768" },
+      "--container-gutter-phone": { "value": "16px", "confidence": "high", "reason": "Phone main gutter.", "source": "computed main padding at 390" }
+    },
+    "dark": {
+      "--bg": { "value": "#280814", "confidence": "high", "reason": "Dark canvas.", "source": "live computed body background after theme toggle; source CSS .dark --bg" },
+      "--surface": { "value": "#3A0F1E", "confidence": "high", "reason": "Dark lifted card surface.", "source": "source CSS .dark --card" },
+      "--surface-warm": { "value": "#2A0A16", "confidence": "high", "reason": "Dark menu glass base.", "source": "source CSS .dark --menu-glass" },
+      "--fg": { "value": "#F7E9EC", "confidence": "high", "reason": "Dark primary ink.", "source": "live computed body color; source CSS .dark --ink" },
+      "--fg-2": { "value": "#D8B5BD", "confidence": "high", "reason": "Dark secondary copy.", "source": "source CSS .dark --body" },
+      "--muted": { "value": "#B98E98", "confidence": "high", "reason": "Dark muted caption color.", "source": "source CSS dark:text-[#b98e98]" },
+      "--meta": { "value": "#F7E9EC", "confidence": "high", "reason": "Dark title tier.", "source": "source CSS .dark --title" },
+      "--border": { "value": "#5A2233", "confidence": "high", "reason": "Dark card edge.", "source": "source CSS .dark --border" },
+      "--border-soft": { "value": "#5A2233", "confidence": "high", "reason": "Dark soft edge.", "source": "source CSS .dark --border-soft" }
+    }
+  }
+}

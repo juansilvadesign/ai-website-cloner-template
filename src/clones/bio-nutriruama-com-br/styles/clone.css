@@ -1,0 +1,154 @@
+@import "../../../../design-systems/bio-nutriruama-com-br/tokens.css";
+@import "../../../styles/reset.css";
+
+@font-face {
+  font-family: "roxborough";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("/clones/bio-nutriruama-com-br/fonts/roxborough-light.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "roxborough";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/clones/bio-nutriruama-com-br/fonts/roxborough-regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "roxborough";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/clones/bio-nutriruama-com-br/fonts/roxborough-medium.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "roxborough";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/clones/bio-nutriruama-com-br/fonts/roxborough-demibold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "roxborough";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/clones/bio-nutriruama-com-br/fonts/roxborough-bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "roxborough";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("/clones/bio-nutriruama-com-br/fonts/roxborough-extrabold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "roxborough";
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url("/clones/bio-nutriruama-com-br/fonts/roxborough-heavy.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Figtree";
+  font-style: normal;
+  font-weight: 300 900;
+  font-display: swap;
+  src: url("/clones/bio-nutriruama-com-br/fonts/figtree-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url("/clones/bio-nutriruama-com-br/fonts/montserrat-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Questrial";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/clones/bio-nutriruama-com-br/fonts/questrial-latin.woff2") format("woff2");
+}
+
+:root {
+  color-scheme: light;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+html {
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-width: 320px;
+  overflow-x: clip;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.5;
+  text-size-adjust: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+@media (min-width: 1024px) {
+  html {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  html::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+}

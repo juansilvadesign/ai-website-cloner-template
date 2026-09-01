@@ -8,22 +8,23 @@ const protocols = [
   ["Glow", "Associação do Laser ZYE com ativos da Medicina Regenerativa. Trata somente Face. O objetivo é tratar a qualidade de pele porém de maneira menos agressiva e com um pós mais tranquilo."],
   ["Coolpeel", "Associação do Laser Punto com ativos da Medicina Regenerativa. Trata somente Face. O objetivo é melhorar a qualidade de Pele."],
   ["Tec Pro", "Associação de todas as Tecnologias da Clínica em uma única sessão anual. Tratando todas as camadas da Pele, desde a mais profunda até a mais superficial. Para aqueles Pacientes que não gostam dos Injetáveis."],
-  ["Lift Eyes", "Neste Protocolo, tratamos o envelhecimento da área dos olhos, como pálpebras craqueladas, rugas, olhar cansado e queda das sobrancelhas. O tratamento é realizado com 3 tecnologias: LIFTERA, OLÍGIO X e PUNTO."],
+  ["Lift Eyes", "Neste Protocolo, tratamos o envelhecimento da área dos olhos, como pálpebras craqueladas, rugas, olhar cansado e queda das sobrancelhas. O tratamento é realizado com 3 tecnologias: LIFTERA, OLÍGIO X e PUNTO, atuando em todas as camadas da pele, desde as mais profundas até as mais superficiais, entregando ativos regenerativos."],
 ];
 ---
 
-<section id="protocolos" class="protocols rd-section" aria-labelledby="protocols-title">
-  <div class="rd-container">
+<section id="protocolos" class="protocols" aria-labelledby="protocols-title">
+  <div class="protocol-shell">
     <header class="protocols-intro" data-reveal>
-      <img src="/clones/raffaeladrumond-com-br/images/PROTOCOLO.png" alt="" width="242" height="29" loading="lazy" />
-      <p class="rd-eyebrow">Protocolos da Clínica</p>
+      <p class="protocol-pill"><span aria-hidden="true">✦</span> ESPAÇO DE CONFORTO E SEGURANÇA</p>
       <h2 id="protocols-title" class="rd-title">Conheça os protocolos da Clínica RD</h2>
-      <p class="rd-copy">A clínica também oferece protocolos de tratamento desenvolvidos pela Dra. Raffaela, que combinam as tecnologias mais modernas com injetáveis de última geração.</p>
+      <p>A clínica também oferece protocolos de tratamento desenvolvidos pela Dra. Raffaela, que combinam as tecnologias mais modernas com injetáveis de última geração.</p>
     </header>
-    <div class="protocol-grid">
+
+    <div class="protocol-stage">
       {protocols.map(([name, description], index) => (
-        <article class="protocol-card" data-reveal>
-          <span>{String(index + 1).padStart(2, "0")}</span>
+        <article class:list={["protocol-card", `protocol-${index + 1}`]} data-reveal>
+          <span class="check-mark" aria-hidden="true">✓</span>
+          <span class="protocol-label">PROTOCOLO</span>
           <h3>{name}</h3>
           <p>{description}</p>
         </article>
@@ -34,84 +35,240 @@ const protocols = [
 
 <style>
   .protocols {
-    background: var(--fg);
-    color: var(--surface);
-  }
-
-  .protocols-intro {
-    max-width: 810px;
-    margin-bottom: var(--space-12);
-  }
-
-  .protocols-intro img {
-    display: block;
-    width: 158px;
-    height: auto;
-    margin-bottom: var(--space-6);
-    filter: brightness(0) invert(1);
-  }
-
-  .protocols-intro .rd-eyebrow,
-  .protocols-intro .rd-title,
-  .protocols-intro .rd-copy {
-    color: var(--surface);
-  }
-
-  .protocols-intro .rd-copy {
-    max-width: 680px;
-    margin-top: var(--space-6);
-  }
-
-  .protocol-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1px;
+    box-sizing: border-box;
+    height: 2191px;
+    padding: 90px 0 0;
     overflow: hidden;
-    border: 1px solid color-mix(in srgb, var(--surface), transparent 75%);
-    border-radius: var(--radius-lg);
-    background: color-mix(in srgb, var(--surface), transparent 75%);
+    background: var(--bg);
+  }
+
+  .protocol-shell {
+    width: min(calc(100% - 40px), 1400px);
+    margin-inline: auto;
+  }
+
+  .protocols-intro { text-align: center; }
+
+  .protocol-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    box-sizing: border-box;
+    width: 336px;
+    max-width: 100%;
+    min-height: 56px;
+    margin: 0;
+    padding: 16px;
+    border: 1px solid rgba(30, 35, 15, .18);
+    border-radius: 100px;
+    color: var(--fg-2);
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1;
+  }
+
+  .protocol-pill span {
+    color: var(--fg);
+    font-size: 23px;
+    line-height: 0;
+  }
+
+  .protocols-intro .rd-title {
+    width: min(1232px, 100%);
+    margin-inline: auto;
+    margin-top: 20px;
+    color: var(--fg);
+    font-size: 64px;
+    line-height: 1.25;
+  }
+
+  .protocols-intro > p:last-child {
+    width: min(980px, 100%);
+    margin: 28px auto 0;
+    color: #101010;
+    font-size: 20px;
+    line-height: 1.5;
+  }
+
+  .protocol-stage {
+    position: relative;
+    height: 1661px;
+    margin-top: 19px;
   }
 
   .protocol-card {
-    min-height: 260px;
-    padding: var(--space-6);
+    position: absolute;
+    box-sizing: border-box;
+    display: flex;
+    width: 448px;
+    height: 447px;
+    flex-direction: column;
+    align-items: center;
+    padding: 70px 32px 32px;
+    border: 1px solid rgba(60, 65, 40, .48);
+    border-radius: 18px;
+    background: var(--surface);
+    color: var(--fg);
+    text-align: center;
+  }
+
+  .check-mark {
+    position: absolute;
+    top: -29px;
+    left: 50%;
+    display: grid;
+    width: 60px;
+    height: 60px;
+    place-items: center;
     background: var(--fg);
-  }
-
-  .protocol-card span {
-    color: color-mix(in srgb, var(--surface), transparent 48%);
-    font-size: var(--text-xs);
-    letter-spacing: .12em;
-  }
-
-  .protocol-card h3 {
-    margin: var(--space-6) 0 var(--space-4);
     color: var(--surface);
-    font-family: var(--font-display);
-    font-size: var(--text-2xl);
+    font-family: var(--font-body);
+    line-height: 1;
+    transform: translateX(-50%);
+  }
+
+  .check-mark::before {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 60px;
+    background: var(--muted);
+    content: "";
+    transform: rotate(45deg);
+  }
+
+  .check-mark::after {
+    position: absolute;
+    z-index: 1;
+    display: grid;
+    inset: 0;
+    place-items: center;
+    content: "✓";
+    color: var(--surface);
+    font-size: 31px;
     font-weight: 300;
   }
 
+  .protocol-label {
+    color: var(--fg);
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.25;
+  }
+
+  .protocol-card h3 {
+    width: min(340px, 100%);
+    max-width: 100%;
+    margin: 22px 0 0;
+    color: var(--fg);
+    font-family: var(--font-display);
+    font-size: 32px;
+    font-weight: 300;
+    line-height: 1.25;
+  }
+
   .protocol-card p {
-    margin: 0;
-    color: color-mix(in srgb, var(--surface), transparent 19%);
-    font-size: var(--text-sm);
-    line-height: 1.67;
+    width: min(340px, 100%);
+    max-width: 100%;
+    margin: 22px 0 0;
+    color: #101010;
+    font-size: 20px;
+    line-height: 1.5;
   }
 
-  @media (max-width: 899px) {
-    .protocol-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+  .protocol-1 h3, .protocol-1 p,
+  .protocol-3 h3, .protocol-3 p,
+  .protocol-6 h3, .protocol-6 p { width: 305.6px; }
+
+  .protocol-2 h3, .protocol-2 p,
+  .protocol-4 h3, .protocol-4 p,
+  .protocol-5 h3, .protocol-5 p { width: 336px; }
+
+  .protocol-7 { padding-top: 69px; }
+  .protocol-7 h3, .protocol-7 p { width: 321px; }
+  .protocol-8 h3, .protocol-8 p { width: 340px; }
+  .protocol-9 h3, .protocol-9 p { width: 382px; }
+
+  .protocol-1 { top: 70px; left: 8px; }
+  .protocol-2 { top: 70px; left: 476px; }
+  .protocol-3 { top: 70px; left: 944px; }
+  .protocol-4 { top: 587px; left: 8px; height: 446px; }
+  .protocol-5 { top: 587px; left: 476px; height: 446px; }
+  .protocol-6 { top: 587px; left: 944px; height: 446px; }
+  .protocol-7 { top: 1103px; left: 8px; height: 534px; }
+  .protocol-8 { top: 1103px; left: 476px; height: 534px; }
+  .protocol-9 { top: 1103px; left: 944px; height: 534px; }
+
+  @media (max-width: 1199px) {
+    .protocols {
+      height: auto;
+      padding-bottom: 80px;
     }
-  }
 
-  @media (max-width: 549px) {
-    .protocol-grid {
-      grid-template-columns: 1fr;
+    .protocols-intro .rd-title { font-size: clamp(46px, 5.5vw, 62px); }
+
+    .protocol-stage {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      height: auto;
+      gap: 90px 32px;
+      margin-top: 90px;
+      padding-top: 30px;
     }
 
     .protocol-card {
-      min-height: auto;
+      position: relative;
+      top: auto;
+      left: auto;
+      width: auto;
+      height: auto;
+      min-height: 430px;
     }
+
+    .protocol-9 { grid-column: 1 / -1; }
+  }
+
+  @media (max-width: 719px) {
+    .protocols { padding: 50px 0 60px; }
+
+    .protocol-shell { width: calc(100% - 30px); }
+
+    .protocol-pill {
+      min-height: 46px;
+      padding: 12px 14px;
+      font-size: 9px;
+    }
+
+    .protocols-intro .rd-title {
+      margin-top: 24px;
+      font-size: 38px;
+      line-height: 1.1;
+    }
+
+    .protocols-intro > p:last-child {
+      margin-top: 22px;
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    .protocol-stage {
+      grid-template-columns: 1fr;
+      gap: 74px;
+      margin-top: 70px;
+    }
+
+    .protocol-card {
+      min-height: 0;
+      padding: 64px 24px 32px;
+    }
+
+    .protocol-9 { grid-column: auto; }
+
+    .protocol-label { font-size: 18px; }
+    .protocol-card h3 { font-size: 29px; }
+    .protocol-card p { font-size: 16px; }
   }
 </style>

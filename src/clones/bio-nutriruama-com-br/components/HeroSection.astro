@@ -1,0 +1,172 @@
+<div class="hero-frame">
+  <section class="hero-section" aria-labelledby="hero-title">
+    <video class="hero-video" autoplay muted playsinline preload="auto" poster="/clones/bio-nutriruama-com-br/images/hero-poster.jpg" aria-hidden="true">
+      <source src="/clones/bio-nutriruama-com-br/videos/hero.mp4" type="video/mp4" />
+    </video>
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="hero-copy">
+    <p class="hero-eyebrow">Apaixone-se pelo</p>
+    <h1 id="hero-title">processo</h1>
+    <p class="hero-subtitle">de se tornar sua Melhor Versão!</p>
+    <nav class="hero-social" aria-label="Redes sociais de Ruama Cori">
+      <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.3 8.1H3.2V21h3.1V8.1ZM4.75 3A1.8 1.8 0 1 0 4.7 6.6 1.8 1.8 0 0 0 4.75 3ZM20.8 13.6c0-3.9-2.1-5.7-4.9-5.7-2.3 0-3.3 1.3-3.9 2.2V8.1H8.9V21H12v-6.4c0-1.7.3-3.4 2.4-3.4 2.1 0 2.1 1.9 2.1 3.5V21h3.1v-7.4Z" fill="currentColor" /></svg></a>
+      <a href="https://instagram.com/nutriruama" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2" /><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2" /><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" /></svg></a>
+      <a href="https://www.youtube.com/@nutriruama" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.5 7.1a2.8 2.8 0 0 0-2-2C17.7 4.6 12 4.6 12 4.6s-5.7 0-7.5.5a2.8 2.8 0 0 0-2 2C2 8.9 2 12 2 12s0 3.1.5 4.9a2.8 2.8 0 0 0 2 2c1.8.5 7.5.5 7.5.5s5.7 0 7.5-.5a2.8 2.8 0 0 0 2-2c.5-1.8.5-4.9.5-4.9s0-3.1-.5-4.9ZM10.2 15.2V8.8L15.6 12l-5.4 3.2Z" fill="currentColor" /></svg></a>
+      <a href="https://www.tiktok.com/@nutriruama" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.7 3c.5 2.6 2 4.2 4.3 4.4v3.1a8.5 8.5 0 0 1-4.2-1.2v6.3a5.8 5.8 0 1 1-5-5.8v3.2a2.6 2.6 0 1 0 1.8 2.5V3h3.1Z" fill="currentColor" /></svg></a>
+      </nav>
+    </div>
+  </section>
+  <span class="hero-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" /></svg></span>
+  <svg class="hero-side-arrow" width="46" height="153" viewBox="0 0 46 153" fill="none" aria-hidden="true">
+    <path d="M.00044001 79.0368C.000441164 52.6423 28.4078 37.9883 28.4246 8.0029C28.4246 23.048 28.4246 56.4951 28.4246 83.8222C28.4246 119.342 28.8194 152.861 28.8194 152.861C27.6351 118.12.000438856 105.439.00044001 79.0368Z" fill="var(--bg)" />
+    <circle cx="29.7636" cy="79.3512" r="15.2166" transform="rotate(-90 29.7636 79.3512)" fill="white" fill-opacity=".5" stroke="#c64b4b" stroke-width=".361233" />
+    <path d="m27.7318 83.6067 5.0064-4.2555-5.0064-4.2555" stroke="#c64b4b" stroke-width="1.0837" stroke-linecap="round" stroke-linejoin="round" />
+  </svg>
+</div>
+
+<style>
+  .hero-frame {
+    position: relative;
+    min-height: 460px;
+  }
+
+  .hero-section {
+    position: relative;
+    display: flex;
+    min-height: 460px;
+    height: 460px;
+    flex-direction: column;
+    justify-content: end;
+    overflow: hidden;
+    border-radius: 24px;
+    background: linear-gradient(180deg, var(--accent) 64.5%, var(--accent-active) 100%);
+    container-type: inline-size;
+  }
+
+  .hero-video {
+    position: absolute;
+    inset: -1px;
+    width: calc(100% + 2px);
+    max-width: none;
+    height: calc(100% + 2px);
+    object-fit: cover;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 0%, transparent) 29%, var(--accent) 77%);
+  }
+
+  .hero-copy {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    width: 75.4%;
+    max-width: 473px;
+    margin-inline: auto;
+    padding-bottom: 40px;
+    flex-direction: column;
+    align-items: center;
+    color: var(--accent-on);
+    text-align: center;
+  }
+
+  .hero-eyebrow,
+  .hero-subtitle {
+    width: 100%;
+    margin: 0;
+    font-family: var(--font-body);
+    letter-spacing: var(--tracking-display);
+    line-height: 1;
+  }
+
+  .hero-eyebrow { font-size: 27px; font-weight: 500; line-height: 1.1; }
+
+  h1 {
+    width: 100%;
+    margin: -16px 0 0;
+    color: var(--accent-on);
+    font-family: var(--font-display);
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    letter-spacing: var(--tracking-display);
+    line-height: var(--leading-tight);
+  }
+
+  .hero-subtitle { margin-top: -2px; font-size: 17px; }
+
+  .hero-social {
+    display: flex;
+    gap: var(--space-2);
+    margin-top: 28px;
+  }
+
+  .hero-social a {
+    display: grid;
+    width: 28px;
+    height: 28px;
+    place-items: center;
+    border-radius: var(--radius-pill);
+    outline: 1px solid color-mix(in srgb, var(--accent-on) 30%, transparent);
+    background: color-mix(in srgb, var(--accent-on) 14%, transparent);
+    color: var(--accent-on);
+    transition: translate var(--motion-base) cubic-bezier(0, 0, .2, 1), background-color var(--motion-base) cubic-bezier(0, 0, .2, 1);
+  }
+
+  .hero-social a:hover { translate: 0 -4px; background: color-mix(in srgb, var(--accent-on) 30%, transparent); }
+  .hero-social svg { width: 14px; height: 14px; }
+
+  .hero-arrow {
+    position: absolute;
+    z-index: 2;
+    bottom: 0;
+    left: 50%;
+    display: grid;
+    width: 28px;
+    height: 28px;
+    place-items: center;
+    border: 1px solid var(--accent);
+    border-radius: var(--radius-pill);
+    background: var(--bg);
+    color: var(--accent);
+    translate: -50% 13px;
+  }
+
+  .hero-arrow svg { width: 16px; height: 16px; translate: 0 -2px; }
+
+  .hero-side-arrow { display: none; }
+
+  @media (min-width: 1024px) {
+    .hero-frame { min-height: 0; }
+    .hero-section { min-height: 0; height: 100%; border-radius: var(--radius-lg); }
+    .hero-copy { padding-bottom: 64px; }
+    .hero-eyebrow { font-size: 39px; }
+    h1 { margin-top: -25px; font-size: var(--text-4xl); }
+    .hero-subtitle { margin-top: -4px; font-size: var(--text-xl); }
+    .hero-social { gap: var(--space-4); margin-top: 28px; }
+    .hero-social a { width: var(--space-12); height: var(--space-12); }
+    .hero-social svg { width: 22px; height: 22px; }
+    .hero-arrow { display: none; }
+    .hero-side-arrow {
+      position: absolute;
+      z-index: 2;
+      top: 50%;
+      right: 0;
+      display: block;
+      translate: 18px -50%;
+    }
+
+    :global(:root[data-theme="dark"]) .hero-side-arrow circle { fill: transparent; stroke: var(--accent-on); }
+    :global(:root[data-theme="dark"]) .hero-side-arrow > path:last-child { stroke: var(--accent-on); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-video { display: none; }
+    .hero-section {
+      background:
+        linear-gradient(180deg, color-mix(in srgb, var(--accent) 0%, transparent) 29%, var(--accent) 77%),
+        url("/clones/bio-nutriruama-com-br/images/hero-poster.jpg") center / cover no-repeat;
+    }
+  }
+</style>

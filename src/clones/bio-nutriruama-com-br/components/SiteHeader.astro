@@ -1,0 +1,244 @@
+---
+const menuLinks = [
+  { label: "Site Oficial", href: "https://nutriruama.com", icon: "◉" },
+  { label: "Achadinhos da Nutri", href: "https://www.amazon.com.br/shop/nutriruama", icon: "◇" },
+  { label: "Blog da Nutri", href: "https://blog.nutriruama.com", icon: "▤" },
+  { label: "Parcerias & Publicidade", href: "https://wa.me/message/RSHXP5MRNY7QC1", icon: "⌘" },
+];
+---
+
+<header class="site-header">
+  <div class="header-content">
+    <button class="header-control menu-trigger" type="button" aria-label="Abrir menu" aria-controls="ruama-menu" aria-expanded="false">
+      <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="3" cy="3" r="1.6" /><circle cx="9" cy="3" r="1.6" /><circle cx="15" cy="3" r="1.6" /><circle cx="3" cy="9" r="1.6" /><circle cx="9" cy="9" r="1.6" /><circle cx="15" cy="9" r="1.6" /><circle cx="3" cy="15" r="1.6" /><circle cx="9" cy="15" r="1.6" /><circle cx="15" cy="15" r="1.6" /></svg>
+    </button>
+
+    <img class="brand-logo" src="/clones/bio-nutriruama-com-br/images/logo.svg" alt="Ruama Cori · Nutricionista" width="141" height="57" />
+
+    <button class="header-control theme-trigger" type="button" aria-label="Alternar tema">
+      <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.6 15.2A8.8 8.8 0 0 1 8.8 4.4 8.8 8.8 0 1 0 19.6 15.2Z" fill="currentColor" /></svg>
+      <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="currentColor" /><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.7" /></svg>
+    </button>
+  </div>
+</header>
+
+<aside id="ruama-menu" class="menu-overlay" aria-label="Menu" aria-hidden="true">
+  <button class="menu-scrim" type="button" aria-label="Fechar menu"></button>
+  <div class="menu-panel" role="dialog" aria-modal="true" aria-labelledby="menu-title">
+    <div class="menu-heading">
+      <p id="menu-title">MENU</p>
+      <button class="menu-close" type="button" aria-label="Fechar menu">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="m3 3 10 10M13 3 3 13" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.8" /></svg>
+      </button>
+    </div>
+
+    <div class="menu-content">
+      <div class="menu-primary">
+        <nav class="menu-links" aria-label="Links principais">
+          {menuLinks.map((item) => (
+            <a href={item.href} target="_blank" rel="noopener noreferrer">
+              <span class="menu-link-title"><span class="menu-symbol" aria-hidden="true">{item.icon}</span>{item.label}</span>
+              <span class="menu-link-action">Saiba Mais <span aria-hidden="true">↗</span></span>
+            </a>
+          ))}
+        </nav>
+        <p class="menu-motto">Eu estou aqui para fazer você <strong>se apaixonar pelo processo</strong> de se tornar a sua melhor versão!</p>
+      </div>
+
+      <a class="menu-promo" href="https://ebook.nutriruama.com.br" target="_blank" rel="noopener noreferrer" aria-label="100 receitas rápidas para emagrecer com sabor">
+        <img src="/clones/bio-nutriruama-com-br/images/menu-card.webp" alt="100 Receitas rápidas para emagrecer com sabor" width="340" height="254" />
+        <span>Se você tem dúvidas do que fazer, tenha 100 receitas rápidas, práticas e saudáveis.</span>
+        <i aria-hidden="true">↗</i>
+      </a>
+
+      <div class="menu-social">
+        <div class="menu-social-row" aria-label="Redes sociais">
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.3 8.1H3.2V21h3.1V8.1ZM4.75 3A1.8 1.8 0 1 0 4.7 6.6 1.8 1.8 0 0 0 4.75 3ZM20.8 13.6c0-3.9-2.1-5.7-4.9-5.7-2.3 0-3.3 1.3-3.9 2.2V8.1H8.9V21H12v-6.4c0-1.7.3-3.4 2.4-3.4 2.1 0 2.1 1.9 2.1 3.5V21h3.1v-7.4Z" fill="currentColor" /></svg></a>
+          <a href="https://instagram.com/nutriruama" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2" /><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2" /><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" /></svg></a>
+          <a href="https://www.youtube.com/@nutriruama" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.5 7.1a2.8 2.8 0 0 0-2-2C17.7 4.6 12 4.6 12 4.6s-5.7 0-7.5.5a2.8 2.8 0 0 0-2 2C2 8.9 2 12 2 12s0 3.1.5 4.9a2.8 2.8 0 0 0 2 2c1.8.5 7.5.5 7.5.5s5.7 0 7.5-.5a2.8 2.8 0 0 0 2-2c.5-1.8.5-4.9.5-4.9s0-3.1-.5-4.9ZM10.2 15.2V8.8L15.6 12l-5.4 3.2Z" fill="currentColor" /></svg></a>
+          <a href="https://www.tiktok.com/@nutriruama" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.7 3c.5 2.6 2 4.2 4.3 4.4v3.1a8.5 8.5 0 0 1-4.2-1.2v6.3a5.8 5.8 0 1 1-5-5.8v3.2a2.6 2.6 0 1 0 1.8 2.5V3h3.1Z" fill="currentColor" /></svg></a>
+        </div>
+        <a class="dudes-credit" href="https://portfolio.dudesbecker.com" target="_blank" rel="noopener noreferrer" aria-label="Visitar o portfólio da Dudes Becker"><img src="/clones/bio-nutriruama-com-br/images/created-by-dudes.svg" alt="Created by this is dudes" width="79" height="25" /></a>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<script>
+  const root = document.documentElement;
+  const trigger = document.querySelector(".menu-trigger");
+  const menu = document.querySelector(".menu-overlay");
+  const closeButtons = menu?.querySelectorAll(".menu-scrim, .menu-close");
+  const themeTrigger = document.querySelector(".theme-trigger");
+
+  const setMenu = (open: boolean) => {
+    if (!trigger || !menu) return;
+    menu.classList.toggle("is-open", open);
+    menu.setAttribute("aria-hidden", String(!open));
+    trigger.setAttribute("aria-expanded", String(open));
+    trigger.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
+  };
+
+  trigger?.addEventListener("click", () => setMenu(!menu?.classList.contains("is-open")));
+  closeButtons?.forEach((button) => button.addEventListener("click", () => setMenu(false)));
+  menu?.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => setMenu(false)));
+  window.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") setMenu(false);
+  });
+
+  themeTrigger?.addEventListener("click", () => {
+    const dark = root.dataset.theme !== "dark";
+    root.dataset.theme = dark ? "dark" : "light";
+    try { localStorage.setItem("bio-nutriruama-theme", dark ? "dark" : "light"); } catch {}
+  });
+</script>
+
+<style>
+  .site-header {
+    width: 100%;
+    max-width: var(--container-max);
+    margin-inline: auto;
+    padding: var(--space-4) var(--space-5);
+  }
+
+  .header-content {
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr) 42px;
+    align-items: center;
+  }
+
+  .header-control {
+    display: grid;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    place-items: center;
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-sm);
+    background: var(--bg);
+    color: var(--accent);
+    transition: color var(--motion-fast) var(--ease-standard), background-color var(--motion-fast) var(--ease-standard), border-color var(--motion-fast) var(--ease-standard);
+  }
+
+  .header-control:hover { background: var(--surface); }
+  .menu-trigger svg { width: 18px; height: 18px; fill: currentColor; }
+  .theme-trigger svg { width: 24px; height: 24px; }
+  .theme-icon--sun { display: none; }
+  :global([data-theme="dark"]) .theme-icon--moon { display: none; }
+  :global([data-theme="dark"]) .theme-icon--sun { display: block; }
+
+  .brand-logo {
+    width: auto;
+    height: 34px;
+    justify-self: center;
+  }
+
+  :global([data-theme="dark"]) .brand-logo { filter: brightness(0) invert(1); }
+
+  .menu-overlay {
+    position: fixed;
+    z-index: 50;
+    inset: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: var(--space-3);
+    overflow-y: auto;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--motion-base) var(--ease-standard);
+  }
+
+  .menu-overlay.is-open { opacity: 1; pointer-events: auto; }
+  .menu-scrim { position: fixed; inset: 0; border: 0; background: color-mix(in srgb, #000 20%, transparent); }
+
+  .menu-panel {
+    position: relative;
+    width: min(100%, 400px);
+    margin-top: var(--space-3);
+    padding: 23px 21px 40px;
+    border-radius: 24px;
+    outline: 1px solid var(--accent-on);
+    background: color-mix(in srgb, var(--bg) 62%, transparent);
+    box-shadow: 0 4px 34px color-mix(in srgb, #000 25%, transparent);
+    backdrop-filter: blur(27px);
+    transform: translateY(-16px);
+    transition: transform var(--motion-base) var(--ease-standard);
+  }
+
+  .is-open .menu-panel { transform: translateY(0); }
+
+  .menu-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--accent);
+  }
+
+  .menu-heading p { margin: 0; font-size: 12px; letter-spacing: .2em; }
+  .menu-close { display: grid; width: 24px; height: 24px; padding: 0; place-items: center; border: 0; background: transparent; color: var(--accent); }
+  .menu-close svg { width: 14px; height: 14px; }
+
+  .menu-content {
+    display: grid;
+    grid-template-areas: "primary" "promo" "social";
+    gap: 31px;
+    margin-top: 31px;
+  }
+
+  .menu-primary { grid-area: primary; }
+  .menu-links { display: grid; gap: 12px; }
+  .menu-links a { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); padding-bottom: 12px; border-bottom: 1px solid color-mix(in srgb, var(--fg) 30%, transparent); }
+  .menu-link-title { display: inline-flex; min-width: 0; align-items: center; gap: 12px; color: var(--fg); font-family: var(--font-display); font-size: 20px; font-weight: 700; line-height: 1; }
+  .menu-symbol { width: 18px; color: var(--fg); font-family: var(--font-body); font-size: 16px; text-align: center; }
+  .menu-link-action { display: inline-flex; flex: none; align-items: center; gap: 10px; color: var(--accent); font-size: 9px; }
+  .menu-link-action span { display: grid; width: 18px; height: 18px; place-items: center; border-radius: 5px; background: color-mix(in srgb, var(--accent) 12%, transparent); transition: translate var(--motion-fast) var(--ease-standard); }
+  .menu-links a:hover .menu-link-action span { translate: 2px 0; }
+  .menu-motto { max-width: 357px; margin: 31px 0 0; color: var(--fg); font-size: 16px; line-height: 16px; letter-spacing: -.04em; }
+
+  .menu-promo {
+    position: relative;
+    grid-area: promo;
+    display: block;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 18px;
+    color: var(--accent-on);
+  }
+
+  .menu-promo::after { position: absolute; inset: 0; content: ""; background: linear-gradient(180deg, transparent 29%, var(--fg) 100%); }
+  .menu-promo img { width: 100%; height: 100%; object-fit: cover; }
+  .menu-promo span { position: absolute; z-index: 1; right: 20px; bottom: 18px; left: 20px; max-width: 230px; font-size: 16px; line-height: 15px; letter-spacing: -.04em; }
+  .menu-promo i { position: absolute; z-index: 1; right: 20px; bottom: 20px; display: grid; width: 27px; height: 27px; place-items: center; border: 1px solid color-mix(in srgb, var(--accent-on) 30%, transparent); border-radius: var(--radius-pill); font-size: 13px; font-style: normal; }
+
+  .menu-social { grid-area: social; display: grid; justify-items: center; gap: 31px; }
+  .menu-social-row { display: flex; gap: 8px; }
+  .menu-social-row a { display: grid; width: 32px; height: 32px; place-items: center; border: 1px solid color-mix(in srgb, var(--fg) 30%, transparent); border-radius: var(--radius-pill); color: var(--fg); transition: translate var(--motion-base) cubic-bezier(0, 0, .2, 1), background-color var(--motion-base) cubic-bezier(0, 0, .2, 1); }
+  .menu-social-row a:hover { translate: 0 -4px; background: color-mix(in srgb, var(--surface) 40%, transparent); }
+  .menu-social-row svg { width: 16px; height: 16px; }
+  .dudes-credit img { width: 80px; height: 25px; }
+
+  @media (min-width: 640px) {
+    .menu-overlay { padding: var(--space-6); }
+    .menu-panel { margin-top: 0; }
+  }
+
+  @media (min-width: 1024px) {
+    .site-header { padding: var(--space-8) 0; }
+    .header-content { grid-template-columns: 48px minmax(0, 1fr) 48px; }
+    .header-control { width: 48px; height: 48px; }
+    .brand-logo { height: 48px; }
+    .menu-overlay { align-items: center; }
+    .menu-panel { width: 1035px; max-width: 1035px; padding: 44px 70px; border-radius: 44px; outline-width: 1.5px; }
+    .menu-heading p { font-size: 16px; }
+    .menu-content { grid-template-columns: minmax(0, 1fr) 299px; grid-template-areas: "primary promo" "social promo"; column-gap: 48px; row-gap: 0; margin-top: 40px; }
+    .menu-links { gap: 18px; }
+    .menu-links a { padding-bottom: 18px; }
+    .menu-link-title { font-size: 24px; }
+    .menu-link-action { font-size: 13px; }
+    .menu-promo { width: 299px; height: 493px; border-radius: 27px; }
+    .menu-promo span { right: 20px; bottom: 20px; left: 20px; font-size: 16px; }
+    .menu-social { align-self: end; justify-items: start; gap: 31px; }
+    .menu-social-row { gap: 15px; }
+  }
+</style>

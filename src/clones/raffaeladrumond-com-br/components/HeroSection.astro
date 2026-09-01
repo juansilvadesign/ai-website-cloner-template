@@ -7,7 +7,7 @@ const whatsappUrl =
   <div class="rd-container hero-content" data-reveal>
     <img class="hero-identity" src="/clones/raffaeladrumond-com-br/images/Frame-47.png" alt="Dra. Raffaela Drumond, CRM 14344 DF | RQE 7085" width="610" height="117" />
     <h1 id="hero-title" class="rd-title">Beleza natural com<br />toque de <em>elegância</em></h1>
-    <p class="hero-copy">Dermatologia estética com critério médico.<br />Resultados consistentes. Sem excessos.</p>
+    <p class="hero-copy">Dermatologia estética com critério médico.<br class="desktop-copy-break" /> Resultados consistentes. Sem excessos.</p>
     <div class="hero-divider" aria-hidden="true"></div>
     <a class="rd-button" href={whatsappUrl} target="_blank" rel="noreferrer"><span class="button-text">AGENDAR CONSULTA COM A DRA.</span><span class="button-arrow" aria-hidden="true">→</span></a>
     <p class="location">Atendimento personalizado em Brasília</p>
@@ -59,16 +59,26 @@ const whatsappUrl =
   }
 
   .hero-divider {
+    position: relative;
     width: 516px;
+    height: 25px;
     margin-top: 19px;
+  }
+
+  .hero-divider::before {
+    position: absolute;
+    top: 12px;
+    right: 0;
+    left: 0;
     border-top: 1px solid var(--fg-2);
+    content: "";
   }
 
   .hero .rd-button {
     position: relative;
     width: 498px;
     min-height: 96px;
-    margin-top: 32px;
+    margin-top: 20px;
     padding: 26px 60px;
     border: 0;
     border-radius: 20px;
@@ -77,6 +87,7 @@ const whatsappUrl =
     font-size: 20px;
     font-weight: 400;
     letter-spacing: 0;
+    justify-content: flex-start;
   }
 
   .button-arrow {
@@ -95,6 +106,7 @@ const whatsappUrl =
   }
 
   .location {
+    width: 580px;
     margin: 20px 0 0;
     color: #101010;
     font-size: 16px;
@@ -105,7 +117,7 @@ const whatsappUrl =
     .hero {
       min-height: 844px;
       background-image: linear-gradient(180deg, transparent 0%, transparent 68%, var(--bg) 92%), url("/clones/raffaeladrumond-com-br/images/Rectangle-10.webp");
-      background-position: center top, 62% top;
+      background-position: center top, 82% top;
       background-size: 100% 430px, auto 385px;
     }
 
@@ -140,9 +152,16 @@ const whatsappUrl =
       line-height: 1.47;
     }
 
+    .desktop-copy-break { display: none; }
+
     .hero-divider {
-      width: 100%;
-      margin-top: 21px;
+      width: 309px;
+      height: 1px;
+      margin-top: 18px;
+    }
+
+    .hero-divider::before {
+      top: 0;
     }
 
     .hero .rd-button {
@@ -163,7 +182,8 @@ const whatsappUrl =
     }
 
     .location {
-      margin-top: 21px;
+      width: auto;
+      margin-top: 24px;
       font-size: 15px;
     }
   }

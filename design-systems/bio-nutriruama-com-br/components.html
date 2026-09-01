@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Component fixture for the Ruama Cori nutrition link-hub design system." />
+    <title>Ruama Cori · Nutricionista — Components</title>
+    <link rel="stylesheet" href="./tokens.css" />
+    <style>
+      * { box-sizing: border-box; }
+      body { margin: 0; padding: var(--space-8); background: var(--bg); color: var(--fg); font-family: var(--font-body); }
+      .fixture { width: min(100%, var(--container-max)); margin-inline: auto; display: grid; gap: var(--space-6); }
+      .fixture-group { overflow: clip; border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--surface); }
+      .fixture-label { margin: 0; padding: var(--space-4) var(--space-5); border-bottom: 1px solid var(--border-soft); color: var(--muted); font-size: var(--text-sm); font-weight: 700; letter-spacing: .12em; }
+      .hero-specimen { min-height: 380px; display: flex; flex-direction: column; justify-content: end; padding: var(--space-12); color: var(--accent-on); background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 0%, transparent) 29%, var(--accent) 77%); }
+      .hero-specimen h1 { margin: 0; font-family: var(--font-display); font-size: var(--text-4xl); font-weight: 700; line-height: var(--leading-tight); letter-spacing: var(--tracking-display); }
+      .hero-specimen p { margin: 0; font-size: var(--text-xl); line-height: 1; }
+      .social-row { display: flex; gap: var(--space-3); margin-top: var(--space-6); }
+      .social-row a { display: grid; width: var(--space-12); height: var(--space-12); place-items: center; border-radius: var(--radius-pill); outline: 1px solid color-mix(in srgb, var(--accent-on) 30%, transparent); background: color-mix(in srgb, var(--accent-on) 14%, transparent); color: var(--accent-on); text-decoration: none; }
+      .link-stack { display: grid; gap: var(--space-3); padding: var(--space-5); }
+      .link-card { min-height: 150px; display: flex; flex-direction: column; justify-content: end; padding: var(--space-5); border-radius: var(--radius-md); background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 0%, transparent), var(--accent-active)); color: var(--accent-on); box-shadow: var(--elev-flat); text-decoration: none; transition: box-shadow var(--motion-fast) var(--ease-standard); }
+      .link-card:hover { box-shadow: var(--elev-raised); }
+      .link-card h2 { margin: 0; font-family: var(--font-display); font-size: var(--text-2xl); line-height: 1; }
+      .link-card p { max-width: 34ch; margin: var(--space-2) 0 0; font-size: var(--text-base); line-height: var(--leading-body); }
+      .protocol { position: relative; min-height: 340px; display: grid; align-content: end; justify-items: center; gap: var(--space-4); padding: var(--space-8); overflow: hidden; background: var(--fg-2); color: var(--accent-on); }
+      .protocol::before { content: "Gratuito"; position: absolute; top: 0; min-width: 42%; padding: var(--space-2) var(--space-8); border-radius: 0 0 var(--radius-md) var(--radius-md); background: var(--bg); color: var(--fg-2); font-family: var(--font-body); font-size: var(--text-xl); text-align: center; }
+      .protocol button { width: min(100%, 420px); padding: var(--space-4); border: 0; border-radius: var(--radius-sm); background: var(--success); color: var(--fg-2); font: 600 var(--text-lg)/1 var(--font-body); box-shadow: 0 11px 4.85px rgba(0, 0, 0, .19); }
+      .protocol p { margin: 0; font-size: var(--text-sm); }
+      .menu-specimen { display: grid; grid-template-columns: minmax(0, 1fr) minmax(220px, .55fr); gap: var(--space-8); padding: var(--space-12); background: color-mix(in srgb, var(--bg) 62%, transparent); box-shadow: var(--elev-raised); }
+      .menu-specimen nav { display: grid; align-content: start; gap: var(--space-4); }
+      .menu-specimen a { display: flex; justify-content: space-between; gap: var(--space-4); padding-bottom: var(--space-3); border-bottom: 1px solid color-mix(in srgb, var(--fg) 30%, transparent); color: var(--fg); font-family: var(--font-display); font-size: var(--text-xl); text-decoration: none; }
+      .menu-specimen a small { color: var(--accent); font-family: var(--font-body); font-size: var(--text-sm); }
+      .menu-card { min-height: 250px; display: grid; align-content: end; padding: var(--space-5); border-radius: var(--radius-md); background: linear-gradient(180deg, transparent 29%, var(--fg) 100%); color: var(--accent-on); }
+      .menu-card p { margin: 0; font-size: var(--text-base); line-height: var(--leading-body); }
+      @media (max-width: 700px) { body { padding: var(--space-4); } .hero-specimen, .menu-specimen { padding: var(--space-6); } .hero-specimen h1 { font-size: var(--text-3xl); } .menu-specimen { grid-template-columns: 1fr; } }
+    </style>
+  </head>
+  <body>
+    <main class="fixture">
+      <section class="fixture-group hero-group" aria-labelledby="hero-title">
+        <p class="fixture-label">HERO + SOCIAL</p>
+        <div class="hero-specimen">
+          <p>Apaixone-se pelo</p>
+          <h1 id="hero-title">processo</h1>
+          <p>de se tornar sua Melhor Versão!</p>
+          <div class="social-row" aria-label="Social links"><a href="#linkedin" aria-label="LinkedIn">in</a><a href="#instagram" aria-label="Instagram">◎</a><a href="#youtube" aria-label="YouTube">▶</a><a href="#tiktok" aria-label="TikTok">♪</a></div>
+        </div>
+      </section>
+      <section class="fixture-group link-group" aria-labelledby="links-title">
+        <p class="fixture-label" id="links-title">ACTION CARDS</p>
+        <div class="link-stack">
+          <a class="link-card" href="#consulta"><h2>Consulta Nutricional</h2><p>Um acompanhamento individualizado e personalizado para destravar seus resultados.</p></a>
+          <a class="link-card" href="#reset"><h2>Desafio Reset</h2><p>Reduza o inchaço e retome o controle da sua alimentação.</p></a>
+        </div>
+      </section>
+      <section class="fixture-group protocol-group" aria-labelledby="protocol-title">
+        <p class="fixture-label" id="protocol-title">PROTOCOL CONVERSION</p>
+        <div class="protocol"><button type="button">Garantir meu Protocolo</button><p>Esse é um presente para você • 100% gratuito para seu progresso</p></div>
+      </section>
+      <section class="fixture-group menu-group" aria-labelledby="menu-title">
+        <p class="fixture-label" id="menu-title">GLASS MENU</p>
+        <div class="menu-specimen">
+          <nav aria-label="Menu specimen"><a href="#site">Site Oficial <small>Saiba Mais ↗</small></a><a href="#achadinhos">Achadinhos da Nutri <small>Saiba Mais ↗</small></a><a href="#blog">Blog da Nutri <small>Saiba Mais ↗</small></a><a href="#parcerias">Parcerias &amp; Publicidade <small>Saiba Mais ↗</small></a></nav>
+          <aside class="menu-card"><p>Se você tem dúvidas do que fazer, tenha 100 receitas rápidas, práticas e saudáveis.</p></aside>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

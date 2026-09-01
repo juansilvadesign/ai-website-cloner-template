@@ -1,0 +1,169 @@
+<section class="link-stack" aria-label="Links e serviços">
+  <a class="link-card consultation-card" href="https://wa.me/message/KMWPSVOPAHHSD1" target="_blank" rel="noopener noreferrer">
+    <picture>
+      <source media="(min-width: 1024px)" srcset="/clones/bio-nutriruama-com-br/images/card-consulta.webp" />
+      <img class="card-image" src="/clones/bio-nutriruama-com-br/images/card-consulta-mobile.webp" alt="Ruama Cori atendendo em consulta com notebook" width="768" height="349" />
+    </picture>
+    <span class="card-title">Consulta Nutricional</span>
+    <span class="card-copy">Um acompanhamento<br /><em>individualizado e personalizado</em><br />para destravar seus resultados,<br /><strong>respeitando seu corpo e sua rotina.</strong></span>
+    <span class="card-action">Saiba Mais <i aria-hidden="true">↗</i></span>
+  </a>
+
+  <a class="link-card ebook-card" href="https://ebook.nutriruama.com.br" target="_blank" rel="noopener noreferrer">
+    <picture>
+      <source media="(min-width: 1024px)" srcset="/clones/bio-nutriruama-com-br/images/card-emagreca.webp" />
+      <img class="card-image" src="/clones/bio-nutriruama-com-br/images/card-emagreca-mobile.webp" alt="E-book 100 Receitas para emagrecer com sabor" width="768" height="349" />
+    </picture>
+    <img class="ebook-logo" src="/clones/bio-nutriruama-com-br/images/emagrecer-com-sabor.svg" alt="100 Receitas Rápidas para Emagrecer com sabor!" width="127" height="39" />
+    <span class="card-copy">Emagreça sem passar fome<br /><strong>com receitas fáceis e estratégicas.</strong><br />Transforme sua rotina com uma<br />alimentação leve e prazerosa.</span>
+    <span class="card-action">Garantir meu eBook <i aria-hidden="true">↗</i></span>
+  </a>
+
+  <a class="link-card reset-card" href="https://form.respondi.app/wEYdOHTX" target="_blank" rel="noopener noreferrer">
+    <picture>
+      <source media="(min-width: 1024px)" srcset="/clones/bio-nutriruama-com-br/images/card-reset.webp" />
+      <img class="card-image" src="/clones/bio-nutriruama-com-br/images/card-reset-mobile.webp" alt="Desafio Reset 14 dias" width="768" height="349" />
+    </picture>
+    <span class="reset-logo">reset.</span>
+    <span class="reset-caption">Corpo mais <em>leve</em>,<br />mente mais <em>calma</em>.</span>
+    <span class="reset-badge" aria-hidden="true">◌</span>
+    <span class="card-copy">Reduza o inchaço e <strong>retome</strong><br /><strong>o controle da sua alimentação.</strong><br />Em 14 dias, você terá<br />um plano prático e suporte<br />diário para criar hábitos reais.</span>
+    <span class="card-action">Lista de Espera <i aria-hidden="true">↗</i></span>
+  </a>
+
+  <a class="link-card partnership-card" href="https://wa.me/message/RSHXP5MRNY7QC1" target="_blank" rel="noopener noreferrer">
+    <img class="card-image" src="/clones/bio-nutriruama-com-br/images/card-parceria-novo.png" alt="Ruama Cori com produtos de marcas parceiras" width="632" height="288" />
+    <span class="card-title">Parcerias &amp; Publicidade</span>
+    <span class="card-copy">Conexões <strong>autênticas</strong> com marcas<br />que compartilham dos meus valores,<br />gerando valor real para uma audiência<br />engajada. Vamos conversar?</span>
+    <span class="card-action">Saiba Mais <i aria-hidden="true">↗</i></span>
+  </a>
+</section>
+
+<style>
+  .link-stack {
+    display: flex;
+    width: 100%;
+    margin-top: var(--space-2);
+    flex-direction: column;
+    gap: 13.91px;
+  }
+
+  .link-card {
+    position: relative;
+    display: block;
+    height: 180px;
+    overflow: hidden;
+    border: .54px solid color-mix(in srgb, var(--fg) 10%, transparent);
+    border-radius: var(--radius-md);
+    color: var(--fg);
+    container-type: inline-size;
+    transition: box-shadow var(--motion-fast) var(--ease-standard);
+  }
+
+  .link-card:hover { box-shadow: var(--elev-raised); }
+  .ebook-card, .reset-card { border-color: color-mix(in srgb, var(--accent-on) 15%, transparent); color: var(--accent-on); }
+
+  picture { display: contents; }
+  .card-image { position: absolute; inset: 0; width: 100%; max-width: none; height: 100%; object-fit: cover; }
+  .consultation-card .card-image { object-position: 28.51% 100%; }
+
+  .card-title,
+  .card-copy,
+  .card-action,
+  .reset-logo,
+  .reset-caption,
+  .reset-badge,
+  .ebook-logo { position: absolute; z-index: 1; }
+
+  .card-title {
+    top: 20.03px;
+    left: 13.91px;
+    width: 256px;
+    color: var(--fg);
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: 900;
+    letter-spacing: var(--tracking-display);
+    line-height: 1;
+  }
+
+  .consultation-card .card-title { top: 23.48px; left: 13.32px; width: 228.68px; }
+  .ebook-logo { top: 18.55px; left: 14.46px; width: 122.88px; height: 37.44px; }
+
+  .card-copy {
+    top: 58px;
+    left: 13.91px;
+    width: 233px;
+    color: var(--fg);
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    letter-spacing: -.04em;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .consultation-card .card-copy { top: 57.46px; left: 13.46px; width: 216px; }
+  .ebook-card .card-copy { top: 60.55px; left: 13.46px; width: 214px; color: var(--accent-on); }
+  .reset-card .card-copy { top: 53.11px; left: 14.72px; width: 195px; color: var(--accent-on); }
+  .partnership-card .card-copy { top: 58px; left: 13.91px; width: 233px; }
+  .card-copy em { color: var(--accent); font-style: normal; font-weight: 500; }
+  .card-copy strong { font-weight: 600; }
+
+  .card-action {
+    top: 138.46px;
+    left: 14.46px;
+    display: inline-flex;
+    align-items: center;
+    gap: 17.91px;
+    color: var(--accent);
+    font-family: var(--font-body);
+    font-size: 14.66px;
+    font-weight: 300;
+    letter-spacing: -.04em;
+    line-height: 22.8px;
+  }
+
+  .card-action i {
+    display: grid;
+    width: 20px;
+    height: 20px;
+    place-items: center;
+    border-radius: 5px;
+    background: color-mix(in srgb, var(--accent) 12%, transparent);
+    color: var(--accent);
+    font-size: 12px;
+    font-style: normal;
+    transition: translate var(--motion-fast) var(--ease-standard);
+  }
+
+  .link-card:hover .card-action i { translate: 2px 0; }
+  .ebook-card .card-action { top: 141.55px; left: 13.46px; gap: 15.04px; color: var(--accent-on); font-size: 12.31px; line-height: 19.15px; }
+  .ebook-card .card-action i { width: 16px; height: 16px; background: color-mix(in srgb, var(--accent-on) 18%, transparent); color: var(--accent-on); font-size: 10px; }
+  .reset-card .card-action { color: var(--accent-on); }
+  .reset-card .card-action i { background: color-mix(in srgb, var(--accent-on) 18%, transparent); color: var(--accent-on); }
+
+  .reset-logo { top: 17px; left: 14.46px; color: var(--accent-on); font-family: var(--font-display); font-size: 29px; line-height: .8; }
+  .reset-caption { top: 22.64px; left: 82.57px; color: var(--muted); font-family: "Questrial", var(--font-body); font-size: 8.92px; line-height: 12px; white-space: pre; }
+  .reset-caption em { color: var(--accent-on); font-style: normal; }
+  .reset-badge { top: 12.14px; right: 15.38px; display: grid; width: 20.58px; height: 20.58px; place-items: center; border: .374px solid var(--border-soft); border-radius: 5.98px; color: var(--accent-on); font-size: 16px; }
+
+  @media (min-width: 1024px) {
+    .link-stack { margin-top: 0; gap: 18px; }
+    .link-card { height: auto; aspect-ratio: 513 / 187; border-width: .7px; border-radius: 24px; }
+    .consultation-card .card-image { object-position: 21% 45%; }
+    .card-title { top: 4.95cqw; left: 3.37cqw; width: 57.9cqw; font-size: 4.37cqw; }
+    .consultation-card .card-title { top: 4.95cqw; left: 3.37cqw; width: 57.9cqw; }
+    .ebook-logo { top: 3cqw; left: 16cqw; width: 24.8cqw; height: 7.6cqw; }
+    .card-copy { top: 13cqw; left: 3.37cqw; width: auto; font-size: 16px; letter-spacing: -.02em; line-height: 1.08; }
+    .consultation-card .card-copy { top: 11.2cqw; left: 3.37cqw; width: auto; }
+    .ebook-card .card-copy, .reset-card .card-copy { top: 12.3cqw; left: 3.37cqw; width: auto; }
+    .partnership-card .card-copy { top: 13cqw; left: 3.37cqw; width: auto; }
+    .card-action { top: auto; bottom: 4.4cqw; left: 4.54cqw; gap: 3.8cqw; font-size: 3.12cqw; line-height: 1; }
+    .card-action i { width: 5.21cqw; height: 5.21cqw; border-radius: 1.5cqw; font-size: 2.5cqw; }
+    .ebook-card .card-action { top: auto; bottom: 4.4cqw; left: 4.54cqw; gap: 3.8cqw; font-size: 3.12cqw; line-height: 1; }
+    .ebook-card .card-action i { width: 5.21cqw; height: 5.21cqw; font-size: 2.5cqw; }
+    .reset-logo { top: 3.07cqw; left: 3.9cqw; font-size: 7cqw; }
+    .reset-caption { top: 4.7cqw; left: 24cqw; font-size: 2.23cqw; line-height: 1.25; }
+    .reset-badge { top: 3.07cqw; right: 3.9cqw; width: 5.21cqw; height: 5.21cqw; border-radius: 1.5cqw; font-size: 3.2cqw; }
+  }
+</style>

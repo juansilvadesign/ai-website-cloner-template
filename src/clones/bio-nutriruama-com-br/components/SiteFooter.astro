@@ -1,0 +1,27 @@
+<footer class="site-footer">
+  <p>Todos os Direitos Reservados © Ruama Cori · 2026</p>
+  <a class="footer-credit" href="https://portfolio.dudesbecker.com" target="_blank" rel="noopener noreferrer" aria-label="Visitar o portfólio da Dudes Becker"><img src="/clones/bio-nutriruama-com-br/images/created-by-dudes.svg" alt="Created by this is dudes" width="95" height="30" /></a>
+</footer>
+
+<style>
+  .site-footer {
+    position: relative;
+    min-height: 64px;
+    padding: var(--space-4) var(--space-4) var(--space-8);
+    color: var(--fg);
+    font-family: var(--font-body);
+    font-size: 12px;
+    letter-spacing: -.04em;
+    line-height: 16px;
+    text-align: center;
+  }
+
+  .site-footer p { margin: 0; }
+  .footer-credit { display: none; }
+
+  @media (min-width: 1024px) {
+    .site-footer { min-height: 80px; padding: var(--space-8) var(--space-4); }
+    .footer-credit { position: absolute; top: 50%; right: 0; display: block; translate: 0 -58%; }
+    .footer-credit img { width: 95px; height: 30px; }
+  }
+</style>

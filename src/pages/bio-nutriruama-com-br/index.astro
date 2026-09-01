@@ -1,0 +1,55 @@
+---
+import BaseLayout from "../../clones/bio-nutriruama-com-br/layouts/BaseLayout.astro";
+import SiteHeader from "../../clones/bio-nutriruama-com-br/components/SiteHeader.astro";
+import HeroSection from "../../clones/bio-nutriruama-com-br/components/HeroSection.astro";
+import LinkCardStack from "../../clones/bio-nutriruama-com-br/components/LinkCardStack.astro";
+import ProtocolCard from "../../clones/bio-nutriruama-com-br/components/ProtocolCard.astro";
+import SiteFooter from "../../clones/bio-nutriruama-com-br/components/SiteFooter.astro";
+---
+
+<BaseLayout>
+  <div class="page-shell">
+    <SiteHeader />
+    <main aria-label="Ruama Cori · Nutricionista">
+      <div class="mosaic">
+        <HeroSection />
+        <LinkCardStack />
+        <ProtocolCard />
+      </div>
+    </main>
+    <SiteFooter />
+  </div>
+</BaseLayout>
+
+<style>
+  .page-shell {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    width: 100%;
+    max-width: var(--container-max);
+    flex: 1;
+    margin-inline: auto;
+    padding: 0 var(--container-gutter-phone) var(--space-6);
+  }
+
+  .mosaic {
+    display: grid;
+    align-items: stretch;
+    gap: var(--space-5);
+  }
+
+  @media (min-width: 1024px) {
+    main {
+      padding-inline: var(--container-gutter-desktop);
+    }
+
+    .mosaic {
+      grid-template-columns: 714fr 513fr 455fr;
+      gap: var(--space-8);
+    }
+  }
+</style>

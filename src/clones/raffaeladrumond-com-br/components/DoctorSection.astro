@@ -1,103 +1,284 @@
-<section id="sobre" class="doctor rd-section" aria-labelledby="doctor-title">
-  <div class="rd-container doctor-grid">
+---
+const whatsappUrl =
+  "https://wa.me/5561999195497?text=Ol%C3%A1%2C%20estive%20no%20site%20e%20gostaria%20de%20agendar%20uma%20consulta.";
+---
+
+<section id="sobre" class="doctor" aria-labelledby="doctor-title">
+  <div class="doctor-panel">
+    <header class="doctor-strip" data-reveal>
+      <p class="doctor-pill"><span aria-hidden="true">✦</span> CONHEÇA A DRA. RAFFAELA</p>
+      <img src="/clones/raffaeladrumond-com-br/images/Group-1707479095.png" alt="Dra. Raffaela Drumond, Médica Dermatologista" width="604" height="147" loading="lazy" />
+    </header>
+
     <figure class="doctor-photo" data-reveal>
-      <img src="/clones/raffaeladrumond-com-br/images/Group-1707479095-1.webp" alt="Retrato da Dra. Raffaela Drumond" width="715" height="1008" loading="lazy" />
+      <img src="/clones/raffaeladrumond-com-br/images/Group-1707479095-1.webp" alt="Retratos da Dra. Raffaela Drumond" width="715" height="1008" loading="lazy" />
     </figure>
+
     <article class="doctor-copy" data-reveal>
-      <p class="rd-eyebrow">Conheça a Dra. Raffaela</p>
-      <h2 id="doctor-title" class="rd-title">Um pouco sobre a minha história</h2>
-      <p class="rd-copy">Com mais de duas décadas de atuação em dermatologia, a Dra. Raffaela Drumond construiu sua prática baseada em critério médico, diagnóstico preciso e acompanhamento contínuo.</p>
-      <p class="rd-copy">Formada em Medicina há 25 anos, com residência em Clínica Médica e Dermatologia, atua em Brasília há mais de 20 anos nas áreas clínica, cirúrgica e estética, sempre com foco em indicações responsáveis e resultados sustentáveis.</p>
-      <p class="rd-copy">Cada tratamento é conduzido com base em conhecimento acumulado, leitura individual da pele e respeito à biologia de cada paciente.</p>
-      <ul>
-        <li>Médica Dermatologista CRM 14.344 | RQE 7085</li>
-        <li>Título de Especialista pela Sociedade Brasileira de Dermatologia (SBD)</li>
-        <li>Residência em Clínica Médica e Dermatologia – FAMEMA (SP)</li>
-      </ul>
-      <a class="instagram" href="https://www.instagram.com/draraffaeladrumond/" target="_blank" rel="noreferrer">Acompanhe no Instagram <span aria-hidden="true">↗</span></a>
+      <h2 id="doctor-title" class="rd-title">Um pouco<br />sobre a minha<br /><em>história</em></h2>
+      <p>Com mais de duas décadas de atuação em dermatologia, a Dra. Raffaela Drumond construiu sua prática baseada em critério médico, diagnóstico preciso e acompanhamento contínuo.<br /><br />Formada em Medicina há 25 anos, com residência em Clínica Médica e Dermatologia, atua em Brasília há mais de 20 anos nas áreas clínica, cirúrgica e estética, sempre com foco em indicações responsáveis e resultados sustentáveis.<br /><br />Cada tratamento é conduzido com base em conhecimento acumulado, leitura individual da pele e respeito à biologia de cada paciente.</p>
+      <a class="rd-button" href={whatsappUrl} target="_blank" rel="noreferrer"><span>AGENDAR CONSULTA COM A DRA.</span><span class="button-arrow" aria-hidden="true">→</span></a>
     </article>
   </div>
 </section>
 
 <style>
   .doctor {
+    box-sizing: border-box;
+    height: 1536px;
+    padding: 90px 0;
+    overflow: hidden;
+    background: #444a30 url("/clones/raffaeladrumond-com-br/images/Group-1707479000.png") center top / cover no-repeat;
+  }
+
+  .doctor-panel {
+    position: relative;
+    box-sizing: border-box;
+    height: 1356px;
+    border-radius: 14px 14px 0 0;
     background: var(--bg);
   }
 
-  .doctor-grid {
-    display: grid;
-    grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+  .doctor-strip {
+    display: flex;
     align-items: center;
-    gap: clamp(var(--space-8), 9vw, 150px);
+    justify-content: space-between;
+    box-sizing: border-box;
+    height: 163px;
+    padding: 0 69px;
+    border-bottom: 1px solid var(--fg-2);
+  }
+
+  .doctor-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    box-sizing: border-box;
+    width: 250px;
+    max-width: 100%;
+    min-height: 56px;
+    margin: 0;
+    padding: 16px;
+    border: 1px solid rgba(30, 35, 15, .18);
+    border-radius: 100px;
+    color: var(--fg-2);
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1;
+  }
+
+  .doctor-pill span {
+    color: var(--fg);
+    font-size: 23px;
+    line-height: 0;
+  }
+
+  .doctor-strip img {
+    display: block;
+    width: 329px;
+    height: 80px;
+    object-fit: contain;
+  }
+
+  @media (min-width: 1200px) {
+    .doctor-pill { transform: translateY(11px); }
+
+    .doctor-strip img { transform: translate(-65px, 11px); }
   }
 
   .doctor-photo {
+    position: absolute;
+    top: 293px;
+    left: 62px;
+    width: 677px;
+    height: 954px;
     margin: 0;
   }
 
   .doctor-photo img {
     display: block;
     width: 100%;
-    max-width: 500px;
-    max-height: 710px;
-    margin-inline: auto;
-    border-radius: var(--radius-lg);
+    height: 100%;
+    border-radius: 18px;
     object-fit: cover;
-    object-position: top;
+  }
+
+  .doctor-copy {
+    position: absolute;
+    top: 211px;
+    left: 769px;
+    width: 539px;
   }
 
   .doctor-copy .rd-title {
-    margin-bottom: var(--space-6);
+    width: 419px;
+    color: var(--fg);
+    font-size: 64px;
+    line-height: 1.25;
   }
 
-  .doctor-copy .rd-copy + .rd-copy {
-    margin-top: var(--space-4);
+  .doctor-copy .rd-title em {
+    color: var(--muted);
+    font-style: italic;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 15px;
   }
 
-  .doctor-copy ul {
+  .doctor-copy p {
+    margin: 32px 0 0;
+    color: #101010;
+    font-size: 20px;
+    line-height: 1.5;
+  }
+
+  .doctor-copy .rd-button {
+    position: absolute;
+    top: 1011px;
+    left: 0;
+    width: 498px;
+    min-height: 96px;
+    padding: 26px 100px 26px 60px;
+    border: 0;
+    border-radius: 20px;
+    background: var(--accent);
+    color: var(--accent-on);
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 0;
+    justify-content: flex-start;
+  }
+
+  .button-arrow {
+    position: absolute;
+    right: 60px;
     display: grid;
-    gap: var(--space-3);
-    margin: var(--space-6) 0;
-    padding: 0;
-    color: var(--fg);
-    font-size: var(--text-sm);
-    line-height: 1.6;
-    list-style: none;
+    width: 44px;
+    height: 44px;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--surface);
+    color: var(--fg-2);
+    font-size: 25px;
+    font-weight: 300;
+    line-height: 1;
   }
 
-  .doctor-copy li {
-    display: flex;
-    gap: var(--space-3);
-  }
+  @media (max-width: 1199px) {
+    .doctor {
+      height: auto;
+      padding: 72px 0;
+    }
 
-  .doctor-copy li::before {
-    content: "•";
-    color: var(--accent);
-  }
+    .doctor-panel {
+      width: calc(100% - 40px);
+      height: auto;
+      min-height: 1220px;
+      margin-inline: auto;
+      padding-bottom: 56px;
+    }
 
-  .instagram {
-    display: inline-flex;
-    gap: var(--space-2);
-    border-bottom: 1px solid var(--fg);
-    padding-bottom: var(--space-1);
-    color: var(--fg);
-    font-size: var(--text-sm);
-    font-weight: 500;
-    transition: color var(--motion-fast) var(--ease-standard);
-  }
+    .doctor-strip { padding-inline: 36px; }
 
-  .instagram:hover {
-    color: var(--accent-hover);
+    .doctor-photo {
+      top: 250px;
+      left: 5%;
+      width: 48%;
+      height: auto;
+      aspect-ratio: 677 / 954;
+    }
+
+    .doctor-copy {
+      top: 230px;
+      right: 5%;
+      left: auto;
+      width: 40%;
+    }
+
+    .doctor-copy .rd-title {
+      width: auto;
+      font-size: clamp(48px, 5.5vw, 64px);
+    }
+
+    .doctor-copy .rd-button {
+      position: relative;
+      top: auto;
+      width: 100%;
+      margin-top: 48px;
+    }
   }
 
   @media (max-width: 719px) {
-    .doctor-grid {
-      grid-template-columns: 1fr;
-      gap: var(--space-8);
+    .doctor { padding: 50px 0; }
+
+    .doctor-panel {
+      width: 100%;
+      min-height: 0;
+      border-radius: 12px 12px 0 0;
+      padding-bottom: 42px;
     }
 
-    .doctor-photo img {
-      max-height: 590px;
+    .doctor-strip {
+      height: auto;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 24px;
+      padding: 26px 22px;
+    }
+
+    .doctor-strip img {
+      width: min(280px, 100%);
+      height: auto;
+      align-self: flex-end;
+    }
+
+    .doctor-pill {
+      min-height: 46px;
+      padding: 12px 14px;
+      font-size: 9px;
+    }
+
+    .doctor-photo,
+    .doctor-copy {
+      position: relative;
+      top: auto;
+      right: auto;
+      left: auto;
+      width: calc(100% - 40px);
+      height: auto;
+      margin: 38px auto 0;
+    }
+
+    .doctor-photo { aspect-ratio: 677 / 954; }
+
+    .doctor-copy .rd-title {
+      width: auto;
+      font-size: 43px;
+      line-height: 1.1;
+    }
+
+    .doctor-copy .rd-title br { display: none; }
+
+    .doctor-copy p {
+      margin-top: 24px;
+      font-size: 17px;
+      line-height: 1.55;
+    }
+
+    .doctor-copy .rd-button {
+      width: 100%;
+      min-height: 80px;
+      padding: 18px 65px 18px 22px;
+      font-size: 15px;
+      line-height: 1.25;
+    }
+
+    .button-arrow {
+      right: 20px;
+      width: 34px;
+      height: 34px;
+      font-size: 20px;
     }
   }
 </style>

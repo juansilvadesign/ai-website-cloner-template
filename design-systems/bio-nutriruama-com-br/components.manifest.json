@@ -1,0 +1,346 @@
+{
+  "schemaVersion": 1,
+  "brandId": "bio-nutriruama-com-br",
+  "source": {
+    "componentsHtml": "components.html",
+    "tokensCss": "tokens.css"
+  },
+  "fixture": {
+    "title": "Ruama Cori · Nutricionista — Components",
+    "description": "Component fixture for the Ruama Cori nutrition link-hub design system.",
+    "styleBlockCount": 1,
+    "selectorCount": 25,
+    "classCount": 14,
+    "elementCount": 18
+  },
+  "tokens": {
+    "declared": [
+      "--accent",
+      "--accent-active",
+      "--accent-hover",
+      "--accent-on",
+      "--bg",
+      "--border",
+      "--border-soft",
+      "--container-gutter-desktop",
+      "--container-gutter-phone",
+      "--container-gutter-tablet",
+      "--container-max",
+      "--danger",
+      "--ease-standard",
+      "--elev-flat",
+      "--elev-raised",
+      "--elev-ring",
+      "--fg",
+      "--fg-2",
+      "--focus-ring",
+      "--font-body",
+      "--font-display",
+      "--font-mono",
+      "--leading-body",
+      "--leading-tight",
+      "--meta",
+      "--motion-base",
+      "--motion-fast",
+      "--muted",
+      "--radius-lg",
+      "--radius-md",
+      "--radius-pill",
+      "--radius-sm",
+      "--section-y-desktop",
+      "--section-y-phone",
+      "--section-y-tablet",
+      "--space-1",
+      "--space-12",
+      "--space-2",
+      "--space-3",
+      "--space-4",
+      "--space-5",
+      "--space-6",
+      "--space-8",
+      "--success",
+      "--surface",
+      "--surface-warm",
+      "--text-2xl",
+      "--text-3xl",
+      "--text-4xl",
+      "--text-base",
+      "--text-lg",
+      "--text-sm",
+      "--text-xl",
+      "--text-xs",
+      "--tracking-display",
+      "--warn"
+    ],
+    "referenced": [
+      "--accent",
+      "--accent-active",
+      "--accent-on",
+      "--bg",
+      "--border",
+      "--border-soft",
+      "--container-max",
+      "--ease-standard",
+      "--elev-flat",
+      "--elev-raised",
+      "--fg",
+      "--fg-2",
+      "--font-body",
+      "--font-display",
+      "--leading-body",
+      "--leading-tight",
+      "--motion-fast",
+      "--muted",
+      "--radius-lg",
+      "--radius-md",
+      "--radius-pill",
+      "--radius-sm",
+      "--space-12",
+      "--space-2",
+      "--space-3",
+      "--space-4",
+      "--space-5",
+      "--space-6",
+      "--space-8",
+      "--success",
+      "--surface",
+      "--text-2xl",
+      "--text-3xl",
+      "--text-4xl",
+      "--text-base",
+      "--text-lg",
+      "--text-sm",
+      "--text-xl",
+      "--tracking-display"
+    ],
+    "unusedDeclared": [
+      "--accent-hover",
+      "--container-gutter-desktop",
+      "--container-gutter-phone",
+      "--container-gutter-tablet",
+      "--danger",
+      "--elev-ring",
+      "--focus-ring",
+      "--font-mono",
+      "--meta",
+      "--motion-base",
+      "--section-y-desktop",
+      "--section-y-phone",
+      "--section-y-tablet",
+      "--space-1",
+      "--surface-warm",
+      "--text-xs",
+      "--warn"
+    ],
+    "undeclaredReferenced": []
+  },
+  "selectors": [
+    ".fixture",
+    ".fixture-group",
+    ".fixture-label",
+    ".hero-specimen",
+    ".hero-specimen h1",
+    ".hero-specimen p",
+    ".link-card",
+    ".link-card h2",
+    ".link-card p",
+    ".link-card:hover",
+    ".link-stack",
+    ".menu-card",
+    ".menu-card p",
+    ".menu-specimen",
+    ".menu-specimen a",
+    ".menu-specimen a small",
+    ".menu-specimen nav",
+    ".protocol",
+    ".protocol button",
+    ".protocol p",
+    ".protocol::before",
+    ".social-row",
+    ".social-row a",
+    "*",
+    "body"
+  ],
+  "classes": [
+    "fixture",
+    "fixture-group",
+    "fixture-label",
+    "hero-group",
+    "hero-specimen",
+    "link-card",
+    "link-group",
+    "link-stack",
+    "menu-card",
+    "menu-group",
+    "menu-specimen",
+    "protocol",
+    "protocol-group",
+    "social-row"
+  ],
+  "elements": [
+    "a",
+    "aside",
+    "body",
+    "button",
+    "div",
+    "h1",
+    "h2",
+    "head",
+    "html",
+    "link",
+    "main",
+    "meta",
+    "nav",
+    "p",
+    "section",
+    "small",
+    "style",
+    "title"
+  ],
+  "groups": [
+    {
+      "id": "buttons",
+      "label": "Buttons and calls to action",
+      "present": true,
+      "selectors": [
+        ".protocol button"
+      ],
+      "classes": [],
+      "elements": [
+        "button"
+      ],
+      "tokenReferences": []
+    },
+    {
+      "id": "inputs",
+      "label": "Form fields and controls",
+      "present": true,
+      "selectors": [
+        ".fixture-label"
+      ],
+      "classes": [],
+      "elements": [],
+      "tokenReferences": [
+        "--border-soft",
+        "--muted",
+        "--space-4",
+        "--space-5",
+        "--text-sm"
+      ]
+    },
+    {
+      "id": "cards",
+      "label": "Cards and panels",
+      "present": false,
+      "selectors": [],
+      "classes": [],
+      "elements": [],
+      "tokenReferences": []
+    },
+    {
+      "id": "badges",
+      "label": "Badges, chips, and status labels",
+      "present": false,
+      "selectors": [],
+      "classes": [],
+      "elements": [],
+      "tokenReferences": []
+    },
+    {
+      "id": "links",
+      "label": "Links and inline actions",
+      "present": true,
+      "selectors": [
+        ".link-card",
+        ".link-card h2",
+        ".link-card p",
+        ".link-card:hover",
+        ".link-stack",
+        ".menu-specimen a",
+        ".menu-specimen a small",
+        ".social-row a"
+      ],
+      "classes": [
+        "link-card",
+        "link-group",
+        "link-stack"
+      ],
+      "elements": [
+        "a"
+      ],
+      "tokenReferences": [
+        "--accent",
+        "--elev-raised",
+        "--font-body",
+        "--leading-body",
+        "--space-2",
+        "--space-3",
+        "--space-5",
+        "--text-base",
+        "--text-sm"
+      ]
+    },
+    {
+      "id": "keyboard",
+      "label": "Keyboard hints",
+      "present": false,
+      "selectors": [],
+      "classes": [],
+      "elements": [],
+      "tokenReferences": []
+    },
+    {
+      "id": "icons",
+      "label": "Icon slots",
+      "present": false,
+      "selectors": [],
+      "classes": [],
+      "elements": [],
+      "tokenReferences": []
+    },
+    {
+      "id": "typography",
+      "label": "Typography scale and text utilities",
+      "present": true,
+      "selectors": [
+        ".hero-specimen h1",
+        ".link-card h2"
+      ],
+      "classes": [],
+      "elements": [
+        "h1",
+        "h2",
+        "p"
+      ],
+      "tokenReferences": [
+        "--font-display",
+        "--leading-tight",
+        "--text-3xl",
+        "--text-4xl",
+        "--tracking-display"
+      ]
+    },
+    {
+      "id": "layout",
+      "label": "Layout primitives",
+      "present": true,
+      "selectors": [
+        ".menu-specimen nav"
+      ],
+      "classes": [],
+      "elements": [
+        "main",
+        "nav",
+        "section"
+      ],
+      "tokenReferences": [
+        "--space-4"
+      ]
+    }
+  ],
+  "literals": {
+    "colorExpressions": 7,
+    "pixelValues": 13,
+    "hardcodedFontFamilies": 6
+  }
+}

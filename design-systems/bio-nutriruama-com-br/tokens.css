@@ -1,0 +1,107 @@
+/* Ruama Cori · Nutricionista — tokens.css
+ * Emitted by scripts/emit-design-system.ts from source/tokens.source.json.
+ * Declares every OpenDesign TOKEN_SCHEMA slot (56). Edit the
+ * source artifact and re-emit; do not hand-edit derived files. */
+
+:root {
+  /* ─── Surface ─────────────────────────────────────────────────── */
+  --bg:                       #F8F8F8;
+  --surface:                  #FFFFFF;
+  --surface-warm:             #F7E9EC;
+
+  /* ─── Foreground ──────────────────────────────────────────────── */
+  --fg:                       #280814;
+  --fg-2:                     #3E3E3E;
+  --muted:                    #C37D88;
+  --meta:                     #333333;
+
+  /* ─── Border ──────────────────────────────────────────────────── */
+  --border:                   #DFDFDF;
+  --border-soft:              #ECECEC;
+
+  /* ─── Accent ──────────────────────────────────────────────────── */
+  --accent:                   #C64B4B;
+  --accent-on:                #FFFFFF;
+  --accent-hover:             #9D333D;
+  --accent-active:            #602424;
+
+  /* ─── Semantic ────────────────────────────────────────────────── */
+  --success:                  #ABCC8E;
+  --warn:                     #C37D88;
+  --danger:                   #C64B4B;
+
+  /* ─── Typography — fonts ──────────────────────────────────────── */
+  --font-display:             "roxborough", "Playfair Display", Georgia, serif;
+  --font-body:                "degular", "Figtree", system-ui, sans-serif;
+  --font-mono:                "Questrial", ui-monospace, monospace;
+
+  /* ─── Typography — scale ──────────────────────────────────────── */
+  --text-xs:                  9px;
+  --text-sm:                  12px;
+  --text-base:                16px;
+  --text-lg:                  20px;
+  --text-xl:                  25px;
+  --text-2xl:                 39px;
+  --text-3xl:                 72px;
+  --text-4xl:                 103px;
+
+  /* ─── Typography — leading & tracking ─────────────────────────── */
+  --leading-body:             1;
+  --leading-tight:            0.95;
+  --tracking-display:         -0.02em;
+
+  /* ─── Spacing ─────────────────────────────────────────────────── */
+  --space-1:                  4px;
+  --space-2:                  8px;
+  --space-3:                  12px;
+  --space-4:                  16px;
+  --space-5:                  20px;
+  --space-6:                  24px;
+  --space-8:                  32px;
+  --space-12:                 48px;
+
+  /* ─── Section rhythm ──────────────────────────────────────────── */
+  --section-y-desktop:        32px;
+  --section-y-tablet:         24px;
+  --section-y-phone:          16px;
+
+  /* ─── Radius ──────────────────────────────────────────────────── */
+  --radius-sm:                11px;
+  --radius-md:                18.6px;
+  --radius-lg:                38px;
+  --radius-pill:              9999px;
+
+  /* ─── Elevation ───────────────────────────────────────────────── */
+  --elev-flat:                none;
+  --elev-ring:                0 0 0 1px var(--border);
+  --elev-raised:              0 8px 30px rgba(0, 0, 0, 0.10);
+
+  /* ─── Focus ───────────────────────────────────────────────────── */
+  --focus-ring:               0 0 0 3px color-mix(in srgb, var(--accent), transparent 68%);
+
+  /* ─── Motion ──────────────────────────────────────────────────── */
+  --motion-fast:              150ms;
+  --motion-base:              300ms;
+  --ease-standard:            cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ─── Layout ──────────────────────────────────────────────────── */
+  --container-max:            1745px;
+  --container-gutter-desktop: 0px;
+  --container-gutter-tablet:  16px;
+  --container-gutter-phone:   16px;
+}
+
+
+/* Dark theme — overrides only. The full :root contract above still applies;
+   these slots re-point when [data-theme="dark"] is set on a root ancestor. */
+[data-theme="dark"] {
+  --bg:           #280814;
+  --surface:      #3A0F1E;
+  --surface-warm: #2A0A16;
+  --fg:           #F7E9EC;
+  --fg-2:         #D8B5BD;
+  --muted:        #B98E98;
+  --meta:         #F7E9EC;
+  --border:       #5A2233;
+  --border-soft:  #5A2233;
+}
