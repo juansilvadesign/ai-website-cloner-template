@@ -10,7 +10,7 @@ const { tone = "dark", overlay = false } = Astro.props;
 <header class:list={["site-header", `site-header--${tone}`, { "site-header--overlay": overlay }]}>
   <a class="site-header__identity" href="/marcos-arruda-com/" aria-label="Marcos Arruda home">
     <span>Marcos Arruda</span>
-    <small>Product and service designer</small>
+    <small>UX &amp; Service <em>Designer</em></small>
   </a>
   <button class="site-header__menu" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="marcos-site-menu" data-menu-toggle>
     <span></span><span></span><span></span>
@@ -95,6 +95,13 @@ const { tone = "dark", overlay = false } = Astro.props;
     font-weight: 500;
   }
 
+  .site-header__identity em {
+    padding-inline: var(--space-1);
+    color: var(--accent-on);
+    font-style: normal;
+    background: var(--accent);
+  }
+
   .site-header__menu {
     display: grid;
     width: 2.25rem;
@@ -115,6 +122,11 @@ const { tone = "dark", overlay = false } = Astro.props;
     display: block;
     height: 0.12rem;
     background: currentColor;
+  }
+
+  .site-header__menu span:last-child {
+    width: 72%;
+    justify-self: end;
   }
 
   .site-menu {
@@ -186,7 +198,7 @@ const { tone = "dark", overlay = false } = Astro.props;
   @media (max-width: 48rem) {
     .site-header {
       min-height: 5.125rem;
-      padding-inline: var(--container-gutter-phone);
+      padding-inline: var(--space-5);
     }
 
     .site-header__identity span {
