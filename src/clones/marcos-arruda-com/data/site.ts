@@ -178,7 +178,9 @@ export const detailProjects: DetailProject[] = [
 export const detailProjectFor = (slug: string) => detailProjects.find((project) => project.slug === slug);
 
 export const contact = {
-  email: "hello@marcos-arruda.com",
-  linkedin: "https://www.linkedin.com/in/marcos-arruda/",
-  instagram: "https://www.instagram.com/marcosarruda/",
+  email: "marcos17design@gmail.com",
+  phone: "+55 61 993370685",
+  phoneHref: "tel:+5561993370685",
+  linkedin: "https://www.linkedin.com/in/marcoscreativedesigner/",
+  medium: "https://medium.com/@marcos.arruda_71314",
 };

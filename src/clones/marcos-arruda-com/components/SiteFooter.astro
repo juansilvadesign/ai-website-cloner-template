@@ -5,16 +5,23 @@ import { contact } from "../data/site";
 <footer class="site-footer" id="contact">
   <div class="site-footer__inner">
     <div>
-      <p class="site-footer__eyebrow">LET'S WORK TOGETHER</p>
-      <a class="site-footer__mail" href={`mailto:${contact.email}`}>{contact.email}</a>
+      <h2>Want to get in touch?<br />I love meeting new people.</h2>
+      <p class="site-footer__name">Marcos Arruda</p>
+      <a class="site-footer__contact" href={contact.phoneHref}>{contact.phone}</a>
+      <a class="site-footer__contact" href={`mailto:${contact.email}`}>{contact.email}</a>
     </div>
-    <nav class="site-footer__links" aria-label="Footer navigation">
-      <a href="/marcos-arruda-com/#work">Work</a>
+    <nav class="site-footer__links" aria-label="Footer menu">
+      <p>Menu</p>
+      <a href="/marcos-arruda-com/">Home</a>
+      <a href="/marcos-arruda-com/portfolio/">Projects</a>
       <a href="/marcos-arruda-com/about/">About</a>
-      <a href={contact.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
-      <a href={contact.instagram} target="_blank" rel="noreferrer">Instagram</a>
     </nav>
-    <p class="site-footer__credit">© {new Date().getFullYear()} Marcos Arruda</p>
+    <nav class="site-footer__links" aria-label="Social links">
+      <p>Social</p>
+      <a href={contact.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
+      <a href={contact.medium} target="_blank" rel="noreferrer">Medium</a>
+    </nav>
+    <p class="site-footer__credit">Marcos Arruda UX Designer 2024 © All rights reserved. ⭐️ Team is Everything</p>
   </div>
 </footer>
 
@@ -26,14 +33,13 @@ import { contact } from "../data/site";
 
   .site-footer__inner {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-columns: minmax(0, 1fr) auto auto;
     gap: var(--section-y-tablet) var(--space-8);
     width: min(100%, var(--container-max));
     margin-inline: auto;
     padding: var(--section-y-desktop) var(--container-gutter-desktop) var(--space-8);
   }
 
-  .site-footer__eyebrow,
   .site-footer__credit {
     margin: 0;
     color: var(--meta);
@@ -43,20 +49,38 @@ import { contact } from "../data/site";
     letter-spacing: 0.09em;
   }
 
-  .site-footer__mail {
-    display: inline-block;
-    margin-top: var(--space-4);
+  .site-footer h2 {
+    max-width: 22rem;
+    margin: 0;
+    color: var(--surface);
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 700;
+    line-height: 1.18;
+  }
+
+  .site-footer__name {
+    margin: var(--space-5) 0 0;
     color: var(--accent);
     font-family: var(--font-display);
-    font-size: clamp(var(--text-xl), 4vw, var(--text-3xl));
-    font-weight: 300;
-    text-decoration: none;
+    font-size: var(--text-base);
+    font-weight: 700;
+  }
+
+  .site-footer__contact {
+    display: block;
+    width: fit-content;
+    margin-top: var(--space-2);
+    color: var(--surface);
+    font-family: var(--font-display);
+    font-size: var(--text-base);
+    text-decoration: underline;
   }
 
   .site-footer__links {
     display: grid;
     align-content: start;
-    justify-items: end;
+    justify-items: start;
     gap: var(--space-3);
   }
 
@@ -66,6 +90,13 @@ import { contact } from "../data/site";
     font-size: var(--text-base);
     text-decoration: none;
     transition: color var(--motion-base) var(--ease-standard);
+  }
+
+  .site-footer__links p {
+    margin: 0 0 var(--space-1);
+    color: var(--meta);
+    font-family: var(--font-display);
+    font-size: var(--text-xs);
   }
 
   .site-footer__links a:hover {
