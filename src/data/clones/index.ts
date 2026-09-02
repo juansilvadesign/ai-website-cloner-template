@@ -24,9 +24,11 @@ import { reflectClone } from "../../clones/reflect-app/clone.config";
 import { consultaDeProcessosClone } from "../../clones/consultadeprocessos-com-br/clone.config";
 import { raffaelaDrumondClone } from "../../clones/raffaeladrumond-com-br/clone.config";
 import { bioNutriruamaClone } from "../../clones/bio-nutriruama-com-br/clone.config";
+import { marcosArrudaClone } from "../../clones/marcos-arruda-com/clone.config";
 
 /** Every registered clone, newest extraction first. */
 export const allClones: Clone[] = [
+  marcosArrudaClone,
   bioNutriruamaClone,
   raffaelaDrumondClone,
   consultaDeProcessosClone,

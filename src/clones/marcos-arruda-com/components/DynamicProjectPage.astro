@@ -1,0 +1,167 @@
+---
+import type { DetailProject } from "../data/site";
+import SiteHeader from "./SiteHeader.astro";
+
+interface Props {
+  project: DetailProject;
+}
+
+const { project } = Astro.props;
+---
+
+<main class="dynamic-project">
+  <SiteHeader tone="dark" />
+  <section class="dynamic-project__hero" aria-labelledby="project-title">
+    <img src="/clones/marcos-arruda-com/images/portfolio-01.jpg" alt="Blend project artwork" />
+    <div class="dynamic-project__veil"></div>
+    <div class="dynamic-project__title">
+      <p>{project.date} — {project.client}</p>
+      <h1 id="project-title">{project.title}</h1>
+    </div>
+  </section>
+
+  <section class="dynamic-project__body">
+    <p class="dynamic-project__label">PROJECT DESCRIPTION</p>
+    <p>Every project begins with a different set of people, questions and materials. This historic portfolio page keeps the original collection's simple editorial format: one clear idea, a small set of visual outcomes and room for the work to speak.</p>
+  </section>
+
+  <section class="dynamic-project__images" aria-label="Project images">
+    <img src="/clones/marcos-arruda-com/images/portfolio-02.gif" alt="Project detail one" loading="lazy" />
+    <img src="/clones/marcos-arruda-com/images/portfolio-03.gif" alt="Project detail two" loading="lazy" />
+    <img src="/clones/marcos-arruda-com/images/portfolio-04.jpg" alt="Project detail three" loading="lazy" />
+  </section>
+
+  <a class="dynamic-project__back" href="/marcos-arruda-com/portfolio/">Back to projects <span aria-hidden="true">↗</span></a>
+</main>
+
+<style>
+  .dynamic-project {
+    min-height: 100vh;
+    color: var(--fg);
+    background: var(--surface);
+  }
+
+  .dynamic-project__hero {
+    position: relative;
+    min-height: 42rem;
+    overflow: hidden;
+    color: var(--surface);
+    background: var(--bg);
+  }
+
+  .dynamic-project__hero > img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .dynamic-project__veil {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, color-mix(in srgb, var(--bg), transparent 12%), color-mix(in srgb, var(--bg), transparent 74%));
+  }
+
+  .dynamic-project__title {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    min-height: inherit;
+    flex-direction: column;
+    justify-content: end;
+    padding: var(--section-y-desktop) var(--container-gutter-desktop);
+  }
+
+  .dynamic-project__title p,
+  .dynamic-project__label {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: var(--text-xs);
+    font-weight: 500;
+    letter-spacing: 0.09em;
+  }
+
+  .dynamic-project h1 {
+    max-width: 70rem;
+    margin: var(--space-5) 0 0;
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-3xl), 7vw, 7rem);
+    font-weight: 300;
+    line-height: var(--leading-tight);
+  }
+
+  .dynamic-project__body {
+    display: grid;
+    grid-template-columns: minmax(10rem, 0.3fr) minmax(0, 0.7fr);
+    gap: var(--space-8);
+    padding: var(--section-y-desktop) max(var(--container-gutter-desktop), calc((100vw - var(--container-max)) / 2 + var(--container-gutter-desktop)));
+  }
+
+  .dynamic-project__body > p:last-child {
+    max-width: 48rem;
+    margin: 0;
+    font-size: clamp(var(--text-xl), 2.6vw, var(--text-3xl));
+    font-weight: 300;
+    line-height: 1.35;
+  }
+
+  .dynamic-project__images {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-4);
+    padding: var(--space-4);
+    background: var(--surface-warm);
+  }
+
+  .dynamic-project__images img {
+    width: 100%;
+    min-height: 24rem;
+    object-fit: cover;
+  }
+
+  .dynamic-project__back {
+    display: inline-flex;
+    gap: var(--space-2);
+    margin: var(--section-y-tablet) var(--container-gutter-desktop);
+    color: var(--fg);
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    text-decoration: none;
+  }
+
+  @media (max-width: 48rem) {
+    .dynamic-project__hero {
+      min-height: 31rem;
+    }
+
+    .dynamic-project__title,
+    .dynamic-project__body {
+      padding-inline: var(--container-gutter-phone);
+    }
+
+    .dynamic-project__title {
+      padding-block: var(--section-y-phone);
+    }
+
+    .dynamic-project__body {
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+      padding-block: var(--section-y-phone);
+    }
+
+    .dynamic-project__images {
+      grid-template-columns: 1fr;
+      gap: var(--space-3);
+      padding: var(--space-3);
+    }
+
+    .dynamic-project__images img {
+      min-height: 20rem;
+    }
+
+    .dynamic-project__back {
+      margin: var(--section-y-phone) var(--container-gutter-phone);
+    }
+  }
+</style>

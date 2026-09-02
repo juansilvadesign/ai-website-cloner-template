@@ -1,0 +1,78 @@
+@import "../../../../design-systems/marcos-arruda-com/tokens.css";
+@import "../../../styles/reset.css";
+
+@font-face {
+  font-family: "Marcos Avenir";
+  src: url("/clones/marcos-arruda-com/fonts/avenir-light.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 300 400;
+}
+
+@font-face {
+  font-family: "Marcos Avenir";
+  src: url("/clones/marcos-arruda-com/fonts/avenir-heavy.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700 900;
+}
+
+@font-face {
+  font-family: "Marcos Space Grotesk";
+  src: url("/clones/marcos-arruda-com/fonts/space-grotesk-light.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 300 400;
+}
+
+@font-face {
+  font-family: "Marcos Space Grotesk";
+  src: url("/clones/marcos-arruda-com/fonts/space-grotesk-medium.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 500 600;
+}
+
+@font-face {
+  font-family: "Marcos Space Grotesk";
+  src: url("/clones/marcos-arruda-com/fonts/space-grotesk-bold.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700 900;
+}
+
+:root {
+  color: var(--surface);
+  background: var(--bg);
+  font-family: var(--font-body);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+html {
+  background: var(--bg);
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 20rem;
+  overflow-x: hidden;
+  background: var(--bg);
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+}

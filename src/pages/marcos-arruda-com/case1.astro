@@ -1,0 +1,11 @@
+---
+import CaseStudyPage from "../../clones/marcos-arruda-com/components/CaseStudyPage.astro";
+import SiteFooter from "../../clones/marcos-arruda-com/components/SiteFooter.astro";
+import { caseStudies } from "../../clones/marcos-arruda-com/data/site";
+import BaseLayout from "../../clones/marcos-arruda-com/layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Manifest | Marcos Arruda" canonicalPath="/case1">
+  <CaseStudyPage caseStudy={caseStudies.case1} />
+  <SiteFooter />
+</BaseLayout>

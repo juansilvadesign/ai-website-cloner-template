@@ -1,0 +1,35 @@
+---
+import "../styles/clone.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonicalPath?: string;
+}
+
+const {
+  title = "Marcos Arruda | Product & Service Designer",
+  description = "Product and service designer focused on human-centred experiences.",
+  canonicalPath = "/",
+} = Astro.props;
+const canonicalUrl = new URL(canonicalPath, "https://www.marcos-arruda.com/").href;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#000000" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="icon" href="/clones/marcos-arruda-com/seo/favicon.jpg" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/clones/marcos-arruda-com/images/home-portrait.jpg" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

@@ -1,0 +1,154 @@
+---
+import { about } from "../data/site";
+import SiteHeader from "./SiteHeader.astro";
+---
+
+<main class="about-page">
+  <section class="about-page__hero" aria-labelledby="about-title">
+    <SiteHeader tone="light" overlay />
+    <div class="about-page__portrait-wrap">
+      <img src={about.portrait} alt="Marcos Arruda in profile" class="about-page__portrait" />
+    </div>
+    <div class="about-page__intro">
+      <p class="about-page__eyebrow">ABOUT</p>
+      <h1 id="about-title">MARCOS ARRUDA</h1>
+      <p>{about.introduction}</p>
+    </div>
+  </section>
+
+  <section class="about-page__statement" aria-labelledby="about-statement-title">
+    <p>MY APPROACH</p>
+    <h2 id="about-statement-title">Curiosity, generosity and a belief that better things are made together.</h2>
+  </section>
+
+  <section class="about-page__reading" aria-label="About Marcos Arruda">
+    {about.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+  </section>
+</main>
+
+<style>
+  .about-page {
+    color: var(--surface);
+    background: var(--bg);
+  }
+
+  .about-page__hero {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 0.94fr) minmax(21rem, 1.06fr);
+    min-height: 52rem;
+  }
+
+  .about-page__portrait-wrap {
+    min-height: inherit;
+    background: var(--bg);
+  }
+
+  .about-page__portrait {
+    width: 100%;
+    height: 100%;
+    min-height: inherit;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .about-page__intro {
+    display: flex;
+    max-width: 44rem;
+    flex-direction: column;
+    justify-content: end;
+    padding: calc(var(--section-y-desktop) + 5rem) var(--container-gutter-desktop) var(--section-y-desktop) var(--section-y-tablet);
+  }
+
+  .about-page__eyebrow,
+  .about-page__statement > p {
+    margin: 0;
+    color: var(--accent);
+    font-family: var(--font-display);
+    font-size: var(--text-xs);
+    font-weight: 500;
+    letter-spacing: 0.09em;
+  }
+
+  .about-page h1 {
+    margin: var(--space-5) 0 0;
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-3xl), 6.5vw, 6.5rem);
+    font-weight: 300;
+    letter-spacing: -0.04em;
+    line-height: 0.9;
+  }
+
+  .about-page__intro > p:last-child {
+    margin: var(--space-8) 0 0;
+    color: var(--muted);
+    font-size: var(--text-lg);
+    font-weight: 300;
+    line-height: var(--leading-body);
+  }
+
+  .about-page__statement {
+    padding: var(--section-y-desktop) var(--container-gutter-desktop);
+    color: var(--fg);
+    background: var(--surface);
+  }
+
+  .about-page__statement > p {
+    color: var(--fg-2);
+  }
+
+  .about-page h2 {
+    max-width: 60rem;
+    margin: var(--space-5) 0 0;
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-2xl), 5vw, 5rem);
+    font-weight: 300;
+    line-height: var(--leading-tight);
+  }
+
+  .about-page__reading {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--section-y-tablet);
+    padding: var(--section-y-desktop) var(--container-gutter-desktop);
+  }
+
+  .about-page__reading p {
+    max-width: 34rem;
+    margin: 0;
+    color: var(--muted);
+    font-size: var(--text-lg);
+    font-weight: 300;
+    line-height: var(--leading-body);
+  }
+
+  @media (max-width: 48rem) {
+    .about-page__hero {
+      grid-template-columns: 1fr;
+      min-height: 0;
+    }
+
+    .about-page__portrait-wrap,
+    .about-page__portrait {
+      min-height: 31rem;
+    }
+
+    .about-page__intro {
+      padding: var(--section-y-phone) var(--container-gutter-phone);
+    }
+
+    .about-page h1 {
+      font-size: clamp(var(--text-3xl), 15vw, 4.5rem);
+    }
+
+    .about-page__statement,
+    .about-page__reading {
+      padding: var(--section-y-phone) var(--container-gutter-phone);
+    }
+
+    .about-page__reading {
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+    }
+  }
+</style>

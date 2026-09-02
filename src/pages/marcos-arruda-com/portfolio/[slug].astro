@@ -1,0 +1,20 @@
+---
+import DynamicProjectPage from "../../../clones/marcos-arruda-com/components/DynamicProjectPage.astro";
+import SiteFooter from "../../../clones/marcos-arruda-com/components/SiteFooter.astro";
+import { detailProjects } from "../../../clones/marcos-arruda-com/data/site";
+import BaseLayout from "../../../clones/marcos-arruda-com/layouts/BaseLayout.astro";
+
+export function getStaticPaths() {
+  return detailProjects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+---
+
+<BaseLayout title={`${project.title} | Marcos Arruda`} canonicalPath={`/portfolio/${project.slug}`}>
+  <DynamicProjectPage project={project} />
+  <SiteFooter />
+</BaseLayout>
