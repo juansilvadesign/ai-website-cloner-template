@@ -1,0 +1,330 @@
+{
+  "schemaVersion": 1,
+  "brandId": "marcos-arruda-com",
+  "source": {
+    "componentsHtml": "components.html",
+    "tokensCss": "tokens.css"
+  },
+  "fixture": {
+    "title": "Marcos Arruda — Component fixture",
+    "styleBlockCount": 1,
+    "selectorCount": 30,
+    "classCount": 15,
+    "elementCount": 21
+  },
+  "tokens": {
+    "declared": [
+      "--accent",
+      "--accent-active",
+      "--accent-hover",
+      "--accent-on",
+      "--bg",
+      "--border",
+      "--border-soft",
+      "--container-gutter-desktop",
+      "--container-gutter-phone",
+      "--container-gutter-tablet",
+      "--container-max",
+      "--danger",
+      "--ease-standard",
+      "--elev-flat",
+      "--elev-raised",
+      "--elev-ring",
+      "--fg",
+      "--fg-2",
+      "--focus-ring",
+      "--font-body",
+      "--font-display",
+      "--font-mono",
+      "--leading-body",
+      "--leading-tight",
+      "--meta",
+      "--motion-base",
+      "--motion-fast",
+      "--muted",
+      "--radius-lg",
+      "--radius-md",
+      "--radius-pill",
+      "--radius-sm",
+      "--section-y-desktop",
+      "--section-y-phone",
+      "--section-y-tablet",
+      "--space-1",
+      "--space-12",
+      "--space-2",
+      "--space-3",
+      "--space-4",
+      "--space-5",
+      "--space-6",
+      "--space-8",
+      "--success",
+      "--surface",
+      "--surface-warm",
+      "--text-2xl",
+      "--text-3xl",
+      "--text-4xl",
+      "--text-base",
+      "--text-lg",
+      "--text-sm",
+      "--text-xl",
+      "--text-xs",
+      "--tracking-display",
+      "--warn"
+    ],
+    "referenced": [
+      "--accent",
+      "--accent-hover",
+      "--bg",
+      "--border",
+      "--border-soft",
+      "--container-gutter-desktop",
+      "--container-max",
+      "--ease-standard",
+      "--fg",
+      "--fg-2",
+      "--font-body",
+      "--font-display",
+      "--leading-body",
+      "--leading-tight",
+      "--meta",
+      "--motion-fast",
+      "--muted",
+      "--section-y-desktop",
+      "--space-1",
+      "--space-12",
+      "--space-2",
+      "--space-5",
+      "--space-8",
+      "--surface",
+      "--surface-warm",
+      "--text-2xl",
+      "--text-3xl",
+      "--text-4xl",
+      "--text-base",
+      "--text-lg",
+      "--text-xl"
+    ],
+    "unusedDeclared": [
+      "--accent-active",
+      "--accent-on",
+      "--container-gutter-phone",
+      "--container-gutter-tablet",
+      "--danger",
+      "--elev-flat",
+      "--elev-raised",
+      "--elev-ring",
+      "--focus-ring",
+      "--font-mono",
+      "--motion-base",
+      "--radius-lg",
+      "--radius-md",
+      "--radius-pill",
+      "--radius-sm",
+      "--section-y-phone",
+      "--section-y-tablet",
+      "--space-3",
+      "--space-4",
+      "--space-6",
+      "--success",
+      "--text-sm",
+      "--text-xs",
+      "--tracking-display",
+      "--warn"
+    ],
+    "undeclaredReferenced": []
+  },
+  "selectors": [
+    ".btn-menu",
+    ".card-media",
+    ".case-hero",
+    ".case-hero h1",
+    ".case-hero p",
+    ".case-hero strong",
+    ".contact-footer",
+    ".contact-footer .highlight",
+    ".contact-footer a",
+    ".contact-footer h2",
+    ".fixture",
+    ".group",
+    ".media-grid",
+    ".media-tile",
+    ".media-tile:nth-child(2)",
+    ".media-tile:nth-child(3)",
+    ".menu-icon",
+    ".menu-icon::after",
+    ".project-record",
+    ".project-record a",
+    ".project-record a:hover",
+    ".project-record h2",
+    ".project-record p",
+    ".site-header",
+    ".site-header__accent",
+    ".site-header__identity",
+    ".statement-band",
+    ".statement-band p",
+    "*",
+    "body"
+  ],
+  "classes": [
+    "btn-menu",
+    "card-media",
+    "case-hero",
+    "contact-footer",
+    "fixture",
+    "group",
+    "highlight",
+    "media-grid",
+    "media-tile",
+    "menu-icon",
+    "project-record",
+    "site-header",
+    "site-header__accent",
+    "site-header__identity",
+    "statement-band"
+  ],
+  "elements": [
+    "a",
+    "article",
+    "body",
+    "br",
+    "button",
+    "div",
+    "footer",
+    "h1",
+    "h2",
+    "head",
+    "header",
+    "html",
+    "link",
+    "main",
+    "meta",
+    "p",
+    "section",
+    "span",
+    "strong",
+    "style",
+    "title"
+  ],
+  "groups": [
+    {
+      "id": "buttons",
+      "label": "Buttons and calls to action",
+      "present": true,
+      "selectors": [
+        ".btn-menu"
+      ],
+      "classes": [
+        "btn-menu"
+      ],
+      "elements": [
+        "button"
+      ],
+      "tokenReferences": []
+    },
+    {
+      "id": "inputs",
+      "label": "Form fields and controls",
+      "present": false,
+      "selectors": [],
+      "classes": [],
+      "elements": [],
+      "tokenReferences": []
+    },
+    {
+      "id": "cards",
+      "label": "Cards and panels",
+      "present": true,
+      "selectors": [
+        ".card-media"
+      ],
+      "classes": [
+        "card-media"
+      ],
+      "elements": [],
+      "tokenReferences": []
+    },
+    {
+      "id": "badges",
+      "label": "Badges, chips, and status labels",
+      "present": false,
+      "selectors": [],
+      "classes": [],
+      "elements": [],
+      "tokenReferences": []
+    },
+    {
+      "id": "links",
+      "label": "Links and inline actions",
+      "present": true,
+      "selectors": [
+        ".contact-footer a",
+        ".project-record a",
+        ".project-record a:hover"
+      ],
+      "classes": [],
+      "elements": [
+        "a"
+      ],
+      "tokenReferences": [
+        "--accent",
+        "--surface"
+      ]
+    },
+    {
+      "id": "keyboard",
+      "label": "Keyboard hints",
+      "present": false,
+      "selectors": [],
+      "classes": [],
+      "elements": [],
+      "tokenReferences": []
+    },
+    {
+      "id": "icons",
+      "label": "Icon slots",
+      "present": false,
+      "selectors": [],
+      "classes": [],
+      "elements": [],
+      "tokenReferences": []
+    },
+    {
+      "id": "typography",
+      "label": "Typography scale and text utilities",
+      "present": true,
+      "selectors": [
+        ".case-hero h1",
+        ".contact-footer h2",
+        ".project-record h2"
+      ],
+      "classes": [],
+      "elements": [
+        "h1",
+        "h2",
+        "p"
+      ],
+      "tokenReferences": []
+    },
+    {
+      "id": "layout",
+      "label": "Layout primitives",
+      "present": true,
+      "selectors": [],
+      "classes": [
+        "media-grid"
+      ],
+      "elements": [
+        "footer",
+        "header",
+        "main",
+        "section"
+      ],
+      "tokenReferences": []
+    }
+  ],
+  "literals": {
+    "colorExpressions": 0,
+    "pixelValues": 10,
+    "hardcodedFontFamilies": 6
+  }
+}

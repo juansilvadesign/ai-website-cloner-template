@@ -1,0 +1,86 @@
+{
+  "$schema": "clone-website extraction artifact — consumed by scripts/emit-design-system.ts",
+  "brand": "marcos-arruda-com",
+  "name": "Marcos Arruda Portfolio",
+  "extraction": {
+    "target": "https://www.marcos-arruda.com/",
+    "sourcePath": "https://www.marcos-arruda.com/",
+    "method": "Playwright inspection of the published Wix site at 1440px, 768px, and 390px; computed styles, route crawl, and image/video inventory.",
+    "evidence": "docs/research/marcos-arruda-com/root-computed-desktop.json, root-computed-mobile.json, root-color-evidence.json, and route inventories.",
+    "note": "The site switches between black long-form case-study surfaces and white gallery surfaces. OpenDesign's primary foreground is the white-gallery ink; dark sections deliberately use --surface as their foreground.",
+    "extractedAt": "2026-09-01"
+  },
+  "themes": {
+    "light": {
+      "--bg": { "value": "#000000", "confidence": "high", "reason": "Default canvas on the home page, long-form case studies, footer, and menu overlay.", "source": "root-computed-desktop.json; original-1440.png" },
+      "--surface": { "value": "#ffffff", "confidence": "high", "reason": "White section surface, header bar, case-study reading bands, and gallery canvas.", "source": "case1-top-1440.png; portfolio-original-1440.png" },
+      "--surface-warm": { "value": "#f4f4f4", "confidence": "derived", "reason": "Quiet off-white gallery and media fallback surface between observed pure white panels.", "source": "portfolio-original-1440.png" },
+
+      "--fg": { "value": "#000000", "confidence": "high", "reason": "Primary ink on white header, case-study reading bands, and gallery headings.", "source": "root-computed-desktop.json; about-original-1440.png" },
+      "--fg-2": { "value": "#4f4f4f", "confidence": "high", "reason": "Observed neutral third color used in the Wix palette and low-emphasis labels.", "source": "route-sitemaps.json static source palette; portfolio-original-1440.png" },
+      "--muted": { "value": "#e3e3e3", "confidence": "high", "reason": "Case-card descriptions and secondary footer copy on black.", "source": "root-computed-desktop.json: case-card paragraphs" },
+      "--meta": { "value": "#979797", "confidence": "high", "reason": "Observed Wix neutral palette tier and subtle gallery metadata.", "source": "route-sitemaps.json static source palette" },
+
+      "--border": { "value": "#e3e3e3", "confidence": "high", "reason": "Thin white-panel dividers and gallery gutters.", "source": "original-1440.png; case-study captures" },
+      "--border-soft": { "value": "#f4f4f4", "confidence": "derived", "reason": "Softer separator for dense white galleries.", "source": "portfolio-original-1440.png" },
+
+      "--accent": { "value": "#eeff03", "confidence": "high", "reason": "Signature acid-yellow highlight across bio copy, role wordmark, and navigation.", "source": "root-color-evidence.json" },
+      "--accent-on": { "value": "#000000", "confidence": "high", "reason": "Black text/icon ink on the luminous acid-yellow accent.", "source": "about-original-1440.png" },
+      "--accent-hover": { "value": "#b3bf0a", "confidence": "high", "reason": "Observed muted yellow on View Project actions.", "source": "root-color-evidence.json" },
+      "--accent-active": { "value": "#899408", "confidence": "derived", "reason": "Conservative pressed state derived from the observed action yellow.", "source": "derived from --accent-hover" },
+
+      "--success": { "value": "#16a34a", "confidence": "fallback", "reason": "OpenDesign semantic fallback; no success state appears in the target.", "source": "OpenDesign token schema" },
+      "--warn": { "value": "#eab308", "confidence": "fallback", "reason": "OpenDesign semantic fallback; no warning state appears in the target.", "source": "OpenDesign token schema" },
+      "--danger": { "value": "#dc2626", "confidence": "fallback", "reason": "OpenDesign semantic fallback; no error state appears in the target.", "source": "OpenDesign token schema" },
+
+      "--font-display": { "value": "\"Marcos Space Grotesk\", \"Space Grotesk\", Arial, sans-serif", "confidence": "high", "reason": "Local mirror of the observed Wix Space Grotesk display files.", "source": "root-inspection.json fonts; network font requests 16–18" },
+      "--font-body": { "value": "\"Marcos Avenir\", \"Avenir Next\", Arial, sans-serif", "confidence": "high", "reason": "Observed Avenir Light body family, with local mirror from the target request.", "source": "root-computed-desktop.json; network font request 13" },
+      "--font-mono": { "value": "ui-monospace, \"SF Mono\", Menlo, Monaco, Consolas, monospace", "confidence": "fallback", "reason": "OpenDesign fallback; the site has no monospace content.", "source": "OpenDesign token schema" },
+
+      "--text-xs": { "value": "12px", "confidence": "high", "reason": "Footer and mobile menu labels.", "source": "root-color-evidence.json" },
+      "--text-sm": { "value": "14px", "confidence": "high", "reason": "View Project action labels.", "source": "root-color-evidence.json" },
+      "--text-base": { "value": "16px", "confidence": "high", "reason": "Footer menu labels at desktop.", "source": "root-computed-desktop.json" },
+      "--text-lg": { "value": "20px", "confidence": "high", "reason": "Case-card body and collaboration text.", "source": "root-computed-desktop.json" },
+      "--text-xl": { "value": "28px", "confidence": "high", "reason": "Mobile hero bio span size.", "source": "root-color-evidence.json" },
+      "--text-2xl": { "value": "38px", "confidence": "high", "reason": "Desktop home name and large supporting headings.", "source": "root-computed-desktop.json" },
+      "--text-3xl": { "value": "48px", "confidence": "high", "reason": "Projects & Collaborations heading.", "source": "root-computed-desktop.json" },
+      "--text-4xl": { "value": "64px", "confidence": "derived", "reason": "Bridge display tier for case-study title screens; observed desktop title is visually between 48px and 64px.", "source": "case1-top-1440.png; case2-top-1440.png" },
+
+      "--leading-body": { "value": "1.6", "confidence": "high", "reason": "20px case-card text is observed at 32px line height.", "source": "root-computed-desktop.json" },
+      "--leading-tight": { "value": "1.1", "confidence": "high", "reason": "Observed heading rhythm throughout the home and case pages.", "source": "root-computed-desktop.json" },
+      "--tracking-display": { "value": "0", "confidence": "high", "reason": "Space Grotesk display headings use normal letter spacing.", "source": "root-computed-desktop.json" },
+
+      "--space-1": { "value": "4px", "confidence": "derived", "reason": "Smallest practical spacing tier for highlighted spans and UI details.", "source": "derived scale" },
+      "--space-2": { "value": "8px", "confidence": "derived", "reason": "Base small gap used by compact header identity.", "source": "derived scale" },
+      "--space-3": { "value": "12px", "confidence": "high", "reason": "Mobile page gutter.", "source": "original-390.png" },
+      "--space-4": { "value": "16px", "confidence": "derived", "reason": "Shared baseline spacing in gallery cards.", "source": "portfolio-original-1440.png" },
+      "--space-5": { "value": "20px", "confidence": "high", "reason": "Observed desktop case-card type baseline.", "source": "root-computed-desktop.json" },
+      "--space-6": { "value": "24px", "confidence": "derived", "reason": "Header identity and compact-grid spacing.", "source": "root-computed-desktop.json" },
+      "--space-8": { "value": "32px", "confidence": "high", "reason": "Observed case-card paragraph leading and section subgaps.", "source": "root-computed-desktop.json" },
+      "--space-12": { "value": "48px", "confidence": "high", "reason": "Observed collaboration heading size and useful macro rhythm tier.", "source": "root-computed-desktop.json" },
+
+      "--section-y-desktop": { "value": "120px", "confidence": "derived", "reason": "The white case-study introduction band and major home sections use roughly this vertical rhythm.", "source": "case1-top-1440.png; case2-top-1440.png" },
+      "--section-y-tablet": { "value": "88px", "confidence": "derived", "reason": "Intermediate responsive rhythm between desktop and mobile captures.", "source": "original-768.png" },
+      "--section-y-phone": { "value": "64px", "confidence": "derived", "reason": "Mobile section rhythm around gallery and footer content.", "source": "original-390.png" },
+
+      "--radius-sm": { "value": "0px", "confidence": "high", "reason": "The site uses square media panels and text links rather than rounded UI.", "source": "all desktop captures" },
+      "--radius-md": { "value": "0px", "confidence": "high", "reason": "Case-study and gallery panels remain square.", "source": "case1-top-1440.png; portfolio-original-1440.png" },
+      "--radius-lg": { "value": "0px", "confidence": "high", "reason": "No rounded featured containers are observed.", "source": "all desktop captures" },
+      "--radius-pill": { "value": "9999px", "confidence": "fallback", "reason": "Schema utility token; no pill control is visible on the target.", "source": "OpenDesign token schema" },
+
+      "--elev-flat": { "value": "none", "confidence": "high", "reason": "Wix layout uses flat media and flat color bands.", "source": "all desktop captures" },
+      "--elev-ring": { "value": "0 0 0 1px var(--border)", "confidence": "derived", "reason": "Thin separator fallback for gallery media.", "source": "portfolio-original-1440.png" },
+      "--elev-raised": { "value": "none", "confidence": "high", "reason": "No card shadow or floating elevation is evident.", "source": "all desktop captures" },
+      "--focus-ring": { "value": "0 0 0 3px color-mix(in srgb, var(--accent), transparent 38%)", "confidence": "derived", "reason": "Accessible enhancement anchored to the verified accent.", "source": "derived from --accent" },
+
+      "--motion-fast": { "value": "200ms", "confidence": "derived", "reason": "The target does not expose a named CSS duration; concise menu/link transition used for progressive enhancement.", "source": "root-header-inspection.json transition: all" },
+      "--motion-base": { "value": "300ms", "confidence": "high", "reason": "Footer link transitions are observed at 0.3s ease-in-out.", "source": "root-computed-desktop.json footer links" },
+      "--ease-standard": { "value": "ease-in-out", "confidence": "high", "reason": "Observed footer navigation timing function.", "source": "root-computed-desktop.json footer links" },
+
+      "--container-max": { "value": "1296px", "confidence": "high", "reason": "Desktop footer content is 1296px wide at a 1440px viewport.", "source": "root-computed-desktop.json footer rect" },
+      "--container-gutter-desktop": { "value": "5vw", "confidence": "high", "reason": "At 1440px the site uses a 72px gutter, exactly 5vw.", "source": "root-computed-desktop.json footer rect" },
+      "--container-gutter-tablet": { "value": "5vw", "confidence": "derived", "reason": "Preserves the measured desktop proportional gutter at 768px.", "source": "original-768.png" },
+      "--container-gutter-phone": { "value": "12px", "confidence": "high", "reason": "The mobile home capture places primary text about 12px from the viewport edge.", "source": "original-390.png" }
+    }
+  }
+}

@@ -1,0 +1,93 @@
+/* Marcos Arruda Portfolio — tokens.css
+ * Emitted by scripts/emit-design-system.ts from source/tokens.source.json.
+ * Declares every OpenDesign TOKEN_SCHEMA slot (56). Edit the
+ * source artifact and re-emit; do not hand-edit derived files. */
+
+:root {
+  /* ─── Surface ─────────────────────────────────────────────────── */
+  --bg:                       #000000;
+  --surface:                  #ffffff;
+  --surface-warm:             #f4f4f4;
+
+  /* ─── Foreground ──────────────────────────────────────────────── */
+  --fg:                       #000000;
+  --fg-2:                     #4f4f4f;
+  --muted:                    #e3e3e3;
+  --meta:                     #979797;
+
+  /* ─── Border ──────────────────────────────────────────────────── */
+  --border:                   #e3e3e3;
+  --border-soft:              #f4f4f4;
+
+  /* ─── Accent ──────────────────────────────────────────────────── */
+  --accent:                   #eeff03;
+  --accent-on:                #000000;
+  --accent-hover:             #b3bf0a;
+  --accent-active:            #899408;
+
+  /* ─── Semantic ────────────────────────────────────────────────── */
+  --success:                  #16a34a;
+  --warn:                     #eab308;
+  --danger:                   #dc2626;
+
+  /* ─── Typography — fonts ──────────────────────────────────────── */
+  --font-display:             "Marcos Space Grotesk", "Space Grotesk", Arial, sans-serif;
+  --font-body:                "Marcos Avenir", "Avenir Next", Arial, sans-serif;
+  --font-mono:                ui-monospace, "SF Mono", Menlo, Monaco, Consolas, monospace;
+
+  /* ─── Typography — scale ──────────────────────────────────────── */
+  --text-xs:                  12px;
+  --text-sm:                  14px;
+  --text-base:                16px;
+  --text-lg:                  20px;
+  --text-xl:                  28px;
+  --text-2xl:                 38px;
+  --text-3xl:                 48px;
+  --text-4xl:                 64px;
+
+  /* ─── Typography — leading & tracking ─────────────────────────── */
+  --leading-body:             1.6;
+  --leading-tight:            1.1;
+  --tracking-display:         0;
+
+  /* ─── Spacing ─────────────────────────────────────────────────── */
+  --space-1:                  4px;
+  --space-2:                  8px;
+  --space-3:                  12px;
+  --space-4:                  16px;
+  --space-5:                  20px;
+  --space-6:                  24px;
+  --space-8:                  32px;
+  --space-12:                 48px;
+
+  /* ─── Section rhythm ──────────────────────────────────────────── */
+  --section-y-desktop:        120px;
+  --section-y-tablet:         88px;
+  --section-y-phone:          64px;
+
+  /* ─── Radius ──────────────────────────────────────────────────── */
+  --radius-sm:                0px;
+  --radius-md:                0px;
+  --radius-lg:                0px;
+  --radius-pill:              9999px;
+
+  /* ─── Elevation ───────────────────────────────────────────────── */
+  --elev-flat:                none;
+  --elev-ring:                0 0 0 1px var(--border);
+  --elev-raised:              none;
+
+  /* ─── Focus ───────────────────────────────────────────────────── */
+  --focus-ring:               0 0 0 3px color-mix(in srgb, var(--accent), transparent 38%);
+
+  /* ─── Motion ──────────────────────────────────────────────────── */
+  --motion-fast:              200ms;
+  --motion-base:              300ms;
+  --ease-standard:            ease-in-out;
+
+  /* ─── Layout ──────────────────────────────────────────────────── */
+  --container-max:            1296px;
+  --container-gutter-desktop: 5vw;
+  --container-gutter-tablet:  5vw;
+  --container-gutter-phone:   12px;
+}
+

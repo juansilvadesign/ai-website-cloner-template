@@ -1,0 +1,698 @@
+{
+  "schemaVersion": 1,
+  "format": "od-design-tokens/v1",
+  "contract": "TOKEN_SCHEMA",
+  "generatedAt": "2026-09-02T01:01:20.673Z",
+  "source": {
+    "tokensCss": "tokens.css",
+    "tokenContractReport": "source/token-contract.report.json"
+  },
+  "summary": {
+    "total": 56,
+    "byConfidence": {
+      "high": 36,
+      "derived": 15,
+      "fallback": 5
+    },
+    "byLayer": {
+      "A1-identity": 8,
+      "B-slot": 4,
+      "A2": 26,
+      "A1-structure": 18
+    }
+  },
+  "tokens": [
+    {
+      "name": "--bg",
+      "value": "#000000",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Default canvas on the home page, long-form case studies, footer, and menu overlay.",
+      "sources": [
+        "root-computed-desktop.json; original-1440.png",
+        "tokens.css:8"
+      ]
+    },
+    {
+      "name": "--surface",
+      "value": "#ffffff",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "White section surface, header bar, case-study reading bands, and gallery canvas.",
+      "sources": [
+        "case1-top-1440.png; portfolio-original-1440.png",
+        "tokens.css:9"
+      ]
+    },
+    {
+      "name": "--surface-warm",
+      "value": "#f4f4f4",
+      "type": "color",
+      "layer": "B-slot",
+      "confidence": "derived",
+      "reason": "Quiet off-white gallery and media fallback surface between observed pure white panels.",
+      "sources": [
+        "portfolio-original-1440.png",
+        "tokens.css:10"
+      ]
+    },
+    {
+      "name": "--fg",
+      "value": "#000000",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Primary ink on white header, case-study reading bands, and gallery headings.",
+      "sources": [
+        "root-computed-desktop.json; about-original-1440.png",
+        "tokens.css:13"
+      ]
+    },
+    {
+      "name": "--fg-2",
+      "value": "#4f4f4f",
+      "type": "color",
+      "layer": "B-slot",
+      "confidence": "high",
+      "reason": "Observed neutral third color used in the Wix palette and low-emphasis labels.",
+      "sources": [
+        "route-sitemaps.json static source palette; portfolio-original-1440.png",
+        "tokens.css:14"
+      ]
+    },
+    {
+      "name": "--muted",
+      "value": "#e3e3e3",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Case-card descriptions and secondary footer copy on black.",
+      "sources": [
+        "root-computed-desktop.json: case-card paragraphs",
+        "tokens.css:15"
+      ]
+    },
+    {
+      "name": "--meta",
+      "value": "#979797",
+      "type": "color",
+      "layer": "B-slot",
+      "confidence": "high",
+      "reason": "Observed Wix neutral palette tier and subtle gallery metadata.",
+      "sources": [
+        "route-sitemaps.json static source palette",
+        "tokens.css:16"
+      ]
+    },
+    {
+      "name": "--border",
+      "value": "#e3e3e3",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Thin white-panel dividers and gallery gutters.",
+      "sources": [
+        "original-1440.png; case-study captures",
+        "tokens.css:19"
+      ]
+    },
+    {
+      "name": "--border-soft",
+      "value": "#f4f4f4",
+      "type": "color",
+      "layer": "B-slot",
+      "confidence": "derived",
+      "reason": "Softer separator for dense white galleries.",
+      "sources": [
+        "portfolio-original-1440.png",
+        "tokens.css:20"
+      ]
+    },
+    {
+      "name": "--accent",
+      "value": "#eeff03",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Signature acid-yellow highlight across bio copy, role wordmark, and navigation.",
+      "sources": [
+        "root-color-evidence.json",
+        "tokens.css:23"
+      ]
+    },
+    {
+      "name": "--accent-on",
+      "value": "#000000",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Black text/icon ink on the luminous acid-yellow accent.",
+      "sources": [
+        "about-original-1440.png",
+        "tokens.css:24"
+      ]
+    },
+    {
+      "name": "--accent-hover",
+      "value": "#b3bf0a",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Observed muted yellow on View Project actions.",
+      "sources": [
+        "root-color-evidence.json",
+        "tokens.css:25"
+      ]
+    },
+    {
+      "name": "--accent-active",
+      "value": "#899408",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Conservative pressed state derived from the observed action yellow.",
+      "sources": [
+        "derived from --accent-hover",
+        "tokens.css:26"
+      ]
+    },
+    {
+      "name": "--success",
+      "value": "#16a34a",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "fallback",
+      "reason": "OpenDesign semantic fallback; no success state appears in the target.",
+      "sources": [
+        "OpenDesign token schema",
+        "tokens.css:29"
+      ]
+    },
+    {
+      "name": "--warn",
+      "value": "#eab308",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "fallback",
+      "reason": "OpenDesign semantic fallback; no warning state appears in the target.",
+      "sources": [
+        "OpenDesign token schema",
+        "tokens.css:30"
+      ]
+    },
+    {
+      "name": "--danger",
+      "value": "#dc2626",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "fallback",
+      "reason": "OpenDesign semantic fallback; no error state appears in the target.",
+      "sources": [
+        "OpenDesign token schema",
+        "tokens.css:31"
+      ]
+    },
+    {
+      "name": "--font-display",
+      "value": "\"Marcos Space Grotesk\", \"Space Grotesk\", Arial, sans-serif",
+      "type": "fontFamily",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Local mirror of the observed Wix Space Grotesk display files.",
+      "sources": [
+        "root-inspection.json fonts; network font requests 16–18",
+        "tokens.css:34"
+      ]
+    },
+    {
+      "name": "--font-body",
+      "value": "\"Marcos Avenir\", \"Avenir Next\", Arial, sans-serif",
+      "type": "fontFamily",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Observed Avenir Light body family, with local mirror from the target request.",
+      "sources": [
+        "root-computed-desktop.json; network font request 13",
+        "tokens.css:35"
+      ]
+    },
+    {
+      "name": "--font-mono",
+      "value": "ui-monospace, \"SF Mono\", Menlo, Monaco, Consolas, monospace",
+      "type": "fontFamily",
+      "layer": "A2",
+      "confidence": "fallback",
+      "reason": "OpenDesign fallback; the site has no monospace content.",
+      "sources": [
+        "OpenDesign token schema",
+        "tokens.css:36"
+      ]
+    },
+    {
+      "name": "--text-xs",
+      "value": "12px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Footer and mobile menu labels.",
+      "sources": [
+        "root-color-evidence.json",
+        "tokens.css:39"
+      ]
+    },
+    {
+      "name": "--text-sm",
+      "value": "14px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "View Project action labels.",
+      "sources": [
+        "root-color-evidence.json",
+        "tokens.css:40"
+      ]
+    },
+    {
+      "name": "--text-base",
+      "value": "16px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Footer menu labels at desktop.",
+      "sources": [
+        "root-computed-desktop.json",
+        "tokens.css:41"
+      ]
+    },
+    {
+      "name": "--text-lg",
+      "value": "20px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Case-card body and collaboration text.",
+      "sources": [
+        "root-computed-desktop.json",
+        "tokens.css:42"
+      ]
+    },
+    {
+      "name": "--text-xl",
+      "value": "28px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Mobile hero bio span size.",
+      "sources": [
+        "root-color-evidence.json",
+        "tokens.css:43"
+      ]
+    },
+    {
+      "name": "--text-2xl",
+      "value": "38px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Desktop home name and large supporting headings.",
+      "sources": [
+        "root-computed-desktop.json",
+        "tokens.css:44"
+      ]
+    },
+    {
+      "name": "--text-3xl",
+      "value": "48px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Projects & Collaborations heading.",
+      "sources": [
+        "root-computed-desktop.json",
+        "tokens.css:45"
+      ]
+    },
+    {
+      "name": "--text-4xl",
+      "value": "64px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "derived",
+      "reason": "Bridge display tier for case-study title screens; observed desktop title is visually between 48px and 64px.",
+      "sources": [
+        "case1-top-1440.png; case2-top-1440.png",
+        "tokens.css:46"
+      ]
+    },
+    {
+      "name": "--leading-body",
+      "value": "1.6",
+      "type": "number",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "20px case-card text is observed at 32px line height.",
+      "sources": [
+        "root-computed-desktop.json",
+        "tokens.css:49"
+      ]
+    },
+    {
+      "name": "--leading-tight",
+      "value": "1.1",
+      "type": "number",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Observed heading rhythm throughout the home and case pages.",
+      "sources": [
+        "root-computed-desktop.json",
+        "tokens.css:50"
+      ]
+    },
+    {
+      "name": "--tracking-display",
+      "value": "0",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Space Grotesk display headings use normal letter spacing.",
+      "sources": [
+        "root-computed-desktop.json",
+        "tokens.css:51"
+      ]
+    },
+    {
+      "name": "--space-1",
+      "value": "4px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Smallest practical spacing tier for highlighted spans and UI details.",
+      "sources": [
+        "derived scale",
+        "tokens.css:54"
+      ]
+    },
+    {
+      "name": "--space-2",
+      "value": "8px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Base small gap used by compact header identity.",
+      "sources": [
+        "derived scale",
+        "tokens.css:55"
+      ]
+    },
+    {
+      "name": "--space-3",
+      "value": "12px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Mobile page gutter.",
+      "sources": [
+        "original-390.png",
+        "tokens.css:56"
+      ]
+    },
+    {
+      "name": "--space-4",
+      "value": "16px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Shared baseline spacing in gallery cards.",
+      "sources": [
+        "portfolio-original-1440.png",
+        "tokens.css:57"
+      ]
+    },
+    {
+      "name": "--space-5",
+      "value": "20px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Observed desktop case-card type baseline.",
+      "sources": [
+        "root-computed-desktop.json",
+        "tokens.css:58"
+      ]
+    },
+    {
+      "name": "--space-6",
+      "value": "24px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Header identity and compact-grid spacing.",
+      "sources": [
+        "root-computed-desktop.json",
+        "tokens.css:59"
+      ]
+    },
+    {
+      "name": "--space-8",
+      "value": "32px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Observed case-card paragraph leading and section subgaps.",
+      "sources": [
+        "root-computed-desktop.json",
+        "tokens.css:60"
+      ]
+    },
+    {
+      "name": "--space-12",
+      "value": "48px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Observed collaboration heading size and useful macro rhythm tier.",
+      "sources": [
+        "root-computed-desktop.json",
+        "tokens.css:61"
+      ]
+    },
+    {
+      "name": "--section-y-desktop",
+      "value": "120px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "derived",
+      "reason": "The white case-study introduction band and major home sections use roughly this vertical rhythm.",
+      "sources": [
+        "case1-top-1440.png; case2-top-1440.png",
+        "tokens.css:64"
+      ]
+    },
+    {
+      "name": "--section-y-tablet",
+      "value": "88px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "derived",
+      "reason": "Intermediate responsive rhythm between desktop and mobile captures.",
+      "sources": [
+        "original-768.png",
+        "tokens.css:65"
+      ]
+    },
+    {
+      "name": "--section-y-phone",
+      "value": "64px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "derived",
+      "reason": "Mobile section rhythm around gallery and footer content.",
+      "sources": [
+        "original-390.png",
+        "tokens.css:66"
+      ]
+    },
+    {
+      "name": "--radius-sm",
+      "value": "0px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "The site uses square media panels and text links rather than rounded UI.",
+      "sources": [
+        "all desktop captures",
+        "tokens.css:69"
+      ]
+    },
+    {
+      "name": "--radius-md",
+      "value": "0px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Case-study and gallery panels remain square.",
+      "sources": [
+        "case1-top-1440.png; portfolio-original-1440.png",
+        "tokens.css:70"
+      ]
+    },
+    {
+      "name": "--radius-lg",
+      "value": "0px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "No rounded featured containers are observed.",
+      "sources": [
+        "all desktop captures",
+        "tokens.css:71"
+      ]
+    },
+    {
+      "name": "--radius-pill",
+      "value": "9999px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "fallback",
+      "reason": "Schema utility token; no pill control is visible on the target.",
+      "sources": [
+        "OpenDesign token schema",
+        "tokens.css:72"
+      ]
+    },
+    {
+      "name": "--elev-flat",
+      "value": "none",
+      "type": "shadow",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Wix layout uses flat media and flat color bands.",
+      "sources": [
+        "all desktop captures",
+        "tokens.css:75"
+      ]
+    },
+    {
+      "name": "--elev-ring",
+      "value": "0 0 0 1px var(--border)",
+      "type": "shadow",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Thin separator fallback for gallery media.",
+      "sources": [
+        "portfolio-original-1440.png",
+        "tokens.css:76"
+      ]
+    },
+    {
+      "name": "--elev-raised",
+      "value": "none",
+      "type": "shadow",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "No card shadow or floating elevation is evident.",
+      "sources": [
+        "all desktop captures",
+        "tokens.css:77"
+      ]
+    },
+    {
+      "name": "--focus-ring",
+      "value": "0 0 0 3px color-mix(in srgb, var(--accent), transparent 38%)",
+      "type": "shadow",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Accessible enhancement anchored to the verified accent.",
+      "sources": [
+        "derived from --accent",
+        "tokens.css:80"
+      ]
+    },
+    {
+      "name": "--motion-fast",
+      "value": "200ms",
+      "type": "duration",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "The target does not expose a named CSS duration; concise menu/link transition used for progressive enhancement.",
+      "sources": [
+        "root-header-inspection.json transition: all",
+        "tokens.css:83"
+      ]
+    },
+    {
+      "name": "--motion-base",
+      "value": "300ms",
+      "type": "duration",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Footer link transitions are observed at 0.3s ease-in-out.",
+      "sources": [
+        "root-computed-desktop.json footer links",
+        "tokens.css:84"
+      ]
+    },
+    {
+      "name": "--ease-standard",
+      "value": "ease-in-out",
+      "type": "cubicBezier",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Observed footer navigation timing function.",
+      "sources": [
+        "root-computed-desktop.json footer links",
+        "tokens.css:85"
+      ]
+    },
+    {
+      "name": "--container-max",
+      "value": "1296px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Desktop footer content is 1296px wide at a 1440px viewport.",
+      "sources": [
+        "root-computed-desktop.json footer rect",
+        "tokens.css:88"
+      ]
+    },
+    {
+      "name": "--container-gutter-desktop",
+      "value": "5vw",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "At 1440px the site uses a 72px gutter, exactly 5vw.",
+      "sources": [
+        "root-computed-desktop.json footer rect",
+        "tokens.css:89"
+      ]
+    },
+    {
+      "name": "--container-gutter-tablet",
+      "value": "5vw",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "derived",
+      "reason": "Preserves the measured desktop proportional gutter at 768px.",
+      "sources": [
+        "original-768.png",
+        "tokens.css:90"
+      ]
+    },
+    {
+      "name": "--container-gutter-phone",
+      "value": "12px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "The mobile home capture places primary text about 12px from the viewport edge.",
+      "sources": [
+        "original-390.png",
+        "tokens.css:91"
+      ]
+    }
+  ]
+}

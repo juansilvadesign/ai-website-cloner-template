@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Marcos Arruda — Component fixture</title>
+    <link rel="stylesheet" href="./tokens.css" />
+    <style>
+      * { box-sizing: border-box; }
+      body { margin: 0; background: var(--bg); color: var(--surface); font-family: var(--font-body); }
+      .fixture { max-width: var(--container-max); margin: 0 auto; padding: var(--section-y-desktop) var(--container-gutter-desktop); }
+      .group { margin-block: var(--space-12); }
+      .site-header { display: flex; justify-content: space-between; align-items: start; font-family: var(--font-display); }
+      .site-header__identity { color: var(--surface); font-size: var(--text-base); line-height: var(--leading-tight); }
+      .site-header__accent { color: var(--accent); }
+      .btn-menu { border: 0; padding: var(--space-2); background: transparent; color: var(--surface); cursor: pointer; }
+      .menu-icon { width: var(--space-8); height: var(--space-5); border-block: 2px solid var(--surface); position: relative; }
+      .menu-icon::after { content: ""; position: absolute; right: 0; bottom: calc(var(--space-1) * -1); width: 70%; border-bottom: 2px solid var(--surface); }
+      .case-hero { min-height: 320px; display: grid; place-content: center; text-align: center; background: var(--fg-2); color: var(--surface); }
+      .case-hero h1 { margin: 0; font-family: var(--font-display); font-size: var(--text-4xl); line-height: var(--leading-tight); }
+      .case-hero p { color: var(--surface); font-size: var(--text-lg); }
+      .case-hero strong { color: var(--accent); }
+      .statement-band { padding: var(--space-12); background: var(--surface); color: var(--fg); }
+      .statement-band p { max-width: 780px; margin: 0; font-family: var(--font-display); font-size: var(--text-2xl); line-height: var(--leading-tight); }
+      .project-record { padding: var(--space-8) 0; border-top: 1px solid var(--border); }
+      .project-record h2 { margin: 0; font-family: var(--font-display); font-size: var(--text-3xl); }
+      .project-record p { max-width: 44rem; color: var(--muted); font-size: var(--text-lg); line-height: var(--leading-body); }
+      .project-record a { color: var(--accent-hover); font-weight: 700; text-decoration: none; transition: color var(--motion-fast) var(--ease-standard); }
+      .project-record a:hover { color: var(--accent); }
+      .media-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-2); }
+      .media-tile { min-height: 160px; background: var(--surface-warm); border: 1px solid var(--border-soft); }
+      .card-media { min-height: 160px; background: var(--surface-warm); border: 1px solid var(--border-soft); }
+      .media-tile:nth-child(2) { background: var(--meta); }
+      .media-tile:nth-child(3) { background: var(--accent); }
+      .contact-footer { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: var(--space-8); padding-top: var(--section-y-desktop); border-top: 1px solid var(--border); }
+      .contact-footer h2 { margin: 0; font-family: var(--font-display); font-size: var(--text-xl); line-height: var(--leading-tight); }
+      .contact-footer a { color: var(--surface); text-decoration: underline; }
+      .contact-footer .highlight { color: var(--accent); }
+    </style>
+  </head>
+  <body>
+    <main class="fixture">
+      <header class="site-header group"><div class="site-header__identity">Marcos Arruda<br />Product &amp; Service <span class="site-header__accent">Designer</span></div><button class="btn-menu" type="button" aria-label="Open menu"><span class="menu-icon" aria-hidden="true"></span></button></header>
+      <section class="case-hero group"><h1>FIT POINTS</h1><p><strong>Inspiring people</strong> to get more physically active.</p></section>
+      <section class="statement-band group"><p>A concept platform to incentivise physical activities together with (new) friends or family.</p></section>
+      <article class="project-record group"><h2>02 &gt; FIT POINTS</h2><p>City Football Group set the challenge to motivate Manchester residents to get fit.</p><a href="#project">View Project</a></article>
+      <section class="media-grid group" aria-label="Gallery"><div class="card-media media-tile"></div><div class="card-media media-tile"></div><div class="card-media media-tile"></div></section>
+      <footer class="contact-footer group"><div><h2>Want to get in touch?<br />I love meeting new people.</h2><p class="highlight">Marcos Arruda</p><a href="#phone">+55 61 993370685</a></div><div>Menu<br /><a href="#home">Home</a></div><div>Social<br /><a href="#linkedin">LinkedIn</a></div></footer>
+    </main>
+  </body>
+</html>
