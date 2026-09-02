@@ -1,0 +1,89 @@
+---
+const lists = [
+  { title: "Reading list", count: 18, tone: "ocean", private: true },
+  { title: "Notes to return to", count: 7, tone: "violet", private: false },
+  { title: "Ideas worth keeping", count: 12, tone: "amber", private: true },
+];
+---
+
+<section class="lists-page" data-lists-page>
+  <div class="lists-page__heading"><div><h1>Your lists</h1><p>Save stories and arrange them into small collections.</p></div><button type="button" data-new-list>New list</button></div>
+  <div class="lists-page__tabs" role="tablist" aria-label="Library content">
+    <button type="button" class="is-active" role="tab" aria-selected="true" data-list-tab="Saved">Saved</button>
+    <button type="button" role="tab" aria-selected="false" data-list-tab="Highlights">Highlights</button>
+    <button type="button" role="tab" aria-selected="false" data-list-tab="Recently viewed">Recently viewed</button>
+  </div>
+  <p class="lists-page__status" aria-live="polite" data-list-status>Saved stories organized into lists</p>
+  <div class="lists-page__grid">
+    {lists.map((list) => (
+      <article class="list-card">
+        <div class="list-card__copy"><h2>{list.title}</h2><div><a href="#">View list</a><span>{list.count} stories</span>{list.private && <span aria-label="Private list" title="Private list">♟</span>}</div></div>
+        <div class={`list-card__covers list-card__covers--${list.tone}`} aria-hidden="true"><i></i><i></i><i></i></div>
+      </article>
+    ))}
+  </div>
+  <dialog class="lists-page__dialog" data-new-list-dialog aria-labelledby="new-list-title">
+    <form method="dialog"><button class="lists-page__dialog-close" value="cancel" aria-label="Close dialog">×</button><p class="lists-page__dialog-eyebrow">List</p><h2 id="new-list-title">Create a new list</h2><label>Name<input name="list-name" placeholder="e.g. Winter reading" /></label><label>Description <span>(optional)</span><textarea name="list-description" rows="3" placeholder="What belongs in this list?"></textarea></label><div><button value="cancel" class="lists-page__cancel">Cancel</button><button value="default" class="lists-page__create">Create</button></div></form>
+  </dialog>
+</section>
+
+<script>
+  const listsPage = document.querySelector<HTMLElement>("[data-lists-page]");
+  if (listsPage) {
+    const status = listsPage.querySelector<HTMLElement>("[data-list-status]");
+    listsPage.querySelectorAll<HTMLButtonElement>("[data-list-tab]").forEach((tab) => {
+      tab.addEventListener("click", () => {
+        listsPage.querySelectorAll<HTMLButtonElement>("[data-list-tab]").forEach((item) => { item.classList.toggle("is-active", item === tab); item.setAttribute("aria-selected", String(item === tab)); });
+        if (status) status.textContent = `${tab.dataset.listTab} content is represented as UI only`;
+      });
+    });
+    const dialog = listsPage.querySelector<HTMLDialogElement>("[data-new-list-dialog]");
+    listsPage.querySelector<HTMLButtonElement>("[data-new-list]")?.addEventListener("click", () => dialog?.showModal());
+  }
+</script>
+
+<style>
+  .lists-page { width: min(100%, var(--container-max)); margin: 0 auto; }
+  .lists-page__heading { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-8); }
+  .lists-page__heading h1 { margin: 0; font-size: var(--text-2xl); font-weight: 750; letter-spacing: -.04em; line-height: 1; }
+  .lists-page__heading p { margin: var(--space-3) 0 0; color: var(--muted); font-size: var(--text-sm); }
+  .lists-page__heading > button { min-height: calc(var(--space-12) + var(--space-2)); border: 0; border-radius: var(--radius-pill); padding: 0 var(--space-6); background: var(--accent); color: var(--accent-on); font-size: var(--text-lg); transition: background var(--motion-fast) var(--ease-standard); }
+  .lists-page__heading > button:hover { background: var(--accent-hover); }
+  .lists-page__tabs { display: flex; gap: var(--space-6); margin-top: var(--section-y-tablet); border-bottom: 1px solid var(--border); }
+  .lists-page__tabs button { border: 0; border-bottom: 2px solid transparent; padding: 0 0 var(--space-4); background: transparent; color: var(--muted); font-size: var(--text-base); transition: color var(--motion-fast) var(--ease-standard); }
+  .lists-page__tabs button:hover, .lists-page__tabs button.is-active { border-color: var(--fg); color: var(--fg); }
+  .lists-page__status { min-height: var(--space-5); margin: var(--space-4) 0 var(--space-8); color: var(--muted); font-size: var(--text-xs); }
+  .lists-page__grid { display: grid; gap: var(--space-8); }
+  .list-card { display: grid; min-height: 260px; grid-template-columns: minmax(0, 1fr) minmax(300px, 43%); overflow: hidden; border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--surface); }
+  .list-card__copy { display: flex; flex-direction: column; justify-content: space-between; padding: var(--space-8); }
+  .list-card__copy h2 { margin: 0; font-size: var(--text-xl); font-weight: 750; letter-spacing: -.04em; }
+  .list-card__copy > div { display: flex; align-items: center; gap: var(--space-3); color: var(--muted); font-size: var(--text-base); }
+  .list-card__copy a { display: inline-grid; min-height: calc(var(--space-8) + var(--space-2)); place-items: center; border: 1px solid var(--muted); border-radius: var(--radius-pill); padding: 0 var(--space-4); color: var(--fg); text-decoration: none; transition: background var(--motion-fast) var(--ease-standard), color var(--motion-fast) var(--ease-standard); }
+  .list-card__copy a:hover { background: var(--fg); color: var(--accent-on); }
+  .list-card__covers { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: var(--space-1); padding: var(--space-1); background: var(--border-soft); }
+  .list-card__covers i { min-width: 0; background: var(--border); }
+  .list-card__covers--ocean i:nth-child(1) { background: linear-gradient(135deg, var(--fg), color-mix(in srgb, var(--accent) 42%, var(--surface))); }
+  .list-card__covers--ocean i:nth-child(2) { background: repeating-linear-gradient(45deg, color-mix(in srgb, var(--accent) 55%, var(--surface)), color-mix(in srgb, var(--accent) 55%, var(--surface)) var(--space-2), var(--surface) var(--space-2), var(--surface) var(--space-4)); }
+  .list-card__covers--ocean i:nth-child(3) { background: linear-gradient(180deg, var(--border-soft), var(--muted)); }
+  .list-card__covers--violet i:nth-child(1) { background: radial-gradient(circle at 60% 35%, var(--surface) 0 11%, color-mix(in srgb, var(--accent) 24%, var(--surface)) 12% 38%, var(--muted) 39% 100%); }
+  .list-card__covers--violet i:nth-child(2) { background: repeating-radial-gradient(circle at 20% 30%, var(--fg) 0 3px, var(--surface) 4px 18px); }
+  .list-card__covers--violet i:nth-child(3) { background: linear-gradient(135deg, var(--surface) 47%, var(--fg) 48% 52%, var(--surface) 53%); }
+  .list-card__covers--amber i:nth-child(1) { background: linear-gradient(135deg, color-mix(in srgb, var(--warn) 55%, var(--surface)), color-mix(in srgb, var(--accent) 38%, var(--surface))); }
+  .list-card__covers--amber i:nth-child(2) { background: linear-gradient(180deg, var(--surface) 0 30%, var(--fg) 30% 70%, var(--surface) 70%); }
+  .list-card__covers--amber i:nth-child(3) { background: radial-gradient(ellipse at 40% 52%, var(--warn) 0 21%, var(--surface) 22% 100%); }
+  .lists-page__dialog { width: min(420px, calc(100% - var(--space-8))); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: var(--space-8); color: var(--fg); box-shadow: var(--elev-raised); }
+  .lists-page__dialog::backdrop { background: color-mix(in srgb, var(--fg) 38%, transparent); }
+  .lists-page__dialog form { display: grid; gap: var(--space-5); }
+  .lists-page__dialog-close { position: absolute; top: var(--space-3); right: var(--space-3); display: grid; width: 32px; height: 32px; place-items: center; border: 0; border-radius: var(--radius-pill); background: var(--border-soft); color: var(--fg); font-size: var(--text-lg); }
+  .lists-page__dialog-eyebrow { margin: 0; color: var(--muted); font-size: var(--text-xs); text-transform: uppercase; }
+  .lists-page__dialog h2 { margin: calc(var(--space-2) * -1) 0 0; font-size: var(--text-xl); letter-spacing: -.035em; }
+  .lists-page__dialog label { display: grid; gap: var(--space-2); color: var(--fg); font-size: var(--text-sm); }
+  .lists-page__dialog label span { color: var(--muted); }
+  .lists-page__dialog input, .lists-page__dialog textarea { box-sizing: border-box; width: 100%; border: 1px solid var(--border); border-radius: var(--radius-sm); padding: var(--space-3); color: var(--fg); font: inherit; resize: vertical; }
+  .lists-page__dialog form > div { display: flex; justify-content: flex-end; gap: var(--space-3); }
+  .lists-page__cancel, .lists-page__create { min-height: 36px; border-radius: var(--radius-pill); padding: 0 var(--space-4); font-size: var(--text-sm); }
+  .lists-page__cancel { border: 1px solid var(--border); background: var(--surface); color: var(--fg); }
+  .lists-page__create { border: 1px solid var(--accent); background: var(--accent); color: var(--accent-on); }
+  @media (max-width: 720px) { .list-card { min-height: 220px; grid-template-columns: 1fr 38%; } .list-card__copy { padding: var(--space-6); } }
+  @media (max-width: 520px) { .lists-page__heading { display: grid; gap: var(--space-5); } .lists-page__heading > button { width: fit-content; min-height: 40px; font-size: var(--text-base); } .lists-page__tabs { gap: var(--space-4); overflow-x: auto; } .lists-page__tabs button { flex: 0 0 auto; font-size: var(--text-sm); } .list-card { display: flex; min-height: 0; flex-direction: column-reverse; } .list-card__covers { height: 144px; } .list-card__copy { min-height: 168px; } }
+</style>

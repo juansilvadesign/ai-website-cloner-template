@@ -1,0 +1,142 @@
+---
+const nav = [
+  { label: "Our story", href: "#our-story" },
+  { label: "Membership", href: "#membership" },
+  { label: "Write", href: "/medium-com/the-academic/floaties-not-shorelines-what-we-get-wrong-about-helping-someone-grieve-61d65dbddacf/" },
+  { label: "Sign in", href: "/medium-com/me/lists/" },
+];
+---
+
+<header class="public-header">
+  <a class="public-header__wordmark" href="/medium-com/" aria-label="Medium UI home">Medium</a>
+  <nav class="public-header__nav" aria-label="Public navigation">
+    {nav.map((item) => <a href={item.href}>{item.label}</a>)}
+    <a class="public-header__start" href="/medium-com/me/lists/">Get started</a>
+  </nav>
+  <details class="public-header__menu">
+    <summary aria-label="Open navigation"><span></span><span></span><span></span></summary>
+    <nav aria-label="Public navigation mobile">
+      {nav.map((item) => <a href={item.href}>{item.label}</a>)}
+      <a class="public-header__start" href="/medium-com/me/lists/">Get started</a>
+    </nav>
+  </details>
+</header>
+
+<style>
+  .public-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: calc(var(--space-12) + var(--space-6));
+    border-bottom: 1px solid var(--fg);
+    padding: 0 var(--container-gutter-desktop);
+    background: var(--bg);
+  }
+
+  .public-header__wordmark {
+    color: var(--fg);
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 760;
+    letter-spacing: var(--tracking-display);
+    text-decoration: none;
+  }
+
+  .public-header__nav,
+  .public-header__nav a {
+    display: flex;
+    align-items: center;
+  }
+
+  .public-header__nav {
+    gap: var(--space-6);
+  }
+
+  .public-header__nav a {
+    color: var(--fg);
+    font-size: var(--text-sm);
+    text-decoration: none;
+    transition: opacity var(--motion-fast) var(--ease-standard);
+  }
+
+  .public-header__nav a:not(.public-header__start):hover {
+    opacity: 0.58;
+  }
+
+  .public-header__start {
+    min-height: calc(var(--space-8) + var(--space-2));
+    border-radius: var(--radius-pill);
+    padding: 0 var(--space-5);
+    background: var(--fg);
+    color: var(--accent-on) !important;
+    justify-content: center;
+  }
+
+  .public-header__menu {
+    display: none;
+    position: relative;
+  }
+
+  .public-header__menu summary {
+    display: grid;
+    width: 40px;
+    height: 40px;
+    place-content: center;
+    gap: 4px;
+    list-style: none;
+  }
+
+  .public-header__menu summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .public-header__menu summary span {
+    display: block;
+    width: var(--space-5);
+    height: 1px;
+    background: var(--fg);
+  }
+
+  .public-header__menu nav {
+    position: absolute;
+    top: calc(100% + var(--space-2));
+    right: 0;
+    z-index: 2;
+    display: grid;
+    min-width: 180px;
+    border: 1px solid var(--border);
+    padding: var(--space-3);
+    background: var(--surface);
+    box-shadow: var(--elev-raised);
+  }
+
+  .public-header__menu nav a {
+    padding: var(--space-3);
+    color: var(--fg);
+    font-size: var(--text-sm);
+    text-decoration: none;
+  }
+
+  .public-header__menu .public-header__start {
+    margin-top: var(--space-2);
+  }
+
+  @media (max-width: 760px) {
+    .public-header {
+      min-height: calc(var(--space-12) + var(--space-2));
+      padding: 0 var(--container-gutter-phone);
+    }
+
+    .public-header__wordmark {
+      font-size: var(--text-lg);
+    }
+
+    .public-header__nav {
+      display: none;
+    }
+
+    .public-header__menu {
+      display: block;
+    }
+  }
+</style>

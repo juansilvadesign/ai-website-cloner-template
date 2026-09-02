@@ -1,0 +1,50 @@
+<section class="audience-page" data-audience-page>
+  <div class="audience-page__heading"><div><h1>Your audience</h1><p>Updated daily</p></div><div><button type="button" data-audience-action="Partner Program earnings">Partner Program earnings</button><button type="button" data-audience-action="Story stats">Story stats</button></div></div>
+  <p class="audience-page__notice" aria-live="polite" data-audience-notice>UI-only demo — the values below are sample data, not account data.</p>
+  <div class="audience-page__metrics">
+    <section><p>Followers <span title="More information">ⓘ</span></p><strong>1,240</strong><a href="#">+16 from last month</a></section>
+    <section><p>Email subscribers <span title="More information">ⓘ</span></p><strong>284</strong><a href="#">+4 from last month</a><button type="button">View details</button></section>
+    <section><p>Referred members <span title="More information">ⓘ</span></p><strong>18</strong><a href="#">+2 from last month</a></section>
+  </div>
+  <section class="audience-page__growth"><div><h2>Monthly growth</h2><p>Discover how your audience changes over time.</p></div><div class="audience-page__chart" aria-label="Sample monthly growth chart" role="img"><span>Aug</span><svg viewBox="0 0 600 180" preserveAspectRatio="none" aria-hidden="true"><path d="M0 148H600M0 90H600M0 32H600" class="audience-page__gridline"></path><polyline points="0,144 66,137 130,141 196,111 260,113 326,81 391,93 457,55 524,68 600,27" class="audience-page__line"></polyline><circle cx="600" cy="27" r="5"></circle></svg><span>Sep</span></div></section>
+  <section class="audience-page__info"><h2>Build a reader relationship</h2><p>Audience tools work best when they sit behind the writing experience rather than competing with it. This static page recreates the dashboard hierarchy and controls only.</p></section>
+</section>
+
+<script>
+  const audience = document.querySelector<HTMLElement>("[data-audience-page]");
+  if (audience) {
+    const notice = audience.querySelector<HTMLElement>("[data-audience-notice]");
+    audience.querySelectorAll<HTMLButtonElement>("[data-audience-action]").forEach((button) => {
+      button.addEventListener("click", () => { if (notice) notice.textContent = `${button.dataset.audienceAction} is represented as UI only.`; });
+    });
+  }
+</script>
+
+<style>
+  .audience-page { width: min(100%, var(--container-max)); margin: 0 auto; }
+  .audience-page__heading { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-8); }
+  .audience-page__heading h1 { margin: 0; font-size: var(--text-2xl); font-weight: 750; letter-spacing: -.04em; line-height: 1; }
+  .audience-page__heading p { margin: var(--space-2) 0 0; color: var(--muted); font-size: var(--text-sm); }
+  .audience-page__heading > div:last-child { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: var(--space-3); }
+  .audience-page__heading button { min-height: 40px; border: 1px solid var(--fg); border-radius: var(--radius-pill); padding: 0 var(--space-4); background: transparent; color: var(--fg); font-size: var(--text-sm); transition: background var(--motion-fast) var(--ease-standard), color var(--motion-fast) var(--ease-standard); }
+  .audience-page__heading button:hover { background: var(--fg); color: var(--accent-on); }
+  .audience-page__notice { min-height: var(--space-5); margin: var(--space-6) 0 0; color: var(--muted); font-size: var(--text-xs); }
+  .audience-page__metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-12); margin-top: var(--section-y-tablet); border-bottom: 1px solid var(--border-soft); padding-bottom: var(--section-y-tablet); }
+  .audience-page__metrics section { display: grid; align-content: start; gap: var(--space-2); }
+  .audience-page__metrics p { margin: 0; color: var(--muted); font-size: var(--text-xs); letter-spacing: .05em; text-transform: uppercase; }
+  .audience-page__metrics strong { font-size: var(--text-2xl); font-weight: 740; letter-spacing: -.05em; line-height: 1; }
+  .audience-page__metrics a { width: fit-content; color: var(--success); font-size: var(--text-sm); text-decoration: none; }
+  .audience-page__metrics a:hover { text-decoration: underline; text-underline-offset: var(--space-1); }
+  .audience-page__metrics button { width: fit-content; border: 0; padding: 0; background: transparent; color: var(--fg); font-size: var(--text-sm); text-decoration: underline; text-underline-offset: var(--space-1); }
+  .audience-page__growth { display: grid; grid-template-columns: minmax(180px, 25%) 1fr; gap: var(--space-12); margin-top: var(--section-y-tablet); }
+  .audience-page__growth h2, .audience-page__info h2 { margin: 0; font-size: var(--text-xl); letter-spacing: -.04em; }
+  .audience-page__growth p, .audience-page__info p { margin: var(--space-3) 0 0; color: var(--muted); font-size: var(--text-sm); line-height: var(--leading-body); }
+  .audience-page__chart { display: grid; grid-template-columns: auto 1fr auto; align-items: end; gap: var(--space-3); color: var(--muted); font-size: var(--text-xs); }
+  .audience-page__chart svg { width: 100%; min-height: 180px; overflow: visible; }
+  .audience-page__gridline { fill: none; stroke: var(--border-soft); stroke-width: 1; }
+  .audience-page__line { fill: none; stroke: var(--accent); stroke-linecap: round; stroke-linejoin: round; stroke-width: 3; }
+  .audience-page__chart circle { fill: var(--accent); }
+  .audience-page__info { max-width: 620px; margin-top: var(--section-y-tablet); border-top: 1px solid var(--border-soft); padding-top: var(--space-8); }
+  @media (max-width: 700px) { .audience-page__metrics { grid-template-columns: 1fr 1fr; gap: var(--space-8); } .audience-page__growth { grid-template-columns: 1fr; gap: var(--space-6); } }
+  @media (max-width: 520px) { .audience-page__heading { display: grid; gap: var(--space-5); } .audience-page__heading > div:last-child { justify-content: flex-start; } .audience-page__metrics { grid-template-columns: 1fr; gap: var(--space-8); } .audience-page__chart { grid-template-columns: 1fr; } .audience-page__chart span:last-child { display: none; } }
+</style>

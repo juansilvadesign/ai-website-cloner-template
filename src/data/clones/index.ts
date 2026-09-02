@@ -25,9 +25,11 @@ import { consultaDeProcessosClone } from "../../clones/consultadeprocessos-com-b
 import { raffaelaDrumondClone } from "../../clones/raffaeladrumond-com-br/clone.config";
 import { bioNutriruamaClone } from "../../clones/bio-nutriruama-com-br/clone.config";
 import { marcosArrudaClone } from "../../clones/marcos-arruda-com/clone.config";
+import { mediumClone } from "../../clones/medium-com/clone.config";
 
 /** Every registered clone, newest extraction first. */
 export const allClones: Clone[] = [
+  mediumClone,
   marcosArrudaClone,
   bioNutriruamaClone,
   raffaelaDrumondClone,

@@ -1,0 +1,131 @@
+<main class="home" id="our-story">
+  <div class="home__copy">
+    <p class="home__eyebrow">A place to read, write, and deepen your understanding</p>
+    <h1>Human<br />stories &amp; ideas</h1>
+    <a class="home__action" href="/medium-com/the-academic/floaties-not-shorelines-what-we-get-wrong-about-helping-someone-grieve-61d65dbddacf/">Start reading</a>
+  </div>
+  <div class="home__art" aria-hidden="true">
+    <div class="home__flower"><i></i><i></i><i></i><i></i><i></i><b></b></div>
+    <div class="home__formula"><i>α</i><i>β</i><i>γ</i><span></span><span></span><span></span></div>
+    <div class="home__window"><div></div><i></i><i></i><i></i></div>
+    <div class="home__stars"><i>✦</i><i>✦</i><i>✦</i><i>✦</i><i>✦</i></div>
+  </div>
+</main>
+
+<footer class="public-footer" id="membership">
+  <a href="#">Help</a><a href="#">Status</a><a href="#">About</a><a href="#">Careers</a><a href="#">Press</a><a href="#">Blog</a><a href="#">Privacy</a><a href="#">Rules</a><a href="#">Terms</a><a href="#">Text to speech</a>
+</footer>
+
+<style>
+  .home {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 44vw);
+    min-height: calc(100svh - (var(--space-12) + var(--space-6)) - (var(--space-12) + var(--space-4)));
+    overflow: hidden;
+    background: var(--bg);
+  }
+
+  .home__copy {
+    align-self: center;
+    padding: var(--section-y-desktop) var(--space-8) var(--section-y-desktop) var(--container-gutter-desktop);
+  }
+
+  .home h1 {
+    max-width: 770px;
+    margin: 0;
+    color: var(--fg);
+    font-family: var(--font-display);
+    font-size: clamp(var(--text-3xl), 8vw, var(--text-4xl));
+    font-weight: 520;
+    letter-spacing: var(--tracking-display);
+    line-height: var(--leading-tight);
+  }
+
+  .home__eyebrow {
+    margin: var(--space-8) 0 var(--space-12);
+    color: var(--fg);
+    font-size: var(--text-lg);
+    line-height: var(--leading-body);
+  }
+
+  .home__action {
+    display: inline-grid;
+    min-width: 190px;
+    min-height: calc(var(--space-12) + var(--space-2));
+    place-items: center;
+    margin-top: var(--space-12);
+    border-radius: var(--radius-pill);
+    background: var(--fg);
+    color: var(--accent-on);
+    font-size: var(--text-base);
+    font-weight: 620;
+    text-decoration: none;
+    transition: transform var(--motion-fast) var(--ease-standard), opacity var(--motion-fast) var(--ease-standard);
+  }
+
+  .home__action:hover { transform: translateY(-2px); opacity: .9; }
+
+  .home__art {
+    position: relative;
+    min-height: 550px;
+  }
+
+  .home__flower { position: absolute; top: 11%; left: 20%; width: 240px; height: 240px; }
+  .home__flower i { position: absolute; width: 112px; height: 112px; border-radius: 52% 48% 55% 45%; background: var(--accent); }
+  .home__flower i:nth-child(1) { top: 0; left: 64px; transform: rotate(12deg); }
+  .home__flower i:nth-child(2) { top: 60px; right: 0; transform: rotate(62deg); }
+  .home__flower i:nth-child(3) { bottom: 0; right: 38px; transform: rotate(117deg); }
+  .home__flower i:nth-child(4) { bottom: 0; left: 25px; transform: rotate(197deg); }
+  .home__flower i:nth-child(5) { top: 60px; left: 0; transform: rotate(246deg); }
+  .home__flower b { position: absolute; top: 91px; left: 91px; width: 58px; height: 58px; border-radius: var(--radius-pill); background: var(--bg); }
+  .home__flower b::after { position: absolute; inset: var(--space-3); border-radius: var(--radius-pill); background: var(--accent); content: ""; }
+
+  .home__formula { position: absolute; top: 29%; right: -3%; width: 50%; height: 180px; border: 1px solid var(--fg); transform: rotate(8deg) skewY(-8deg); }
+  .home__formula::before, .home__formula::after { position: absolute; background: var(--fg); content: ""; }
+  .home__formula::before { top: 42%; left: -10%; width: 120%; height: 1px; }
+  .home__formula::after { top: -16%; left: 44%; width: 1px; height: 130%; }
+  .home__formula i { position: absolute; font-family: var(--font-display); font-size: var(--text-base); font-style: italic; }
+  .home__formula i:nth-of-type(1) { top: var(--space-2); left: var(--space-3); }
+  .home__formula i:nth-of-type(2) { top: 40%; right: var(--space-4); }
+  .home__formula i:nth-of-type(3) { bottom: var(--space-2); left: 46%; }
+  .home__formula span { position: absolute; width: 5px; height: 5px; border-radius: var(--radius-pill); background: var(--fg); }
+  .home__formula span:nth-of-type(1) { top: 40%; left: 4%; }
+  .home__formula span:nth-of-type(2) { top: 40%; right: 4%; }
+  .home__formula span:nth-of-type(3) { bottom: 5%; left: 45%; }
+
+  .home__window { position: absolute; right: 0; bottom: 10%; width: 57%; aspect-ratio: 1.25; overflow: hidden; background: var(--accent); }
+  .home__window div { position: absolute; right: -16%; bottom: -26%; width: 104%; height: 72%; border-radius: 50% 50% 0 0; background: var(--bg); transform: rotate(-22deg); }
+  .home__window i { position: absolute; top: 43%; right: 9%; width: 27%; height: var(--space-3); border-radius: var(--radius-pill); background: var(--bg); transform: rotate(-14deg); }
+  .home__window i:nth-of-type(2) { top: 49%; right: 25%; width: 11%; transform: rotate(38deg); }
+  .home__window i:nth-of-type(3) { top: 36%; right: 5%; width: 7%; height: 7%; transform: none; }
+
+  .home__stars { position: absolute; right: 7%; bottom: 7%; display: grid; gap: var(--space-2); color: var(--fg); font-size: var(--text-base); transform: rotate(-21deg); }
+  .home__stars i:nth-child(2) { margin-left: var(--space-8); }
+  .home__stars i:nth-child(3) { margin-left: var(--space-4); }
+  .home__stars i:nth-child(4) { margin-left: var(--space-12); }
+
+  .public-footer { display: flex; min-height: calc(var(--space-12) + var(--space-4)); align-items: center; justify-content: center; gap: var(--space-4); border-top: 1px solid var(--fg); padding: var(--space-3) var(--space-5); background: var(--bg); }
+  .public-footer a { color: var(--muted); font-size: var(--text-xs); text-decoration: none; }
+  .public-footer a:hover { color: var(--fg); text-decoration: underline; text-underline-offset: var(--space-1); }
+
+  @media (max-width: 900px) {
+    .home { grid-template-columns: 1fr; }
+    .home__copy { padding: var(--section-y-tablet) var(--container-gutter-tablet); }
+    .home__art { min-height: 420px; }
+    .home__flower { top: 0; left: 14%; transform: scale(.82); transform-origin: top left; }
+    .home__formula { top: 13%; right: 0; width: 42%; }
+    .home__window { bottom: 0; width: 50%; }
+  }
+
+  @media (max-width: 520px) {
+    .home__copy { padding: var(--section-y-phone) var(--container-gutter-phone) var(--space-8); }
+    .home h1 { font-size: clamp(var(--text-2xl), 18vw, var(--text-3xl)); }
+    .home__eyebrow { max-width: 27ch; margin: var(--space-4) 0 var(--space-8); font-size: var(--text-base); }
+    .home__action { min-width: 170px; margin-top: var(--space-8); }
+    .home__art { min-height: 280px; }
+    .home__flower { left: 5%; transform: scale(.46); }
+    .home__formula { top: 18%; width: 52%; height: 110px; }
+    .home__window { width: 59%; }
+    .public-footer { justify-content: flex-start; flex-wrap: wrap; gap: var(--space-3); padding: var(--space-4) var(--container-gutter-phone); }
+  }
+</style>

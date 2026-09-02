@@ -1,0 +1,697 @@
+{
+  "schemaVersion": 1,
+  "format": "od-design-tokens/v1",
+  "contract": "TOKEN_SCHEMA",
+  "generatedAt": "2026-09-02T02:57:31.318Z",
+  "source": {
+    "tokensCss": "tokens.css",
+    "tokenContractReport": "source/token-contract.report.json"
+  },
+  "summary": {
+    "total": 56,
+    "byConfidence": {
+      "derived": 55,
+      "fallback": 1
+    },
+    "byLayer": {
+      "A1-identity": 8,
+      "B-slot": 4,
+      "A2": 26,
+      "A1-structure": 18
+    }
+  },
+  "tokens": [
+    {
+      "name": "--bg",
+      "value": "#f7f4ed",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "derived",
+      "reason": "Warm off-white public landing-page canvas.",
+      "sources": [
+        "public homepage reference screenshot",
+        "tokens.css:8"
+      ]
+    },
+    {
+      "name": "--surface",
+      "value": "#ffffff",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "derived",
+      "reason": "Product routes use a clean white reading surface.",
+      "sources": [
+        "public article, lists, and audience references",
+        "tokens.css:9"
+      ]
+    },
+    {
+      "name": "--surface-warm",
+      "value": "#f7f4ed",
+      "type": "color",
+      "layer": "B-slot",
+      "confidence": "derived",
+      "reason": "Warm surface is reused by the marketing landing page.",
+      "sources": [
+        "public homepage reference screenshot",
+        "tokens.css:10"
+      ]
+    },
+    {
+      "name": "--fg",
+      "value": "#242424",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "derived",
+      "reason": "Near-black primary editorial ink.",
+      "sources": [
+        "public target markup and reference screenshots",
+        "tokens.css:13"
+      ]
+    },
+    {
+      "name": "--fg-2",
+      "value": "#1a1a1a",
+      "type": "color",
+      "layer": "B-slot",
+      "confidence": "derived",
+      "reason": "High-emphasis display and button text.",
+      "sources": [
+        "public reference screenshots",
+        "tokens.css:14"
+      ]
+    },
+    {
+      "name": "--muted",
+      "value": "#6b6b6b",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "derived",
+      "reason": "Metadata, supporting copy, and disabled navigation tier.",
+      "sources": [
+        "public article and product-page references",
+        "tokens.css:15"
+      ]
+    },
+    {
+      "name": "--meta",
+      "value": "#8b8b8b",
+      "type": "color",
+      "layer": "B-slot",
+      "confidence": "derived",
+      "reason": "Quiet tertiary metadata tier.",
+      "sources": [
+        "public product-page references",
+        "tokens.css:16"
+      ]
+    },
+    {
+      "name": "--border",
+      "value": "#e6e6e6",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "derived",
+      "reason": "The product UI uses thin pale gray separators.",
+      "sources": [
+        "public lists and audience references",
+        "tokens.css:19"
+      ]
+    },
+    {
+      "name": "--border-soft",
+      "value": "#f2f2f2",
+      "type": "color",
+      "layer": "B-slot",
+      "confidence": "derived",
+      "reason": "Subtle article and table row divider.",
+      "sources": [
+        "public product-page references",
+        "tokens.css:20"
+      ]
+    },
+    {
+      "name": "--accent",
+      "value": "#1a8917",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "derived",
+      "reason": "Medium green is reserved for growth signals and a single primary product action.",
+      "sources": [
+        "public lists and audience references",
+        "tokens.css:23"
+      ]
+    },
+    {
+      "name": "--accent-on",
+      "value": "#ffffff",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "White action label over Medium green.",
+      "sources": [
+        "public lists reference",
+        "tokens.css:24"
+      ]
+    },
+    {
+      "name": "--accent-hover",
+      "value": "#157312",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Slightly darker affirmative-action hover treatment.",
+      "sources": [
+        "derived from the public green action treatment",
+        "tokens.css:25"
+      ]
+    },
+    {
+      "name": "--accent-active",
+      "value": "#0f5d0d",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Pressed affirmative-action treatment.",
+      "sources": [
+        "derived state tier",
+        "tokens.css:26"
+      ]
+    },
+    {
+      "name": "--success",
+      "value": "#1a8917",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Positive growth values share the Medium action green.",
+      "sources": [
+        "public audience reference",
+        "tokens.css:29"
+      ]
+    },
+    {
+      "name": "--warn",
+      "value": "#b7791f",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Reserved warning color; no prominent warning state occurs in the scoped routes.",
+      "sources": [
+        "semantic fallback mapping",
+        "tokens.css:30"
+      ]
+    },
+    {
+      "name": "--danger",
+      "value": "#c43333",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Reserved destructive-state color; no destructive action is cloned.",
+      "sources": [
+        "semantic fallback mapping",
+        "tokens.css:31"
+      ]
+    },
+    {
+      "name": "--font-display",
+      "value": "\"Newsreader Variable\", \"Iowan Old Style\", Georgia, serif",
+      "type": "fontFamily",
+      "layer": "A1-identity",
+      "confidence": "derived",
+      "reason": "Editorial serif proxy matching the public marketing headline and story reading face.",
+      "sources": [
+        "public homepage and article references",
+        "tokens.css:34"
+      ]
+    },
+    {
+      "name": "--font-body",
+      "value": "InterVariable, Inter, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "type": "fontFamily",
+      "layer": "A1-identity",
+      "confidence": "derived",
+      "reason": "Neutral, compact product and control face.",
+      "sources": [
+        "public product-page references",
+        "tokens.css:35"
+      ]
+    },
+    {
+      "name": "--font-mono",
+      "value": "ui-monospace, \"SF Mono\", Menlo, Monaco, Consolas, monospace",
+      "type": "fontFamily",
+      "layer": "A2",
+      "confidence": "fallback",
+      "reason": "Fallback for tabular audience values.",
+      "sources": [
+        "OpenDesign semantic fallback",
+        "tokens.css:36"
+      ]
+    },
+    {
+      "name": "--text-xs",
+      "value": "12px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "derived",
+      "reason": "Small metadata and product labels.",
+      "sources": [
+        "public product-page references",
+        "tokens.css:39"
+      ]
+    },
+    {
+      "name": "--text-sm",
+      "value": "14px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "derived",
+      "reason": "Navigation, author metadata, and compact button labels.",
+      "sources": [
+        "public references",
+        "tokens.css:40"
+      ]
+    },
+    {
+      "name": "--text-base",
+      "value": "16px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "derived",
+      "reason": "Baseline body and control text.",
+      "sources": [
+        "public references",
+        "tokens.css:41"
+      ]
+    },
+    {
+      "name": "--text-lg",
+      "value": "20px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "derived",
+      "reason": "Article subhead and compact heading tier.",
+      "sources": [
+        "public article reference",
+        "tokens.css:42"
+      ]
+    },
+    {
+      "name": "--text-xl",
+      "value": "32px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "derived",
+      "reason": "Internal-page heading tier.",
+      "sources": [
+        "public lists and audience references",
+        "tokens.css:43"
+      ]
+    },
+    {
+      "name": "--text-2xl",
+      "value": "48px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "derived",
+      "reason": "Story title and product hero tier.",
+      "sources": [
+        "public target article markup and product references",
+        "tokens.css:44"
+      ]
+    },
+    {
+      "name": "--text-3xl",
+      "value": "64px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "derived",
+      "reason": "Large landing-page display tier.",
+      "sources": [
+        "public homepage reference",
+        "tokens.css:45"
+      ]
+    },
+    {
+      "name": "--text-4xl",
+      "value": "112px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "derived",
+      "reason": "Desktop public homepage headline.",
+      "sources": [
+        "public homepage reference screenshot",
+        "tokens.css:46"
+      ]
+    },
+    {
+      "name": "--leading-body",
+      "value": "1.58",
+      "type": "number",
+      "layer": "A1-structure",
+      "confidence": "derived",
+      "reason": "Comfortable long-form reading rhythm.",
+      "sources": [
+        "public article reference",
+        "tokens.css:49"
+      ]
+    },
+    {
+      "name": "--leading-tight",
+      "value": "0.95",
+      "type": "number",
+      "layer": "A1-structure",
+      "confidence": "derived",
+      "reason": "Dense editorial display rhythm for the landing headline.",
+      "sources": [
+        "public homepage reference",
+        "tokens.css:50"
+      ]
+    },
+    {
+      "name": "--tracking-display",
+      "value": "-0.045em",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "derived",
+      "reason": "Optical tightening for large editorial display text.",
+      "sources": [
+        "public homepage reference",
+        "tokens.css:51"
+      ]
+    },
+    {
+      "name": "--space-1",
+      "value": "4px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Micro icon and label gap.",
+      "sources": [
+        "product UI reference",
+        "tokens.css:54"
+      ]
+    },
+    {
+      "name": "--space-2",
+      "value": "8px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Small icon and inline-control gap.",
+      "sources": [
+        "product UI reference",
+        "tokens.css:55"
+      ]
+    },
+    {
+      "name": "--space-3",
+      "value": "12px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Compact component spacing.",
+      "sources": [
+        "product UI reference",
+        "tokens.css:56"
+      ]
+    },
+    {
+      "name": "--space-4",
+      "value": "16px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Default body and control inset.",
+      "sources": [
+        "product UI reference",
+        "tokens.css:57"
+      ]
+    },
+    {
+      "name": "--space-5",
+      "value": "20px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Mobile-safe horizontal gutter.",
+      "sources": [
+        "public mobile-responsive conventions",
+        "tokens.css:58"
+      ]
+    },
+    {
+      "name": "--space-6",
+      "value": "24px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Card and header spacing tier.",
+      "sources": [
+        "product UI reference",
+        "tokens.css:59"
+      ]
+    },
+    {
+      "name": "--space-8",
+      "value": "32px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Desktop content grouping.",
+      "sources": [
+        "public product-page references",
+        "tokens.css:60"
+      ]
+    },
+    {
+      "name": "--space-12",
+      "value": "48px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Major reading and section separation.",
+      "sources": [
+        "public product-page references",
+        "tokens.css:61"
+      ]
+    },
+    {
+      "name": "--section-y-desktop",
+      "value": "80px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "derived",
+      "reason": "Internal-page and landing rhythm at desktop width.",
+      "sources": [
+        "public references",
+        "tokens.css:64"
+      ]
+    },
+    {
+      "name": "--section-y-tablet",
+      "value": "56px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "derived",
+      "reason": "Responsive compression tier.",
+      "sources": [
+        "derived responsive calibration",
+        "tokens.css:65"
+      ]
+    },
+    {
+      "name": "--section-y-phone",
+      "value": "32px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "derived",
+      "reason": "Phone-safe vertical rhythm.",
+      "sources": [
+        "derived responsive calibration",
+        "tokens.css:66"
+      ]
+    },
+    {
+      "name": "--radius-sm",
+      "value": "4px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Medium product actions stay nearly square.",
+      "sources": [
+        "public product-page references",
+        "tokens.css:69"
+      ]
+    },
+    {
+      "name": "--radius-md",
+      "value": "8px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Quiet card and search-field rounding.",
+      "sources": [
+        "public article reference",
+        "tokens.css:70"
+      ]
+    },
+    {
+      "name": "--radius-lg",
+      "value": "12px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Reserved for response panel and modal surfaces.",
+      "sources": [
+        "derived product-surface tier",
+        "tokens.css:71"
+      ]
+    },
+    {
+      "name": "--radius-pill",
+      "value": "9999px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Follow, signup, search, and avatar shapes.",
+      "sources": [
+        "public references",
+        "tokens.css:72"
+      ]
+    },
+    {
+      "name": "--elev-flat",
+      "value": "none",
+      "type": "shadow",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Flat editorial surface by default.",
+      "sources": [
+        "public references",
+        "tokens.css:75"
+      ]
+    },
+    {
+      "name": "--elev-ring",
+      "value": "0 0 0 1px #e6e6e6",
+      "type": "shadow",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Hairline product boundary.",
+      "sources": [
+        "public product-page references",
+        "tokens.css:76"
+      ]
+    },
+    {
+      "name": "--elev-raised",
+      "value": "0 8px 24px rgba(0, 0, 0, 0.08)",
+      "type": "shadow",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Reserved for lightweight modal feedback.",
+      "sources": [
+        "derived from flat product vocabulary",
+        "tokens.css:77"
+      ]
+    },
+    {
+      "name": "--focus-ring",
+      "value": "0 0 0 3px rgba(26, 137, 23, 0.28)",
+      "type": "shadow",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Visible keyboard focus using Medium green.",
+      "sources": [
+        "accessibility mapping",
+        "tokens.css:80"
+      ]
+    },
+    {
+      "name": "--motion-fast",
+      "value": "150ms",
+      "type": "duration",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Compact hover feedback without decorative motion.",
+      "sources": [
+        "product behavior convention",
+        "tokens.css:83"
+      ]
+    },
+    {
+      "name": "--motion-base",
+      "value": "220ms",
+      "type": "duration",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Tab and dialog state change duration.",
+      "sources": [
+        "product behavior convention",
+        "tokens.css:84"
+      ]
+    },
+    {
+      "name": "--ease-standard",
+      "value": "cubic-bezier(0.2, 0, 0, 1)",
+      "type": "cubicBezier",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Quiet product transition curve.",
+      "sources": [
+        "OpenDesign product fallback",
+        "tokens.css:85"
+      ]
+    },
+    {
+      "name": "--container-max",
+      "value": "1180px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "derived",
+      "reason": "Internal product content maximum, excluding the rail.",
+      "sources": [
+        "public lists reference",
+        "tokens.css:88"
+      ]
+    },
+    {
+      "name": "--container-gutter-desktop",
+      "value": "7vw",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "derived",
+      "reason": "Public homepage and internal-page desktop inset.",
+      "sources": [
+        "public references",
+        "tokens.css:89"
+      ]
+    },
+    {
+      "name": "--container-gutter-tablet",
+      "value": "32px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "derived",
+      "reason": "Tablet shell gutter.",
+      "sources": [
+        "derived responsive calibration",
+        "tokens.css:90"
+      ]
+    },
+    {
+      "name": "--container-gutter-phone",
+      "value": "20px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "derived",
+      "reason": "Mobile shell gutter.",
+      "sources": [
+        "derived responsive calibration",
+        "tokens.css:91"
+      ]
+    }
+  ]
+}

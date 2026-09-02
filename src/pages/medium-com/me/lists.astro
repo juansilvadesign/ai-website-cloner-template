@@ -1,0 +1,13 @@
+---
+import AppShell from "../../../clones/medium-com/components/AppShell.astro";
+import ListsPage from "../../../clones/medium-com/components/ListsPage.astro";
+import BaseLayout from "../../../clones/medium-com/layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Your lists — Medium UI"
+  description="UI-only recreation of the Medium Lists route."
+  canonical="https://medium.com/me/lists"
+>
+  <AppShell current="lists"><ListsPage /></AppShell>
+</BaseLayout>
