@@ -53,3 +53,10 @@ The user-provided cookie jar loaded successfully, but both a standard cookie-bea
 - All source hero/thumbnail media is CSS-generated, rather than copied from a private account or sourced article.
 - User-specific lists and audience values are sample UI data.
 - No source scroll timing or exact computed hover property could be independently verified while Cloudflare blocks browser access.
+
+## Clone replay — 2026-09-02
+
+- Production preview loaded each scoped route at 1440px and 390px without browser-console errors.
+- Story: clap incremented from 43 to 44, save switched to a filled heart, and Follow switched to Following.
+- Lists: New list opened the native dialog, Cancel closed it, and Highlights updated its ARIA state and live status.
+- Audience: Story stats updated the UI-only live notice.
