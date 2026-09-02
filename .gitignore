@@ -11,6 +11,13 @@ out/
 build/
 dist/
 
+# Credentials — live session cookie jars. The clone flow writes cookies.txt at the
+# repo root; this repo is PUBLIC. ⛔ The PARENT workspace's `cookies*.txt` rule does
+# NOT reach into a submodule — proven by decoy test 2026-09-01 (media-engine gate
+# M0.2), which is how this file was found untracked-but-unignored here.
+cookies*.txt
+**/cookies*.txt
+
 # Environment
 .env
 .env.local
