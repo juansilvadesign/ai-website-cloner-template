@@ -13,18 +13,16 @@ const nextCase = caseStudies[caseStudy.nextSlug];
 
 <main class="case-study">
   <section class="case-study__hero" aria-labelledby="case-title">
-    <SiteHeader tone="light" overlay />
+    <SiteHeader tone="dark" overlay />
     <img class="case-study__hero-image" src={caseStudy.heroImage} alt={`${caseStudy.title} project cover`} />
     <div class="case-study__hero-veil"></div>
     <div class="case-study__hero-copy">
-      <p>{caseStudy.number} &gt; CASE STUDY</p>
       <h1 id="case-title">{caseStudy.title}</h1>
       <p class="case-study__subtitle">{caseStudy.subtitle}</p>
     </div>
   </section>
 
   <section class="case-study__statement" aria-labelledby="statement-title">
-    <p>{caseStudy.number} &gt; {caseStudy.title}</p>
     <h2 id="statement-title">{caseStudy.statement}</h2>
   </section>
 
@@ -84,7 +82,7 @@ const nextCase = caseStudies[caseStudy.nextSlug];
 
   .case-study__hero {
     position: relative;
-    min-height: min(100vh, 55rem);
+    min-height: 42rem;
     overflow: hidden;
     background: var(--bg);
   }
@@ -100,7 +98,7 @@ const nextCase = caseStudies[caseStudy.nextSlug];
   .case-study__hero-veil {
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg, color-mix(in srgb, var(--bg), transparent 4%), color-mix(in srgb, var(--bg), transparent 64%));
+    background: transparent;
   }
 
   .case-study__hero-copy {
@@ -110,12 +108,13 @@ const nextCase = caseStudies[caseStudy.nextSlug];
     width: min(100%, var(--container-max));
     min-height: inherit;
     flex-direction: column;
-    justify-content: end;
+    align-items: center;
+    justify-content: center;
     margin-inline: auto;
     padding: calc(var(--section-y-desktop) + 5rem) var(--container-gutter-desktop) var(--section-y-desktop);
+    text-align: center;
   }
 
-  .case-study__hero-copy > p:first-child,
   .case-study__statement > p,
   .case-study__brief p,
   .case-study__context > div > p,
@@ -132,12 +131,12 @@ const nextCase = caseStudies[caseStudy.nextSlug];
 
   .case-study h1 {
     max-width: 70rem;
-    margin: var(--space-5) 0 0;
+    margin: 0;
     font-family: var(--font-display);
-    font-size: clamp(var(--text-3xl), 9vw, 8.5rem);
-    font-weight: 300;
-    letter-spacing: -0.06em;
-    line-height: 0.86;
+    font-size: clamp(var(--text-3xl), 4.2vw, var(--text-4xl));
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1;
   }
 
   .case-study__subtitle {
@@ -145,12 +144,12 @@ const nextCase = caseStudies[caseStudy.nextSlug];
     margin: var(--space-6) 0 0;
     font-family: var(--font-display);
     font-size: var(--text-lg);
-    font-weight: 500;
+    font-weight: 700;
     line-height: 1.4;
   }
 
   .case-study__statement {
-    padding: var(--section-y-desktop) var(--container-gutter-desktop);
+    padding: calc(var(--section-y-desktop) + var(--space-12)) max(var(--container-gutter-desktop), calc((100vw - var(--container-max)) / 2 + var(--container-gutter-desktop)));
     color: var(--fg);
     background: var(--surface);
   }
@@ -161,11 +160,11 @@ const nextCase = caseStudies[caseStudy.nextSlug];
 
   .case-study__statement h2,
   .case-study__outcome h2 {
-    max-width: 68rem;
-    margin: var(--space-5) 0 0;
+    max-width: 65rem;
+    margin: 0;
     font-family: var(--font-display);
-    font-size: clamp(var(--text-2xl), 5vw, 5.3rem);
-    font-weight: 300;
+    font-size: clamp(var(--text-xl), 3vw, var(--text-3xl));
+    font-weight: 700;
     line-height: var(--leading-tight);
   }
 
@@ -305,11 +304,7 @@ const nextCase = caseStudies[caseStudy.nextSlug];
 
   @media (max-width: 48rem) {
     .case-study__hero {
-      min-height: 39rem;
-    }
-
-    .case-study__hero-veil {
-      background: linear-gradient(0deg, color-mix(in srgb, var(--bg), transparent 4%), color-mix(in srgb, var(--bg), transparent 62%));
+      min-height: 31rem;
     }
 
     .case-study__hero-copy,
@@ -327,7 +322,7 @@ const nextCase = caseStudies[caseStudy.nextSlug];
     }
 
     .case-study h1 {
-      font-size: clamp(var(--text-3xl), 16vw, 5rem);
+      font-size: clamp(var(--text-2xl), 14vw, 4rem);
     }
 
     .case-study__statement,
