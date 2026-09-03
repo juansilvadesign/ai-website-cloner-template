@@ -1,0 +1,170 @@
+---
+const tabData = {
+  public: {
+    label: "Public Government Regulations",
+    title: "Current Public Services",
+    headers: ["Id", "Status", "Description", "Due", "Attachments"],
+    rows: [
+      ["143-24A", "Active", "Ault Farms Operations Services", "Feb 4, 2024", "operation-services.doc"],
+      ["456-78B", "Active", "XYZ Corporation IT Services", "Mar 15, 2024", "it-services.doc"],
+      ["901-23C", "Cancelled", "ABC Company Marketing Campaign", "Apr 30, 2024", "marketing-campaign.doc"],
+      ["789-12D", "Active", "DEF Company Consulting Services", "May 10, 2024", "consulting-services.doc"],
+      ["345-67E", "Cancelled", "GHI Corporation Design Services", "Jun 20, 2024", "design-services.doc"],
+      ["678-90F", "Active", "JKL Company Development Services", "Jul 30, 2024", "development-services.doc"],
+    ],
+  },
+  careers: {
+    label: "Careers - Open Positions",
+    title: "Careers at ACME Corporation",
+    headers: ["Location", "Department", "Job Title", "Compensation", "Attachments"],
+    rows: [
+      ["Los Angeles", "Engineering", "Software Engineer – Developer Experience and Platform", "130 - 150k", "software-engineer.pdf"],
+      ["Los Angeles", "Engineering", "Data Scientist – Machine Learning and AI", "120 - 140k", "data-scientist.pdf"],
+      ["San Francisco", "Engineering", "Staff Product Manager – Growth", "180 - 200k", "product-manager.pdf"],
+      ["San Francisco", "Engineering", "Senior Software Engineer – Full Stack", "150 - 170k", "engineer.pdf"],
+    ],
+  },
+  yc: {
+    label: "YC Startup Directory",
+    title: "Y Combinator Startup Directory",
+    headers: ["Company", "Status", "Description", "Batch", "Website"],
+    rows: [
+      ["Airbnb", "Public", "Trusted marketplace for unique accommodations.", "S09", "airbnb.com"],
+      ["Reworkd", "Seed", "Extract web data at scale with Reworkd's API.", "S23", "reworkd.ai"],
+      ["Scale AI", "Series F", "Data platform for human data labelling.", "S19", "scale.com"],
+      ["Dioxus Labs", "Seed", "An elegant GUI library for Rust.", "S23", "dioxuslabs.com"],
+    ],
+  },
+};
+
+const investors = [
+  ["/clones/reworkd-ai/images/paul-graham.png", "Paul Graham", "Co-founder, Y Combinator"],
+  ["/clones/reworkd-ai/images/nat-friedman.png", "Nat Friedman", "Ex-CEO, GitHub"],
+  ["/clones/reworkd-ai/images/daniel-gross.png", "Daniel Gross", "Co-founder, SSI"],
+];
+---
+
+<section class="rw-hero" aria-labelledby="rw-hero-title">
+  <div class="rw-hero-copy">
+    <h1 id="rw-hero-title">End-to-end<br /><span>data extraction</span></h1>
+    <p>Effortlessly extract web data at scale. No code. No maintenance. No worries.</p>
+    <a class="rw-primary-cta" href="https://reworkd.typeform.com/to/qscfsOf1">Book an intro call</a>
+  </div>
+
+  <div class="rw-browser-shell" data-rw-browser>
+    <div class="rw-browser-tabs" role="tablist" aria-label="Example sources">
+      {Object.entries(tabData).map(([id, tab]) => <button type="button" role="tab" aria-selected={id === "public" ? "true" : "false"} data-rw-browser-tab={id}>{tab.label}</button>)}
+    </div>
+
+    <div class="rw-browser" data-rw-browser-panel>
+      <div class="rw-browser-topbar" aria-hidden="true"><i></i><i></i><i></i><span>reworkd.ai / source view</span><span>● secure connection</span></div>
+      <div class="rw-browser-content">
+        <div class="rw-browser-tools">
+          <strong data-rw-browser-title>{tabData.public.title}</strong>
+          <div class="rw-filters"><span>Filter results:</span><span class="rw-search">⌕&nbsp; Search…</span><span class="rw-filter">Active⌄</span><span class="rw-filter">Select status⌄</span><button type="button" data-rw-extract>Search</button></div>
+        </div>
+        <div class="rw-table-wrap">
+          <div class="rw-table rw-table-head" data-rw-table-head>{tabData.public.headers.map((header) => <span>{header}</span>)}</div>
+          <div data-rw-table-body>{tabData.public.rows.map((row) => <div class="rw-table">{row.map((cell, index) => <span class={index === 1 ? (cell === "Cancelled" ? "is-cancelled" : "is-active") : index === 4 ? "rw-file" : ""}>{cell}</span>)}</div>)}</div>
+        </div>
+        <div class="rw-pagination"><button type="button">‹&nbsp; Previous</button><span>1&nbsp;&nbsp; 2&nbsp;&nbsp; 3&nbsp;&nbsp; 4&nbsp;&nbsp; …&nbsp;&nbsp; 11</span><button type="button">Next&nbsp; ›</button></div>
+      </div>
+      <div class="rw-scan" aria-hidden="true"></div>
+      <div class="rw-code-chip" data-rw-code-chip aria-live="polite"><code>{`{\n  "source": "public-services",\n  "status": "extracting"\n}`}</code><small>Initializing parser…</small></div>
+    </div>
+  </div>
+
+  <div class="rw-backing">
+    <p>Backed by the best</p>
+    <div class="rw-investors">
+      {investors.map(([source, name, title]) => <figure><img src={source} alt={name} width="24" height="24" /><figcaption><strong>{name}</strong><span>{title}</span></figcaption></figure>)}
+    </div>
+    <div class="rw-logo-rail" aria-label="Backed by Y Combinator, SV Angel, General Catalyst, and Panacea Ventures">
+      <span>Y&nbsp; Combinator</span><span>SV<br />Angel</span><span>GENERAL&nbsp; CATALYST</span><span>Panacea Ventures</span>
+    </div>
+  </div>
+</section>
+
+<script is:inline define:vars={{ tabData }}>
+  const tabs = Array.from(document.querySelectorAll("[data-rw-browser-tab]"));
+  const title = document.querySelector("[data-rw-browser-title]");
+  const tableHead = document.querySelector("[data-rw-table-head]");
+  const tableBody = document.querySelector("[data-rw-table-body]");
+  const codeChip = document.querySelector("[data-rw-code-chip]");
+  const extractButton = document.querySelector("[data-rw-extract]");
+
+  const renderRows = (rows) => rows.map((row) => `<div class="rw-table">${row.map((cell, index) => {
+    const state = index === 1 ? (cell === "Cancelled" ? " is-cancelled" : " is-active") : index === 4 ? " rw-file" : "";
+    return `<span class="${state.trim()}">${cell}</span>`;
+  }).join("")}</div>`).join("");
+
+  tabs.forEach((tab) => tab.addEventListener("click", () => {
+    const key = tab.dataset.rwBrowserTab;
+    const dataset = key ? tabData[key] : null;
+    if (!dataset || !title || !tableHead || !tableBody || !codeChip) return;
+    tabs.forEach((item) => item.setAttribute("aria-selected", String(item === tab)));
+    title.textContent = dataset.title;
+    tableHead.innerHTML = dataset.headers.map((header) => `<span>${header}</span>`).join("");
+    tableBody.innerHTML = renderRows(dataset.rows);
+    codeChip.innerHTML = `<code>{<br>&nbsp;&nbsp;"source": "${key}",<br>&nbsp;&nbsp;"status": "ready"<br>}</code><small>Data sent</small>`;
+  }));
+
+  extractButton?.addEventListener("click", () => {
+    codeChip?.classList.add("is-running");
+    window.setTimeout(() => codeChip?.classList.remove("is-running"), 900);
+  });
+</script>
+
+<style>
+  .rw-hero { padding: 136px 0 var(--space-8); overflow: hidden; background: linear-gradient(180deg, var(--surface-warm), color-mix(in srgb, var(--surface-warm) 55%, var(--bg)) 53%, var(--bg) 100%); }
+  .rw-hero-copy { width: min(100% - (var(--container-gutter-phone) * 2), 600px); margin: 0 auto; text-align: center; }
+  h1 { margin: 0; color: var(--fg); font: 500 clamp(40px, 11vw, var(--text-4xl))/1 var(--font-display); letter-spacing: var(--tracking-display); }
+  h1 span { display: inline-block; color: var(--accent); background: linear-gradient(100deg, color-mix(in srgb, var(--accent) 85%, var(--accent-on)), var(--accent) 40%, color-mix(in srgb, var(--accent) 75%, var(--accent-on))); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .rw-hero-copy > p { max-width: 490px; margin: var(--space-4) auto 0; color: var(--muted); font-size: var(--text-base); line-height: var(--leading-body); }
+  .rw-primary-cta { display: inline-flex; align-items: center; justify-content: center; min-height: 38px; margin-top: var(--space-6); padding: 0 14px; border: 1px solid var(--accent-active); border-radius: var(--radius-sm); background: linear-gradient(var(--accent-hover), var(--accent)); box-shadow: 0 1px 3px color-mix(in srgb, var(--fg) 18%, transparent), 0 7px 12px -5px color-mix(in srgb, var(--fg) 23%, transparent), inset 0 1px 1px color-mix(in srgb, var(--accent-on) 30%, transparent); color: var(--accent-on); font-size: var(--text-sm); font-weight: 500; text-shadow: 0 1px 2px color-mix(in srgb, var(--fg) 25%, transparent); transition: box-shadow var(--motion-fast) var(--ease-standard), filter var(--motion-fast) var(--ease-standard); }
+  .rw-primary-cta:hover { filter: brightness(1.04); box-shadow: 0 1px 3px color-mix(in srgb, var(--fg) 18%, transparent), 0 7px 14px -4px color-mix(in srgb, var(--fg) 27%, transparent), inset 0 1px 1px color-mix(in srgb, var(--accent-on) 40%, transparent); }
+
+  .rw-browser-shell { width: min(100% - (var(--container-gutter-phone) * 2), 1216px); margin: 68px auto 0; }
+  .rw-browser-tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-2); margin: 0 auto var(--space-3); max-width: 736px; }
+  .rw-browser-tabs button { min-height: 27px; overflow: hidden; padding: 0 var(--space-2); border: 1px solid var(--surface); border-radius: var(--radius-sm); background: var(--surface); color: var(--muted); font: 500 var(--text-xs)/1 var(--font-body); text-overflow: ellipsis; white-space: nowrap; transition: background var(--motion-fast) var(--ease-standard), border-color var(--motion-fast) var(--ease-standard); }
+  .rw-browser-tabs button[aria-selected="true"] { border-color: var(--border); background: color-mix(in srgb, var(--surface) 68%, var(--border)); }
+  .rw-browser { position: relative; min-height: 516px; overflow: hidden; border: 1px solid color-mix(in srgb, var(--fg) 12%, transparent); border-radius: var(--radius-md); background: var(--bg); box-shadow: var(--elev-raised); }
+  .rw-browser-topbar { display: flex; align-items: center; gap: 5px; min-height: 35px; padding: 0 var(--space-3); border-bottom: 1px solid var(--border-soft); background: color-mix(in srgb, var(--surface) 64%, var(--bg)); color: var(--meta); font: var(--text-xs)/1 var(--font-mono); }
+  .rw-browser-topbar i { width: 4px; height: 4px; border-radius: var(--radius-pill); background: var(--border); }
+  .rw-browser-topbar span:first-of-type { margin-left: var(--space-2); flex: 1; text-align: center; }
+  .rw-browser-content { padding: var(--space-4); }
+  .rw-browser-tools strong { display: block; color: var(--fg); font-size: var(--text-sm); font-weight: 500; }
+  .rw-filters { display: grid; grid-template-columns: 1fr 2fr; gap: var(--space-2); align-items: center; margin-top: var(--space-4); color: var(--muted); font-size: var(--text-xs); }
+  .rw-search, .rw-filter { display: none; min-height: 28px; padding: 0 var(--space-2); border: 1px solid var(--border-soft); border-radius: var(--radius-sm); background: var(--bg); line-height: 28px; }
+  .rw-filters button { min-height: 28px; border-radius: var(--radius-sm); background: var(--fg); color: var(--accent-on); font-size: var(--text-xs); }
+  .rw-table-wrap { margin-top: var(--space-4); overflow: hidden; border: 1px solid var(--border-soft); border-radius: var(--radius-sm); }
+  :global(.rw-table) { display: grid; grid-template-columns: .8fr .8fr 2fr; gap: var(--space-2); align-items: center; min-height: 42px; padding: 0 var(--space-3); border-top: 1px solid var(--border-soft); color: var(--muted); font-size: var(--text-xs); }
+  :global(.rw-table > span) { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  :global(.rw-table-head) { min-height: 31px; border-top: 0; background: var(--surface); color: var(--meta); font: 500 var(--text-xs)/1 var(--font-mono); }
+  :global(.rw-table span:nth-child(n + 4)) { display: none; }
+  :global(.rw-table .is-active), :global(.rw-table .is-cancelled) { width: max-content; padding: 4px 7px; border-radius: var(--radius-pill); background: color-mix(in srgb, var(--success) 14%, var(--bg)); color: var(--success); font-size: 10px; }
+  :global(.rw-table .is-cancelled) { background: color-mix(in srgb, var(--danger) 12%, var(--bg)); color: var(--danger); }
+  :global(.rw-file) { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+  .rw-pagination { display: flex; justify-content: space-between; align-items: center; gap: var(--space-3); min-height: 54px; color: var(--meta); font: var(--text-xs)/1 var(--font-mono); }
+  .rw-pagination button { padding: var(--space-2); border: 1px solid var(--border-soft); border-radius: var(--radius-sm); background: var(--bg); color: var(--muted); }
+  .rw-scan { position: absolute; inset: 82px 0 auto; height: 1px; background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--accent) 60%, transparent), transparent); animation: rw-scan 3s var(--ease-standard) infinite; pointer-events: none; }
+  .rw-code-chip { display: none; position: absolute; right: var(--space-4); bottom: var(--space-4); width: 230px; padding: var(--space-4); border-radius: var(--radius-md); background: var(--fg); box-shadow: var(--elev-raised); color: color-mix(in srgb, var(--accent-on) 80%, var(--muted)); font: var(--text-xs)/var(--leading-body) var(--font-mono); transition: transform var(--motion-base) var(--ease-standard); }
+  .rw-code-chip.is-running { transform: translateY(-8px); }
+  :global(.rw-code-chip code) { display: block; color: color-mix(in srgb, var(--accent-on) 88%, var(--accent)); white-space: pre-wrap; }
+  :global(.rw-code-chip small) { display: block; margin-top: var(--space-2); color: var(--accent); font: inherit; }
+
+  .rw-backing { width: min(100% - (var(--container-gutter-phone) * 2), 600px); margin: 52px auto 0; text-align: center; }
+  .rw-backing > p { color: var(--muted); font: 500 var(--text-xs)/var(--leading-body) var(--font-body); }
+  .rw-investors { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-2); margin-top: var(--space-5); }
+  .rw-investors figure { display: grid; justify-items: center; gap: var(--space-2); margin: 0; }
+  .rw-investors img { width: 24px; height: 24px; border-radius: var(--radius-pill); object-fit: cover; }
+  .rw-investors strong, .rw-investors span { display: block; }
+  .rw-investors strong { color: var(--fg); font-size: var(--text-xs); font-weight: 500; }
+  .rw-investors span { margin-top: 2px; color: var(--meta); font-size: 10px; }
+  .rw-logo-rail { display: grid; grid-template-columns: repeat(2, 1fr); margin-top: var(--space-6); border: 1px solid var(--border-soft); background: var(--bg); }
+  .rw-logo-rail span { display: grid; place-items: center; min-height: 48px; padding: var(--space-2); border: 1px solid var(--border-soft); color: var(--muted); font: 500 9px/1.1 var(--font-body); letter-spacing: .02em; text-transform: uppercase; }
+
+  @keyframes rw-scan { 0%, 100% { transform: translateY(0); opacity: .15; } 45% { transform: translateY(340px); opacity: .9; } }
+  @media (min-width: 640px) { .rw-filters { grid-template-columns: 78px 1fr .42fr .42fr 65px; } .rw-search, .rw-filter { display: block; } :global(.rw-table) { grid-template-columns: .72fr .84fr 2.8fr 1.05fr 1.8fr; } :global(.rw-table span:nth-child(n + 4)) { display: block; } .rw-code-chip { display: block; } .rw-logo-rail { grid-template-columns: repeat(4, 1fr); } }
+  @media (min-width: 1024px) { .rw-hero { padding-top: 148px; padding-bottom: var(--space-8); } .rw-browser-shell { margin-top: 72px; } .rw-browser { min-height: 624px; } .rw-browser-content { padding: var(--space-6); } .rw-table { min-height: 42px; } .rw-backing { margin-top: 57px; width: 600px; } .rw-logo-rail { width: 1216px; margin-left: calc((600px - 1216px) / 2); } .rw-logo-rail span { min-height: 80px; } }
+</style>

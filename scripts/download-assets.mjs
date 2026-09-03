@@ -148,6 +148,28 @@ const PROFILES = {
       ["https://site.reflect.app/home/build/q-11289093.jpeg", "seo/opengraph.jpg"],
     ],
   },
+  "reworkd-ai": {
+    base: "https://www.reworkd.ai",
+    assets: [
+      ["/_next/static/media/home-logos-paul-graham.151d5b4c.png", "images/paul-graham.png"],
+      ["/_next/static/media/home-logos-nat-friedman.bf33bd7d.png", "images/nat-friedman.png"],
+      ["/_next/static/media/home-logos-daniel-gross.e9317e1c.png", "images/daniel-gross.png"],
+      ["/_next/static/media/home-problem-browser.3d208c76.png", "images/problem-browser.png"],
+      ["/_next/static/media/home-problem-browser-modal.75ea8e70.png", "images/problem-browser-modal.png"],
+      ["/_next/static/media/home-everything-data-photo.56f02fc5.png", "images/everything-data-photo.png"],
+      ["/_next/static/media/home-testimonials-mishaal-al-gergawi.a4fbacf3.jpg", "images/mishaal-al-gergawi.jpg"],
+      ["/_next/static/media/637f27e25caaa11e-s.p.woff2", "fonts/selecta-regular.woff2"],
+      ["/_next/static/media/e71e8fcde04a93f7-s.p.woff2", "fonts/selecta-medium.woff2"],
+      ["/_next/static/media/00caf1435c848f59-s.p.woff2", "fonts/suisse-regular.woff2"],
+      ["/_next/static/media/8f4dd7b0c5a2c2a3-s.p.woff2", "fonts/suisse-450.woff2"],
+      ["/_next/static/media/ff146a26afe69319-s.p.woff2", "fonts/suisse-medium.woff2"],
+      ["/_next/static/media/e11418ac562b8ac1-s.p.woff2", "fonts/geist-sans.woff2"],
+      ["/_next/static/media/66f30814ff6d7cdf.p.woff2", "fonts/geist-mono.woff2"],
+      ["/favicon.svg", "seo/favicon.svg"],
+      ["/apple-touch-icon.png", "seo/apple-touch-icon.png"],
+      ["/banner.png", "seo/opengraph.png"],
+    ],
+  },
   "bio-nutriruama-com-br": {
     base: "https://bio.nutriruama.com.br",
     assets: [

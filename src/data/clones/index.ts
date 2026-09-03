@@ -26,9 +26,11 @@ import { raffaelaDrumondClone } from "../../clones/raffaeladrumond-com-br/clone.
 import { bioNutriruamaClone } from "../../clones/bio-nutriruama-com-br/clone.config";
 import { marcosArrudaClone } from "../../clones/marcos-arruda-com/clone.config";
 import { mediumClone } from "../../clones/medium-com/clone.config";
+import { reworkdClone } from "../../clones/reworkd-ai/clone.config";
 
 /** Every registered clone, newest extraction first. */
 export const allClones: Clone[] = [
+  reworkdClone,
   mediumClone,
   marcosArrudaClone,
   bioNutriruamaClone,

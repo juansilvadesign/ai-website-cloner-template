@@ -1,0 +1,77 @@
+---
+const questions = [
+  "How do I handle pagination?",
+  "How do I handle infinite scroll pages?",
+  "How can I maintain extraction scripts at scale?",
+  "How do I handle dynamic content?",
+  "Why is this website not loading?",
+  "Which sites frequently change?",
+  "How can I manage retries on failures?",
+  "How do I handle rate limiting efficiently?",
+];
+
+const benefits = [
+  ["◔", "Save time", "Don’t waste engineering time manually writing code and building infrastructure to extract and maintain web data. Start relying on Reworkd and automate your extraction today."],
+  ["◒", "Save money", "Data scraping specialists and in-house engineering teams don’t come cheap. Keep your business costs down and get Reworkd up and running."],
+  ["▢", "Save hassle", "Avoid worrying about proxies, headless browsers, data consistency, silent failures, etc. Reworkd deals in web data without the difficulty."],
+];
+---
+
+<section class="rw-problem-solution" id="about">
+  <div class="rw-problem">
+    <div class="rw-section-intro rw-section-intro--center">
+      <p class="rw-kicker">Whats the problem?</p>
+      <h2>Web data is difficult</h2>
+      <p>Collecting, monitoring, and maintaining data can be complex, time-consuming, and costly. When you have hundreds or thousands of sites to crawl, there’s a lot to consider.</p>
+    </div>
+    <div class="rw-question-cloud" aria-label="Common web data questions">
+      {questions.map((question, index) => <span class={`rw-question rw-question--${index + 1}`}>{question}<i aria-hidden="true"></i></span>)}
+    </div>
+  </div>
+
+  <div class="rw-solution">
+    <div class="rw-solution-story">
+      <p class="rw-kicker">How can you solve it?</p>
+      <h2>Let Reworkd<br />do the hard work</h2>
+      <p>Reworkd automates your entire web data pipeline, end-to-end. It scans websites, generates code, runs extractors, validates results, and outputs data—all from one simple system.</p>
+    </div>
+    <figure class="rw-problem-browser">
+      <img src="/clones/reworkd-ai/images/problem-browser.png" alt="A Reworkd browser example displaying city government contracts" width="3244" height="1588" />
+      <span aria-hidden="true"><img src="/clones/reworkd-ai/images/problem-browser-modal.png" alt="" width="1216" height="1088" /></span>
+    </figure>
+  </div>
+
+  <div class="rw-benefits" aria-label="Reworkd benefits">
+    {benefits.map(([icon, title, copy]) => <article><span class="rw-benefit-icon" aria-hidden="true">{icon}</span><h3>{title}</h3><p>{copy}</p></article>)}
+  </div>
+</section>
+
+<style>
+  .rw-problem-solution { overflow: hidden; background: linear-gradient(180deg, var(--bg) 4%, var(--surface) 23%, color-mix(in srgb, var(--surface-warm) 54%, var(--bg)) 41%, var(--bg) 90%); }
+  .rw-problem { padding: 80px 0 var(--space-8); }
+  .rw-section-intro { width: min(100% - (var(--container-gutter-phone) * 2), 592px); margin: 0 auto; }
+  .rw-section-intro--center { text-align: center; }
+  .rw-kicker { display: flex; align-items: center; gap: 7px; color: var(--muted); font: 500 var(--text-xs)/20px var(--font-mono); }
+  .rw-section-intro--center .rw-kicker { justify-content: center; }
+  .rw-kicker::before { content: "↗"; color: var(--accent); font-family: var(--font-body); }
+  h2 { margin: var(--space-6) 0 0; color: var(--fg); font: 500 clamp(var(--text-xl), 6vw, var(--text-2xl))/1 var(--font-display); letter-spacing: -0.02em; }
+  .rw-section-intro > p:last-child, .rw-solution-story > p:last-child { margin-top: var(--space-3); color: var(--muted); font-size: var(--text-sm); line-height: var(--leading-body); }
+  .rw-question-cloud { position: relative; width: 820px; height: 272px; margin: 48px auto 0; }
+  .rw-question { position: absolute; display: flex; flex-direction: column; align-items: center; gap: var(--space-2); color: var(--muted); font: var(--text-xs)/var(--leading-body) var(--font-mono); white-space: nowrap; }
+  .rw-question i { display: block; width: clamp(72px, 14vw, 152px); height: 12px; border-radius: var(--radius-pill); background: color-mix(in srgb, var(--border-soft) 80%, var(--surface)); }
+  .rw-question--1 { top: 0; left: 14%; } .rw-question--2 { top: 0; right: 8%; } .rw-question--3 { top: 48px; left: 38%; } .rw-question--4 { top: 96px; left: 7%; } .rw-question--5 { top: 96px; right: 8%; } .rw-question--6 { top: 144px; left: 42%; } .rw-question--7 { top: 192px; left: 10%; } .rw-question--8 { top: 192px; right: 11%; }
+
+  .rw-solution { position: relative; min-height: 465px; padding: 24px var(--container-gutter-phone) 0; }
+  .rw-solution-story { position: relative; z-index: 1; width: min(100%, 345px); }
+  .rw-solution-story h2 { line-height: 1.1; }
+  .rw-problem-browser { display: none; }
+  .rw-benefits { display: grid; grid-template-columns: 1fr; width: min(100% - (var(--container-gutter-phone) * 2), 1216px); margin: 0 auto; border: 1px solid var(--border-soft); background: var(--border-soft); }
+  .rw-benefits article { min-height: 196px; padding: 48px var(--space-6) var(--space-6); background: var(--bg); }
+  .rw-benefit-icon { display: grid; place-items: center; width: 20px; height: 20px; color: var(--accent); font-size: 18px; }
+  .rw-benefits h3 { margin: var(--space-4) 0 0; color: var(--fg); font: 500 var(--text-lg)/24px var(--font-display); letter-spacing: -0.01em; }
+  .rw-benefits p { margin-top: var(--space-1); color: var(--muted); font-size: var(--text-xs); line-height: var(--leading-body); }
+
+  @media (min-width: 768px) { .rw-solution { min-height: 605px; padding-top: 70px; } .rw-problem-browser { position: absolute; top: 0; right: calc((100% - min(100% - (var(--container-gutter-tablet) * 2), 1216px)) / 2); display: block; width: min(60vw, 811px); margin: 0; } .rw-problem-browser > img { width: 100%; border-radius: var(--radius-md); box-shadow: var(--elev-raised); } .rw-problem-browser > span { position: absolute; inset: var(--space-1); display: grid; place-items: center; overflow: hidden; border-radius: var(--radius-sm); background: color-mix(in srgb, var(--fg-2) 17%, transparent); opacity: 0; backdrop-filter: blur(2.5px); transition: opacity var(--motion-base) var(--ease-standard); } .rw-problem-browser > span img { width: 74%; max-height: 90%; object-fit: contain; transform: translateY(4%); } .rw-problem-browser:hover > span, .rw-problem-browser:focus-within > span { opacity: 1; } .rw-benefits { grid-template-columns: repeat(3, 1fr); } .rw-benefits article + article { border-left: 1px solid var(--border-soft); } }
+  @media (min-width: 1024px) { .rw-problem { padding-top: 120px; } .rw-solution { min-height: 723px; padding-top: 70px; } .rw-solution-story { margin-left: max(0px, calc((100% - 1216px) / 2)); } .rw-problem-browser { top: 0; right: max(0px, calc((100% - 1216px) / 2)); } .rw-benefits article { min-height: 224px; padding: 104px 48px var(--space-6); } }
+  @media (max-width: 639px) { .rw-question-cloud { width: 820px; margin-left: calc((100% - 820px) / 2); transform: scale(.83); transform-origin: top center; } .rw-solution { min-height: 572px; padding-top: 24px; } }
+</style>

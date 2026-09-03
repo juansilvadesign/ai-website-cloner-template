@@ -1,0 +1,123 @@
+---
+const sourceUrls = ["usa.gov/pensions", "brightideas.com/tax-advise", "usa.gov/pharma-contracts", "irs.com/us-tax-law", "ycombinator.com/companies", "indeed.com/companies"];
+const analytics = {
+  tax: { label: "irs.com/us-tax-law", values: ["57%", "14%", "11%", "18%"] },
+  pensions: { label: "usa.gov/pensions", values: ["71%", "9%", "14%", "6%"] },
+  irs: { label: "irs.com/us-tax", values: ["64%", "17%", "8%", "11%"] },
+};
+---
+
+<section class="rw-features" id="features" aria-labelledby="rw-features-title">
+  <div class="rw-features-intro">
+    <h2 id="rw-features-title">Futuristic features. About time.</h2>
+    <p>Reworkd makes it easier than ever to extract web data at scale. Spend less time worrying about data infrastructure – and more time running your business.</p>
+  </div>
+
+  <div class="rw-feature-grid">
+    <article class="rw-feature rw-feature--extract">
+      <div class="rw-extract-visual" aria-hidden="true">
+        <div class="rw-extract-list"><button type="button" data-rw-extract-next><span>Extract</span><b>Next</b></button>{sourceUrls.map((url) => <span>{url}</span>)}</div>
+        <pre data-rw-extract-code>{`{
+  "pension_plans": [
+    {
+      "plan_id": "GP-12345",
+      "pension_provider": "UK Government",
+      "beneficiary": { "name": "John Doe" },
+      "monthly_amount": 730
+    }
+  ]
+}`}</pre>
+      </div>
+      <div class="rw-feature-copy"><h3>Automated extraction</h3><p>Our AI agents will understand web pages and automatically generate code to extract the exact data you’re looking for.</p></div>
+    </article>
+
+    <article class="rw-feature rw-feature--heal">
+      <div class="rw-heal-visual" aria-hidden="true"><div class="rw-mini-window"><b>Cove AI Careers</b><span>Careers at CoveAI</span><em>We currently have <strong>4 open positions ›</strong></em><i>Sales <small>Account associate</small><small>San Francisco, CA</small></i><i>Accounting <small>Chief Finance Officer</small><small>Dublin, Ireland</small></i><i>Design <small>Product Designer</small><small>Glasgow, UK</small></i></div></div>
+      <div class="rw-feature-copy"><h3>Self-healing scrapers</h3><p>Reworkd identifies changes to web content, detects issues, and automatically repairs data failures on the fly.</p></div>
+    </article>
+
+    <article class="rw-feature rw-feature--nohall">
+      <div class="rw-document-visual" aria-hidden="true"><div><strong>Acme Ltd</strong><span>1234 Igloo St<br />Austin, TX USA<br />22554</span><i></i><small>Export<br />Share</small></div><div><i></i><strong>Change of address</strong><span>We are writing to inform you of a change to your address at your new property residing at <b>55 Sindle Avenue, Cambus, USA 55466.</b></span></div></div>
+      <div class="rw-feature-copy"><h3>No hallucinations</h3><p>By actually generating code that’s relevant to your requirements, there’s no AI hallucinations or nonsense predictions.</p></div>
+    </article>
+
+    <article class="rw-feature rw-feature--datatype">
+      <div class="rw-product-visual" aria-hidden="true"><div class="rw-product-frame"><img src="/clones/reworkd-ai/images/everything-data-photo.png" alt="" width="448" height="512" /><span>Danilo Woven Sofa<br /><b>$3999</b></span></div><p>Luck is where preparation<br />and opportunity meet.</p></div>
+      <div class="rw-feature-copy"><h3>Any datatype, any day</h3><p>Retrieve and import all kinds of data from websites, no matter whether it’s text, images or documents.</p></div>
+    </article>
+
+    <article class="rw-feature rw-feature--analytics">
+      <div class="rw-analytics-visual">
+        <div class="rw-analytics-tabs" role="group" aria-label="Analytics data source">
+          {Object.entries(analytics).map(([id, record], index) => <button type="button" aria-pressed={index === 0 ? "true" : "false"} data-rw-analytics-tab={id}>{record.label}</button>)}
+        </div>
+        <div class="rw-donut" aria-hidden="true"><i></i></div>
+        <ul><li><span>Succeeded</span><b data-rw-analytics-value="0">57%</b></li><li><span>Running</span><b data-rw-analytics-value="1">14%</b></li><li><span>Pending</span><b data-rw-analytics-value="2">11%</b></li><li><span>Failed</span><b data-rw-analytics-value="3">18%</b></li></ul>
+      </div>
+      <div class="rw-feature-copy"><h3>Deep Analytics</h3><p>Find out what’s being extracted, what’s working and what’s changing from our interactive analytics dashboard.</p></div>
+    </article>
+  </div>
+</section>
+
+<script is:inline define:vars={{ analytics }}>
+  const extractButton = document.querySelector("[data-rw-extract-next]");
+  const extractCode = document.querySelector("[data-rw-extract-code]");
+  const analyticsTabs = Array.from(document.querySelectorAll("[data-rw-analytics-tab]"));
+  const analyticsValues = Array.from(document.querySelectorAll("[data-rw-analytics-value]"));
+  let extractionIndex = 0;
+
+  extractButton?.addEventListener("click", () => {
+    extractionIndex = (extractionIndex + 1) % 3;
+    if (extractCode) extractCode.textContent = extractionIndex === 0 ? '{\n  "pension_plans": [\n    { "plan_id": "GP-12345", "monthly_amount": 730 }\n  ]\n}' : extractionIndex === 1 ? '{\n  "company": "Reworkd",\n  "batch": "S23",\n  "status": "extracted"\n}' : '{\n  "source": "irs.com/us-tax-law",\n  "records": 248,\n  "status": "validated"\n}';
+  });
+
+  analyticsTabs.forEach((tab) => tab.addEventListener("click", () => {
+    const record = tab.dataset.rwAnalyticsTab ? analytics[tab.dataset.rwAnalyticsTab] : null;
+    if (!record) return;
+    analyticsTabs.forEach((item) => item.setAttribute("aria-pressed", String(item === tab)));
+    analyticsValues.forEach((value, index) => { value.textContent = record.values[index]; });
+  }));
+</script>
+
+<style>
+  .rw-features { padding: 80px 0 var(--section-y-phone); background: var(--bg); }
+  .rw-features-intro { width: min(100% - (var(--container-gutter-phone) * 2), 576px); margin: 0 auto; text-align: center; }
+  h2 { margin: 0; color: var(--fg); font: 500 clamp(var(--text-xl), 6vw, var(--text-2xl))/1.1 var(--font-display); letter-spacing: -0.02em; }
+  .rw-features-intro p { margin-top: var(--space-3); color: var(--muted); font-size: var(--text-sm); line-height: var(--leading-body); }
+  .rw-feature-grid { display: grid; grid-template-columns: 1fr; width: min(100%, 1216px); margin: 44px auto 0; border-top: 1px solid var(--border-soft); border-bottom: 1px solid var(--border-soft); }
+  .rw-feature { position: relative; display: grid; grid-template-rows: minmax(260px, 1fr) auto; min-height: 394px; overflow: hidden; border-bottom: 1px solid var(--border-soft); background: var(--bg); transition: background var(--motion-fast) var(--ease-standard); }
+  .rw-feature:hover { background: color-mix(in srgb, var(--surface) 32%, var(--bg)); }
+  .rw-feature-copy { padding: var(--space-6); }
+  .rw-feature-copy h3 { margin: 0; color: var(--fg); font: 500 var(--text-lg)/24px var(--font-display); letter-spacing: -0.01em; }
+  .rw-feature-copy p { max-width: 520px; margin: var(--space-1) 0 0; color: var(--muted); font-size: var(--text-xs); line-height: var(--leading-body); }
+
+  .rw-extract-visual { display: grid; grid-template-columns: .8fr 1.2fr; min-height: 300px; margin: var(--space-4); overflow: hidden; border: 1px solid color-mix(in srgb, var(--accent-on) 12%, transparent); border-radius: var(--radius-md); background: var(--fg); }
+  .rw-extract-list { display: grid; align-content: start; gap: var(--space-3); padding: var(--space-4); border-right: 1px solid color-mix(in srgb, var(--accent-on) 10%, transparent); color: color-mix(in srgb, var(--accent-on) 74%, var(--muted)); font: var(--text-xs)/1 var(--font-mono); }
+  .rw-extract-list button { justify-self: end; padding: 4px 7px; border-radius: var(--radius-sm); background: var(--accent); color: var(--accent-on); font: 500 10px/1.2 var(--font-body); box-shadow: inset 0 1px 1px color-mix(in srgb, var(--accent-on) 30%, transparent); }
+  .rw-extract-list button b { display: block; color: color-mix(in srgb, var(--accent-on) 75%, transparent); font-weight: 400; }
+  .rw-extract-list span { overflow: hidden; color: color-mix(in srgb, var(--accent-on) 78%, var(--muted)); text-overflow: ellipsis; white-space: nowrap; }
+  .rw-extract-visual pre { margin: 0; padding: var(--space-5); color: color-mix(in srgb, var(--accent-on) 82%, var(--accent)); font: 10px/1.55 var(--font-mono); white-space: pre-wrap; }
+
+  .rw-heal-visual { display: grid; place-items: center; padding: var(--space-6); }
+  .rw-mini-window { width: min(100%, 288px); overflow: hidden; border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--bg); box-shadow: var(--elev-raised); color: var(--fg); font-size: 10px; }
+  .rw-mini-window > b { display: block; padding: var(--space-3); border-bottom: 1px solid var(--border-soft); font-size: var(--text-xs); }
+  .rw-mini-window > span, .rw-mini-window > em { display: block; padding: 0 var(--space-3); color: var(--muted); font-style: normal; }
+  .rw-mini-window > span { padding-top: var(--space-3); } .rw-mini-window > em { padding-bottom: var(--space-3); } .rw-mini-window em strong { color: var(--accent); font-weight: 500; }
+  .rw-mini-window i { display: grid; grid-template-columns: 55px 1fr 75px; gap: var(--space-2); padding: 8px var(--space-3); border-top: 1px solid var(--border-soft); color: var(--muted); font-style: normal; } .rw-mini-window i small { font-size: 9px; }
+
+  .rw-document-visual { display: grid; grid-template-columns: 35% 65%; align-self: center; width: min(100% - 88px, 330px); min-height: 160px; margin: 48px auto 0; border-radius: var(--radius-md); background: var(--bg); box-shadow: var(--elev-raised); overflow: hidden; font-size: 9px; }
+  .rw-document-visual > div { padding: var(--space-4); } .rw-document-visual > div + div { border-left: 1px solid var(--border-soft); } .rw-document-visual strong, .rw-document-visual span, .rw-document-visual small { display: block; } .rw-document-visual span { margin-top: var(--space-3); color: var(--muted); line-height: 1.5; } .rw-document-visual i { display: block; width: 65%; height: 1px; margin-top: var(--space-3); background: var(--border); } .rw-document-visual small { margin-top: var(--space-2); color: var(--meta); line-height: 1.5; } .rw-document-visual b { color: var(--accent); }
+
+  .rw-product-visual { position: relative; display: grid; place-items: center; min-height: 260px; overflow: hidden; }
+  .rw-product-frame { position: relative; width: 176px; height: 220px; overflow: hidden; border: 2px solid color-mix(in srgb, var(--accent) 20%, transparent); background: linear-gradient(var(--surface-warm), var(--bg)); }
+  .rw-product-frame img { width: 100%; height: 100%; object-fit: cover; opacity: .25; } .rw-product-frame span { position: absolute; inset: auto 16px 16px; color: var(--fg); font-size: var(--text-xs); } .rw-product-frame b { font-size: var(--text-sm); }
+  .rw-product-visual > p { position: absolute; margin: 0; color: var(--fg); font: 500 12px/1.35 var(--font-mono); letter-spacing: .14em; text-align: center; }
+
+  .rw-analytics-visual { position: relative; min-height: 276px; padding: var(--space-4); overflow: hidden; background: linear-gradient(180deg, color-mix(in srgb, var(--surface-warm) 56%, var(--bg)), var(--bg)); }
+  .rw-analytics-tabs { display: flex; justify-content: center; gap: var(--space-2); overflow-x: auto; } .rw-analytics-tabs button { flex: 0 0 auto; padding: 6px var(--space-3); border-radius: var(--radius-pill); background: transparent; color: var(--muted); font: var(--text-xs)/1 var(--font-mono); transition: background var(--motion-fast) var(--ease-standard), color var(--motion-fast) var(--ease-standard); } .rw-analytics-tabs button[aria-pressed="true"] { background: var(--fg); color: var(--accent-on); }
+  .rw-donut { position: absolute; left: 22%; bottom: var(--space-6); width: 110px; height: 110px; border-radius: var(--radius-pill); background: conic-gradient(var(--accent) 0 57%, color-mix(in srgb, var(--accent) 44%, var(--surface-warm)) 57% 71%, var(--border) 71% 82%, color-mix(in srgb, var(--fg) 22%, var(--bg)) 82%); } .rw-donut::after { content: ""; position: absolute; inset: 27px; border-radius: var(--radius-pill); background: var(--bg); } .rw-donut i { position: absolute; inset: -8px; border: 1px solid color-mix(in srgb, var(--accent) 20%, transparent); border-radius: var(--radius-pill); }
+  .rw-analytics-visual ul { position: absolute; right: var(--space-6); bottom: var(--space-6); display: grid; gap: var(--space-2); margin: 0; padding: 0; list-style: none; min-width: 105px; color: var(--muted); font-size: var(--text-xs); } .rw-analytics-visual li { display: flex; justify-content: space-between; gap: var(--space-3); } .rw-analytics-visual li::before { content: ""; width: 7px; height: 7px; margin-top: 4px; border-radius: var(--radius-pill); background: var(--accent); } .rw-analytics-visual li:nth-child(2)::before { background: color-mix(in srgb, var(--accent) 50%, var(--surface-warm)); } .rw-analytics-visual li:nth-child(3)::before { background: var(--border); } .rw-analytics-visual li:nth-child(4)::before { background: color-mix(in srgb, var(--fg) 28%, var(--bg)); } .rw-analytics-visual li span { flex: 1; } .rw-analytics-visual b { color: var(--fg); font-weight: 500; }
+
+  @media (min-width: 768px) { .rw-feature-grid { grid-template-columns: repeat(3, 1fr); border-left: 1px solid var(--border-soft); } .rw-feature { min-height: 430px; border-right: 1px solid var(--border-soft); } .rw-feature--extract { grid-column: 2 / span 2; grid-row: 1; } .rw-feature--extract .rw-feature-copy { padding-left: 32px; } .rw-feature--extract .rw-extract-visual { min-height: 300px; } .rw-feature--heal { grid-column: 1; grid-row: 1; } .rw-feature--nohall { grid-column: 1; grid-row: 2; } .rw-feature--datatype { grid-column: 2; grid-row: 2; } .rw-feature--analytics { grid-column: 3; grid-row: 2; } }
+  @media (min-width: 1024px) { .rw-features { padding-top: 136px; } .rw-feature-grid { margin-top: 48px; } .rw-feature--extract { min-height: 425px; } .rw-feature--extract .rw-extract-visual { margin: 40px 64px 0; } .rw-feature-copy { padding: 24px 32px 32px; } }
+</style>

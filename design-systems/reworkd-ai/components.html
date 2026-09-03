@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="tokens.css" />
+    <style>
+      body { background: var(--bg); color: var(--fg); font: var(--text-base)/var(--leading-body) var(--font-body); margin: 0; padding: var(--space-8); }
+      .group { border: 1px solid var(--border-soft); margin: 0 auto var(--space-8); max-width: var(--container-max); padding: var(--space-6); }
+      .group h2 { font: 500 var(--text-xl)/var(--leading-tight) var(--font-display); letter-spacing: var(--tracking-display); margin: 0 0 var(--space-5); }
+      .row { align-items: center; display: flex; flex-wrap: wrap; gap: var(--space-3); }
+      .button { background: linear-gradient(var(--accent-hover), var(--accent)); border: 1px solid var(--accent-active); border-radius: var(--radius-sm); box-shadow: var(--elev-raised); color: var(--accent-on); display: inline-flex; font-weight: 500; padding: var(--space-2) var(--space-4); }
+      .button:hover { background: var(--accent-hover); }
+      .tab { background: var(--surface); border: 1px solid var(--border-soft); border-radius: var(--radius-sm); color: var(--muted); font-size: var(--text-sm); padding: var(--space-2) var(--space-4); }
+      .tab.is-selected { background: color-mix(in srgb, var(--surface) 75%, var(--border)); border-color: var(--border); }
+      .browser { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-md); box-shadow: var(--elev-raised); overflow: hidden; }
+      .browser-bar { background: var(--surface); color: var(--meta); font: var(--text-xs)/var(--leading-body) var(--font-mono); padding: var(--space-3); }
+      .browser-row { border-top: 1px solid var(--border-soft); display: grid; gap: var(--space-4); grid-template-columns: 1fr 1fr 2fr; padding: var(--space-3); }
+      .status { color: var(--success); font: var(--text-xs)/var(--leading-body) var(--font-mono); }
+      .feature-grid { background: var(--border-soft); display: grid; gap: 1px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .feature { background: var(--bg); min-height: 112px; padding: var(--space-5); }
+      .feature strong { display: block; font: 500 var(--text-lg)/var(--leading-tight) var(--font-display); margin-bottom: var(--space-2); }
+      .proof { background: var(--fg); color: var(--accent-on); padding: var(--space-6); }
+      .proof p { color: color-mix(in srgb, var(--accent-on) 70%, transparent); margin: var(--space-2) 0 0; }
+      @media (max-width: 640px) { body { padding: var(--space-4); } .feature-grid { grid-template-columns: 1fr; } .browser-row { grid-template-columns: 1fr; } }
+    </style>
+  </head>
+  <body>
+    <section class="group" data-component="actions"><h2>Actions</h2><div class="row"><a class="button" href="#">Book an intro call</a><button class="tab is-selected">Public data</button><button class="tab">Careers</button></div></section>
+    <section class="group" data-component="data-browser"><h2>Data browser</h2><div class="browser"><div class="browser-bar">Current Public Services</div><div class="browser-row"><span>143-24A</span><span class="status">Active</span><span>Ault Farms Operations Services</span></div></div></section>
+    <section class="group" data-component="navigation"><h2>Navigation</h2><div class="row"><span class="tab">Features</span><span class="tab">Pricing</span><span class="tab">Docs</span></div></section>
+    <section class="group" data-component="feature-grid"><h2>Feature cells</h2><div class="feature-grid"><article class="feature"><strong>Extract</strong><span>Generate structured records.</span></article><article class="feature"><strong>Heal</strong><span>Repair source changes.</span></article><article class="feature"><strong>Analyze</strong><span>Track data quality.</span></article></div></section>
+    <section class="group" data-component="proof"><h2>Proof panel</h2><div class="proof"><strong>533,029,180</strong><p>Rows of data extracted</p></div></section>
+  </body>
+</html>

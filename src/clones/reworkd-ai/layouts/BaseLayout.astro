@@ -1,0 +1,35 @@
+---
+import "../styles/clone.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Reworkd",
+  description = "End to End Web Scraping",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="description" content={description} />
+    <meta property="og:title" content="Reworkd" />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="https://reworkd.ai/banner.png" />
+    <meta property="og:url" content="https://reworkd.ai" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="canonical" href="https://www.reworkd.ai/" />
+    <link rel="icon" href="/clones/reworkd-ai/seo/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/clones/reworkd-ai/seo/apple-touch-icon.png" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

@@ -1,0 +1,152 @@
+---
+const navigation = [
+  { label: "Features", href: "/reworkd-ai/#about" },
+  { label: "Pricing", href: "https://www.reworkd.ai/pricing" },
+  { label: "Blog", href: "https://www.reworkd.ai/blog" },
+  { label: "Docs", href: "https://www.reworkd.ai/docs/welcome-to-reworkd" },
+  { label: "Careers", href: "https://www.ycombinator.com/companies/reworkd/jobs", badge: "3" },
+];
+---
+
+<aside class="rw-notice" aria-label="Product update">
+  <span>We’ll be sunsetting the product on February 6, 2025. If you have any questions or need support with migration, please reach out to </span><a href="mailto:Srijan@reworkd.ai">Srijan@reworkd.ai</a><span aria-hidden="true"> →</span>
+</aside>
+
+<div class="rw-header-wrap" data-rw-header>
+  <header class="rw-header">
+    <a class="rw-brand" href="/reworkd-ai/" aria-label="Reworkd home">
+      <svg aria-hidden="true" viewBox="0 0 36 24" width="36" height="24"><path d="M3 6.5h9.1l5.9 5.5L12.1 17.5H3z" fill="currentColor" opacity=".92"/><path d="M18 6.5h6.4L33 12l-8.6 5.5H18l6.7-5.5z" fill="currentColor" opacity=".48"/></svg>
+      <span>Reworkd</span>
+    </a>
+
+    <nav class="rw-desktop-nav" aria-label="Primary navigation">
+      {navigation.map((item) => <a href={item.href}>{item.label}{item.badge && <b>{item.badge}</b>}</a>)}
+    </nav>
+
+    <a class="rw-signup" href="https://app.reworkd.ai/">Sign Up</a>
+    <button class="rw-menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="rw-mobile-menu" data-rw-menu-toggle>
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <nav class="rw-mobile-nav" id="rw-mobile-menu" aria-label="Mobile navigation" data-rw-mobile-menu hidden>
+    {navigation.map((item) => <a href={item.href}>{item.label}{item.badge && <b>{item.badge}</b>}</a>)}
+    <a class="rw-mobile-signup" href="https://app.reworkd.ai/">Sign Up</a>
+  </nav>
+</div>
+
+<script>
+  const header = document.querySelector<HTMLElement>("[data-rw-header]");
+  const menuToggle = document.querySelector<HTMLButtonElement>("[data-rw-menu-toggle]");
+  const mobileMenu = document.querySelector<HTMLElement>("[data-rw-mobile-menu]");
+
+  const setHeaderState = () => header?.toggleAttribute("data-scrolled", window.scrollY > 24);
+  const setMenu = (open: boolean) => {
+    if (!mobileMenu || !menuToggle) return;
+    mobileMenu.hidden = !open;
+    menuToggle.setAttribute("aria-expanded", String(open));
+    menuToggle.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
+  };
+
+  setHeaderState();
+  window.addEventListener("scroll", setHeaderState, { passive: true });
+  menuToggle?.addEventListener("click", () => setMenu(mobileMenu?.hasAttribute("hidden") ?? true));
+  mobileMenu?.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => setMenu(false)));
+  document.addEventListener("keydown", (event) => { if (event.key === "Escape") setMenu(false); });
+</script>
+
+<style>
+  .rw-notice {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 100;
+    min-height: 56px;
+    padding: 19px var(--container-gutter-phone);
+    background: #000;
+    color: var(--accent-on);
+    font-size: var(--text-xs);
+    line-height: var(--leading-body);
+    text-align: center;
+  }
+
+  .rw-notice a { text-decoration: underline; text-underline-offset: 2px; }
+
+  .rw-header-wrap {
+    position: fixed;
+    inset: 64px 0 auto;
+    z-index: 120;
+    padding: 0 var(--container-gutter-phone);
+    transform: translateY(6px);
+    transition: transform 1s cubic-bezier(.6, .6, 0, 1);
+  }
+
+  .rw-header-wrap[data-scrolled] { transform: translateY(16px); }
+
+  .rw-header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    min-height: 52px;
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--space-4);
+    border: 1px solid color-mix(in srgb, var(--border) 50%, transparent);
+    border-radius: var(--radius-md);
+    background: color-mix(in srgb, var(--bg) 94%, transparent);
+    box-shadow: 0 8px 24px color-mix(in srgb, var(--fg) 8%, transparent);
+    backdrop-filter: blur(12px);
+  }
+
+  .rw-brand { display: inline-flex; align-items: center; gap: var(--space-2); font-size: var(--text-sm); font-weight: 500; letter-spacing: -0.02em; }
+  .rw-brand svg { width: 29px; height: 20px; }
+  .rw-brand span { transform: translateY(1px); }
+  .rw-desktop-nav, .rw-signup { display: none; }
+
+  .rw-menu-toggle {
+    display: grid;
+    place-content: center;
+    gap: 5px;
+    width: 42px;
+    height: 36px;
+    padding: 0;
+    border-radius: var(--radius-sm);
+    background: transparent;
+    transition: background var(--motion-fast) var(--ease-standard);
+  }
+
+  .rw-menu-toggle:hover { background: var(--surface); }
+  .rw-menu-toggle span { display: block; width: 15px; height: 1px; background: var(--fg); transition: transform var(--motion-fast) var(--ease-standard); }
+  .rw-menu-toggle[aria-expanded="true"] span:first-child { transform: translateY(3px) rotate(45deg); }
+  .rw-menu-toggle[aria-expanded="true"] span:last-child { transform: translateY(-3px) rotate(-45deg); }
+
+  .rw-mobile-nav {
+    display: grid;
+    max-width: var(--container-max);
+    margin: var(--space-2) auto 0;
+    padding: var(--space-4);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-md);
+    background: var(--bg);
+    box-shadow: var(--elev-raised);
+  }
+
+  .rw-mobile-nav[hidden] { display: none; }
+
+  .rw-mobile-nav a { display: flex; justify-content: space-between; align-items: center; min-height: 38px; padding: 0 var(--space-2); border-top: 1px solid var(--border-soft); font-size: var(--text-sm); }
+  .rw-mobile-nav a:first-child { border-top: 0; }
+  .rw-mobile-nav b, .rw-desktop-nav b { display: inline-grid; place-items: center; min-width: 20px; height: 18px; border-radius: var(--radius-pill); background: var(--surface); color: var(--muted); font: 500 var(--text-xs)/1 var(--font-mono); }
+  .rw-mobile-signup { margin-top: var(--space-4); border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--surface); justify-content: center !important; }
+
+  @media (min-width: 1024px) {
+    .rw-notice { padding: 19px var(--container-gutter-desktop); }
+    .rw-header-wrap { padding: 0 var(--container-gutter-desktop); transform: translateY(8px); }
+    .rw-header-wrap[data-scrolled] { transform: translateY(24px); }
+    .rw-header { grid-template-columns: 1fr auto 1fr; padding: 0; border-color: transparent; border-radius: 0; background: transparent; box-shadow: none; backdrop-filter: none; }
+    .rw-desktop-nav { display: flex; align-items: center; gap: var(--space-5); justify-self: center; }
+    .rw-desktop-nav a { display: inline-flex; align-items: center; gap: var(--space-1); font-size: var(--text-sm); transition: color var(--motion-fast) var(--ease-standard); }
+    .rw-desktop-nav a:hover { color: var(--muted); }
+    .rw-signup { display: inline-flex; align-items: center; justify-content: center; justify-self: end; min-height: 36px; padding: 0 var(--space-4); border: 1px solid var(--border-soft); border-radius: var(--radius-sm); background: var(--bg); font-size: var(--text-sm); font-weight: 500; transition: box-shadow var(--motion-fast) var(--ease-standard); }
+    .rw-signup:hover { box-shadow: var(--elev-ring); }
+    .rw-menu-toggle, .rw-mobile-nav { display: none; }
+  }
+</style>

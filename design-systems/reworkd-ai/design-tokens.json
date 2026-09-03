@@ -1,0 +1,697 @@
+{
+  "schemaVersion": 1,
+  "format": "od-design-tokens/v1",
+  "contract": "TOKEN_SCHEMA",
+  "generatedAt": "2026-09-02T22:12:24.230Z",
+  "source": {
+    "tokensCss": "tokens.css",
+    "tokenContractReport": "source/token-contract.report.json"
+  },
+  "summary": {
+    "total": 56,
+    "byConfidence": {
+      "high": 51,
+      "derived": 5
+    },
+    "byLayer": {
+      "A1-identity": 8,
+      "B-slot": 4,
+      "A2": 26,
+      "A1-structure": 18
+    }
+  },
+  "tokens": [
+    {
+      "name": "--bg",
+      "value": "#ffffff",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "The primary marketing canvas resolves to white across the problem, feature, and footer regions.",
+      "sources": [
+        "live 1440px capture and page wrapper computed backgrounds",
+        "tokens.css:8"
+      ]
+    },
+    {
+      "name": "--surface",
+      "value": "#f4f7f7",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Source inactive controls and technical cards use the shark-50 surface.",
+      "sources": [
+        "live hero tab computed background: rgb(244, 247, 247)",
+        "tokens.css:9"
+      ]
+    },
+    {
+      "name": "--surface-warm",
+      "value": "#e3edff",
+      "type": "color",
+      "layer": "B-slot",
+      "confidence": "high",
+      "reason": "The source hero and problem transitions use a pale blue data-atmosphere layer.",
+      "sources": [
+        "live hero wrapper gradient: #F1F6FF → #E3EDFF → #FFF",
+        "tokens.css:10"
+      ]
+    },
+    {
+      "name": "--fg",
+      "value": "#272c30",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Live body and primary headings resolve to shark-950.",
+      "sources": [
+        "live body computed color: rgb(39, 44, 48)",
+        "tokens.css:13"
+      ]
+    },
+    {
+      "name": "--fg-2",
+      "value": "#3f464b",
+      "type": "color",
+      "layer": "B-slot",
+      "confidence": "high",
+      "reason": "Raised dark UI surfaces and secondary emphasis use shark-800.",
+      "sources": [
+        "first-party Tailwind palette in live stylesheet",
+        "tokens.css:14"
+      ]
+    },
+    {
+      "name": "--muted",
+      "value": "#526068",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Live mono labels and supporting copy resolve to shark-600.",
+      "sources": [
+        "live section kicker computed color: rgb(82, 96, 104)",
+        "tokens.css:15"
+      ]
+    },
+    {
+      "name": "--meta",
+      "value": "#60737a",
+      "type": "color",
+      "layer": "B-slot",
+      "confidence": "high",
+      "reason": "Low-emphasis captions and footer metadata use shark-500.",
+      "sources": [
+        "first-party Tailwind palette in live stylesheet",
+        "tokens.css:16"
+      ]
+    },
+    {
+      "name": "--border",
+      "value": "#cbd3d6",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "The selected hero tab and technical frames use shark-200 hairlines.",
+      "sources": [
+        "live selected hero tab computed border: rgb(203, 211, 214)",
+        "tokens.css:19"
+      ]
+    },
+    {
+      "name": "--border-soft",
+      "value": "#e3e8ea",
+      "type": "color",
+      "layer": "B-slot",
+      "confidence": "high",
+      "reason": "The source repeatedly uses shark-100 for internal grid divisions.",
+      "sources": [
+        "first-party Tailwind palette and 1440px capture",
+        "tokens.css:20"
+      ]
+    },
+    {
+      "name": "--accent",
+      "value": "#3e79ea",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "The gradient highlight and action system are anchored by azure-500.",
+      "sources": [
+        "live hero headline data image and CSS: #3E79EA",
+        "tokens.css:23"
+      ]
+    },
+    {
+      "name": "--accent-on",
+      "value": "#ffffff",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Primary blue controls use white foreground copy.",
+      "sources": [
+        "live hero CTA inner label computed style",
+        "tokens.css:24"
+      ]
+    },
+    {
+      "name": "--accent-hover",
+      "value": "#5186ec",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Source interactive extractor CTA declares this hover blue.",
+      "sources": [
+        "live feature button CSS: hover:bg-[#5186EC]",
+        "tokens.css:25"
+      ]
+    },
+    {
+      "name": "--accent-active",
+      "value": "#2740a6",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Source blue borders and pressed treatments resolve to azure-800.",
+      "sources": [
+        "first-party Tailwind palette: azure-800",
+        "tokens.css:26"
+      ]
+    },
+    {
+      "name": "--success",
+      "value": "#16a34a",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Green source status chips are mapped to the standard accessible success role.",
+      "sources": [
+        "live hero browser Active status chips",
+        "tokens.css:29"
+      ]
+    },
+    {
+      "name": "--warn",
+      "value": "#eab308",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "The page has no dedicated warning role; this completes the portable semantic contract.",
+      "sources": [
+        "semantic fallback mapped from OpenDesign schema",
+        "tokens.css:30"
+      ]
+    },
+    {
+      "name": "--danger",
+      "value": "#dc2626",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Cancelled rows use a subdued red semantic role; this completes the portable contract.",
+      "sources": [
+        "live hero browser Cancelled status row",
+        "tokens.css:31"
+      ]
+    },
+    {
+      "name": "--font-display",
+      "value": "\"Reworkd Selecta\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "type": "fontFamily",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Hero and section headings use the downloaded Selecta medium face.",
+      "sources": [
+        "live H1 computed font-family: __selecta_a4b3da",
+        "tokens.css:34"
+      ]
+    },
+    {
+      "name": "--font-body",
+      "value": "\"Reworkd Suisse\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "type": "fontFamily",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Live body, navigation, and product UI use Suisse Intl.",
+      "sources": [
+        "live body computed font-family: __suisseIntl_a23918",
+        "tokens.css:35"
+      ]
+    },
+    {
+      "name": "--font-mono",
+      "value": "\"Reworkd Geist Mono\", ui-monospace, \"SF Mono\", Menlo, Monaco, Consolas, monospace",
+      "type": "fontFamily",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Question labels, source URLs, and technical UI use Geist Mono.",
+      "sources": [
+        "live section label computed font-family: __GeistMono_c1e5c9",
+        "tokens.css:36"
+      ]
+    },
+    {
+      "name": "--text-xs",
+      "value": "12px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Source mono section labels render at 12px.",
+      "sources": [
+        "live “Whats the problem?” computed font-size: 12px",
+        "tokens.css:39"
+      ]
+    },
+    {
+      "name": "--text-sm",
+      "value": "14px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Source footer links, control labels, and compact copy use the 14px tier.",
+      "sources": [
+        "live stylesheet text-sm rules",
+        "tokens.css:40"
+      ]
+    },
+    {
+      "name": "--text-base",
+      "value": "16px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "The page body baseline is 16px.",
+      "sources": [
+        "live body computed font-size: 16px",
+        "tokens.css:41"
+      ]
+    },
+    {
+      "name": "--text-lg",
+      "value": "18px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Feature card titles use the source’s 18px display tier.",
+      "sources": [
+        "live “Save time” computed font-size: 18px",
+        "tokens.css:42"
+      ]
+    },
+    {
+      "name": "--text-xl",
+      "value": "30px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Phone-scale section headings use 30px.",
+      "sources": [
+        "live H3 class: text-[30px]",
+        "tokens.css:43"
+      ]
+    },
+    {
+      "name": "--text-2xl",
+      "value": "40px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Desktop section headings use 40px.",
+      "sources": [
+        "live “Web data is difficult” computed font-size: 40px",
+        "tokens.css:44"
+      ]
+    },
+    {
+      "name": "--text-3xl",
+      "value": "56px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "The closing CTA uses the 56px display tier on desktop.",
+      "sources": [
+        "live closing H2 class: md:text-[56px]",
+        "tokens.css:45"
+      ]
+    },
+    {
+      "name": "--text-4xl",
+      "value": "80px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "The desktop hero H1 uses 80px at a 76px line-height.",
+      "sources": [
+        "live H1 computed font-size: 80px",
+        "tokens.css:46"
+      ]
+    },
+    {
+      "name": "--leading-body",
+      "value": "1.5",
+      "type": "number",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Body text uses 16px / 24px rhythm.",
+      "sources": [
+        "live body computed line-height: 24px",
+        "tokens.css:49"
+      ]
+    },
+    {
+      "name": "--leading-tight",
+      "value": "0.95",
+      "type": "number",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "The hero uses 80px / 76px and headings remain optically tight.",
+      "sources": [
+        "live H1 computed line-height: 76px",
+        "tokens.css:50"
+      ]
+    },
+    {
+      "name": "--tracking-display",
+      "value": "-0.025em",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Source hero and section display utilities use -0.025em / -0.02em tracking.",
+      "sources": [
+        "live H1 computed letter-spacing: -2px at 80px",
+        "tokens.css:51"
+      ]
+    },
+    {
+      "name": "--space-1",
+      "value": "4px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Source technical UI uses 4px details and row separators.",
+      "sources": [
+        "first-party Tailwind spacing scale",
+        "tokens.css:54"
+      ]
+    },
+    {
+      "name": "--space-2",
+      "value": "8px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Small controls, status dots, and label gaps use 8px.",
+      "sources": [
+        "first-party Tailwind spacing scale",
+        "tokens.css:55"
+      ]
+    },
+    {
+      "name": "--space-3",
+      "value": "12px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Compact card padding and metadata gaps use 12px.",
+      "sources": [
+        "first-party Tailwind spacing scale",
+        "tokens.css:56"
+      ]
+    },
+    {
+      "name": "--space-4",
+      "value": "16px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Phone gutters and common internal gaps use 16px.",
+      "sources": [
+        "live 390px container computed padding: 16px",
+        "tokens.css:57"
+      ]
+    },
+    {
+      "name": "--space-5",
+      "value": "20px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Navigation and body UI use the 20px tier.",
+      "sources": [
+        "first-party Tailwind spacing scale",
+        "tokens.css:58"
+      ]
+    },
+    {
+      "name": "--space-6",
+      "value": "24px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Heading separation and panel insets use 24px.",
+      "sources": [
+        "live section heading margin-top: 24px",
+        "tokens.css:59"
+      ]
+    },
+    {
+      "name": "--space-8",
+      "value": "32px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Source desktop card and section spacing repeats at 32px.",
+      "sources": [
+        "first-party Tailwind spacing scale",
+        "tokens.css:60"
+      ]
+    },
+    {
+      "name": "--space-12",
+      "value": "48px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Large visual breathing room begins at 48px in the source.",
+      "sources": [
+        "live feature section outer spacing",
+        "tokens.css:61"
+      ]
+    },
+    {
+      "name": "--section-y-desktop",
+      "value": "136px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Feature and proof zones start with 136px desktop top spacing.",
+      "sources": [
+        "live feature wrapper class: lg:pt-[136px]",
+        "tokens.css:64"
+      ]
+    },
+    {
+      "name": "--section-y-tablet",
+      "value": "96px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "derived",
+      "reason": "The 768px capture compresses desktop story spacing before the phone layout.",
+      "sources": [
+        "original-768.png responsive inspection",
+        "tokens.css:65"
+      ]
+    },
+    {
+      "name": "--section-y-phone",
+      "value": "80px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Mobile feature and proof zones begin with an 80px top rhythm.",
+      "sources": [
+        "live feature wrapper class: pt-20",
+        "tokens.css:66"
+      ]
+    },
+    {
+      "name": "--radius-sm",
+      "value": "6px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Hero CTA and utility control corners resolve to 6px.",
+      "sources": [
+        "live hero CTA computed border-radius: 6px",
+        "tokens.css:69"
+      ]
+    },
+    {
+      "name": "--radius-md",
+      "value": "8px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Source mock-browser and control frames use rounded-lg.",
+      "sources": [
+        "live dashboard panel class: rounded-lg",
+        "tokens.css:70"
+      ]
+    },
+    {
+      "name": "--radius-lg",
+      "value": "16px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "The final blue CTA card has a visibly larger 16px outer corner.",
+      "sources": [
+        "live closing CTA surface inspection",
+        "tokens.css:71"
+      ]
+    },
+    {
+      "name": "--radius-pill",
+      "value": "9999px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Analytics source selectors use rounded-full pill controls.",
+      "sources": [
+        "live analytics tab class: rounded-full",
+        "tokens.css:72"
+      ]
+    },
+    {
+      "name": "--elev-flat",
+      "value": "none",
+      "type": "shadow",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Most layout hierarchy is constructed with one-pixel rules rather than elevation.",
+      "sources": [
+        "live problem and feature grid inspection",
+        "tokens.css:75"
+      ]
+    },
+    {
+      "name": "--elev-ring",
+      "value": "0 0 0 1px rgba(39, 44, 48, 0.10)",
+      "type": "shadow",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "The source browser frame uses a faint shark-950 perimeter ring.",
+      "sources": [
+        "live problem browser shadow declaration",
+        "tokens.css:76"
+      ]
+    },
+    {
+      "name": "--elev-raised",
+      "value": "0 21px 44px -40px rgba(63, 70, 75, 0.50), 0 14px 40px rgba(39, 44, 48, 0.05)",
+      "type": "shadow",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "The source browser mockup uses a broad, low-opacity lift.",
+      "sources": [
+        "live problem browser shadow declaration",
+        "tokens.css:77"
+      ]
+    },
+    {
+      "name": "--focus-ring",
+      "value": "0 0 0 3px color-mix(in srgb, #3e79ea 35%, transparent)",
+      "type": "shadow",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "A visible blue ring follows the source interaction palette.",
+      "sources": [
+        "mapped from live azure-500 accent",
+        "tokens.css:80"
+      ]
+    },
+    {
+      "name": "--motion-fast",
+      "value": "200ms",
+      "type": "duration",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Button and selected-state changes use 200ms ease-out.",
+      "sources": [
+        "live hero CTA transition: 0.2s ease-out",
+        "tokens.css:83"
+      ]
+    },
+    {
+      "name": "--motion-base",
+      "value": "700ms",
+      "type": "duration",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "The problem-browser hover veil fades over 700ms.",
+      "sources": [
+        "live group-hover overlay transition: 0.7s",
+        "tokens.css:84"
+      ]
+    },
+    {
+      "name": "--ease-standard",
+      "value": "cubic-bezier(0.4, 0, 0.2, 1)",
+      "type": "cubicBezier",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "The source uses the standard Tailwind ease-in-out curve for UI transitions.",
+      "sources": [
+        "live problem-browser overlay computed transition",
+        "tokens.css:85"
+      ]
+    },
+    {
+      "name": "--container-max",
+      "value": "1344px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Desktop source container resolves to 1344px before its 64px inner padding.",
+      "sources": [
+        "live .container computed width at 1440px: 1344px",
+        "tokens.css:88"
+      ]
+    },
+    {
+      "name": "--container-gutter-desktop",
+      "value": "64px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Desktop container has 64px inside padding.",
+      "sources": [
+        "live .container computed padding at 1440px: 0 64px",
+        "tokens.css:89"
+      ]
+    },
+    {
+      "name": "--container-gutter-tablet",
+      "value": "32px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "The 768px source container shifts to 32px safe gutters.",
+      "sources": [
+        "first-party container media rule: min-width 640px padding 2rem",
+        "tokens.css:90"
+      ]
+    },
+    {
+      "name": "--container-gutter-phone",
+      "value": "16px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "The 390px source container uses 16px horizontal padding.",
+      "sources": [
+        "live 390px container computed padding: 16px",
+        "tokens.css:91"
+      ]
+    }
+  ]
+}

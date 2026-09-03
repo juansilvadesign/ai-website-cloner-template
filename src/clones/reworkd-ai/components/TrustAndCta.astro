@@ -1,0 +1,53 @@
+---
+const metrics = [
+  ["30k", "Stars on GitHub", "rw-metric--left"],
+  ["533,029,180", "Rows of data extracted", "rw-metric--main"],
+  ["1M", "Users across our product suite", "rw-metric--right"],
+];
+---
+
+<section class="rw-trust" id="customers" aria-labelledby="rw-trust-title">
+  <div class="rw-trust-stage">
+    <div class="rw-trust-intro">
+      <h2 id="rw-trust-title">Rely on Reworkd</h2>
+      <p>We've worked on application layer LLM agents since before their rise in 2023.<br />Nearly every part of our technology stack has been built in house.</p>
+    </div>
+
+    <div class="rw-metrics" aria-label="Reworkd platform metrics">
+      {metrics.map(([number, label, className]) => <article class={`rw-metric ${className}`}><strong>{number}</strong><span>{label}</span></article>)}
+    </div>
+
+    <figure class="rw-testimonial">
+      <div class="rw-axis-mark" aria-hidden="true">✕ <span>AXIS</span></div>
+      <blockquote>“Reworkd helps us download hundreds of thousands of regulation PDFs every month, saving us hundreds of hours in engineering time.”</blockquote>
+      <figcaption><img src="/clones/reworkd-ai/images/mishaal-al-gergawi.jpg" alt="Mishaal Al Gergawi" width="46" height="44" /><span><strong>Mishaal Al Gergawi</strong><small>CEO of Axis</small></span></figcaption>
+    </figure>
+
+    <div class="rw-closing-cta">
+      <h2>It’s time to<br />do data different</h2>
+      <a href="https://reworkd.typeform.com/to/qscfsOf1">Book a call now</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .rw-trust { position: relative; padding: 80px 0 0; color: var(--accent-on); }
+  .rw-trust-stage { position: relative; padding: 0 0 122px; overflow: hidden; background: linear-gradient(180deg, color-mix(in srgb, var(--fg) 0%, transparent), color-mix(in srgb, var(--fg) 60%, transparent) 77%), var(--fg); }
+  .rw-trust-stage::before, .rw-trust-stage::after { content: ""; position: absolute; z-index: 0; width: 120%; height: 80px; opacity: .18; background: repeating-linear-gradient(0deg, transparent 0 11px, color-mix(in srgb, var(--accent-on) 13%, transparent) 12px 13px); pointer-events: none; } .rw-trust-stage::before { top: 43%; left: -10%; } .rw-trust-stage::after { bottom: 120px; left: -10%; }
+  .rw-trust-intro, .rw-metrics, .rw-testimonial, .rw-closing-cta { position: relative; z-index: 1; }
+  .rw-trust-intro { width: min(100% - (var(--container-gutter-phone) * 2), 576px); padding-top: 80px; margin: 0 auto; text-align: center; }
+  .rw-trust-intro h2 { margin: 0; background: linear-gradient(92deg, var(--accent-on), color-mix(in srgb, var(--accent-on) 66%, var(--muted))); background-clip: text; color: transparent; font: 500 clamp(var(--text-xl), 6vw, var(--text-2xl))/1.1 var(--font-display); letter-spacing: -0.02em; }
+  .rw-trust-intro p { margin-top: var(--space-3); color: color-mix(in srgb, var(--accent-on) 63%, var(--muted)); font-size: var(--text-sm); line-height: var(--leading-body); }
+  .rw-metrics { display: grid; grid-template-columns: 1fr; width: min(100%, 1216px); margin: 48px auto 0; }
+  .rw-metric { display: grid; place-content: center; min-height: 164px; padding: var(--space-6); text-align: center; } .rw-metric strong { display: block; color: color-mix(in srgb, var(--accent-on) 30%, var(--muted)); font: 500 52px/.95 var(--font-display); letter-spacing: var(--tracking-display); } .rw-metric span { margin-top: var(--space-4); color: color-mix(in srgb, var(--accent-on) 75%, var(--muted)); font-size: var(--text-xs); }
+  .rw-metric--main { min-height: 244px; border-radius: var(--radius-md); background: radial-gradient(100% 100% at 50% 0, color-mix(in srgb, var(--accent) 75%, var(--accent-active)) 0, var(--accent-active) 57%, color-mix(in srgb, var(--accent-active) 50%, var(--fg)) 100%); box-shadow: var(--elev-raised); } .rw-metric--main strong { color: var(--accent-on); font-size: clamp(44px, 10vw, 86px); letter-spacing: .02em; } .rw-metric--main span { color: color-mix(in srgb, var(--accent-on) 82%, var(--surface-warm)); }
+  .rw-testimonial { display: grid; gap: var(--space-6); width: min(100% - (var(--container-gutter-phone) * 2), 696px); margin: 80px auto 0; }
+  .rw-axis-mark { align-self: start; color: color-mix(in srgb, var(--danger) 80%, var(--accent)); font: 500 20px/1 var(--font-display); letter-spacing: .08em; } .rw-axis-mark span { color: color-mix(in srgb, var(--accent-on) 75%, var(--muted)); font-size: var(--text-sm); }
+  blockquote { margin: 0; color: var(--accent-on); font: 500 clamp(var(--text-lg), 4vw, 36px)/1.1 var(--font-display); letter-spacing: -0.02em; }
+  figcaption { display: flex; align-items: center; gap: var(--space-4); padding-top: var(--space-6); border-top: 1px solid color-mix(in srgb, var(--accent-on) 12%, transparent); } figcaption img { width: 46px; height: 44px; border-radius: var(--radius-pill); object-fit: cover; } figcaption strong, figcaption small { display: block; } figcaption strong { font-size: var(--text-xs); font-weight: 500; } figcaption small { margin-top: 2px; color: color-mix(in srgb, var(--accent-on) 55%, var(--muted)); font-size: 10px; }
+  .rw-closing-cta { display: grid; place-items: center; min-height: 350px; width: min(100% - (var(--container-gutter-phone) * 2), 1216px); margin: 88px auto -122px; padding: var(--space-8); border-radius: var(--radius-lg); background: radial-gradient(105% 150% at 20% 0, color-mix(in srgb, var(--accent-on) 45%, transparent), transparent 35%), radial-gradient(100% 100% at 75% 25%, color-mix(in srgb, var(--accent-on) 56%, transparent), transparent 38%), linear-gradient(135deg, var(--accent-active), var(--accent)); box-shadow: var(--elev-raised); text-align: center; }
+  .rw-closing-cta h2 { margin: 0; color: var(--accent-on); font: 500 clamp(36px, 9vw, var(--text-3xl))/1 var(--font-display); letter-spacing: -0.015em; text-shadow: 0 1px 3px color-mix(in srgb, var(--fg) 30%, transparent); }
+  .rw-closing-cta a { display: inline-flex; align-items: center; justify-content: center; min-height: 36px; margin-top: var(--space-6); padding: 0 var(--space-3); border-radius: var(--radius-md); background: linear-gradient(var(--accent-on), color-mix(in srgb, var(--surface-warm) 70%, var(--accent-on))); box-shadow: inset 0 1px 1px var(--accent-on), 0 6px 12px -8px color-mix(in srgb, var(--fg) 30%, transparent); color: var(--fg); font-size: var(--text-xs); font-weight: 500; transition: box-shadow var(--motion-fast) var(--ease-standard); } .rw-closing-cta a:hover { box-shadow: inset 0 1px 1px var(--accent-on), 0 1px 16px color-mix(in srgb, var(--surface-warm) 82%, transparent); }
+  @media (min-width: 768px) { .rw-metrics { grid-template-columns: 1fr 1.7fr 1fr; align-items: center; } .rw-metric { min-height: 228px; } .rw-metric--main { min-height: 244px; } .rw-testimonial { grid-template-columns: 150px 1fr; column-gap: var(--space-8); } .rw-testimonial figcaption { grid-column: 2; } }
+  @media (min-width: 1024px) { .rw-trust { padding-top: 136px; } .rw-trust-intro { padding-top: 136px; } .rw-metrics { margin-top: 56px; } .rw-testimonial { margin-top: 88px; } .rw-closing-cta { min-height: 400px; } }
+</style>
