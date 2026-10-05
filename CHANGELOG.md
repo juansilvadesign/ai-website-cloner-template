@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- Added `.claude/skills/clone-website/references/framer-and-motion.md` as an
+  on-demand reference for Framer assets, motion drivers, pinned scenes, Lenis,
+  and state-based verification in Astro and the retained Next.js target
 - Added **clone ejection** — `npm run eject -- <slug> [target-dir]`
   (`scripts/eject-clone.mjs`), which copies one clone out as a standalone Astro
   project with its own `package.json`, `astro.config.mjs`, `tsconfig.json`,
@@ -69,6 +72,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   close-the-issue step; Issues are re-enabled and the requirement is documented
 
 ### Changed
+- Expanded `/clone-website` with route ownership for pages from one origin,
+  observed-rule reconnaissance, asset verification, shared-state guidance,
+  local-link rules, boundary-based visual QA, and precise completion reports
+- Extended `docs/research/INSPECTION_GUIDE.md` with a wider viewport sweep,
+  lazy/reveal capture, script options, download validation, labeled comparisons,
+  and separate overflow and failed-asset checks
+- Ported these skill, guide, and reference rules from
+  `JCodesMore/ai-website-cloner-template` v0.6.0–v0.6.1 (PRs #123 and #124),
+  adapted to the fork's multi-clone Astro workflow
 - **Clones are now namespaced by slug and coexist.** Previously every
   `/clone-website` run overwrote `src/pages/index.astro`, `src/components/`,
   `public/images/`, and the single design-system `@import` in
