@@ -466,7 +466,7 @@ Use browser MCP to enumerate all assets on the page:
 // Run this via browser MCP to discover all assets
 JSON.stringify({
   images: [...document.querySelectorAll('img')].map(img => ({
-    src: img.src,
+    src: img.src || img.currentSrc,
     currentSrc: img.currentSrc,
     objectFit: getComputedStyle(img).objectFit,
     objectPosition: getComputedStyle(img).objectPosition,
