@@ -305,6 +305,10 @@ Save all findings to `docs/research/BEHAVIORS.md`. This is your behavior bible �
 
 Right after the interaction sweep — before mapping topology — classify how much dynamic effect the page carries and pick a strategy. This is the step that keeps an effect-saturated site from collapsing the whole clone (see Principle 10).
 
+For Framer-generated pages, sticky scenes, reveal animations, or animated
+media, read [Framer and motion](references/framer-and-motion.md) before
+choosing a motion strategy.
+
 **Detect the animation stack.** Check the DOM and network/bundle for these signals and record each in `BEHAVIORS.md`:
 
 | Signal | Library / technique | Default strategy |
