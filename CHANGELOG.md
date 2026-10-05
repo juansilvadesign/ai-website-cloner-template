@@ -107,6 +107,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `eslint-plugin-import` / `-jsx-a11y` / `-react`, each pulling `minimatch@3.x`.
   Recorded the measured evidence, including that an `overrides` pin to the sole
   patched release breaks lint at runtime
+- Changed how upstream is tracked. The fork still never takes upstream's tree, but
+  once every new upstream commit has a verdict it now records the judged commit
+  with `git merge -s ours`, so git, GitHub and the weekly watcher report new
+  commits only. First sync: `ee3f5a2` (v0.6.1), 38 commits, on 2026-10-05.
+  `ROADMAP.md`, `scripts/check-upstream.mjs` and `.github/upstream-triage.json`
+  carry the new wording, a sync log, and verdicts for every merged PR up to #125
+
+### Security
+- Pinned the retained Next.js target to Next.js and `eslint-config-next`
+  **16.3.8**. The 16.2 line had picked up a critical advisory, and upstream's own
+  16.3.5 pin (PR #119) sat inside the same range. Next.js 16.3.8 resolves patched
+  PostCSS and sharp releases itself, so the scoped `next` overrides were removed.
+  Production audit: 0 findings; the 9 that remain are dev-only and have no
+  non-breaking fix
+- Refreshed the Astro root's lockfile with a plain `npm audit fix` (Astro 7.1.3 →
+  7.3.5, plus devalue, sharp, svgo, smol-toml, js-yaml, nanoid and
+  http-cache-semantics). `package.json` is unchanged. Audit: 10 findings, one
+  critical, down to 0
 
 ## [0.4.0] - 2026-07-27
 

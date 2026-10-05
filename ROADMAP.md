@@ -15,27 +15,28 @@ board. The actionable checklist is **[`TASKS.md`](TASKS.md)**.
 
 ## Stance: this is a hard fork
 
-We do **not** sync upstream. We cherry-pick, and only when a change is worth it.
+We never take upstream's tree. We port what fits, in our own commits, and then
+record the upstream commit we judged with an ours-merge.
 
-The evidence, audited 2026-07-24:
+The evidence, audited twice:
 
-| Signal | State |
-| --- | --- |
-| Upstream `master` HEAD | `58e00d5`, **2026-07-04** — unchanged since we forked |
-| Last maintainer merge | PR **#44**, **2026-06-01** |
-| Open PRs | 20, none merged since #44 |
-| Typical PR content | Contributors PR-ing back their own generated clone output |
+| Signal | 2026-07-24 | 2026-10-05 |
+| --- | --- | --- |
+| Upstream `master` HEAD | `58e00d5`, 2026-07-04 — unchanged since we forked | `ee3f5a2`, 2026-10-05 — 38 commits later |
+| Maintainer activity | Last merge was PR **#44**, 2026-06-01 | 24 PRs merged since August; releases **v0.4.0 → v0.6.1** |
+| Open PRs | 20, none merged since #44 | 2 |
+| Typical PR content | Contributors PR-ing back their own generated clone output | Maintainer-authored workflow, dependency and README changes |
 
-Two independent reasons to stop tracking it:
+In July the first reason to stop tracking was that upstream had gone quiet. That
+is no longer true, and the reason that remains is enough on its own:
 
-1. **Upstream is inactive.** Waiting for a useful PR to be merged so we can pull
-   it is waiting indefinitely. Anything we want, we take directly from the PR branch.
-2. **We deliberately diverged.** Milestone A deleted 12 of the 13 agent targets and
-   Milestone D moves the repo off "the repo *is* a Next.js app." A merge from
-   upstream would fight both.
+- **We deliberately diverged.** Milestone A deleted 12 of the 13 agent targets and
+  Milestone D moved the repo off "the repo *is* a Next.js app." Upstream meanwhile
+  settled on four agents and one Next.js app. A merge of its tree would fight both.
 
-> **Never run `git merge upstream/master`.** Harvest with a targeted patch instead
-> — see [Harvesting from upstream](#harvesting-from-upstream) below.
+> **Never run a plain `git merge upstream/master`.** Port with a targeted patch,
+> then record the judged commit with `git merge -s ours`, which keeps our tree
+> byte-identical — see [Harvesting from upstream](#harvesting-from-upstream) below.
 
 ---
 
@@ -108,7 +109,8 @@ final 1440px/390px side-by-side artifacts the explicit definition of done. The
 README and inspection guide now document the emitted package and acceptance
 evidence, CI guards the checked-in reference package, and both manifests carry
 the fork's identity. The retained target moved to Next.js 16.2.12 with a clean
-production dependency audit.
+production dependency audit, and to 16.3.8 on 2026-10-05 after that line picked up
+a critical advisory.
 
 ### F — Multi-clone hub + slug namespacing ✅
 
@@ -197,21 +199,44 @@ while the identical command works in the foreground.
 
 ## Harvesting from upstream
 
-Every useful upstream PR edits **10 duplicate copies** of the skill, one per agent
-target. Milestone A deleted 9 of them — so harvesting is a single-hunk apply to
-`.claude/skills/clone-website/SKILL.md`, not a `git cherry-pick`.
+Since v0.5.0 upstream keeps one skill, at `.agents/skills/clone-website/`, with
+on-demand files under `references/`. Ours lives at
+`.claude/skills/clone-website/` and has a different shape, so a harvest is a port
+written in our own words, never a `git cherry-pick`.
 
 ```bash
-# Read just the hunk that matters:
-gh pr diff <N> --repo JCodesMore/ai-website-cloner-template \
-  | awk '/^diff --git a\/.claude/,/^diff --git a\/.codex/'
+# Read upstream's current skill without checking anything out:
+git fetch https://github.com/JCodesMore/ai-website-cloner-template.git master
+git show FETCH_HEAD:.agents/skills/clone-website/SKILL.md
 ```
 
-Then apply it by hand, keep our surrounding edits, and record the verdict in
+Port what fits, keep our surrounding rules, and record the verdict in
 [`.github/upstream-triage.json`](.github/upstream-triage.json). Use `harvest`
 while a port is queued, then change it to `harvested` when the port lands.
 
-### Verdicts on the current open PRs
+Once every new upstream commit has a verdict and the ports are in, record the
+commit that was judged:
+
+```bash
+git merge -s ours --no-ff -m "chore: record upstream <sha> (<release>)" FETCH_HEAD
+git diff --quiet HEAD^ HEAD   # must be silent: the merge changed no file
+```
+
+The merge takes nothing from upstream's tree. It only tells git, GitHub and the
+watcher that everything up to that commit has been judged, so the next report
+lists new commits only.
+
+### Sync log
+
+| Date | Recorded upstream | Ported | Left out |
+| --- | --- | --- | --- |
+| 2026-10-05 | `ee3f5a2` (v0.6.1), 38 commits | Observation, asset, build and comparison rules plus the Framer and motion reference (#123, #124); route rules for several pages of one origin (#99); exact Next.js pins, on the patched 16.3.8 (#88, #119) | READMEs, translations, badges and sponsors; the Kiro, Cline and Roo targets and their CI gate; the four-agent `.agents/` layout (#115); the sponsor asset fallback (#105, removed again in #114); upstream's removal of spec files, the pre-dispatch checklist and "What NOT to Do", which this fork keeps |
+
+### Verdicts recorded before the first sync
+
+Every PR below has since been merged or closed upstream. The table stays as the
+reasoning behind those verdicts; the two PRs open on 2026-10-05 (#121, #122) and
+every merged PR up to #125 are in `upstream-triage.json`.
 
 | PR | Verdict | Reasoning |
 | --- | --- | --- |
@@ -223,7 +248,7 @@ while a port is queued, then change it to `harvested` when the port lands.
 | **#63** Kiro support | **skip** | Adds a 14th agent target; directly fights the Claude-Code-only decision. |
 | **#25** agent-browser CLI | **skip** | Replaces browser MCP wholesale; fights the MCP-native setup and conflicts with #60/#68. |
 | **#17**, **#52**, **#54**, **#57**, **#58**, **#59**, **#61**, **#75** | **skip** | READMEs, devcontainer, CONTRIBUTING/SECURITY, and a CI check for the sync tooling we deleted. |
-| **#71** README token-count badge | **skip — merged upstream** | The one commit we are permanently behind (`a9b3575`). Its badge URL hardcodes `JCodesMore/ai-website-cloner-template`, so it would render *their* token count on our README; it also puts a third-party service (`gittokens.rsamf.com`) in the render path. Moot regardless — our README has carried no badge row since Milestone A, so the hunk has no target. |
+| **#71** README token-count badge | **skip — merged upstream** | The one commit we sat behind (`a9b3575`) until the 2026-10-05 sync recorded it. Its badge URL hardcodes `JCodesMore/ai-website-cloner-template`, so it would render *their* token count on our README; it also puts a third-party service (`gittokens.rsamf.com`) in the render path. Moot regardless — our README has carried no badge row since Milestone A, so the hunk has no target. |
 | **#47**, **#67**, **#73** | **noise** | Contributors' generated clone output, not tooling. |
 
 ---
@@ -252,8 +277,8 @@ reports every week.
 
 ## Contributing back
 
-If the maintainer becomes active again, some of this work is worth offering
-upstream. Most of it isn't — and that's fine.
+The maintainer is active again (24 PRs merged between August and October 2026),
+so some of this work is worth offering upstream. Most of it isn't — and that's fine.
 
 **Portable** — stack-agnostic and useful to any consumer of the cloner:
 
@@ -280,5 +305,5 @@ git switch -c contrib/<topic> upstream/master
 git cherry-pick <sha>
 ```
 
-No `upstream` remote and no contrib branch exist yet — deliberately. There's
-nobody to receive a PR today. This is the recipe for the day that changes.
+No `upstream` remote and no contrib branch exist yet. Nothing has been offered
+upstream so far; this is the recipe for the first time something is.

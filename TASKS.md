@@ -189,13 +189,30 @@ a complete retained target with an independent manifest and lockfile.
       superseded by the July security line: the retained target now uses Next.js
       16.2.12 with matching ESLint config and scoped PostCSS, sharp, and Hono
       overrides. Its production audit is clean.
+- [x] Re-patch both dependency trees (2026-10-05, with the upstream sync). The
+      16.2 line had picked up a critical Next.js advisory, and upstream's own
+      16.3.5 pin (#119) sat inside the same range, so the retained target pins
+      Next.js and `eslint-config-next` **16.3.8**. Next 16.3.8 pins PostCSS 8.5.23
+      and asks for sharp `^0.35.4` itself, so the scoped `next` overrides are gone;
+      only the Hono one remains. The Astro root took a lockfile-only
+      `npm audit fix` (Astro 7.1.3 → 7.3.5). Production audits: **0** in both trees.
 
 ### Follow-up
 
-- [ ] Remove the retained target's dev-only `brace-expansion` audit finding
-      (GHSA-mh99-v99m-4gvg, high, `<= 5.0.7`). **Still blocked upstream — do not
-      hand-fix it.** Re-checked 2026-07-27; run `npm run check:nextjs-audit` for the
-      current verdict instead of re-deriving any of this.
+- [ ] Clear the retained target's dev-only audit findings. **Still blocked
+      upstream — do not hand-fix it.** Measured 2026-10-05 on Next.js 16.3.8: 9
+      findings, all dev-only, all from one advisory, `braces <= 3.0.3`
+      (GHSA-vfj7-8cjw-p6xm), reached through `micromatch` → `fast-glob` under
+      `shadcn` and `@next/eslint-plugin-next`. npm offers only semver-major
+      "fixes" (a downgrade of `eslint-config-next` or `shadcn`).
+- [ ] Bring `scripts/check-nextjs-audit.mjs` back in line with the audit. It still
+      reports the older `brace-expansion` advisory (GHSA-mh99-v99m-4gvg) and marks
+      every copy that is not exactly 5.0.8 as vulnerable, so it lists 1.1.21 and
+      5.0.12 while `npm audit` no longer names `brace-expansion` at all. Its
+      verdict (BLOCKED) and its production line are still right.
+
+  The notes below are the July measurements behind that script. Re-checked
+  2026-07-27; they describe the `brace-expansion` finding, not today's.
 
   The earlier note framed this as "waiting for Next's ESLint plugin set to accept
   ESLint 10". That was measured and is **not** the real precondition:

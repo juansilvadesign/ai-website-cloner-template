@@ -12,6 +12,7 @@ type: project
 ## ▶ Live resume state
 
 - ✅ **Shelf recreation committed and QA-green.**
+- ✅ **Upstream sync 2026-10-05:** judged all 38 commits up to `ee3f5a2` (v0.6.1), ported the cloning rules that fit, patched both dependency trees (Next.js 16.3.8, Astro 7.3.5), and recorded upstream with an ours-merge. Verdicts: `.github/upstream-triage.json`; reasoning: `ROADMAP.md`, Harvesting from upstream.
 - **Next:**
   1. **Mint OAuth**
   2. The **19-book GLB pack**

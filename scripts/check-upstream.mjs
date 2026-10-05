@@ -2,8 +2,9 @@
 /**
  * check-upstream.mjs — keep an eye on the fork's upstream without merging it.
  *
- * This fork is a HARD FORK (see ROADMAP.md). We never sync upstream wholesale;
- * we cherry-pick. So the only two questions worth asking each week are:
+ * This fork is a HARD FORK (see ROADMAP.md). We never take upstream's tree; we
+ * port what fits, then record the judged commit with `git merge -s ours`. So the
+ * only two questions worth asking each week are:
  *
  *   1. Did upstream's master actually move?  (git — exact, no API guessing)
  *   2. Is there an open PR we haven't judged yet?  (GitHub API + our triage file)
@@ -157,7 +158,7 @@ function buildReport(commits, prs) {
 
   L.push(`# Upstream watch — \`${upstreamRepo}\``);
   L.push('');
-  L.push(`_Checked ${new Date().toISOString().slice(0, 10)}. This fork is a hard fork — we cherry-pick, we never sync._`);
+  L.push(`_Checked ${new Date().toISOString().slice(0, 10)}. This fork is a hard fork — we port what fits and never take upstream's tree._`);
   L.push('');
 
   L.push('## 1. Did upstream `master` move?');
@@ -173,7 +174,7 @@ function buildReport(commits, prs) {
     L.push(...commits.commits);
     L.push('```');
     L.push('');
-    L.push('Review each one and cherry-pick what applies. Do **not** merge upstream/master — the prune (Milestone A) and the Astro shift (Milestone D) have diverged the tree on purpose.');
+    L.push('Review each one and port what applies. Do **not** run a plain merge of upstream/master — the prune (Milestone A) and the Astro shift (Milestone D) have diverged the tree on purpose. Once every commit has a verdict, record the judged commit with `git merge -s ours` (ROADMAP.md, Harvesting from upstream).');
   }
   L.push('');
 

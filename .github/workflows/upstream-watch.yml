@@ -3,7 +3,7 @@ name: Upstream watch
 # The weekly maintenance watch. Two independent jobs, one schedule:
 #
 #   watch            — this fork is a hard fork of JCodesMore/ai-website-cloner-template;
-#                      we cherry-pick, we never sync. Keeps an eye on the original repo
+#                      we port what fits and never take its tree. Keeps an eye on the original repo
 #                      and maintains ONE issue describing anything we haven't judged yet.
 #                      See ROADMAP.md.
 #   dependency-watch — the retained Next.js target carries a dev-only advisory that is
