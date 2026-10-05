@@ -4,10 +4,10 @@ This directory is the complete `--build nextjs` target. It has its own package
 manifest, lockfile, TypeScript, ESLint, PostCSS, and shadcn configuration so its
 dependency graph cannot leak into the Astro root.
 
-The release pins Next.js and `eslint-config-next` together. Scoped npm overrides
-keep Next's PostCSS and optional sharp dependencies on patched releases until
-upstream widens its own ranges; the shadcn CLI is build-time tooling and remains
-in `devDependencies`.
+The release pins Next.js and `eslint-config-next` together, to exact versions.
+Next.js 16.3.8 resolves patched PostCSS and sharp releases by itself, so the only
+scoped npm override left is the Hono server under the shadcn CLI; that CLI is
+build-time tooling and remains in `devDependencies`.
 
 Before `dev` or `build`, `scripts/sync-design-system.mjs` copies the selected
 OpenDesign package's derived `tailwind-v4.css` and source `tokens.css` into an
