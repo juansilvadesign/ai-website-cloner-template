@@ -37,6 +37,8 @@ viewport widths:
 - [ ] Desktop: 1440px
 - [ ] Mobile: 390px
 - [ ] Tablet inspection: 768px (a final comparison composite is not required)
+- [ ] Sweep from mobile to beyond the desktop design; narrow around each
+      responsive transition.
 - [ ] Dark/light theme variants when the target exposes them
 - [ ] Any consent, loading, empty, error, modal, menu, or authenticated state in
       scope
@@ -44,6 +46,8 @@ viewport widths:
 Save the untouched original captures under
 `docs/design-references/<slug>/`. Record the viewport height and device scale so
 the clone can be captured identically during final QA.
+
+- [ ] Recapture whole-page evidence after visiting lazy and reveal sections.
 
 ## 2. Reconnaissance and behavior
 
@@ -58,6 +62,8 @@ the clone can be captured identically during final QA.
 - [ ] Radius, border, elevation, and focus treatment
 - [ ] Containers, grids, breakpoints, sticky/fixed layers, overflow, and z-index
 - [ ] Favicons, metadata, locale, social images, and webmanifest
+- [ ] Page-wide scripts from root classes, globals, and loaded files, plus
+      smooth-scroll, snap, cursor, and transition options
 
 Values come from `getComputedStyle()` or a source artifact, never visual
 estimation.
@@ -65,6 +71,7 @@ estimation.
 ### Mandatory interaction sweep
 
 - [ ] Scroll slowly from top to bottom before clicking anything.
+- [ ] Identify pinned scenes during that scroll before calling them tabs.
 - [ ] Record sticky changes, reveal triggers, parallax, scroll snap, active-item
       changes, and smooth-scroll libraries.
 - [ ] Click every button, tab, pill, card, menu, and control; extract every state
@@ -167,6 +174,9 @@ Asset inventory must cover images, `srcset`, CSS backgrounds, inline SVGs,
 fonts, video sources/posters, favicons, OG images, and manifests. Download into
 the selected target's `public/` tree with meaningful names.
 
+- [ ] Verify each download's content type and dimensions; an HTTP success
+      can still be an error page or a different image format.
+
 Split a spec when its inline builder prompt would exceed roughly 150 lines.
 Builders receive the complete spec inline and do not browse the target.
 
@@ -216,6 +226,10 @@ docs/design-references/<slug>/qa/
 Each `comparison-*.png` places the original and clone side-by-side. Review every
 section top to bottom, fix the spec or implementation at the source, then
 recapture both composites after the last correction.
+
+- [ ] Label comparison captures by source/local route, viewport, scroll
+      position, and interaction state.
+- [ ] Check horizontal overflow and failed assets separately from similarity.
 
 Replay the interaction sweep against the clone: scroll, click, hover, focus,
 timed motion, and responsive transitions. Record every deliberate difference

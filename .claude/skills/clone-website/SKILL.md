@@ -26,7 +26,16 @@ Command surface:
 - `--build none` emits and validates the design system, then stops before page work.
 - `--slug` overrides the normalized hostname. It is valid only with one URL.
 
-When multiple URLs are provided, process them independently and in parallel where possible, while keeping each site's extraction artifacts isolated in dedicated folders (for example, `docs/research/<hostname>/`).
+When multiple URLs are provided, process distinct origins independently and in parallel where possible, while keeping each site's extraction artifacts isolated in dedicated folders (for example, `docs/research/<hostname>/`).
+
+Before building, map every source URL to a local `/<slug>/…` route and record
+the route, component, asset, and spec files each page owns. Group pages from
+one origin under one slug and keep each source pathname beneath it. Treat query
+strings and fragments as states of a route unless inspection shows otherwise.
+For an existing clone at that slug, compare it with the live source and record
+which files and behavior can be reused. Resolve an unrequested collision with
+an authored route or asset before replacing it. Extend the clone's layout and
+`clone.css` for new pages without replacing styles its other pages use.
 
 For page targets, this is not a two-phase process (inspect then build). You are a
 **foreman walking the job site** — once the global extraction has produced a valid
@@ -135,7 +144,7 @@ Look at each section and judge its complexity. A simple banner with a heading an
 
 ### 3. Real Content, Real Assets
 
-Extract the actual text, images, videos, and SVGs from the live site. This is a clone, not a mockup. Use `element.textContent`, download every `<img>` and `<video>`, extract inline `<svg>` elements as React components. The only time you generate content is when something is clearly server-generated and unique per session.
+Extract the actual text, images, videos, and SVGs from the live site. This is a clone, not a mockup. Use `element.textContent`, download every `<img>` and `<video>`, extract inline `<svg>` elements as React components. The only time you generate content is when something is clearly server-generated and unique per session. Use the files the source actually loads; a similarly named image or icon from another provider can have different shapes and metrics. Match the real font before changing widths to repair text wrapping.
 
 **Layered assets matter.** A section that looks like one image is often multiple layers — a background watercolor/gradient, a foreground UI mockup PNG, an overlay icon. Inspect each container's full DOM tree and enumerate ALL `<img>` elements and background images within it, including absolutely-positioned overlays. Missing an overlay image makes the clone look empty even if the background is correct.
 
@@ -221,11 +230,18 @@ When a site is saturated with dynamic effects — heavy scroll-driven timelines,
 
 ## Phase 1: Reconnaissance
 
-Navigate to the target URL with browser MCP.
+Navigate to the target URL with browser MCP. Treat each observed rendering as
+one sample of a rule: read computed styles, CSS variables, and a library's
+live options, then vary width (including wider than the desktop design),
+viewport height, input, and state until the cause of each change is clear.
+A large DOM dump does not replace looking at the page. If a read-only DOM
+snapshot lacks an API such as `document.fonts`, obtain the missing
+measurement from asset metadata instead.
 
 ### Screenshots
 - Take **full-page screenshots** at desktop (1440px) and mobile (390px) viewports
-- Save to `docs/design-references/` with descriptive names
+- Save to `docs/design-references/` with names recording the route, viewport,
+  scroll position, and interaction state
 - These are your master reference — builders will receive section-specific crops/screenshots later
 
 ### Global Extraction
@@ -247,17 +263,21 @@ page title, description, locale, and social metadata. Download them into the sel
 target's `public/clones/<slug>/seo/` (Astro) or `templates/nextjs/public/seo/`
 (Next.js) during Phase 3.
 
-**Global UI patterns** — Identify site-wide CSS or JS: custom scrollbar hiding,
+**Global UI patterns** — Identify page-wide CSS or JS: custom scrollbar hiding,
 scroll-snap on the page container, global keyframes, backdrop filters, gradients used
-as overlays, and **smooth scroll libraries** (Lenis, Locomotive Scroll — check for
-`.lenis`, `.locomotive-scroll`, or custom containers). Record them in
-`BEHAVIORS.md`; implement only after the static target foundation is green.
+as overlays, smooth scrolling, cursor followers, and page transitions. Inspect
+root classes, globals, and loaded scripts; record library options, including
+Lenis or Locomotive Scroll (`.lenis`, `.locomotive-scroll`, or custom containers),
+in `BEHAVIORS.md`. Implement only after the static target foundation is green.
 
 ### Mandatory Interaction Sweep
 
 This is a dedicated pass AFTER screenshots and BEFORE anything else. Its purpose is to discover every behavior on the page — many of which are invisible in a static screenshot.
 
-**Scroll sweep:** Scroll the page slowly from top to bottom via browser MCP. At each section, pause and observe:
+**Scroll sweep:** Scroll the page slowly from top to bottom via visitor inputs
+(wheel, touch, keyboard, pointer) before clicking; scripted scrolling can bypass
+smooth-scroll handlers. Do not mistake a pinned scene for tabs. At each section,
+pause and observe:
 - Does the header change appearance? Record the scroll position where it triggers.
 - Do elements animate into view? Record which ones and the animation type.
 - Does a sidebar or tab indicator auto-switch as you scroll? Record the mechanism.
@@ -277,7 +297,7 @@ This is a dedicated pass AFTER screenshots and BEFORE anything else. Its purpose
 - Desktop: 1440px
 - Tablet: 768px
 - Mobile: 390px
-- At each width, note which sections change layout (column → stack, sidebar disappears, etc.) and at approximately which breakpoint the change occurs.
+- At each width, note which sections change layout (column → stack, sidebar disappears, etc.) and at approximately which breakpoint the change occurs. Continue wider than the source design, then narrow around each transition.
 
 Save all findings to `docs/research/BEHAVIORS.md`. This is your behavior bible — reference it when writing every component spec.
 
@@ -397,6 +417,10 @@ clone ever had a page.
    `clone.css`. Set the clone's own metadata, `lang`, canonical, and favicon.
 3. Create routes under `src/pages/<slug>/`. `src/pages/<slug>/index.astro` serves
    the target's `/`. Components are imported from `../../clones/<slug>/components/`.
+   Escape literal source segments that collide with the selected framework's
+   routing syntax and verify the URL actually requested. Astro ignores route
+   files and directories beginning with `_`; represent such a segment through
+   a dynamic route and `getStaticPaths()` with the literal segment.
 4. Create shared content interfaces under `src/clones/<slug>/types/`. Extract
    deduplicated SVGs as semantic `.astro` components in
    `src/clones/<slug>/components/`.
@@ -438,7 +462,10 @@ Use browser MCP to enumerate all assets on the page:
 // Run this via browser MCP to discover all assets
 JSON.stringify({
   images: [...document.querySelectorAll('img')].map(img => ({
-    src: img.src || img.currentSrc,
+    src: img.src,
+    currentSrc: img.currentSrc,
+    objectFit: getComputedStyle(img).objectFit,
+    objectPosition: getComputedStyle(img).objectPosition,
     alt: img.alt,
     width: img.naturalWidth,
     height: img.naturalHeight,
@@ -469,7 +496,12 @@ JSON.stringify({
 ```
 
 Then download everything to the selected target's public directory. Use batches of four
-with proper error handling.
+with proper error handling. Keep a source URL → local path map. Check every
+download's content type and dimensions: a `.png` URL can serve AVIF, and an
+HTTP success can be an error page. Record image `currentSrc`, `object-fit`,
+and crop position; video source, poster, autoplay, loop, and mute; and SVG
+`viewBox` plus referenced gradients, masks, symbols, and filters. Confirm
+each font file's actual weight and style before declaring `@font-face`.
 
 ## Phase 4: Component Specification & Dispatch
 
@@ -518,7 +550,7 @@ For each section, use browser MCP to extract everything:
       classes: element.className?.toString().split(' ').slice(0, 5).join(' '),
       text: element.childNodes.length === 1 && element.childNodes[0].nodeType === 3 ? element.textContent.trim().slice(0, 200) : null,
       styles: extractStyles(element),
-      images: element.tagName === 'IMG' ? { src: element.src, alt: element.alt, naturalWidth: element.naturalWidth, naturalHeight: element.naturalHeight } : null,
+      images: element.tagName === 'IMG' ? { src: element.src, currentSrc: element.currentSrc, alt: element.alt, naturalWidth: element.naturalWidth, naturalHeight: element.naturalHeight } : null,
       childCount: children.length,
       children: children.slice(0, 20).map(c => walk(c, depth + 1)).filter(Boolean)
     };
@@ -624,6 +656,9 @@ Fill every section. If a section doesn't apply (e.g., no states for a static foo
 
 ### Step 3: Dispatch Builders
 
+Build each shared component with all observed states and breakpoints before
+dispatching sections that reuse it.
+
 Based on complexity, dispatch builder agent(s) in worktree(s):
 
 **Simple section** (1-2 sub-components): One builder agent gets the entire section.
@@ -685,6 +720,9 @@ After all sections are built and merged, assemble the selected page:
 - Next.js: compose `.tsx` sections in `templates/nextjs/src/app/page.tsx`.
 - Implement the page-level layout from your topology doc (scroll containers, column structures, sticky positioning, z-index layering)
 - Connect real content to component props
+- Make every visible control perform its promised action. Rewrite links to
+  local `/<slug>/…` routes when their pages are in scope; leave out-of-scope
+  links pointing to the source and disclose them in the completion report.
 - Implement page-level behaviors only after the static assembly is green. Preserve
   server-rendered content when adding scroll snap, transitions, observers, or smooth
   scroll.
@@ -710,6 +748,20 @@ comparison artifacts against the original:
 6. Verify smooth scroll feels right, header transitions work, tab switching works, animations play
 7. Re-capture both comparison artifacts after the final correction; stale
    before-fix screenshots are not acceptance evidence.
+
+Compare at matching viewport height, scroll position, and interaction state
+after fonts, media, and reveal motion settle. Review every width, height, or
+state boundary found in Phase 1, including a viewport wider than the design.
+Use real scroll and pointer input to judge behavior. Repair geometry first,
+then missing sections or layers, typography and wrapping, asset crop, spacing,
+and motion. Compare animated regions initially, while active, and once settled;
+include reverse scroll where it applies.
+
+Exercise navigation between the clone's routes, the mobile menu, tab and
+accordion states, carousel boundaries, primary actions, and media controls.
+Check runtime errors, missing assets, and horizontal overflow separately from
+visual similarity. Confirm the hub and other clones still work. Use browser
+checks at these boundaries rather than assertions about class names.
 
 ## Final Acceptance Gates
 
@@ -798,3 +850,6 @@ When done, report:
   remaining discrepancies (N/A for `--build none`)
 - Motion tier (light / moderate / heavy) and any animations deferred or substituted with fallbacks
 - Any known gaps or limitations
+- Source-to-local route map, including reused pages and out-of-scope links
+- Comparisons made and checks actually run; describe each remaining difference
+  precisely. Never call an unchecked result pixel-perfect.
