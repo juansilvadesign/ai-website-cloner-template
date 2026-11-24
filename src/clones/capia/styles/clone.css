@@ -1,0 +1,18 @@
+/* Capiá clone — stylesheet entry.
+   The original ships ONE stylesheet whose rules lean on source order (e.g.
+   `.botao--painel` overriding `.botao` at equal specificity), so the clone keeps
+   that order: tokens, the shared reset, then base and each section in page
+   order. Section CSS stays global (BEM-prefixed) because the client scripts
+   create styled nodes at runtime (trail photos, carousel clones, seal items),
+   which scoped styles would miss. The brand palette in base.css aliases the
+   OpenDesign tokens in design-systems/capia/tokens.css. */
+@import "../../../../design-systems/capia/tokens.css";
+@import "../../../styles/reset.css";
+@import "./base.css";
+@import "./sections/topo.css";
+@import "./sections/hero.css";
+@import "./sections/apelidos.css";
+@import "./sections/faixa.css";
+@import "./sections/cardapio.css";
+@import "./sections/casa.css";
+@import "./sections/rodape.css";

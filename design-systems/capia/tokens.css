@@ -1,0 +1,93 @@
+/* Capiá — tokens.css
+ * Emitted by scripts/emit-design-system.ts from source/tokens.source.json.
+ * Declares every OpenDesign TOKEN_SCHEMA slot (56). Edit the
+ * source artifact and re-emit; do not hand-edit derived files. */
+
+:root {
+  /* ─── Surface ─────────────────────────────────────────────────── */
+  --bg:                       #f5eddf;
+  --surface:                  #fffaf1;
+  --surface-warm:             #231e19;
+
+  /* ─── Foreground ──────────────────────────────────────────────── */
+  --fg:                       #16130f;
+  --fg-2:                     #231e19;
+  --muted:                    rgb(22 19 15 / 0.6);
+  --meta:                     var(--muted);
+
+  /* ─── Border ──────────────────────────────────────────────────── */
+  --border:                   #16130f;
+  --border-soft:              rgb(245 237 223 / 0.16);
+
+  /* ─── Accent ──────────────────────────────────────────────────── */
+  --accent:                   #f8b21b;
+  --accent-on:                #16130f;
+  --accent-hover:             color-mix(in oklab, var(--accent), black 8%);
+  --accent-active:            color-mix(in oklab, var(--accent), black 14%);
+
+  /* ─── Semantic ────────────────────────────────────────────────── */
+  --success:                  #3f8040;
+  --warn:                     #f8b21b;
+  --danger:                   #dc4126;
+
+  /* ─── Typography — fonts ──────────────────────────────────────── */
+  --font-display:             "Bricolage Grotesque Variable", "Bricolage Grotesque", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body:                "Bricolage Grotesque Variable", "Bricolage Grotesque", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono:                ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Monaco, Consolas, monospace;
+
+  /* ─── Typography — scale ──────────────────────────────────────── */
+  --text-xs:                  12px;
+  --text-sm:                  14px;
+  --text-base:                16px;
+  --text-lg:                  18px;
+  --text-xl:                  clamp(34px, 3.9vw, 56px);
+  --text-2xl:                 clamp(44px, 5vw, 72px);
+  --text-3xl:                 max(58px, 6.7vw);
+  --text-4xl:                 10.3vw;
+
+  /* ─── Typography — leading & tracking ─────────────────────────── */
+  --leading-body:             1.5;
+  --leading-tight:            1.02;
+  --tracking-display:         -0.03em;
+
+  /* ─── Spacing ─────────────────────────────────────────────────── */
+  --space-1:                  4px;
+  --space-2:                  8px;
+  --space-3:                  12px;
+  --space-4:                  14px;
+  --space-5:                  22px;
+  --space-6:                  24px;
+  --space-8:                  32px;
+  --space-12:                 50px;
+
+  /* ─── Section rhythm ──────────────────────────────────────────── */
+  --section-y-desktop:        112px;
+  --section-y-tablet:         clamp(67px, 8.75vw, 112px);
+  --section-y-phone:          84px;
+
+  /* ─── Radius ──────────────────────────────────────────────────── */
+  --radius-sm:                1.85em 2.15em .95em .8em / 1.7em 1.9em .78em .7em;
+  --radius-md:                15px;
+  --radius-lg:                22px 26px 20px 24px / 22px 20px 26px 22px;
+  --radius-pill:              999px;
+
+  /* ─── Elevation ───────────────────────────────────────────────── */
+  --elev-flat:                none;
+  --elev-ring:                0 0 0 3px #16130f;
+  --elev-raised:              0 16px 38px rgb(0 0 0 / 0.32);
+
+  /* ─── Focus ───────────────────────────────────────────────────── */
+  --focus-ring:               0 0 0 3px #16130f;
+
+  /* ─── Motion ──────────────────────────────────────────────────── */
+  --motion-fast:              150ms;
+  --motion-base:              190ms;
+  --ease-standard:            cubic-bezier(.22, 1, .36, 1);
+
+  /* ─── Layout ──────────────────────────────────────────────────── */
+  --container-max:            1220px;
+  --container-gutter-desktop: clamp(20px, 4vw, 64px);
+  --container-gutter-tablet:  24px;
+  --container-gutter-phone:   20px;
+}
+

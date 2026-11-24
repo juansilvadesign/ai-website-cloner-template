@@ -1,0 +1,705 @@
+/* Capiá — cardapio section. Ported verbatim (formatted) from the original stylesheet;
+   keep the import order in clone.css: it is the original cascade order. */
+
+.cardapio {
+  --foco: var(--carvao);
+  z-index: 2;
+  background: var(--primeiro-painel, var(--cheddar));
+  isolation: isolate;
+  width: 100%;
+  display: flow-root;
+  position: relative;
+}
+.cardapio[data-cor="tomate"],
+.cardapio[data-cor="mate"] {
+  --foco: var(--branco);
+}
+.cardapio[data-cor="carvao"] {
+  --foco: var(--cheddar);
+}
+.cardapio__ancora {
+  pointer-events: none;
+  width: 0;
+  height: 0;
+  display: block;
+  overflow: hidden;
+}
+.cardapio__folga {
+  pointer-events: none;
+  height: 56svh;
+}
+.cardapio__nav {
+  --alt: calc(30px + var(--n, 4) * 43px);
+  z-index: 100;
+  width: 38px;
+  height: var(--alt);
+  margin: 220px 0 calc(-220px - var(--alt)) min(4.7vw, 94px);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  background: #ffffff3d;
+  border-radius: 999px;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 8px 6px;
+  display: flex;
+  position: sticky;
+  top: 50svh;
+  left: 0;
+  transform: translateY(-50%);
+}
+.cardapio__ponto {
+  background: var(--branco);
+  cursor: pointer;
+  border: 0;
+  border-radius: 50%;
+  flex: none;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  transition:
+    transform 0.23s,
+    background-color 0.23s;
+  position: relative;
+  box-shadow: 0 1px 6px #16130f29;
+}
+.cardapio__ponto:after {
+  content: "";
+  position: absolute;
+  inset: -11px;
+}
+@media (hover: hover) {
+  .cardapio__ponto:hover {
+    transform: scale(1.2);
+  }
+}
+.cardapio__ponto:active {
+  transform: scale(0.9);
+}
+.cardapio__ponto.ativo {
+  background: var(--carvao);
+  transform: scale(1.12);
+}
+.cardapio[data-cor="carvao"] .cardapio__ponto.ativo {
+  background: var(--cheddar);
+}
+.painel {
+  --u: min(calc(100vw / 1440), calc(100svh / 750));
+  --cor: var(--cheddar);
+  --tinta: var(--carvao);
+  --pilula: #fffaf152;
+  --pilula-forte: #fffaf185;
+  --ativo: var(--carvao);
+  --ativo-tinta: var(--pao);
+  --marca-op: 0.4;
+  --foco: var(--carvao);
+  z-index: var(--ordem);
+  width: 100%;
+  height: 100svh;
+  min-height: 520px;
+  color: var(--tinta);
+  position: sticky;
+  top: 0;
+}
+.painel--tomate,
+.painel--mate {
+  --foco: var(--branco);
+}
+.painel--carvao {
+  --foco: var(--cheddar);
+}
+.painel--tomate {
+  --cor: var(--tomate);
+  --tinta: var(--branco);
+  --pilula: #fffaf133;
+  --pilula-forte: #fffaf157;
+  --marca-op: 0.2;
+}
+.painel--mate {
+  --cor: var(--mate);
+  --tinta: var(--branco);
+  --pilula: #fffaf133;
+  --pilula-forte: #fffaf157;
+  --marca-op: 0.17;
+}
+.painel--carvao {
+  --cor: var(--carvao);
+  --tinta: var(--pao);
+  --pilula: #f5eddf24;
+  --pilula-forte: #f5eddf42;
+  --ativo: var(--cheddar);
+  --ativo-tinta: var(--carvao);
+  --marca-op: 0.06;
+}
+.painel:before {
+  content: "";
+  z-index: 29;
+  width: 100%;
+  height: var(--rasgo);
+  background: var(--cor-de-tras, transparent);
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.painel__borda {
+  z-index: 30;
+  width: 100%;
+  height: var(--rasgo);
+  background: var(--cor);
+  pointer-events: none;
+  -webkit-mask: var(--borda) center / 100% 100% no-repeat;
+  -webkit-mask: var(--borda) center / 100% 100% no-repeat;
+  mask: var(--borda) center / 100% 100% no-repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.painel__recorte {
+  inset: calc(var(--rasgo) - 1px) 0 0;
+  background: var(--cor);
+  position: absolute;
+  overflow: hidden;
+}
+.painel__palco {
+  width: calc(1440 * var(--u));
+  height: calc(750 * var(--u));
+  translate: -50% calc(-50% - var(--rasgo) / 2);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+.painel__titulo {
+  z-index: 8;
+  top: calc(50 * var(--u));
+  width: 100%;
+  font-weight: 800;
+  font-size: min(calc(54 * var(--u)), 64px);
+  letter-spacing: -0.03em;
+  text-align: center;
+  font-variation-settings:
+    "opsz" 96,
+    "wdth" 92;
+  line-height: 1.02;
+  position: absolute;
+  left: 0;
+}
+.seletor {
+  z-index: 9;
+  top: calc(128 * var(--u));
+  left: calc(150 * var(--u));
+  grid-template-columns: calc(52 * var(--u)) minmax(0, 1fr) calc(52 * var(--u));
+  width: calc(1140 * var(--u));
+  height: calc(104 * var(--u));
+  align-items: center;
+  display: grid;
+  position: absolute;
+}
+.seletor__seta {
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  color: inherit;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  font-weight: 300;
+  font-size: calc(54 * var(--u));
+  background: 0 0;
+  border: 0;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  line-height: 1;
+  transition:
+    translate 0.19s,
+    scale 0.19s;
+  display: inline-flex;
+  position: relative;
+}
+.seletor__seta:active {
+  scale: 0.86;
+}
+.seletor__seta span {
+  margin-top: -0.1em;
+  display: block;
+}
+@media (hover: hover) {
+  .seletor__seta[data-anterior]:hover {
+    translate: -3px;
+  }
+  .seletor__seta[data-proximo]:hover {
+    translate: 3px;
+  }
+}
+.seletor:not(.seletor--laco) .seletor__seta {
+  visibility: hidden;
+}
+.seletor__janela {
+  clip-path: inset(-40px 0);
+  touch-action: pan-y;
+  width: 100%;
+  height: 100%;
+}
+.seletor__trilho {
+  --vao: calc(12.5 * var(--u));
+  align-items: center;
+  gap: var(--vao);
+  width: 100%;
+  height: 100%;
+  transition: transform 0.41s var(--sai);
+  will-change: transform;
+  display: flex;
+}
+.seletor__trilho.sem-transicao {
+  transition: none;
+}
+.pilula[hidden] {
+  display: none;
+}
+@media (min-width: 768px) {
+  .seletor:not(.seletor--laco) .seletor__trilho {
+    justify-content: center;
+  }
+}
+.pilula {
+  flex: 0 0 calc((100% - 3 * var(--vao)) / 4);
+  height: 100%;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  isolation: isolate;
+  -webkit-tap-highlight-color: transparent;
+  background: 0 0;
+  border: 0;
+  align-items: center;
+  padding: 0;
+  transition: color 0.23s;
+  display: flex;
+  position: relative;
+}
+.pilula:before {
+  content: "";
+  z-index: 0;
+  font-size: calc(24 * var(--u));
+  border-radius: var(--pao-a);
+  background: var(--pilula);
+  -webkit-backdrop-filter: blur(5px) saturate(106%);
+  backdrop-filter: blur(5px) saturate(106%);
+  transition: background-color 0.23s;
+  position: absolute;
+  inset: 12% 0 10% 13%;
+}
+.pilula--b:before {
+  border-radius: var(--pao-b);
+}
+.pilula--c:before {
+  border-radius: var(--pao-c);
+}
+.pilula__foto {
+  transition:
+    translate 0.23s var(--sai),
+    rotate 0.23s var(--sai);
+}
+@media (hover: hover) {
+  .pilula:not(.ativa):hover:before {
+    background: var(--pilula-forte);
+  }
+  .pilula:hover .pilula__foto {
+    translate: 0 calc(-50% - 4px);
+    rotate: -3deg;
+  }
+}
+.pilula:active .pilula__foto {
+  translate: 0 -50%;
+  rotate: 0deg;
+}
+.pilula.ativa {
+  color: var(--ativo-tinta);
+}
+.pilula.ativa:before {
+  background: var(--ativo);
+}
+.pilula__foto {
+  z-index: 2;
+  width: calc(100 * var(--u));
+  aspect-ratio: 1;
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  translate: 0 -50%;
+}
+.pilula__foto img {
+  object-fit: contain;
+  filter: drop-shadow(0 3px 5px #00000038);
+  width: 100%;
+  height: 100%;
+}
+.pilula__texto {
+  z-index: 3;
+  pointer-events: none;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+  margin: 0 5% 0 42.5%;
+  display: flex;
+  position: relative;
+}
+.pilula__texto strong {
+  font-weight: 700;
+  font-size: max(12px, calc(15 * var(--u)));
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+  line-height: 1.1;
+}
+.pilula__texto small {
+  font-weight: 500;
+  font-size: max(12px, calc(12 * var(--u)));
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  opacity: 0.8;
+  line-height: 1.15;
+  overflow: hidden;
+}
+.pilula:focus-visible {
+  outline: 3px solid var(--foco);
+  outline-offset: 2px;
+  border-radius: 40px;
+}
+.cena {
+  top: calc(202 * var(--u));
+  left: calc(205 * var(--u));
+  width: calc(1030 * var(--u));
+  height: calc(424 * var(--u));
+  position: absolute;
+}
+.cena__marca {
+  z-index: 0;
+  color: var(--branco);
+  opacity: var(--marca-op);
+  font-family: var(--fonte-mao);
+  font-size: calc(380 * var(--u));
+  white-space: nowrap;
+  pointer-events: none;
+  -webkit-user-select: none;
+  user-select: none;
+  line-height: 1;
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  translate: -50% -50%;
+  rotate: -6.2deg;
+}
+.cena__peca {
+  --x: 0%;
+  --y: 0%;
+  --w: 20%;
+  --giro: 0deg;
+  --rx: 0px;
+  --ry: 0px;
+  --rr: 0deg;
+  --fx: 0px;
+  --fy: 0px;
+  --fr: 0deg;
+  z-index: 3;
+  top: var(--y);
+  left: var(--x);
+  width: var(--w);
+  aspect-ratio: 1;
+  translate: calc(var(--rx) + var(--fx)) calc(var(--ry) + var(--fy));
+  rotate: calc(var(--giro) + var(--rr) + var(--fr));
+  pointer-events: none;
+  backface-visibility: hidden;
+  will-change: translate, rotate;
+  position: absolute;
+}
+.cena__peca img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+.cena__peca--1 {
+  --x: 4.2%;
+  --y: 17.5%;
+  --w: 22%;
+  --giro: -7deg;
+}
+.cena__peca--2 {
+  --x: 58.5%;
+  --y: -3%;
+  --w: 19%;
+  --giro: 12.5deg;
+  z-index: 2;
+  filter: blur(calc(5.5 * var(--u)));
+}
+.cena__peca--3 {
+  --x: 70.5%;
+  --y: 7%;
+  --w: 22%;
+  --giro: 8deg;
+}
+.cena__peca--4 {
+  --x: 65.5%;
+  --y: 58.5%;
+  --w: 14.5%;
+  --giro: -12.5deg;
+}
+.cena__peca--5 {
+  --x: 79%;
+  --y: 46.5%;
+  --w: 20%;
+  --giro: 6.8deg;
+}
+.cena__peca--6 {
+  --x: 12%;
+  --y: 61.5%;
+  --w: 16.5%;
+  --giro: 10.5deg;
+}
+.cena__peca--7 {
+  --x: 25.5%;
+  --y: 54.5%;
+  --w: 16%;
+  --giro: -5.6deg;
+  z-index: 2;
+  filter: blur(calc(6.5 * var(--u)));
+}
+.cena__peca--2 img,
+.cena__peca--7 img {
+  opacity: 0.86;
+}
+.cena__produto {
+  --entra-y: 0px;
+  --entra-s: 1;
+  z-index: 5;
+  width: 36%;
+  height: 80%;
+  translate: 0 var(--entra-y);
+  scale: var(--entra-s);
+  transform-origin: 50% 62%;
+  pointer-events: none;
+  backface-visibility: hidden;
+  will-change: translate, scale;
+  position: absolute;
+  top: 12%;
+  left: 32%;
+}
+.cena__produto img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  rotate: var(--inclina, -2.6deg);
+  filter: drop-shadow(0 calc(15 * var(--u)) calc(20 * var(--u)) #16130f47);
+}
+.painel--mate .cena__produto {
+  --inclina: 2.6deg;
+  height: 91%;
+  top: 5%;
+}
+.painel--carvao .cena__produto {
+  --inclina: 1.7deg;
+}
+.cena__selos {
+  z-index: 6;
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+}
+.cena__selos li {
+  height: max(28px, calc(37 * var(--u)));
+  padding: 0 max(12px, calc(17 * var(--u))) 1px;
+  background: var(--ativo);
+  color: var(--ativo-tinta);
+  font-weight: 800;
+  font-size: max(12px, calc(13 * var(--u)));
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  border-radius: 27px 35px 25px 33px/26px 30px 29px 33px;
+  align-items: center;
+  line-height: 1;
+  display: inline-flex;
+  position: absolute;
+}
+.cena__selos li:after {
+  content: "";
+  background: inherit;
+  clip-path: polygon(0 0, 100% 6%, 63% 100%, 40% 76%);
+  width: 18px;
+  height: 12px;
+  position: absolute;
+  bottom: -8px;
+  left: 58%;
+  translate: -50%;
+}
+.cena__selos li:first-child {
+  top: 18.5%;
+  left: 23.5%;
+  rotate: -6.2deg;
+}
+.cena__selos li:nth-child(2) {
+  background: var(--branco);
+  color: var(--carvao);
+  top: 81.5%;
+  left: 61.5%;
+  rotate: 4.4deg;
+}
+.painel__ingredientes {
+  z-index: 8;
+  top: calc(618 * var(--u));
+  width: calc(780 * var(--u));
+  font-weight: 600;
+  font-size: max(13px, calc(17 * var(--u)));
+  text-align: center;
+  text-wrap: balance;
+  line-height: 1.3;
+  position: absolute;
+  left: 50%;
+  translate: -50%;
+}
+.botao--painel {
+  --botao-y: 0px;
+  z-index: 10;
+  top: calc(682 * var(--u));
+  translate: -50% var(--botao-y);
+  min-height: max(46px, calc(50 * var(--u)));
+  padding: 3px max(26px, calc(36 * var(--u))) 0;
+  border-radius: var(--pao-b);
+  background: var(--ativo);
+  color: var(--ativo-tinta);
+  font-size: max(15px, calc(16 * var(--u)));
+  backface-visibility: hidden;
+  will-change: translate;
+  transition:
+    background-color 0.19s,
+    color 0.19s,
+    scale 0.19s;
+  position: absolute;
+  left: 50%;
+  rotate: 0.5deg;
+}
+@media (hover: hover) {
+  .botao--painel:hover {
+    translate: -50% calc(var(--botao-y) - 3px);
+  }
+}
+.botao--painel:active {
+  translate: -50% var(--botao-y);
+}
+@media (max-width: 767px) {
+  .cardapio__nav {
+    display: none;
+  }
+  .cardapio__folga {
+    height: 32svh;
+  }
+  .painel {
+    --u: min(calc(100vw / 390), calc(100svh / 780));
+    min-height: 0;
+  }
+  .painel__palco {
+    width: calc(390 * var(--u));
+    height: calc(780 * var(--u));
+  }
+  .painel__titulo {
+    top: calc(70 * var(--u));
+    font-size: calc(38 * var(--u));
+  }
+  .seletor {
+    top: calc(126 * var(--u));
+    grid-template-columns: max(44px, calc(44 * var(--u))) minmax(0, 1fr) max(
+        44px,
+        calc(44 * var(--u))
+      );
+    width: 100%;
+    height: calc(88 * var(--u));
+    left: 0;
+  }
+  .seletor:not(.seletor--laco) .seletor__seta {
+    visibility: visible;
+  }
+  .seletor__seta {
+    font-size: calc(44 * var(--u));
+  }
+  .seletor__trilho {
+    --vao: calc(10 * var(--u));
+  }
+  .pilula {
+    flex-basis: calc(220 * var(--u));
+  }
+  .pilula__foto {
+    width: calc(82 * var(--u));
+  }
+  .pilula__texto strong {
+    font-size: max(12px, calc(15 * var(--u)));
+  }
+  .cena {
+    top: calc(228 * var(--u));
+    width: calc(390 * var(--u));
+    height: calc(362 * var(--u));
+    left: 0;
+  }
+  .cena__marca {
+    font-size: calc(144 * var(--u));
+  }
+  .cena__produto {
+    width: 68%;
+    height: 78%;
+    top: 9%;
+    left: 16%;
+  }
+  .cena__peca--1 {
+    --x: -2%;
+    --y: 3%;
+    --w: 29%;
+  }
+  .cena__peca--2 {
+    --x: 61.5%;
+    --y: -6%;
+    --w: 25%;
+    filter: blur(calc(3 * var(--u)));
+  }
+  .cena__peca--3 {
+    --x: 74.5%;
+    --y: 13%;
+    --w: 28%;
+  }
+  .cena__peca--4 {
+    --x: 78%;
+    --y: 61.5%;
+    --w: 20%;
+  }
+  .cena__peca--5 {
+    --x: 70%;
+    --y: 75.5%;
+    --w: 26%;
+  }
+  .cena__peca--6 {
+    --x: 1%;
+    --y: 69.5%;
+    --w: 24%;
+  }
+  .cena__peca--7 {
+    --x: 17.5%;
+    --y: 81%;
+    --w: 20%;
+    filter: blur(calc(3 * var(--u)));
+  }
+  .cena__selos li:first-child {
+    top: 2%;
+    left: 28%;
+  }
+  .cena__selos li:nth-child(2) {
+    top: 87.5%;
+    left: 36%;
+  }
+  .painel__ingredientes {
+    top: calc(612 * var(--u));
+    width: calc(330 * var(--u));
+    font-size: max(13px, calc(14 * var(--u)));
+  }
+  .botao--painel {
+    top: calc(684 * var(--u));
+    min-height: 48px;
+  }
+}

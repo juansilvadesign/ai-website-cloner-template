@@ -1,0 +1,638 @@
+{
+  "schemaVersion": 1,
+  "format": "od-token-contract-report/v1",
+  "generatedAt": "2026-11-24T15:42:39.370Z",
+  "summary": {
+    "total": 56,
+    "byConfidence": {
+      "high": 43,
+      "derived": 9,
+      "alias": 1,
+      "fallback": 3
+    },
+    "byLayer": {
+      "A1-identity": 8,
+      "B-slot": 4,
+      "A2": 26,
+      "A1-structure": 18
+    }
+  },
+  "tokens": [
+    {
+      "name": "--bg",
+      "layer": "A1-identity",
+      "value": "#f5eddf",
+      "confidence": "high",
+      "reason": "The page canvas (body background) is the bread-cream 'pão'.",
+      "sources": [
+        "index.css :root --pao:#f5eddf; body{background:var(--pao)}",
+        "tokens.css:8"
+      ]
+    },
+    {
+      "name": "--surface",
+      "layer": "A1-identity",
+      "value": "#fffaf1",
+      "confidence": "high",
+      "reason": "Lifted light surfaces (hero CTA, e-mail field, white seal) use 'branco'.",
+      "sources": [
+        "index.css :root --branco:#fffaf1; .hero__botao, .recado__campo, .casa__selo--5",
+        "tokens.css:9"
+      ]
+    },
+    {
+      "name": "--surface-warm",
+      "layer": "B-slot",
+      "value": "#231e19",
+      "confidence": "derived",
+      "reason": "The second charcoal tier 'carvao-2' is the only other surface the palette declares; kept as the tertiary (dark-warm) surface.",
+      "sources": [
+        "index.css :root --carvao-2:#231e19",
+        "tokens.css:10"
+      ]
+    },
+    {
+      "name": "--fg",
+      "layer": "A1-identity",
+      "value": "#16130f",
+      "confidence": "high",
+      "reason": "Body ink and the dark canvases (hero, faixa, footer) are 'carvao'.",
+      "sources": [
+        "index.css :root --carvao:#16130f; body{color:var(--carvao)}; meta theme-color #16130f",
+        "tokens.css:13"
+      ]
+    },
+    {
+      "name": "--fg-2",
+      "layer": "B-slot",
+      "value": "#231e19",
+      "confidence": "derived",
+      "reason": "Secondary dark-warm tier from the declared palette.",
+      "sources": [
+        "index.css :root --carvao-2:#231e19",
+        "tokens.css:14"
+      ]
+    },
+    {
+      "name": "--muted",
+      "layer": "A1-identity",
+      "value": "rgb(22 19 15 / 0.6)",
+      "confidence": "derived",
+      "reason": "Supporting text is ink at reduced alpha (field placeholder #16130f99; pill sublines at opacity .8).",
+      "sources": [
+        "index.css .recado__campo::placeholder{color:#16130f99}; .pilula__texto small{opacity:.8}",
+        "tokens.css:15"
+      ]
+    },
+    {
+      "name": "--meta",
+      "layer": "B-slot",
+      "value": "var(--muted)",
+      "confidence": "alias",
+      "reason": "B-slot aliased to sibling (Tertiary FG / metadata tier (kami stone).)",
+      "sources": [
+        "token-schema.ts",
+        "tokens.css:16"
+      ]
+    },
+    {
+      "name": "--border",
+      "layer": "A1-identity",
+      "value": "#16130f",
+      "confidence": "derived",
+      "reason": "Visible edges on light surfaces are full charcoal rings (the white seal's 3px inset ring, the tooltip's 3px ring) — the sticker look.",
+      "sources": [
+        "index.css .casa__selo--5{box-shadow:inset 0 0 0 3px var(--carvao)}; .mural__dica{box-shadow:0 0 0 3px var(--carvao)}",
+        "tokens.css:19"
+      ]
+    },
+    {
+      "name": "--border-soft",
+      "layer": "B-slot",
+      "value": "rgb(245 237 223 / 0.16)",
+      "confidence": "high",
+      "reason": "The only hairline separators are the drawer rows, cream at 16% on charcoal.",
+      "sources": [
+        "index.css .gaveta__link, .gaveta__sub{border-bottom:1px solid #f5eddf29}",
+        "tokens.css:20"
+      ]
+    },
+    {
+      "name": "--accent",
+      "layer": "A1-identity",
+      "value": "#f8b21b",
+      "confidence": "high",
+      "reason": "Cheddar is the brand accent: hero script line, first menu panel, nav underline, seals, footer wordmark.",
+      "sources": [
+        "index.css :root --cheddar:#f8b21b; --primeiro-painel:var(--cheddar)",
+        "tokens.css:23"
+      ]
+    },
+    {
+      "name": "--accent-on",
+      "layer": "A2",
+      "value": "#16130f",
+      "confidence": "high",
+      "reason": "Text placed on cheddar is always charcoal.",
+      "sources": [
+        "index.css .pular, .apelido--4, .casa__selo, .mural__dica{background:var(--cheddar);color:var(--carvao)}",
+        "tokens.css:24"
+      ]
+    },
+    {
+      "name": "--accent-hover",
+      "layer": "A2",
+      "value": "color-mix(in oklab, var(--accent), black 8%)",
+      "confidence": "fallback",
+      "reason": "OpenDesign A2 default (Hover state for elements using --accent as bg.)",
+      "sources": [
+        "_schema/defaults.css",
+        "tokens.css:25"
+      ]
+    },
+    {
+      "name": "--accent-active",
+      "layer": "A2",
+      "value": "color-mix(in oklab, var(--accent), black 14%)",
+      "confidence": "fallback",
+      "reason": "OpenDesign A2 default (Active state for elements using --accent as bg.)",
+      "sources": [
+        "_schema/defaults.css",
+        "tokens.css:26"
+      ]
+    },
+    {
+      "name": "--success",
+      "layer": "A2",
+      "value": "#3f8040",
+      "confidence": "derived",
+      "reason": "The palette's only green is 'mate' (yerba-mate); it is the natural success hue if the system needs one.",
+      "sources": [
+        "index.css :root --mate:#3f8040",
+        "tokens.css:29"
+      ]
+    },
+    {
+      "name": "--warn",
+      "layer": "A2",
+      "value": "#f8b21b",
+      "confidence": "derived",
+      "reason": "The form's validation notice is set in cheddar; no separate warning hue exists.",
+      "sources": [
+        "index.css .recado__aviso{color:var(--cheddar)}",
+        "tokens.css:30"
+      ]
+    },
+    {
+      "name": "--danger",
+      "layer": "A2",
+      "value": "#dc4126",
+      "confidence": "derived",
+      "reason": "The palette's red is 'tomate'; it carries the secondary CTA and is the natural danger hue.",
+      "sources": [
+        "index.css :root --tomate:#dc4126; .botao--tomate, .recado__enviar",
+        "tokens.css:31"
+      ]
+    },
+    {
+      "name": "--font-display",
+      "layer": "A1-identity",
+      "value": "\"Bricolage Grotesque Variable\", \"Bricolage Grotesque\", system-ui, -apple-system, \"Segoe UI\", sans-serif",
+      "confidence": "high",
+      "reason": "Display lines are Bricolage Grotesque Variable at weight 800 with opsz 96 and a condensed wdth axis (88–94).",
+      "sources": [
+        "index.css :root --fonte; .hero__forte{font-variation-settings:\"opsz\" 96,\"wdth\" 92}",
+        "tokens.css:34"
+      ]
+    },
+    {
+      "name": "--font-body",
+      "layer": "A1-identity",
+      "value": "\"Bricolage Grotesque Variable\", \"Bricolage Grotesque\", system-ui, -apple-system, \"Segoe UI\", sans-serif",
+      "confidence": "high",
+      "reason": "Body copy is the same variable grotesque at opsz 14.",
+      "sources": [
+        "index.css body{font-family:var(--fonte);font-variation-settings:\"opsz\" 14}",
+        "tokens.css:35"
+      ]
+    },
+    {
+      "name": "--font-mono",
+      "layer": "A2",
+      "value": "ui-monospace, \"SF Mono\", \"JetBrains Mono\", Menlo, Monaco, Consolas, monospace",
+      "confidence": "fallback",
+      "reason": "OpenDesign A2 default (Monospace font stack — used by kbd, code, tabular metrics.)",
+      "sources": [
+        "_schema/defaults.css",
+        "tokens.css:36"
+      ]
+    },
+    {
+      "name": "--text-xs",
+      "layer": "A1-structure",
+      "value": "12px",
+      "confidence": "high",
+      "reason": "Footer lines, tooltip and the 'toca aqui' doodle label.",
+      "sources": [
+        "index.css .rodape__pe, .mural__dica, .mural__toque{font-size:12px}",
+        "tokens.css:39"
+      ]
+    },
+    {
+      "name": "--text-sm",
+      "layer": "A1-structure",
+      "value": "14px",
+      "confidence": "high",
+      "reason": "Form notice.",
+      "sources": [
+        "index.css .recado__aviso{font-size:14px}",
+        "tokens.css:40"
+      ]
+    },
+    {
+      "name": "--text-base",
+      "layer": "A1-structure",
+      "value": "16px",
+      "confidence": "high",
+      "reason": "Body, buttons, nav links and the e-mail field.",
+      "sources": [
+        "index.css body{font-size:16px}; .botao, .topo__link{font-size:16px}",
+        "tokens.css:41"
+      ]
+    },
+    {
+      "name": "--text-lg",
+      "layer": "A1-structure",
+      "value": "18px",
+      "confidence": "high",
+      "reason": "Featured body paragraph in the story section at 1280px+.",
+      "sources": [
+        "index.css .casa__texto p{font-size:calc(18 * var(--su))}",
+        "tokens.css:42"
+      ]
+    },
+    {
+      "name": "--text-xl",
+      "layer": "A1-structure",
+      "value": "clamp(34px, 3.9vw, 56px)",
+      "confidence": "high",
+      "reason": "Newsletter H2.",
+      "sources": [
+        "index.css .recado__titulo{font-size:clamp(34px,3.9vw,56px)}",
+        "tokens.css:43"
+      ]
+    },
+    {
+      "name": "--text-2xl",
+      "layer": "A1-structure",
+      "value": "clamp(44px, 5vw, 72px)",
+      "confidence": "high",
+      "reason": "Section title scale (nickname section; menu-panel titles resolve to 54px at 1440).",
+      "sources": [
+        "index.css .apelidos__tela{--em:clamp(44px,5cqw,72px)}",
+        "tokens.css:44"
+      ]
+    },
+    {
+      "name": "--text-3xl",
+      "layer": "A1-structure",
+      "value": "max(58px, 6.7vw)",
+      "confidence": "high",
+      "reason": "Hero H1 bold line (container-relative on the page).",
+      "sources": [
+        "index.css .hero__forte{font-size:max(58px,6.7cqw)}",
+        "tokens.css:45"
+      ]
+    },
+    {
+      "name": "--text-4xl",
+      "layer": "A1-structure",
+      "value": "10.3vw",
+      "confidence": "high",
+      "reason": "Footer display wordmark.",
+      "sources": [
+        "index.css .rodape__gigante{font-size:10.3vw}",
+        "tokens.css:46"
+      ]
+    },
+    {
+      "name": "--leading-body",
+      "layer": "A1-structure",
+      "value": "1.5",
+      "confidence": "high",
+      "reason": "Body and story paragraph.",
+      "sources": [
+        "index.css body{line-height:1.5}",
+        "tokens.css:49"
+      ]
+    },
+    {
+      "name": "--leading-tight",
+      "layer": "A1-structure",
+      "value": "1.02",
+      "confidence": "high",
+      "reason": "Menu-panel titles (the most repeated heading).",
+      "sources": [
+        "index.css .painel__titulo{line-height:1.02}",
+        "tokens.css:50"
+      ]
+    },
+    {
+      "name": "--tracking-display",
+      "layer": "A1-structure",
+      "value": "-0.03em",
+      "confidence": "high",
+      "reason": "Every display heading tracks at -.03em.",
+      "sources": [
+        "index.css .hero__forte, .apelidos__titulo, .painel__titulo, .casa__titulo, .recado__titulo, .mural__titulo{letter-spacing:-.03em}",
+        "tokens.css:51"
+      ]
+    },
+    {
+      "name": "--space-1",
+      "layer": "A2",
+      "value": "4px",
+      "confidence": "high",
+      "reason": "Footer row gap.",
+      "sources": [
+        "index.css .rodape__linha{gap:4px 8px}",
+        "tokens.css:54"
+      ]
+    },
+    {
+      "name": "--space-2",
+      "layer": "A2",
+      "value": "8px",
+      "confidence": "high",
+      "reason": "Nav caret gap, footer link gap.",
+      "sources": [
+        "index.css .topo__link{gap:8px}; .rodape__links{gap:8px}",
+        "tokens.css:55"
+      ]
+    },
+    {
+      "name": "--space-3",
+      "layer": "A2",
+      "value": "12px",
+      "confidence": "high",
+      "reason": "Brand lockup gap, form notice offset.",
+      "sources": [
+        "index.css .topo__marca{gap:12px}; .recado__aviso{margin-top:12px}",
+        "tokens.css:56"
+      ]
+    },
+    {
+      "name": "--space-4",
+      "layer": "A2",
+      "value": "14px",
+      "confidence": "high",
+      "reason": "The site's 'small' step is 14px (button icon gap, form gap).",
+      "sources": [
+        "index.css .botao{gap:14px}; .recado__form{gap:14px}",
+        "tokens.css:57"
+      ]
+    },
+    {
+      "name": "--space-5",
+      "layer": "A2",
+      "value": "22px",
+      "confidence": "high",
+      "reason": "Field inline padding and the header's side gutter.",
+      "sources": [
+        "index.css .recado__campo{padding:0 22px}; .topo__faixa{width:min(100% - 44px,1500px)}",
+        "tokens.css:58"
+      ]
+    },
+    {
+      "name": "--space-6",
+      "layer": "A2",
+      "value": "24px",
+      "confidence": "high",
+      "reason": "Drawer padding and story container gutter.",
+      "sources": [
+        "index.css .gaveta{padding:0 24px 32px}; .casa__tela{width:min(100% - 48px,1220px)}",
+        "tokens.css:59"
+      ]
+    },
+    {
+      "name": "--space-8",
+      "layer": "A2",
+      "value": "32px",
+      "confidence": "high",
+      "reason": "Button inline padding and drawer bottom padding.",
+      "sources": [
+        "index.css .botao{padding:16px 32px 13px}",
+        "tokens.css:60"
+      ]
+    },
+    {
+      "name": "--space-12",
+      "layer": "A2",
+      "value": "50px",
+      "confidence": "high",
+      "reason": "Gap between the story seals at 1280px+.",
+      "sources": [
+        "index.css .casa__selos{gap:calc(50 * var(--su))}",
+        "tokens.css:61"
+      ]
+    },
+    {
+      "name": "--section-y-desktop",
+      "layer": "A1-structure",
+      "value": "112px",
+      "confidence": "high",
+      "reason": "Story section top padding at 1280px+.",
+      "sources": [
+        "index.css .casa{padding:calc(112 * var(--su)) 0 calc(104 * var(--su))}",
+        "tokens.css:64"
+      ]
+    },
+    {
+      "name": "--section-y-tablet",
+      "layer": "A1-structure",
+      "value": "clamp(67px, 8.75vw, 112px)",
+      "confidence": "derived",
+      "reason": "The same padding scales by --su = min(1px, 100vw/1280) between 768 and 1280px.",
+      "sources": [
+        "index.css :root --su:min(1px, calc(100vw / 1280))",
+        "tokens.css:65"
+      ]
+    },
+    {
+      "name": "--section-y-phone",
+      "layer": "A1-structure",
+      "value": "84px",
+      "confidence": "high",
+      "reason": "Story section top padding below 768px.",
+      "sources": [
+        "index.css @media (max-width:767px) .casa{padding:84px 0 96px}",
+        "tokens.css:66"
+      ]
+    },
+    {
+      "name": "--radius-sm",
+      "layer": "A2",
+      "value": "1.85em 2.15em .95em .8em / 1.7em 1.9em .78em .7em",
+      "confidence": "high",
+      "reason": "Buttons and menu pills use the hand-cut 'bread' radius (pão-a), relative to their own font size.",
+      "sources": [
+        "index.css :root --pao-a; .botao{border-radius:var(--pao-a)}",
+        "tokens.css:69"
+      ]
+    },
+    {
+      "name": "--radius-md",
+      "layer": "A2",
+      "value": "15px",
+      "confidence": "high",
+      "reason": "Photo cards in the footer mural.",
+      "sources": [
+        "index.css .mural__foto, .mural__carta{border-radius:15px}",
+        "tokens.css:70"
+      ]
+    },
+    {
+      "name": "--radius-lg",
+      "layer": "A2",
+      "value": "22px 26px 20px 24px / 22px 20px 26px 22px",
+      "confidence": "high",
+      "reason": "The dropdown panel's organic radius.",
+      "sources": [
+        "index.css .topo__suspenso{border-radius:22px 26px 20px 24px/22px 20px 26px 22px}",
+        "tokens.css:71"
+      ]
+    },
+    {
+      "name": "--radius-pill",
+      "layer": "A2",
+      "value": "999px",
+      "confidence": "high",
+      "reason": "Skip link, tooltip and the menu's side dot rail.",
+      "sources": [
+        "index.css .pular, .mural__dica, .cardapio__nav{border-radius:999px}",
+        "tokens.css:72"
+      ]
+    },
+    {
+      "name": "--elev-flat",
+      "layer": "A2",
+      "value": "none",
+      "confidence": "high",
+      "reason": "Most surfaces are flat colour fields.",
+      "sources": [
+        "index.css section backgrounds",
+        "tokens.css:75"
+      ]
+    },
+    {
+      "name": "--elev-ring",
+      "layer": "A2",
+      "value": "0 0 0 3px #16130f",
+      "confidence": "high",
+      "reason": "The 3px charcoal ring around the tooltip.",
+      "sources": [
+        "index.css .mural__dica{box-shadow:0 0 0 3px var(--carvao)}",
+        "tokens.css:76"
+      ]
+    },
+    {
+      "name": "--elev-raised",
+      "layer": "A2",
+      "value": "0 16px 38px rgb(0 0 0 / 0.32)",
+      "confidence": "high",
+      "reason": "Dropdown panel shadow.",
+      "sources": [
+        "index.css .topo__suspenso{box-shadow:0 16px 38px #00000052}",
+        "tokens.css:77"
+      ]
+    },
+    {
+      "name": "--focus-ring",
+      "layer": "A2",
+      "value": "0 0 0 3px #16130f",
+      "confidence": "derived",
+      "reason": "Focus is a 3px solid outline (offset 3px) in charcoal on light grounds and cheddar on dark grounds.",
+      "sources": [
+        "index.css :focus-visible{outline:3px solid var(--foco);outline-offset:3px}",
+        "tokens.css:80"
+      ]
+    },
+    {
+      "name": "--motion-fast",
+      "layer": "A2",
+      "value": "150ms",
+      "confidence": "high",
+      "reason": "Nav links, drawer rows and dropdown options.",
+      "sources": [
+        "index.css .topo__link{transition:translate .15s}; .topo__opcao{transition:background-color .15s,color .15s}",
+        "tokens.css:83"
+      ]
+    },
+    {
+      "name": "--motion-base",
+      "layer": "A2",
+      "value": "190ms",
+      "confidence": "high",
+      "reason": "Every button transition.",
+      "sources": [
+        "index.css .botao{transition:color .19s,background-color .19s,translate .19s,scale .19s}",
+        "tokens.css:84"
+      ]
+    },
+    {
+      "name": "--ease-standard",
+      "layer": "A2",
+      "value": "cubic-bezier(.22, 1, .36, 1)",
+      "confidence": "high",
+      "reason": "The site's 'sai' (exit) curve drives arrow, mascot and carousel motion.",
+      "sources": [
+        "index.css :root --sai:cubic-bezier(.22, 1, .36, 1)",
+        "tokens.css:85"
+      ]
+    },
+    {
+      "name": "--container-max",
+      "layer": "A1-structure",
+      "value": "1220px",
+      "confidence": "high",
+      "reason": "The story section's content container (header 1500px, footer 1290px, canvases 1920px).",
+      "sources": [
+        "index.css .casa__tela{width:min(100% - 48px,1220px)}",
+        "tokens.css:88"
+      ]
+    },
+    {
+      "name": "--container-gutter-desktop",
+      "layer": "A1-structure",
+      "value": "clamp(20px, 4vw, 64px)",
+      "confidence": "high",
+      "reason": "The site's declared page margin.",
+      "sources": [
+        "index.css :root --margem:clamp(20px, 4vw, 64px)",
+        "tokens.css:89"
+      ]
+    },
+    {
+      "name": "--container-gutter-tablet",
+      "layer": "A1-structure",
+      "value": "24px",
+      "confidence": "high",
+      "reason": "Story container side gutter.",
+      "sources": [
+        "index.css .casa__tela{width:min(100% - 48px,1220px)}",
+        "tokens.css:90"
+      ]
+    },
+    {
+      "name": "--container-gutter-phone",
+      "layer": "A1-structure",
+      "value": "20px",
+      "confidence": "high",
+      "reason": "Phone gutter for the story grid and the mural.",
+      "sources": [
+        "index.css @media (max-width:767px) .casa__tela{width:calc(100% - 40px)}; .mural{padding:… 20px …}",
+        "tokens.css:91"
+      ]
+    }
+  ]
+}

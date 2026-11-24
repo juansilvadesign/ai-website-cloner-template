@@ -1,0 +1,45 @@
+---
+/**
+ * Skip link, header bar (logo + nav + dropdown), mobile drawer and its backdrop.
+ * Markup verbatim from the original. Styles: styles/sections/topo.css.
+ * Behaviour: scripts/topo.ts (dropdown, drawer).
+ */
+---
+
+<a class="pular" href="#cardapio">Pular para o cardápio</a>
+  <header class="topo" data-topo>
+  <div class="topo__faixa">
+    <a class="topo__marca" href="#inicio" aria-label="Capiá, início">
+      <svg class="topo__capi" viewBox="0 0 299.9 247" aria-hidden="true"><use href="#capi-em-pe"/></svg>
+      <span class="topo__nome">Capiá</span>
+    </a>
+    <nav class="topo__nav" aria-label="Principal">
+      <div class="topo__grupo" data-suspenso>
+        <button class="topo__link topo__link--suspenso" type="button" aria-expanded="false" aria-controls="menu-cardapio" data-suspenso-botao>Cardápio</button>
+        <div class="topo__suspenso" id="menu-cardapio" data-suspenso-lista><a class="topo__opcao" href="#lanches">Lanches</a><a class="topo__opcao" href="#acompanhamentos">Acompanhamentos</a><a class="topo__opcao" href="#bebidas">Bebidas</a><a class="topo__opcao" href="#sobremesas">Sobremesas</a></div>
+      </div>
+      <a class="topo__link" href="#capia">O Capiá</a>
+      <a class="topo__link" href="#contato">Contato</a>
+    </nav>
+    <button class="topo__abre" type="button" aria-label="Abrir o menu" aria-expanded="false" aria-controls="gaveta" data-abre-gaveta>
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="gaveta" id="gaveta" role="dialog" aria-modal="true" aria-label="Menu" data-gaveta inert>
+  <div class="gaveta__topo">
+    <a class="topo__marca" href="#inicio" data-fecha-gaveta aria-label="Capiá, início">
+      <svg class="topo__capi" viewBox="0 0 299.9 247" aria-hidden="true"><use href="#capi-em-pe"/></svg>
+      <span class="topo__nome">Capiá</span>
+    </a>
+    <button class="gaveta__fecha" type="button" aria-label="Fechar o menu" data-fecha-gaveta><span></span><span></span></button>
+  </div>
+  <nav class="gaveta__nav" aria-label="Menu">
+    <button class="gaveta__link" type="button" aria-expanded="false" data-gaveta-cardapio><span>Cardápio</span><span class="gaveta__sinal" aria-hidden="true">+</span></button>
+    <div class="gaveta__sub" data-gaveta-sub hidden><a class="gaveta__opcao" href="#lanches">Lanches</a><a class="gaveta__opcao" href="#acompanhamentos">Acompanhamentos</a><a class="gaveta__opcao" href="#bebidas">Bebidas</a><a class="gaveta__opcao" href="#sobremesas">Sobremesas</a></div>
+    <a class="gaveta__link" href="#capia" data-fecha-gaveta><span>O Capiá</span><span aria-hidden="true">→</span></a>
+    <a class="gaveta__link" href="#contato" data-fecha-gaveta><span>Contato</span><span aria-hidden="true">→</span></a>
+  </nav>
+</div>
+<div class="gaveta__fundo" data-fundo-gaveta hidden></div>

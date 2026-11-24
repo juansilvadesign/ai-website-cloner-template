@@ -1,0 +1,40 @@
+---
+import "../styles/clone.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Capiá · burger na calma, em Curitiba",
+  description = "Capiá, hamburgueria de bairro em Curitiba: smash na chapa, pão do dia, pinhão da serra e nenhum motivo para pressa. Conheça os lanches e os acompanhamentos.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#16130f" />
+    <link rel="icon" href="/clones/capia/seo/favicon.svg" type="image/svg+xml" />
+    <link rel="canonical" href="https://capia-eta.vercel.app/" />
+    <!-- Before first paint: flag JS, and honour reduced motion (html.reduzido). -->
+    <script is:inline>
+      (function () {
+        var r = document.documentElement;
+        r.classList.add("js");
+        if (matchMedia("(prefers-reduced-motion: reduce)").matches) r.classList.add("reduzido");
+      })();
+    </script>
+    <style is:inline>html{background:#16130f}</style>
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="/clones/capia/fonts/bricolage-grotesque-latin.woff2" />
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="/clones/capia/fonts/mr-dafoe-latin-400.woff2" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

@@ -1,0 +1,28 @@
+---
+import BaseLayout from "../../clones/capia/layouts/BaseLayout.astro";
+import Apelidos from "../../clones/capia/components/Apelidos.astro";
+import CapiSprite from "../../clones/capia/components/CapiSprite.astro";
+import Cardapio from "../../clones/capia/components/Cardapio.astro";
+import Casa from "../../clones/capia/components/Casa.astro";
+import Faixa from "../../clones/capia/components/Faixa.astro";
+import Hero from "../../clones/capia/components/Hero.astro";
+import Rodape from "../../clones/capia/components/Rodape.astro";
+import SiteHeader from "../../clones/capia/components/SiteHeader.astro";
+---
+
+<BaseLayout>
+  <CapiSprite />
+  <SiteHeader />
+  <main>
+    <Hero />
+    <Apelidos />
+    <Faixa />
+    <Cardapio />
+    <Casa />
+  </main>
+  <Rodape />
+</BaseLayout>
+
+<script>
+  import "../../clones/capia/scripts/main";
+</script>

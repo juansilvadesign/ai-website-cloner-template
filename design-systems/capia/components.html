@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Mr+Dafoe&display=swap" />
+    <link rel="stylesheet" href="tokens.css" />
+    <style>
+      body { background: var(--bg); color: var(--fg); font: var(--text-base)/var(--leading-body) var(--font-body); margin: 0; padding: var(--space-8); }
+      .group { margin: 0 auto var(--space-12); max-width: var(--container-max); }
+      .group > h2 { font: 800 var(--text-xl)/var(--leading-tight) var(--font-display); font-variation-settings: "opsz" 96, "wdth" 92; letter-spacing: var(--tracking-display); margin: 0 0 var(--space-6); rotate: -1.2deg; transform-origin: left; }
+      .row { align-items: center; display: flex; flex-wrap: wrap; gap: var(--space-5); }
+      .field-dark { background: var(--fg); color: var(--bg); padding: var(--space-8); }
+
+      .button { align-items: center; background: var(--fg); border: 0; border-radius: var(--radius-sm); color: var(--bg); cursor: pointer; display: inline-flex; font: 700 var(--text-base)/1.1 var(--font-body); gap: var(--space-4); min-height: 52px; padding: 16px var(--space-8) 13px; text-decoration: none; transition: translate var(--motion-base), scale var(--motion-base), background-color var(--motion-base), color var(--motion-base); }
+      .button:hover { translate: 0 -3px; }
+      .button:active { scale: .97; translate: 0; }
+      .button--tomato { background: var(--danger); color: var(--surface); }
+      .button--tomato:hover { background: var(--fg); color: var(--accent); }
+      .button--cream { background: var(--surface); color: var(--fg); rotate: -3.6deg; }
+      .button--cream:hover { background: var(--accent); }
+      .button-arrow { font-size: 1.3em; line-height: .72; margin-top: -2px; transition: translate var(--motion-base) var(--ease-standard); }
+      .button:hover .button-arrow { translate: 3px; }
+
+      .badge { align-items: center; background: var(--danger); border-radius: 27px 35px 25px 33px / 26px 30px 29px 33px; color: var(--surface); display: inline-flex; font: 800 var(--text-sm)/1 var(--font-body); height: 37px; letter-spacing: .04em; padding: 0 17px 1px; position: relative; text-transform: uppercase; white-space: nowrap; }
+      .badge::after { background: inherit; bottom: -8px; clip-path: polygon(0 0, 100% 6%, 63% 100%, 40% 76%); content: ""; height: 12px; left: 58%; position: absolute; translate: -50%; width: 18px; }
+      .badge--mate { background: var(--success); rotate: -8.5deg; }
+      .badge--ink { background: var(--fg); color: var(--bg); rotate: 2.6deg; }
+      .badge--cheddar { background: var(--accent); color: var(--accent-on); rotate: -2.1deg; }
+
+      .pill { align-items: center; background: none; border: 0; color: var(--fg); cursor: pointer; display: flex; height: 82px; isolation: isolate; padding: 0; position: relative; text-align: left; width: 240px; }
+      .pill::before { background: color-mix(in srgb, var(--surface) 32%, transparent); border-radius: var(--radius-sm); content: ""; font-size: 24px; inset: 12% 0 10% 13%; position: absolute; z-index: -1; transition: background-color var(--motion-base); }
+      .pill:hover::before { background: color-mix(in srgb, var(--surface) 52%, transparent); }
+      .pill.is-active { color: var(--bg); }
+      .pill.is-active::before { background: var(--fg); }
+      .pill-thumb { background: var(--accent-on); border-radius: 50%; height: 64px; left: 4px; position: absolute; width: 64px; }
+      .pill-text { display: flex; flex-direction: column; gap: 3px; margin-left: 42.5%; }
+      .pill-text strong { font-size: var(--text-sm); line-height: 1.1; }
+      .pill-text small { font-size: var(--text-xs); opacity: .8; }
+      .menu-field { background: var(--accent); padding: var(--space-6); }
+
+      .card { background: var(--surface); border-radius: var(--radius-md); box-shadow: var(--elev-raised); padding: var(--space-6); rotate: 1.4deg; width: 260px; }
+      .card h3 { font: 800 var(--text-lg)/var(--leading-tight) var(--font-display); letter-spacing: var(--tracking-display); margin: 0 0 var(--space-2); }
+      .card p { color: var(--muted); margin: 0; }
+      .card--sticker { background: var(--accent); border-radius: 33% 31% 35% 29% / 37% 31% 39% 33%; box-shadow: none; display: grid; font: 800 22px/.95 var(--font-display); font-variation-settings: "opsz" 96, "wdth" 80; min-width: 124px; padding: 15px var(--space-6) 16px; place-items: center; rotate: -7.2deg; text-align: center; text-transform: uppercase; width: auto; }
+      .card--ring { background: var(--surface); box-shadow: var(--elev-ring); rotate: -2.6deg; }
+
+      .field-input { background: var(--surface); border: 0; border-radius: 27px 25px 29px 27px / 27px 29px 25px 27px; color: var(--fg); font: var(--text-base) var(--font-body); height: 54px; padding: 0 var(--space-5); width: 300px; }
+      .field-input::placeholder { color: var(--muted); }
+      .field-input:focus-visible { box-shadow: var(--focus-ring); outline: none; }
+
+      .nav-link { color: inherit; font: 700 var(--text-base)/1 var(--font-body); letter-spacing: .08em; padding: var(--space-3) 0; position: relative; text-decoration: none; text-transform: uppercase; }
+      .nav-link::after { background: var(--accent); bottom: 4px; content: ""; height: 2px; left: 0; position: absolute; right: 0; scale: 0 1; transform-origin: 0; transition: scale var(--motion-base) var(--ease-standard); }
+      .nav-link:hover::after { scale: 1; }
+
+      h1.display { font: 800 var(--text-3xl)/.86 var(--font-display); font-variation-settings: "opsz" 96, "wdth" 92; letter-spacing: var(--tracking-display); margin: 0; rotate: -2.4deg; transform-origin: left; }
+      .script { color: var(--accent); font: 400 clamp(48px, 6vw, 96px)/.8 "Mr Dafoe", cursive; margin: 0 0 0 var(--space-12); rotate: -2.4deg; }
+      .lead { font-size: var(--text-lg); max-width: 58ch; }
+      .caption { color: var(--muted); font-size: var(--text-xs); }
+
+      .icon { display: inline-grid; height: 44px; place-items: center; width: 44px; }
+      .icon svg { fill: none; height: 27px; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.9px; width: 27px; }
+    </style>
+  </head>
+  <body>
+    <section class="group" data-component="typography">
+      <h2>Tipografia</h2>
+      <div class="field-dark">
+        <h1 class="display">Meu Capiá,</h1>
+        <p class="script">minha calma.</p>
+      </div>
+      <p class="lead">O Capiá nasceu numa esquina de Curitiba com uma ideia simples: pão que sai do forno de manhã, carne moída no dia e chapa bem quente.</p>
+      <p class="caption">Capiá Burger · Curitiba, PR · ter a dom · 18h às 23h</p>
+    </section>
+
+    <section class="group" data-component="buttons">
+      <h2>Botões</h2>
+      <div class="row">
+        <a class="button" href="#">Pedir lanches <span class="button-arrow" aria-hidden="true">›</span></a>
+        <a class="button button--tomato" href="#">Conheça o Capiá <span class="button-arrow" aria-hidden="true">›</span></a>
+        <span class="field-dark"><a class="button button--cream" href="#">Ver o cardápio <span class="button-arrow" aria-hidden="true">›</span></a></span>
+      </div>
+    </section>
+
+    <section class="group" data-component="badges">
+      <h2>Balões e selos</h2>
+      <div class="row">
+        <span class="badge">Capi</span>
+        <span class="badge badge--mate">Seu Capiá</span>
+        <span class="badge badge--ink">Capivarão</span>
+        <span class="badge badge--cheddar">O piá</span>
+      </div>
+    </section>
+
+    <section class="group" data-component="cards">
+      <h2>Pílulas e cartões</h2>
+      <div class="menu-field row">
+        <button class="pill is-active" type="button"><span class="pill-thumb"></span><span class="pill-text"><strong>Clássico da Casa</strong><small>smash duplo</small></span></button>
+        <button class="pill" type="button"><span class="pill-thumb"></span><span class="pill-text"><strong>Piá Bacon</strong><small>bacon crocante</small></span></button>
+      </div>
+      <div class="row" style="margin-top: var(--space-8)">
+        <article class="card"><h3>Deixa a chapa falar por si</h3><p>Cada lanche é montado na hora, do jeito que você pediu.</p></article>
+        <div class="card card--sticker">Pão<br />do dia</div>
+        <div class="card card--sticker card--ring">Sem<br />pressa</div>
+      </div>
+    </section>
+
+    <section class="group" data-component="inputs">
+      <h2>Campos</h2>
+      <form class="row field-dark" onsubmit="return false">
+        <label class="caption" for="email">Seu e-mail</label>
+        <input class="field-input" id="email" type="email" placeholder="Seu e-mail ..." />
+        <button class="button button--tomato" type="submit">Enviar <span class="button-arrow" aria-hidden="true">›</span></button>
+      </form>
+    </section>
+
+    <section class="group" data-component="links">
+      <h2>Links e ícones</h2>
+      <div class="row field-dark">
+        <a class="nav-link" href="#">Cardápio</a>
+        <a class="nav-link" href="#">O Capiá</a>
+        <a class="nav-link" href="#">Contato</a>
+        <a class="icon" href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5.2" /><circle cx="12" cy="12" r="4.1" /></svg></a>
+      </div>
+    </section>
+  </body>
+</html>

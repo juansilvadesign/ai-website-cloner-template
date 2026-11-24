@@ -1,0 +1,310 @@
+/* Capiá — topo section. Ported verbatim (formatted) from the original stylesheet;
+   keep the import order in clone.css: it is the original cascade order. */
+
+.topo {
+  --foco: var(--cheddar);
+  z-index: 50;
+  width: 100%;
+  color: var(--pao);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.topo__faixa {
+  justify-content: space-between;
+  align-items: center;
+  width: min(100% - 44px, 1500px);
+  height: clamp(84px, 7.6vw, 110px);
+  margin-inline: auto;
+  display: flex;
+}
+.topo__marca {
+  color: inherit;
+  align-items: flex-end;
+  gap: 12px;
+  text-decoration: none;
+  display: inline-flex;
+}
+.topo__capi {
+  transform-origin: 50% 92%;
+  width: clamp(64px, 6vw, 84px);
+  height: auto;
+  transition:
+    rotate 0.23s var(--sai),
+    translate 0.23s var(--sai);
+}
+@media (hover: hover) {
+  .topo__marca:hover .topo__capi {
+    translate: 0 -2px;
+    rotate: -5deg;
+  }
+}
+.topo__marca:active .topo__capi {
+  translate: 0 1px;
+  rotate: 0deg;
+}
+.topo__nome {
+  letter-spacing: -0.045em;
+  font-variation-settings:
+    "opsz" 96,
+    "wdth" 88;
+  padding-bottom: 0.1em;
+  font-size: clamp(34px, 3.1vw, 44px);
+  font-weight: 800;
+  line-height: 0.8;
+}
+.topo__nav {
+  align-items: center;
+  gap: clamp(26px, 3.1vw, 46px);
+  display: flex;
+}
+.topo__link {
+  min-height: 44px;
+  color: inherit;
+  cursor: pointer;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: 0 0;
+  border: 0;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: translate 0.15s;
+  display: inline-flex;
+  position: relative;
+}
+.topo__link:active {
+  translate: 0 1px;
+}
+.topo__link:after {
+  content: "";
+  background: var(--cheddar);
+  transform-origin: 0;
+  height: 2px;
+  transition: scale 0.22s var(--sai);
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  right: 0;
+  scale: 0 1;
+}
+.topo__link--suspenso:before {
+  content: "";
+  border: 5px solid #0000;
+  border-top-color: currentColor;
+  border-bottom-width: 0;
+  order: 2;
+  width: 0;
+  height: 0;
+  margin-top: 2px;
+  transition: rotate 0.21s;
+}
+.topo__link--suspenso[aria-expanded="true"]:before {
+  rotate: 180deg;
+}
+@media (hover: hover) {
+  .topo__link:hover:after {
+    scale: 1;
+  }
+}
+.topo__link:focus-visible:after {
+  scale: 1;
+}
+.topo__grupo {
+  position: relative;
+}
+.topo__suspenso {
+  background: var(--pao);
+  min-width: 236px;
+  color: var(--carvao);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.17s,
+    translate 0.23s var(--sai),
+    visibility 0s 0.23s;
+  border-radius: 22px 26px 20px 24px/22px 20px 26px 22px;
+  gap: 2px;
+  padding: 10px;
+  display: grid;
+  position: absolute;
+  top: calc(100% + 6px);
+  left: -20px;
+  translate: 0 -7px;
+  box-shadow: 0 16px 38px #00000052;
+}
+.topo__grupo.aberto .topo__suspenso {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
+  translate: 0;
+}
+.topo__opcao {
+  border-radius: 14px;
+  padding: 11px 14px;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    background-color 0.15s,
+    color 0.15s;
+  display: block;
+}
+@media (hover: hover) {
+  .topo__opcao:hover {
+    background: var(--carvao);
+    color: var(--cheddar);
+  }
+}
+.topo__opcao:focus-visible {
+  background: var(--carvao);
+  color: var(--cheddar);
+  outline: none;
+}
+.topo__abre {
+  background: var(--pao);
+  cursor: pointer;
+  border: 0;
+  border-radius: 50%;
+  align-content: center;
+  place-items: center;
+  gap: 5px;
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  display: none;
+}
+.topo__abre span {
+  background: var(--carvao);
+  border-radius: 2px;
+  width: 20px;
+  height: 2.5px;
+  display: block;
+}
+.gaveta {
+  --foco: var(--cheddar);
+  z-index: 120;
+  background: var(--carvao);
+  width: min(420px, 100%);
+  height: 100dvh;
+  color: var(--pao);
+  visibility: hidden;
+  padding: 0 24px 32px;
+  transition:
+    transform 0.32s ease-in-out,
+    visibility 0s 0.32s;
+  position: fixed;
+  top: 0;
+  right: 0;
+  overflow-y: auto;
+  transform: translate(100%);
+}
+.gaveta.aberta {
+  visibility: visible;
+  transition-delay: 0s;
+  transform: none;
+}
+.gaveta__topo {
+  justify-content: space-between;
+  align-items: center;
+  height: 92px;
+  display: flex;
+}
+.gaveta__fecha {
+  background: var(--tomate);
+  cursor: pointer;
+  border: 0;
+  border-radius: 50%;
+  width: 46px;
+  height: 46px;
+  padding: 0;
+  position: relative;
+}
+.gaveta__fecha span {
+  background: var(--branco);
+  border-radius: 2px;
+  width: 18px;
+  height: 2.5px;
+  margin: -1.25px 0 0 -9px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  rotate: 45deg;
+}
+.gaveta__fecha span + span {
+  rotate: -45deg;
+}
+.gaveta__nav {
+  padding-top: 26px;
+  display: grid;
+}
+.gaveta__link {
+  width: 100%;
+  min-height: 64px;
+  color: inherit;
+  cursor: pointer;
+  letter-spacing: -0.022em;
+  text-align: left;
+  background: 0 0;
+  border: 0;
+  border-bottom: 1px solid #f5eddf29;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+  transition: opacity 0.15s;
+  display: flex;
+}
+.gaveta__link:active,
+.gaveta__opcao:active {
+  opacity: 0.7;
+}
+.gaveta__sinal {
+  transition: rotate 0.23s;
+}
+.gaveta__link[aria-expanded="true"] .gaveta__sinal {
+  rotate: 45deg;
+}
+.gaveta__sub {
+  border-bottom: 1px solid #f5eddf29;
+  padding: 8px 0 14px;
+  display: grid;
+}
+.gaveta__sub[hidden] {
+  display: none;
+}
+.gaveta__opcao {
+  color: var(--cheddar);
+  padding: 12px 0 12px 18px;
+  font-size: 20px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.gaveta__fundo {
+  z-index: 110;
+  opacity: 0;
+  background: #00000080;
+  transition: opacity 0.32s;
+  position: fixed;
+  inset: 0;
+}
+.gaveta__fundo.aberta {
+  opacity: 1;
+}
+@media (max-width: 899px) {
+  .topo__nav {
+    display: none;
+  }
+  .topo__abre {
+    display: grid;
+  }
+  .topo__faixa {
+    width: calc(100% - 36px);
+  }
+}

@@ -201,6 +201,44 @@ const PROFILES = {
       ["/_next/static/media/roxboroughcf_heavy-s.p.3zq46ltl9wqxw.otf", "fonts/roxborough-heavy.otf"],
     ],
   },
+  // Capiá: every image the page can show, including the ones only the menu
+  // carousel swaps in at runtime (its item data lives in the clone's
+  // `data/cardapio.ts`). Paths keep the original `img/<group>/<name>.webp` shape.
+  capia: {
+    base: "https://capia-eta.vercel.app",
+    assets: [
+      ["/favicon.svg", "seo/favicon.svg"],
+      ["/assets/bricolage-grotesque-latin-standard-normal-C5Lc8Qmc.woff2", "fonts/bricolage-grotesque-latin.woff2"],
+      ["/assets/bricolage-grotesque-latin-ext-standard-normal-qp-RdZgh.woff2", "fonts/bricolage-grotesque-latin-ext.woff2"],
+      ["/assets/bricolage-grotesque-vietnamese-standard-normal-Br4FGdAc.woff2", "fonts/bricolage-grotesque-vietnamese.woff2"],
+      ["/assets/mr-dafoe-latin-400-normal-CbwCR40x.woff2", "fonts/mr-dafoe-latin-400.woff2"],
+      ["/assets/mr-dafoe-latin-400-normal-D0MUsVTf.woff", "fonts/mr-dafoe-latin-400.woff"],
+      ["/assets/mr-dafoe-latin-ext-400-normal-CU745SUt.woff2", "fonts/mr-dafoe-latin-ext-400.woff2"],
+      ["/assets/mr-dafoe-latin-ext-400-normal-CqIvTCDW.woff", "fonts/mr-dafoe-latin-ext-400.woff"],
+      ["/img/produtos/hero.webp", "img/produtos/hero.webp"],
+      ...[
+        "classico", "bacon", "pinhao", "bravo", "guria", "frango",
+        "fritas", "aneis", "polenta", "bolinho",
+        "shake-morango", "shake-chocolate", "mate", "soda",
+        "brownie", "cookie", "pudim", "banoffee",
+      ].flatMap((id) => [
+        [`/img/produtos/${id}.webp`, `img/produtos/${id}.webp`],
+        [`/img/produtos/${id}-p.webp`, `img/produtos/${id}-p.webp`],
+      ]),
+      ...[
+        "alface", "alecrim", "anel", "bacon", "banana", "batata", "brownie-peca",
+        "carne", "cebola-roxa", "cheddar", "chocolate", "chocolate-gotas", "cogumelo",
+        "doce-de-leite", "framboesa", "hortela", "jalapeno", "limao", "limao-rodela",
+        "maionese-verde", "molho-rose", "morango", "morango-meio", "nozes", "pao",
+        "picles", "pinhao", "rucula", "sorvete", "tomate",
+      ].map((name) => [`/img/pecas/${name}.webp`, `img/pecas/${name}.webp`]),
+      ...["parque", "pinhao", "pao", "chapa", "casa"].flatMap((name) => [
+        [`/img/fotos/${name}-640.webp`, `img/fotos/${name}-640.webp`],
+        [`/img/fotos/${name}-1200.webp`, `img/fotos/${name}-1200.webp`],
+      ]),
+      ...["01", "02", "03", "04", "05", "06"].map((n) => [`/img/mural/${n}.webp`, `img/mural/${n}.webp`]),
+    ],
+  },
 };
 
 const profile = PROFILES[clone];

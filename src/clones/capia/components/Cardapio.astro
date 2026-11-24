@@ -1,0 +1,24 @@
+---
+/**
+ * The menu: a stack of full-viewport sticky panels (one per category) with a
+ * sticky dot rail. Data: data/cardapio.ts. Styles: styles/sections/cardapio.css.
+ * Behaviour: scripts/cardapio.ts (carousel, item swap, scroll-linked stage
+ * motion, active panel tracking, dot navigation).
+ */
+import { cardapio } from "../data/cardapio";
+import Painel from "./Painel.astro";
+
+const primeira = cardapio[0];
+if (!primeira) throw new Error("cardapio has no categories");
+---
+
+<div class="cardapio" id="cardapio" data-cardapio data-cor={primeira.cor}>
+  <nav class="cardapio__nav" aria-label="Categorias do cardápio" data-nav style={`--n:${cardapio.length}`}>
+    {cardapio.map((categoria) => (
+      <button class="cardapio__ponto" type="button" data-ir={categoria.id} aria-label={categoria.titulo}></button>
+    ))}
+  </nav>
+  {cardapio.map((categoria, i) => (
+    <Painel categoria={categoria} ordem={i + 1} corDeTras={i > 0 ? cardapio[i - 1]?.cor : undefined} />
+  ))}
+</div>

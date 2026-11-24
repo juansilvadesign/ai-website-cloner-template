@@ -1,0 +1,70 @@
+---
+/**
+ * One sticky menu panel: title, item carousel (tablist) and the stage with
+ * the product, seven ingredient cut-outs, two seals, ingredients and CTA.
+ * Server-renders the category's first item; scripts/cardapio.ts swaps items.
+ * Styles: styles/sections/cardapio.css.
+ */
+import {
+  PILULAS_SEM_LACO,
+  miniaturaSrc,
+  pecaSrc,
+  produtoSrc,
+  type CategoriaCardapio,
+  type CorPainel,
+} from "../data/cardapio";
+
+interface Props {
+  categoria: CategoriaCardapio;
+  /** 1-based stacking order (`--ordem`). */
+  ordem: number;
+  /** Colour of the panel underneath, painted behind this panel's torn top edge. */
+  corDeTras?: CorPainel;
+}
+
+const { categoria, ordem, corDeTras } = Astro.props;
+const { id, titulo, cor, itens } = categoria;
+const [primeiro] = itens;
+if (!primeiro) throw new Error(`Categoria "${id}" has no items`);
+const laco = itens.length > PILULAS_SEM_LACO;
+const estilo = `--ordem:${ordem}` + (corDeTras ? `;--cor-de-tras:var(--${corDeTras})` : "");
+const variantes = ["a", "b", "c"] as const;
+---
+
+<span class="cardapio__ancora" id={id} data-ancora></span>
+<section class={`painel painel--${cor}`} data-painel={id} data-cor={cor} data-cena aria-labelledby={`titulo-${id}`} style={estilo}>
+  <span class="painel__borda" aria-hidden="true"></span>
+  <div class="painel__recorte">
+    <div class="painel__palco">
+      <h2 class="painel__titulo" id={`titulo-${id}`}>{titulo}</h2>
+      <div class={laco ? "seletor seletor--laco" : "seletor"} data-seletor data-total={itens.length}>
+        <button class="seletor__seta" type="button" data-anterior aria-label="Anterior"><span aria-hidden="true">‹</span></button>
+        <div class="seletor__janela" data-janela>
+          <div class="seletor__trilho" role="tablist" aria-label={titulo} data-trilho>
+            {itens.map((item, i) => (
+              <button class={`pilula pilula--${variantes[i % 3]}`} type="button" role="tab" data-indice={i} aria-selected={i === 0 ? "true" : "false"} aria-controls={`cena-${id}`} tabindex={i === 0 ? 0 : -1}>
+                <span class="pilula__foto"><img src={miniaturaSrc(item.id)} alt="" width="200" height="200" loading="lazy" decoding="async" /></span>
+                <span class="pilula__texto"><strong>{item.nome}</strong><small>{item.linha}</small></span>
+              </button>
+            ))}
+          </div>
+        </div>
+        <button class="seletor__seta" type="button" data-proximo aria-label="Próximo"><span aria-hidden="true">›</span></button>
+      </div>
+      <div class="cena" id={`cena-${id}`} role="tabpanel" aria-labelledby={`titulo-${id}`} data-palco-cena>
+        <p class="cena__marca" aria-hidden="true">Capiá</p>
+        {primeiro.pecas.map((peca, i) => (
+          <span class={`cena__peca cena__peca--${i + 1}`} data-peca><img src={pecaSrc(peca)} alt="" width="360" height="360" loading="lazy" decoding="async" /></span>
+        ))}
+        <span class="cena__produto" data-produto><img src={produtoSrc(primeiro.id)} alt={primeiro.nome} width="720" height="720" loading="lazy" decoding="async" /></span>
+        <ul class="cena__selos" data-selos>
+          {primeiro.selos.map((selo) => <li>{selo}</li>)}
+        </ul>
+      </div>
+      <p class="painel__ingredientes" data-ingredientes>{primeiro.ingredientes.join(" · ")}</p>
+      <a class="botao botao--painel" href="#contato" data-pedir><span>{`Pedir ${titulo.toLowerCase()}`}</span><span class="botao__seta" aria-hidden="true">›</span></a>
+      <p class="so-leitor" role="status" aria-live="polite" data-status></p>
+    </div>
+  </div>
+</section>
+<div class="cardapio__folga" aria-hidden="true"></div>

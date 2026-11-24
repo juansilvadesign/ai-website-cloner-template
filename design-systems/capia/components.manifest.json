@@ -1,0 +1,463 @@
+{
+  "schemaVersion": 1,
+  "brandId": "capia",
+  "source": {
+    "componentsHtml": "components.html",
+    "tokensCss": "tokens.css"
+  },
+  "fixture": {
+    "styleBlockCount": 1,
+    "selectorCount": 46,
+    "classCount": 26,
+    "elementCount": 25
+  },
+  "tokens": {
+    "declared": [
+      "--accent",
+      "--accent-active",
+      "--accent-hover",
+      "--accent-on",
+      "--bg",
+      "--border",
+      "--border-soft",
+      "--container-gutter-desktop",
+      "--container-gutter-phone",
+      "--container-gutter-tablet",
+      "--container-max",
+      "--danger",
+      "--ease-standard",
+      "--elev-flat",
+      "--elev-raised",
+      "--elev-ring",
+      "--fg",
+      "--fg-2",
+      "--focus-ring",
+      "--font-body",
+      "--font-display",
+      "--font-mono",
+      "--leading-body",
+      "--leading-tight",
+      "--meta",
+      "--motion-base",
+      "--motion-fast",
+      "--muted",
+      "--radius-lg",
+      "--radius-md",
+      "--radius-pill",
+      "--radius-sm",
+      "--section-y-desktop",
+      "--section-y-phone",
+      "--section-y-tablet",
+      "--space-1",
+      "--space-12",
+      "--space-2",
+      "--space-3",
+      "--space-4",
+      "--space-5",
+      "--space-6",
+      "--space-8",
+      "--success",
+      "--surface",
+      "--surface-warm",
+      "--text-2xl",
+      "--text-3xl",
+      "--text-4xl",
+      "--text-base",
+      "--text-lg",
+      "--text-sm",
+      "--text-xl",
+      "--text-xs",
+      "--tracking-display",
+      "--warn"
+    ],
+    "referenced": [
+      "--accent",
+      "--accent-on",
+      "--bg",
+      "--container-max",
+      "--danger",
+      "--ease-standard",
+      "--elev-raised",
+      "--elev-ring",
+      "--fg",
+      "--focus-ring",
+      "--font-body",
+      "--font-display",
+      "--leading-body",
+      "--leading-tight",
+      "--motion-base",
+      "--muted",
+      "--radius-md",
+      "--radius-sm",
+      "--space-12",
+      "--space-2",
+      "--space-3",
+      "--space-4",
+      "--space-5",
+      "--space-6",
+      "--space-8",
+      "--success",
+      "--surface",
+      "--text-3xl",
+      "--text-base",
+      "--text-lg",
+      "--text-sm",
+      "--text-xl",
+      "--text-xs",
+      "--tracking-display"
+    ],
+    "unusedDeclared": [
+      "--accent-active",
+      "--accent-hover",
+      "--border",
+      "--border-soft",
+      "--container-gutter-desktop",
+      "--container-gutter-phone",
+      "--container-gutter-tablet",
+      "--elev-flat",
+      "--fg-2",
+      "--font-mono",
+      "--meta",
+      "--motion-fast",
+      "--radius-lg",
+      "--radius-pill",
+      "--section-y-desktop",
+      "--section-y-phone",
+      "--section-y-tablet",
+      "--space-1",
+      "--surface-warm",
+      "--text-2xl",
+      "--text-4xl",
+      "--warn"
+    ],
+    "undeclaredReferenced": []
+  },
+  "selectors": [
+    ".badge",
+    ".badge--cheddar",
+    ".badge--ink",
+    ".badge--mate",
+    ".badge::after",
+    ".button",
+    ".button--cream",
+    ".button--cream:hover",
+    ".button--tomato",
+    ".button--tomato:hover",
+    ".button-arrow",
+    ".button:active",
+    ".button:hover",
+    ".button:hover .button-arrow",
+    ".caption",
+    ".card",
+    ".card h3",
+    ".card p",
+    ".card--ring",
+    ".card--sticker",
+    ".field-dark",
+    ".field-input",
+    ".field-input::placeholder",
+    ".field-input:focus-visible",
+    ".group",
+    ".group > h2",
+    ".icon",
+    ".icon svg",
+    ".lead",
+    ".menu-field",
+    ".nav-link",
+    ".nav-link::after",
+    ".nav-link:hover::after",
+    ".pill",
+    ".pill-text",
+    ".pill-text small",
+    ".pill-text strong",
+    ".pill-thumb",
+    ".pill::before",
+    ".pill:hover::before",
+    ".pill.is-active",
+    ".pill.is-active::before",
+    ".row",
+    ".script",
+    "body",
+    "h1.display"
+  ],
+  "classes": [
+    "badge",
+    "badge--cheddar",
+    "badge--ink",
+    "badge--mate",
+    "button",
+    "button--cream",
+    "button--tomato",
+    "button-arrow",
+    "caption",
+    "card",
+    "card--ring",
+    "card--sticker",
+    "display",
+    "field-dark",
+    "field-input",
+    "group",
+    "icon",
+    "is-active",
+    "lead",
+    "menu-field",
+    "nav-link",
+    "pill",
+    "pill-text",
+    "pill-thumb",
+    "row",
+    "script"
+  ],
+  "elements": [
+    "a",
+    "article",
+    "body",
+    "br",
+    "button",
+    "circle",
+    "div",
+    "form",
+    "h1",
+    "h2",
+    "h3",
+    "head",
+    "html",
+    "input",
+    "label",
+    "link",
+    "meta",
+    "p",
+    "rect",
+    "section",
+    "small",
+    "span",
+    "strong",
+    "style",
+    "svg"
+  ],
+  "groups": [
+    {
+      "id": "buttons",
+      "label": "Buttons and calls to action",
+      "present": true,
+      "selectors": [
+        ".button",
+        ".button--cream",
+        ".button--cream:hover",
+        ".button--tomato",
+        ".button--tomato:hover",
+        ".button-arrow",
+        ".button:active",
+        ".button:hover",
+        ".button:hover .button-arrow"
+      ],
+      "classes": [
+        "button",
+        "button--cream",
+        "button--tomato",
+        "button-arrow"
+      ],
+      "elements": [
+        "button"
+      ],
+      "tokenReferences": [
+        "--danger",
+        "--ease-standard",
+        "--fg",
+        "--motion-base",
+        "--surface"
+      ]
+    },
+    {
+      "id": "inputs",
+      "label": "Form fields and controls",
+      "present": true,
+      "selectors": [
+        ".field-dark",
+        ".field-input",
+        ".field-input::placeholder",
+        ".field-input:focus-visible"
+      ],
+      "classes": [
+        "field-dark",
+        "field-input"
+      ],
+      "elements": [
+        "form",
+        "input",
+        "label"
+      ],
+      "tokenReferences": [
+        "--bg",
+        "--fg",
+        "--focus-ring",
+        "--font-body",
+        "--space-5",
+        "--space-8",
+        "--surface",
+        "--text-base"
+      ]
+    },
+    {
+      "id": "cards",
+      "label": "Cards and panels",
+      "present": true,
+      "selectors": [
+        ".card",
+        ".card h3",
+        ".card p",
+        ".card--ring",
+        ".card--sticker"
+      ],
+      "classes": [
+        "card",
+        "card--ring",
+        "card--sticker"
+      ],
+      "elements": [],
+      "tokenReferences": [
+        "--accent",
+        "--font-display",
+        "--leading-tight",
+        "--space-2",
+        "--space-6",
+        "--text-lg",
+        "--tracking-display"
+      ]
+    },
+    {
+      "id": "badges",
+      "label": "Badges, chips, and status labels",
+      "present": true,
+      "selectors": [
+        ".badge",
+        ".badge--cheddar",
+        ".badge--ink",
+        ".badge--mate",
+        ".badge::after",
+        ".pill",
+        ".pill-text",
+        ".pill-text small",
+        ".pill-text strong",
+        ".pill-thumb",
+        ".pill::before",
+        ".pill:hover::before",
+        ".pill.is-active",
+        ".pill.is-active::before"
+      ],
+      "classes": [
+        "badge",
+        "badge--cheddar",
+        "badge--ink",
+        "badge--mate",
+        "pill",
+        "pill-text",
+        "pill-thumb"
+      ],
+      "elements": [],
+      "tokenReferences": [
+        "--accent",
+        "--accent-on",
+        "--bg",
+        "--danger",
+        "--font-body",
+        "--motion-base",
+        "--radius-sm",
+        "--success",
+        "--surface",
+        "--text-sm"
+      ]
+    },
+    {
+      "id": "links",
+      "label": "Links and inline actions",
+      "present": true,
+      "selectors": [],
+      "classes": [],
+      "elements": [
+        "a"
+      ],
+      "tokenReferences": []
+    },
+    {
+      "id": "keyboard",
+      "label": "Keyboard hints",
+      "present": false,
+      "selectors": [],
+      "classes": [],
+      "elements": [],
+      "tokenReferences": []
+    },
+    {
+      "id": "icons",
+      "label": "Icon slots",
+      "present": true,
+      "selectors": [
+        ".icon",
+        ".icon svg"
+      ],
+      "classes": [
+        "icon"
+      ],
+      "elements": [
+        "svg"
+      ],
+      "tokenReferences": []
+    },
+    {
+      "id": "typography",
+      "label": "Typography scale and text utilities",
+      "present": true,
+      "selectors": [
+        ".card h3",
+        ".group > h2",
+        ".lead",
+        "h1.display"
+      ],
+      "classes": [
+        "caption",
+        "lead"
+      ],
+      "elements": [
+        "h1",
+        "h2",
+        "h3",
+        "p"
+      ],
+      "tokenReferences": [
+        "--font-display",
+        "--leading-tight",
+        "--space-2",
+        "--space-6",
+        "--text-3xl",
+        "--text-lg",
+        "--text-xl",
+        "--tracking-display"
+      ]
+    },
+    {
+      "id": "layout",
+      "label": "Layout primitives",
+      "present": true,
+      "selectors": [
+        ".nav-link",
+        ".nav-link::after",
+        ".nav-link:hover::after"
+      ],
+      "classes": [],
+      "elements": [
+        "section"
+      ],
+      "tokenReferences": [
+        "--accent",
+        "--ease-standard",
+        "--motion-base"
+      ]
+    }
+  ],
+  "literals": {
+    "colorExpressions": 2,
+    "pixelValues": 51,
+    "hardcodedFontFamilies": 0
+  }
+}

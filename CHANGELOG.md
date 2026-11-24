@@ -61,8 +61,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added a `dependency-watch` job to the weekly workflow that publishes that
   verdict to the run summary and opens an issue the day the advisory becomes
   actionable
+- Added the **Capiá** clone (`capia`, from capia-eta.vercel.app). It is a Vite
+  site with hand-written CSS and JS, so the stylesheet is split by section in its
+  original cascade order and the behaviour script is ported line for line. The
+  ported behaviour covers Lenis, stacked sticky menu panels with a swappable item
+  carousel, scroll-linked motion and a cursor photo trail. The menu items live in
+  `data/cardapio.ts`, so the clone can be re-skinned as a template. Adds the
+  `lenis` runtime dependency (pinned to the original's 1.3.27) and a `capia`
+  profile in `scripts/download-assets.mjs`
 
 ### Fixed
+- Fixed `npm run eject` writing a `package.json` that only listed `astro`. A
+  clone that imports a runtime package (`lenis`, `three`) ejected into a project
+  whose build failed. Bare imports in the copied files are now carried over at
+  the root `package.json`'s ranges
+- Fixed `npm run eject` rewriting only the first URL of a `srcset`. The other
+  candidates kept their `/clones/<slug>/` prefix and 404'd in the ejected site
 - Fixed CI failing on `typecheck:scripts` with `TS2688: Cannot find type
   definition file for 'node'`. The script passes `--types node`, but `@types/node`
   was only present as an optional peer transitive that a clean `npm ci` does not

@@ -1,0 +1,31 @@
+---
+/**
+ * Two-line word marquee on charcoal between torn edges. Each line repeats its
+ * seven words four times; scripts/faixa.ts offsets the tracks by a quarter of
+ * their width plus a per-line start offset, and slides both sideways with scroll.
+ * Styles: styles/sections/faixa.css.
+ */
+type CorPalavra = "cheddar" | "tomate" | "pao" | "mate";
+type Palavra = readonly [texto: string, cor: CorPalavra];
+
+const REPETICOES = 4;
+const linhas: readonly (readonly Palavra[])[] = [
+  [["Suculento", "cheddar"], ["Tostado", "tomate"], ["Na chapa", "pao"], ["Derretido", "mate"], ["Crocante", "cheddar"], ["Defumado", "tomate"], ["Sem pressa", "pao"]],
+  [["Caseiro", "pao"], ["Fresco", "mate"], ["Dourado", "cheddar"], ["Cremoso", "tomate"], ["Picante", "pao"], ["Na calma", "mate"], ["Quentinho", "cheddar"]],
+];
+const repetir = (palavras: readonly Palavra[]): Palavra[] => Array.from({ length: REPETICOES }, () => palavras).flat();
+---
+
+<section class="faixa" data-faixa aria-label="Como é o burger do Capiá">
+  <span class="rasgo rasgo--topo" aria-hidden="true"></span>
+  <div class="faixa__tela">
+    {linhas.map((palavras, i) => (
+      <div class={`faixa__linha faixa__linha--${i + 1}`}>
+        <div class="faixa__trilho" data-trilho-faixa>
+          {repetir(palavras).map(([texto, cor]) => <span class={`faixa__palavra faixa__palavra--${cor}`}>{texto}</span>)}
+        </div>
+      </div>
+    ))}
+  </div>
+  <span class="rasgo rasgo--pe faixa__pe" aria-hidden="true"></span>
+</section>

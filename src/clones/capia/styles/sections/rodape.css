@@ -1,0 +1,463 @@
+/* Capiá — rodape section. Ported verbatim (formatted) from the original stylesheet;
+   keep the import order in clone.css: it is the original cascade order. */
+
+.rodape {
+  --foco: var(--cheddar);
+  z-index: 4;
+  width: 100%;
+  color: var(--pao);
+  background: var(--carvao);
+  isolation: isolate;
+  position: relative;
+  overflow: hidden;
+}
+.rasgo--vira {
+  top: -1px;
+  rotate: 180deg;
+}
+.rodape__rasgo {
+  z-index: 5;
+  color: var(--pao);
+}
+.mural {
+  z-index: 3;
+  height: clamp(420px, 41vw, 610px);
+  padding-top: var(--rasgo);
+  place-items: center;
+  display: grid;
+  position: relative;
+}
+.mural__chamada {
+  z-index: 4;
+  pointer-events: none;
+  position: relative;
+}
+.mural__titulo {
+  color: var(--cheddar);
+  letter-spacing: -0.03em;
+  text-align: center;
+  font-variation-settings:
+    "opsz" 96,
+    "wdth" 92;
+  flex-direction: column;
+  align-items: center;
+  font-size: clamp(34px, 5.1vw, 80px);
+  font-weight: 800;
+  line-height: 1.06;
+  display: flex;
+}
+.mural__titulo > span {
+  white-space: nowrap;
+  display: block;
+}
+.mural__toque {
+  width: max-content;
+  min-height: 44px;
+  color: var(--pao);
+  cursor: pointer;
+  pointer-events: auto;
+  letter-spacing: 0.07em;
+  text-align: left;
+  text-transform: uppercase;
+  background: 0 0;
+  border: 0;
+  align-items: center;
+  gap: 2px;
+  padding: 0 6px;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1;
+  transition:
+    rotate 0.21s,
+    scale 0.21s;
+  display: flex;
+  position: absolute;
+  top: 0.4vw;
+  left: calc(100% + 0.6vw);
+  rotate: -5.4deg;
+}
+.mural__toque svg {
+  width: clamp(50px, 5.2vw, 76px);
+  height: auto;
+  overflow: visible;
+}
+.mural__risco {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 4px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+@media (hover: hover) {
+  .mural__toque:hover {
+    rotate: -1.5deg;
+    scale: 1.07;
+  }
+}
+.mural__toque:active {
+  scale: 0.93;
+}
+.mural__rastro {
+  z-index: 2;
+  width: 100%;
+  height: var(--zona, 100%);
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.mural__foto {
+  aspect-ratio: 9/16;
+  object-fit: cover;
+  opacity: 0;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  will-change: transform, opacity;
+  border-radius: 15px;
+  width: clamp(150px, 14.2vw, 204px);
+  max-width: none;
+  height: auto;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 12px 30px #0000006b;
+}
+.mural__dica {
+  z-index: 6;
+  background: var(--cheddar);
+  color: var(--carvao);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  box-shadow: 0 0 0 3px var(--carvao);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.17s,
+    transform 0.23s var(--sai);
+  border-radius: 999px;
+  padding: 7px 13px 8px;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%) rotate(-3.5deg) scale(0.88);
+}
+.mural__dica.visivel {
+  opacity: 1;
+  transform: translate(-50%, -50%) rotate(-3.5deg) scale(1);
+}
+.mural__pilha {
+  display: none;
+}
+.rodape__miolo {
+  z-index: 3;
+  width: min(100% - 2 * var(--margem), 1290px);
+  margin-inline: auto;
+  padding-bottom: clamp(56px, 5.8vw, 86px);
+  position: relative;
+}
+.recado {
+  justify-content: center;
+  align-items: center;
+  gap: clamp(14px, 2vw, 30px);
+  padding-top: clamp(8px, 1.8vw, 26px);
+  display: flex;
+}
+.recado__retrato {
+  aspect-ratio: 1;
+  width: clamp(136px, 14.8vw, 214px);
+  box-shadow: inset 0 0 0 clamp(5px, 0.46vw, 6.5px) var(--pao);
+  border-radius: 50%;
+  flex: none;
+  place-items: center;
+  display: grid;
+}
+.recado__retrato svg {
+  width: 70%;
+  height: auto;
+  margin-top: 6%;
+}
+.recado__titulo {
+  letter-spacing: -0.03em;
+  font-variation-settings:
+    "opsz" 96,
+    "wdth" 92;
+  margin-bottom: clamp(16px, 1.55vw, 22px);
+  padding-left: 14px;
+  font-size: clamp(34px, 3.9vw, 56px);
+  font-weight: 800;
+  line-height: 1;
+}
+.recado__form {
+  align-items: stretch;
+  gap: 14px;
+  display: flex;
+}
+.recado__campo {
+  outline-offset: 3px;
+  background: var(--branco);
+  width: clamp(200px, 23.4vw, 340px);
+  height: 54px;
+  color: var(--carvao);
+  font: inherit;
+  border: 0;
+  border-radius: 27px 25px 29px 27px/27px 29px 25px 27px;
+  padding: 0 22px;
+  font-size: 16px;
+}
+.recado__campo::placeholder {
+  color: #16130f99;
+}
+.recado__enviar {
+  cursor: pointer;
+  border-radius: var(--pao-c);
+  background: var(--tomate);
+  height: 54px;
+  color: var(--branco);
+  border: 0;
+  align-items: center;
+  gap: 10px;
+  padding: 3px 26px 0;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1;
+  transition:
+    background-color 0.19s,
+    color 0.19s,
+    translate 0.19s,
+    scale 0.19s;
+  display: inline-flex;
+}
+@media (hover: hover) {
+  .recado__enviar:hover {
+    background: var(--cheddar);
+    color: var(--carvao);
+    translate: 0 -3px;
+  }
+}
+.recado__enviar:active {
+  translate: 0;
+  scale: 0.97;
+}
+.recado__aviso {
+  min-height: 22px;
+  color: var(--cheddar);
+  margin-top: 12px;
+  padding-left: 14px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.rodape__pe {
+  gap: 6px;
+  width: max-content;
+  max-width: 100%;
+  margin: clamp(58px, 8.5vw, 122px) auto 0;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.2;
+  display: grid;
+}
+.rodape__linha {
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 8px;
+  margin: 0;
+  display: flex;
+}
+.rodape__linha p {
+  margin: 0;
+}
+.rodape__links {
+  gap: 8px;
+  display: flex;
+}
+.rodape__links a,
+.rodape__pe a {
+  text-decoration: none;
+}
+.rodape__links a {
+  position: relative;
+}
+.rodape__links a:after {
+  content: "";
+  position: absolute;
+  inset: -16px -4px;
+}
+@media (hover: hover) {
+  .rodape__links a:hover {
+    color: var(--cheddar);
+  }
+}
+.rodape__links a:active {
+  opacity: 0.65;
+}
+.rodape__redes {
+  gap: 6px;
+  margin-left: 6px;
+  display: flex;
+}
+.rodape__redes a {
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin: -8px -6px;
+  transition:
+    color 0.19s,
+    translate 0.19s;
+  display: grid;
+}
+.rodape__redes svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.9px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  width: 27px;
+  height: 27px;
+}
+.rodape__redes .cheio {
+  fill: currentColor;
+  stroke: none;
+}
+@media (hover: hover) {
+  .rodape__redes a:hover {
+    color: var(--cheddar);
+    translate: 0 -2px;
+  }
+}
+.rodape__redes a:active {
+  translate: 0;
+  scale: 0.9;
+}
+.rodape__gigante {
+  z-index: 1;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+  font-variation-settings:
+    "opsz" 96,
+    "wdth" 94;
+  pointer-events: none;
+  -webkit-user-select: none;
+  user-select: none;
+  height: 0.85em;
+  margin: 0;
+  padding-left: 1.4vw;
+  font-size: 10.3vw;
+  font-weight: 800;
+  line-height: 1;
+  position: relative;
+  overflow: hidden;
+}
+.rodape__gigante span:last-child {
+  color: var(--cheddar);
+}
+@media (max-width: 767px) {
+  .mural {
+    height: auto;
+    padding: calc(var(--rasgo) + 64px) 20px 34px;
+    gap: 26px;
+  }
+  .mural__titulo {
+    font-size: clamp(30px, 8.9vw, 38px);
+  }
+  .mural__toque {
+    top: auto;
+    bottom: -46px;
+    left: 50%;
+    translate: -50%;
+    rotate: -4deg;
+  }
+  .mural__pilha {
+    aspect-ratio: 9/16;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    background: 0 0;
+    border: 0;
+    width: min(62vw, 240px);
+    margin-top: 46px;
+    padding: 0;
+    transition: scale 0.15s;
+    display: block;
+    position: relative;
+  }
+  .mural__pilha:active {
+    scale: 0.98;
+  }
+  .mural__carta {
+    --gira: 0deg;
+    object-fit: cover;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(var(--gira));
+    border-radius: 15px;
+    transition:
+      opacity 0.22s,
+      transform 0.38s cubic-bezier(0.22, 0.82, 0.3, 1);
+    position: absolute;
+    inset: 0;
+    box-shadow: 0 12px 28px #0000006b;
+  }
+  .mural__carta[data-papel="frente"] {
+    z-index: 3;
+    opacity: 1;
+  }
+  .mural__carta[data-papel="perto"] {
+    z-index: 2;
+    opacity: 1;
+    transform: translate(16px, 9px) rotate(5.5deg) scale(0.955);
+  }
+  .mural__carta[data-papel="longe"] {
+    z-index: 1;
+    opacity: 1;
+    transform: translate(-15px, 18px) rotate(-6.5deg) scale(0.915);
+  }
+  .mural__rastro,
+  .mural__dica {
+    display: none;
+  }
+  .recado {
+    text-align: center;
+    flex-direction: column;
+  }
+  .recado__titulo {
+    padding-left: 0;
+  }
+  .recado__form {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .recado__campo {
+    width: min(100%, 340px);
+  }
+  .recado__enviar {
+    justify-content: center;
+    width: min(100%, 340px);
+  }
+  .recado__aviso {
+    padding-left: 0;
+  }
+  .rodape__pe {
+    text-align: center;
+    justify-items: center;
+    margin-top: 54px;
+  }
+  .rodape__linha {
+    justify-content: center;
+  }
+  .rodape__gigante {
+    white-space: normal;
+    height: 1.73em;
+    padding-left: 4vw;
+    font-size: 18.1vw;
+    line-height: 0.88;
+  }
+  .rodape__gigante span {
+    white-space: nowrap;
+    display: block;
+  }
+}
