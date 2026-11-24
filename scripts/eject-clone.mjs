@@ -159,6 +159,15 @@ function rewriteToken(value, ctx) {
     return rel;
   }
 
+  // A srcset holds several candidates in one quoted value ("/a 640w, /b 1200w");
+  // rewrite each candidate's URL, or only the first loses its namespace prefix.
+  if (value.startsWith("/") && /\s\d+(?:\.\d+)?[wx]\s*,/.test(value)) {
+    return value
+      .split(",")
+      .map((candidate) => candidate.replace(/^(\s*)(\S+)/, (_m, lead, url) => lead + rewriteToken(url, ctx)))
+      .join(",");
+  }
+
   if (value.startsWith("/")) {
     for (const prefix of [`/clones/${slug}`, `/${slug}`]) {
       if (value === prefix) return "/";
@@ -257,7 +266,30 @@ function readRootPackage(repoRoot) {
   return JSON.parse(fs.readFileSync(path.join(repoRoot, "package.json"), "utf8"));
 }
 
-function generatePackageJson(slug, meta, rootPkg) {
+/** `from "pkg"`, `import "pkg"` and `import("pkg")` — bare specifiers only. */
+const BARE_IMPORT = /(?:\bfrom\s*|\bimport\s*\(?\s*)["']([^"'./][^"']*)["']/g;
+
+/**
+ * npm packages the copied files import, at the root package.json's ranges.
+ * Without this an ejected clone that imports a runtime package (`lenis`,
+ * `three`) gets a package.json that only lists astro, and its build fails.
+ * `astro:*` virtual modules and `node:*` builtins never match a root entry.
+ */
+function importedDependencies(repoRoot, plan, rootPkg) {
+  const known = { ...rootPkg.devDependencies, ...rootPkg.dependencies };
+  const deps = {};
+  for (const { from } of plan) {
+    if (!/\.(?:astro|[cm]?[jt]sx?)$/.test(from)) continue;
+    const text = fs.readFileSync(path.join(repoRoot, fromPosix(from)), "utf8");
+    for (const [, spec] of text.matchAll(BARE_IMPORT)) {
+      const name = spec.startsWith("@") ? spec.split("/").slice(0, 2).join("/") : spec.split("/")[0];
+      if (name !== "astro" && known[name]) deps[name] = known[name];
+    }
+  }
+  return Object.fromEntries(Object.entries(deps).sort(([a], [b]) => a.localeCompare(b)));
+}
+
+function generatePackageJson(slug, meta, rootPkg, importedDeps = {}) {
   const pick = (name, fallback) =>
     rootPkg.dependencies?.[name] ?? rootPkg.devDependencies?.[name] ?? fallback;
 
@@ -275,7 +307,7 @@ function generatePackageJson(slug, meta, rootPkg) {
         preview: "astro preview",
         check: "astro check && astro build",
       },
-      dependencies: { astro: pick("astro", "^7.1.3") },
+      dependencies: { astro: pick("astro", "^7.1.3"), ...importedDeps },
       devDependencies: {
         "@astrojs/check": pick("@astrojs/check", "^0.9.9"),
         typescript: pick("typescript", "^6.0.3"),
@@ -510,7 +542,7 @@ export async function ejectClone({
   const rootPkg = readRootPackage(repoRoot);
 
   const generated = [
-    ["package.json", generatePackageJson(slug, meta, rootPkg)],
+    ["package.json", generatePackageJson(slug, meta, rootPkg, importedDependencies(repoRoot, plan, rootPkg))],
     ["astro.config.mjs", ASTRO_CONFIG],
     ["tsconfig.json", TSCONFIG],
     [".gitignore", GITIGNORE],
