@@ -8,6 +8,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- Added the **zeromrr-club** clone (2026-11-26): `zeromrr.club/` (a streetwear
+  drop staged as a PS2-era console game: three.js garage, character-select tee
+  panel, memory-card signup) at `/zeromrr-club/`, and
+  `playbook.zeromrr.club/playbook` at `/zeromrr-club/playbook/`. Both sites are
+  hand-written static HTML, so their stylesheets and scripts are ported
+  verbatim. Analytics are off, and signups run in demo mode. The 30 inline
+  base64 images are extracted to files and the fonts are self-hosted
+  (`scripts/download-zeromrr-club-assets.mjs`). `design-systems/zeromrr-club`
+  passes the OpenDesign guard (score 100).
 - Added `.claude/skills/clone-website/references/framer-and-motion.md` as an
   on-demand reference for Framer assets, motion drivers, pinned scenes, Lenis,
   and state-based verification in Astro and the retained Next.js target

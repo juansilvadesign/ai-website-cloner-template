@@ -28,9 +28,11 @@ import { marcosArrudaClone } from "../../clones/marcos-arruda-com/clone.config";
 import { mediumClone } from "../../clones/medium-com/clone.config";
 import { reworkdClone } from "../../clones/reworkd-ai/clone.config";
 import { capiaClone } from "../../clones/capia/clone.config";
+import { zeromrrClubClone } from "../../clones/zeromrr-club/clone.config";
 
 /** Every registered clone, newest extraction first. */
 export const allClones: Clone[] = [
+  zeromrrClubClone,
   capiaClone,
   reworkdClone,
   mediumClone,

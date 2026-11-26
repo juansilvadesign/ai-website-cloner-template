@@ -1,0 +1,425 @@
+{
+  "schemaVersion": 1,
+  "brandId": "zeromrr-club",
+  "source": {
+    "componentsHtml": "components.html",
+    "tokensCss": "tokens.css"
+  },
+  "fixture": {
+    "title": "$0 MRR Club — components",
+    "styleBlockCount": 1,
+    "selectorCount": 47,
+    "classCount": 30,
+    "elementCount": 23
+  },
+  "tokens": {
+    "declared": [
+      "--accent",
+      "--accent-active",
+      "--accent-hover",
+      "--accent-on",
+      "--bg",
+      "--border",
+      "--border-soft",
+      "--container-gutter-desktop",
+      "--container-gutter-phone",
+      "--container-gutter-tablet",
+      "--container-max",
+      "--danger",
+      "--ease-standard",
+      "--elev-flat",
+      "--elev-raised",
+      "--elev-ring",
+      "--fg",
+      "--fg-2",
+      "--focus-ring",
+      "--font-body",
+      "--font-display",
+      "--font-mono",
+      "--leading-body",
+      "--leading-tight",
+      "--meta",
+      "--motion-base",
+      "--motion-fast",
+      "--muted",
+      "--radius-lg",
+      "--radius-md",
+      "--radius-pill",
+      "--radius-sm",
+      "--section-y-desktop",
+      "--section-y-phone",
+      "--section-y-tablet",
+      "--space-1",
+      "--space-12",
+      "--space-2",
+      "--space-3",
+      "--space-4",
+      "--space-5",
+      "--space-6",
+      "--space-8",
+      "--success",
+      "--surface",
+      "--surface-warm",
+      "--text-2xl",
+      "--text-3xl",
+      "--text-4xl",
+      "--text-base",
+      "--text-lg",
+      "--text-sm",
+      "--text-xl",
+      "--text-xs",
+      "--tracking-display",
+      "--warn"
+    ],
+    "referenced": [
+      "--accent",
+      "--accent-on",
+      "--bg",
+      "--border",
+      "--border-soft",
+      "--container-gutter-desktop",
+      "--container-max",
+      "--danger",
+      "--ease-standard",
+      "--elev-raised",
+      "--elev-ring",
+      "--fg",
+      "--fg-2",
+      "--font-body",
+      "--font-display",
+      "--font-mono",
+      "--leading-body",
+      "--leading-tight",
+      "--motion-base",
+      "--motion-fast",
+      "--muted",
+      "--radius-pill",
+      "--radius-sm",
+      "--space-1",
+      "--space-12",
+      "--space-4",
+      "--space-5",
+      "--space-6",
+      "--space-8",
+      "--success",
+      "--surface",
+      "--surface-warm",
+      "--text-2xl",
+      "--text-3xl",
+      "--text-base",
+      "--text-sm",
+      "--text-xl",
+      "--text-xs",
+      "--tracking-display"
+    ],
+    "unusedDeclared": [
+      "--accent-active",
+      "--accent-hover",
+      "--container-gutter-phone",
+      "--container-gutter-tablet",
+      "--elev-flat",
+      "--focus-ring",
+      "--meta",
+      "--radius-lg",
+      "--radius-md",
+      "--section-y-desktop",
+      "--section-y-phone",
+      "--section-y-tablet",
+      "--space-2",
+      "--space-3",
+      "--text-4xl",
+      "--text-lg",
+      "--warn"
+    ],
+    "undeclaredReferenced": []
+  },
+  "selectors": [
+    ":focus-visible",
+    ".badge",
+    ".badge--hud",
+    ".badge--offer",
+    ".btn",
+    ".btn--primary",
+    ".btn:hover",
+    ".card",
+    ".card--featured",
+    ".card:hover",
+    ".chip",
+    ".chip[aria-pressed=\"true\"]",
+    ".cta",
+    ".cta:hover",
+    ".err",
+    ".glyph",
+    ".group",
+    ".group > h2",
+    ".icon",
+    ".input",
+    ".input:focus",
+    ".input[aria-invalid=\"true\"]",
+    ".lede",
+    ".link",
+    ".link--accent",
+    ".link:hover",
+    ".memcard",
+    ".menu",
+    ".menu-item",
+    ".menu-item::before",
+    ".menu-item[aria-current=\"true\"]",
+    ".menu-item[aria-current=\"true\"]::before",
+    ".meter",
+    ".meter i",
+    ".muted",
+    ".panel",
+    ".px",
+    ".row",
+    ".split",
+    ".start",
+    ".start:focus-visible",
+    ".start:hover",
+    ".stat",
+    ".stat-row",
+    ".wordmark",
+    ".wordmark b",
+    "body"
+  ],
+  "classes": [
+    "badge",
+    "badge--hud",
+    "badge--offer",
+    "btn",
+    "btn--primary",
+    "card",
+    "card--featured",
+    "chip",
+    "cta",
+    "err",
+    "glyph",
+    "group",
+    "icon",
+    "input",
+    "lede",
+    "link",
+    "link--accent",
+    "memcard",
+    "menu",
+    "menu-item",
+    "meter",
+    "muted",
+    "panel",
+    "px",
+    "row",
+    "split",
+    "start",
+    "stat",
+    "stat-row",
+    "wordmark"
+  ],
+  "elements": [
+    "a",
+    "b",
+    "body",
+    "button",
+    "div",
+    "h1",
+    "h2",
+    "head",
+    "html",
+    "i",
+    "input",
+    "label",
+    "link",
+    "meta",
+    "nav",
+    "p",
+    "path",
+    "section",
+    "span",
+    "strong",
+    "style",
+    "svg",
+    "title"
+  ],
+  "groups": [
+    {
+      "id": "buttons",
+      "label": "Buttons and calls to action",
+      "present": true,
+      "selectors": [
+        ".btn",
+        ".btn--primary",
+        ".btn:hover"
+      ],
+      "classes": [
+        "btn",
+        "btn--primary",
+        "cta"
+      ],
+      "elements": [
+        "button"
+      ],
+      "tokenReferences": [
+        "--bg",
+        "--border",
+        "--fg",
+        "--font-body",
+        "--radius-sm",
+        "--text-base"
+      ]
+    },
+    {
+      "id": "inputs",
+      "label": "Form fields and controls",
+      "present": true,
+      "selectors": [
+        ".input",
+        ".input:focus",
+        ".input[aria-invalid=\"true\"]"
+      ],
+      "classes": [
+        "input"
+      ],
+      "elements": [
+        "input",
+        "label"
+      ],
+      "tokenReferences": [
+        "--fg"
+      ]
+    },
+    {
+      "id": "cards",
+      "label": "Cards and panels",
+      "present": true,
+      "selectors": [
+        ".card",
+        ".card--featured",
+        ".card:hover",
+        ".panel"
+      ],
+      "classes": [
+        "card",
+        "card--featured",
+        "panel"
+      ],
+      "elements": [],
+      "tokenReferences": [
+        "--accent",
+        "--border-soft",
+        "--space-4",
+        "--space-5",
+        "--surface"
+      ]
+    },
+    {
+      "id": "badges",
+      "label": "Badges, chips, and status labels",
+      "present": true,
+      "selectors": [
+        ".badge",
+        ".badge--hud",
+        ".badge--offer",
+        ".chip",
+        ".chip[aria-pressed=\"true\"]"
+      ],
+      "classes": [
+        "badge",
+        "badge--hud",
+        "badge--offer",
+        "chip"
+      ],
+      "elements": [],
+      "tokenReferences": [
+        "--accent",
+        "--accent-on",
+        "--border-soft",
+        "--fg",
+        "--font-body",
+        "--radius-sm",
+        "--text-base"
+      ]
+    },
+    {
+      "id": "links",
+      "label": "Links and inline actions",
+      "present": true,
+      "selectors": [
+        ".link",
+        ".link--accent",
+        ".link:hover"
+      ],
+      "classes": [
+        "link",
+        "link--accent"
+      ],
+      "elements": [
+        "a"
+      ],
+      "tokenReferences": [
+        "--fg"
+      ]
+    },
+    {
+      "id": "keyboard",
+      "label": "Keyboard hints",
+      "present": false,
+      "selectors": [],
+      "classes": [],
+      "elements": [],
+      "tokenReferences": []
+    },
+    {
+      "id": "icons",
+      "label": "Icon slots",
+      "present": true,
+      "selectors": [
+        ".icon"
+      ],
+      "classes": [
+        "icon"
+      ],
+      "elements": [
+        "svg"
+      ],
+      "tokenReferences": []
+    },
+    {
+      "id": "typography",
+      "label": "Typography scale and text utilities",
+      "present": true,
+      "selectors": [
+        ".group > h2"
+      ],
+      "classes": [],
+      "elements": [
+        "h1",
+        "h2",
+        "p"
+      ],
+      "tokenReferences": [
+        "--elev-raised",
+        "--font-display",
+        "--leading-tight",
+        "--space-6",
+        "--text-xl",
+        "--tracking-display"
+      ]
+    },
+    {
+      "id": "layout",
+      "label": "Layout primitives",
+      "present": true,
+      "selectors": [],
+      "classes": [],
+      "elements": [
+        "nav",
+        "section"
+      ],
+      "tokenReferences": []
+    }
+  ],
+  "literals": {
+    "colorExpressions": 1,
+    "pixelValues": 50,
+    "hardcodedFontFamilies": 0
+  }
+}

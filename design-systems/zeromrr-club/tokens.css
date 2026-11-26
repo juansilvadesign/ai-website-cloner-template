@@ -1,0 +1,93 @@
+/* $0 MRR Club — tokens.css
+ * Emitted by scripts/emit-design-system.ts from source/tokens.source.json.
+ * Declares every OpenDesign TOKEN_SCHEMA slot (56). Edit the
+ * source artifact and re-emit; do not hand-edit derived files. */
+
+:root {
+  /* ─── Surface ─────────────────────────────────────────────────── */
+  --bg:                       #070a12;
+  --surface:                  #13151c;
+  --surface-warm:             #1b1612;
+
+  /* ─── Foreground ──────────────────────────────────────────────── */
+  --fg:                       #ece4d0;
+  --fg-2:                     #8fa3c9;
+  --muted:                    #6f7891;
+  --meta:                     var(--muted);
+
+  /* ─── Border ──────────────────────────────────────────────────── */
+  --border:                   #5d7fe0;
+  --border-soft:              rgba(143,163,201,.3);
+
+  /* ─── Accent ──────────────────────────────────────────────────── */
+  --accent:                   #ef8a4e;
+  --accent-on:                #140a04;
+  --accent-hover:             color-mix(in oklab, var(--accent), black 8%);
+  --accent-active:            color-mix(in oklab, var(--accent), black 14%);
+
+  /* ─── Semantic ────────────────────────────────────────────────── */
+  --success:                  #a6e36b;
+  --warn:                     #ef8a4e;
+  --danger:                   #ffb08a;
+
+  /* ─── Typography — fonts ──────────────────────────────────────── */
+  --font-display:             "Anton", Impact, "Arial Narrow Bold", sans-serif;
+  --font-body:                "Chakra Petch", ui-sans-serif, system-ui, sans-serif;
+  --font-mono:                "Press Start 2P", ui-monospace, Menlo, monospace;
+
+  /* ─── Typography — scale ──────────────────────────────────────── */
+  --text-xs:                  10px;
+  --text-sm:                  14px;
+  --text-base:                15px;
+  --text-lg:                  18px;
+  --text-xl:                  34px;
+  --text-2xl:                 clamp(44px, 7vw, 82px);
+  --text-3xl:                 clamp(56px, 12vw, 128px);
+  --text-4xl:                 clamp(60px, 13vw, 150px);
+
+  /* ─── Typography — leading & tracking ─────────────────────────── */
+  --leading-body:             1.5;
+  --leading-tight:            0.98;
+  --tracking-display:         0.01em;
+
+  /* ─── Spacing ─────────────────────────────────────────────────── */
+  --space-1:                  2px;
+  --space-2:                  6px;
+  --space-3:                  10px;
+  --space-4:                  14px;
+  --space-5:                  18px;
+  --space-6:                  22px;
+  --space-8:                  40px;
+  --space-12:                 72px;
+
+  /* ─── Section rhythm ──────────────────────────────────────────── */
+  --section-y-desktop:        72px;
+  --section-y-tablet:         72px;
+  --section-y-phone:          72px;
+
+  /* ─── Radius ──────────────────────────────────────────────────── */
+  --radius-sm:                0;
+  --radius-md:                8px;
+  --radius-lg:                14px;
+  --radius-pill:              50%;
+
+  /* ─── Elevation ───────────────────────────────────────────────── */
+  --elev-flat:                none;
+  --elev-ring:                0 0 0 1px #000, 0 0 40px rgba(93,127,224,.45);
+  --elev-raised:              4px 4px 0 #000;
+
+  /* ─── Focus ───────────────────────────────────────────────────── */
+  --focus-ring:               0 0 0 2px #ef8a4e;
+
+  /* ─── Motion ──────────────────────────────────────────────────── */
+  --motion-fast:              120ms;
+  --motion-base:              250ms;
+  --ease-standard:            ease;
+
+  /* ─── Layout ──────────────────────────────────────────────────── */
+  --container-max:            1080px;
+  --container-gutter-desktop: 18px;
+  --container-gutter-tablet:  18px;
+  --container-gutter-phone:   16px;
+}
+

@@ -1,0 +1,45 @@
+---
+// $0 MRR Club home — Shell. Markup verbatim from zeromrr.club/ (ids are the game script's hooks: do not rename).
+---
+
+<div class="ui" id="ui">
+ <header class="hud" id="hud" hidden>
+  <div class="brand"><b>$0</b> MRR CLUB<small class="px" id="drop-st">Drop 01 · coming soon</small></div>
+  <div class="stats">
+   <div class="stat mrr px"><div class="row"><span>MRR</span><b>$0</b></div><div class="meter empty"><i></i></div></div>
+   <div class="stat px"><div class="row"><span>Aura</span><b>∞</b></div><div class="meter full"><i></i></div></div>
+   <button class="snd px" id="snd" type="button" aria-label="Toggle sound">Sound <b id="snd-l">on</b></button>
+  </div>
+ </header>
+
+ <main class="mid">
+  <div class="left">
+   <nav id="menu" hidden aria-label="Main menu"><div class="list" id="menu-list"></div><p class="sub" id="menu-sub"></p></nav>
+   <nav id="opts" class="opts" hidden aria-label="Options"><div class="list" id="opts-list"></div><p class="sub" id="opts-sub"></p></nav>
+  </div>
+  <section class="sel" id="sel" hidden aria-label="Choose a tee">
+   <div class="sel-top px"><span id="sel-c"></span><span id="sel-p"></span><button class="link px" id="sel-back" type="button">○ Back</button></div>
+   <div class="sel-name">
+    <button class="arw" id="prev" type="button" aria-label="Previous tee">◀</button>
+    <h2 id="sel-n" aria-live="polite"></h2>
+    <button class="arw" id="next" type="button" aria-label="Next tee">▶</button>
+   </div>
+   <div id="sel-ex" hidden></div>
+   <div class="sel-tools"><div class="show" id="show" role="group" aria-label="View"><button type="button" data-m="model" id="show-m">On Hero</button><button type="button" data-m="tee">Tee only</button></div><button class="px" id="det" type="button" aria-expanded="false" aria-controls="sel-kv">Details</button></div>
+   <dl id="sel-kv"></dl>
+   <div class="offer" id="offer"></div>
+   <div class="sz" id="sz" role="group" aria-label="Size"></div>
+   <div class="sg-row"><button class="link px" id="sg-open" type="button" aria-expanded="false" aria-controls="sg">Size guide</button><a class="link px" id="item-link" href="https://zeromrr.club/shop/you-met-me">Item page →</a></div>
+   <div id="sg" hidden><div id="sg-t"></div><p>Oversized boxy fit, dropped shoulders. Want it less boxy — size down. Flat measurements, ±2 cm. Heavyweight oversized cotton, water-based screen print. <a href="https://zeromrr.club/shipping" target="_blank" rel="noopener">Shipping &amp; returns</a></p></div>
+   <form id="rsv" hidden novalidate><label class="px" for="rsv-email" style="font-size:9px;color:var(--fog)">Email · your <span class="offv">€39</span> founding price is tied to it</label>
+    <input id="rsv-email" type="email" autocomplete="email" inputmode="email" autocapitalize="off" spellcheck="false" placeholder="you@startup.com" aria-describedby="rsv-err">
+    <div class="mc-err" id="rsv-err" aria-live="polite"></div>
+    <p id="rsv-note">€0 today. Your <span class="offv">€39</span> founding price is tied to this email: applied automatically at checkout, for 48 h after Drop 01 opens. <a href="https://zeromrr.club/privacy" target="_blank" rel="noopener">Privacy</a> · <a href="https://zeromrr.club/shipping" target="_blank" rel="noopener">Shipping</a> · <a href="https://zeromrr.club/terms" target="_blank" rel="noopener">Terms</a></p></form>
+   <button class="cta" id="cta" type="button"><span id="cta-l"></span><span id="cta-off"></span></button>
+   <div class="sel-row"><button class="link" id="insp-open" type="button">Inspect the photo</button><span class="dim" id="spin-h">Drag to spin</span></div>
+   <div id="sel-st" aria-live="polite"></div>
+  </section>
+ </main>
+
+ <footer class="hints px" id="hints" hidden></footer>
+</div>

@@ -1,0 +1,19 @@
+---
+import GameLayout from "../../clones/zeromrr-club/layouts/GameLayout.astro";
+import Stage from "../../clones/zeromrr-club/components/home/Stage.astro";
+import TitleCard from "../../clones/zeromrr-club/components/home/TitleCard.astro";
+import Boot from "../../clones/zeromrr-club/components/home/Boot.astro";
+import Shell from "../../clones/zeromrr-club/components/home/Shell.astro";
+import MemoryCard from "../../clones/zeromrr-club/components/home/MemoryCard.astro";
+import Inspector from "../../clones/zeromrr-club/components/home/Inspector.astro";
+---
+
+<GameLayout>
+  <Stage />
+  <TitleCard />
+  <Boot />
+  <script is:inline src="/clones/zeromrr-club/js/boot-early.js"></script>
+  <Shell />
+  <MemoryCard />
+  <Inspector />
+</GameLayout>

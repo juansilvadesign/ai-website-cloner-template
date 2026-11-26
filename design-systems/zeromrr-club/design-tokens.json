@@ -1,0 +1,699 @@
+{
+  "schemaVersion": 1,
+  "format": "od-design-tokens/v1",
+  "contract": "TOKEN_SCHEMA",
+  "generatedAt": "2026-11-26T05:24:28.709Z",
+  "source": {
+    "tokensCss": "tokens.css",
+    "tokenContractReport": "source/token-contract.report.json"
+  },
+  "summary": {
+    "total": 56,
+    "byConfidence": {
+      "high": 50,
+      "alias": 1,
+      "fallback": 2,
+      "derived": 3
+    },
+    "byLayer": {
+      "A1-identity": 8,
+      "B-slot": 4,
+      "A2": 26,
+      "A1-structure": 18
+    }
+  },
+  "tokens": [
+    {
+      "name": "--bg",
+      "value": "#070a12",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "The page ground and three.js clear colour is 'night'. The site has one committed dark look; there is no light theme.",
+      "sources": [
+        "home <style> :root --night:#070a12; body{background:var(--night)}",
+        "tokens.css:8"
+      ]
+    },
+    {
+      "name": "--surface",
+      "value": "#13151c",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Raised cards on the playbook (stats, problem cards, steps, tiers) use --panel #13151c; the game's tee panel is the translucent rgba(7,11,24,.8).",
+      "sources": [
+        "playbook :root --panel:#13151c; .stat,.card,.step,.tier{background:var(--panel)}",
+        "tokens.css:9"
+      ]
+    },
+    {
+      "name": "--surface-warm",
+      "value": "#1b1612",
+      "type": "color",
+      "layer": "B-slot",
+      "confidence": "high",
+      "reason": "The featured pricing tier and the anchor callout sit on a warm brown-black.",
+      "sources": [
+        "playbook .tier.main{background:#1b1612}; .anchor{background:#1b1612}",
+        "tokens.css:10"
+      ]
+    },
+    {
+      "name": "--fg",
+      "value": "#ece4d0",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Primary text is the cream 'print ink' colour of the tees.",
+      "sources": [
+        "home :root --ink:#ece4d0 /* cream print ink = primary text */",
+        "tokens.css:13"
+      ]
+    },
+    {
+      "name": "--fg-2",
+      "value": "#8fa3c9",
+      "type": "color",
+      "layer": "B-slot",
+      "confidence": "high",
+      "reason": "Secondary text (subtitles, labels, HUD rows, footnotes) is 'fog' blue.",
+      "sources": [
+        "home :root --fog:#8fa3c9 /* fog blue, secondary text */",
+        "tokens.css:14"
+      ]
+    },
+    {
+      "name": "--muted",
+      "value": "#6f7891",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "The dimmest text tier ('dim').",
+      "sources": [
+        "home :root --dim:#6f7891; .dim{color:var(--dim)}",
+        "tokens.css:15"
+      ]
+    },
+    {
+      "name": "--meta",
+      "value": "var(--muted)",
+      "type": "color",
+      "layer": "B-slot",
+      "confidence": "alias",
+      "reason": "B-slot aliased to sibling (Tertiary FG / metadata tier (kami stone).)",
+      "sources": [
+        "token-schema.ts",
+        "tokens.css:16"
+      ]
+    },
+    {
+      "name": "--border",
+      "value": "#5d7fe0",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Strong edges (memory card frame, email inputs, modal buttons, playbook ghost button) are the memory-card blue.",
+      "sources": [
+        "home .mc-box{border:2px solid #5d7fe0}; #rsv input{border:1px solid #5d7fe0}; playbook --edge:#5d7fe0",
+        "tokens.css:19"
+      ]
+    },
+    {
+      "name": "--border-soft",
+      "value": "rgba(143,163,201,.3)",
+      "type": "color",
+      "layer": "B-slot",
+      "confidence": "high",
+      "reason": "Hairlines on every HUD control, panel, meter and size button are fog at 30%.",
+      "sources": [
+        "home :root --line:rgba(143,163,201,.3)",
+        "tokens.css:20"
+      ]
+    },
+    {
+      "name": "--accent",
+      "value": "#ef8a4e",
+      "type": "color",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Sodium street-light orange is the single accent: the $0 in the wordmark, the selected menu item, the CTA, links.",
+      "sources": [
+        "home :root --sodium:#ef8a4e /* sodium street light = accent */",
+        "tokens.css:23"
+      ]
+    },
+    {
+      "name": "--accent-on",
+      "value": "#140a04",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Text on the sodium CTA is near-black brown.",
+      "sources": [
+        "home .cta{background:var(--sodium);color:#140a04}; playbook .btn.hot{color:#160b05}",
+        "tokens.css:24"
+      ]
+    },
+    {
+      "name": "--accent-hover",
+      "value": "color-mix(in oklab, var(--accent), black 8%)",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "fallback",
+      "reason": "OpenDesign A2 default (Hover state for elements using --accent as bg.)",
+      "sources": [
+        "_schema/defaults.css",
+        "tokens.css:25"
+      ]
+    },
+    {
+      "name": "--accent-active",
+      "value": "color-mix(in oklab, var(--accent), black 14%)",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "fallback",
+      "reason": "OpenDesign A2 default (Active state for elements using --accent as bg.)",
+      "sources": [
+        "_schema/defaults.css",
+        "tokens.css:26"
+      ]
+    },
+    {
+      "name": "--success",
+      "value": "#a6e36b",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "HUD green marks success, the Aura meter and the playbook checklists and guarantee.",
+      "sources": [
+        "home :root --hud:#a6e36b /* HUD green = success */",
+        "tokens.css:29"
+      ]
+    },
+    {
+      "name": "--warn",
+      "value": "#ef8a4e",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "derived",
+      "reason": "Required-field nudges (size buttons flash) use the sodium accent; there is no separate warning hue.",
+      "sources": [
+        "home .sz.need button{border-color:var(--sodium)}",
+        "tokens.css:30"
+      ]
+    },
+    {
+      "name": "--danger",
+      "value": "#ffb08a",
+      "type": "color",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Form errors and invalid inputs are a pale salmon.",
+      "sources": [
+        "home .mc-err{color:#ffb08a}; #rsv input[aria-invalid=\"true\"]{border-color:#ffb08a}",
+        "tokens.css:31"
+      ]
+    },
+    {
+      "name": "--font-display",
+      "value": "\"Anton\", Impact, \"Arial Narrow Bold\", sans-serif",
+      "type": "fontFamily",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Every headline, the wordmark and the menu items are Anton 400, uppercase.",
+      "sources": [
+        "home :root --display:\"Anton\",Impact,\"Arial Narrow Bold\",sans-serif",
+        "tokens.css:34"
+      ]
+    },
+    {
+      "name": "--font-body",
+      "value": "\"Chakra Petch\", ui-sans-serif, system-ui, sans-serif",
+      "type": "fontFamily",
+      "layer": "A1-identity",
+      "confidence": "high",
+      "reason": "Body and UI text on the game is Chakra Petch 500 at 15px; the playbook swaps in Inter (recorded in DESIGN.md).",
+      "sources": [
+        "home :root --ui:\"Chakra Petch\",…; body{font:500 15px/1.5 var(--ui)}",
+        "tokens.css:35"
+      ]
+    },
+    {
+      "name": "--font-mono",
+      "value": "\"Press Start 2P\", ui-monospace, Menlo, monospace",
+      "type": "fontFamily",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "The .px pixel face carries every HUD label, button label, hint and tag.",
+      "sources": [
+        "home :root --pixel:\"Press Start 2P\",ui-monospace,Menlo,monospace; .px{font:400 9px/1.6 var(--pixel)}",
+        "tokens.css:36"
+      ]
+    },
+    {
+      "name": "--text-xs",
+      "value": "10px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "The pixel label size after the 2026-11-07 UI fix.",
+      "sources": [
+        "home /* ui fixes 2026-11-07 */ .px{font-size:10px}",
+        "tokens.css:39"
+      ]
+    },
+    {
+      "name": "--text-sm",
+      "value": "14px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Status lines, form errors and the tee-panel extra copy.",
+      "sources": [
+        "home #sel-st, .mc-err, #sel-ex p{font-size:14px}",
+        "tokens.css:40"
+      ]
+    },
+    {
+      "name": "--text-base",
+      "value": "15px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Game body size.",
+      "sources": [
+        "home body{font:500 15px/1.5 var(--ui)}",
+        "tokens.css:41"
+      ]
+    },
+    {
+      "name": "--text-lg",
+      "value": "18px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Playbook body size.",
+      "sources": [
+        "playbook body{font:400 18px/1.65 var(--ui)}",
+        "tokens.css:42"
+      ]
+    },
+    {
+      "name": "--text-xl",
+      "value": "34px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "The tee name heading in the select panel.",
+      "sources": [
+        "home #sel-n{font:400 34px/1 var(--display)}",
+        "tokens.css:43"
+      ]
+    },
+    {
+      "name": "--text-2xl",
+      "value": "clamp(44px, 7vw, 82px)",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Main-menu items, the most repeated display size.",
+      "sources": [
+        "home .mi{font:400 clamp(44px,7vw,82px)/.98 var(--display)}",
+        "tokens.css:44"
+      ]
+    },
+    {
+      "name": "--text-3xl",
+      "value": "clamp(56px, 12vw, 128px)",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "The boot-screen wordmark.",
+      "sources": [
+        "home .boot h1{font:400 clamp(56px,12vw,128px)/.9 var(--display)}",
+        "tokens.css:45"
+      ]
+    },
+    {
+      "name": "--text-4xl",
+      "value": "clamp(60px, 13vw, 150px)",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "The title card that blooms in after Press start.",
+      "sources": [
+        "home .title div{font:400 clamp(60px,13vw,150px)/.9 var(--display)}",
+        "tokens.css:46"
+      ]
+    },
+    {
+      "name": "--leading-body",
+      "value": "1.5",
+      "type": "number",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Game body line height (playbook uses 1.65).",
+      "sources": [
+        "home body{…/1.5}",
+        "tokens.css:49"
+      ]
+    },
+    {
+      "name": "--leading-tight",
+      "value": "0.98",
+      "type": "number",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Display lines are set solid or tighter (.9–1).",
+      "sources": [
+        "home .mi{…/.98}; .boot h1{…/.9}",
+        "tokens.css:50"
+      ]
+    },
+    {
+      "name": "--tracking-display",
+      "value": "0.01em",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Anton is opened slightly, never tightened.",
+      "sources": [
+        "home .mi, .boot h1{letter-spacing:.01em}; playbook h1, h2{letter-spacing:.01em}",
+        "tokens.css:51"
+      ]
+    },
+    {
+      "name": "--space-1",
+      "value": "2px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Menu list gap.",
+      "sources": [
+        "home .list{gap:2px}",
+        "tokens.css:54"
+      ]
+    },
+    {
+      "name": "--space-2",
+      "value": "6px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Size-button and zoom-control gaps.",
+      "sources": [
+        "home .sz{gap:6px}; .zc{gap:6px}",
+        "tokens.css:55"
+      ]
+    },
+    {
+      "name": "--space-3",
+      "value": "10px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Select-name gap, modal button gap.",
+      "sources": [
+        "home .sel-name{gap:10px}; .btns{gap:10px}",
+        "tokens.css:56"
+      ]
+    },
+    {
+      "name": "--space-4",
+      "value": "14px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Tee panel row gap and the playbook grid gap.",
+      "sources": [
+        "home .sel{gap:14px}; playbook .grid2, .tiers{gap:14px}",
+        "tokens.css:57"
+      ]
+    },
+    {
+      "name": "--space-5",
+      "value": "18px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Shell top padding, panel padding, playbook gutter.",
+      "sources": [
+        "home .ui{padding-top:…+18px}; .sel{padding:18px 20px 20px}; playbook .wrap{padding:24px 18px 72px}",
+        "tokens.css:58"
+      ]
+    },
+    {
+      "name": "--space-6",
+      "value": "22px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Boot stack gap, memory card padding, card padding.",
+      "sources": [
+        "home .boot-in{gap:22px}; .mc-box{padding:22px}; playbook .card{padding:22px}",
+        "tokens.css:59"
+      ]
+    },
+    {
+      "name": "--space-8",
+      "value": "40px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Playbook hero column gap and stats top margin.",
+      "sources": [
+        "playbook .hero{gap:40px}; .stats{margin:40px 0 8px}",
+        "tokens.css:60"
+      ]
+    },
+    {
+      "name": "--space-12",
+      "value": "72px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Playbook section rhythm (h2 top margin, final CTA).",
+      "sources": [
+        "playbook h2{margin:72px 0 20px}; .final{margin-top:72px}",
+        "tokens.css:61"
+      ]
+    },
+    {
+      "name": "--section-y-desktop",
+      "value": "72px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Each playbook section opens with a 72px-top h2.",
+      "sources": [
+        "playbook h2{margin:72px 0 20px}",
+        "tokens.css:64"
+      ]
+    },
+    {
+      "name": "--section-y-tablet",
+      "value": "72px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "derived",
+      "reason": "The playbook does not change section rhythm at its 860px breakpoint.",
+      "sources": [
+        "playbook @media (max-width:860px) — no h2 margin override",
+        "tokens.css:65"
+      ]
+    },
+    {
+      "name": "--section-y-phone",
+      "value": "72px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "derived",
+      "reason": "Unchanged on phones; the game page has no sections (one fixed screen).",
+      "sources": [
+        "playbook — no phone override",
+        "tokens.css:66"
+      ]
+    },
+    {
+      "name": "--radius-sm",
+      "value": "0",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Every game control is square: buttons, inputs, size chips, meters. Corners are cut by clip-path instead.",
+      "sources": [
+        "home .btn, .sz button, #rsv input, .arw — no border-radius; .sel{clip-path:polygon(14px 0,…)}",
+        "tokens.css:69"
+      ]
+    },
+    {
+      "name": "--radius-md",
+      "value": "8px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Playbook media frames and the view-count pill.",
+      "sources": [
+        "playbook .media{border-radius:8px}; .views{border-radius:8px}",
+        "tokens.css:70"
+      ]
+    },
+    {
+      "name": "--radius-lg",
+      "value": "14px",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Reel thumbnails.",
+      "sources": [
+        "playbook .thumb{border-radius:14px}",
+        "tokens.css:71"
+      ]
+    },
+    {
+      "name": "--radius-pill",
+      "value": "50%",
+      "type": "dimension",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "The controller button glyphs (○ ✕) are the only round elements.",
+      "sources": [
+        "home .g{border-radius:50%}",
+        "tokens.css:72"
+      ]
+    },
+    {
+      "name": "--elev-flat",
+      "value": "none",
+      "type": "shadow",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Panels are flat translucent fields with a hairline.",
+      "sources": [
+        "home .sel, .snd",
+        "tokens.css:75"
+      ]
+    },
+    {
+      "name": "--elev-ring",
+      "value": "0 0 0 1px #000, 0 0 40px rgba(93,127,224,.45)",
+      "type": "shadow",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "The memory-card modal: a black keyline then a blue bloom.",
+      "sources": [
+        "home .mc-box{box-shadow:0 0 0 1px #000,0 0 40px rgba(93,127,224,.45)}",
+        "tokens.css:76"
+      ]
+    },
+    {
+      "name": "--elev-raised",
+      "value": "4px 4px 0 #000",
+      "type": "shadow",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "The hard offset drop shadow on display type and stickers — the console-UI signature.",
+      "sources": [
+        "home .boot h1{text-shadow:4px 4px 0 #000}; playbook .sticker{box-shadow:4px 4px 0 #000}",
+        "tokens.css:77"
+      ]
+    },
+    {
+      "name": "--focus-ring",
+      "value": "0 0 0 2px #ef8a4e",
+      "type": "shadow",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Focus is a 2px sodium outline offset 3px.",
+      "sources": [
+        "home :focus-visible{outline:2px solid var(--sodium);outline-offset:3px}",
+        "tokens.css:80"
+      ]
+    },
+    {
+      "name": "--motion-fast",
+      "value": "120ms",
+      "type": "duration",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Menu item colour and nudge.",
+      "sources": [
+        "home .mi{transition:color .12s,transform .12s}",
+        "tokens.css:83"
+      ]
+    },
+    {
+      "name": "--motion-base",
+      "value": "250ms",
+      "type": "duration",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "Tee-photo overlay fade.",
+      "sources": [
+        "home #ti{transition:opacity .25s}",
+        "tokens.css:84"
+      ]
+    },
+    {
+      "name": "--ease-standard",
+      "value": "ease",
+      "type": "cubicBezier",
+      "layer": "A2",
+      "confidence": "high",
+      "reason": "The source uses plain ease / ease-in-out everywhere; stepped steps(2) for blinking pixel labels.",
+      "sources": [
+        "home #bg{transition:opacity 1.2s ease}; .start{animation:blink 1.1s steps(2) infinite}",
+        "tokens.css:85"
+      ]
+    },
+    {
+      "name": "--container-max",
+      "value": "1080px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "The playbook content column; the game is full-bleed fixed.",
+      "sources": [
+        "playbook .wrap{max-width:1080px}",
+        "tokens.css:88"
+      ]
+    },
+    {
+      "name": "--container-gutter-desktop",
+      "value": "18px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Playbook side padding.",
+      "sources": [
+        "playbook .wrap{padding:24px 18px 72px}",
+        "tokens.css:89"
+      ]
+    },
+    {
+      "name": "--container-gutter-tablet",
+      "value": "18px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Unchanged at 860px.",
+      "sources": [
+        "playbook .wrap",
+        "tokens.css:90"
+      ]
+    },
+    {
+      "name": "--container-gutter-phone",
+      "value": "16px",
+      "type": "dimension",
+      "layer": "A1-structure",
+      "confidence": "high",
+      "reason": "Game shell side padding.",
+      "sources": [
+        "home .ui{padding-left:max(16px,env(safe-area-inset-left,0px))}",
+        "tokens.css:91"
+      ]
+    }
+  ]
+}

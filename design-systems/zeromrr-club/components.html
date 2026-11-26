@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>$0 MRR Club — components</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Chakra+Petch:wght@400;500;600;700&family=Press+Start+2P&display=swap" />
+    <link rel="stylesheet" href="tokens.css" />
+    <style>
+      body { background: var(--bg); color: var(--fg); font: 500 var(--text-base)/var(--leading-body) var(--font-body); margin: 0; padding: var(--space-8) var(--container-gutter-desktop); }
+      .group { margin: 0 auto var(--space-12); max-width: var(--container-max); }
+      .group > h2 { font: 400 var(--text-xl)/var(--leading-tight) var(--font-display); letter-spacing: var(--tracking-display); text-transform: uppercase; text-shadow: var(--elev-raised); margin: 0 0 var(--space-6); }
+      .row { align-items: center; display: flex; flex-wrap: wrap; gap: var(--space-4); }
+      .px { font: 400 var(--text-xs)/1.6 var(--font-mono); letter-spacing: .06em; text-transform: uppercase; }
+
+      /* typography */
+      .wordmark { font: 400 var(--text-3xl)/.9 var(--font-display); letter-spacing: var(--tracking-display); text-shadow: var(--elev-raised); margin: 0; }
+      .wordmark b, .menu-item[aria-current="true"] { color: var(--accent); font-weight: 400; }
+      .lede { color: var(--fg-2); max-width: 40ch; }
+      .muted { color: var(--muted); }
+
+      /* menu items */
+      .menu { display: flex; flex-direction: column; gap: var(--space-1); align-items: flex-start; }
+      .menu-item { background: none; border: 0; color: var(--fg); cursor: pointer; font: 400 var(--text-2xl)/var(--leading-tight) var(--font-display); padding: 0 0 0 .55em; position: relative; text-transform: uppercase; text-shadow: 3px 3px 0 #000; transition: color var(--motion-fast) var(--ease-standard), transform var(--motion-fast) var(--ease-standard); }
+      .menu-item::before { background: var(--accent); content: ""; height: .28em; left: 0; position: absolute; top: 50%; transform: translateY(-50%) rotate(45deg) scale(0); transition: transform var(--motion-fast); width: .28em; }
+      .menu-item[aria-current="true"] { transform: translateX(6px); }
+      .menu-item[aria-current="true"]::before { transform: translateY(-50%) rotate(45deg) scale(1); }
+
+      /* buttons */
+      .start { background: transparent; border: 1px solid var(--border-soft); border-radius: var(--radius-sm); color: var(--fg); cursor: pointer; font: 400 13px/1 var(--font-mono); letter-spacing: .12em; padding: 16px 22px; }
+      .start:hover, .start:focus-visible { border-color: var(--accent); color: var(--accent); }
+      .cta { align-items: center; background: var(--accent); border: 0; border-radius: var(--radius-sm); color: var(--accent-on); cursor: pointer; display: flex; font: 700 16px var(--font-body); justify-content: space-between; letter-spacing: .04em; padding: 14px 16px; text-transform: uppercase; width: 360px; }
+      .cta:hover { filter: brightness(1.08); }
+      .btn { background: transparent; border: 1px solid var(--border); border-radius: var(--radius-sm); color: var(--fg); cursor: pointer; font: 600 var(--text-base) var(--font-body); letter-spacing: .04em; padding: 10px 16px; text-transform: uppercase; }
+      .btn:hover { border-color: var(--fg); }
+      .btn--primary { background: var(--fg); border-color: var(--fg); color: var(--bg); }
+      :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+      /* chips + meters */
+      .chip { background: transparent; border: 1px solid var(--border-soft); border-radius: var(--radius-sm); color: var(--fg); cursor: pointer; font: 600 var(--text-base) var(--font-body); min-height: 44px; min-width: 52px; }
+      .chip[aria-pressed="true"] { background: var(--fg); border-color: var(--fg); color: var(--bg); }
+      .stat { display: grid; gap: 5px; min-width: 96px; }
+      .stat-row { color: var(--fg-2); display: flex; justify-content: space-between; }
+      .meter { border: 1px solid var(--border-soft); height: 7px; padding: 1px; }
+      .meter i { background: var(--success); display: block; height: 100%; }
+
+      /* badges */
+      .badge { background: var(--accent); color: var(--accent-on); display: inline-block; padding: 7px 9px; }
+      .badge--hud { background: var(--success); box-shadow: var(--elev-raised); color: var(--bg); transform: rotate(8deg); }
+      .badge--offer { background: transparent; border: 1px dashed var(--accent); color: var(--accent); }
+      .glyph { align-items: center; border: 1.5px solid currentColor; border-radius: var(--radius-pill); display: inline-grid; font: 700 10px/1 var(--font-body); height: 20px; justify-content: center; width: 20px; }
+
+      /* cards / panels */
+      .panel { background: var(--surface); border: 1px solid var(--border-soft); clip-path: polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px); display: grid; gap: var(--space-4); padding: var(--space-5); width: 360px; }
+      .card { background: var(--surface); border: 1px solid var(--border-soft); padding: var(--space-6); transition: border-color var(--motion-base), transform var(--motion-base); width: 300px; }
+      .card:hover { border-color: var(--accent); transform: translateY(-3px); }
+      .card--featured { background: var(--surface-warm); border: 2px solid var(--accent); }
+      .memcard { border: 2px solid var(--border); box-shadow: var(--elev-ring); padding: var(--space-6); width: 360px; }
+
+      /* inputs + links */
+      .input { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-sm); color: var(--fg); font: 16px var(--font-body); padding: 12px; width: 100%; }
+      .input:focus { border-color: var(--fg); outline: 0; }
+      .input[aria-invalid="true"] { border-color: var(--danger); }
+      .err { color: var(--danger); font-size: var(--text-sm); }
+      .link { color: var(--fg-2); text-decoration: underline; text-underline-offset: 4px; }
+      .link:hover { color: var(--fg); }
+      .link--accent { color: var(--accent); }
+
+      /* layout + icons */
+      .split { display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+      .icon { color: var(--fg); height: 24px; width: 24px; }
+    </style>
+  </head>
+  <body>
+    <section class="group" aria-labelledby="g-type">
+      <h2 id="g-type">Typography</h2>
+      <h1 class="wordmark"><b>$0</b> MRR CLUB</h1>
+      <p class="lede">Streetwear for builders with zero MRR and infinite aura. Drop 01 is coming soon.</p>
+      <p class="px muted">Pre-revenue entertainment · est. 2026</p>
+    </section>
+
+    <section class="group" aria-labelledby="g-menu">
+      <h2 id="g-menu">Menu</h2>
+      <nav class="menu" aria-label="Main menu">
+        <button class="menu-item" type="button" aria-current="true">Start</button>
+        <button class="menu-item" type="button">Memory card</button>
+        <button class="menu-item" type="button">Inventory</button>
+      </nav>
+    </section>
+
+    <section class="group" aria-labelledby="g-buttons">
+      <h2 id="g-buttons">Buttons</h2>
+      <div class="row">
+        <button class="start" type="button">Press start</button>
+        <button class="btn" type="button"><span class="glyph" aria-hidden="true">○</span> Close</button>
+        <button class="btn btn--primary" type="button">Save</button>
+      </div>
+      <p><button class="cta" type="button"><span>Pick your size</span><span class="px">€39</span></button></p>
+    </section>
+
+    <section class="group" aria-labelledby="g-chips">
+      <h2 id="g-chips">Chips &amp; meters</h2>
+      <div class="row" role="group" aria-label="Size">
+        <button class="chip" type="button">S</button>
+        <button class="chip" type="button" aria-pressed="true">M</button>
+        <button class="chip" type="button">L</button>
+        <button class="chip" type="button">XL</button>
+      </div>
+      <div class="row">
+        <div class="stat px"><div class="stat-row"><span>MRR</span><b>$0</b></div><div class="meter"><i style="width:0"></i></div></div>
+        <div class="stat px"><div class="stat-row"><span>Aura</span><b>∞</b></div><div class="meter"><i style="width:100%"></i></div></div>
+      </div>
+    </section>
+
+    <section class="group" aria-labelledby="g-badges">
+      <h2 id="g-badges">Badges</h2>
+      <div class="row">
+        <span class="badge px">Most popular</span>
+        <span class="badge badge--hud px">Made with Claude</span>
+        <span class="badge badge--offer px">Founding price · €39</span>
+      </div>
+    </section>
+
+    <section class="group" aria-labelledby="g-cards">
+      <h2 id="g-cards">Cards &amp; panels</h2>
+      <div class="row">
+        <div class="panel"><span class="px">P1 · Hero · 05/05</span><strong>You met me $0 MRR tee</strong></div>
+        <div class="card"><strong>Same face every shot</strong><p class="muted">One character across every frame.</p></div>
+        <div class="card card--featured"><span class="badge px">Pro</span><p>The full playbook.</p></div>
+        <div class="memcard"><span class="px">Memory card (8MB) · slot 1</span><p>€39 founding price + early access</p></div>
+      </div>
+    </section>
+
+    <section class="group" aria-labelledby="g-inputs">
+      <h2 id="g-inputs">Inputs &amp; links</h2>
+      <div class="split">
+        <label><span class="px">Email</span><input class="input" type="email" placeholder="you@startup.com" /></label>
+        <label><span class="px">Email</span><input class="input" type="email" value="nope" aria-invalid="true" /><span class="err">Check the email.</span></label>
+      </div>
+      <p><a class="link" href="#">Size guide</a> · <a class="link link--accent" href="#">Skip to shop →</a></p>
+    </section>
+
+    <section class="group" aria-labelledby="g-layout">
+      <h2 id="g-layout">Layout &amp; icons</h2>
+      <div class="split">
+        <div class="card"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z" fill="currentColor" /></svg></div>
+        <div class="card"><span class="glyph" aria-hidden="true">✕</span> Select</div>
+      </div>
+    </section>
+  </body>
+</html>

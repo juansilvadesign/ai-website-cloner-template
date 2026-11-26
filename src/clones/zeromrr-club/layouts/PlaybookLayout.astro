@@ -1,0 +1,27 @@
+---
+// playbook.zeromrr.club/playbook — editorial landing page.
+import "../styles/playbook.css";
+const title = "The AI Reel Playbook · Claude + Higgsfield";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#0a0b0f" />
+    <link rel="icon" href="/clones/zeromrr-club/seo/favicon.svg" type="image/svg+xml" />
+    <title>{title}</title>
+    <meta name="description" content="Make AI story reels with Claude running Higgsfield for you: one character across every shot, frames approved before video, far fewer wasted credits. The method behind 1M+ views in 30 days." />
+    <link rel="canonical" href="https://playbook.zeromrr.club/playbook" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content="The method behind 1M+ views in 30 days. Same face every shot, no wasted credits. Your first reel in one evening." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/clones/zeromrr-club/seo/og-playbook.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body>
+    <slot />
+    <script is:inline src="/clones/zeromrr-club/js/playbook.js"></script>
+  </body>
+</html>

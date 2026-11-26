@@ -1,0 +1,35 @@
+---
+// zeromrr.club/ — the console-game shell. Script order matches the original:
+// i18n.js (head) → boot-early (after the boot screen, inside the page) → tees.js → three.min.js → game.js.
+// All scripts are the site's own classic scripts, served from public/ unbundled (they share globals).
+import "../styles/game.css";
+const J = "/clones/zeromrr-club/js";
+const description = "Streetwear for builders with zero MRR and infinite aura. Drop 01 is coming soon.";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <script is:inline src={`${J}/i18n.js`}></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+    <title>$0 MRR CLUB</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#070a12" />
+    <link rel="icon" href="/clones/zeromrr-club/seo/favicon.svg" type="image/svg+xml" />
+    <link rel="canonical" href="https://zeromrr.club/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="$0 MRR CLUB" />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/clones/zeromrr-club/seo/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="/clones/zeromrr-club/fonts/anton-400-latin.woff2" />
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="/clones/zeromrr-club/fonts/press-start-2p-400-latin.woff2" />
+  </head>
+  <body>
+    <slot />
+    <script is:inline src={`${J}/tees.js`}></script>
+    <script is:inline src={`${J}/three.min.js`}></script>
+    <script is:inline src={`${J}/game.js`}></script>
+  </body>
+</html>
